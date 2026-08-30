@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "american-football",
-  "generatedAt": "2026-08-30T23:30:18Z",
+  "generatedAt": "2026-08-30T23:52:58Z",
   "season": 2026,
   "competitions": [
     {
@@ -6375,29 +6375,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4241476",
-      "displayName": "Tyrell Shavers",
-      "shortName": "T. Shavers",
-      "aliases": [
-        "Tyrell Shavers",
-        "Tyrell Shavers",
-        "T. Shavers"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:buf",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4241476",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4241476.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4241476/tyrell-shavers"
-      ]
-    },
-    {
       "id": "athlete:nfl:3122168",
       "displayName": "Trent Sherfield",
       "shortName": "T. Sherfield",
@@ -7456,6 +7433,29 @@
       ]
     },
     {
+      "id": "athlete:nfl:4241476",
+      "displayName": "Tyrell Shavers",
+      "shortName": "T. Shavers",
+      "aliases": [
+        "Tyrell Shavers",
+        "Tyrell Shavers",
+        "T. Shavers"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:buf",
+      "leagueId": "competition:nfl",
+      "position": "WR",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4241476",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4241476.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4241476/tyrell-shavers"
+      ]
+    },
+    {
       "id": "athlete:nfl:4568703",
       "displayName": "Dorian Strong",
       "shortName": "D. Strong",
@@ -7614,52 +7614,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4239934.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4239934/aj-dillon"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4427132",
-      "displayName": "Ikem Ekwonu",
-      "shortName": "I. Ekwonu",
-      "aliases": [
-        "Ikem Ekwonu",
-        "Ikem Ekwonu",
-        "I. Ekwonu"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:car",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4427132",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4427132.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4427132/ikem-ekwonu"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4685350",
-      "displayName": "Trevor Etienne",
-      "shortName": "T. Etienne",
-      "aliases": [
-        "Trevor Etienne",
-        "Trevor Etienne",
-        "T. Etienne"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:car",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4685350",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4685350.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4685350/trevor-etienne"
       ]
     },
     {
@@ -8051,29 +8005,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4212909.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4212909/david-moore"
-      ]
-    },
-    {
-      "id": "athlete:nfl:2973051",
-      "displayName": "Taylor Moton",
-      "shortName": "T. Moton",
-      "aliases": [
-        "Taylor Moton",
-        "Taylor Moton",
-        "T. Moton"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:car",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:2973051",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2973051.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/2973051/taylor-moton"
       ]
     },
     {
@@ -8859,29 +8790,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4880613",
-      "displayName": "Bam Martin-Scott",
-      "shortName": "B. Martin-Scott",
-      "aliases": [
-        "Bam Martin-Scott",
-        "Bam Martin-Scott",
-        "B. Martin-Scott"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:car",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4880613",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4880613.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4880613/bam-martin-scott"
-      ]
-    },
-    {
       "id": "athlete:nfl:4702576",
       "displayName": "Cam Miller",
       "shortName": "C. Miller",
@@ -9480,6 +9388,52 @@
       ]
     },
     {
+      "id": "athlete:nfl:4427132",
+      "displayName": "Ikem Ekwonu",
+      "shortName": "I. Ekwonu",
+      "aliases": [
+        "Ikem Ekwonu",
+        "Ikem Ekwonu",
+        "I. Ekwonu"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:car",
+      "leagueId": "competition:nfl",
+      "position": "OT",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4427132",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4427132.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4427132/ikem-ekwonu"
+      ]
+    },
+    {
+      "id": "athlete:nfl:4685350",
+      "displayName": "Trevor Etienne",
+      "shortName": "T. Etienne",
+      "aliases": [
+        "Trevor Etienne",
+        "Trevor Etienne",
+        "T. Etienne"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:car",
+      "leagueId": "competition:nfl",
+      "position": "RB",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4685350",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4685350.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4685350/trevor-etienne"
+      ]
+    },
+    {
       "id": "athlete:nfl:4372091",
       "displayName": "Ryan Hayes",
       "shortName": "R. Hayes",
@@ -9500,6 +9454,52 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4372091.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4372091/ryan-hayes"
+      ]
+    },
+    {
+      "id": "athlete:nfl:4880613",
+      "displayName": "Bam Martin-Scott",
+      "shortName": "B. Martin-Scott",
+      "aliases": [
+        "Bam Martin-Scott",
+        "Bam Martin-Scott",
+        "B. Martin-Scott"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:car",
+      "leagueId": "competition:nfl",
+      "position": "LB",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4880613",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4880613.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4880613/bam-martin-scott"
+      ]
+    },
+    {
+      "id": "athlete:nfl:2973051",
+      "displayName": "Taylor Moton",
+      "shortName": "T. Moton",
+      "aliases": [
+        "Taylor Moton",
+        "Taylor Moton",
+        "T. Moton"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:car",
+      "leagueId": "competition:nfl",
+      "position": "OT",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:2973051",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2973051.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/2973051/taylor-moton"
       ]
     },
     {
@@ -9526,75 +9526,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4243315",
-      "displayName": "Salvon Ahmed",
-      "shortName": "S. Ahmed",
-      "aliases": [
-        "Salvon Ahmed",
-        "Salvon Ahmed",
-        "S. Ahmed"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4243315",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4243315.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4243315/salvon-ahmed"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3914307",
-      "displayName": "Maurice Alexander",
-      "shortName": "M. Alexander",
-      "aliases": [
-        "Maurice Alexander",
-        "Maurice Alexander",
-        "M. Alexander"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3914307",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3914307.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3914307/maurice-alexander"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4883090",
-      "displayName": "Kiran Amegadjie",
-      "shortName": "K. Amegadjie",
-      "aliases": [
-        "Kiran Amegadjie",
-        "Kiran Amegadjie",
-        "K. Amegadjie"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4883090",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4883090.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4883090/kiran-amegadjie"
-      ]
-    },
-    {
       "id": "athlete:nfl:4434153",
       "displayName": "Tyson Bagent",
       "shortName": "T. Bagent",
@@ -9615,29 +9546,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4434153.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4434153/tyson-bagent"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4709983",
-      "displayName": "Caden Barnett",
-      "shortName": "C. Barnett",
-      "aliases": [
-        "Caden Barnett",
-        "Caden Barnett",
-        "C. Barnett"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4709983",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4709983.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4709983/caden-barnett"
       ]
     },
     {
@@ -9707,121 +9615,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4685278.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4685278/luther-burden-iii"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3948283",
-      "displayName": "Stephen Carlson",
-      "shortName": "S. Carlson",
-      "aliases": [
-        "Stephen Carlson",
-        "Stephen Carlson",
-        "S. Carlson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "TE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3948283",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3948283.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3948283/stephen-carlson"
-      ]
-    },
-    {
-      "id": "athlete:nfl:5065495",
-      "displayName": "Kaden Davis",
-      "shortName": "K. Davis",
-      "aliases": [
-        "Kaden Davis",
-        "Kaden Davis",
-        "K. Davis"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5065495",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5065495.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5065495/kaden-davis"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3916746",
-      "displayName": "Wesley French",
-      "shortName": "W. French",
-      "aliases": [
-        "Wesley French",
-        "Wesley French",
-        "W. French"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3916746",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3916746.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3916746/wesley-french"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4384683",
-      "displayName": "Kyle Hergel",
-      "shortName": "K. Hergel",
-      "aliases": [
-        "Kyle Hergel",
-        "Kyle Hergel",
-        "K. Hergel"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "G",
-      "countryCode": "CANADA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4384683",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4384683.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4384683/kyle-hergel"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4379769",
-      "displayName": "Qadir Ismail",
-      "shortName": "Q. Ismail",
-      "aliases": [
-        "Qadir Ismail",
-        "Qadir Ismail",
-        "Q. Ismail"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "TE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4379769",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4379769.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4379769/qadir-ismail"
       ]
     },
     {
@@ -9940,29 +9733,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4701951",
-      "displayName": "Omari Kelly",
-      "shortName": "O. Kelly",
-      "aliases": [
-        "Omari Kelly",
-        "Omari Kelly",
-        "O. Kelly"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4701951",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4701951.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4701951/omari-kelly"
-      ]
-    },
-    {
       "id": "athlete:nfl:4258595",
       "displayName": "Cole Kmet",
       "shortName": "C. Kmet",
@@ -9983,29 +9753,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4258595.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4258595/cole-kmet"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4608746",
-      "displayName": "Jaren Kump",
-      "shortName": "J. Kump",
-      "aliases": [
-        "Jaren Kump",
-        "Jaren Kump",
-        "J. Kump"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4608746",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4608746.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4608746/jaren-kump"
       ]
     },
     {
@@ -10101,29 +9848,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4431580",
-      "displayName": "Miller Moss",
-      "shortName": "M. Moss",
-      "aliases": [
-        "Miller Moss",
-        "Miller Moss",
-        "M. Moss"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "QB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4431580",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4431580.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4431580/miller-moss"
-      ]
-    },
-    {
       "id": "athlete:nfl:4695895",
       "displayName": "Luke Newman",
       "shortName": "L. Newman",
@@ -10190,29 +9914,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2973405.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/2973405/kalif-raymond"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4685183",
-      "displayName": "JP Richardson",
-      "shortName": "J. Richardson",
-      "aliases": [
-        "JP Richardson",
-        "JP Richardson",
-        "J. Richardson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4685183",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4685183.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4685183/jp-richardson"
       ]
     },
     {
@@ -10492,29 +10193,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:3124058",
-      "displayName": "Marcus Davenport",
-      "shortName": "M. Davenport",
-      "aliases": [
-        "Marcus Davenport",
-        "Marcus Davenport",
-        "M. Davenport"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3124058",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3124058.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3124058/marcus-davenport"
-      ]
-    },
-    {
       "id": "athlete:nfl:3121544",
       "displayName": "T.J. Edwards",
       "shortName": "T.J. Edwards",
@@ -10604,29 +10282,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3892883.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3892883/neville-gallimore"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4360864",
-      "displayName": "Antonio Grier Jr.",
-      "shortName": "A. Grier Jr.",
-      "aliases": [
-        "Antonio Grier Jr.",
-        "Antonio Grier Jr.",
-        "A. Grier Jr."
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4360864",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4360864.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4360864/antonio-grier-jr"
       ]
     },
     {
@@ -10745,29 +10400,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4361748",
-      "displayName": "Anthony Johnson Jr.",
-      "shortName": "A. Johnson Jr.",
-      "aliases": [
-        "Anthony Johnson Jr.",
-        "Anthony Johnson Jr.",
-        "A. Johnson Jr."
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4361748",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4361748.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4361748/anthony-johnson-jr"
-      ]
-    },
-    {
       "id": "athlete:nfl:4372463",
       "displayName": "Jamree Kromah",
       "shortName": "J. Kromah",
@@ -10837,75 +10469,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4259181",
-      "displayName": "James Lynch",
-      "shortName": "J. Lynch",
-      "aliases": [
-        "James Lynch",
-        "James Lynch",
-        "J. Lynch"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4259181",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4259181.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4259181/james-lynch"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4372523",
-      "displayName": "Jeremiah Martin",
-      "shortName": "J. Martin",
-      "aliases": [
-        "Jeremiah Martin",
-        "Jeremiah Martin",
-        "J. Martin"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4372523",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4372523.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4372523/jeremiah-martin"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4684963",
-      "displayName": "Wayne Matthews III",
-      "shortName": "W. Matthews III",
-      "aliases": [
-        "Wayne Matthews III",
-        "Wayne Matthews III",
-        "W. Matthews III"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4684963",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4684963.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4684963/wayne-matthews-iii"
-      ]
-    },
-    {
       "id": "athlete:nfl:4870953",
       "displayName": "Malik Muhammad",
       "shortName": "M. Muhammad",
@@ -10972,121 +10535,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429067.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4429067/clark-phillips-iii"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4428283",
-      "displayName": "Deantre Prince",
-      "shortName": "D. Prince",
-      "aliases": [
-        "Deantre Prince",
-        "Deantre Prince",
-        "D. Prince"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4428283",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4428283.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4428283/deantre-prince"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4258485",
-      "displayName": "Jon Rhattigan",
-      "shortName": "J. Rhattigan",
-      "aliases": [
-        "Jon Rhattigan",
-        "Jon Rhattigan",
-        "J. Rhattigan"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4258485",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4258485.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4258485/jon-rhattigan"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4372576",
-      "displayName": "Jack Sanborn",
-      "shortName": "J. Sanborn",
-      "aliases": [
-        "Jack Sanborn",
-        "Jack Sanborn",
-        "J. Sanborn"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4372576",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4372576.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4372576/jack-sanborn"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4682641",
-      "displayName": "Marlen Sewell",
-      "shortName": "M. Sewell",
-      "aliases": [
-        "Marlen Sewell",
-        "Marlen Sewell",
-        "M. Sewell"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4682641",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4682641.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4682641/marlen-sewell"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4360935",
-      "displayName": "Terell Smith",
-      "shortName": "T. Smith",
-      "aliases": [
-        "Terell Smith",
-        "Terell Smith",
-        "T. Smith"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4360935",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4360935.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4360935/terell-smith"
       ]
     },
     {
@@ -11248,29 +10696,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3040572.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3040572/xavier-woods"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4692661",
-      "displayName": "William Wright",
-      "shortName": "W. Wright",
-      "aliases": [
-        "William Wright",
-        "William Wright",
-        "W. Wright"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4692661",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4692661.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4692661/william-wright"
       ]
     },
     {
@@ -23395,29 +22820,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4243321",
-      "displayName": "Ali Gaye",
-      "shortName": "A. Gaye",
-      "aliases": [
-        "Ali Gaye",
-        "Ali Gaye",
-        "A. Gaye"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:hou",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4243321",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4243321.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4243321/ali-gaye"
-      ]
-    },
-    {
       "id": "athlete:nfl:4037584",
       "displayName": "Bryce Hall",
       "shortName": "B. Hall",
@@ -23622,29 +23024,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4577494.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4577494/alijah-huzzie"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4240059",
-      "displayName": "Ja'Marcus Ingram",
-      "shortName": "J. Ingram",
-      "aliases": [
-        "Ja'Marcus Ingram",
-        "Ja'Marcus Ingram",
-        "J. Ingram"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:hou",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4240059",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4240059.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4240059/jamarcus-ingram"
       ]
     },
     {
@@ -23924,52 +23303,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:3071353",
-      "displayName": "E.J. Speed",
-      "shortName": "E.J. Speed",
-      "aliases": [
-        "E.J. Speed",
-        "E.J. Speed",
-        "E.J. Speed"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:hou",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3071353",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3071353.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3071353/ej-speed"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3116679",
-      "displayName": "M.J. Stewart",
-      "shortName": "M.J. Stewart",
-      "aliases": [
-        "M.J. Stewart",
-        "M.J. Stewart",
-        "M.J. Stewart"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:hou",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3116679",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3116679.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3116679/mj-stewart"
-      ]
-    },
-    {
       "id": "athlete:nfl:4426434",
       "displayName": "Derek Stingley Jr.",
       "shortName": "D. Stingley Jr.",
@@ -24177,6 +23510,29 @@
       ]
     },
     {
+      "id": "athlete:nfl:4243321",
+      "displayName": "Ali Gaye",
+      "shortName": "A. Gaye",
+      "aliases": [
+        "Ali Gaye",
+        "Ali Gaye",
+        "A. Gaye"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:hou",
+      "leagueId": "competition:nfl",
+      "position": "DE",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4243321",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4243321.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4243321/ali-gaye"
+      ]
+    },
+    {
       "id": "athlete:nfl:4877706",
       "displayName": "Jayden Higgins",
       "shortName": "J. Higgins",
@@ -24220,6 +23576,29 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4374066.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4374066/dylan-horton"
+      ]
+    },
+    {
+      "id": "athlete:nfl:4240059",
+      "displayName": "Ja'Marcus Ingram",
+      "shortName": "J. Ingram",
+      "aliases": [
+        "Ja'Marcus Ingram",
+        "Ja'Marcus Ingram",
+        "J. Ingram"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:hou",
+      "leagueId": "competition:nfl",
+      "position": "CB",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4240059",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4240059.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4240059/jamarcus-ingram"
       ]
     },
     {
@@ -24292,6 +23671,52 @@
       ]
     },
     {
+      "id": "athlete:nfl:3071353",
+      "displayName": "E.J. Speed",
+      "shortName": "E.J. Speed",
+      "aliases": [
+        "E.J. Speed",
+        "E.J. Speed",
+        "E.J. Speed"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:hou",
+      "leagueId": "competition:nfl",
+      "position": "LB",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:3071353",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3071353.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/3071353/ej-speed"
+      ]
+    },
+    {
+      "id": "athlete:nfl:3116679",
+      "displayName": "M.J. Stewart",
+      "shortName": "M.J. Stewart",
+      "aliases": [
+        "M.J. Stewart",
+        "M.J. Stewart",
+        "M.J. Stewart"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:hou",
+      "leagueId": "competition:nfl",
+      "position": "S",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:3116679",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3116679.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/3116679/mj-stewart"
+      ]
+    },
+    {
       "id": "athlete:nfl:2998565",
       "displayName": "Mo Alie-Cox",
       "shortName": "M. Alie-Cox",
@@ -24338,29 +23763,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4426689",
-      "displayName": "Ulysses Bentley IV",
-      "shortName": "U. Bentley IV",
-      "aliases": [
-        "Ulysses Bentley IV",
-        "Ulysses Bentley IV",
-        "U. Bentley IV"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4426689",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4426689.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4426689/ulysses-bentley-iv"
-      ]
-    },
-    {
       "id": "athlete:nfl:4430957",
       "displayName": "Tanor Bortolini",
       "shortName": "T. Bortolini",
@@ -24384,29 +23786,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:2971281",
-      "displayName": "Pharaoh Brown",
-      "shortName": "P. Brown",
-      "aliases": [
-        "Pharaoh Brown",
-        "Pharaoh Brown",
-        "P. Brown"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "TE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:2971281",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2971281.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/2971281/pharaoh-brown"
-      ]
-    },
-    {
       "id": "athlete:nfl:4683151",
       "displayName": "Deion Burks",
       "shortName": "D. Burks",
@@ -24427,29 +23806,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4683151.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4683151/deion-burks"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4612558",
-      "displayName": "Anderson Castle",
-      "shortName": "A. Castle",
-      "aliases": [
-        "Anderson Castle",
-        "Anderson Castle",
-        "A. Castle"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4612558",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4612558.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4612558/anderson-castle"
       ]
     },
     {
@@ -24522,52 +23878,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4429636",
-      "displayName": "Blake Freeland",
-      "shortName": "B. Freeland",
-      "aliases": [
-        "Blake Freeland",
-        "Blake Freeland",
-        "B. Freeland"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4429636",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429636.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4429636/blake-freeland"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4695800",
-      "displayName": "JJ Galbreath",
-      "shortName": "J. Galbreath",
-      "aliases": [
-        "JJ Galbreath",
-        "JJ Galbreath",
-        "J. Galbreath"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "TE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4695800",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4695800.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4695800/jj-galbreath"
-      ]
-    },
-    {
       "id": "athlete:nfl:4874509",
       "displayName": "DJ Giddens",
       "shortName": "D. Giddens",
@@ -24614,52 +23924,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4429684",
-      "displayName": "Anthony Gould",
-      "shortName": "A. Gould",
-      "aliases": [
-        "Anthony Gould",
-        "Anthony Gould",
-        "A. Gould"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4429684",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429684.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4429684/anthony-gould"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4612246",
-      "displayName": "Sahmir Hagans",
-      "shortName": "S. Hagans",
-      "aliases": [
-        "Sahmir Hagans",
-        "Sahmir Hagans",
-        "S. Hagans"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4612246",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4612246.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4612246/sahmir-hagans"
-      ]
-    },
-    {
       "id": "athlete:nfl:3917792",
       "displayName": "Daniel Jones",
       "shortName": "D. Jones",
@@ -24680,29 +23944,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3917792.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3917792/daniel-jones"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4709386",
-      "displayName": "Josh Kreutz",
-      "shortName": "J. Kreutz",
-      "aliases": [
-        "Josh Kreutz",
-        "Josh Kreutz",
-        "J. Kreutz"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4709386",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4709386.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4709386/josh-kreutz"
       ]
     },
     {
@@ -24729,29 +23970,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:5024661",
-      "displayName": "Roy Mbaeteka",
-      "shortName": "R. Mbaeteka",
-      "aliases": [
-        "Roy Mbaeteka",
-        "Roy Mbaeteka",
-        "R. Mbaeteka"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "NIGERIA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5024661",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5024661.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5024661/roy-mbaeteka"
-      ]
-    },
-    {
       "id": "athlete:nfl:4686468",
       "displayName": "Seth McGowan",
       "shortName": "S. McGowan",
@@ -24772,52 +23990,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4686468.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4686468/seth-mcgowan"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4683119",
-      "displayName": "Tyler Moore",
-      "shortName": "T. Moore",
-      "aliases": [
-        "Tyler Moore",
-        "Tyler Moore",
-        "T. Moore"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "TE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4683119",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4683119.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4683119/tyler-moore"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4046165",
-      "displayName": "Jimmy Morrissey",
-      "shortName": "J. Morrissey",
-      "aliases": [
-        "Jimmy Morrissey",
-        "Jimmy Morrissey",
-        "J. Morrissey"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4046165",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4046165.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4046165/jimmy-morrissey"
       ]
     },
     {
@@ -24864,29 +24036,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4722908.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4722908/drew-ogletree"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4430288",
-      "displayName": "Eli Pancol",
-      "shortName": "E. Pancol",
-      "aliases": [
-        "Eli Pancol",
-        "Eli Pancol",
-        "E. Pancol"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4430288",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4430288.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4430288/eli-pancol"
       ]
     },
     {
@@ -24956,98 +24105,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429084.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4429084/anthony-richardson-sr"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4431587",
-      "displayName": "Nolan Rucci",
-      "shortName": "N. Rucci",
-      "aliases": [
-        "Nolan Rucci",
-        "Nolan Rucci",
-        "N. Rucci"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4431587",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4431587.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4431587/nolan-rucci"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4872957",
-      "displayName": "Raylen Sharpe",
-      "shortName": "R. Sharpe",
-      "aliases": [
-        "Raylen Sharpe",
-        "Raylen Sharpe",
-        "R. Sharpe"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4872957",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4872957.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4872957/raylen-sharpe"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4039243",
-      "displayName": "Josh Sills",
-      "shortName": "J. Sills",
-      "aliases": [
-        "Josh Sills",
-        "Josh Sills",
-        "J. Sills"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4039243",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4039243.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4039243/josh-sills"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3120590",
-      "displayName": "Easton Stick",
-      "shortName": "E. Stick",
-      "aliases": [
-        "Easton Stick",
-        "Easton Stick",
-        "E. Stick"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "QB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3120590",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3120590.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3120590/easton-stick"
       ]
     },
     {
@@ -25189,29 +24246,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4875981",
-      "displayName": "Geno VanDeMark",
-      "shortName": "G. VanDeMark",
-      "aliases": [
-        "Geno VanDeMark",
-        "Geno VanDeMark",
-        "G. VanDeMark"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4875981",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4875981.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4875981/geno-vandemark"
-      ]
-    },
-    {
       "id": "athlete:nfl:4431459",
       "displayName": "Tyler Warren",
       "shortName": "T. Warren",
@@ -25232,52 +24266,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4431459.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4431459/tyler-warren"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4430812",
-      "displayName": "Trey Wedig",
-      "shortName": "T. Wedig",
-      "aliases": [
-        "Trey Wedig",
-        "Trey Wedig",
-        "T. Wedig"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4430812",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4430812.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4430812/trey-wedig"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3929785",
-      "displayName": "Nick Westbrook-Ikhine",
-      "shortName": "N. Westbrook-Ikhine",
-      "aliases": [
-        "Nick Westbrook-Ikhine",
-        "Nick Westbrook-Ikhine",
-        "N. Westbrook-Ikhine"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3929785",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3929785.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3929785/nick-westbrook-ikhine"
       ]
     },
     {
@@ -25350,29 +24338,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4691878",
-      "displayName": "Cameron Ball",
-      "shortName": "C. Ball",
-      "aliases": [
-        "Cameron Ball",
-        "Cameron Ball",
-        "C. Ball"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4691878",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4691878.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4691878/cameron-ball"
-      ]
-    },
-    {
       "id": "athlete:nfl:5088571",
       "displayName": "Bryce Boettcher",
       "shortName": "B. Boettcher",
@@ -25393,29 +24358,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5088571.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/5088571/bryce-boettcher"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4827042",
-      "displayName": "Austin Brown",
-      "shortName": "A. Brown",
-      "aliases": [
-        "Austin Brown",
-        "Austin Brown",
-        "A. Brown"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4827042",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4827042.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4827042/austin-brown"
       ]
     },
     {
@@ -25485,29 +24427,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4601021.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4601021/jaylon-carlies"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4885625",
-      "displayName": "Rob Carter Jr.",
-      "shortName": "R. Carter Jr.",
-      "aliases": [
-        "Rob Carter Jr.",
-        "Rob Carter Jr.",
-        "R. Carter Jr."
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4885625",
-      "headshotUrl": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4885625/rob-carter-jr"
       ]
     },
     {
@@ -25672,29 +24591,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4685970",
-      "displayName": "Kenneth Harris",
-      "shortName": "K. Harris",
-      "aliases": [
-        "Kenneth Harris",
-        "Kenneth Harris",
-        "K. Harris"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4685970",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4685970.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4685970/kenneth-harris"
-      ]
-    },
-    {
       "id": "athlete:nfl:4905664",
       "displayName": "A.J. Haulcy",
       "shortName": "A.J. Haulcy",
@@ -25787,98 +24683,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4693205",
-      "displayName": "Mitchell Melton",
-      "shortName": "M. Melton",
-      "aliases": [
-        "Mitchell Melton",
-        "Mitchell Melton",
-        "M. Melton"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4693205",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4693205.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4693205/mitchell-melton"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4360638",
-      "displayName": "Durell Nchami",
-      "shortName": "D. Nchami",
-      "aliases": [
-        "Durell Nchami",
-        "Durell Nchami",
-        "D. Nchami"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4360638",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4360638.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4360638/durell-nchami"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4874465",
-      "displayName": "Ben Nikkel",
-      "shortName": "B. Nikkel",
-      "aliases": [
-        "Ben Nikkel",
-        "Ben Nikkel",
-        "B. Nikkel"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4874465",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4874465.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4874465/ben-nikkel"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3122930",
-      "displayName": "Derrick Nnadi",
-      "shortName": "D. Nnadi",
-      "aliases": [
-        "Derrick Nnadi",
-        "Derrick Nnadi",
-        "D. Nnadi"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3122930",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3122930.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3122930/derrick-nnadi"
-      ]
-    },
-    {
       "id": "athlete:nfl:4331768",
       "displayName": "Jonathan Owens",
       "shortName": "J. Owens",
@@ -25899,52 +24703,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4331768.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4331768/jonathan-owens"
-      ]
-    },
-    {
-      "id": "athlete:nfl:5227277",
-      "displayName": "Mekhi Rodgers",
-      "shortName": "M. Rodgers",
-      "aliases": [
-        "Mekhi Rodgers",
-        "Mekhi Rodgers",
-        "M. Rodgers"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5227277",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/5227277.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5227277/mekhi-rodgers"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4242415",
-      "displayName": "Daniel Scott",
-      "shortName": "D. Scott",
-      "aliases": [
-        "Daniel Scott",
-        "Daniel Scott",
-        "D. Scott"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4242415",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4242415.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4242415/daniel-scott"
       ]
     },
     {
@@ -26017,29 +24775,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4360590",
-      "displayName": "Juanyeh Thomas",
-      "shortName": "J. Thomas",
-      "aliases": [
-        "Juanyeh Thomas",
-        "Juanyeh Thomas",
-        "J. Thomas"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4360590",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4360590.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4360590/juanyeh-thomas"
-      ]
-    },
-    {
       "id": "athlete:nfl:3863182",
       "displayName": "Jerry Tillery",
       "shortName": "J. Tillery",
@@ -26083,29 +24818,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4566154.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4566154/jaylahn-tuimoloau"
-      ]
-    },
-    {
-      "id": "athlete:nfl:5278709",
-      "displayName": "Devin Veresuk",
-      "shortName": "D. Veresuk",
-      "aliases": [
-        "Devin Veresuk",
-        "Devin Veresuk",
-        "D. Veresuk"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "CANADA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5278709",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5278709.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5278709/devin-veresuk"
       ]
     },
     {
@@ -26155,52 +24867,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4599160",
-      "displayName": "Trey Washington",
-      "shortName": "T. Washington",
-      "aliases": [
-        "Trey Washington",
-        "Trey Washington",
-        "T. Washington"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4599160",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4599160.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4599160/trey-washington"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4587724",
-      "displayName": "West Weeks",
-      "shortName": "W. Weeks",
-      "aliases": [
-        "West Weeks",
-        "West Weeks",
-        "W. Weeks"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4587724",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4587724.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4587724/west-weeks"
-      ]
-    },
-    {
       "id": "athlete:nfl:4432789",
       "displayName": "Hunter Wohler",
       "shortName": "H. Wohler",
@@ -26221,52 +24887,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4432789.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4432789/hunter-wohler"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4567224",
-      "displayName": "Colby Wooden",
-      "shortName": "C. Wooden",
-      "aliases": [
-        "Colby Wooden",
-        "Colby Wooden",
-        "C. Wooden"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4567224",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4567224.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4567224/colby-wooden"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4259619",
-      "displayName": "Blake Grupe",
-      "shortName": "B. Grupe",
-      "aliases": [
-        "Blake Grupe",
-        "Blake Grupe",
-        "B. Grupe"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ind",
-      "leagueId": "competition:nfl",
-      "position": "PK",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4259619",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4259619.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4259619/blake-grupe"
       ]
     },
     {
@@ -26500,29 +25120,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:5151948",
-      "displayName": "Joey Aguilar",
-      "shortName": "J. Aguilar",
-      "aliases": [
-        "Joey Aguilar",
-        "Joey Aguilar",
-        "J. Aguilar"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "QB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5151948",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5151948.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5151948/joey-aguilar"
-      ]
-    },
-    {
       "id": "athlete:nfl:4911851",
       "displayName": "LeQuint Allen Jr.",
       "shortName": "L. Allen Jr.",
@@ -26569,75 +25166,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4594319",
-      "displayName": "Brady Boyd",
-      "shortName": "B. Boyd",
-      "aliases": [
-        "Brady Boyd",
-        "Brady Boyd",
-        "B. Boyd"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4594319",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4594319.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4594319/brady-boyd"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4362260",
-      "displayName": "Carter Bradley",
-      "shortName": "C. Bradley",
-      "aliases": [
-        "Carter Bradley",
-        "Carter Bradley",
-        "C. Bradley"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "QB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4362260",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362260.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4362260/carter-bradley"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4573243",
-      "displayName": "Chandler Brayboy",
-      "shortName": "C. Brayboy",
-      "aliases": [
-        "Chandler Brayboy",
-        "Chandler Brayboy",
-        "C. Brayboy"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4573243",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4573243.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4573243/chandler-brayboy"
-      ]
-    },
-    {
       "id": "athlete:nfl:4879194",
       "displayName": "Josh Cameron",
       "shortName": "J. Cameron",
@@ -26661,52 +25189,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4369859",
-      "displayName": "Jerome Carvin",
-      "shortName": "J. Carvin",
-      "aliases": [
-        "Jerome Carvin",
-        "Jerome Carvin",
-        "J. Carvin"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4369859",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4369859.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4369859/jerome-carvin"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3916414",
-      "displayName": "Geron Christian",
-      "shortName": "G. Christian",
-      "aliases": [
-        "Geron Christian",
-        "Geron Christian",
-        "G. Christian"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3916414",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3916414.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3916414/geron-christian"
-      ]
-    },
-    {
       "id": "athlete:nfl:4048231",
       "displayName": "Ezra Cleveland",
       "shortName": "E. Cleveland",
@@ -26727,52 +25209,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4048231.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4048231/ezra-cleveland"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4240631",
-      "displayName": "DeeJay Dallas",
-      "shortName": "D. Dallas",
-      "aliases": [
-        "DeeJay Dallas",
-        "DeeJay Dallas",
-        "D. Dallas"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4240631",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4240631.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4240631/deejay-dallas"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3701582",
-      "displayName": "Chuma Edoga",
-      "shortName": "C. Edoga",
-      "aliases": [
-        "Chuma Edoga",
-        "Chuma Edoga",
-        "C. Edoga"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3701582",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3701582.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3701582/chuma-edoga"
       ]
     },
     {
@@ -26868,29 +25304,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4429811",
-      "displayName": "Patrick Herbert",
-      "shortName": "P. Herbert",
-      "aliases": [
-        "Patrick Herbert",
-        "Patrick Herbert",
-        "P. Herbert"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "TE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4429811",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429811.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4429811/patrick-herbert"
-      ]
-    },
-    {
       "id": "athlete:nfl:4685415",
       "displayName": "Travis Hunter",
       "shortName": "T. Hunter",
@@ -26911,29 +25324,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4685415.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4685415/travis-hunter"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4245131",
-      "displayName": "Tim Jones",
-      "shortName": "T. Jones",
-      "aliases": [
-        "Tim Jones",
-        "Tim Jones",
-        "T. Jones"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4245131",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4245131.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4245131/tim-jones"
       ]
     },
     {
@@ -26983,29 +25373,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4369308",
-      "displayName": "Ricky Lee",
-      "shortName": "R. Lee",
-      "aliases": [
-        "Ricky Lee",
-        "Ricky Lee",
-        "R. Lee"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4369308",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4369308.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4369308/ricky-lee"
-      ]
-    },
-    {
       "id": "athlete:nfl:4242554",
       "displayName": "Walker Little",
       "shortName": "W. Little",
@@ -27026,29 +25393,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4242554.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4242554/walker-little"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4568320",
-      "displayName": "Timothy McKay",
-      "shortName": "T. McKay",
-      "aliases": [
-        "Timothy McKay",
-        "Timothy McKay",
-        "T. McKay"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4568320",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4568320.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4568320/timothy-mckay"
       ]
     },
     {
@@ -27144,52 +25488,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4684970",
-      "displayName": "Jimto Obidegwu",
-      "shortName": "J. Obidegwu",
-      "aliases": [
-        "Jimto Obidegwu",
-        "Jimto Obidegwu",
-        "J. Obidegwu"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4684970",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4684970.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4684970/jimto-obidegwu"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4575862",
-      "displayName": "Trebor Pena",
-      "shortName": "T. Pena",
-      "aliases": [
-        "Trebor Pena",
-        "Trebor Pena",
-        "T. Pena"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4575862",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4575862.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4575862/trebor-pena"
-      ]
-    },
-    {
       "id": "athlete:nfl:4608929",
       "displayName": "Emmanuel Pregnon",
       "shortName": "E. Pregnon",
@@ -27259,29 +25557,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4713118",
-      "displayName": "J'Mari Taylor",
-      "shortName": "J. Taylor",
-      "aliases": [
-        "J'Mari Taylor",
-        "J'Mari Taylor",
-        "J. Taylor"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4713118",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4713118.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4713118/jmari-taylor"
-      ]
-    },
-    {
       "id": "athlete:nfl:4432773",
       "displayName": "Brian Thomas Jr.",
       "shortName": "B. Thomas Jr.",
@@ -27302,29 +25577,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4432773.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4432773/brian-thomas-jr"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4244856",
-      "displayName": "Austin Trammell",
-      "shortName": "A. Trammell",
-      "aliases": [
-        "Austin Trammell",
-        "Austin Trammell",
-        "A. Trammell"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4244856",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4244856.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4244856/austin-trammell"
       ]
     },
     {
@@ -27420,98 +25672,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:5152117",
-      "displayName": "Michael Wortham",
-      "shortName": "M. Wortham",
-      "aliases": [
-        "Michael Wortham",
-        "Michael Wortham",
-        "M. Wortham"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5152117",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5152117.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5152117/michael-wortham"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4689088",
-      "displayName": "Kilian Zierer",
-      "shortName": "K. Zierer",
-      "aliases": [
-        "Kilian Zierer",
-        "Kilian Zierer",
-        "K. Zierer"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "GERMANY",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4689088",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4689088.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4689088/kilian-zierer"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4360807",
-      "displayName": "Yasir Abdullah",
-      "shortName": "Y. Abdullah",
-      "aliases": [
-        "Yasir Abdullah",
-        "Yasir Abdullah",
-        "Y. Abdullah"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4360807",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4360807.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4360807/yasir-abdullah"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4683450",
-      "displayName": "Tommy Akingbesote",
-      "shortName": "T. Akingbesote",
-      "aliases": [
-        "Tommy Akingbesote",
-        "Tommy Akingbesote",
-        "T. Akingbesote"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4683450",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4683450.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4683450/tommy-akingbesote"
-      ]
-    },
-    {
       "id": "athlete:nfl:2971275",
       "displayName": "Arik Armstead",
       "shortName": "A. Armstead",
@@ -27532,52 +25692,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2971275.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/2971275/arik-armstead"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4411769",
-      "displayName": "Corey Ballentine",
-      "shortName": "C. Ballentine",
-      "aliases": [
-        "Corey Ballentine",
-        "Corey Ballentine",
-        "C. Ballentine"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "JAMAICA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4411769",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4411769.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4411769/corey-ballentine"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4431162",
-      "displayName": "T.J. Bollers",
-      "shortName": "T.J. Bollers",
-      "aliases": [
-        "T.J. Bollers",
-        "T.J. Bollers",
-        "T.J. Bollers"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4431162",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4431162.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4431162/tj-bollers"
       ]
     },
     {
@@ -27627,29 +25741,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4360239",
-      "displayName": "Amari Burney",
-      "shortName": "A. Burney",
-      "aliases": [
-        "Amari Burney",
-        "Amari Burney",
-        "A. Burney"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4360239",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4360239.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4360239/amari-burney"
-      ]
-    },
-    {
       "id": "athlete:nfl:4572704",
       "displayName": "Branson Combs",
       "shortName": "B. Combs",
@@ -27693,29 +25784,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3134316.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3134316/matt-dickerson"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4427117",
-      "displayName": "Quindarius Dunnigan",
-      "shortName": "Q. Dunnigan",
-      "aliases": [
-        "Quindarius Dunnigan",
-        "Quindarius Dunnigan",
-        "Q. Dunnigan"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4427117",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4427117.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4427117/quindarius-dunnigan"
       ]
     },
     {
@@ -27811,52 +25879,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:5081718",
-      "displayName": "Preston Hodge",
-      "shortName": "P. Hodge",
-      "aliases": [
-        "Preston Hodge",
-        "Preston Hodge",
-        "P. Hodge"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5081718",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5081718.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5081718/preston-hodge"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4577189",
-      "displayName": "Jalen Hunt",
-      "shortName": "J. Hunt",
-      "aliases": [
-        "Jalen Hunt",
-        "Jalen Hunt",
-        "J. Hunt"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4577189",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4577189.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4577189/jalen-hunt"
-      ]
-    },
-    {
       "id": "athlete:nfl:4912185",
       "displayName": "Jalen Huskey",
       "shortName": "J. Huskey",
@@ -27926,29 +25948,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4427716",
-      "displayName": "Jack Kiser",
-      "shortName": "J. Kiser",
-      "aliases": [
-        "Jack Kiser",
-        "Jack Kiser",
-        "J. Kiser"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4427716",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4427716.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4427716/jack-kiser"
-      ]
-    },
-    {
       "id": "athlete:nfl:4880675",
       "displayName": "Rayuan Lane III",
       "shortName": "R. Lane III",
@@ -27995,29 +25994,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4576129",
-      "displayName": "Jalen McLeod",
-      "shortName": "J. McLeod",
-      "aliases": [
-        "Jalen McLeod",
-        "Jalen McLeod",
-        "J. McLeod"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4576129",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4576129.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4576129/jalen-mcleod"
-      ]
-    },
-    {
       "id": "athlete:nfl:4240610",
       "displayName": "Ventrell Miller",
       "shortName": "V. Miller",
@@ -28041,29 +26017,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4432440",
-      "displayName": "Jabbar Muhammad",
-      "shortName": "J. Muhammad",
-      "aliases": [
-        "Jabbar Muhammad",
-        "Jabbar Muhammad",
-        "J. Muhammad"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4432440",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4432440.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4432440/jabbar-muhammad"
-      ]
-    },
-    {
       "id": "athlete:nfl:2970716",
       "displayName": "Eric Murray",
       "shortName": "E. Murray",
@@ -28084,29 +26037,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2970716.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/2970716/eric-murray"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4431292",
-      "displayName": "Devin Neal Jr.",
-      "shortName": "D. Neal Jr.",
-      "aliases": [
-        "Devin Neal Jr.",
-        "Devin Neal Jr.",
-        "D. Neal Jr."
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4431292",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4431292.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4431292/devin-neal-jr"
       ]
     },
     {
@@ -28202,75 +26132,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4428390",
-      "displayName": "Keivie Rose",
-      "shortName": "K. Rose",
-      "aliases": [
-        "Keivie Rose",
-        "Keivie Rose",
-        "K. Rose"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4428390",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4428390.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4428390/keivie-rose"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4877475",
-      "displayName": "Cam'Ron Silmon-Craig",
-      "shortName": "C. Silmon-Craig",
-      "aliases": [
-        "Cam'Ron Silmon-Craig",
-        "Cam'Ron Silmon-Craig",
-        "C. Silmon-Craig"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4877475",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4877475.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4877475/camron-silmon-craig"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4239997",
-      "displayName": "Baylon Spector",
-      "shortName": "B. Spector",
-      "aliases": [
-        "Baylon Spector",
-        "Baylon Spector",
-        "B. Spector"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4239997",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4239997.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4239997/baylon-spector"
-      ]
-    },
-    {
       "id": "athlete:nfl:4573319",
       "displayName": "Danny Striggow",
       "shortName": "D. Striggow",
@@ -28314,29 +26175,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3124587.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3124587/jahlani-tavai"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4570633",
-      "displayName": "Trevian Thomas",
-      "shortName": "T. Thomas",
-      "aliases": [
-        "Trevian Thomas",
-        "Trevian Thomas",
-        "T. Thomas"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:jax",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4570633",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4570633.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4570633/trevian-thomas"
       ]
     },
     {
@@ -28501,6 +26339,29 @@
       ]
     },
     {
+      "id": "athlete:nfl:4362260",
+      "displayName": "Carter Bradley",
+      "shortName": "C. Bradley",
+      "aliases": [
+        "Carter Bradley",
+        "Carter Bradley",
+        "C. Bradley"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:jax",
+      "leagueId": "competition:nfl",
+      "position": "QB",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4362260",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362260.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4362260/carter-bradley"
+      ]
+    },
+    {
       "id": "athlete:nfl:4684542",
       "displayName": "Garrett DiGiorgio",
       "shortName": "G. DiGiorgio",
@@ -28636,6 +26497,29 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3129307.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3129307/sam-mustipher"
+      ]
+    },
+    {
+      "id": "athlete:nfl:4428390",
+      "displayName": "Keivie Rose",
+      "shortName": "K. Rose",
+      "aliases": [
+        "Keivie Rose",
+        "Keivie Rose",
+        "K. Rose"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:jax",
+      "leagueId": "competition:nfl",
+      "position": "DT",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4428390",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4428390.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4428390/keivie-rose"
       ]
     },
     {
@@ -31583,29 +29467,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4714388",
-      "displayName": "Chase Roberts",
-      "shortName": "C. Roberts",
-      "aliases": [
-        "Chase Roberts",
-        "Chase Roberts",
-        "C. Roberts"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:lv",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4714388",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4714388.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4714388/chase-roberts"
-      ]
-    },
-    {
       "id": "athlete:nfl:4433889",
       "displayName": "Caleb Rogers",
       "shortName": "C. Rogers",
@@ -31626,29 +29487,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4433889.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4433889/caleb-rogers"
-      ]
-    },
-    {
-      "id": "athlete:nfl:5155825",
-      "displayName": "Carter Runyon",
-      "shortName": "C. Runyon",
-      "aliases": [
-        "Carter Runyon",
-        "Carter Runyon",
-        "C. Runyon"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:lv",
-      "leagueId": "competition:nfl",
-      "position": "TE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5155825",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5155825.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5155825/carter-runyon"
       ]
     },
     {
@@ -31948,29 +29786,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4685305.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4685305/brandon-cleveland"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4911904",
-      "displayName": "Keyron Crawford",
-      "shortName": "K. Crawford",
-      "aliases": [
-        "Keyron Crawford",
-        "Keyron Crawford",
-        "K. Crawford"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:lv",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4911904",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4911904.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4911904/keyron-crawford"
       ]
     },
     {
@@ -32917,6 +30732,29 @@
       ]
     },
     {
+      "id": "athlete:nfl:4911904",
+      "displayName": "Keyron Crawford",
+      "shortName": "K. Crawford",
+      "aliases": [
+        "Keyron Crawford",
+        "Keyron Crawford",
+        "K. Crawford"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:lv",
+      "leagueId": "competition:nfl",
+      "position": "DE",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4911904",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4911904.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4911904/keyron-crawford"
+      ]
+    },
+    {
       "id": "athlete:nfl:4373471",
       "displayName": "Brennan Jackson",
       "shortName": "B. Jackson",
@@ -32963,6 +30801,29 @@
       ]
     },
     {
+      "id": "athlete:nfl:4714388",
+      "displayName": "Chase Roberts",
+      "shortName": "C. Roberts",
+      "aliases": [
+        "Chase Roberts",
+        "Chase Roberts",
+        "C. Roberts"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:lv",
+      "leagueId": "competition:nfl",
+      "position": "WR",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4714388",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4714388.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4714388/chase-roberts"
+      ]
+    },
+    {
       "id": "athlete:nfl:4433901",
       "displayName": "Corey Rucker",
       "shortName": "C. Rucker",
@@ -32983,6 +30844,29 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4433901.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4433901/corey-rucker"
+      ]
+    },
+    {
+      "id": "athlete:nfl:5155825",
+      "displayName": "Carter Runyon",
+      "shortName": "C. Runyon",
+      "aliases": [
+        "Carter Runyon",
+        "Carter Runyon",
+        "C. Runyon"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:lv",
+      "leagueId": "competition:nfl",
+      "position": "TE",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:5155825",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5155825.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/5155825/carter-runyon"
       ]
     },
     {
@@ -36505,29 +34389,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:5145719",
-      "displayName": "Gottlieb Ayedze",
-      "shortName": "G. Ayedze",
-      "aliases": [
-        "Gottlieb Ayedze",
-        "Gottlieb Ayedze",
-        "G. Ayedze"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5145719",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5145719.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5145719/gottlieb-ayedze"
-      ]
-    },
-    {
       "id": "athlete:nfl:4869961",
       "displayName": "Chris Bell",
       "shortName": "C. Bell",
@@ -36689,29 +34550,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4708354",
-      "displayName": "Jeremiah Franklin",
-      "shortName": "J. Franklin",
-      "aliases": [
-        "Jeremiah Franklin",
-        "Jeremiah Franklin",
-        "J. Franklin"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "TE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4708354",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/college-football/players/full/4708354.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4708354/jeremiah-franklin"
-      ]
-    },
-    {
       "id": "athlete:nfl:4711533",
       "displayName": "Ollie Gordon II",
       "shortName": "O. Gordon II",
@@ -36732,52 +34570,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4711533.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4711533/ollie-gordon-ii"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4695400",
-      "displayName": "Mark Gronowski",
-      "shortName": "M. Gronowski",
-      "aliases": [
-        "Mark Gronowski",
-        "Mark Gronowski",
-        "M. Gronowski"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "QB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4695400",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4695400.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4695400/mark-gronowski"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3895840",
-      "displayName": "Charlie Heck",
-      "shortName": "C. Heck",
-      "aliases": [
-        "Charlie Heck",
-        "Charlie Heck",
-        "C. Heck"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3895840",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3895840.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3895840/charlie-heck"
       ]
     },
     {
@@ -36827,29 +34619,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4710341",
-      "displayName": "Jarquez Hunter",
-      "shortName": "J. Hunter",
-      "aliases": [
-        "Jarquez Hunter",
-        "Jarquez Hunter",
-        "J. Hunter"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4710341",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4710341.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4710341/jarquez-hunter"
-      ]
-    },
-    {
       "id": "athlete:nfl:4271632",
       "displayName": "Austin Jackson",
       "shortName": "A. Jackson",
@@ -36896,29 +34665,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4362630",
-      "displayName": "Terrace Marshall Jr.",
-      "shortName": "T. Marshall Jr.",
-      "aliases": [
-        "Terrace Marshall Jr.",
-        "Terrace Marshall Jr.",
-        "T. Marshall Jr."
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4362630",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362630.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4362630/terrace-marshall-jr"
-      ]
-    },
-    {
       "id": "athlete:nfl:4433971",
       "displayName": "Kyle McCord",
       "shortName": "K. McCord",
@@ -36942,29 +34688,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4596347",
-      "displayName": "Donaven McCulley",
-      "shortName": "D. McCulley",
-      "aliases": [
-        "Donaven McCulley",
-        "Donaven McCulley",
-        "D. McCulley"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4596347",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4596347.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4596347/donaven-mcculley"
-      ]
-    },
-    {
       "id": "athlete:nfl:4362064",
       "displayName": "Andrew Meyer",
       "shortName": "A. Meyer",
@@ -36985,29 +34708,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362064.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4362064/andrew-meyer"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4693331",
-      "displayName": "Cam Miller",
-      "shortName": "C. Miller",
-      "aliases": [
-        "Cam Miller",
-        "Cam Miller",
-        "C. Miller"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "QB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4693331",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4693331.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4693331/cam-miller"
       ]
     },
     {
@@ -37100,29 +34800,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4870976.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4870976/kadyn-proctor"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4241802",
-      "displayName": "Jalen Reagor",
-      "shortName": "J. Reagor",
-      "aliases": [
-        "Jalen Reagor",
-        "Jalen Reagor",
-        "J. Reagor"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4241802",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4241802.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4241802/jalen-reagor"
       ]
     },
     {
@@ -37264,29 +34941,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4248425",
-      "displayName": "Carlos Washington Jr.",
-      "shortName": "C. Washington Jr.",
-      "aliases": [
-        "Carlos Washington Jr.",
-        "Carlos Washington Jr.",
-        "C. Washington Jr."
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4248425",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4248425.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4248425/carlos-washington-jr"
-      ]
-    },
-    {
       "id": "athlete:nfl:4242512",
       "displayName": "Malik Willis",
       "shortName": "M. Willis",
@@ -37353,29 +35007,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3932335.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3932335/zayne-anderson"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4372413",
-      "displayName": "Miles Battle",
-      "shortName": "M. Battle",
-      "aliases": [
-        "Miles Battle",
-        "Miles Battle",
-        "M. Battle"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4372413",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4372413.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4372413/miles-battle"
       ]
     },
     {
@@ -37494,52 +35125,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4429036",
-      "displayName": "Major Burns",
-      "shortName": "M. Burns",
-      "aliases": [
-        "Major Burns",
-        "Major Burns",
-        "M. Burns"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4429036",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429036.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4429036/major-burns"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4242457",
-      "displayName": "Matthew Butler",
-      "shortName": "M. Butler",
-      "aliases": [
-        "Matthew Butler",
-        "Matthew Butler",
-        "M. Butler"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4242457",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4242457.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4242457/matthew-butler"
-      ]
-    },
-    {
       "id": "athlete:nfl:4712462",
       "displayName": "Keith Cooper Jr.",
       "shortName": "K. Cooper Jr.",
@@ -37606,29 +35191,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4259804.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4259804/willie-gay-jr"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4035857",
-      "displayName": "Cameron Goode",
-      "shortName": "C. Goode",
-      "aliases": [
-        "Cameron Goode",
-        "Cameron Goode",
-        "C. Goode"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4035857",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4035857.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4035857/cameron-goode"
       ]
     },
     {
@@ -37701,29 +35263,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4240780",
-      "displayName": "Lonnie Johnson Jr.",
-      "shortName": "L. Johnson Jr.",
-      "aliases": [
-        "Lonnie Johnson Jr.",
-        "Lonnie Johnson Jr.",
-        "L. Johnson Jr."
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4240780",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4240780.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4240780/lonnie-johnson-jr"
-      ]
-    },
-    {
       "id": "athlete:nfl:4683101",
       "displayName": "Max Llewellyn",
       "shortName": "M. Llewellyn",
@@ -37793,98 +35332,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4433974",
-      "displayName": "Rodney McGraw",
-      "shortName": "R. McGraw",
-      "aliases": [
-        "Rodney McGraw",
-        "Rodney McGraw",
-        "R. McGraw"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4433974",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4433974.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4433974/rodney-mcgraw"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4690803",
-      "displayName": "Jai'Onte' McMillan",
-      "shortName": "J. McMillan",
-      "aliases": [
-        "Jai'Onte' McMillan",
-        "Jai'Onte' McMillan",
-        "J. McMillan"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4690803",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4690803.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4690803/jaionte-mcmillan"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4565309",
-      "displayName": "Fatorma Mulbah",
-      "shortName": "F. Mulbah",
-      "aliases": [
-        "Fatorma Mulbah",
-        "Fatorma Mulbah",
-        "F. Mulbah"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4565309",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4565309.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4565309/fatorma-mulbah"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4426507",
-      "displayName": "David Ojabo",
-      "shortName": "D. Ojabo",
-      "aliases": [
-        "David Ojabo",
-        "David Ojabo",
-        "D. Ojabo"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "NIGERIA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4426507",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4426507.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4426507/david-ojabo"
-      ]
-    },
-    {
       "id": "athlete:nfl:4837188",
       "displayName": "Jordan Phillips",
       "shortName": "J. Phillips",
@@ -37905,29 +35352,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4837188.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4837188/jordan-phillips"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4431360",
-      "displayName": "Cam Riley",
-      "shortName": "C. Riley",
-      "aliases": [
-        "Cam Riley",
-        "Cam Riley",
-        "C. Riley"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4431360",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4431360.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4431360/cam-riley"
       ]
     },
     {
@@ -38066,29 +35490,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4046528.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4046528/josh-uche"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4240595",
-      "displayName": "Marco Wilson",
-      "shortName": "M. Wilson",
-      "aliases": [
-        "Marco Wilson",
-        "Marco Wilson",
-        "M. Wilson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4240595",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4240595.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4240595/marco-wilson"
       ]
     },
     {
@@ -42853,29 +40254,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4695407",
-      "displayName": "Dalys Beanum",
-      "shortName": "D. Beanum",
-      "aliases": [
-        "Dalys Beanum",
-        "Dalys Beanum",
-        "D. Beanum"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:no",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4695407",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4695407.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4695407/dalys-beanum"
-      ]
-    },
-    {
       "id": "athlete:nfl:4428988",
       "displayName": "Bryan Bresee",
       "shortName": "B. Bresee",
@@ -42945,52 +40323,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4705926",
-      "displayName": "Michael Heldman",
-      "shortName": "M. Heldman",
-      "aliases": [
-        "Michael Heldman",
-        "Michael Heldman",
-        "M. Heldman"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:no",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4705926",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4705926.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4705926/michael-heldman"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4046536",
-      "displayName": "David Long Jr.",
-      "shortName": "D. Long Jr.",
-      "aliases": [
-        "David Long Jr.",
-        "David Long Jr.",
-        "D. Long Jr."
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:no",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4046536",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4046536.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4046536/david-long-jr"
-      ]
-    },
-    {
       "id": "athlete:nfl:4432731",
       "displayName": "Moliki Matavao",
       "shortName": "M. Matavao",
@@ -43011,29 +40343,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4432731.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4432731/moliki-matavao"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4682652",
-      "displayName": "Devin Neal",
-      "shortName": "D. Neal",
-      "aliases": [
-        "Devin Neal",
-        "Devin Neal",
-        "D. Neal"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:no",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4682652",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4682652.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4682652/devin-neal"
       ]
     },
     {
@@ -43129,29 +40438,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4256055",
-      "displayName": "Barry Wesley",
-      "shortName": "B. Wesley",
-      "aliases": [
-        "Barry Wesley",
-        "Barry Wesley",
-        "B. Wesley"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:no",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4256055",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4256055.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4256055/barry-wesley"
-      ]
-    },
-    {
       "id": "athlete:nfl:4696043",
       "displayName": "Rejzohn Wright",
       "shortName": "R. Wright",
@@ -43172,29 +40458,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4696043.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4696043/rejzohn-wright"
-      ]
-    },
-    {
-      "id": "athlete:nfl:2574511",
-      "displayName": "Brandon Allen",
-      "shortName": "B. Allen",
-      "aliases": [
-        "Brandon Allen",
-        "Brandon Allen",
-        "B. Allen"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "QB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:2574511",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2574511.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/2574511/brandon-allen"
       ]
     },
     {
@@ -43241,75 +40504,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/16733.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/16733/odell-beckham-jr"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3123075",
-      "displayName": "Braxton Berrios",
-      "shortName": "B. Berrios",
-      "aliases": [
-        "Braxton Berrios",
-        "Braxton Berrios",
-        "B. Berrios"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3123075",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3123075.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3123075/braxton-berrios"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4570296",
-      "displayName": "Dalen Cambre",
-      "shortName": "D. Cambre",
-      "aliases": [
-        "Dalen Cambre",
-        "Dalen Cambre",
-        "D. Cambre"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4570296",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4570296.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4570296/dalen-cambre"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4047422",
-      "displayName": "Tanner Conner",
-      "shortName": "T. Conner",
-      "aliases": [
-        "Tanner Conner",
-        "Tanner Conner",
-        "T. Conner"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "TE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4047422",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4047422.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4047422/tanner-conner"
       ]
     },
     {
@@ -43451,121 +40645,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:5393270",
-      "displayName": "Grant Finley",
-      "shortName": "G. Finley",
-      "aliases": [
-        "Grant Finley",
-        "Grant Finley",
-        "G. Finley"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "FB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5393270",
-      "headshotUrl": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5393270/grant-finley"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4427278",
-      "displayName": "Xavier Gipson",
-      "shortName": "X. Gipson",
-      "aliases": [
-        "Xavier Gipson",
-        "Xavier Gipson",
-        "X. Gipson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4427278",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4427278.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4427278/xavier-gipson"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4570561",
-      "displayName": "Eric Gray",
-      "shortName": "E. Gray",
-      "aliases": [
-        "Eric Gray",
-        "Eric Gray",
-        "E. Gray"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4570561",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4570561.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4570561/eric-gray"
-      ]
-    },
-    {
-      "id": "athlete:nfl:5360470",
-      "displayName": "Jarrod Gray",
-      "shortName": "J. Gray",
-      "aliases": [
-        "Jarrod Gray",
-        "Jarrod Gray",
-        "J. Gray"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5360470",
-      "headshotUrl": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5360470/jarrod-gray"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4243322",
-      "displayName": "Jake Haener",
-      "shortName": "J. Haener",
-      "aliases": [
-        "Jake Haener",
-        "Jake Haener",
-        "J. Haener"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "QB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4243322",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4243322.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4243322/jake-haener"
-      ]
-    },
-    {
       "id": "athlete:nfl:4241457",
       "displayName": "Najee Harris",
       "shortName": "N. Harris",
@@ -43635,29 +40714,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4692590",
-      "displayName": "Jalin Hyatt",
-      "shortName": "J. Hyatt",
-      "aliases": [
-        "Jalin Hyatt",
-        "Jalin Hyatt",
-        "J. Hyatt"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4692590",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4692590.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4692590/jalin-hyatt"
-      ]
-    },
-    {
       "id": "athlete:nfl:4240800",
       "displayName": "Brenden Jaimes",
       "shortName": "B. Jaimes",
@@ -43701,29 +40757,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429148.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4429148/theo-johnson"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4383405",
-      "displayName": "Jake Kubas",
-      "shortName": "J. Kubas",
-      "aliases": [
-        "Jake Kubas",
-        "Jake Kubas",
-        "J. Kubas"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4383405",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4383405.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4383405/jake-kubas"
       ]
     },
     {
@@ -43865,52 +40898,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4567134",
-      "displayName": "Evan Neal",
-      "shortName": "E. Neal",
-      "aliases": [
-        "Evan Neal",
-        "Evan Neal",
-        "E. Neal"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4567134",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4567134.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4567134/evan-neal"
-      ]
-    },
-    {
-      "id": "athlete:nfl:2576736",
-      "displayName": "Lucas Patrick",
-      "shortName": "L. Patrick",
-      "aliases": [
-        "Lucas Patrick",
-        "Lucas Patrick",
-        "L. Patrick"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:2576736",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2576736.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/2576736/lucas-patrick"
-      ]
-    },
-    {
       "id": "athlete:nfl:4869965",
       "displayName": "Kobe Prentice",
       "shortName": "K. Prentice",
@@ -43977,29 +40964,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3929936.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3929936/jon-runyan"
-      ]
-    },
-    {
-      "id": "athlete:nfl:5344428",
-      "displayName": "Ryan Schernecke",
-      "shortName": "R. Schernecke",
-      "aliases": [
-        "Ryan Schernecke",
-        "Ryan Schernecke",
-        "R. Schernecke"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5344428",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5344428.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5344428/ryan-schernecke"
       ]
     },
     {
@@ -44302,75 +41266,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4602016",
-      "displayName": "Anquin Barnes Jr.",
-      "shortName": "A. Barnes Jr.",
-      "aliases": [
-        "Anquin Barnes Jr.",
-        "Anquin Barnes Jr.",
-        "A. Barnes Jr."
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4602016",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4602016.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4602016/anquin-barnes-jr"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4429250",
-      "displayName": "Ben Barten",
-      "shortName": "B. Barten",
-      "aliases": [
-        "Ben Barten",
-        "Ben Barten",
-        "B. Barten"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4429250",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429250.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4429250/ben-barten"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4429291",
-      "displayName": "Beau Brade",
-      "shortName": "B. Brade",
-      "aliases": [
-        "Beau Brade",
-        "Beau Brade",
-        "B. Brade"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4429291",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429291.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4429291/beau-brade"
-      ]
-    },
-    {
       "id": "athlete:nfl:4035631",
       "displayName": "Brian Burns",
       "shortName": "B. Burns",
@@ -44440,29 +41335,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4035494",
-      "displayName": "Marlon Davidson",
-      "shortName": "M. Davidson",
-      "aliases": [
-        "Marlon Davidson",
-        "Marlon Davidson",
-        "M. Davidson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4035494",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4035494.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4035494/marlon-davidson"
-      ]
-    },
-    {
       "id": "athlete:nfl:3929950",
       "displayName": "Tremaine Edmunds",
       "shortName": "T. Edmunds",
@@ -44483,29 +41355,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3929950.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3929950/tremaine-edmunds"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4427207",
-      "displayName": "Trace Ford",
-      "shortName": "T. Ford",
-      "aliases": [
-        "Trace Ford",
-        "Trace Ford",
-        "T. Ford"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4427207",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4427207.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4427207/trace-ford"
       ]
     },
     {
@@ -44670,29 +41519,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4039029",
-      "displayName": "Khalid Kareem",
-      "shortName": "K. Kareem",
-      "aliases": [
-        "Khalid Kareem",
-        "Khalid Kareem",
-        "K. Kareem"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4039029",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4039029.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4039029/khalid-kareem"
-      ]
-    },
-    {
       "id": "athlete:nfl:4876380",
       "displayName": "Jack Kelly",
       "shortName": "J. Kelly",
@@ -44716,52 +41542,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4258237",
-      "displayName": "Raheem Layne",
-      "shortName": "R. Layne",
-      "aliases": [
-        "Raheem Layne",
-        "Raheem Layne",
-        "R. Layne"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4258237",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4258237.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4258237/raheem-layne"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4695086",
-      "displayName": "Chandler Martin",
-      "shortName": "C. Martin",
-      "aliases": [
-        "Chandler Martin",
-        "Chandler Martin",
-        "C. Martin"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4695086",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4695086.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4695086/chandler-martin"
-      ]
-    },
-    {
       "id": "athlete:nfl:4371961",
       "displayName": "Micah McFadden",
       "shortName": "M. McFadden",
@@ -44782,52 +41562,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4371961.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4371961/micah-mcfadden"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4428072",
-      "displayName": "Darius Muasau",
-      "shortName": "D. Muasau",
-      "aliases": [
-        "Darius Muasau",
-        "Darius Muasau",
-        "D. Muasau"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4428072",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4428072.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4428072/darius-muasau"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4911489",
-      "displayName": "Caleb Murphy",
-      "shortName": "C. Murphy",
-      "aliases": [
-        "Caleb Murphy",
-        "Caleb Murphy",
-        "C. Murphy"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4911489",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4911489.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4911489/caleb-murphy"
       ]
     },
     {
@@ -44946,29 +41680,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4426332",
-      "displayName": "Zacch Pickens",
-      "shortName": "Z. Pickens",
-      "aliases": [
-        "Zacch Pickens",
-        "Zacch Pickens",
-        "Z. Pickens"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4426332",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4426332.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4426332/zacch-pickens"
-      ]
-    },
-    {
       "id": "athlete:nfl:4240706",
       "displayName": "Jason Pinnock",
       "shortName": "J. Pinnock",
@@ -45061,29 +41772,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:2979632",
-      "displayName": "Josh Tupou",
-      "shortName": "J. Tupou",
-      "aliases": [
-        "Josh Tupou",
-        "Josh Tupou",
-        "J. Tupou"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:2979632",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2979632.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/2979632/josh-tupou"
-      ]
-    },
-    {
       "id": "athlete:nfl:4362492",
       "displayName": "Ar'Darius Washington",
       "shortName": "A. Washington",
@@ -45104,29 +41792,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362492.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4362492/ardarius-washington"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4362917",
-      "displayName": "JT Woods",
-      "shortName": "J. Woods",
-      "aliases": [
-        "JT Woods",
-        "JT Woods",
-        "J. Woods"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:nyg",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4362917",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362917.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4362917/jt-woods"
       ]
     },
     {
@@ -55940,29 +52605,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4814930",
-      "displayName": "Hank Beatty",
-      "shortName": "H. Beatty",
-      "aliases": [
-        "Hank Beatty",
-        "Hank Beatty",
-        "H. Beatty"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4814930",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4814930.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4814930/hank-beatty"
-      ]
-    },
-    {
       "id": "athlete:nfl:4361516",
       "displayName": "Daniel Bellinger",
       "shortName": "D. Bellinger",
@@ -56006,29 +52648,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4710000.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4710000/fernando-carmona"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4240657",
-      "displayName": "Michael Carter",
-      "shortName": "M. Carter",
-      "aliases": [
-        "Michael Carter",
-        "Michael Carter",
-        "M. Carter"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4240657",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4240657.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4240657/michael-carter"
       ]
     },
     {
@@ -56216,98 +52835,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4240858",
-      "displayName": "Hendon Hooker",
-      "shortName": "H. Hooker",
-      "aliases": [
-        "Hendon Hooker",
-        "Hendon Hooker",
-        "H. Hooker"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "QB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4240858",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4240858.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4240858/hendon-hooker"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4565172",
-      "displayName": "Courtney Jackson",
-      "shortName": "C. Jackson",
-      "aliases": [
-        "Courtney Jackson",
-        "Courtney Jackson",
-        "C. Jackson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4565172",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4565172.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4565172/courtney-jackson"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3139602",
-      "displayName": "D'Ernest Johnson",
-      "shortName": "D. Johnson",
-      "aliases": [
-        "D'Ernest Johnson",
-        "D'Ernest Johnson",
-        "D. Johnson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3139602",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3139602.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3139602/dernest-johnson"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4057082",
-      "displayName": "Mason Kinsey",
-      "shortName": "M. Kinsey",
-      "aliases": [
-        "Mason Kinsey",
-        "Mason Kinsey",
-        "M. Kinsey"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4057082",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4057082.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4057082/mason-kinsey"
-      ]
-    },
-    {
       "id": "athlete:nfl:4431437",
       "displayName": "JC Latham",
       "shortName": "J. Latham",
@@ -56354,75 +52881,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4247812",
-      "displayName": "Lance McCutcheon",
-      "shortName": "L. McCutcheon",
-      "aliases": [
-        "Lance McCutcheon",
-        "Lance McCutcheon",
-        "L. McCutcheon"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4247812",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4247812.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4247812/lance-mccutcheon"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4568699",
-      "displayName": "Rasheed Miller",
-      "shortName": "R. Miller",
-      "aliases": [
-        "Rasheed Miller",
-        "Rasheed Miller",
-        "R. Miller"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4568699",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4568699.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4568699/rasheed-miller"
-      ]
-    },
-    {
-      "id": "athlete:nfl:5103197",
-      "displayName": "Tyren Montgomery",
-      "shortName": "T. Montgomery",
-      "aliases": [
-        "Tyren Montgomery",
-        "Tyren Montgomery",
-        "T. Montgomery"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5103197",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5103197.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5103197/tyren-montgomery"
-      ]
-    },
-    {
       "id": "athlete:nfl:4240920",
       "displayName": "Dan Moore Jr.",
       "shortName": "D. Moore Jr.",
@@ -56443,98 +52901,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4240920.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4240920/dan-moore-jr"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4879480",
-      "displayName": "Drew Moss",
-      "shortName": "D. Moss",
-      "aliases": [
-        "Drew Moss",
-        "Drew Moss",
-        "D. Moss"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4879480",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4879480.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4879480/drew-moss"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4429121",
-      "displayName": "Kalel Mullings",
-      "shortName": "K. Mullings",
-      "aliases": [
-        "Kalel Mullings",
-        "Kalel Mullings",
-        "K. Mullings"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "RB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4429121",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429121.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4429121/kalel-mullings"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4362617",
-      "displayName": "Bryce Oliver",
-      "shortName": "B. Oliver",
-      "aliases": [
-        "Bryce Oliver",
-        "Bryce Oliver",
-        "B. Oliver"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4362617",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362617.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4362617/bryce-oliver"
-      ]
-    },
-    {
-      "id": "athlete:nfl:3916566",
-      "displayName": "K.J. Osborn",
-      "shortName": "K.J. Osborn",
-      "aliases": [
-        "K.J. Osborn",
-        "K.J. Osborn",
-        "K.J. Osborn"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "WR",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3916566",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3916566.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3916566/kj-osborn"
       ]
     },
     {
@@ -56768,29 +53134,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4036834",
-      "displayName": "Zachary Thomas",
-      "shortName": "Z. Thomas",
-      "aliases": [
-        "Zachary Thomas",
-        "Zachary Thomas",
-        "Z. Thomas"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4036834",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4036834.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4036834/zachary-thomas"
-      ]
-    },
-    {
       "id": "athlete:nfl:3039707",
       "displayName": "Mitchell Trubisky",
       "shortName": "M. Trubisky",
@@ -56814,52 +53157,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4040950",
-      "displayName": "Cordell Volson",
-      "shortName": "C. Volson",
-      "aliases": [
-        "Cordell Volson",
-        "Cordell Volson",
-        "C. Volson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "G",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4040950",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4040950.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4040950/cordell-volson"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4685564",
-      "displayName": "Aamil Wagner",
-      "shortName": "A. Wagner",
-      "aliases": [
-        "Aamil Wagner",
-        "Aamil Wagner",
-        "A. Wagner"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "OT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4685564",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4685564.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4685564/aamil-wagner"
-      ]
-    },
-    {
       "id": "athlete:nfl:4688380",
       "displayName": "Cam Ward",
       "shortName": "C. Ward",
@@ -56880,29 +53177,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4688380.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4688380/cam-ward"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4362570",
-      "displayName": "Joel Wilson",
-      "shortName": "J. Wilson",
-      "aliases": [
-        "Joel Wilson",
-        "Joel Wilson",
-        "J. Wilson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "TE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4362570",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362570.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4362570/joel-wilson"
       ]
     },
     {
@@ -56949,121 +53223,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3926229.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3926229/cody-barton"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4585317",
-      "displayName": "Kendell Brooks",
-      "shortName": "K. Brooks",
-      "aliases": [
-        "Kendell Brooks",
-        "Kendell Brooks",
-        "K. Brooks"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4585317",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4585317.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4585317/kendell-brooks"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4242292",
-      "displayName": "Earnest Brown IV",
-      "shortName": "E. Brown IV",
-      "aliases": [
-        "Earnest Brown IV",
-        "Earnest Brown IV",
-        "E. Brown IV"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4242292",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4242292.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4242292/earnest-brown-iv"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4606181",
-      "displayName": "Keydrain Calligan",
-      "shortName": "K. Calligan",
-      "aliases": [
-        "Keydrain Calligan",
-        "Keydrain Calligan",
-        "K. Calligan"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4606181",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4606181.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4606181/keydrain-calligan"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4429366",
-      "displayName": "Derrick Canteen",
-      "shortName": "D. Canteen",
-      "aliases": [
-        "Derrick Canteen",
-        "Derrick Canteen",
-        "D. Canteen"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4429366",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4429366.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4429366/derrick-canteen"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4432673",
-      "displayName": "Reid Carrico",
-      "shortName": "R. Carrico",
-      "aliases": [
-        "Reid Carrico",
-        "Reid Carrico",
-        "R. Carrico"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4432673",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4432673.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4432673/reid-carrico"
       ]
     },
     {
@@ -57136,29 +53295,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:5151810",
-      "displayName": "Bishop Fitzgerald",
-      "shortName": "B. Fitzgerald",
-      "aliases": [
-        "Bishop Fitzgerald",
-        "Bishop Fitzgerald",
-        "B. Fitzgerald"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "S",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5151810",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5151810.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5151810/bishop-fitzgerald"
-      ]
-    },
-    {
       "id": "athlete:nfl:4429607",
       "displayName": "Cor'Dale Flott",
       "shortName": "C. Flott",
@@ -57202,29 +53338,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3120464.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3120464/john-franklin-myers"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4360318",
-      "displayName": "Mario Goodrich III",
-      "shortName": "M. Goodrich III",
-      "aliases": [
-        "Mario Goodrich III",
-        "Mario Goodrich III",
-        "M. Goodrich III"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4360318",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4360318.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4360318/mario-goodrich-iii"
       ]
     },
     {
@@ -57297,29 +53410,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4259547",
-      "displayName": "Malik Herring",
-      "shortName": "M. Herring",
-      "aliases": [
-        "Malik Herring",
-        "Malik Herring",
-        "M. Herring"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4259547",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4259547.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4259547/malik-herring"
-      ]
-    },
-    {
       "id": "athlete:nfl:4870805",
       "displayName": "Anthony Hill Jr.",
       "shortName": "A. Hill Jr.",
@@ -57343,29 +53433,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:3121414",
-      "displayName": "Jalyn Holmes",
-      "shortName": "J. Holmes",
-      "aliases": [
-        "Jalyn Holmes",
-        "Jalyn Holmes",
-        "J. Holmes"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "DE",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3121414",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3121414.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3121414/jalyn-holmes"
-      ]
-    },
-    {
       "id": "athlete:nfl:4036134",
       "displayName": "Amani Hooker",
       "shortName": "A. Hooker",
@@ -57386,52 +53453,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4036134.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4036134/amani-hooker"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4045701",
-      "displayName": "Timmy Horne",
-      "shortName": "T. Horne",
-      "aliases": [
-        "Timmy Horne",
-        "Timmy Horne",
-        "T. Horne"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4045701",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4045701.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4045701/timmy-horne"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4362280",
-      "displayName": "Dyontae Johnson",
-      "shortName": "D. Johnson",
-      "aliases": [
-        "Dyontae Johnson",
-        "Dyontae Johnson",
-        "D. Johnson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4362280",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362280.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4362280/dyontae-johnson"
       ]
     },
     {
@@ -57527,52 +53548,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4362987",
-      "displayName": "Corey Mayfield Jr.",
-      "shortName": "C. Mayfield Jr.",
-      "aliases": [
-        "Corey Mayfield Jr.",
-        "Corey Mayfield Jr.",
-        "C. Mayfield Jr."
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4362987",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4362987.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4362987/corey-mayfield-jr"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4683455",
-      "displayName": "Jalen McMurray",
-      "shortName": "J. McMurray",
-      "aliases": [
-        "Jalen McMurray",
-        "Jalen McMurray",
-        "J. McMurray"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "CB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4683455",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4683455.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4683455/jalen-mcmurray"
-      ]
-    },
-    {
       "id": "athlete:nfl:4876057",
       "displayName": "Oluwafemi Oladejo",
       "shortName": "O. Oladejo",
@@ -57593,29 +53568,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4876057.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4876057/oluwafemi-oladejo"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4833031",
-      "displayName": "Mani Powell",
-      "shortName": "M. Powell",
-      "aliases": [
-        "Mani Powell",
-        "Mani Powell",
-        "M. Powell"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4833031",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4833031.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4833031/mani-powell"
       ]
     },
     {
@@ -57665,29 +53617,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:3121634",
-      "displayName": "Khalen Saunders",
-      "shortName": "K. Saunders",
-      "aliases": [
-        "Khalen Saunders",
-        "Khalen Saunders",
-        "K. Saunders"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:3121634",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/3121634.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/3121634/khalen-saunders"
-      ]
-    },
-    {
       "id": "athlete:nfl:4035369",
       "displayName": "Jeffery Simmons",
       "shortName": "J. Simmons",
@@ -57708,29 +53637,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4035369.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4035369/jeffery-simmons"
-      ]
-    },
-    {
-      "id": "athlete:nfl:5278710",
-      "displayName": "Laki Tasi",
-      "shortName": "L. Tasi",
-      "aliases": [
-        "Laki Tasi",
-        "Laki Tasi",
-        "L. Tasi"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:ten",
-      "leagueId": "competition:nfl",
-      "position": "DT",
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:5278710",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/5278710.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/5278710/laki-tasi"
       ]
     },
     {

@@ -13,6 +13,16 @@
       "source": "/sports_calendar.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/users",
+      "permanent": false
+    },
+    {
+      "source": "/admin-comms.html",
+      "destination": "/admin/comms",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -25,6 +35,14 @@
       "destination": "/api/participation?mode=nothingscore-marquee"
     },
     {
+      "source": "/api/admin/users",
+      "destination": "/api/admin-users"
+    },
+    {
+      "source": "/api/admin/reports",
+      "destination": "/api/admin-reports"
+    },
+    {
       "source": "/live",
       "destination": "/participate.html"
     },
@@ -33,8 +51,16 @@
       "destination": "/participate.html?eventId=:eventId"
     },
     {
+      "source": "/admin/users",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/admin/reports",
+      "destination": "/admin.html"
+    },
+    {
       "source": "/admin/comms",
-      "destination": "/admin-comms.html"
+      "destination": "/admin.html"
     }
   ]
 }

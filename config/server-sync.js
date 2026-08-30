@@ -520,6 +520,18 @@
           body:JSON.stringify(command),
         } : {});
       },
+      async adminUsersRequest({ q = "" } = {}, command = null){
+        if (command) return authenticatedRequest("/api/admin/users", { method:"POST", body:JSON.stringify(command) });
+        const params = new URLSearchParams();
+        if (q) params.set("q", q);
+        return authenticatedRequest(`/api/admin/users${params.size ? `?${params}` : ""}`);
+      },
+      async adminReportsRequest({ status = "" } = {}, command = null){
+        if (command) return authenticatedRequest("/api/admin/reports", { method:"POST", body:JSON.stringify(command) });
+        const params = new URLSearchParams();
+        if (status) params.set("status", status);
+        return authenticatedRequest(`/api/admin/reports${params.size ? `?${params}` : ""}`);
+      },
       async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "" } = {}, command = null){
         if (command){
           return authenticatedRequest("/api/nothingscore", { method:"POST", body:JSON.stringify(command) });

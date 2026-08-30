@@ -97,7 +97,7 @@ async function main(){
   assert.match(sql, /mailchimp-manual\.v1/);
   assert.match(sql, /state in \([^)]*'exported'/s);
 
-  const commsSource = read("api/comms.js"), adminSource = read("admin-comms.html"), participatePageSource = read("participate.html"), participationSource = read("api/participation.js"), worker = read("service-worker.js"), vercel = JSON.parse(read("vercel.json"));
+  const commsSource = read("api/comms.js"), adminSource = read("admin.html") + read("config/admin-comms-ui.js"), participatePageSource = read("participate.html"), participationSource = read("api/participation.js"), worker = read("service-worker.js"), vercel = JSON.parse(read("vercel.json"));
   assert.match(commsSource, /app_metadata/);
   assert.doesNotMatch(commsSource, /user_metadata\?\.role/);
   assert.match(commsSource, /export-mailchimp/);
@@ -116,14 +116,14 @@ async function main(){
   assert.match(participationSource, /rating_not_open/);
   assert.match(participationSource, /rating_window_closed/);
   assert.doesNotMatch(participationSource, /x-forwarded-for|cf-connecting-ip|request\.ip/i);
-  assert.match(worker, /nothingsport-shell-v193/);
+  assert.match(worker, /nothingsport-shell-v195/);
   assert.match(worker, /\/participate\.html/);
   assert.ok(vercel.rewrites.some(rule => rule.source === "/live" && rule.destination === "/participate.html"));
   assert.ok(vercel.rewrites.some(rule => rule.source === "/fixture/:eventId"));
-  assert.ok(vercel.rewrites.some(rule => rule.source === "/admin/comms"));
+  assert.ok(vercel.rewrites.some(rule => rule.source === "/admin/comms" && rule.destination === "/admin.html"));
   assert.match(read("scripts/redeploy-and-release.sh"), /data\/marquee-candidates\.v1\.json/);
   assert.match(read("scripts/redeploy-and-release.sh"), /assets\/marquee/);
-  assert.doesNotMatch(read("admin-comms.html") + read("participate.html"), /SUPABASE_SERVICE_ROLE_KEY|RESEND_API_KEY|RESEND_WEBHOOK_SECRET|PARTICIPATION_SECRET/);
+  assert.doesNotMatch(adminSource + read("admin-comms.html") + read("participate.html"), /SUPABASE_SERVICE_ROLE_KEY|RESEND_API_KEY|RESEND_WEBHOOK_SECRET|PARTICIPATION_SECRET/);
 
   console.log("Marquee communications validation passed (manual Mailchimp export, frozen revisions, stale-source recovery, dormant delivery compatibility and guest privacy). ");
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-fixtures.v1",
-  "generatedAt": "2026-08-30T23:32:55.799Z",
+  "generatedAt": "2026-08-30T23:54:07.011Z",
   "sources": [
     {
       "sourceName": "ESPN public football schedule snapshot",
@@ -48,7 +48,7 @@
       "sourceName": "Hockey Australia official World Cup update",
       "sourceUrl": "https://www.hockey.org.au/news/kookaburras-shut-out-england-to-secure-fifth-at-world-cup",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NFL schedule",
@@ -60,7 +60,7 @@
       "sourceName": "Hockey Australia official World Cup update",
       "sourceUrl": "https://www.hockey.org.au/news/hockeyroos-brave-world-cup-charge-ends-in-narrow-semi-final-defeat",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NFL schedule",
@@ -180,7 +180,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -198,7 +198,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -228,7 +228,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -246,7 +246,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -264,13 +264,13 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -312,7 +312,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -336,7 +336,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NFL schedule",
@@ -354,7 +354,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -372,7 +372,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -402,7 +402,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -462,7 +462,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612759/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -498,7 +498,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -582,7 +582,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -666,7 +666,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612745/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -684,7 +684,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -702,7 +702,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612762/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -726,7 +726,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612742/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -774,7 +774,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -816,7 +816,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612747/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -858,7 +858,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612758/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -870,7 +870,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612744/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -972,7 +972,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -996,7 +996,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612760/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -1014,7 +1014,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612740/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -1044,7 +1044,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612757/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -1062,7 +1062,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612746/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-08-30T23:32:32.715Z"
+      "checkedAt": "2026-08-30T23:53:34.868Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -4008,7 +4008,7 @@
       },
       "sourceName": "Hockey Australia official World Cup update",
       "sourceUrl": "https://www.hockey.org.au/news/kookaburras-shut-out-england-to-secure-fifth-at-world-cup",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -4188,7 +4188,7 @@
       },
       "sourceName": "Hockey Australia official World Cup update",
       "sourceUrl": "https://www.hockey.org.au/news/hockeyroos-brave-world-cup-charge-ends-in-narrow-semi-final-defeat",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6415,7 +6415,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6598,7 +6598,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -7149,7 +7149,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -7332,7 +7332,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -7515,7 +7515,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -7576,7 +7576,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8133,7 +8133,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8316,7 +8316,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8499,7 +8499,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8560,7 +8560,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8739,7 +8739,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9042,7 +9042,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9167,7 +9167,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9286,7 +9286,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9533,7 +9533,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9892,7 +9892,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10075,7 +10075,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10562,7 +10562,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10873,7 +10873,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612759/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10992,7 +10992,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -11175,7 +11175,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -11358,7 +11358,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -11541,7 +11541,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -11724,7 +11724,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -12147,7 +12147,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -12330,7 +12330,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -12385,7 +12385,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -12880,7 +12880,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13247,7 +13247,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13366,7 +13366,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -14477,7 +14477,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612745/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -14660,7 +14660,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -14843,7 +14843,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612762/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -15026,7 +15026,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612759/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -15145,7 +15145,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612742/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -15512,7 +15512,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -15695,7 +15695,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -15878,7 +15878,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -16061,7 +16061,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -16180,7 +16180,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -16487,7 +16487,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612747/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -16850,7 +16850,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -16969,7 +16969,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17216,7 +17216,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612758/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17335,7 +17335,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612744/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17574,7 +17574,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17693,7 +17693,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612762/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17812,7 +17812,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18299,7 +18299,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18482,7 +18482,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18601,7 +18601,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18904,7 +18904,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19207,7 +19207,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612742/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19262,7 +19262,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19509,7 +19509,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19996,7 +19996,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612760/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20115,7 +20115,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20234,7 +20234,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612760/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20289,7 +20289,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612740/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20524,7 +20524,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20643,7 +20643,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612744/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20762,7 +20762,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21185,7 +21185,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612757/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21368,7 +21368,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612747/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21423,7 +21423,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612746/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22230,7 +22230,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22473,7 +22473,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22772,7 +22772,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22955,7 +22955,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23258,7 +23258,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23561,7 +23561,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612757/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23744,7 +23744,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23863,7 +23863,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24166,7 +24166,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24469,7 +24469,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24524,7 +24524,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24895,7 +24895,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25322,7 +25322,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612758/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25441,7 +25441,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25560,7 +25560,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25807,7 +25807,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612746/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25926,7 +25926,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -26109,7 +26109,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -26292,7 +26292,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -26715,7 +26715,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612745/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -26834,7 +26834,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -26953,7 +26953,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -27072,7 +27072,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -27495,7 +27495,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612740/schedule",
-      "sourceCheckedAt": "2026-08-30T23:32:32.715Z",
+      "sourceCheckedAt": "2026-08-30T23:53:34.868Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },

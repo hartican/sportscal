@@ -52,6 +52,8 @@ assert(localSteps.some(step => step[0] === "scripts/validate-editorial-audience-
 assert(localSteps.some(step => step[0] === "scripts/validate-nsc-demo-panel.js"), "every canonical update must validate deterministic demo crowd isolation");
 assert(localSteps.some(step => step[0] === "scripts/validate-crowd-editorial-coverage.js"), "every canonical update must require public copy for every Feed and Events card");
 assert(localSteps.some(step => step[0] === "scripts/validate-mixed-feed-navigation.js"), "every canonical update must keep Feed mixed after round-summary navigation");
+assert(localSteps.some(step => step[0] === "scripts/validate-admin-console.js"), "every canonical update must enforce owner-console authorization, privacy, audit and shared-route contracts");
+assert(localSteps.some(step => step[0] === "scripts/validate-admin-api.js"), "every canonical update must exercise owner-console approval, report independence and privacy through the API handlers");
 assert(localSteps.some(step => step[0] === "scripts/validate-mobile-feed-events-brand-pass.js"), "every canonical update must enforce the mobile provider, Events and brand reliability pass");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-sport-reliability-pass.js"), "every canonical update must enforce Feed stability, nineteen-sport coverage and event reliability");
 assert(

@@ -1,0 +1,75 @@
+#!/usr/bin/env node
+"use strict";
+
+const assert=require("node:assert/strict");
+const fs=require("node:fs");
+const path=require("node:path");
+const admin=require("../lib/admin-moderation");
+
+const ROOT=path.resolve(__dirname,"..");
+const read=file=>fs.readFileSync(path.join(ROOT,file),"utf8");
+const environment={PARTICIPATION_SECRET:"a".repeat(64)};
+
+assert.equal(admin._test.isAdminRole({app_metadata:{role:"admin"},user_metadata:{role:"viewer"}}),true);
+assert.equal(admin._test.isAdminRole({app_metadata:{role:"viewer"},user_metadata:{role:"admin"}}),false,"editable metadata must never grant owner-console access");
+assert.equal(admin._test.isAdminRole({app_metadata:{role:"admin"},email:"owner@example.test"}),true);
+const firstRef=admin._test.subjectRef("00000000-0000-4000-8000-000000000001",environment);
+const repeatRef=admin._test.subjectRef("00000000-0000-4000-8000-000000000001",environment);
+const secondRef=admin._test.subjectRef("00000000-0000-4000-8000-000000000002",environment);
+assert.match(firstRef,/^[a-f0-9]{24}$/);
+assert.equal(firstRef,repeatRef,"admin subject references must be stable");
+assert.notEqual(firstRef,secondRef,"different Auth users must not share an admin subject reference");
+assert(!firstRef.includes("00000000"),"raw Auth IDs must not be embedded in browser account references");
+assert.equal(admin._test.userSearchMatches({email:"jim@example.test"},{display_name:"Jim Sample",handle:"jim_sample"},"jim"),true);
+assert.equal(admin._test.userSearchMatches({email:"jim@example.test"},{display_name:"Jim Sample",handle:"jim_sample"},"alice"),false);
+assert.deepEqual(admin._test.publicIdentity(null),{displayName:"Public profile not set",handle:null,visibility:"missing",profileId:null});
+const review=admin._test.reportPatch("mark-reviewed","00000000-0000-4000-8000-000000000001","Checked","2026-08-31T00:00:00.000Z");
+assert.deepEqual(Object.keys(review).sort(),["resolution","resolved_at","reviewed_at","reviewed_by","status"].sort(),"report review must not silently alter profile or pilot access");
+assert.equal(review.status,"reviewed");
+assert.equal(review.resolved_at,null);
+const dismissed=admin._test.reportPatch("dismiss","00000000-0000-4000-8000-000000000001","No breach","2026-08-31T00:00:00.000Z");
+assert.equal(dismissed.status,"dismissed");
+assert.equal(dismissed.resolved_at,"2026-08-31T00:00:00.000Z");
+
+const adminSource=read("lib/admin-moderation.js"),usersApi=read("api/admin-users.js"),reportsApi=read("api/admin-reports.js"),html=read("admin.html"),commsUi=read("config/admin-comms-ui.js"),worker=read("service-worker.js"),sql=read("supabase/nothingscore-moderation.sql"),nscSql=read("supabase/nothingscore.sql"),serverSync=read("config/server-sync.js"),legacy=read("admin-comms.html"),vercel=JSON.parse(read("vercel.json"));
+assert.match(adminSource,/app_metadata/);
+assert.doesNotMatch(adminSource,/user_metadata\?\.role|email.*admin/i,"client-editable metadata and email must never grant access");
+assert.match(adminSource,/PARTICIPATION_SECRET\|\|environment\.CHAT_GUEST_LINK_SECRET/);
+assert.match(adminSource,/Cache-Control","private, no-store/);
+assert.match(usersApi,/confirm!==true/);
+assert.match(reportsApi,/admin\.applyReportAction/);
+assert.match(adminSource,/await audit\(/,"every profile, pilot and report change must enter the audit ledger");
+assert.match(adminSource,/reviewed_by/);
+assert.match(adminSource,/resolved_at/);
+assert.match(adminSource,/reporter:publicIdentity/);
+assert.doesNotMatch(adminSource,/reporterEmail|reporter_email/);
+assert.match(nscSql,/unique\(reporter_user_id,target_user_id,reason\)/,"duplicate fixed-reason reports must remain idempotent");
+assert.match(sql,/nothingsports_nsc_admin_audit/);
+assert.match(sql,/nothingsports_nsc_admin_audit_actor_idx/);
+assert.match(sql,/force row level security/);
+assert.match(sql,/revoke all on public\.nothingsports_nsc_admin_audit from public,anon,authenticated/);
+assert.match(sql,/revoke all on public\.nothingsports_nsc_admin_audit from service_role;\s*grant select,insert on public\.nothingsports_nsc_admin_audit to service_role/);
+assert.match(sql,/reviewed_by uuid references auth\.users/);
+assert.match(sql,/resolution text/);
+assert.match(html,/Approval and a visible public profile are separate requirements/);
+assert.match(html,/Approve/);
+assert.match(html,/Reports/);
+assert.match(html,/Communications/);
+assert.match(html,/No accusation or reporter email is sent to the target/);
+assert.doesNotMatch(html,/SUPABASE_SECRET_KEY|SUPABASE_SERVICE_ROLE_KEY|PARTICIPATION_SECRET/);
+assert.match(commsUi,/Prepare Mailchimp export/);
+assert.match(commsUi,/Copy complete handoff/);
+assert.doesNotMatch(commsUi,/send-now|SEND NOW|audienceCount|recipient/i);
+assert.match(legacy,/location\.replace\("\/admin\/comms"\)/);
+assert.match(serverSync,/adminUsersRequest/);
+assert.match(serverSync,/adminReportsRequest/);
+assert.match(worker,/nothingsport-shell-v195/);
+assert.match(worker,/"\/admin\.html"/);
+assert.match(worker,/"\/config\/admin-comms-ui\.js\?v=195"/);
+assert(vercel.redirects.some(rule=>rule.source==="/admin"&&rule.destination==="/admin/users"));
+assert(vercel.redirects.some(rule=>rule.source==="/admin-comms.html"&&rule.destination==="/admin/comms"));
+["/admin/users","/admin/reports","/admin/comms"].forEach(route=>assert(vercel.rewrites.some(rule=>rule.source===route&&rule.destination==="/admin.html"),`${route} must use the shared owner shell`));
+assert(vercel.rewrites.some(rule=>rule.source==="/api/admin/users"&&rule.destination==="/api/admin-users"));
+assert(vercel.rewrites.some(rule=>rule.source==="/api/admin/reports"&&rule.destination==="/api/admin-reports"));
+
+console.log("Owner console validation passed: server-role auth, opaque account references, independent moderation actions, audit ledger, privacy and shared routes are wired.");
