@@ -3,7 +3,7 @@
 const assert = require("node:assert/strict");
 const path = require("node:path");
 const { readJson } = require("./lib/feed-utils");
-const { storylineFor } = require("./lib/storyline-card-rules");
+const { RESULT_LEAK, storylineFor } = require("./lib/storyline-card-rules");
 const {
   buildStandingsIndex,
   hasCurrentLadderSignal,
@@ -16,6 +16,11 @@ const standingsAwareOverrides = Object.entries(overrides.events)
   .filter(([, override]) => hasCurrentLadderSignal(override));
 const inputs = ["feeds/incoming/events.json", "data/events.json"];
 let checked = 0;
+
+assert.equal(RESULT_LEAK.test("Leeds lost only three of their final 14 matches last season before returning to the Champions League."), false, "historical form and competition names must not be mistaken for this fixture's hidden result");
+assert.equal(RESULT_LEAK.test("Leeds retained a physical 3-4-2-1 structure."), false, "a tactical formation must not be mistaken for a scoreline");
+assert.equal(RESULT_LEAK.test("Leeds lost to Brentford."), true, "a direct completed-result statement must remain blocked from spoiler-off copy");
+assert.equal(RESULT_LEAK.test("Leeds 3-4 Brentford."), true, "a completed scoreline must remain blocked from spoiler-off copy");
 
 inputs.forEach(input => {
   const feed = readJson(path.resolve(input));

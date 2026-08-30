@@ -60,6 +60,44 @@ async function run(){
     SUPABASE_URL: "javascript:alert(1)",
     SUPABASE_PUBLISHABLE_KEY: "sb_publishable_test",
   }).configured, false, "invalid project URLs must not be accepted");
+  assert.deepEqual(
+    server.supabaseServiceRoleConfig({
+      SUPABASE_URL:"https://project-ref.supabase.co",
+      SUPABASE_PUBLISHABLE_KEY:"sb_publishable_test",
+      SUPABASE_SECRET_KEY:"sb_secret_current_server_key",
+      SUPABASE_SERVICE_ROLE_KEY:"legacy-service-role",
+    }),
+    {
+      configured:true,
+      url:"https://project-ref.supabase.co",
+      publishableKey:"sb_publishable_test",
+      serviceRoleKey:"sb_secret_current_server_key",
+      opaqueSecret:true,
+    },
+    "the current server secret must replace a stale legacy service-role credential",
+  );
+  let opaqueSecretHeaders=null;
+  await server.supabaseServiceRequest("/rest/v1/test",{
+    environment:{
+      SUPABASE_URL:"https://project-ref.supabase.co",
+      SUPABASE_PUBLISHABLE_KEY:"sb_publishable_test",
+      SUPABASE_SECRET_KEY:"sb_secret_current_server_key",
+    },
+    fetchImpl:async(_url,options)=>{opaqueSecretHeaders=options.headers;return fetchResponse([]);},
+  });
+  assert.equal(opaqueSecretHeaders.apikey,"sb_secret_current_server_key");
+  assert.equal(opaqueSecretHeaders.Authorization,undefined,"opaque server secrets are API keys, not bearer JWTs");
+  let legacyServiceHeaders=null;
+  await server.supabaseServiceRequest("/rest/v1/test",{
+    environment:{
+      SUPABASE_URL:"https://project-ref.supabase.co",
+      SUPABASE_PUBLISHABLE_KEY:"sb_publishable_test",
+      SUPABASE_SERVICE_ROLE_KEY:"legacy-service-role-jwt",
+    },
+    fetchImpl:async(_url,options)=>{legacyServiceHeaders=options.headers;return fetchResponse([]);},
+  });
+  assert.equal(legacyServiceHeaders.apikey,"legacy-service-role-jwt");
+  assert.equal(legacyServiceHeaders.Authorization,"Bearer legacy-service-role-jwt","legacy service-role JWTs must keep their bearer header during migration");
   assert.equal(clientAddress({headers:{"x-forwarded-for":"203.0.113.8","x-vercel-forwarded-for":"198.51.100.250"}}),"203.0.113.8","an attacker-supplied alternate header must never override Vercel's canonical x-forwarded-for");
 
   const normalized = server.normalizeUserState({

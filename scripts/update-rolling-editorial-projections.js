@@ -127,6 +127,16 @@ function bracketNarrative(event, reference){
     reference,
   };
 }
+function tennisTournamentNarrative(event, knowledge){
+  if (event.narrativeType !== "tennis-tournament-overview") return null;
+  const year = String(event.date || "").slice(0, 4);
+  const family = String(event.eventSeriesId || "").replace(/^event-series:/, "");
+  if (!year || !family) return null;
+  const targetId = `major-event:${family}-${year}`;
+  const projection = projectionForTarget(knowledge, "major-event", { id:targetId, eventId:targetId });
+  if (!projection || projection.generationMode !== "researched") return null;
+  return projection;
+}
 function build({ knowledge, feed, context, f1, reference }){
   const earliest = reference.getTime() - 7 * DAY_MS;
   const latest = reference.getTime() + 30 * DAY_MS;
@@ -142,7 +152,15 @@ function build({ knowledge, feed, context, f1, reference }){
     const team = teamNarrative(event, context, reference);
     const motor = team ? null : f1Narrative(event, f1, reference);
     const bracket = team || motor ? null : bracketNarrative(event, reference);
-    if (!team && !motor && !bracket){ unsupported.push(idFor(event)); return; }
+    const tournament = team || motor || bracket ? null : tennisTournamentNarrative(event, knowledge);
+    if (!team && !motor && !bracket && !tournament){
+      // Tournament overview cards without their own researched projection are
+      // deliberately served by the disclosed crowd panel. Do not turn their
+      // calendar, venue or broadcaster fields into editorial filler.
+      if (event.narrativeType === "tennis-tournament-overview") return;
+      unsupported.push(idFor(event));
+      return;
+    }
     const projectionId = `projection:rolling:${slug(idFor(event))}`;
     let threadIds;
     let factIds;
@@ -176,7 +194,7 @@ function build({ knowledge, feed, context, f1, reference }){
       sourceIds = [motor.sourceId];
       hook = motor.safeHook;
       synopsis = motor.safeSynopsis;
-    } else {
+    } else if (bracket) {
       upsert(knowledge.sources, { id:bracket.sourceId, name:"AFL finals bracket", url:bracket.source.sourceUrl, sourceType:"official", checkedAt:bracket.source.checkedAt });
       upsert(knowledge.subjects, { id:"subject:rolling:afl-finals", kind:"series", name:"2026 AFL Finals Series" });
       upsert(knowledge.narrativeFacts, bracket.fact);
@@ -186,6 +204,13 @@ function build({ knowledge, feed, context, f1, reference }){
       sourceIds = [bracket.sourceId];
       hook = bracket.hook;
       synopsis = bracket.synopsis;
+    } else {
+      threadIds = [...tournament.threadIds];
+      factIds = [...tournament.factIds];
+      sourceIds = [...tournament.sourceIds];
+      hook = fit(`Tournament view: ${tournament.hook}`, 180);
+      synopsis = fit(`Across the tournament overview, ${tournament.synopsis.charAt(0).toLowerCase()}${tournament.synopsis.slice(1)}`, 700);
+      synopsisSpoilerOn = tournament.synopsisSpoilerOn;
     }
     upsert(knowledge.eventProjections, {
       id:projectionId,

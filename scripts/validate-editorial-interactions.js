@@ -19,8 +19,9 @@ projectedRecords.forEach(record => {
   assert(projection, `${record.id} must reference a known editorial projection`);
   assert.equal(record.editorialNarrative.synopsis, projection.synopsis, `${record.id} must carry the researched synopsis into selected and opened card states`);
 });
-assert(html.includes("editorialNarrativeCopyForDisplay(ev, state)"), "selected and opened Feed cards must resolve their copy from the validated editorial projection before structural fallbacks");
-assert(html.includes("editorialNarrativeCopyForDisplay(record, state)"), "selected and opened Major Events cards must resolve their copy from the validated editorial projection before structural fallbacks");
+assert.match(html, /function buildIndependentContext\(record, state\)[\s\S]*editorialNarrativeCopyForDisplay\(record, state\)/, "the boxed Independent context component must resolve selected and opened copy from the validated editorial projection");
+assert.equal((html.match(/buildIndependentContext\(ev, state\)/g) || []).length, 2, "selected and opened Feed cards must use the same validated Independent context box");
+assert(html.includes("buildIndependentContext(record, state)"), "selected and opened Major Events cards must use the validated Independent context box");
 assert.match(html, /function mergeFootballFixtureEvents\(events\)[^]*semanticIndexes[^]*semanticallyMerged\[existingIndex\] = \{ \.\.\.semanticallyMerged\[existingIndex\], \.\.\.event \}/, "lazy football fixture bundles must yield to the later canonical event and its researched projection regardless of page-load order");
 
 assert.equal(typeof followFirst.toggleFeedback, "function", "follow-first feedback must expose a repeat-tap toggle");

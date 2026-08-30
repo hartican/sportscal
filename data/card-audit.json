@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-08-30T09:42:23.995Z",
+  "generatedAt": "2026-08-30T23:05:13.288Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -12,9 +12,9 @@
     "minimumContextSignals": 2
   },
   "summary": {
-    "totalMajorCards": 161,
+    "totalMajorCards": 162,
     "completed": 122,
-    "upcoming": 39,
+    "upcoming": 40,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -1963,6 +1963,22 @@
       "sport": "F1",
       "date": "2026-08-24",
       "status": "completed",
+      "stakes": 4,
+      "isMajorCard": true,
+      "hasSpoilerOffCopy": true,
+      "hasSpoilerOnCopy": true,
+      "needsPreviewRefresh": false,
+      "needsRecap": false,
+      "needsEditorialRefresh": false,
+      "isStale": false,
+      "issues": []
+    },
+    {
+      "id": "tennis-tournament-grand-slam-us-open-2026-2026-08-31",
+      "name": "US Open — Grand Slam",
+      "sport": "Tennis",
+      "date": "2026-08-31",
+      "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,

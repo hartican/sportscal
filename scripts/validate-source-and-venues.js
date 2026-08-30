@@ -60,6 +60,8 @@ assert.equal(venues.resolve("Canberra Stadium").id, "gio-stadium");
 assert.equal(venues.resolve("UTAS Stadium, Launceston").displayName, "York Park");
 assert.equal(venues.resolve("Cincinnati, USA", { key: "tennis" }).displayName, "Cincinnati Open", "broad location aliases must resolve only with event context");
 assert.equal(venues.resolve("Cincinnati, USA").audited, false, "a city must not globally collapse to one venue");
+assert.equal(venues.resolve("New York, USA", { key: "tennis" }).officialName, "USTA Billie Jean King National Tennis Center", "the US Open tournament overview must resolve its broad city label through tennis context");
+assert.equal(venues.resolve("New York, USA").audited, false, "New York must not globally collapse to the US Open grounds");
 assert.equal(venues.resolve("Etihad Stadium", { key: "premier-league" }).id, "etihad-stadium-manchester", "the EPL context must resolve Manchester's Etihad without introducing a global venue collision");
 assert.equal(venues.resolve("Etihad Stadium").audited, false, "Etihad Stadium must not globally collapse to Manchester");
 assert(html.includes('src="config/source-trust.js"') && html.includes('src="config/venue-registry.js"'), "the source trust and venue models must load before the app state");

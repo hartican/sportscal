@@ -113,8 +113,12 @@ async function snapshotContract(){
   delete require.cache[serverPath];
   try{
     const server=require(serverPath);
-    const [snapshot]=await server.snapshots([eventId],{userId,now:new Date("2026-06-13T02:00:00.000Z")});
+    const [snapshot]=await server.snapshots([eventId],{userId,now:new Date("2026-06-13T02:00:00.000Z"),demoMode:"public"});
     assert.equal(snapshot.phase,"heat");
+    assert.equal(snapshot.aggregate.contributorMix.real,1);
+    assert(snapshot.aggregate.contributorMix.demo>0,"public mode must disclose deterministic demo cohorts separately");
+    assert.equal(snapshot.crowdEditorial.mode,"demo","fewer than three real contributors must retain the demo disclosure");
+    assert.equal(snapshot.series,undefined,"batch summaries must not carry graph payloads until card detail is requested");
     assert.deepEqual(snapshot.currentUser.submissions.heat,{
       phase:"heat",rating:5,tags:["Big stakes"],bucketStart:"1970-01-01T00:00:00.000Z",
       submitted:true,submittedAt:"2026-06-13T01:00:00.000Z",pointsAwarded:3,

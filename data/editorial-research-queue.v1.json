@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-08-30T09:42:19.854Z",
+  "generatedAt": "2026-08-30T23:04:59.745Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
@@ -9,7 +9,7 @@
   },
   "consequenceMigration": {
     "covered": 1,
-    "queued": 93
+    "queued": 89
   },
   "entries": [
     {
@@ -221,62 +221,6 @@
       "consequenceResearchRequired": true,
       "priority": "marquee",
       "refreshDeadline": "2026-10-01T00:00:00.000Z"
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:premier-league:128929",
-      "title": "Brighton & Hove Albion v Aston Villa",
-      "stakes": 3,
-      "startsAt": "2026-08-23T13:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:epl-2026-27-128929",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:premier-league:128930",
-      "title": "Manchester City v Bournemouth",
-      "stakes": 3,
-      "startsAt": "2026-08-23T13:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:epl-2026-27-128930",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "evt_25",
-      "title": "R12 Dutch GP Race",
-      "stakes": 4,
-      "startsAt": "2026-08-23T14:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:feed:dutch-gp-race-2026",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:premier-league:128931",
-      "title": "Newcastle United v Liverpool",
-      "stakes": 3,
-      "startsAt": "2026-08-23T15:30:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:epl-2026-27-128931",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -528,7 +472,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-30T13:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -542,7 +486,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-30T13:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -556,7 +500,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-30T13:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -570,7 +514,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-30T15:30:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",

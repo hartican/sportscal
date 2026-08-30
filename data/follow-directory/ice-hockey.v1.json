@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "ice-hockey",
   "label": "Ice Hockey",
-  "generatedAt": "2026-08-30T09:41:50.636Z",
+  "generatedAt": "2026-08-30T23:04:19.738Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -31516,6 +31516,38 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.nhl.com/wpg/roster"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nhl:8483466",
+      "displayName": "Kevin Korchinski",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "CAN",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nhl:chi",
+      "leagueId": "competition:nhl",
+      "teamKind": null,
+      "position": "D",
+      "identityId": "athlete:nhl:8483466",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/CHI/8483466.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.nhl.com/chi/roster"
       ],
       "watchPoolMember": false,
       "statusCategory": null,

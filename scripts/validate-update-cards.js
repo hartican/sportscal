@@ -49,6 +49,9 @@ assert(localSteps.some(step => step[0] === "scripts/snapshot-editorial-nothingsc
 assert(localSteps.some(step => step[0] === "scripts/build-editorial-research-queue.js" && step.includes("--write")), "every canonical update must recalculate the rolling stakes-2+ editorial queue");
 assert(localSteps.some(step => step[0] === "scripts/update-editorial-audience-memory.js" && step.includes("--write")), "every canonical update must update qualifying Sentiment memory before projection");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-audience-memory.js"), "every canonical update must validate Sentiment privacy, threshold, expiry and explicit carry rules");
+assert(localSteps.some(step => step[0] === "scripts/validate-nsc-demo-panel.js"), "every canonical update must validate deterministic demo crowd isolation");
+assert(localSteps.some(step => step[0] === "scripts/validate-crowd-editorial-coverage.js"), "every canonical update must require public copy for every Feed and Events card");
+assert(localSteps.some(step => step[0] === "scripts/validate-mixed-feed-navigation.js"), "every canonical update must keep Feed mixed after round-summary navigation");
 assert(localSteps.some(step => step[0] === "scripts/validate-mobile-feed-events-brand-pass.js"), "every canonical update must enforce the mobile provider, Events and brand reliability pass");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-sport-reliability-pass.js"), "every canonical update must enforce Feed stability, nineteen-sport coverage and event reliability");
 assert(

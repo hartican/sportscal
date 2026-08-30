@@ -3,8 +3,8 @@
   "provider": "WTA",
   "tour": "WTA",
   "rankingSnapshotDate": "2026-08-31",
-  "extractedAt": "2026-08-30T09:41:34.864Z",
-  "publicationCheckedAt": "2026-08-30T09:41:34.864Z",
+  "extractedAt": "2026-08-30T23:04:06.115Z",
+  "publicationCheckedAt": "2026-08-30T23:04:06.115Z",
   "sourceTrust": "verified",
   "ingestionMode": "public_first_party",
   "sourceUrl": "https://api.wtatennis.com/tennis/players/ranked",
@@ -622,7 +622,7 @@
       "nationalityCode": "AUS",
       "points": 285,
       "providerId": "326653",
-      "rank": 259,
+      "rank": 260,
       "selectionReasons": [
         "australian"
       ]
@@ -632,7 +632,7 @@
       "nationalityCode": "AUS",
       "points": 259,
       "providerId": "330920",
-      "rank": 273,
+      "rank": 277,
       "selectionReasons": [
         "australian"
       ]
@@ -642,7 +642,7 @@
       "nationalityCode": "AUS",
       "points": 256,
       "providerId": "320013",
-      "rank": 277,
+      "rank": 281,
       "selectionReasons": [
         "australian"
       ]
@@ -652,7 +652,7 @@
       "nationalityCode": "AUS",
       "points": 149,
       "providerId": "326908",
-      "rank": 420,
+      "rank": 424,
       "selectionReasons": [
         "australian"
       ]
@@ -672,7 +672,7 @@
       "nationalityCode": "AUS",
       "points": 126,
       "providerId": "312413",
-      "rank": 464,
+      "rank": 465,
       "selectionReasons": [
         "australian"
       ]
@@ -680,7 +680,7 @@
     {
       "name": "Tahlia Kokkinis",
       "nationalityCode": "AUS",
-      "points": 104,
+      "points": 106,
       "providerId": "332661",
       "rank": 526,
       "selectionReasons": [
@@ -692,7 +692,7 @@
       "nationalityCode": "AUS",
       "points": 79,
       "providerId": "331634",
-      "rank": 598,
+      "rank": 603,
       "selectionReasons": [
         "australian"
       ]
@@ -702,7 +702,7 @@
       "nationalityCode": "AUS",
       "points": 70,
       "providerId": "330075",
-      "rank": 640,
+      "rank": 643,
       "selectionReasons": [
         "australian"
       ]
@@ -712,7 +712,7 @@
       "nationalityCode": "AUS",
       "points": 65,
       "providerId": "325430",
-      "rank": 672,
+      "rank": 673,
       "selectionReasons": [
         "australian"
       ]
@@ -722,7 +722,7 @@
       "nationalityCode": "AUS",
       "points": 60,
       "providerId": "325827",
-      "rank": 699,
+      "rank": 701,
       "selectionReasons": [
         "australian"
       ]
@@ -732,7 +732,7 @@
       "nationalityCode": "AUS",
       "points": 52,
       "providerId": "331645",
-      "rank": 736,
+      "rank": 737,
       "selectionReasons": [
         "australian"
       ]
@@ -742,7 +742,7 @@
       "nationalityCode": "AUS",
       "points": 41,
       "providerId": "332736",
-      "rank": 819,
+      "rank": 820,
       "selectionReasons": [
         "australian"
       ]
@@ -752,7 +752,7 @@
       "nationalityCode": "AUS",
       "points": 35,
       "providerId": "329185",
-      "rank": 877,
+      "rank": 878,
       "selectionReasons": [
         "australian"
       ]
@@ -782,7 +782,7 @@
       "nationalityCode": "AUS",
       "points": 27,
       "providerId": "328327",
-      "rank": 954,
+      "rank": 955,
       "selectionReasons": [
         "australian"
       ]
@@ -792,7 +792,7 @@
       "nationalityCode": "AUS",
       "points": 18,
       "providerId": "332380",
-      "rank": 1055,
+      "rank": 1056,
       "selectionReasons": [
         "australian"
       ]
@@ -802,7 +802,7 @@
       "nationalityCode": "AUS",
       "points": 17,
       "providerId": "321903",
-      "rank": 1068,
+      "rank": 1070,
       "selectionReasons": [
         "australian"
       ]
@@ -822,7 +822,7 @@
       "nationalityCode": "AUS",
       "points": 14,
       "providerId": "335810",
-      "rank": 1124,
+      "rank": 1127,
       "selectionReasons": [
         "australian"
       ]
@@ -832,7 +832,7 @@
       "nationalityCode": "AUS",
       "points": 13,
       "providerId": "335471",
-      "rank": 1138,
+      "rank": 1142,
       "selectionReasons": [
         "australian"
       ]
@@ -842,7 +842,7 @@
       "nationalityCode": "AUS",
       "points": 13,
       "providerId": "333885",
-      "rank": 1144,
+      "rank": 1148,
       "selectionReasons": [
         "australian"
       ]
@@ -852,7 +852,7 @@
       "nationalityCode": "AUS",
       "points": 12,
       "providerId": "336364",
-      "rank": 1169,
+      "rank": 1172,
       "selectionReasons": [
         "australian"
       ]
@@ -862,7 +862,7 @@
       "nationalityCode": "AUS",
       "points": 11,
       "providerId": "334185",
-      "rank": 1190,
+      "rank": 1191,
       "selectionReasons": [
         "australian"
       ]
@@ -872,7 +872,7 @@
       "nationalityCode": "AUS",
       "points": 10,
       "providerId": "332865",
-      "rank": 1230,
+      "rank": 1231,
       "selectionReasons": [
         "australian"
       ]
@@ -882,7 +882,7 @@
       "nationalityCode": "AUS",
       "points": 9,
       "providerId": "334992",
-      "rank": 1279,
+      "rank": 1281,
       "selectionReasons": [
         "australian"
       ]
@@ -892,7 +892,7 @@
       "nationalityCode": "AUS",
       "points": 9,
       "providerId": "334184",
-      "rank": 1298,
+      "rank": 1300,
       "selectionReasons": [
         "australian"
       ]
@@ -902,7 +902,7 @@
       "nationalityCode": "AUS",
       "points": 8,
       "providerId": "331640",
-      "rank": 1334,
+      "rank": 1335,
       "selectionReasons": [
         "australian"
       ]
@@ -942,7 +942,7 @@
       "nationalityCode": "AUS",
       "points": 6,
       "providerId": "332384",
-      "rank": 1420,
+      "rank": 1421,
       "selectionReasons": [
         "australian"
       ]
@@ -952,7 +952,7 @@
       "nationalityCode": "AUS",
       "points": 4,
       "providerId": "332645",
-      "rank": 1482,
+      "rank": 1483,
       "selectionReasons": [
         "australian"
       ]
@@ -962,7 +962,7 @@
       "nationalityCode": "AUS",
       "points": 3,
       "providerId": "333234",
-      "rank": 1525,
+      "rank": 1526,
       "selectionReasons": [
         "australian"
       ]
@@ -972,7 +972,7 @@
       "nationalityCode": "AUS",
       "points": 3,
       "providerId": "335370",
-      "rank": 1525,
+      "rank": 1526,
       "selectionReasons": [
         "australian"
       ]
@@ -982,7 +982,7 @@
       "nationalityCode": "AUS",
       "points": 3,
       "providerId": "322579",
-      "rank": 1525,
+      "rank": 1526,
       "selectionReasons": [
         "australian"
       ]

@@ -1,4 +1,4 @@
-const RESULT_LEAK = /\b(?:won|lost|beat|defeated|winner|loser|score|margin|advanced|reached|eliminated|victory|champions?|hat[- ]trick|finished\s+(?:first|second|third)|took\s+pole|claimed\s+(?:the\s+)?(?:title|lead))\b|\b\d{1,3}\s*[-–]\s*\d{1,3}\b/i;
+const RESULT_LEAK = /\b(?:won|lost\s+(?:to|against|by)|beat|defeated|winner|loser|score|margin|advanced|reached|eliminated|victory|(?:became|crowned)\s+champions?|hat[- ]trick|finished\s+(?:first|second|third)|took\s+pole|claimed\s+(?:the\s+)?(?:title|lead))\b|(?<![\d–-])\b\d{1,3}\s*[-–]\s*\d{1,3}\b(?!\s*[-–]\s*\d)/i;
 const PREVIEW_LEAK = /\b(?:won|beat|defeated|completed|final score)\b|\blost\b(?!\s+time)/i;
 const PREVIEW_TENSE = /\b(?:will|awaits|host|upcoming)\b/i;
 const STORYLINE_OVERRIDES = require("../../config/storyline-overrides.js");

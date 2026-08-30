@@ -115,10 +115,10 @@ assert(eventSchema.$defs.editorialNarrative.properties.schemaVersion.enum.includ
 assert(majorSchema.$defs.event.properties.editorialNarrative, "the major-event schema must publish the event editorial projection contract");
 
 const html = fs.readFileSync("index.html", "utf8");
-assert.match(html, /state === "compact"[^]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(ev\), editorialConsequenceForDisplay\(ev\)\)/, "researched feed cards must reveal their validated editorial hooks and dedicated consequence at L0");
-assert.match(html, /editorialNarrativeCopyForDisplay\(ev, state\)[^]*selectedSentenceForDisplay\(ev\)/, "selected Feed cards must prefer validated editorial copy to structural fallback text");
+assert.match(html, /state === "compact"[^]*buildCrowdEditorialL0\(socialSnapshot\)[^]*else if \(enrichment\.stakesScore >= 2\)[^]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(ev\), editorialConsequenceForDisplay\(ev\)\)/, "Feed cards must prefer deterministic crowd copy and retain validated sourced editorial as the compact fallback");
+assert.match(html, /function buildIndependentContext\(record, state\)[^]*editorialNarrativeCopyForDisplay\(record, state\)[^]*labelText:"Independent context"/, "expanded Feed and Events cards must keep validated sourced editorial in the independent-context box");
 assert.match(html, /editorialNarrativeCopyForDisplay\(record, state\)/, "selected and opened Major Events cards must render their validated editorial copy");
-assert.match(html, /state === "compact"[^]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(record\), editorialConsequenceForDisplay\(record\)\)/, "major-event cards must reveal only validated editorial hooks and consequences at L0");
+assert.match(html, /state === "compact"[^]*buildCrowdEditorialL0\(socialSnapshot\)[^]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(record\), editorialConsequenceForDisplay\(record\)\)/, "major-event cards must prefer deterministic crowd copy and retain validated editorial as the compact fallback");
 assert.match(html, /completed && isSpoilerVisible\(record\)[^]*spoilerOnSentence[^]*previewSentence/, "completed spoiler-on cards must prefer sourced result consequences while spoiler-off retains preview copy");
 assert.doesNotMatch(html, /buildEditorialL0Hook\((?:selectedSentenceForDisplay\(ev\)|record\.summary)/, "schedule and structural fallback copy must never be relabelled Why it matters");
 assert.match(html, /editorial-l0-hook-label[^]*Why it matters/, "L0 hooks need a visible editorial label");

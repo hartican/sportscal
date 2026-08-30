@@ -1,14 +1,31 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-30T09:42:23.878Z",
+  "generatedAt": "2026-08-30T23:05:12.963Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 1,
-    "passed": 1,
+    "due": 2,
+    "passed": 2,
     "failed": 0
   },
   "cards": [
+    {
+      "id": "tennis-tournament-grand-slam-us-open-2026-2026-08-31",
+      "name": "US Open — Grand Slam",
+      "sport": "Tennis",
+      "date": "2026-08-31",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:matchup",
+        "narrative:path",
+        "narrative:history"
+      ],
+      "sourceUrl": "https://www.usopen.org/en_US/about/eventschedule.html",
+      "issues": []
+    },
     {
       "id": "evt_27",
       "name": "R13 Italian GP Race",

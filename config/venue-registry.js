@@ -75,6 +75,7 @@
     ["york-park", "York Park", "UTAS Stadium", ["UTAS Stadium", "UTAS Stadium, Launceston", "York Park"]],
     ["wollongong-showground", "WIN Stadium", "WIN Stadium", ["WIN Stadium", "Wollongong Showground"]],
     ["lindner-family-tennis-center", "Cincinnati Open", "Lindner Family Tennis Center", ["Lindner Family Tennis Center"]],
+    ["usta-billie-jean-king-national-tennis-center", "US Open", "USTA Billie Jean King National Tennis Center", ["USTA Billie Jean King National Tennis Center", "Billie Jean King National Tennis Center"]],
     ["nevis-range-downhill", "Fort William", "Nevis Range Mountain Experience", ["Nevis Range Mountain Experience", "Nevis Range downhill track"]],
     ["margaret-river-main-break", "Main Break", "Surfers Point", ["Main Break", "Surfers Point"]],
     ["banzai-pipeline", "Pipeline", "ʻEhukai Beach Park", ["Banzai Pipeline", "Pipeline", "ʻEhukai Beach Park"]],
@@ -109,6 +110,7 @@
   const CONTEXTUAL_ALIASES = Object.freeze({
     "brisbane stadium": Object.freeze({ id: "lang-park", keys: Object.freeze(["rugby"]) }),
     "cincinnati usa": Object.freeze({ id: "lindner-family-tennis-center", keys: Object.freeze(["tennis", "wimbledon"]) }),
+    "new york usa": Object.freeze({ id: "usta-billie-jean-king-national-tennis-center", keys: Object.freeze(["tennis"]) }),
     "fort william": Object.freeze({ id: "nevis-range-downhill", keys: Object.freeze(["downhill-mtb"]) }),
     "margaret river western australia": Object.freeze({ id: "margaret-river-main-break", keys: Object.freeze(["wsl"]) }),
     "honolulu hawaii": Object.freeze({ id: "banzai-pipeline", keys: Object.freeze(["big-wave"]) }),
