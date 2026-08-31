@@ -27,10 +27,6 @@
   ],
   "rewrites": [
     {
-      "source": "/lib/nsc-modelled-panel.js",
-      "destination": "/api/participation?mode=private-module"
-    },
-    {
       "source": "/api/nothingscore",
       "destination": "/api/participation?mode=nothingscore"
     },

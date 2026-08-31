@@ -100,6 +100,6 @@ assert(vercel.redirects.some(rule=>rule.source==="/admin-comms.html"&&rule.desti
 assert(vercel.rewrites.some(rule=>rule.source==="/api/admin/users"&&rule.destination==="/api/comms?mode=admin-users"));
 assert(vercel.rewrites.some(rule=>rule.source==="/api/admin/reports"&&rule.destination==="/api/comms?mode=admin-reports"));
 assert(vercel.rewrites.some(rule=>rule.source==="/api/admin/panel"&&rule.destination==="/api/comms?mode=admin-panel"));
-assert.equal(require("node:fs").readdirSync(path.join(ROOT,"api")).filter(name=>name.endsWith(".js")).length,12,"the deployment must stay within Vercel Hobby's 12-function limit");
+assert.equal(require("node:fs").readdirSync(path.join(ROOT,"api")).filter(name=>name.endsWith(".js")&&!name.startsWith("_")).length,12,"the deployment must stay within Vercel Hobby's 12-function limit while excluding Vercel private utility files");
 
 console.log("Owner console validation passed: server-role auth, opaque account references, independent moderation actions, audit ledger, privacy and shared routes are wired.");

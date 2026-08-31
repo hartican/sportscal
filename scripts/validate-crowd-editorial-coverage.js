@@ -4,7 +4,7 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
-const demoPanel = require("../lib/nsc-modelled-panel");
+const demoPanel = require("../api/_nsc-modelled-panel");
 const nsc = require("../config/nothingscore");
 const { editorialNarrativeReadyForCard } = require("../config/enrichment-engine");
 const server = require("../lib/nothingscore-server");

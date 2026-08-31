@@ -3,7 +3,7 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
-const demo = require("../lib/nsc-modelled-panel");
+const demo = require("../api/_nsc-modelled-panel");
 const nsc = require("../config/nothingscore");
 const server = require("../lib/nothingscore-server");
 const { safeSignal, validateSnapshot } = require("./snapshot-editorial-nothingscore");
@@ -129,10 +129,10 @@ assert.deepEqual(validateSnapshot(document),[]);
 assert.equal(JSON.stringify(safe).includes("demo:"),false,"editorial memory must contain no demo or real identity");
 assert.equal(safe.impact.uniqueContributorCount,3,"privacy-safe audience memory must retain the real aggregate only");
 
-const html=fs.readFileSync("index.html","utf8"),serverSource=fs.readFileSync("lib/nothingscore-server.js","utf8"),demoSource=fs.readFileSync("lib/nsc-modelled-panel.js","utf8"),visualSource=fs.readFileSync("config/nsc-visual.js","utf8"),participationSource=fs.readFileSync("api/participation.js","utf8"),vercel=JSON.parse(fs.readFileSync("vercel.json","utf8"));
+const html=fs.readFileSync("index.html","utf8"),serverSource=fs.readFileSync("lib/nothingscore-server.js","utf8"),demoSource=fs.readFileSync("api/_nsc-modelled-panel.js","utf8"),visualSource=fs.readFileSync("config/nsc-visual.js","utf8");
 assert.equal(fs.existsSync("config/nsc-demo-panel.js"),false,"modelled panel definitions must not remain in the public config directory");
-assert(vercel.rewrites.some(rewrite=>rewrite.source==="/lib/nsc-modelled-panel.js"&&rewrite.destination==="/api/participation?mode=private-module"),"the server module path must be denied by the existing multiplexed API function");
-assert.match(participationSource,/routeMode === "private-module"[\s\S]{0,220}Cache-Control[\s\S]{0,220}status\(404\)/,"the private module route must return a non-cacheable 404 before any participation handling");
+assert.equal(fs.existsSync("lib/nsc-modelled-panel.js"),false,"modelled panel definitions must not remain in the public static library directory");
+assert(fs.existsSync("api/_nsc-modelled-panel.js"),"the model must use Vercel's underscore-prefixed private API utility convention");
 assert.match(serverSource,/Early panel · includes modelled responses\./);
 assert.match(html,/Independent context/);
 assert.doesNotMatch(html,/nsc-demo-badge|>Demo</,"modelled personas must never appear as named public contributors");
