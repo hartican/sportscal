@@ -39,8 +39,8 @@ async function main(){
     if(table==="nothingsports_nsc_admin_audit"&&method==="POST"){audits.push(options.body);return[]}
     throw new Error(`Unhandled mock request ${method} ${path}`);
   };
-  delete require.cache[require.resolve("../lib/admin-moderation")];delete require.cache[require.resolve("../api/admin-users")];delete require.cache[require.resolve("../api/admin-reports")];
-  const usersHandler=require("../api/admin-users"),reportsHandler=require("../api/admin-reports");
+  delete require.cache[require.resolve("../lib/admin-moderation")];delete require.cache[require.resolve("../lib/admin-api")];
+  const{usersHandler,reportsHandler}=require("../lib/admin-api");
   try{
     const usersResponse=responseCapture();await usersHandler({method:"GET",headers:{authorization:"Bearer test"},query:{q:"jim"}},usersResponse);
     assert.equal(usersResponse.statusCode,200);assert.equal(usersResponse.body.users.length,1);assert.equal(usersResponse.body.users[0].email,"jim@example.test");assert.equal(Object.hasOwn(usersResponse.body.users[0],"id"),false,"raw Auth IDs must not leave the users API");

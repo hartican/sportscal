@@ -36,11 +36,11 @@
     },
     {
       "source": "/api/admin/users",
-      "destination": "/api/admin-users"
+      "destination": "/api/comms?mode=admin-users"
     },
     {
       "source": "/api/admin/reports",
-      "destination": "/api/admin-reports"
+      "destination": "/api/comms?mode=admin-reports"
     },
     {
       "source": "/live",

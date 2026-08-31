@@ -31,13 +31,14 @@ const dismissed=admin._test.reportPatch("dismiss","00000000-0000-4000-8000-00000
 assert.equal(dismissed.status,"dismissed");
 assert.equal(dismissed.resolved_at,"2026-08-31T00:00:00.000Z");
 
-const adminSource=read("lib/admin-moderation.js"),usersApi=read("api/admin-users.js"),reportsApi=read("api/admin-reports.js"),html=read("admin.html"),commsUi=read("config/admin-comms-ui.js"),worker=read("service-worker.js"),sql=read("supabase/nothingscore-moderation.sql"),nscSql=read("supabase/nothingscore.sql"),serverSync=read("config/server-sync.js"),legacy=read("admin-comms.html"),vercel=JSON.parse(read("vercel.json"));
+const adminSource=read("lib/admin-moderation.js"),adminApi=read("lib/admin-api.js"),commsApi=read("api/comms.js"),html=read("admin.html"),commsUi=read("config/admin-comms-ui.js"),worker=read("service-worker.js"),sql=read("supabase/nothingscore-moderation.sql"),nscSql=read("supabase/nothingscore.sql"),serverSync=read("config/server-sync.js"),legacy=read("admin-comms.html"),vercel=JSON.parse(read("vercel.json"));
 assert.match(adminSource,/app_metadata/);
 assert.doesNotMatch(adminSource,/user_metadata\?\.role|email.*admin/i,"client-editable metadata and email must never grant access");
 assert.match(adminSource,/PARTICIPATION_SECRET\|\|environment\.CHAT_GUEST_LINK_SECRET/);
 assert.match(adminSource,/Cache-Control","private, no-store/);
-assert.match(usersApi,/confirm!==true/);
-assert.match(reportsApi,/admin\.applyReportAction/);
+assert.match(adminApi,/confirm!==true/);
+assert.match(adminApi,/admin\.applyReportAction/);
+assert.match(commsApi,/mode === "admin-users"[\s\S]+mode === "admin-reports"/,"the existing communications function must multiplex both admin APIs within the Hobby function limit");
 assert.match(adminSource,/await audit\(/,"every profile, pilot and report change must enter the audit ledger");
 assert.match(adminSource,/reviewed_by/);
 assert.match(adminSource,/resolved_at/);
@@ -69,7 +70,8 @@ assert.match(worker,/"\/config\/admin-comms-ui\.js\?v=195"/);
 assert(vercel.redirects.some(rule=>rule.source==="/admin"&&rule.destination==="/admin/users"));
 assert(vercel.redirects.some(rule=>rule.source==="/admin-comms.html"&&rule.destination==="/admin/comms"));
 ["/admin/users","/admin/reports","/admin/comms"].forEach(route=>assert(vercel.rewrites.some(rule=>rule.source===route&&rule.destination==="/admin.html"),`${route} must use the shared owner shell`));
-assert(vercel.rewrites.some(rule=>rule.source==="/api/admin/users"&&rule.destination==="/api/admin-users"));
-assert(vercel.rewrites.some(rule=>rule.source==="/api/admin/reports"&&rule.destination==="/api/admin-reports"));
+assert(vercel.rewrites.some(rule=>rule.source==="/api/admin/users"&&rule.destination==="/api/comms?mode=admin-users"));
+assert(vercel.rewrites.some(rule=>rule.source==="/api/admin/reports"&&rule.destination==="/api/comms?mode=admin-reports"));
+assert.equal(require("node:fs").readdirSync(path.join(ROOT,"api")).filter(name=>name.endsWith(".js")).length,12,"the deployment must stay within Vercel Hobby's 12-function limit");
 
 console.log("Owner console validation passed: server-role auth, opaque account references, independent moderation actions, audit ledger, privacy and shared routes are wired.");

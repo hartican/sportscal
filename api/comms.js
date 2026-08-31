@@ -6,6 +6,7 @@ const {
   SupabaseRequestError, authenticatedUser, bearerToken, publicError, supabaseServiceRequest,
 } = require("../lib/supabase-server");
 const marquee = require("../config/marquee-campaigns");
+const adminApi = require("../lib/admin-api");
 
 const CAMPAIGNS = "nothingsports_marquee_campaigns";
 const ARTIFACT = path.join(__dirname, "../data/marquee-candidates.v1.json");
@@ -222,6 +223,9 @@ async function reopenExport(body){
 }
 
 module.exports = async function commsHandler(request, response){
+  const mode = clean(request?.query?.mode, 40);
+  if (mode === "admin-users") return adminApi.usersHandler(request, response);
+  if (mode === "admin-reports") return adminApi.reportsHandler(request, response);
   privateHeaders(response);
   try{
     if (!["GET", "POST"].includes(request.method || "GET")){ response.setHeader("Allow", "GET, POST"); response.status(405).json({ error:"Comms supports GET and POST only.", code:"method_not_allowed" }); return; }
