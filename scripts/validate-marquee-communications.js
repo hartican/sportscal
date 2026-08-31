@@ -165,6 +165,7 @@ async function main(){
   assert.match(adminSource, /Load server revision/);
   assert.match(adminSource, /data-save-retry/);
   assert.match(adminSource, /Undo/);
+  assert.match(commsSource, /undo_available/);
   assert.match(adminSource, /Publish live revision/);
   assert.match(adminSource, /Upload approved media/);
   assert.match(adminSource, /form\.append\("cacheControl","31536000"\)/, "signed Supabase uploads must use the supported multipart upload contract");
