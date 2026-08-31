@@ -3,6 +3,7 @@
 "use strict";
 
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
 const { buildServerFeed } = require("../lib/server-feed-pipeline");
 const { resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
 
@@ -138,5 +139,14 @@ assert(
   djokovicFeed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === DJOKOVIC_US_OPEN_ID),
   "the inherited Djokovic follow must materialise a first-page server card",
 );
+
+const html = fs.readFileSync("index.html", "utf8");
+assert.match(
+  html,
+  /function automaticallyFollowedMajorEventFixtures[^]*automaticEventFollowReason\(fixture\)[^]*const specialEvents = \[\.\.\.automaticallyFollowedMajorEventFixtures\(\), \.\.\.selectedMajorEventFixtures\(\)\]/,
+  "today's released Major Event fixtures must have a local automatic-follow backstop instead of requiring Add to Feed",
+);
+assert(html.includes('autoFeedToday ? "In Feed via follow" : "Auto-adds on match day"'), "Events must explain that followed fixtures enter Feed automatically");
+assert(html.includes("ensureFollowCollectionDirectories(userPreferences)"), "cloud-restored collection follows must load their membership directory after every shell update");
 
 console.log("Followed Liverpool and inherited top-10 Djokovic fixtures stay on page one around play.");

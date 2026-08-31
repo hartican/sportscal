@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="198">
+<meta name="app-shell-version" content="199">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7097,7 +7097,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=198")
+  : loadDeferredScript("config/national-team-identities.js?v=199")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -8090,7 +8090,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=198",
+  moduleScriptUrl: "config/major-events.js?v=199",
   url: "data/major-events.v1.json",
 });
 
@@ -8302,7 +8302,7 @@ function saveActiveProfileSections(sections){
 /* ============ STATE ============ */
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
-const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v3";
+const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v4";
 const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 let publicFeedManifest = null;
 let publicFeedNextPageIndex = 0;
@@ -9486,9 +9486,7 @@ function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
 }
 
 let userPreferences = loadPreferences();
-if (userPreferences.followFirst?.collectionFollows?.some(id => String(id).startsWith("collection:tennis:"))){
-  void loadFollowDirectoryChunk("tennis").catch(() => {});
-}
+void ensureFollowCollectionDirectories(userPreferences).catch(() => {});
 let ratings = loadRatings();
 let eventActions = loadEventActions();
 let eventSpoilerState = loadEventSpoilerState(eventActions);
@@ -9909,6 +9907,10 @@ function applyServerState(state){
   serverSyncApplying = true;
   try{
     userPreferences = mergePreferences(state.preferences || {});
+    void ensureFollowCollectionDirectories(userPreferences).then(() => {
+      rebuildDerivedCardCache(activeEvents);
+      renderAll({ preserveViewport:true });
+    }).catch(() => {});
     eventActions = state.eventUserState && typeof state.eventUserState === "object"
       ? migrateEventActionRecords(state.eventUserState)
       : {};
@@ -10777,10 +10779,13 @@ function applyServerFeed(payload){
 async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
   const interactionStartedAt = feedPerformanceNow();
   const hydration = startupFunnelFinished ? beginInSessionLoading("Refreshing Feed") : null;
+  const authenticatedSessionAvailable = Boolean(
+    signedInHint || serverPersistence.user || serverSyncClient?.getSession?.()
+  );
   const centralRebuildRequested = Boolean(
     serverSyncClient
-    && (signedInHint || serverPersistence.user || serverSyncClient.getSession?.())
-    && ["signedIn", "syncing", "error"].includes(serverPersistence.state)
+    && authenticatedSessionAvailable
+    && !["local", "signedOut"].includes(serverPersistence.state)
   );
   try{
     if (!quiet) showToast(centralRebuildRequested ? "Rebuilding your feed…" : "Loading the published feed…");
@@ -11760,6 +11765,22 @@ function selectedMajorEventFixtures(){
   return [...fixtures.values()].filter(event => eventMeetsDerivedRetention(event) && !eventIsAutoArchived(event));
 }
 
+function automaticallyFollowedMajorEventFixtures(reference = nowAEST()){
+  if (!majorEventsDocument?.events?.length) return [];
+  const todayKey = MAJOR_EVENTS?.dateKey?.(reference, "Australia/Sydney") || formatDateKey(reference);
+  const fixtures = new Map();
+  majorEventsDocument.events.filter(record => record.kind !== "ticket_sale").forEach(parent => {
+    majorEventSubEvents(parent).forEach(subEvent => {
+      const fixture = majorEventFixtureSnapshot(subEvent, parent);
+      if (!fixture || fixture.date !== todayKey || !automaticEventFollowReason(fixture)) return;
+      const action = getEventAction(fixture);
+      if (action.archived || action.dismissed || eventIsAutoArchived(fixture, reference) || !eventMeetsDerivedRetention(fixture, reference)) return;
+      fixtures.set(String(fixture.eventId || fixture.id), { ...fixture, automaticFollow:true });
+    });
+  });
+  return [...fixtures.values()];
+}
+
 function refreshAddedFixtureSnapshots(){
   if (!majorEventsDocument?.events?.length) return false;
   let nextActions = eventActions;
@@ -11845,7 +11866,7 @@ function mergeMainFeedSpecialEvents(events){
   const surfacedSemanticKeys = new Set([...merged.values()].map(semanticKey).filter(Boolean));
   const canonicalEditorialBySemanticKey = new Map([...EVENTS, ...activeEvents].map(event => [semanticKey(event), event])
     .filter(([key, event]) => key && event?.editorialNarrative));
-  const specialEvents = selectedMajorEventFixtures()
+  const specialEvents = [...automaticallyFollowedMajorEventFixtures(), ...selectedMajorEventFixtures()]
     .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event));
   specialEvents.forEach(event => {
     const id = String(event.eventId || event.id);
@@ -13943,7 +13964,7 @@ function followedParticipantLabel(participantId){
     || String(participantId || "").split(":").at(-1).replace(/-/g, " ");
 }
 
-function eventFollowReason(ev){
+function automaticEventFollowReason(ev){
   const eventParticipantIds = Array.from(new Set([
     ...(Array.isArray(ev?.participantIds) ? ev.participantIds : []),
     ...(Array.isArray(ev?.matchupSides) ? ev.matchupSides.flatMap(side => (side.players || []).map(player => player.id)) : []),
@@ -13972,15 +13993,6 @@ function eventFollowReason(ev){
       displayTag:true,
     };
   }
-  if (getEventAction(ev).addedToFixtures || ev?.manualPin === true){
-    return {
-      type:"manualPin",
-      entityKind:"fixture",
-      id:String(ev?.eventId || ev?.id || ""),
-      label:null,
-      displayTag:false,
-    };
-  }
   const eligibilityEvent = {
     ...ev,
     participantIds:eventParticipantIds,
@@ -13990,6 +14002,21 @@ function eventFollowReason(ev){
     participantLabel:followedParticipantLabel,
     collectionsById:followCollectionsById(),
   }) || null;
+}
+
+function eventFollowReason(ev){
+  const automaticReason = automaticEventFollowReason(ev);
+  if (automaticReason) return automaticReason;
+  if (getEventAction(ev).addedToFixtures || ev?.manualPin === true){
+    return {
+      type:"manualPin",
+      entityKind:"fixture",
+      id:String(ev?.eventId || ev?.id || ""),
+      label:null,
+      displayTag:false,
+    };
+  }
+  return null;
 }
 
 function eventMatchesExplicitSubfilters(ev){
@@ -15888,7 +15915,7 @@ function buildNothingscoreChoices(ev, snapshot, panel){
 let nothingscoreVisualLoad = null;
 function ensureNothingscoreVisual(){
   if (globalThis.NOTHINGSPORTS_NSC_VISUAL) return Promise.resolve(globalThis.NOTHINGSPORTS_NSC_VISUAL);
-  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=198").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
+  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=199").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
   return nothingscoreVisualLoad;
 }
 function buildNothingscoreVisual(snapshot){
@@ -18436,6 +18463,15 @@ function followCollectionsById(){
   return collections;
 }
 
+function ensureFollowCollectionDirectories(preferences = userPreferences){
+  const collectionIds = preferences?.followFirst?.collectionFollows || [];
+  const loads = [];
+  if (collectionIds.some(id => String(id).startsWith("collection:tennis:"))){
+    loads.push(loadFollowDirectoryChunk("tennis"));
+  }
+  return Promise.all(loads);
+}
+
 function syncDirectoryFollowButton(button, participantId){
   const effective = FOLLOW_FIRST?.effectiveParticipantFollow?.(participantId, userPreferences, followCollectionsById())
     || { followed:["follow", "priority"].includes(directoryFollowLevel(participantId)), source:"explicit" };
@@ -19683,21 +19719,27 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
     button.type = "button";
     button.className = "major-event-match-action";
     const pinEligible = Boolean(fixture);
-    button.disabled = !pinEligible;
+    const automaticReason = pinEligible ? automaticEventFollowReason(fixture) : null;
+    const autoFeedToday = Boolean(automaticReason && fixture.date === (MAJOR_EVENTS?.dateKey?.(nowAEST(), "Australia/Sydney") || formatDateKey(nowAEST())));
+    button.disabled = !pinEligible || Boolean(automaticReason);
     const syncPinButton = () => {
       const added = Boolean(pinEligible && getEventAction(fixture)?.addedToFixtures);
-      button.setAttribute("aria-pressed", String(added));
-      button.classList.toggle("active", added);
-      button.textContent = pinEligible ? (added ? "Remove from Feed" : "Add to Feed") : "Time not confirmed";
+      button.setAttribute("aria-pressed", String(Boolean(automaticReason) || added));
+      button.classList.toggle("active", Boolean(automaticReason) || added);
+      button.textContent = automaticReason
+        ? (autoFeedToday ? "In Feed via follow" : "Auto-adds on match day")
+        : pinEligible ? (added ? "Remove from Feed" : "Add to Feed") : "Time not confirmed";
       return added;
     };
     syncPinButton();
-    button.title = pinEligible
+    button.title = automaticReason
+      ? "This match is automatically included because you follow a player or group."
+      : pinEligible
       ? "Pin this match to Feed without following either side."
       : "A published exact or session-relative start is required before this match can be added.";
     button.addEventListener("click", () => {
       const wasAdded = syncPinButton();
-      if (!pinEligible || !setMajorEventFixtureAdded(subEvent, record, !wasAdded)) return;
+      if (!pinEligible || automaticReason || !setMajorEventFixtureAdded(subEvent, record, !wasAdded)) return;
       syncPinButton();
       renderTabCounts();
       showToast(wasAdded ? `${subEvent.name} removed from Feed.` : `${subEvent.name} added to Feed.`);

@@ -10,6 +10,7 @@ const { decryptSnapshot, encryptSnapshot } = require("../lib/follow-snapshot");
 const {
   eventParticipantIds,
   expandedFollowEntityIds,
+  followedCollectionMemberIds,
   resolveUserFollowFixtures,
 } = require("../lib/follow-fixture-resolver");
 const { buildArtifact, validatePrivacy } = require("./build-follow-fixtures");
@@ -60,6 +61,14 @@ const tennisPlayerFixtures = resolveUserFollowFixtures({ events:[], userState:te
 assert(tennisPlayerFixtures.some(event => event.participantIds.includes("athlete:tennis:carlos-alcaraz")), "a followed player with a published US Open match must resolve that fixture");
 const mensTopTenState = collectionState(["collection:tennis:mens-top-10"]);
 assert(expandedFollowEntityIds(mensTopTenState).has("athlete:tennis:novak-djokovic"), "the Men's current top 10 collection must expand to Djokovic on the server");
+assert.deepEqual(
+  followedCollectionMemberIds(mensTopTenState, [{
+    id:"collection:tennis:mens-top-10",
+    memberIds:["athlete:tennis:newly-ranked-player"],
+  }]),
+  ["athlete:tennis:newly-ranked-player"],
+  "a persisted collection follow must automatically inherit refreshed ranking members without rewriting the user's profile",
+);
 const mutedDjokovicState = collectionState(["collection:tennis:mens-top-10"], follow("athlete:tennis:novak-djokovic", "mute"));
 assert(!expandedFollowEntityIds(mutedDjokovicState).has("athlete:tennis:novak-djokovic"), "an explicit Djokovic mute must override the inherited top-10 follow");
 
@@ -210,7 +219,7 @@ const artifactBuilderSource = fs.readFileSync(path.resolve(__dirname, "build-fol
 assert(artifactBuilderSource.includes("includeCompactArtifact:false"), "the compact artifact must be regenerated from source bundles rather than its previous saved state");
 
 const html = fs.readFileSync(path.resolve(__dirname, "../index.html"), "utf8");
-assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v3"'), "pre-alias-deduplication personalised pages must be invalidated");
+assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v4"'), "pre-auto-follow-startup personalised pages must be invalidated");
 assert(html.includes('payload?.schemaVersion !== "server-feed.v3"'), "the client must reject stale personalised schemas");
 assert(html.includes("requestFeedRebuildAfterFollowChange"), "follow changes must request an immediate server rebuild");
 assert.match(html, /await syncCurrentServerState\(\);[^]*await clearCachedPersonalisedFeed[^]*await refreshRemoteFeed/, "the follow rebuild must complete server sync before fetching the new page");

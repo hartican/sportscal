@@ -32,6 +32,26 @@ const latestCloudState = {
   },
 };
 
+const cloudFollowState = {
+  ...latestCloudState,
+  preferences: {
+    ...latestCloudState.preferences,
+    followFirst:{ collectionFollows:["collection:tennis:mens-top-10"] },
+  },
+};
+const stalePreHydrationDevice = {
+  ...lastSyncedState,
+  preferences:{ ...lastSyncedState.preferences, followFirst:{ collectionFollows:[] } },
+};
+const unchangedStartupPatch = userStateSync.createPatch(stalePreHydrationDevice, stalePreHydrationDevice, {
+  baseUpdatedAt:cloudFollowState.updatedAt,
+});
+assert.deepEqual(
+  userStateSync.applyPatch(cloudFollowState, unchangedStartupPatch).preferences.followFirst.collectionFollows,
+  ["collection:tennis:mens-top-10"],
+  "a shell/data update must hydrate the saved cloud collection instead of treating a stale local empty list as a new unfollow",
+);
+
 const cloudOnlyResult = userStateSync.applyPatch(
   latestCloudState,
   userStateSync.createPatch(lastSyncedState, lastSyncedState, {

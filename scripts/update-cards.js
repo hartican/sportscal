@@ -197,6 +197,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-server-persistence.js"],
   ["scripts/validate-server-feed.js"],
   ["scripts/validate-followed-fixture-surfacing.js"],
+  ["scripts/validate-authenticated-feed-startup.js"],
   ["scripts/validate-follow-fixture-resolver.js"],
   ["scripts/validate-update-cards.js"],
   ["scripts/validate-source-and-venues.js"],
