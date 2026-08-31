@@ -1,15 +1,15 @@
-const CACHE_NAME = "nothingsport-shell-v195";
+const CACHE_NAME = "nothingsport-shell-v196";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/404.html",
   "/participate.html",
   "/admin.html",
-  "/config/admin-comms-ui.js?v=195",
+  "/config/admin-comms-ui.js?v=196",
   "/config/brand-copy.js",
   "/config/vector-assets.js",
-  "/config/national-team-identities.js?v=195",
-  "/config/nsc-visual.js?v=195",
+  "/config/national-team-identities.js?v=196",
+  "/config/nsc-visual.js?v=196",
   "/config/card-identities.js",
   "/config/card-results.js",
   "/config/country-flags.js",
@@ -35,7 +35,7 @@ const APP_SHELL = [
   "/config/follow-first.js",
   "/config/feed-controls.js",
   "/config/ticketing.js",
-  "/config/major-events.js?v=195",
+  "/config/major-events.js?v=196",
   "/config/football-directory.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",
@@ -222,8 +222,8 @@ self.addEventListener("fetch", event => {
     event.respondWith(networkFirst(event.request, event, new Request("/participate.html")));
     return;
   }
-  if (event.request.mode === "navigate" && requestUrl.pathname === "/admin/comms"){
-    event.respondWith(networkFirst(event.request, event, new Request("/admin-comms.html")));
+  if (event.request.mode === "navigate" && /^\/admin\/(?:users|reports|comms)$/.test(requestUrl.pathname)){
+    event.respondWith(networkFirst(event.request, event, new Request("/admin.html")));
     return;
   }
   if (event.request.mode === "navigate"){
