@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+"use strict";
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const source = fs.readFileSync("scripts/refresh-nfl-ice-hockey.js", "utf8");
+const canonicalSports = fs.readFileSync("scripts/refresh-canonical-sports.js", "utf8");
+const premierLeague = fs.readFileSync("scripts/refresh-premier-league-context.js", "utf8");
+const tennisRankings = fs.readFileSync("scripts/refresh-tennis-ranking-exports.js", "utf8");
+const rollingEditorial = fs.readFileSync("scripts/update-rolling-editorial-projections.js", "utf8");
+const teamDirectories = fs.readFileSync("scripts/build-team-player-directories.js", "utf8");
+const officialFollow = fs.readFileSync("scripts/refresh-official-follow-fixtures.js", "utf8");
+assert.match(source, /AbortSignal\.timeout\(20_000\)/, "slow source calls need a bounded timeout");
+assert.match(source, /preserv(?:e|ing) existing/i, "transient source failure must retain validated current snapshots");
+assert.match(source, /validate\(nfl,[\s\S]+validate\(iceHockey,/, "preserved snapshots must still pass the canonical contract");
+assert.match(canonicalSports, /preserving \$\{existing\.events\.length\} validated fixtures for immediate canonical checks/, "AFL and NRL refresh must preserve a validated canonical bundle only on transient failure");
+assert.match(premierLeague, /preserving \$\{snapshot\.entries\.length\} validated clubs for the immediate --check pass/, "Premier League refresh must preserve only a validated table after transient failure");
+assert.match(tennisRankings, /assertCompleteRankingUniverse\(current\.payload\.athletes \|\| \[\], tour\)/, "ranking refresh must validate both retained Top 50 and Australian universes");
+assert.match(rollingEditorial, /projection\.targetIds \|\| \[\][\s\S]+publishedIds\.has/, "daily editorial refresh must prune only rolling projections whose published target has left the feed");
+assert.match(teamDirectories, /AbortSignal\.timeout\(20_000\)/, "team/player source calls need a bounded timeout");
+assert.match(teamDirectories, /preserving existing directories for the immediate --check validation/i, "team/player refresh must preserve only into its canonical check stage");
+assert.match(officialFollow, /AbortSignal\.timeout\(20_000\)/, "official follow source calls need a bounded timeout");
+assert.match(officialFollow, /preserving \$\{payload\.events\.length\} validated fixtures/, "official follow refresh must preserve only a validated artifact after a transient failure");
+console.log("Canonical source resilience valid: bounded fetches and validated preservation passed.");

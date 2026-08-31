@@ -53,7 +53,7 @@ const compactUpcoming = majorEvents.compactPhaseTimelineItems(
   majorEvents.phaseTimeline(usOpen, reference, { level:"L0", timeZone:"Australia/Sydney" })
 );
 assert.equal(compactUpcoming[0]?.marker, "now", "a compact Event with a future fixture must place Now before that fixture");
-assert.equal(compactUpcoming[1]?.subEvent?.id, currentOfficialFixtures[0].id, "a compact Event must show the nearest upcoming fixture rather than old completed history");
+assert.equal(compactUpcoming[1]?.subEvent?.id, timeline.upcoming[0]?.subEvent?.id, "a compact Event must show the nearest upcoming fixture rather than source-file order or old completed history");
 assert(!compactUpcoming.some(item => item.subEvent?.id === "fixture:us-open-2026:serena-alcaraz-v-routliffe-glasspool"), "the completed Williams / Alcaraz fixture must not be moved below Now while a future fixture exists");
 const compactCompleted = majorEvents.compactPhaseTimelineItems(majorEvents.phaseTimeline({
   subEvents:usOpen.subEvents.filter(event => event.status === "completed"),
@@ -144,7 +144,7 @@ assert.equal(tennisDirectory.collections.find(item => item.id === "collection:te
 
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
-assert(html.includes('config/follow-first.js?v=204') && worker.includes('"/config/follow-first.js?v=204"'), "the hierarchical follow runtime must use the current app-shell URL so installed updates cannot retain stale collection identity rules");
+assert(html.includes('config/follow-first.js?v=206') && worker.includes('"/config/follow-first.js?v=206"'), "the hierarchical follow runtime must use the current app-shell URL so installed updates cannot retain stale collection identity rules");
 assert(/ensureFollowCollectionDirectories\(userPreferences\)\.then\(\(\) => \{[\s\S]{0,500}renderAll\(\{ preserveViewport:true \}\)/.test(html), "saved collection follows must automatically re-render Feed and Events when their lazy directory becomes available");
 assert(html.includes("activeMajorEventNowId") && html.includes("events-now-marker"), "Events must keep one active card-local Now marker");
 assert(html.includes("Follow Event") && html.includes("Unfollow Event"), "Event cards must expose family follow controls");

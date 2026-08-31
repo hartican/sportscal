@@ -5,7 +5,7 @@
   },
   "functions": {
     "api/chat.js": {
-      "includeFiles": "data/feed/*.json"
+      "includeFiles": "data/{feed/*.json,follow-fixtures.v1.json,major-events.v1.json}"
     }
   },
   "redirects": [

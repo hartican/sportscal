@@ -87,4 +87,14 @@ assert.equal(merged[0].sourceCoverage, "official-canonical");
 assert.deepEqual(merged[0].participantSlots.map(slot => slot.label), ["Broncos", "Storm"]);
 assert.equal(merged[0].detailsExpectedAt, null);
 
+const canonicalBundle = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/afl-nrl-2026.json"), "utf8"));
+const publishedFeed = JSON.parse(fs.readFileSync(path.join(ROOT, "data/events.json"), "utf8"));
+const placeholderPattern = /(?:winner|loser|highest|lowest)[ -]ranked|winner of|loser of|\bTBC\b/i;
+for (const fixture of canonicalBundle.events.filter(event => event.status === "scheduled" && /final/i.test(event.roundLabel || "") && event.participantIds?.length === 2 && !placeholderPattern.test(event.displayName || ""))){
+  const card = publishedFeed.events.find(event => event.canonicalEventId === fixture.id);
+  if (!card) continue;
+  assert.equal(card.name, fixture.displayName, `${fixture.id} must replace a resolved finals placeholder with canonical team names`);
+  assert(!placeholderPattern.test(card.name), `${fixture.id} must not retain a bracket placeholder after both teams resolve`);
+}
+
 console.log(`Standings & Fixtures UI contract valid across ${manifest.codes.length} canonical codes.`);

@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="204">
+<meta name="app-shell-version" content="206">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -1777,29 +1777,12 @@ main{
     var(--bg-card);
 }
 
-.event-card.is-swipe-eligible{
-  touch-action: pan-y;
-  transform:translateX(var(--calibration-x, 0px));
-  will-change:transform;
-}
-
-.event-card.is-swipe-eligible.swipe-returning{ transition:transform .26s cubic-bezier(.2,.8,.2,1), border-color .2s ease; }
-.swipe-coaching{ position:absolute; inset:50% 8px auto; z-index:4; display:flex; justify-content:space-between; transform:translateY(-50%); pointer-events:none; color:#43b9ff; font-size:.85rem; font-weight:900; }
-.swipe-coaching span{ max-width:116px; padding:9px 11px; border:1px solid rgba(67,185,255,.7); border-radius:999px; background:color-mix(in srgb,var(--bg-card) 76%,transparent); opacity:.7; backdrop-filter:blur(5px); }
 .swipe-feedback-overlay{ position:absolute; inset:0; z-index:12; display:grid; place-content:center; gap:8px; padding:18px; background:color-mix(in srgb,var(--bg-card) 82%,transparent); text-align:center; pointer-events:none; animation:swipe-feedback-in .18s ease both; }
 .swipe-feedback-icon{ display:grid; place-items:center; line-height:1; filter:drop-shadow(0 8px 20px rgba(0,0,0,.28)); }
 .swipe-feedback-icon .vector-glyph{ width:4rem; height:4rem; }
 .swipe-feedback-copy{ color:var(--text); font-size:.82rem; font-weight:900; }
 @keyframes swipe-feedback-in{ from{ opacity:0; transform:scale(.94); } to{ opacity:1; transform:scale(1); } }
-@media (prefers-reduced-motion:reduce){ .event-card.is-swipe-eligible.swipe-returning,.swipe-feedback-overlay{ transition:none; animation:none; } }
-
-.event-card.swipe-positive{
-  border-color: color-mix(in srgb, #64d79d 70%, var(--border));
-}
-
-.event-card.swipe-negative{
-  border-color: color-mix(in srgb, var(--accent) 70%, var(--border));
-}
+@media (prefers-reduced-motion:reduce){ .swipe-feedback-overlay{ transition:none; animation:none; } }
 .event-card.is-dismissing{
   opacity:0;
   transform:translate3d(-42px,0,0) scale(.985);
@@ -2035,7 +2018,6 @@ main{
 }
 
 @media (max-width:620px){
-  .event-card.is-swipe-eligible .swipe-coaching{ display:flex; }
   .event-card.is-logo-led-matchup{ min-height:0; padding:7px 9px 9px; }
   .matchup-identity-row{ height:72px; gap:14px; padding-inline:2px; }
   .matchup-team-name-row{ gap:14px; padding-inline:2px; font-size:.77rem; }
@@ -3551,114 +3533,6 @@ main{
 .choice-card.disabled{
   cursor:not-allowed;
   opacity: 0.45;
-}
-
-.calibration-shell{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-
-.calibration-progress-row{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  color:var(--text-dim);
-  font-size:0.76rem;
-  font-weight:800;
-}
-
-.calibration-card{
-  --calibration-x:0px;
-  min-height:250px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  padding:28px 22px;
-  border:1px solid var(--border);
-  border-radius:16px;
-  background:
-    radial-gradient(circle at 50% 16%, color-mix(in srgb, var(--sport-color, var(--accent)) 18%, transparent), transparent 54%),
-    var(--bg-card);
-  text-align:center;
-  touch-action:pan-y;
-  transform:translateX(var(--calibration-x));
-  transition:transform 130ms ease, border-color 130ms ease, background 130ms ease;
-  outline:none;
-}
-
-.calibration-card:focus-visible{
-  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
-}
-
-.calibration-card.swipe-positive{
-  border-color:#64d79d;
-  background:color-mix(in srgb, #64d79d 9%, var(--bg-card));
-}
-
-.calibration-card.swipe-negative{
-  border-color:var(--accent);
-  background:color-mix(in srgb, var(--accent) 9%, var(--bg-card));
-}
-
-.calibration-glyph{
-  width:72px;
-  height:72px;
-  display:grid;
-  place-items:center;
-  border-radius:18px;
-  background:color-mix(in srgb, var(--sport-color, var(--accent)) 18%, transparent);
-}
-
-.calibration-glyph .vector-glyph{
-  width:40px;
-  height:40px;
-}
-
-.calibration-card h3{
-  margin:0;
-  font-size:1.3rem;
-}
-
-.calibration-card p{
-  max-width:440px;
-  margin:0;
-  color:var(--text-dim);
-  font-size:0.84rem;
-  line-height:1.5;
-}
-
-.calibration-actions{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:8px;
-}
-
-.calibration-actions .btn{
-  min-height:46px;
-  padding-inline:10px;
-}
-
-.calibration-key-help{
-  text-align:center;
-  color:var(--text-faint);
-  font-size:0.7rem;
-}
-
-.calibration-complete{
-  padding:30px 18px;
-  border:1px solid var(--border);
-  border-radius:14px;
-  background:var(--bg-card);
-  text-align:center;
-}
-
-.calibration-complete strong{
-  display:block;
-  margin-bottom:8px;
-  font-size:1rem;
 }
 
 .tune-shell{
@@ -5731,6 +5605,23 @@ button.chat-room-row{ cursor:pointer; }
   overflow-y:auto;
 }
 .chat-room-composer .btn{ width:100%; min-height:46px; }
+.chat-attachment-tools{ display:flex; flex-wrap:wrap; gap:6px; }
+.chat-attachment-tools .btn{ width:auto; min-width:44px; min-height:38px; }
+.chat-staple{ font-size:1.1rem; }
+.chat-attachment-previews{ display:flex; flex-wrap:wrap; gap:6px; }
+.chat-attachment-previews span{ display:flex; align-items:center; gap:5px; max-width:100%; padding:5px 8px; border:1px solid var(--border); border-radius:999px; color:var(--text-dim); font-size:.66rem; }
+.chat-attachment-previews button{ border:0; background:transparent; color:var(--text); cursor:pointer; }
+.chat-gif-panel{ display:grid; gap:8px; padding:8px; border:1px solid var(--border); border-radius:10px; }
+.chat-gif-panel[hidden]{ display:none; }
+.chat-gif-panel input{ width:100%; }
+.chat-gif-results{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; max-height:220px; overflow:auto; }
+.chat-gif-result{ padding:0; border:0; border-radius:7px; overflow:hidden; background:var(--bg-card); cursor:pointer; }
+.chat-gif-result img{ display:block; width:100%; aspect-ratio:1; object-fit:cover; }
+.chat-gif-results small{ grid-column:1/-1; color:var(--text-dim); text-align:right; }
+.chat-message-media{ display:grid; gap:7px; margin-top:7px; }
+.chat-media-item{ display:grid; gap:5px; }
+.chat-media-item img{ width:min(100%,360px); max-height:420px; border-radius:10px; object-fit:contain; background:#000; }
+.chat-media-item audio{ width:min(100%,360px); }
 .chat-alert-prompt{ display:grid; gap:8px; margin:0 0 12px; }
 .chat-guest-preview{ display:grid; gap:12px; }
 .chat-guest-preview h3{ font-size:1rem; }
@@ -7010,7 +6901,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <div class="onboarding-head">
       <div>
         <h2 id="tunePromptTitle">Refine who you follow?</h2>
-        <p>Your swipe was saved as feedback. Choose teams and players in Follow when you want to sharpen the feed.</p>
+        <p>Your feedback was saved. Choose teams and players in Follow when you want to sharpen the feed.</p>
       </div>
     </div>
     <div class="onboarding-body">
@@ -7101,8 +6992,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/team-follow-catalogue.js"></script>
 <script src="config/event-taxonomy-compat.js"></script>
 <script src="config/preference-taxonomy.js"></script>
-<script src="config/follow-first.js?v=204"></script>
-<script src="config/follow-feed-policy.js?v=204"></script>
+<script src="config/follow-first.js?v=206"></script>
+<script src="config/follow-feed-policy.js?v=206"></script>
 <script src="config/tennis-coverage.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/sport-hubs.js"></script>
@@ -7137,7 +7028,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=204")
+  : loadDeferredScript("config/national-team-identities.js?v=206")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -8131,7 +8022,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=204",
+  moduleScriptUrl: "config/major-events.js?v=206",
   url: "data/major-events.v1.json",
 });
 
@@ -8549,6 +8440,8 @@ let serverSyncTimer = null;
 let serverSyncSequence = Promise.resolve();
 let followFeedRefreshPending = false;
 let followFeedRefreshInFlight = null;
+let followFeedRefreshTimer = null;
+let followFeedRefreshGeneration = 0;
 let serverStatusRequest = null;
 let serverStateBaseline = null;
 let startupSessionStateBaseline = null;
@@ -8563,11 +8456,13 @@ let chatState = {
   isAdmin:false,
   isGuest:false,
   profile:{ displayName:null },
+  capabilities:{ lifetimeNscPoints:0, gifMinimumPoints:25, canUseGifs:false },
   rooms:[],
   currentRoom:null,
   messages:[],
   olderCursor:null,
   draftBody:"",
+  pendingAttachments:[],
   replyToMessageId:null,
   reactionCursor:"",
   shareCapability:"",
@@ -9613,6 +9508,25 @@ function setPilotPulsePromptOpen(open){
   if (open) document.getElementById("openPilotPulseSurveyBtn")?.focus({ preventScroll: true });
 }
 
+let weeklyPulsePromptDismissedForOpen = false;
+function dismissWeeklyPulsePrompt(reference = new Date()){
+  const modal = document.getElementById("pilotPulsePromptModal");
+  if (!modal?.classList.contains("show") || weeklyPulsePromptDismissedForOpen) return false;
+  weeklyPulsePromptDismissedForOpen = true;
+  const { surveyId } = currentWeeklyPulseSurvey(reference);
+  const promptStorageKey = `${STORAGE_KEYS.weeklyPulsePrompt}:${serverPersistence.user?.id || "guest"}`;
+  const current = pilotMeasurementPreferences().promptState || readStorage(promptStorageKey, null);
+  const promptState = PRODUCT_EVENTS.dismissWeeklyPulsePrompt(current, { surveyId, reference });
+  writeStorage(promptStorageKey, promptState);
+  if (serverPersistence.user){
+    const next = clonePreferences(userPreferences);
+    next.pilotMeasurement = { ...pilotMeasurementPreferences(next), promptState };
+    savePreferences(next);
+  }
+  setPilotPulsePromptOpen(false);
+  return true;
+}
+
 function registerWeeklyPulseAppOpen(reference = new Date()){
   if (!PRODUCT_EVENTS || !serverPersistence.user) return false;
   ensureDefaultPilotMeasurementParticipation(reference);
@@ -9622,13 +9536,19 @@ function registerWeeklyPulseAppOpen(reference = new Date()){
   const dayKey = PRODUCT_EVENTS.sydneyDateKey(reference);
   const promptStorageKey = `${STORAGE_KEYS.weeklyPulsePrompt}:${serverPersistence.user.id}`;
   const promptState = PRODUCT_EVENTS.nextWeeklyPulsePromptState(
-    readStorage(promptStorageKey, null),
+    pilot.promptState || readStorage(promptStorageKey, null),
     { surveyId, dayKey }
   );
   writeStorage(promptStorageKey, promptState);
+  const next = clonePreferences(userPreferences);
+  next.pilotMeasurement = { ...pilotMeasurementPreferences(next), promptState };
+  savePreferences(next);
   if (!PRODUCT_EVENTS.shouldPromptWeeklyPulse({ pilot, promptState, surveyId, reference })) return false;
   window.setTimeout(() => {
-    if (!document.querySelector(".modal-backdrop.show")) setPilotPulsePromptOpen(true);
+    if (!document.querySelector(".modal-backdrop.show")){
+      weeklyPulsePromptDismissedForOpen = false;
+      setPilotPulsePromptOpen(true);
+    }
   }, 250);
   return true;
 }
@@ -10910,15 +10830,21 @@ async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
 
 async function requestFeedRebuildAfterFollowChange(){
   followFeedRefreshPending = true;
+  followFeedRefreshGeneration += 1;
+  const requestedGeneration = followFeedRefreshGeneration;
+  window.clearTimeout(followFeedRefreshTimer);
   if (followFeedRefreshInFlight) return followFeedRefreshInFlight;
   if (!serverSyncClient || !serverPersistence.user || globalThis.navigator?.onLine === false) return false;
-  followFeedRefreshInFlight = (async () => {
+  return new Promise(resolve => {
+    followFeedRefreshTimer = window.setTimeout(async () => {
+      followFeedRefreshTimer = null;
+      followFeedRefreshInFlight = (async () => {
     try{
       await syncCurrentServerState();
       await clearCachedPersonalisedFeed(serverPersistence.user?.id || serverSyncClient.sessionSubject?.());
       const rebuilt = await refreshRemoteFeed({ quiet:true, signedInHint:true });
       if (rebuilt?.source !== "server") throw new Error("The personalised server feed is still unavailable");
-      followFeedRefreshPending = false;
+      followFeedRefreshPending = requestedGeneration !== followFeedRefreshGeneration;
       return true;
     }catch(error){
       followFeedRefreshPending = true;
@@ -10926,9 +10852,12 @@ async function requestFeedRebuildAfterFollowChange(){
       return false;
     }finally{
       followFeedRefreshInFlight = null;
+      if (requestedGeneration !== followFeedRefreshGeneration) void requestFeedRebuildAfterFollowChange();
     }
-  })();
-  return followFeedRefreshInFlight;
+      })();
+      resolve(await followFeedRefreshInFlight);
+    }, 500);
+  });
 }
 
 function warmNextFeedPageDuringIdle(){
@@ -14887,67 +14816,6 @@ function restoreViewportRenderAnchor(anchor){
   window.scrollTo({ top: Math.min(anchor.scrollY, maxScrollY), behavior: "auto" });
 }
 
-function bindHorizontalLearningSwipe(element, onDirection, { threshold = 68 } = {}){
-  if (!element || typeof onDirection !== "function") return;
-  let pointerId = null;
-  let startX = 0;
-  let startY = 0;
-  let deltaX = 0;
-  let horizontal = false;
-  let frame = null;
-
-  const reset = ({ animate = false } = {}) => {
-    if (frame) window.cancelAnimationFrame(frame);
-    frame = null;
-    element.classList.toggle("swipe-returning", animate);
-    element.style.setProperty("--calibration-x", "0px");
-    element.classList.remove("swipe-positive", "swipe-negative");
-    if (animate) window.setTimeout(() => element.classList.remove("swipe-returning"), 280);
-    pointerId = null;
-    deltaX = 0;
-    horizontal = false;
-  };
-
-  element.addEventListener("pointerdown", event => {
-    if (event.pointerType === "mouse" && event.button !== 0) return;
-    if (event.target.closest("button, a, input, select, textarea")) return;
-    pointerId = event.pointerId;
-    startX = event.clientX;
-    startY = event.clientY;
-    deltaX = 0;
-    horizontal = false;
-    element.setPointerCapture?.(pointerId);
-  });
-  element.addEventListener("pointermove", event => {
-    if (event.pointerId !== pointerId) return;
-    const nextX = event.clientX - startX;
-    const nextY = event.clientY - startY;
-    if (!horizontal && Math.abs(nextX) > 10 && Math.abs(nextX) > Math.abs(nextY) * 1.25) horizontal = true;
-    if (!horizontal) return;
-    deltaX = Math.max(-110, Math.min(110, nextX));
-    if (frame) window.cancelAnimationFrame(frame);
-    frame = window.requestAnimationFrame(() => {
-      element.style.setProperty("--calibration-x", `${deltaX * 0.55}px`);
-      frame = null;
-    });
-    element.classList.toggle("swipe-positive", deltaX > 18);
-    element.classList.toggle("swipe-negative", deltaX < -18);
-  });
-  element.addEventListener("pointerup", event => {
-    if (event.pointerId !== pointerId) return;
-    const direction = horizontal && Math.abs(deltaX) >= threshold
-      ? (deltaX > 0 ? "positive" : "negative")
-      : null;
-    if (direction){
-      element.dataset.swipeHandled = "true";
-      onDirection(direction);
-      window.setTimeout(() => delete element.dataset.swipeHandled, 0);
-    }
-    reset({ animate: true });
-  });
-  element.addEventListener("pointercancel", () => reset({ animate: true }));
-}
-
 function setTunePromptOpen(open, dislikeCount = pendingTunePromptDislikeCount){
   const modal = document.getElementById("tunePromptModal");
   pendingTunePromptDislikeCount = open ? Number(dislikeCount) || 0 : null;
@@ -15505,34 +15373,11 @@ function buildViewingProviderMark(viewing){
   return mark;
 }
 
-function offerProviderWebFallback(action, viewing){
-  if (!viewing?.webUrl || action.parentElement?.querySelector(`[data-provider-web-fallback="${CSS.escape(viewing.providerId)}"]`)) return;
-  const fallback = document.createElement("a");
-  fallback.className = "event-quick-action provider-web-fallback";
-  fallback.dataset.providerWebFallback = viewing.providerId;
-  fallback.href = viewing.webUrl;
-  fallback.target = "_blank";
-  fallback.rel = "noopener noreferrer external";
-  fallback.textContent = "Open in browser";
-  fallback.setAttribute("aria-label", `Open ${viewing.label} in the default browser`);
-  fallback.addEventListener("click", event => event.stopPropagation());
-  action.insertAdjacentElement("afterend", fallback);
-}
-
 function configureProviderLaunch(link, viewing){
-  const target = viewing.universalUrl || viewing.webUrl || viewing.url;
-  link.href = viewing.appScheme && !viewing.universalUrl ? viewing.appScheme : target;
-  if (!viewing.appScheme || viewing.universalUrl){
-    link.target = "_blank";
-    link.rel = "noopener noreferrer external";
-    return;
-  }
-  link.addEventListener("click", () => {
-    const startedAt = performance.now();
-    window.setTimeout(() => {
-      if (document.visibilityState === "visible" && performance.now() - startedAt >= 650) offerProviderWebFallback(link, viewing);
-    }, 700);
-  });
+  const target = viewing.webUrl || viewing.universalUrl || viewing.url;
+  link.href = /^https:\/\//i.test(String(target || "")) ? target : "#";
+  link.target = "_blank";
+  link.rel = "noopener noreferrer external";
 }
 
 function appendEventQuickActions(container, ev){
@@ -15985,7 +15830,7 @@ function buildNothingscoreChoices(ev, snapshot, panel){
 let nothingscoreVisualLoad = null;
 function ensureNothingscoreVisual(){
   if (globalThis.NOTHINGSPORTS_NSC_VISUAL) return Promise.resolve(globalThis.NOTHINGSPORTS_NSC_VISUAL);
-  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=204").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
+  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=206").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
   return nothingscoreVisualLoad;
 }
 function buildNothingscoreVisual(snapshot){
@@ -16139,11 +15984,15 @@ function scheduleNothingscoreHeartbeat(delay = 60_000){
 
 function buildEventWhyItMatters(ev){
   const hook = editorialNarrativeHookForDisplay(ev) || selectedSentenceForDisplay(ev);
-  return buildEditorialL0Hook(hook, editorialConsequenceForDisplay(ev), { labelText:"Why it matters" });
+  const supplemental = cardStateForEvent(ev) === "opened" ? eventSpielForDisplay(ev) : "";
+  return buildEditorialL0Hook(hook, editorialConsequenceForDisplay(ev), { labelText:"Why it matters", supplementalCopy:supplemental });
 }
 
 function nothingscoreActionLabelForEvent(ev){
   const status = getEventStatus(ev);
+  const snapshot = nothingscoreSnapshotFor(ev);
+  if (snapshot?.currentUser?.submissions?.heat && status !== "live" && status !== "past" && ev?.status !== "completed") return "✓ Prediction submitted — nice one!";
+  if (snapshot?.currentUser?.submissions?.impact && (status === "past" || ev?.status === "completed")) return "✓ Match take submitted — nice one!";
   if (status === "live") return "Add live Pulse";
   if (status === "past" || ev?.status === "completed") return "How did it land?";
   return "How do you think it’ll go?";
@@ -16185,13 +16034,6 @@ function buildEventCard(ev, options = {}){
   const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
   const localGame = isLocalGame(ev);
   const recommendationProfile = eventRecommendationProfile(ev);
-  const swipeEligible = mode !== "premium-rail"
-    && !options.archived
-    && activeTab === "feed"
-    && activeView === "list"
-    && activeFilter === "all"
-    && !activeSportHubKey();
-
   const card = document.createElement("article");
   const interactionCard = options.interactionCard || card;
   card.className = [
@@ -16209,7 +16051,6 @@ function buildEventCard(ev, options = {}){
     presentation.isNew ? "is-new" : "",
     status === "past" ? "is-past" : "",
     ["adjacent", "discovery"].includes(recommendationProfile.classification) ? "is-discovery" : "",
-    swipeEligible ? "is-swipe-eligible" : "",
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
   card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`;
@@ -16236,29 +16077,10 @@ function buildEventCard(ev, options = {}){
   };
   if (expandable){
     card.addEventListener("click", event => {
-      if (card.dataset.swipeHandled === "true") return;
       if (event.target.closest("button, a, input, select, textarea")) return;
       advanceCardState();
     });
   }
-  if (swipeEligible){
-    card.tabIndex = 0;
-    card.setAttribute("aria-keyshortcuts", "ArrowLeft ArrowRight");
-    card.addEventListener("keydown", event => {
-      if (event.target !== card || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
-      event.preventDefault();
-      applyCuratedEventSwipe(ev, event.key === "ArrowRight" ? "positive" : "negative", { card });
-    });
-    bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(ev, direction, { card }));
-    if (!userPreferences.swipeCoaching?.dismissedAt){
-      const coaching = document.createElement("div");
-      coaching.className = "swipe-coaching";
-      coaching.setAttribute("aria-hidden", "true");
-      coaching.innerHTML = "<span>← Swipe to dislike</span><span>Swipe to like →</span>";
-      card.appendChild(coaching);
-    }
-  }
-
   if (!matchupIdentity){
     const icon = document.createElement("div");
     icon.className = soloIdentity ? "event-hero-mark" : "event-icon";
@@ -18514,6 +18336,13 @@ function buildFootballDirectoryToolbar(directory, filters, sportKey = "football"
       updateDirectoryFilters(sportKey, { birthCountryCode }); renderStandingsContext();
     }));
   }
+  if (sportKey === "football"){
+    toolbar.appendChild(buildDirectorySelect("Rank", filters.prominenceTier, [
+      ["", "All players"], ["emerging", "Emerging"], ["established", "Established"], ["marquee", "Marquee"],
+    ], prominenceTier => {
+      updateDirectoryFilters(sportKey, { prominenceTier }); renderStandingsContext();
+    }));
+  }
   const hasMarketValues = directory.players.some(player => Number.isFinite(Number(player.marketValue ?? player.marketValueEur)));
   const sortOptions = [["table", sportKey === "football" ? "Table / ladder" : "Ranking / ladder"]];
   if (hasMarketValues) sortOptions.push(["value", `Value · ${directory.valueSource?.label || "current source"}`]);
@@ -19787,7 +19616,6 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
     "mode-events",
     "major-event-card",
     "events-feed-card",
-    "is-swipe-eligible",
     state === "selected" ? "is-selected" : "",
     state === "opened" ? "is-opened" : "",
   ].filter(Boolean).join(" ");
@@ -19816,17 +19644,11 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   });
   card.addEventListener("keydown", event => {
     if (event.target !== card) return;
-    if (["ArrowLeft", "ArrowRight"].includes(event.key)){
-      event.preventDefault();
-      applyCuratedEventSwipe(actionEvent, event.key === "ArrowRight" ? "positive" : "negative", { card });
-      return;
-    }
     if (!["Enter", " "].includes(event.key)) return;
     event.preventDefault();
     advanceState({ restoreFocus: true });
   });
-  card.setAttribute("aria-keyshortcuts", "ArrowLeft ArrowRight Enter Space");
-  bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(actionEvent, direction, { card }));
+  card.setAttribute("aria-keyshortcuts", "Enter Space");
 
   const ticketRow = document.createElement("div");
   ticketRow.className = "major-event-ticket-row";
@@ -20018,7 +19840,7 @@ function buildTicketSaleCard(record, { interactionCard = null } = {}){
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
   const eventCard = interactionCard || card;
-  card.className = ["event-card", "mode-events", "ticket-sale-card", "events-feed-card", "is-swipe-eligible", state === "selected" ? "is-selected" : "", state === "opened" ? "is-opened" : ""].filter(Boolean).join(" ");
+  card.className = ["event-card", "mode-events", "ticket-sale-card", "events-feed-card", state === "selected" ? "is-selected" : "", state === "opened" ? "is-opened" : ""].filter(Boolean).join(" ");
   card.id = `ticket-sale-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.ticketAlertId = record.id;
   card.dataset.eventId = actionEvent.eventId || actionEvent.id;
@@ -20125,17 +19947,11 @@ function buildTicketSaleCard(record, { interactionCard = null } = {}){
   });
   card.addEventListener("keydown", event => {
     if (event.target !== card) return;
-    if (["ArrowLeft", "ArrowRight"].includes(event.key)){
-      event.preventDefault();
-      applyCuratedEventSwipe(actionEvent, event.key === "ArrowRight" ? "positive" : "negative", { card });
-      return;
-    }
     if (!["Enter", " "].includes(event.key)) return;
     event.preventDefault();
     advanceState({ restoreFocus: true });
   });
-  card.setAttribute("aria-keyshortcuts", "ArrowLeft ArrowRight Enter Space");
-  bindHorizontalLearningSwipe(card, direction => applyCuratedEventSwipe(actionEvent, direction, { card }));
+  card.setAttribute("aria-keyshortcuts", "Enter Space");
   card.append(identity, actions);
   if (state === "opened"){
     const body = document.createElement("div");
@@ -20724,121 +20540,6 @@ function toggleSelectorEntityInDraft(entityId){
 }
 
 const ONBOARDING_SECTIONS = ["startup"];
-
-function calibrationProcessedTargetKeys(graph){
-  const learning = graph?.learning || {};
-  const processed = new Set((learning.signals || [])
-    .filter(signal => signal.source === "calibration")
-    .map(signal => `${signal.targetType}:${signal.targetId}`));
-  (learning.calibrationSkippedTargetIds || []).forEach(targetId => processed.add(`skip:${targetId}`));
-  return processed;
-}
-
-function remainingCalibrationAnchors(graph){
-  const anchors = (SWIPE_CALIBRATION?.anchors || []).slice(0, 10);
-  const processed = calibrationProcessedTargetKeys(graph);
-  return anchors.filter(anchor => (
-    !processed.has(`${anchor.targetType}:${anchor.targetId}`)
-    && !processed.has(`skip:${anchor.targetId}`)
-  ));
-}
-
-function persistCalibrationGraph(graph){
-  const next = clonePreferences(draftPreferences || userPreferences);
-  next.preferenceGraph = graph;
-  savePreferences(next);
-  draftPreferences = clonePreferences(userPreferences);
-}
-
-function applyCalibrationChoice(anchor, direction){
-  if (!anchor || !PREFERENCE_SYSTEM) return;
-  let graph = draftPreferences.preferenceGraph;
-  if (direction === "skip"){
-    graph = PREFERENCE_SYSTEM.skipCalibrationTarget(graph, anchor.targetId);
-  } else {
-    graph = PREFERENCE_SYSTEM.applyLearningSignal(graph, {
-      targetType: anchor.targetType,
-      targetId: anchor.targetId,
-      value: direction === "positive" ? 1 : -1,
-      source: "calibration",
-    });
-  }
-  if (!remainingCalibrationAnchors(graph).length){
-    graph = PREFERENCE_SYSTEM.completeCalibration(graph);
-  }
-  persistCalibrationGraph(graph);
-  recordProductEvent({
-    eventName: "swipe",
-    surface: "calibration",
-    properties: { direction, targetType: anchor.targetType },
-  });
-  renderSettingsScreen();
-}
-
-function skipRemainingCalibration(){
-  if (!PREFERENCE_SYSTEM) return;
-  const graph = PREFERENCE_SYSTEM.completeCalibration(draftPreferences.preferenceGraph, { skipped: true });
-  persistCalibrationGraph(graph);
-  if (settingsFirstRun) saveSettingsPreferences();
-  else renderSettingsScreen();
-}
-
-function renderCalibrationSettings(body){
-  syncDraftPreferenceGraph();
-  const anchors = (SWIPE_CALIBRATION?.anchors || []).slice(0, 10);
-  const learning = draftPreferences.preferenceGraph?.learning || {};
-  const remaining = remainingCalibrationAnchors(draftPreferences.preferenceGraph);
-  const completedCount = anchors.length - remaining.length;
-  if (learning.calibrationCompletedAt || !remaining.length){
-    body.innerHTML = `${wizardProgressMarkup()}<div class="calibration-shell">
-      <div class="calibration-complete"><strong>Calibration saved</strong><p class="preference-help">${completedCount} recognisable anchors have shaped the curated feed. Every signal autosaved; complete fixture lists remain unchanged.</p></div>
-      ${settingsFirstRun ? "" : `<button class="btn ghost" type="button" id="closeCalibrationBtn">Back to Settings</button>`}
-    </div>`;
-    document.getElementById("closeCalibrationBtn")?.addEventListener("click", () => {
-      settingsSection = "main";
-      renderSettingsScreen();
-    });
-    return;
-  }
-
-  const anchor = remaining[0];
-  const sportKey = anchor.match?.sportKeys?.[0];
-  const sportColor = SPORT_META[sportKey]?.color || "var(--accent)";
-  body.innerHTML = `${wizardProgressMarkup()}<div class="calibration-shell">
-    <div class="calibration-progress-row"><span>${completedCount} of ${anchors.length} answered</span><span>${remaining.length} left</span></div>
-    <div class="calibration-card" id="calibrationCard" tabindex="0" aria-label="${anchor.label}. Swipe right for more like this, left for less like this, or press S to skip." style="--sport-color:${sportColor}">
-      <span class="calibration-glyph" aria-hidden="true">${glyphMarkup(anchor.glyph, { preferImage: true })}</span>
-      <h3>${anchor.label}</h3>
-      <p>${anchor.detail}</p>
-    </div>
-    <div class="calibration-actions" aria-label="Calibrate ${anchor.label}">
-      <button class="btn ghost" type="button" id="calibrationLessBtn">Less like this</button>
-      <button class="btn ghost" type="button" id="calibrationSkipBtn">Skip</button>
-      <button class="btn primary" type="button" id="calibrationMoreBtn">More like this</button>
-    </div>
-    <div class="calibration-key-help">Keyboard: ← less · → more · S skip</div>
-    <button class="btn ghost" type="button" id="skipCalibrationBtn">Skip calibration for now</button>
-  </div>`;
-  const card = document.getElementById("calibrationCard");
-  const choose = direction => applyCalibrationChoice(anchor, direction);
-  bindHorizontalLearningSwipe(card, choose);
-  card.addEventListener("keydown", event => {
-    const direction = event.key === "ArrowRight"
-      ? "positive"
-      : event.key === "ArrowLeft"
-        ? "negative"
-        : event.key.toLowerCase() === "s"
-          ? "skip"
-          : null;
-    if (!direction) return;
-    event.preventDefault();
-    choose(direction);
-  });
-  document.getElementById("calibrationLessBtn").addEventListener("click", () => choose("negative"));
-  document.getElementById("calibrationSkipBtn").addEventListener("click", () => choose("skip"));
-  document.getElementById("calibrationMoreBtn").addEventListener("click", () => choose("positive"));
-  document.getElementById("skipCalibrationBtn").addEventListener("click", skipRemainingCalibration);
-}
 
 function tuningInteractionDelta(){
   const current = userPreferences.preferenceGraph?.learning?.tuningInteractionCount || 0;
@@ -21508,7 +21209,7 @@ function renderPilotSettings(body){
       <p class="preference-help">Signed-in measurement is active automatically to help test whether Nothing Sport becomes the place you check before deciding what to watch. Turning it off stops future measurement and clears anything waiting to send; the app remains fully usable.</p>
       <label class="pilot-disclosure" for="pilotMeasurementEnabled">
         <input id="pilotMeasurementEnabled" type="checkbox" ${enabled ? "checked" : ""}>
-        <span><strong>Product measurement active</strong>Share fixed categorical events for viewed opportunities, fixture checks, card opens, save/archive/reinstate, reminder changes, watched, follow/unfollow, swipes, feed-control changes, ratings, tune prompts and the current pulse. Event context is limited to sport, competition/event IDs, recommendation class and cold-start state. No free text, messages, credentials, precise location, contact information or client-supplied user IDs are stored in product events.</span>
+        <span><strong>Product measurement active</strong>Share fixed categorical events for viewed opportunities, fixture checks, card opens, save/archive/reinstate, reminder changes, watched, follow/unfollow, thumb feedback, feed-control changes, ratings, tune prompts and the current pulse. Event context is limited to sport, competition/event IDs, recommendation class and cold-start state. No free text, messages, credentials, precise location, contact information or client-supplied user IDs are stored in product events.</span>
       </label>
       <p class="preference-help" id="pilotMeasurementStatus" role="status" aria-live="polite">${enabled ? `Participating since ${new Date(pilot.participationStartedAt).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}. Events are attached to your signed-in account.` : "Measurement is off."}</p>
     </div>
@@ -22132,6 +21833,7 @@ function renderSettingsScreen(){
     startup: ["Set up your Feed", "Three lightweight groups: what you follow, coarse location and optional offer interests."],
     hidden: ["Hidden events", "Restore exact event editions you previously dismissed."],
     feedback: ["Feedback", "Send feedback to Nothing Sport."],
+    pilot: ["Trust pulse", "Five fixed choices about how well the feed is earning your trust."],
   };
   [title.textContent, copy.textContent] = screens[settingsSection] || screens.main;
   if (settingsSection === "startup") renderStartupMetadataSettings(body);
@@ -22141,6 +21843,7 @@ function renderSettingsScreen(){
   else if (settingsSection === "location") renderLocationSettings(body);
   else if (settingsSection === "hidden") renderHiddenEventsSettings(body);
   else if (settingsSection === "feedback") renderFeedbackAppearanceSettings(body);
+  else if (settingsSection === "pilot") renderPilotSettings(body);
   else renderSettingsMenu(body);
 }
 
@@ -22306,13 +22009,20 @@ document.getElementById("tunePromptModal").addEventListener("click", event => {
   recordTunePromptAction("dismissed");
   setTunePromptOpen(false);
 });
-document.getElementById("dismissPilotPulsePromptBtn").addEventListener("click", () => setPilotPulsePromptOpen(false));
+document.getElementById("dismissPilotPulsePromptBtn").addEventListener("click", () => dismissWeeklyPulsePrompt());
 document.getElementById("openPilotPulseSurveyBtn").addEventListener("click", () => {
   setPilotPulsePromptOpen(false);
   openSettings({ section: "pilot" });
+  window.requestAnimationFrame(() => document.getElementById("pilotPulseForm")?.scrollIntoView({ block:"start" }));
 });
 document.getElementById("pilotPulsePromptModal").addEventListener("click", event => {
-  if (event.target.id === "pilotPulsePromptModal") setPilotPulsePromptOpen(false);
+  if (event.target.id === "pilotPulsePromptModal") dismissWeeklyPulsePrompt();
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && document.getElementById("pilotPulsePromptModal").classList.contains("show")){
+    event.preventDefault();
+    dismissWeeklyPulsePrompt();
+  }
 });
 document.getElementById("aboutBtn").addEventListener("click", () => {
   const modal = document.getElementById("aboutModal");
@@ -22487,12 +22197,14 @@ function chatRoomsForFixture(event){
 }
 
 function chatFixtureEligible(event){
-  const startsAt = Date.parse(event?.startTimeUtc || "");
-  if (!Number.isFinite(startsAt)) return false;
-  const status = String(event?.status || "").toLowerCase();
-  if (["cancelled", "postponed", "completed", "past"].includes(status)) return false;
-  const liveWindow = Math.max(.25, Math.min(24, Number(event?.liveWindow || 3))) * 60 * 60 * 1000;
-  return startsAt > Date.now() || Date.now() <= startsAt + liveWindow;
+  const status = String(event?.status || event?.scheduleStatus || "").toLowerCase();
+  if (["cancelled", "postponed", "completed", "past", "finished", "final"].includes(status)) return false;
+  const exact = Date.parse(event?.startTimeUtc || "");
+  const follows = !Number.isFinite(exact) && String(event?.timePrecision || "").toLowerCase() === "follows";
+  const start = exact || (follows ? Date.parse(event?.sessionStartTimeUtc || event?.timelineSortTimeUtc || "") : NaN);
+  if (!Number.isFinite(start)) return false;
+  const windowMs = follows ? 12 * 60 * 60 * 1000 : Math.max(.25, Math.min(24, Number(event?.liveWindow || 3))) * 60 * 60 * 1000;
+  return start > Date.now() || Date.now() <= start + windowMs;
 }
 
 function appendFixtureChatActions(container, event){
@@ -22617,6 +22329,14 @@ function renderActiveChats(){
   disclosure.className = "chat-disclosure";
   disclosure.textContent = "New rooms begin members-only. Administrators may enable an unlisted guest link; closed rooms revoke participant access and remain read-only to administrators for seven days.";
   body.appendChild(disclosure);
+  if (!chatState.isGuest){
+    const savedMedia = document.createElement("button");
+    savedMedia.type = "button";
+    savedMedia.className = "btn ghost";
+    savedMedia.textContent = "Saved game media";
+    savedMedia.addEventListener("click", () => { void renderSavedGameMedia(); });
+    body.appendChild(savedMedia);
+  }
   if (!chatState.rooms.length){
     const empty = document.createElement("p");
     empty.className = "chat-empty";
@@ -22630,6 +22350,42 @@ function renderActiveChats(){
   list.className = "chat-room-list";
   chatState.rooms.forEach(room => list.appendChild(chatRoomRow(room)));
   body.appendChild(list);
+}
+
+async function renderSavedGameMedia(){
+  setChatHeading("Saved game media", "Only media you explicitly saved is kept after a chat closes.");
+  const body = document.getElementById("chatBody");
+  body.replaceChildren();
+  const back = document.createElement("button");
+  back.type = "button"; back.className = "btn ghost"; back.textContent = "Back to active chats";
+  back.addEventListener("click", renderActiveChats);
+  body.appendChild(back);
+  const status = document.createElement("p");
+  status.className = "chat-disclosure"; status.textContent = "Loading saved media…";
+  body.appendChild(status);
+  try{
+    const payload = await serverSyncClient.chatRequest({ mode:"saved-media" });
+    status.remove();
+    if (!payload.media?.length){
+      const empty = document.createElement("p"); empty.className = "chat-empty"; empty.textContent = "No saved game media yet."; body.appendChild(empty); return;
+    }
+    const list = document.createElement("div"); list.className = "chat-message-media";
+    payload.media.forEach(item => {
+      const card = document.createElement("div"); card.className = "chat-media-item";
+      if (String(item.contentType).startsWith("image/")){
+        const image = document.createElement("img"); image.src = item.url; image.alt = item.fileName; card.appendChild(image);
+      }
+      const open = document.createElement("a"); open.href = item.url; open.target = "_blank"; open.rel = "noopener noreferrer"; open.textContent = item.fileName; card.appendChild(open);
+      const remove = document.createElement("button"); remove.type = "button"; remove.className = "chat-message-action"; remove.textContent = "Delete";
+      remove.addEventListener("click", async () => {
+        remove.disabled = true;
+        try{ await serverSyncClient.chatRequest({}, { action:"saved-media-delete", savedMediaId:item.savedMediaId }); card.remove(); }
+        catch(error){ remove.disabled = false; chatConnection(error.message || "That saved media could not be deleted.", "retrying"); }
+      });
+      card.appendChild(remove); list.appendChild(card);
+    });
+    body.appendChild(list);
+  }catch(error){ status.textContent = error.message || "Saved media is unavailable."; }
 }
 
 function openActiveChats(){
@@ -23029,6 +22785,39 @@ function chatMessageElement(message){
     item.appendChild(quote);
   }
   item.appendChild(body);
+  if (message.attachments?.length){
+    const media = document.createElement("div");
+    media.className = "chat-message-media";
+    message.attachments.forEach(attachment => {
+      const wrap = document.createElement("div");
+      wrap.className = "chat-media-item";
+      if (attachment.kind === "image" || attachment.kind === "gif"){
+        const image = document.createElement("img");
+        image.src = attachment.url || "";
+        image.alt = attachment.fileName || "Shared image";
+        wrap.appendChild(image);
+      } else if (attachment.kind === "audio"){
+        const audio = document.createElement("audio");
+        audio.controls = true; audio.src = attachment.url || ""; wrap.appendChild(audio);
+      } else {
+        const link = document.createElement("a");
+        link.href = attachment.url || "#"; link.target = "_blank"; link.rel = "noopener noreferrer";
+        link.textContent = attachment.fileName || "Open attachment"; wrap.appendChild(link);
+      }
+      if (message.own && !chatState.isGuest && !attachment.saved){
+        const save = document.createElement("button");
+        save.type = "button"; save.className = "chat-message-action"; save.textContent = "Save";
+        save.addEventListener("click", async () => {
+          save.disabled = true;
+          try{ await serverSyncClient.chatRequest({}, { action:"attachment-save", attachmentId:attachment.attachmentId }); save.textContent = "Saved"; }
+          catch(error){ save.disabled = false; chatConnection(error.message || "That media could not be saved.", "retrying"); }
+        });
+        wrap.appendChild(save);
+      }
+      media.appendChild(wrap);
+    });
+    item.appendChild(media);
+  }
   const reactions = document.createElement("div");
   reactions.className = "chat-reactions";
   (message.reactions || []).forEach(reaction => {
@@ -23328,13 +23117,95 @@ function sizeChatComposerInput(input){
   input.style.height = `${Math.min(180, Math.max(52, input.scrollHeight))}px`;
 }
 
+async function sanitiseGameSelfie(file){
+  const bitmap = await createImageBitmap(file);
+  const maximum = 2048;
+  const scale = Math.min(1, maximum / Math.max(bitmap.width, bitmap.height));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+  canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+  canvas.getContext("2d", { alpha:false }).drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  bitmap.close?.();
+  const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", .9));
+  if (!blob) throw new Error("That selfie could not be prepared.");
+  return new File([blob], `game-selfie-${Date.now()}.jpg`, { type:"image/jpeg" });
+}
+
+async function uploadChatAttachment(file, { selfie = false } = {}){
+  const room = chatState.currentRoom;
+  if (!room?.viewer?.canPost || chatState.pendingAttachments.length >= 4) return;
+  let upload = selfie ? await sanitiseGameSelfie(file) : file;
+  if (upload.type === "image/gif" && !chatState.capabilities.canUseGifs){
+    throw new Error(`Earn 25 NSC points to upload and send GIFs. You have ${chatState.capabilities.lifetimeNscPoints || 0}.`);
+  }
+  const prepared = await serverSyncClient.chatRequest({}, {
+    action:"attachment-upload-url", roomId:room.roomId, fileName:upload.name,
+    contentType:upload.type || "application/octet-stream", byteSize:upload.size,
+  });
+  const response = await fetch(prepared.attachment.uploadUrl, {
+    method:"PUT", headers:{ "Content-Type":upload.type }, body:upload,
+  });
+  if (!response.ok) throw new Error("The attachment upload did not complete.");
+  await serverSyncClient.chatRequest({}, {
+    action:"attachment-complete", attachmentId:prepared.attachment.attachmentId,
+    detectedContentType:upload.type,
+  });
+  chatState.pendingAttachments.push({
+    attachmentId:prepared.attachment.attachmentId,
+    kind:prepared.attachment.kind, fileName:upload.name, contentType:upload.type,
+    byteSize:upload.size, url:URL.createObjectURL(upload), own:true,
+  });
+  renderOpenChatRoom({ autoScroll:true, focusComposer:true });
+}
+
+async function chooseChatFiles(input, options = {}){
+  for (const file of [...(input.files || [])].slice(0, 4 - chatState.pendingAttachments.length)){
+    await uploadChatAttachment(file, options);
+  }
+  input.value = "";
+}
+
+async function searchChatGifs(query, results){
+  if (!chatState.capabilities.canUseGifs){
+    results.textContent = `Earn 25 NSC points to use GIFs. You have ${chatState.capabilities.lifetimeNscPoints || 0}.`;
+    return;
+  }
+  results.textContent = "Searching GIFs…";
+  try{
+    const payload = await serverSyncClient.chatRequest({ mode:"gif-search", q:query });
+    results.replaceChildren();
+    payload.gifs.forEach(gif => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "chat-gif-result";
+      const image = document.createElement("img");
+      image.src = gif.previewUrl;
+      image.alt = gif.title;
+      button.appendChild(image);
+      button.addEventListener("click", async () => {
+        button.disabled = true;
+        try{
+          const response = await fetch(gif.originalUrl);
+          const blob = await response.blob();
+          await uploadChatAttachment(new File([blob], `${gif.id}.gif`, { type:"image/gif" }));
+        }catch(error){ chatConnection(error.message || "That GIF could not be added.", "retrying"); }
+      });
+      results.appendChild(button);
+    });
+    const attribution = document.createElement("small");
+    attribution.textContent = payload.attribution || "GIF library";
+    results.appendChild(attribution);
+  }catch(error){ results.textContent = error.message || "GIF search is unavailable."; }
+}
+
 async function sendChatMessage(form){
   const input = form.querySelector("textarea");
   const room = chatState.currentRoom;
   if (!room?.viewer?.canPost) return;
   const body = CHAT.messageBody(input.value);
-  if (!body){
-    chatConnection("Messages must contain 1–500 Unicode characters.", "retrying");
+  const pendingAttachments = [...chatState.pendingAttachments];
+  if (!body && !pendingAttachments.length){
+    chatConnection("Add a message or attachment before sending.", "retrying");
     return;
   }
   const submit = form.querySelector('[type="submit"]');
@@ -23345,12 +23216,13 @@ async function sendChatMessage(form){
   const optimisticMessage = {
     messageId:`optimistic:${clientId}`,
     clientId,
-    messageType:"text",
+    messageType:body && pendingAttachments.length ? "mixed" : pendingAttachments.length ? "media" : "text",
     body,
     sentAt:new Date().toISOString(),
     senderName:chatState.profile?.displayName || room.viewer?.displayName || "You",
     own:true,
     pending:true,
+    attachments:pendingAttachments,
     replyTo:replyToMessage ? {
       messageId:replyToMessage.messageId,
       senderName:replyToMessage.senderName,
@@ -23359,22 +23231,39 @@ async function sendChatMessage(form){
   };
   mergeChatMessages([optimisticMessage]);
   chatState.draftBody = "";
+  chatState.pendingAttachments = [];
   chatState.replyToMessageId = null;
-  renderOpenChatRoom({ autoScroll:true, focusComposer:true });
+  input.value = "";
+  sizeChatComposerInput(input);
+  form.querySelector(".chat-attachment-previews")?.replaceChildren();
+  document.querySelector(".chat-reply-preview")?.remove();
+  refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
+  input.focus({ preventScroll:true });
   try{
     const payload = await serverSyncClient.chatRequest({}, {
       action:"send-message",
       roomId:room.roomId,
       clientId,
       body,
+      attachmentIds:pendingAttachments.map(item => item.attachmentId),
       ...(replyToMessageId ? { replyToMessageId:replyToMessageId } : {}),
     });
+    if (payload.message?.attachments?.length){
+      const optimisticAttachments = new Map(pendingAttachments.map(item => [item.attachmentId, item]));
+      payload.message.attachments = payload.message.attachments.map(item => ({
+        ...item,
+        url:item.url || optimisticAttachments.get(item.attachmentId)?.url || null,
+      }));
+    }
     mergeChatMessages([payload.message]);
-    renderOpenChatRoom({ autoScroll:true, focusComposer:true });
+    refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
+    submit.disabled = false;
+    input.focus({ preventScroll:true });
     void refreshChatActive();
   }catch(error){
     chatState.messages = chatState.messages.filter(message => message.messageId !== optimisticMessage.messageId);
     chatState.draftBody = body;
+    chatState.pendingAttachments = pendingAttachments;
     chatState.replyToMessageId = replyToMessageId;
     chatConnection(error.message || "The message could not be sent.", "retrying");
     renderOpenChatRoom({ autoScroll:true, focusComposer:true });
@@ -23394,14 +23283,73 @@ function buildChatComposer({ focus = false } = {}){
   input.maxLength = 500;
   input.rows = 2;
   input.placeholder = "Write a message or emoji";
-  input.required = true;
   input.value = chatState.draftBody || "";
   input.addEventListener("input", () => { chatState.draftBody = input.value; sizeChatComposerInput(input); });
+  input.addEventListener("keydown", event => {
+    if (event.key !== "Enter" || event.shiftKey || event.isComposing) return;
+    event.preventDefault();
+    form.requestSubmit();
+  });
+  const tools = document.createElement("div");
+  tools.className = "chat-attachment-tools";
+  const attach = document.createElement("button");
+  attach.type = "button";
+  attach.className = "btn ghost chat-staple";
+  attach.textContent = "📎";
+  attach.title = "Add attachment";
+  attach.setAttribute("aria-label", "Add attachment");
+  const fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.hidden = true;
+  fileInput.multiple = true;
+  fileInput.accept = "image/jpeg,image/png,image/webp,image/gif,audio/mpeg,audio/mp4,audio/wav,audio/ogg,application/pdf,text/plain,text/csv,.doc,.docx,.xls,.xlsx";
+  attach.addEventListener("click", () => fileInput.click());
+  fileInput.addEventListener("change", () => { void chooseChatFiles(fileInput).catch(error => chatConnection(error.message, "retrying")); });
+  const selfie = document.createElement("button");
+  selfie.type = "button";
+  selfie.className = "btn ghost";
+  selfie.textContent = "Game selfie";
+  const selfieInput = document.createElement("input");
+  selfieInput.type = "file";
+  selfieInput.accept = "image/*";
+  selfieInput.capture = "user";
+  selfieInput.hidden = true;
+  selfie.addEventListener("click", () => selfieInput.click());
+  selfieInput.addEventListener("change", () => { void chooseChatFiles(selfieInput, { selfie:true }).catch(error => chatConnection(error.message, "retrying")); });
+  const gif = document.createElement("button");
+  gif.type = "button";
+  gif.className = "btn ghost";
+  gif.textContent = "GIF";
+  gif.title = chatState.capabilities.canUseGifs ? "Search GIFs" : "Requires 25 NSC points";
+  const gifPanel = document.createElement("div");
+  gifPanel.className = "chat-gif-panel";
+  gifPanel.hidden = true;
+  const gifSearch = document.createElement("input");
+  gifSearch.type = "search";
+  gifSearch.placeholder = "Search GIFs";
+  const gifResults = document.createElement("div");
+  gifResults.className = "chat-gif-results";
+  gif.addEventListener("click", () => { gifPanel.hidden = !gifPanel.hidden; if (!gifPanel.hidden) gifSearch.focus(); });
+  gifSearch.addEventListener("keydown", event => {
+    if (event.key === "Enter") { event.preventDefault(); void searchChatGifs(gifSearch.value, gifResults); }
+  });
+  gifPanel.append(gifSearch, gifResults);
+  tools.append(attach, fileInput, selfie, selfieInput, gif);
+  const previews = document.createElement("div");
+  previews.className = "chat-attachment-previews";
+  chatState.pendingAttachments.forEach(item => {
+    const preview = document.createElement("span");
+    preview.textContent = item.fileName;
+    const remove = document.createElement("button");
+    remove.type = "button"; remove.textContent = "×"; remove.setAttribute("aria-label", `Remove ${item.fileName}`);
+    remove.addEventListener("click", () => { chatState.pendingAttachments = chatState.pendingAttachments.filter(entry => entry.attachmentId !== item.attachmentId); renderOpenChatRoom({ autoScroll:true, focusComposer:true }); });
+    preview.appendChild(remove); previews.appendChild(preview);
+  });
   const send = document.createElement("button");
   send.type = "submit";
   send.className = "btn primary";
   send.textContent = "Send";
-  form.append(label, input, send);
+  form.append(label, tools, previews, gifPanel, input, send);
   form.addEventListener("submit", event => { event.preventDefault(); void sendChatMessage(form); });
   window.requestAnimationFrame(() => {
     sizeChatComposerInput(input);
@@ -23556,6 +23504,7 @@ async function openChatRoom(roomId){
   try{
     const payload = await serverSyncClient.chatRequest({ roomId });
     chatState.isAdmin = payload.isAdmin === undefined ? chatState.isAdmin : Boolean(payload.isAdmin);
+    chatState.capabilities = payload.capabilities || chatState.capabilities;
     chatState.currentRoom = payload.room;
     chatState.messages = payload.messages || [];
     mergeChatReactionChanges(payload.reactionChanges);
@@ -23669,6 +23618,7 @@ async function refreshChatActive({ rerenderOpenList = false } = {}){
       isAdmin:Boolean(payload.isAdmin),
       isGuest:!serverPersistence.user && Boolean(serverSyncClient.getGuestChatSession?.()),
       profile:payload.profile || { displayName:null },
+      capabilities:payload.capabilities || chatState.capabilities,
       rooms:payload.rooms || [],
       activeSignature:signature,
     };
@@ -24275,11 +24225,14 @@ runStartupFeedBarrier();
 const runDisposableMaintenance = () => { void disposableStore?.evictExpired?.(); };
 (window.requestIdleCallback || (callback => window.setTimeout(callback, 500)))(runDisposableMaintenance);
 let weeklyPulseWasHidden = document.visibilityState === "hidden";
+let weeklyPulseHiddenAt = weeklyPulseWasHidden ? Date.now() : null;
 let installedServiceWorkerRegistration = null;
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "hidden"){
     loadingAudioPlayer?.stop?.();
     weeklyPulseWasHidden = true;
+    weeklyPulseHiddenAt = Date.now();
+    dismissWeeklyPulsePrompt();
     void flushDisposableStore();
     return;
   }
@@ -24288,9 +24241,10 @@ document.addEventListener("visibilitychange", () => {
   weeklyPulseWasHidden = false;
   void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
-  registerWeeklyPulseAppOpen();
+  if (weeklyPulseHiddenAt && Date.now() - weeklyPulseHiddenAt >= 30 * 60 * 1000) registerWeeklyPulseAppOpen();
+  weeklyPulseHiddenAt = null;
 });
-window.addEventListener("pagehide", () => loadingAudioPlayer?.stop?.(), { passive:true });
+window.addEventListener("pagehide", () => { loadingAudioPlayer?.stop?.(); dismissWeeklyPulsePrompt(); }, { passive:true });
 window.addEventListener("online", () => {
   installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
   void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));

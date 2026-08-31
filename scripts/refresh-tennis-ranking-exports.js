@@ -329,8 +329,30 @@ async function main(){
   console.log(`Official tennis ranking exports refreshed: ${paths.join(", ")}.`);
 }
 
+function validatedCurrentExportsForTransientFailure(){
+  return ["ATP", "WTA"].map(tour => {
+    const current = currentRankingExport(tour);
+    if (current.payload?.schemaVersion !== "tennis-ranking-export.v1") throw new Error(`${tour} current ranking export has an invalid schema`);
+    assertCompleteRankingUniverse(current.payload.athletes || [], tour);
+    return current;
+  });
+}
+
+function isTransientSourceFailure(error){
+  return /fetch failed|timed?\s*out|timeout|abort|network|socket|econn|enotfound|eai_again/i.test(String(error?.message || error?.name || error));
+}
+
 if (require.main === module) {
   main().catch(error => {
+    if (isTransientSourceFailure(error)){
+      try {
+        const current = validatedCurrentExportsForTransientFailure();
+        console.warn(`Official tennis ranking sources temporarily unavailable; preserving validated ${current.map(item => path.basename(item.filePath)).join(" and ")} exports.`);
+        return;
+      } catch (validationError){
+        console.error(validationError.stack || validationError.message);
+      }
+    }
     console.error(error.stack || error.message);
     process.exit(1);
   });

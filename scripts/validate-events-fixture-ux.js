@@ -36,7 +36,7 @@ assert(!eventCardSource.includes("buildNothingscoreSummary") && !eventCardSource
 assert(!eventCardSource.includes("follow-reason-tag") && !eventCardSource.includes("new-tag") && !eventCardSource.includes("event-meta-row") && !eventCardSource.includes("Independent context"), "Feed cards must omit meta labels and duplicate metadata rails");
 assert(eventCardSource.includes("buildEventNothingscoreAction(ev)") && eventCardSource.indexOf("buildEventWhyItMatters(ev)") < eventCardSource.indexOf("buildEventNothingscoreAction(ev)"), "the lifecycle-specific contribution button must sit immediately below Why it matters");
 assert(!eventCardSource.includes("buildPostEventRatingPrompt"), "Feed cards must keep the separate impact rating prompt hidden behind the contribution action");
-assert(/function buildFeedStakesRow[\s\S]{0,1200}positive[\s\S]{0,600}buildStakesMeter[\s\S]{0,600}negative/.test(html), "Feed must place thumbs up left and thumbs down right of Stakes");
+assert(/function buildFeedStakesRow[\s\S]{0,1200}negative[\s\S]{0,600}buildStakesMeter[\s\S]{0,600}positive/.test(html), "Feed must place thumbs down left and thumbs up right of Stakes");
 assert(/function buildStakesMeter[\s\S]{0,1200}stakes-flame[\s\S]{0,800}STAKES/.test(html), "Stakes must use five filled or hollow white flame glyphs with the numeric label below");
 const majorCardSource = html.slice(html.indexOf("function buildMajorEventCard"), html.indexOf("function buildTicketSaleCard"));
 assert(!majorCardSource.includes("buildEventFeedbackButtons"), "Events cards must not show thumbs controls");
@@ -45,4 +45,4 @@ assert(!html.includes("while (badges.firstChild) metaRow.appendChild(badges.firs
 assert(html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && html.includes("}, 1400);"), "likes must retain cards with feedback while dislikes dismiss exact editions");
 assert(html.includes('"Liked — future feed suggestions will adapt."') && html.includes('"Like removed — future feed suggestions will no longer use it."') && html.includes('actionLabel:"Undo"'), "feedback must explain reversible learning and keep dismissal recoverable");
 
-console.log("Events and fixture UX valid: accessible tabs, deep links, keyed expansion, compact identities, stable viewport and recoverable swipe dismissal passed.");
+console.log("Events and fixture UX valid: accessible tabs, deep links, keyed expansion, compact identities, stable viewport and recoverable button dismissal passed.");

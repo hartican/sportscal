@@ -326,8 +326,8 @@ assert(preferenceSystemSource.includes("MAX_LEARNING_SIGNALS = 120") && preferen
 assert(preferenceSystemSource.includes("count === 1 || count === 4 || count === 10 || count === 25 || count === 50"), "Tune prompts must use the fixed decaying cadence");
 assert(swipeCalibrationSource.includes('targetId: "competitor:f1:oscar-piastri"') && swipeCalibrationSource.includes('targetId: "special:wimbledon"'), "calibration must prefer recognisable canonical player and marquee anchors");
 assert(html.includes('const ONBOARDING_SECTIONS = ["startup"]'), "Swipe Calibration must remain BTS and absent from onboarding");
-assert(html.includes("applyCuratedEventSwipe") && html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && !html.includes("sessionDismissedEventIds"), "curated event swipes must persistently dismiss exact cards while retaining positive cards");
-assert(html.includes('source: "calibration"') && html.includes("FOLLOW_FIRST?.toggleFeedback") && html.includes("targetType:target.targetType"), "calibration and feed feedback must retain their distinct bounded metadata paths");
+assert(html.includes("applyCuratedEventSwipe") && html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && !html.includes("sessionDismissedEventIds") && !html.includes("bindHorizontalLearningSwipe("), "curated thumb buttons must persistently dismiss exact cards while retaining positive cards without Tinder-style gestures");
+assert(preferenceSystemSource.includes('["calibration", "feed", "tune"]') && html.includes("FOLLOW_FIRST?.toggleFeedback") && html.includes("targetType:target.targetType"), "legacy calibration data and current thumb feedback must retain their distinct bounded metadata paths");
 assert(html.includes('eventName: "swipe"') && html.includes('eventName: "tune_prompt"'), "swipe and Tune prompt interactions must use the fixed pilot event contract");
 assert(html.includes("learningPreference: graph.learning || null"), "local profile reloads must retain learning separately from canonical truth");
 assert(preferenceSystemSource.includes("function mergeLearning"), "preference migrations must retain a bounded learning merge helper");
@@ -446,7 +446,7 @@ assert(html.includes('[["teams-players", "Teams & Players"], ["sports-australia"
 assert(html.includes('id="selectorOptInModal"'), "new selector entities must use one consolidated opt-in prompt");
 assert.equal((html.match(/id="selectorOptInModal"/g) || []).length, 1, "new selector entities must not stack multiple prompts");
 assert(html.includes('selectorNewMarkerMarkup(entity)'), "new selector entities must reuse the contrast-colour dot treatment");
-assert(html.includes("FOLLOW_FIRST?.shouldPromptRefinement?.(userPreferences)") && html.includes('id="reviewSportsFromTuneBtn">Open Follow</button>') && html.includes('activateTopLevelTab("follow")'), "the third-open or first-swipe refinement prompt must route to Follow");
+assert(html.includes("FOLLOW_FIRST?.shouldPromptRefinement?.(userPreferences)") && html.includes('id="reviewSportsFromTuneBtn">Open Follow</button>') && html.includes('activateTopLevelTab("follow")'), "the third-open or first-feedback refinement prompt must route to Follow");
 assert(html.includes('["day", "night", "system"]'), "Settings must support Day, Night, and System themes");
 assert(!html.includes('id="suggestBtn"') && !html.includes('id="feedbackModal"'), "Feedback must live inside Settings rather than a separate header action or modal");
 assert(!settingsMenuSource.includes('settingsMenuItem("archive"') && html.includes("function renderArchiveSettings"), "legacy Archive recovery must not be a user-facing Settings destination");

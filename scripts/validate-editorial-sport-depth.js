@@ -6,7 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 
 const DAY_MS = 86400000;
-const REFERENCE = Date.parse(process.env.NS_EDITORIAL_REFERENCE || "2026-08-30T12:00:00+10:00");
+const REFERENCE = Date.parse(process.env.NS_EDITORIAL_REFERENCE || new Date().toISOString());
 const feed = JSON.parse(fs.readFileSync("data/events.json", "utf8")).events;
 
 function idFor(record){ return String(record?.eventId || record?.id || record?.canonicalEventId || ""); }

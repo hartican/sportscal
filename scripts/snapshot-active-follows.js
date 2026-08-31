@@ -60,6 +60,15 @@ async function fetchProfiles({ fetchImpl = fetch, url = process.env.SUPABASE_URL
 async function main(){
   const outputPath = process.env.FOLLOW_SNAPSHOT_PATH;
   if (!outputPath) throw new Error("FOLLOW_SNAPSHOT_PATH is required");
+  const connectorJsonPath = process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH;
+  if (connectorJsonPath){
+    const payload = JSON.parse(fs.readFileSync(connectorJsonPath, "utf8"));
+    if (payload.schemaVersion !== "follow-snapshot.v1" || !Array.isArray(payload.profiles)) throw new Error("Connector follow snapshot is invalid");
+    fs.writeFileSync(outputPath, `${JSON.stringify(encryptSnapshot(payload))}\n`, { encoding:"utf8", mode:0o600 });
+    fs.chmodSync(outputPath, 0o600);
+    console.log(`Connector follow snapshot validated for ${payload.profiles.length} anonymised profiles.`);
+    return;
+  }
   const preloadedPath = process.env.FOLLOW_SNAPSHOT_PRELOADED_PATH;
   const preloadedKey = process.env.FOLLOW_SNAPSHOT_PRELOADED_KEY;
   if (preloadedPath || preloadedKey){

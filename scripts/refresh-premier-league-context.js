@@ -182,6 +182,10 @@ function validatePublishedContext(bundle){
   return snapshot;
 }
 
+function isTransientSourceFailure(error){
+  return /fetch failed|timed?\s*out|abort|network|socket|econn|enotfound|eai_again/i.test(String(error?.message || error));
+}
+
 async function refresh({ fetcher = fetchJson, bundlePath = BUNDLE_PATH, directoryPath = DIRECTORY_PATH, now = () => new Date() } = {}){
   const checkedAt = now().toISOString();
   const bundle = JSON.parse(fs.readFileSync(bundlePath, "utf8"));
@@ -208,6 +212,15 @@ if (require.main === module){
     }
   } else {
     refresh().catch(error => {
+      if (isTransientSourceFailure(error)){
+        try {
+          const snapshot = validatePublishedContext(JSON.parse(fs.readFileSync(BUNDLE_PATH, "utf8")));
+          console.warn(`Premier League source temporarily unavailable; preserving ${snapshot.entries.length} validated clubs for the immediate --check pass.`);
+          return;
+        } catch (validationError){
+          console.error(validationError.stack || validationError.message);
+        }
+      }
       console.error(error.stack || error.message);
       process.exit(1);
     });

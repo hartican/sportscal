@@ -143,7 +143,10 @@ async function run(){
   assert.match(api, /changedQuery\.updated_at = `gte\.\$\{after\}`/, "reaction polling must include simultaneous rows at the cursor instant");
   assert.match(api, /messageQuery\.created_at = `gte\.\$\{after\}`/, "message polling must include simultaneous rows at the cursor instant");
   assert.doesNotMatch(api, /console\.(?:log|info|warn|error)[^\n]*capability/i, "share credentials must never enter server logs");
-  assert.equal(vercel.functions?.["api/chat.js"]?.includeFiles, "data/feed/*.json", "the deployed chat function must include canonical fixture pages");
+  const chatIncludeFiles = vercel.functions?.["api/chat.js"]?.includeFiles || "";
+  assert.match(chatIncludeFiles, /feed\/\*\.json/, "the deployed chat function must include canonical fixture pages");
+  assert.match(chatIncludeFiles, /follow-fixtures\.v1\.json/, "chat must include followed fixtures whose exact start is not yet known");
+  assert.match(chatIncludeFiles, /major-events\.v1\.json/, "chat must include the surfaced Event schedule");
   assert.match(api, /require\("@vercel\/functions"\)/, "chat must use the Vercel request-lifetime API");
   assert.match(api, /const notificationFanout = dispatchChatMessageNotifications\([\s\S]{0,300}waitUntil\(notificationFanout\)/, "push fan-out must continue after the message acknowledgement instead of blocking it");
   feedManifest.pages.forEach(page => {
@@ -179,8 +182,8 @@ async function run(){
   assert.match(html, /copy\.className = "chat-user-copy"/);
   assert.match(html, /name\.className = "chat-user-name"/);
   assert.match(html, /email\.className = "chat-user-email"/, "member names and email addresses must render as separate rows");
-  assert.match(worker, /nothingsport-shell-v204/);
-  assert.equal(html.match(/name="app-shell-version" content="(\d+)"/)?.[1], "204");
+  assert.match(worker, /nothingsport-shell-v206/);
+  assert.equal(html.match(/name="app-shell-version" content="(\d+)"/)?.[1], "206");
   assert.match(worker, /"\/config\/chat-contract\.js"/);
 
   const ids = {
@@ -346,6 +349,9 @@ async function run(){
       const profile = profiles.get(userId);
       return fetchResponse(profile ? [profile] : []);
     }
+    if (table === "nothingsports_nsc_points") return fetchResponse([]);
+    if (table === "nothingsports_chat_attachments") return fetchResponse([]);
+    if (table === "nothingsports_saved_game_media") return fetchResponse([]);
     if (table === "nothingsports_chat_rooms"){
       const roomId = eq(url.searchParams.get("id"));
       const room = rooms.find(item => item.id === roomId);

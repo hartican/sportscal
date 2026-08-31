@@ -38,7 +38,7 @@ assert.equal(eplViewing?.providerId, "stan", "every EPL fixture must infer Stan 
 assert.equal(eplViewing?.territory, "AU");
 assert.equal(eplViewing?.liveOrReplay, "live");
 assert.match(eplViewing?.webUrl || "", /stan\.com\.au\/watch\/sport\/football\/premier-league/);
-assert.match(eplViewing?.appScheme || "", /^stan:/);
+assert.equal(eplViewing?.appScheme, undefined, "Stan actions must use the verified HTTPS route rather than an unverified custom scheme");
 
 const championsLeagueViewing = followFirst.viewingLink({ key:"fifa", competitionId:"competition:uefa-champions-league", name:"UEFA Champions League" });
 assert.equal(championsLeagueViewing?.providerId, "stan");

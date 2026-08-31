@@ -1,10 +1,10 @@
 {
   "schemaVersion": "us-open-official-schedule-snapshot.v1",
   "tournament": "US Open 2026",
-  "capturedAt": "2026-08-31T11:35:50.037Z",
+  "capturedAt": "2026-08-31T15:58:23.452Z",
   "scheduleDaysSourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/scheduleDays.json",
   "scheduleDays": {
-    "lastUpdated": 1788156220,
+    "lastUpdated": 1788190893,
     "eventDays": [
       {
         "message": "Fan Week Day 1: Sunday, August 23",
@@ -53,7 +53,7 @@
         "epoch": 1787630400,
         "lastWrite": 1787711400,
         "matchCount": 78,
-        "winnerCount": 77,
+        "winnerCount": 78,
         "released": true,
         "currentDay": false
       },
@@ -136,7 +136,7 @@
         "quals": false,
         "practice": false,
         "epoch": 1788148800,
-        "lastWrite": 1788139299,
+        "lastWrite": 1788190893,
         "matchCount": 57,
         "winnerCount": 0,
         "released": true,
@@ -35948,10 +35948,10 @@
         "day": 9,
         "displayDate": "Day 2: Monday, August 31",
         "shortDate": "Day 2: Mon, Aug 31",
-        "releaseTime": "-3:21 AM",
-        "epoch": 1788139289,
-        "comments": "Matches to be finished added",
-        "footerComment": "MEN'S AND WOMEN'S LUCKY LOSER SIGN-INS CLOSE AT 10:30 AM|SIGN-IN LOCATED IN THE REFEREE'S OFFICE",
+        "releaseTime": "11:35 AM",
+        "epoch": 1788190523,
+        "comments": null,
+        "footerComment": null,
         "courts": [
           {
             "courtName": "Arthur Ashe Stadium",
@@ -35974,8 +35974,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -36013,26 +36013,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
-                  "setDurations": [
-                    "0",
-                    "0",
-                    "0",
-                    "0",
-                    "0"
-                  ],
+                  "setsWon": [],
+                  "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -36300,8 +36284,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -36339,20 +36323,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
+                  "setsWon": [],
                   "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -36620,8 +36594,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -36659,26 +36633,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
-                  "setDurations": [
-                    "0",
-                    "0",
-                    "0",
-                    "0",
-                    "0"
-                  ],
+                  "setsWon": [],
+                  "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -37011,8 +36969,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -37050,20 +37008,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
+                  "setsWon": [],
                   "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -37396,8 +37344,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -37435,20 +37383,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
+                  "setsWon": [],
                   "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -37658,6 +37596,84 @@
             ]
           },
           {
+            "courtName": "Court 4",
+            "courtId": "AF",
+            "session": 1,
+            "sessionName": null,
+            "time": "2:15 PM",
+            "startEpoch": 1788200100,
+            "matches": [
+              {
+                "order": 1,
+                "match_id": "1150",
+                "eventName": "Men's Singles",
+                "shortEventName": "Men's Singles",
+                "eventCode": "MS",
+                "courtName": "Court 4",
+                "shortCourtName": "Court 4",
+                "courtId": "AF",
+                "roundCode": "1",
+                "roundName": "Round 1",
+                "roundNameShort": "R1",
+                "duration": null,
+                "status": null,
+                "statusCode": "B",
+                "conjunction": null,
+                "notBefore": null,
+                "comment": null,
+                "team1": [
+                  {
+                    "firstNameA": "Damir",
+                    "lastNameA": "Dzumhur",
+                    "displayNameA": "D. Dzumhur",
+                    "nationA": "BIH",
+                    "idA": "atpd923",
+                    "firstNameB": null,
+                    "lastNameB": null,
+                    "displayNameB": null,
+                    "nationB": null,
+                    "idB": null,
+                    "seed": null,
+                    "won": false
+                  }
+                ],
+                "team2": [
+                  {
+                    "firstNameA": "Hubert",
+                    "lastNameA": "Hurkacz",
+                    "displayNameA": "H. Hurkacz",
+                    "nationA": "POL",
+                    "idA": "atphb71",
+                    "firstNameB": null,
+                    "lastNameB": null,
+                    "displayNameB": null,
+                    "nationB": null,
+                    "idB": null,
+                    "seed": null,
+                    "won": false
+                  }
+                ],
+                "shortScore": null,
+                "scores": {
+                  "setsWon": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "setDurations": [],
+                  "sets": [],
+                  "gameScore": [
+                    null,
+                    null
+                  ]
+                }
+              }
+            ]
+          },
+          {
             "courtName": "Court 6",
             "courtId": "AG",
             "session": 1,
@@ -37678,8 +37694,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -37717,20 +37733,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
+                  "setsWon": [],
                   "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -38105,8 +38111,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -38144,20 +38150,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
+                  "setsWon": [],
                   "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -38610,8 +38606,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -38649,20 +38645,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
+                  "setsWon": [],
                   "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -38892,8 +38878,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -38931,20 +38917,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
+                  "setsWon": [],
                   "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -39291,8 +39267,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -39330,20 +39306,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
+                  "setsWon": [],
                   "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -39437,74 +39403,6 @@
               },
               {
                 "order": 3,
-                "match_id": "1150",
-                "eventName": "Men's Singles",
-                "shortEventName": "Men's Singles",
-                "eventCode": "MS",
-                "courtName": "Court 12",
-                "shortCourtName": "Court 12",
-                "courtId": "AM",
-                "roundCode": "1",
-                "roundName": "Round 1",
-                "roundNameShort": "R1",
-                "duration": null,
-                "status": null,
-                "statusCode": "B",
-                "conjunction": null,
-                "notBefore": null,
-                "comment": null,
-                "team1": [
-                  {
-                    "firstNameA": "Damir",
-                    "lastNameA": "Dzumhur",
-                    "displayNameA": "D. Dzumhur",
-                    "nationA": "BIH",
-                    "idA": "atpd923",
-                    "firstNameB": null,
-                    "lastNameB": null,
-                    "displayNameB": null,
-                    "nationB": null,
-                    "idB": null,
-                    "seed": null,
-                    "won": false
-                  }
-                ],
-                "team2": [
-                  {
-                    "firstNameA": "Hubert",
-                    "lastNameA": "Hurkacz",
-                    "displayNameA": "H. Hurkacz",
-                    "nationA": "POL",
-                    "idA": "atphb71",
-                    "firstNameB": null,
-                    "lastNameB": null,
-                    "displayNameB": null,
-                    "nationB": null,
-                    "idB": null,
-                    "seed": null,
-                    "won": false
-                  }
-                ],
-                "shortScore": null,
-                "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
-                  "setDurations": [],
-                  "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
-                }
-              },
-              {
-                "order": 4,
                 "match_id": "2113",
                 "eventName": "Women's Singles",
                 "shortEventName": "Women's Singles",
@@ -39572,7 +39470,7 @@
                 }
               },
               {
-                "order": 5,
+                "order": 4,
                 "match_id": "1103",
                 "eventName": "Men's Singles",
                 "shortEventName": "Men's Singles",
@@ -39662,8 +39560,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -39701,20 +39599,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
+                  "setsWon": [],
                   "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {
@@ -40047,8 +39935,8 @@
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
                 "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "status": "In Progress",
+                "statusCode": "A",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -40086,20 +39974,10 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                  ],
+                  "setsWon": [],
                   "setDurations": [],
                   "sets": [],
-                  "gameScore": [
-                    null,
-                    null
-                  ]
+                  "gameScore": []
                 }
               },
               {

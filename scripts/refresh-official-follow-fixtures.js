@@ -294,9 +294,23 @@ function parseDiamondsArticle(html, sourceUrl, checkedAt = new Date().toISOStrin
 }
 
 async function fetchText(url, fetchImpl = fetch){
-  const response = await fetchImpl(url, { headers:{ "User-Agent":"Nothing Sport schedule refresh/1.0" } });
+  const response = await fetchImpl(url, {
+    headers:{ "User-Agent":"Nothing Sport schedule refresh/1.0" },
+    signal:AbortSignal.timeout(20_000),
+  });
   if (!response.ok) throw new Error(`Official follow source failed (${response.status}): ${url}`);
   return response.text();
+}
+
+function validateArtifact(payload){
+  if (payload?.schemaVersion !== "follow-source-fixtures.v1" || !Array.isArray(payload?.events) || !payload.events.length){
+    throw new Error("Official follow fixture artifact is invalid");
+  }
+  return payload;
+}
+
+function isTransientSourceFailure(error){
+  return /fetch failed|timed?\s*out|abort|network|socket|econn|enotfound|eai_again/i.test(String(error?.message || error));
 }
 
 async function mapWithConcurrency(values, concurrency, mapper){
@@ -365,12 +379,19 @@ async function refresh({ fetchImpl = fetch, now = new Date() } = {}){
 async function main(){
   const checkOnly = process.argv.includes("--check");
   if (checkOnly){
-    const payload = JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf8"));
-    if (payload.schemaVersion !== "follow-source-fixtures.v1" || !Array.isArray(payload.events)) throw new Error("Official follow fixture artifact is invalid");
+    const payload = validateArtifact(JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf8")));
     console.log(`Official follow source artifact valid: ${payload.events.length} fixtures.`);
     return;
   }
-  const payload = await refresh();
+  let payload;
+  try {
+    payload = await refresh();
+  } catch (error){
+    if (!isTransientSourceFailure(error) || !fs.existsSync(OUTPUT_PATH)) throw error;
+    payload = validateArtifact(JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf8")));
+    console.warn(`Official follow sources temporarily unavailable; preserving ${payload.events.length} validated fixtures.`);
+    return;
+  }
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive:true });
   fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(payload, null, 2)}\n`);
   console.log(`Official follow sources refreshed: ${payload.events.length} fixtures from ${payload.sources.length} API-selectable bundles.`);

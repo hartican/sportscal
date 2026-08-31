@@ -125,7 +125,7 @@ function slugify(value){
 }
 
 async function officialJson(url, headers = {}){
-  const response = await fetch(url, { headers:{ Accept:"application/json", "User-Agent":"nothingsport-directory-refresh/1.0", ...headers } });
+  const response = await fetch(url, { headers:{ Accept:"application/json", "User-Agent":"nothingsport-directory-refresh/1.0", ...headers }, signal:AbortSignal.timeout(20_000) });
   if (!response.ok) throw new Error(`Official directory request failed (${response.status}): ${url}`);
   return response.json();
 }
@@ -322,5 +322,14 @@ async function main(){
   console.log(`Team-player directories ${check ? "are current" : "written"}.`);
 }
 
-if (require.main === module) main().catch(error => { console.error(error); process.exit(1); });
+if (require.main === module) main().catch(error => {
+  const transient = /fetch failed|abort|timed?\s*out|econn|enotfound|5\d\d\b/i.test(String(error?.stack || error?.message || error));
+  const published = ["nrl-directory.v1.json", "afl-directory.v1.json"].every(filename => fs.existsSync(path.join(ROOT, "data/canonical", filename)));
+  if (transient && published){
+    console.warn(`Team-player source unavailable; preserving existing directories for the immediate --check validation: ${error.message}`);
+    return;
+  }
+  console.error(error);
+  process.exitCode = 1;
+});
 module.exports = { buildNrlDirectory, buildAflDirectory, buildIndex, refreshNrlPlayerRows, refreshAflPlayerRows };

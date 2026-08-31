@@ -1,28 +1,28 @@
 {
   "schemaVersion": "nrl-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-08-31T11:36:01.891Z",
+  "generatedAt": "2026-08-31T15:58:55.065Z",
   "sources": [
     {
       "id": "source:nrl:clubs",
       "provider": "NRL",
       "url": "https://www.nrl.com/clubs/",
       "sourceType": "official",
-      "checkedAt": "2026-08-31T11:36:01.891Z"
+      "checkedAt": "2026-08-31T15:58:55.065Z"
     },
     {
       "id": "source:nrl:players",
       "provider": "NRL",
       "url": "https://www.nrl.com/players/?competition=111",
       "sourceType": "official",
-      "checkedAt": "2026-08-31T11:36:01.891Z"
+      "checkedAt": "2026-08-31T15:58:55.065Z"
     },
     {
       "id": "source:nrl:signings-2026",
       "provider": "NRL",
       "url": "https://www.nrl.com/news/2026/01/01/2026-nrl-signings-tracker-the-latest-from-all-17-clubs/",
       "sourceType": "official",
-      "checkedAt": "2026-08-31T11:36:01.891Z"
+      "checkedAt": "2026-08-31T15:58:55.065Z"
     }
   ],
   "leagues": [

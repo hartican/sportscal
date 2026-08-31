@@ -5,6 +5,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { waitUntil } = require("@vercel/functions");
 const chatContract = require("../config/chat-contract");
+const chatPolicy = require("../config/chat-policy");
 const {
   ChatCapabilityError,
   createShareCapability:shareCapability,
@@ -16,6 +17,7 @@ const {
   authenticatedUser,
   bearerToken,
   publicError,
+  supabaseServiceRoleConfig,
   supabaseServiceRequest,
 } = require("../lib/supabase-server");
 const { dispatchChatMessageNotifications } = require("../lib/chat-notifications");
@@ -27,16 +29,77 @@ const TABLES = Object.freeze({
   members:"nothingsports_chat_members",
   messages:"nothingsports_chat_messages",
   reactions:"nothingsports_chat_reactions",
+  attachments:"nothingsports_chat_attachments",
+  savedMedia:"nothingsports_saved_game_media",
+  nscPoints:"nothingsports_nsc_points",
 });
+const CHAT_MEDIA_BUCKET = "nothingsports-chat-transient";
+const SAVED_MEDIA_BUCKET = "nothingsports-saved-game-media";
+const MAX_ATTACHMENT_BYTES = 25 * 1024 * 1024;
+const MAX_ATTACHMENTS_PER_MESSAGE = 4;
+const ALLOWED_MEDIA_TYPES = new Set([
+  "image/jpeg", "image/png", "image/webp", "image/gif",
+  "audio/mpeg", "audio/mp4", "audio/wav", "audio/ogg",
+  "application/pdf", "text/plain", "text/csv",
+  "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+]);
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 let canonicalFixtures = null;
 
 class ChatRequestError extends Error {
-  constructor(message, status = 400, code = "invalid_chat_request"){
+  constructor(message, status = 400, code = "invalid_chat_request", details = {}){
     super(message);
     this.status = status;
     this.code = code;
+    this.details = details;
   }
+}
+
+async function lifetimeNscPoints(userId){
+  const ledger = await rows(TABLES.nscPoints, {
+    user_id:`eq.${requireUuid(userId)}`,
+    select:"points",
+    limit:"10000",
+  });
+  return ledger.reduce((total, item) => total + Math.max(0, Number(item.points) || 0), 0);
+}
+
+async function chatCapabilities(user){
+  return chatPolicy.gifCapability(isAnonymousUser(user) ? 0 : await lifetimeNscPoints(user.id));
+}
+
+async function requireGifCapability(user){
+  const capability = await chatCapabilities(user);
+  if (!capability.canUseGifs){
+    throw new ChatRequestError(
+      `Earn ${capability.gifMinimumPoints} NSC points to search, upload or send GIFs.`,
+      403,
+      "nsc_points_required",
+      { currentPoints:capability.lifetimeNscPoints, requiredPoints:capability.gifMinimumPoints }
+    );
+  }
+  return capability;
+}
+
+function cleanAttachmentName(value){
+  return String(value || "attachment").replace(/[^A-Za-z0-9._ -]/g, "_").slice(0, 120) || "attachment";
+}
+
+function attachmentKind(contentType){
+  if (contentType === "image/gif") return "gif";
+  if (contentType.startsWith("image/")) return "image";
+  if (contentType.startsWith("audio/")) return "audio";
+  if (contentType === "application/pdf") return "pdf";
+  return "file";
+}
+
+function validateAttachmentInput(body){
+  const contentType = String(body.contentType || "").toLowerCase().split(";")[0];
+  const byteSize = Number(body.byteSize);
+  if (!ALLOWED_MEDIA_TYPES.has(contentType)) throw new ChatRequestError("That file type is not supported.", 415, "chat_attachment_type_rejected");
+  if (!Number.isInteger(byteSize) || byteSize < 1 || byteSize > MAX_ATTACHMENT_BYTES) throw new ChatRequestError("Attachments must be no larger than 25 MB.", 413, "chat_attachment_too_large");
+  return { contentType, byteSize, fileName:cleanAttachmentName(body.fileName), kind:attachmentKind(contentType) };
 }
 
 function setPrivateHeaders(response){
@@ -105,6 +168,21 @@ function loadFixtureMap(readFileSync = fs.readFileSync, root = path.join(__dirna
         ids.forEach(id => fixtures.set(id, event));
       });
     });
+    const addFixture = event => {
+      if (!event || typeof event !== "object") return;
+      const ids = [event.canonicalEventId, event.eventId, event.id].map(value => String(value || "").trim()).filter(Boolean);
+      ids.forEach(id => fixtures.set(id, event));
+    };
+    const followDocument = JSON.parse(readFileSync(path.join(root, "data/follow-fixtures.v1.json"), "utf8"));
+    (followDocument.events || []).forEach(addFixture);
+    const majorDocument = JSON.parse(readFileSync(path.join(root, "data/major-events.v1.json"), "utf8"));
+    const visit = event => {
+      addFixture(event);
+      for (const key of ["fixtures", "subEvents", "events", "schedule"]){
+        if (Array.isArray(event?.[key])) event[key].forEach(visit);
+      }
+    };
+    (majorDocument.events || []).forEach(visit);
     return fixtures;
   }catch(_error){
     throw new ChatRequestError(
@@ -121,11 +199,7 @@ function fixtureMap(){
 }
 
 function fixtureIsUpcomingOrLive(event, now = new Date()){
-  const startsAt = Date.parse(event?.startTimeUtc || "");
-  if (!Number.isFinite(startsAt)) return false;
-  if (["cancelled", "postponed", "completed", "past"].includes(String(event?.status || "").toLowerCase())) return false;
-  const liveHours = Math.max(0.25, Math.min(24, Number(event?.liveWindow || 3)));
-  return startsAt > now.getTime() || now.getTime() <= startsAt + liveHours * 60 * 60 * 1000;
+  return chatPolicy.fixtureEligibility(event, now).eligible;
 }
 
 function canonicalFixtureSnapshot(fixtureId, now = new Date()){
@@ -135,13 +209,17 @@ function canonicalFixtureSnapshot(fixtureId, now = new Date()){
   if (!fixtureIsUpcomingOrLive(event, now)){
     throw new ChatRequestError("Chats can only be created for an upcoming or live fixture.", 409, "fixture_not_chat_eligible");
   }
+  const timing = chatPolicy.fixtureTiming(event);
   return {
     canonicalFixtureId:String(event.canonicalEventId || event.eventId || event.id),
     eventId:String(event.eventId || event.id),
     name:String(event.displayTitleCompact || event.name || "Fixture"),
     sport:String(event.sport || event.key || "Sport"),
     competitionId:event.competitionId || null,
-    startTimeUtc:new Date(event.startTimeUtc).toISOString(),
+    startTimeUtc:timing.startTimeUtc,
+    sessionStartTimeUtc:timing.sessionStartTimeUtc,
+    timingPrecision:timing.timingPrecision,
+    sequenceInSession:timing.sequenceInSession,
     date:event.date || null,
     time:event.time || null,
     venue:event.venueDisplayName || event.venue || null,
@@ -314,10 +392,13 @@ async function knownAuthUsers(){
 }
 
 async function handleActive(user, admin, profile){
-  const active = await supabaseServiceRequest("/rest/v1/rpc/nothingsports_chat_active_rooms", {
-    method:"POST",
-    body:{ target_user:user.id, include_admin_rooms:admin },
-  });
+  const [active, capabilities] = await Promise.all([
+    supabaseServiceRequest("/rest/v1/rpc/nothingsports_chat_active_rooms", {
+      method:"POST",
+      body:{ target_user:user.id, include_admin_rooms:admin },
+    }),
+    chatCapabilities(user),
+  ]);
   return {
     schemaVersion:chatContract.SCHEMA_VERSION,
     isAdmin:admin,
@@ -326,6 +407,7 @@ async function handleActive(user, admin, profile){
       publicProfile:Boolean(profile?.public_profile),
       canPost:Boolean(profile?.public_profile),
     },
+    capabilities,
     rooms:(Array.isArray(active) ? active : []).map(publicRoom),
   };
 }
@@ -454,9 +536,30 @@ async function handleRoomGet(request, user, admin, profile){
     && member
     && (member.member_kind === "guest" ? member.guest_display_name : profile?.public_profile)
   );
+  const capabilities = await chatCapabilities(user);
+  const attachmentRows = messages.length ? await rows(TABLES.attachments, {
+    message_id:`in.(${messages.map(item => item.id).join(",")})`,
+    status:"in.(ready,saved)",
+    select:"attachment_id,message_id,kind,file_name,content_type,byte_size,object_path,status,created_at",
+  }) : [];
+  const attachmentsByMessage = new Map();
+  await Promise.all(attachmentRows.map(async attachment => {
+    const list = attachmentsByMessage.get(attachment.message_id) || [];
+    list.push({
+      attachmentId:attachment.attachment_id,
+      kind:attachment.kind,
+      fileName:attachment.file_name,
+      contentType:attachment.content_type,
+      byteSize:Number(attachment.byte_size),
+      url:await storageSignedDownload(CHAT_MEDIA_BUCKET, attachment.object_path),
+      saved:attachment.status === "saved",
+    });
+    attachmentsByMessage.set(attachment.message_id, list);
+  }));
   return {
     schemaVersion:chatContract.SCHEMA_VERSION,
     isAdmin:admin,
+    capabilities,
     room:{
       ...publicRoom(room),
       memberCount:memberRows.length,
@@ -484,6 +587,7 @@ async function handleRoomGet(request, user, admin, profile){
       sentAt:message.created_at,
       senderName:senderName(message),
       own:message.sender_id === user.id,
+      attachments:attachmentsByMessage.get(message.id) || [],
       ...(message.reply_to_message_id ? (() => {
         const reply = repliesById.get(message.reply_to_message_id);
         return { replyTo:reply ? { messageId:reply.id, senderName:senderName(reply), body:reply.body } : null };
@@ -507,6 +611,167 @@ async function setDisplayName(_body, user, profile){
     schemaVersion:chatContract.SCHEMA_VERSION,
     profile:{ displayName:profile.display_name, publicProfile:true },
   };
+}
+
+async function storageSignedUpload(bucket, objectPath){
+  const payload = await supabaseServiceRequest(`/storage/v1/object/upload/sign/${bucket}/${objectPath}`, { method:"POST", body:{} });
+  const relative = payload?.url || payload?.signedURL || payload?.signedUrl;
+  const base = String(process.env.SUPABASE_URL || "").replace(/\/$/, "");
+  if (!relative || !base) throw new ChatRequestError("A private upload could not be prepared.", 502, "chat_attachment_upload_unavailable");
+  return relative.startsWith("http") ? relative : `${base}/storage/v1${relative.startsWith("/") ? "" : "/"}${relative}`;
+}
+
+async function storageSignedDownload(bucket, objectPath){
+  const payload = await supabaseServiceRequest(`/storage/v1/object/sign/${bucket}/${objectPath}`, { method:"POST", body:{ expiresIn:300 } });
+  const relative = payload?.signedURL || payload?.signedUrl || payload?.url;
+  const base = String(process.env.SUPABASE_URL || "").replace(/\/$/, "");
+  if (!relative || !base) throw new ChatRequestError("That private attachment is unavailable.", 404, "chat_attachment_unavailable");
+  return relative.startsWith("http") ? relative : `${base}/storage/v1${relative.startsWith("/") ? "" : "/"}${relative}`;
+}
+
+function encodedStoragePath(bucket, objectPath){
+  return [bucket, ...String(objectPath || "").split("/")].map(encodeURIComponent).join("/");
+}
+
+function sniffAttachmentContentType(bytes){
+  const ascii = bytes.toString("ascii");
+  if (ascii.startsWith("GIF87a") || ascii.startsWith("GIF89a")) return "image/gif";
+  if (bytes.length >= 8 && bytes.subarray(0, 8).equals(Buffer.from([0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a]))) return "image/png";
+  if (bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff) return "image/jpeg";
+  if (ascii.startsWith("%PDF-")) return "application/pdf";
+  if (ascii.startsWith("RIFF") && ascii.slice(8, 12) === "WEBP") return "image/webp";
+  if (ascii.startsWith("RIFF") && ascii.slice(8, 12) === "WAVE") return "audio/wav";
+  if (ascii.startsWith("OggS")) return "audio/ogg";
+  if (ascii.startsWith("ID3") || (bytes[0] === 0xff && (bytes[1] & 0xe0) === 0xe0)) return "audio/mpeg";
+  return null;
+}
+
+async function inspectStoredAttachment(attachment){
+  const storagePath = encodedStoragePath(CHAT_MEDIA_BUCKET, attachment.object_path);
+  const info = await supabaseServiceRequest(`/storage/v1/object/info/${storagePath}`);
+  const storedSize = Number(info?.metadata?.size ?? info?.metadata?.contentLength ?? info?.size);
+  if (!Number.isFinite(storedSize) || storedSize < 1 || storedSize > MAX_ATTACHMENT_BYTES || storedSize !== Number(attachment.byte_size)){
+    throw new ChatRequestError("The uploaded file size does not match the prepared attachment.", 409, "chat_attachment_size_mismatch");
+  }
+  const config = supabaseServiceRoleConfig();
+  const response = await fetch(`${config.url}/storage/v1/object/authenticated/${storagePath}`, {
+    headers:{
+      apikey:config.serviceRoleKey,
+      ...(config.opaqueSecret ? {} : { Authorization:`Bearer ${config.serviceRoleKey}` }),
+      Range:"bytes=0-15",
+    },
+    signal:AbortSignal.timeout(10_000),
+  });
+  if (!response.ok) throw new ChatRequestError("The uploaded file could not be verified.", 409, "chat_attachment_verification_failed");
+  const detectedContentType = sniffAttachmentContentType(Buffer.from(await response.arrayBuffer()));
+  const declaredFamily = attachmentKind(attachment.content_type);
+  const detectedFamily = detectedContentType ? attachmentKind(detectedContentType) : null;
+  if (detectedFamily && detectedFamily !== declaredFamily){
+    if (detectedContentType !== "image/gif") throw new ChatRequestError("The uploaded file does not match its declared type.", 415, "chat_attachment_type_mismatch");
+  }
+  return detectedContentType || attachment.content_type;
+}
+
+async function prepareAttachment(body, user, admin){
+  const roomId = requireUuid(body.roomId, "room ID");
+  await requireRoomAccess(roomId, user, admin, { write:true });
+  const input = validateAttachmentInput(body);
+  if (input.kind === "gif") await requireGifCapability(user);
+  const attachmentId = crypto.randomUUID();
+  const objectPath = `${user.id}/${roomId}/${attachmentId}/${input.fileName}`;
+  await supabaseServiceRequest(restPath(TABLES.attachments), {
+    method:"POST",
+    headers:{ Prefer:"return=minimal" },
+    body:{
+      attachment_id:attachmentId, room_id:roomId, uploader_id:user.id,
+      kind:input.kind, file_name:input.fileName, content_type:input.contentType,
+      byte_size:input.byteSize, storage_bucket:CHAT_MEDIA_BUCKET, object_path:objectPath, status:"pending",
+    },
+  });
+  return {
+    schemaVersion:chatContract.SCHEMA_VERSION,
+    attachment:{ attachmentId, ...input, uploadUrl:await storageSignedUpload(CHAT_MEDIA_BUCKET, objectPath) },
+  };
+}
+
+async function completeAttachment(body, user, admin){
+  const attachmentId = requireUuid(body.attachmentId, "attachment ID");
+  const attachment = (await rows(TABLES.attachments, {
+    attachment_id:`eq.${attachmentId}`, uploader_id:`eq.${user.id}`,
+    select:"attachment_id,room_id,kind,content_type,byte_size,object_path,status", limit:"1",
+  }))[0] || null;
+  if (!attachment) throw new ChatRequestError("That upload is unavailable.", 404, "chat_attachment_not_found");
+  await requireRoomAccess(attachment.room_id, user, admin, { write:true });
+  const detectedContentType = await inspectStoredAttachment(attachment);
+  // GIFs are gated against the uploaded bytes so a forged declared type cannot bypass the reward.
+  if (attachment.kind === "gif" || attachment.content_type === "image/gif" || detectedContentType === "image/gif") await requireGifCapability(user);
+  await supabaseServiceRequest(restPath(TABLES.attachments, { attachment_id:`eq.${attachmentId}` }), {
+    method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{
+      status:"ready", ready_at:new Date().toISOString(),
+      content_type:detectedContentType, kind:attachmentKind(detectedContentType),
+    },
+  });
+  return { schemaVersion:chatContract.SCHEMA_VERSION, attachmentId, ready:true };
+}
+
+async function gifSearch(query, user){
+  const capabilities = await requireGifCapability(user);
+  const q = String(query || "").trim().slice(0, 80);
+  if (!q) return { schemaVersion:chatContract.SCHEMA_VERSION, capabilities, gifs:[] };
+  const key = String(process.env.GIPHY_API_KEY || "").trim();
+  if (key){
+    const url = new URL("https://api.giphy.com/v1/gifs/search");
+    url.search = new URLSearchParams({ api_key:key, q, limit:"24", rating:"pg-13", lang:"en" }).toString();
+    const result = await fetch(url, { signal:AbortSignal.timeout(10_000) });
+    if (!result.ok) throw new ChatRequestError("GIF search is temporarily unavailable.", 502, "gif_search_unavailable");
+    const payload = await result.json();
+    return {
+      schemaVersion:chatContract.SCHEMA_VERSION, capabilities,
+      attribution:"Powered by GIPHY",
+      gifs:(payload.data || []).map(item => ({
+        id:item.id, title:item.title || "GIF", contentType:"image/gif",
+        previewUrl:item.images?.fixed_width_small?.url || item.images?.preview_gif?.url,
+        originalUrl:item.images?.original?.url,
+        width:Number(item.images?.original?.width || 0), height:Number(item.images?.original?.height || 0),
+      })).filter(item => item.previewUrl && item.originalUrl),
+    };
+  }
+
+  const url = new URL("https://commons.wikimedia.org/w/api.php");
+  url.search = new URLSearchParams({
+    action:"query", generator:"search", gsrsearch:`${q} filemime:image/gif`,
+    gsrnamespace:"6", gsrlimit:"24", prop:"imageinfo", iiprop:"url|mime|size",
+    iiurlwidth:"240", format:"json", origin:"*",
+  }).toString();
+  const result = await fetch(url, { signal:AbortSignal.timeout(10_000) });
+  if (!result.ok) throw new ChatRequestError("GIF search is temporarily unavailable.", 502, "gif_search_unavailable");
+  const payload = await result.json();
+  return {
+    schemaVersion:chatContract.SCHEMA_VERSION, capabilities,
+    attribution:"GIFs from Wikimedia Commons",
+    gifs:Object.values(payload.query?.pages || {}).map(page => {
+      const info = page.imageinfo?.[0] || {};
+      return {
+        id:String(page.pageid || page.title || info.url), title:String(page.title || "GIF").replace(/^File:/, ""),
+        contentType:"image/gif", previewUrl:info.thumburl || info.url, originalUrl:info.url,
+        width:Number(info.width || 0), height:Number(info.height || 0),
+        sourcePage:info.descriptionurl || `https://commons.wikimedia.org/?curid=${page.pageid}`,
+      };
+    }).filter(item => item.previewUrl && item.originalUrl),
+  };
+}
+
+async function attachmentDownload(request, user, admin){
+  const attachmentId = requireUuid(queryValue(request, "attachmentId"), "attachment ID");
+  const attachment = (await rows(TABLES.attachments, {
+    attachment_id:`eq.${attachmentId}`,
+    status:"in.(ready,saved)",
+    select:"attachment_id,room_id,storage_bucket,object_path",
+    limit:"1",
+  }))[0] || null;
+  if (!attachment) throw new ChatRequestError("That attachment is unavailable.", 404, "chat_attachment_not_found");
+  await requireRoomAccess(attachment.room_id, user, admin);
+  return storageSignedDownload(attachment.storage_bucket, attachment.object_path);
 }
 
 async function createRoom(body, user, admin){
@@ -695,9 +960,17 @@ async function sendMessage(body, user, admin, profile){
     throw new ChatRequestError("Create your Public Profile before posting in chat.", 409, "chat_public_profile_required");
   }
   const message = chatContract.messageBody(body.body);
+  const attachmentIds = [...new Set((Array.isArray(body.attachmentIds) ? body.attachmentIds : []).map(value => requireUuid(value, "attachment ID")))];
+  if (attachmentIds.length > MAX_ATTACHMENTS_PER_MESSAGE) throw new ChatRequestError("A message can include at most four attachments.", 400, "chat_attachment_limit");
+  const messageAttachments = attachmentIds.length ? await rows(TABLES.attachments, {
+    attachment_id:`in.(${attachmentIds.join(",")})`, room_id:`eq.${roomId}`, uploader_id:`eq.${user.id}`, status:"eq.ready",
+    select:"attachment_id,kind,file_name,content_type,byte_size",
+  }) : [];
+  if (messageAttachments.length !== attachmentIds.length) throw new ChatRequestError("Every attachment must finish uploading before it can be sent.", 409, "chat_attachment_not_ready");
+  if (messageAttachments.some(item => item.kind === "gif" || item.content_type === "image/gif")) await requireGifCapability(user);
   const clientId = chatContract.clientId(body.clientId);
   const replyToMessageId = body.replyToMessageId ? requireUuid(body.replyToMessageId, "reply message ID") : null;
-  if (!message) throw new ChatRequestError("Messages must contain 1–500 Unicode characters.", 400, "invalid_chat_message");
+  if (!message && !messageAttachments.length) throw new ChatRequestError("Add a message or attachment before sending.", 400, "invalid_chat_message");
   if (!clientId) throw new ChatRequestError("A valid idempotent client ID is required.", 400, "invalid_chat_client_id");
   let replyTo = null;
   if (replyToMessageId){
@@ -725,8 +998,8 @@ async function sendMessage(body, user, admin, profile){
         room_id:roomId,
         sender_id:user.id,
         client_id:clientId,
-        message_type:"text",
-        body:message,
+        message_type:messageAttachments.length ? (message ? "mixed" : "media") : "text",
+        body:message || "",
         reply_to_message_id:replyToMessageId,
         sender_display_name:guest ? senderDisplayName : null,
       },
@@ -734,6 +1007,11 @@ async function sendMessage(body, user, admin, profile){
     row = saved?.[0] || (await rows(TABLES.messages, existingQuery))[0] || null;
   }
   if (!row) throw new ChatRequestError("The message could not be confirmed.", 502, "chat_message_not_confirmed");
+  if (messageAttachments.length){
+    await supabaseServiceRequest(restPath(TABLES.attachments, { attachment_id:`in.(${attachmentIds.join(",")})` }), {
+      method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{ message_id:row.id },
+    });
+  }
   if (row.reply_to_message_id){
     if (replyTo?.id !== row.reply_to_message_id){
       replyTo = (await rows(TABLES.messages, {
@@ -771,6 +1049,12 @@ async function sendMessage(body, user, admin, profile){
       sentAt:row.created_at,
       senderName:senderDisplayName,
       own:true,
+      attachments:messageAttachments.map(item => ({
+        attachmentId:item.attachment_id, kind:item.kind, fileName:item.file_name,
+        contentType:item.content_type, byteSize:Number(item.byte_size),
+        url:null,
+        saved:false,
+      })),
       replyTo:replyTo ? {
         messageId:replyTo.id,
         senderName:replySenderName,
@@ -778,6 +1062,68 @@ async function sendMessage(body, user, admin, profile){
       } : null,
     },
   };
+}
+
+async function saveAttachment(body, user, admin){
+  if (isAnonymousUser(user)) throw new ChatRequestError("Sign in to save game media.", 401, "chat_sign_in_required");
+  const attachmentId = requireUuid(body.attachmentId, "attachment ID");
+  const attachment = (await rows(TABLES.attachments, {
+    attachment_id:`eq.${attachmentId}`, uploader_id:`eq.${user.id}`, status:"eq.ready",
+    select:"*", limit:"1",
+  }))[0] || null;
+  if (!attachment) throw new ChatRequestError("Only the person who posted this media can save it.", 403, "chat_attachment_save_forbidden");
+  await requireRoomAccess(attachment.room_id, user, admin);
+  const savedId = crypto.randomUUID();
+  const savedPath = `${user.id}/${savedId}/${attachment.file_name}`;
+  await supabaseServiceRequest(`/storage/v1/object/copy`, {
+    method:"POST",
+    body:{ bucketId:attachment.storage_bucket, sourceKey:attachment.object_path, destinationBucket:SAVED_MEDIA_BUCKET, destinationKey:savedPath },
+  });
+  await supabaseServiceRequest(restPath(TABLES.savedMedia), {
+    method:"POST", headers:{ Prefer:"return=minimal" },
+    body:{ saved_media_id:savedId, owner_id:user.id, source_attachment_id:attachmentId, room_id:attachment.room_id,
+      event_id:(await roomById(attachment.room_id))?.canonical_fixture_id || null, file_name:attachment.file_name,
+      content_type:attachment.content_type, byte_size:attachment.byte_size, storage_bucket:SAVED_MEDIA_BUCKET, object_path:savedPath },
+  });
+  await supabaseServiceRequest(restPath(TABLES.attachments, { attachment_id:`eq.${attachmentId}` }), {
+    method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{ status:"saved", saved_at:new Date().toISOString() },
+  });
+  return { schemaVersion:chatContract.SCHEMA_VERSION, saved:true, savedMediaId:savedId };
+}
+
+async function listSavedMedia(user){
+  if (isAnonymousUser(user)) throw new ChatRequestError("Sign in to view saved game media.", 401, "chat_sign_in_required");
+  const saved = await rows(TABLES.savedMedia, {
+    owner_id:`eq.${user.id}`,
+    select:"saved_media_id,event_id,file_name,content_type,byte_size,storage_bucket,object_path,created_at",
+    order:"created_at.desc",
+    limit:"200",
+  });
+  return {
+    schemaVersion:chatContract.SCHEMA_VERSION,
+    media:await Promise.all(saved.map(async item => ({
+      savedMediaId:item.saved_media_id, eventId:item.event_id, fileName:item.file_name,
+      contentType:item.content_type, byteSize:Number(item.byte_size), savedAt:item.created_at,
+      url:await storageSignedDownload(item.storage_bucket, item.object_path),
+    }))),
+  };
+}
+
+async function deleteSavedMedia(body, user){
+  if (isAnonymousUser(user)) throw new ChatRequestError("Sign in to manage saved game media.", 401, "chat_sign_in_required");
+  const savedMediaId = requireUuid(body.savedMediaId, "saved media ID");
+  const item = (await rows(TABLES.savedMedia, {
+    saved_media_id:`eq.${savedMediaId}`, owner_id:`eq.${user.id}`,
+    select:"saved_media_id,storage_bucket,object_path", limit:"1",
+  }))[0] || null;
+  if (!item) throw new ChatRequestError("That saved media is unavailable.", 404, "saved_media_not_found");
+  await supabaseServiceRequest(`/storage/v1/object/${item.storage_bucket}`, {
+    method:"DELETE", body:{ prefixes:[item.object_path] },
+  });
+  await supabaseServiceRequest(restPath(TABLES.savedMedia, { saved_media_id:`eq.${savedMediaId}`, owner_id:`eq.${user.id}` }), {
+    method:"DELETE", headers:{ Prefer:"return=minimal" },
+  });
+  return { schemaVersion:chatContract.SCHEMA_VERSION, deleted:true, savedMediaId };
 }
 
 async function toggleReaction(body, user, admin){
@@ -853,11 +1199,26 @@ async function closeRoom(body, user, admin){
   requireAdmin(admin);
   const roomId = requireUuid(body.roomId, "room ID");
   const { room } = await requireRoomAccess(roomId, user, admin);
-  if (room.status !== "open") throw new ChatRequestError("This chat is already closed.", 409, "chat_room_closed");
-  const saved = await supabaseServiceRequest(restPath(TABLES.rooms, { id:`eq.${roomId}`, select:"*" }), {
-    method:"PATCH",
-    headers:{ Prefer:"return=representation" },
-    body:{ status:"closed", closed_by:user.id },
+  if (room.status === "closed") throw new ChatRequestError("This chat is already closed.", 409, "chat_room_closed");
+  if (room.status === "open"){
+    await supabaseServiceRequest(restPath(TABLES.rooms, { id:`eq.${roomId}`, select:"*" }), {
+      method:"PATCH", headers:{ Prefer:"return=representation" }, body:{ status:"closing", closed_by:user.id },
+    });
+  }
+  const transient = await rows(TABLES.attachments, {
+    room_id:`eq.${roomId}`, status:"in.(pending,ready)",
+    select:"attachment_id,object_path",
+  });
+  if (transient.length){
+    await supabaseServiceRequest(`/storage/v1/object/${CHAT_MEDIA_BUCKET}`, {
+      method:"DELETE", body:{ prefixes:transient.map(item => item.object_path) },
+    });
+    await supabaseServiceRequest(restPath(TABLES.attachments, { room_id:`eq.${roomId}`, status:"in.(pending,ready)" }), {
+      method:"DELETE", headers:{ Prefer:"return=minimal" },
+    });
+  }
+  const saved = await supabaseServiceRequest(restPath(TABLES.rooms, { id:`eq.${roomId}`, status:"eq.closing", select:"*" }), {
+    method:"PATCH", headers:{ Prefer:"return=representation" }, body:{ status:"closed", closed_by:user.id },
   });
   return { schemaVersion:chatContract.SCHEMA_VERSION, room:publicRoom(saved?.[0] || await roomById(roomId)) };
 }
@@ -874,6 +1235,10 @@ async function handlePost(request, user, admin, profile){
     case "add-members": return addMembers(body, user, admin);
     case "remove-member": return removeMember(body, user, admin);
     case "send-message": return sendMessage(body, user, admin, profile);
+    case "attachment-upload-url": return prepareAttachment(body, user, admin);
+    case "attachment-complete": return completeAttachment(body, user, admin);
+    case "attachment-save": return saveAttachment(body, user, admin);
+    case "saved-media-delete": return deleteSavedMedia(body, user);
     case "toggle-reaction": return toggleReaction(body, user, admin);
     case "mark-read": return markRead(body, user, admin);
     case "close-room": return closeRoom(body, user, admin);
@@ -902,6 +1267,12 @@ async function chatHandler(request, response){
       const mode = String(queryValue(request, "mode") || "").trim();
       if (mode === "active") payload = await handleActive(user, admin, profile);
       else if (mode === "users") payload = await handleUserSearch(queryValue(request, "q"), admin);
+      else if (mode === "gif-search") payload = await gifSearch(queryValue(request, "q"), user);
+      else if (mode === "saved-media") payload = await listSavedMedia(user);
+      else if (mode === "attachment"){
+        response.redirect(302, await attachmentDownload(request, user, admin));
+        return;
+      }
       else if (queryValue(request, "roomId")) payload = await handleRoomGet(request, user, admin, profile);
       else throw new ChatRequestError("Choose an active, users or room chat query.", 400, "invalid_chat_mode");
     } else {
@@ -910,7 +1281,7 @@ async function chatHandler(request, response){
     response.status(200).json(payload);
   }catch(error){
     if (error instanceof ChatRequestError || error instanceof ChatCapabilityError){
-      response.status(error.status).json({ error:error.message, code:error.code });
+      response.status(error.status).json({ error:error.message, code:error.code, ...(error.details || {}) });
       return;
     }
     if (error instanceof SupabaseRequestError){

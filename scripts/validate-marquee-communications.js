@@ -182,9 +182,9 @@ async function main(){
   assert.match(participationSource, /rating_not_open/);
   assert.match(participationSource, /rating_window_closed/);
   assert.doesNotMatch(participationSource, /x-forwarded-for|cf-connecting-ip|request\.ip/i);
-  assert.match(worker, /nothingsport-shell-v204/);
-  assert.match(worker, /admin-comms-workspace\.js\?v=204/);
-  assert.match(worker, /marquee-live-renderer\.js\?v=204/);
+  assert.match(worker, /nothingsport-shell-v206/);
+  assert.match(worker, /admin-comms-workspace\.js\?v=206/);
+  assert.match(worker, /marquee-live-renderer\.js\?v=206/);
   assert.match(worker, /\/participate\.html/);
   assert.ok(vercel.rewrites.some(rule => rule.source === "/live" && rule.destination === "/participate.html"));
   assert.ok(vercel.rewrites.some(rule => rule.source === "/fixture/:eventId"));

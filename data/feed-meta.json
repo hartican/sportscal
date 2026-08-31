@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-08-31T11:42:17.708Z",
+  "publishedAt": "2026-08-31T15:59:42.212Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "nfl",
@@ -112,8 +112,8 @@
       },
       "tennis": {
         "count": 1,
-        "firstEventDate": "2026-08-31",
-        "lastEventDate": "2026-08-31"
+        "firstEventDate": "2026-09-01",
+        "lastEventDate": "2026-09-01"
       },
       "wsl": {
         "count": 1,

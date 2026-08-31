@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "american-football",
-  "generatedAt": "2026-08-31T11:31:47Z",
+  "generatedAt": "2026-08-31T15:58:25Z",
   "season": 2026,
   "competitions": [
     {
@@ -8422,29 +8422,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4245655",
-      "displayName": "Tony Fields II",
-      "shortName": "T. Fields II",
-      "aliases": [
-        "Tony Fields II",
-        "Tony Fields II",
-        "T. Fields II"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:chi",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4245655",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4245655.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4245655/tony-fields-ii"
-      ]
-    },
-    {
       "id": "athlete:nfl:3892883",
       "displayName": "Neville Gallimore",
       "shortName": "N. Gallimore",
@@ -8994,6 +8971,29 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4036032.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4036032/brittain-brown"
+      ]
+    },
+    {
+      "id": "athlete:nfl:4245655",
+      "displayName": "Tony Fields II",
+      "shortName": "T. Fields II",
+      "aliases": [
+        "Tony Fields II",
+        "Tony Fields II",
+        "T. Fields II"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:chi",
+      "leagueId": "competition:nfl",
+      "position": "LB",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4245655",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4245655.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4245655/tony-fields-ii"
       ]
     },
     {

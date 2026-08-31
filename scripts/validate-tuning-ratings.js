@@ -88,7 +88,7 @@ const workerVersion = worker.match(/const CACHE_NAME = "nothingsport-shell-v(\d+
 assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "legacy signal and rating migrations must load before app state");
 assert(!html.includes('settingsMenuItem("tune"') && html.includes('<span class="tab-label">Follow</span>'), "Follow must replace Tune as the third primary tab");
 assert(!html.includes('id="frothKnobList"') && !html.includes('data-inline-froth'), "Froth controls must not remain in the UI");
-assert(html.includes("FOLLOW_FIRST?.toggleFeedback") && html.includes("firstSwipeAt"), "swipes must persist reversible feedback metadata and trigger Follow refinement");
+assert(html.includes("FOLLOW_FIRST?.toggleFeedback") && html.includes("firstSwipeAt"), "thumb feedback must persist reversible metadata and trigger Follow refinement");
 assert(html.includes("for (let i=1;i<=5;i++)") && !html.includes("for (let i=1;i<=10;i++)"), "actual spectacle must use five one-tap stars");
 assert(html.includes("starToStoredScore") && html.includes("half-filled"), "five-star input must retain 1-10 storage compatibility and half-star display");
 assert(html.includes("ensureSessionRatingPrompt(filtered)") && html.includes("sessionRatingPromptSelectionFinalized"), "the feed must select at most one post-event rating prompt per session");
@@ -97,4 +97,4 @@ assert(shellVersion, "the HTML shell version must be declared");
 assert.equal(workerVersion, shellVersion, "the service-worker cache must match the HTML shell version");
 assert(worker.includes('"/config/fine-tuning.js"') && worker.includes('"/config/rating-system.js"'));
 
-console.log("Feedback and ratings valid: Follow-first swipe metadata, compatible five-star ratings, and bounded prompts passed.");
+console.log("Feedback and ratings valid: Follow-first thumb metadata, compatible five-star ratings, and bounded prompts passed.");

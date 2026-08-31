@@ -43,14 +43,14 @@ assert.equal(calibration.primaryTargetForEvent({ id: "event:cricket", key: "cric
 
 const html = fs.readFileSync("index.html", "utf8");
 assert(html.includes('id="startupSportsGrid"') && html.includes('id="startupEventsGrid"'), "startup must collect lightweight follows without a swipe calibration step");
-assert(html.includes('event.key === "ArrowRight"') && html.includes('event.key === "ArrowLeft"'), "curated cards must expose keyboard swipe equivalents");
+assert(!html.includes("bindHorizontalLearningSwipe("), "curated cards must not capture horizontal Tinder-style gestures");
+assert(!html.includes('aria-keyshortcuts="ArrowLeft ArrowRight'), "curated cards must not advertise swipe-key equivalents");
 const learningScoreSource = html.match(/function eventLearningScore\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";
-assert(learningScoreSource.includes("softLearningScore") && html.includes("FOLLOW_FIRST?.toggleFeedback"), "swipe weights must softly influence ranking while retaining bounded and reversible feedback history");
+assert(learningScoreSource.includes("softLearningScore") && html.includes("FOLLOW_FIRST?.toggleFeedback"), "thumb weights must softly influence ranking while retaining bounded and reversible feedback history");
 assert(html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && !html.includes("sessionDismissedEventIds"), "likes must retain cards while dislikes durably dismiss exact editions");
-assert(html.includes("window.setTimeout(() =>") && html.includes("}, 1400);"), "swipe feedback must remain visible for 1.4 seconds");
-assert(html.includes("future feed suggestions will adapt."), "swipe feedback must explain when the learning signal takes effect");
-assert(html.includes("swipeCoaching") && html.includes("dismissedAt") && html.includes("swipe-coaching"), "swipe coaching completion and hints must use the durable profile contract");
-assert(html.includes("firstSwipeAt") && html.includes("shouldPromptRefinement"), "the first swipe must offer Follow refinement");
-assert(html.includes('overlay.setAttribute("role", "status")') && html.includes("prefers-reduced-motion:reduce"), "swipe feedback must be announced politely and honour reduced motion");
+assert(html.includes("window.setTimeout(() =>") && html.includes("}, 1400);"), "thumb feedback must remain visible for 1.4 seconds");
+assert(html.includes("future feed suggestions will adapt."), "thumb feedback must explain when the learning signal takes effect");
+assert(html.includes("firstSwipeAt") && html.includes("shouldPromptRefinement"), "the first thumb response must offer Follow refinement");
+assert(html.includes('overlay.setAttribute("role", "status")') && html.includes("prefers-reduced-motion:reduce"), "thumb feedback must be announced politely and honour reduced motion");
 
-console.log("Swipe feedback valid: bounded soft learning, durable exact-card dismissal, first-swipe Follow refinement, keyboard access and reduced-motion handling passed.");
+console.log("Button feedback valid: bounded soft learning, durable exact-card dismissal, Follow refinement and reduced-motion handling passed.");

@@ -451,9 +451,16 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
     if (fixture){
       matchedCanonicalIds.add(fixture.id);
       const sport = getSportDetailsForFixture(fixture, sportDetailsByDomainId);
+      const local = sydneyDateTime(fixture.startTimeUtc);
       return {
         ...card,
-        participants: card.participants || participantRefs(fixture, participantsById),
+        name:fixture.displayName,
+        displayTitleCompact:fixture.displayName,
+        participants:participantRefs(fixture, participantsById),
+        date:local.date,
+        time:local.time,
+        startTimeUtc:fixture.startTimeUtc,
+        venue:[fixture.venueName, fixture.venueCity].filter(Boolean).join(", ") || card.venue || null,
         sport: sport.label,
         key: sport.key,
         ...canonicalMetadata(fixture),

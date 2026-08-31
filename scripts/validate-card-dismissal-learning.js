@@ -85,7 +85,7 @@ assert.match(html, /!getEventAction\(ev\)\.dismissed/, "main Feed filtering must
 assert.match(html, /visible\.events\.filter\(record => !getEventAction\(majorEventActionEvent\(record\)\)\.dismissed\)/, "Events must remove dismissed editions");
 assert.match(html, /renderHiddenEventsSettings/, "Settings must expose dismissed cards for restoration");
 assert.match(html, /showToast\([^\n]+\{[^}]*actionLabel:\s*"Undo"/, "dismissal must offer immediate Undo");
-assert.match(html, /bindHorizontalLearningSwipe\(card, direction => applyCuratedEventSwipe/, "Feed and Events cards must use the same left-dismiss and right-like gesture language");
+assert.doesNotMatch(html, /bindHorizontalLearningSwipe\(/, "Feed and Events cards must not capture horizontal Tinder-style gestures");
 const swipeHandler = html.match(/function applyCuratedEventSwipe\([\s\S]*?\n\}/)?.[0] || "";
 assert.doesNotMatch(
   swipeHandler,
@@ -95,4 +95,4 @@ assert.doesNotMatch(
 assert.match(swipeHandler, /\{ card = null \}/, "the dismissal handler must receive the exact initiating card");
 assert.match(html, /applyCuratedEventSwipe\(ev, direction, \{ card:event\.currentTarget\.closest\("\.event-card"\) \}\)/, "feedback buttons must pass their own card to dismissal");
 
-console.log("Card dismissal valid: exact-card persistence, bounded learning, Feed/Events gestures, Undo and Hidden recovery are wired.");
+console.log("Card dismissal valid: exact-card persistence, bounded button learning, Undo and Hidden recovery are wired.");

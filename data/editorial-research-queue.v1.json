@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-08-31T11:42:26.549Z",
+  "generatedAt": "2026-08-31T15:59:48.540Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
@@ -575,7 +575,7 @@
     {
       "targetType": "feed-event",
       "targetId": "event:afl:cd_m20260142603",
-      "title": "Geelong Cats v Lowest-ranked WF Winner",
+      "title": "Geelong Cats v Carlton",
       "stakes": 2,
       "startsAt": "2026-09-04T09:40:00.000Z",
       "reason": "rolling-stakes-2-plus",
@@ -673,7 +673,7 @@
     {
       "targetType": "feed-event",
       "targetId": "event:afl:cd_m20260142604",
-      "title": "Adelaide Crows v Highest-ranked WF Winner",
+      "title": "Adelaide Crows v Western Bulldogs",
       "stakes": 2,
       "startsAt": "2026-09-05T09:35:00.000Z",
       "reason": "rolling-stakes-2-plus",

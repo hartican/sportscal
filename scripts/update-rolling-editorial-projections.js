@@ -140,6 +140,14 @@ function tennisTournamentNarrative(event, knowledge){
 function build({ knowledge, feed, context, f1, reference }){
   const earliest = reference.getTime() - 7 * DAY_MS;
   const latest = reference.getTime() + 30 * DAY_MS;
+  // Rolling projections are derived, but published historical cards can still
+  // reference them. Prune only generated projections whose target card has
+  // actually left the feed; current targets are replaced below by stable ID.
+  const publishedIds = new Set(feed.events.flatMap(event => [event?.id, event?.eventId, event?.canonicalEventId]).map(String));
+  knowledge.eventProjections = (knowledge.eventProjections || []).filter(projection => (
+    !String(projection?.id || "").startsWith("projection:rolling:")
+    || (projection.targetIds || []).some(targetId => publishedIds.has(String(targetId)))
+  ));
   const targets = feed.events.filter(event => {
     const start = eventTime(event);
     return stakesFor(event) >= 2 && Number.isFinite(start) && start >= earliest && start <= latest;

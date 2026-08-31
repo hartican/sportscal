@@ -16724,9 +16724,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:valentin-vacherot",
@@ -16777,9 +16777,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:otto-virtanen",
@@ -16830,9 +16830,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:stefanos-tsitsipas",
@@ -16883,9 +16883,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:mananchaya-sawangkaew",
@@ -16936,9 +16936,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:sinja-kraus",
@@ -16989,9 +16989,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:lilli-tagger",
@@ -17042,9 +17042,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:sara-bejlek",
@@ -17095,9 +17095,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:anhelina-kalinina",
@@ -17148,9 +17148,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:harriet-dart",
@@ -17201,9 +17201,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:elsa-jacquemot",
@@ -17254,9 +17254,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:qinwen-zheng",
@@ -18093,59 +18093,6 @@
           "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
         },
         {
-          "id": "fixture:us-open-2026:official:ms:1150",
-          "stableMatchId": "usopen-2026-ms-1150",
-          "cardKind": "fixture",
-          "name": "Damir Dzumhur v Hubert Hurkacz",
-          "stage": "Men's singles",
-          "roundLabel": "Round 1",
-          "matchType": "mens-singles",
-          "court": "Court 12",
-          "date": "2026-08-31",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-9:court-am:session-1",
-          "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
-          "sequenceInSession": 3,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:damir-dzumhur",
-              "name": "Damir Dzumhur",
-              "players": [
-                {
-                  "id": "athlete:tennis:damir-dzumhur",
-                  "name": "Damir Dzumhur",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "BA"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:hubert-hurkacz",
-              "name": "Hubert Hurkacz",
-              "players": [
-                {
-                  "id": "athlete:tennis:hubert-hurkacz",
-                  "name": "Hubert Hurkacz",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "PL"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 12",
-          "stakesScore": 2,
-          "summary": "US Open 2026 · Men's singles · Round 1 · Court 12.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
-        },
-        {
           "id": "fixture:us-open-2026:official:ws:2105",
           "stableMatchId": "usopen-2026-ws-2105",
           "cardKind": "fixture",
@@ -18249,6 +18196,59 @@
           "venue": "Court 7",
           "stakesScore": 2,
           "summary": "US Open 2026 · Women's singles · Round 1 · Court 7.",
+          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
+        },
+        {
+          "id": "fixture:us-open-2026:official:ws:2113",
+          "stableMatchId": "usopen-2026-ws-2113",
+          "cardKind": "fixture",
+          "name": "Ann Li v Antonia Ruzic",
+          "stage": "Women's singles",
+          "roundLabel": "Round 1",
+          "matchType": "womens-singles",
+          "court": "Court 12",
+          "date": "2026-08-31",
+          "time": null,
+          "startTimeUtc": null,
+          "sessionId": "us-open-2026:day-9:court-am:session-1",
+          "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
+          "sequenceInSession": 3,
+          "timePrecision": "follows",
+          "scheduleStatus": "confirmed",
+          "status": "scheduled",
+          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+          "previewPriority": 2,
+          "matchupSides": [
+            {
+              "id": "side:tennis:ann-li",
+              "name": "Ann Li",
+              "players": [
+                {
+                  "id": "athlete:tennis:ann-li",
+                  "name": "Ann Li",
+                  "seed": 29,
+                  "rank": null,
+                  "nationalityCode": "US"
+                }
+              ]
+            },
+            {
+              "id": "side:tennis:antonia-ruzic",
+              "name": "Antonia Ruzic",
+              "players": [
+                {
+                  "id": "athlete:tennis:antonia-ruzic",
+                  "name": "Antonia Ruzic",
+                  "seed": 0,
+                  "rank": null,
+                  "nationalityCode": "HR"
+                }
+              ]
+            }
+          ],
+          "venue": "Court 12",
+          "stakesScore": 2,
+          "summary": "US Open 2026 · Women's singles · Round 1 · Court 12.",
           "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
         },
         {
@@ -18408,6 +18408,59 @@
           "venue": "Court 13",
           "stakesScore": 2,
           "summary": "US Open 2026 · Women's singles · Round 1 · Court 13.",
+          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
+        },
+        {
+          "id": "fixture:us-open-2026:official:ms:1103",
+          "stableMatchId": "usopen-2026-ms-1103",
+          "cardKind": "fixture",
+          "name": "Grigor Dimitrov v Alexei Popyrin",
+          "stage": "Men's singles",
+          "roundLabel": "Round 1",
+          "matchType": "mens-singles",
+          "court": "Court 12",
+          "date": "2026-08-31",
+          "time": null,
+          "startTimeUtc": null,
+          "sessionId": "us-open-2026:day-9:court-am:session-1",
+          "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
+          "sequenceInSession": 4,
+          "timePrecision": "follows",
+          "scheduleStatus": "confirmed",
+          "status": "scheduled",
+          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+          "previewPriority": 2,
+          "matchupSides": [
+            {
+              "id": "side:tennis:grigor-dimitrov",
+              "name": "Grigor Dimitrov",
+              "players": [
+                {
+                  "id": "athlete:tennis:grigor-dimitrov",
+                  "name": "Grigor Dimitrov",
+                  "seed": 0,
+                  "rank": null,
+                  "nationalityCode": "BG"
+                }
+              ]
+            },
+            {
+              "id": "side:tennis:alexei-popyrin",
+              "name": "Alexei Popyrin",
+              "players": [
+                {
+                  "id": "athlete:tennis:alexei-popyrin",
+                  "name": "Alexei Popyrin",
+                  "seed": 0,
+                  "rank": null,
+                  "nationalityCode": "AU"
+                }
+              ]
+            }
+          ],
+          "venue": "Court 12",
+          "stakesScore": 2,
+          "summary": "US Open 2026 · Men's singles · Round 1 · Court 12.",
           "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
         },
         {
@@ -18729,59 +18782,6 @@
           "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
         },
         {
-          "id": "fixture:us-open-2026:official:ws:2113",
-          "stableMatchId": "usopen-2026-ws-2113",
-          "cardKind": "fixture",
-          "name": "Ann Li v Antonia Ruzic",
-          "stage": "Women's singles",
-          "roundLabel": "Round 1",
-          "matchType": "womens-singles",
-          "court": "Court 12",
-          "date": "2026-08-31",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-9:court-am:session-1",
-          "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
-          "sequenceInSession": 4,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:ann-li",
-              "name": "Ann Li",
-              "players": [
-                {
-                  "id": "athlete:tennis:ann-li",
-                  "name": "Ann Li",
-                  "seed": 29,
-                  "rank": null,
-                  "nationalityCode": "US"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:antonia-ruzic",
-              "name": "Antonia Ruzic",
-              "players": [
-                {
-                  "id": "athlete:tennis:antonia-ruzic",
-                  "name": "Antonia Ruzic",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "HR"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 12",
-          "stakesScore": 2,
-          "summary": "US Open 2026 · Women's singles · Round 1 · Court 12.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
-        },
-        {
           "id": "fixture:us-open-2026:official:ws:2116",
           "stableMatchId": "usopen-2026-ws-2116",
           "cardKind": "fixture",
@@ -18938,59 +18938,6 @@
           "venue": "Court 13",
           "stakesScore": 2,
           "summary": "US Open 2026 · Men's singles · Round 1 · Court 13.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:ms:1103",
-          "stableMatchId": "usopen-2026-ms-1103",
-          "cardKind": "fixture",
-          "name": "Grigor Dimitrov v Alexei Popyrin",
-          "stage": "Men's singles",
-          "roundLabel": "Round 1",
-          "matchType": "mens-singles",
-          "court": "Court 12",
-          "date": "2026-08-31",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-9:court-am:session-1",
-          "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
-          "sequenceInSession": 5,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:grigor-dimitrov",
-              "name": "Grigor Dimitrov",
-              "players": [
-                {
-                  "id": "athlete:tennis:grigor-dimitrov",
-                  "name": "Grigor Dimitrov",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "BG"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:alexei-popyrin",
-              "name": "Alexei Popyrin",
-              "players": [
-                {
-                  "id": "athlete:tennis:alexei-popyrin",
-                  "name": "Alexei Popyrin",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "AU"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 12",
-          "stakesScore": 2,
-          "summary": "US Open 2026 · Men's singles · Round 1 · Court 12.",
           "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
         },
         {
@@ -19222,9 +19169,9 @@
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 4,
+          "status": "live",
+          "statusUpdatedAt": "2026-08-31T15:34:58.465Z",
+          "previewPriority": 5,
           "matchupSides": [
             {
               "id": "side:tennis:aryna-sabalenka",
@@ -19417,6 +19364,59 @@
           "venue": "Court 9",
           "stakesScore": 2,
           "summary": "US Open 2026 · Women's singles · Round 1 · Court 9.",
+          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
+        },
+        {
+          "id": "fixture:us-open-2026:official:ms:1150",
+          "stableMatchId": "usopen-2026-ms-1150",
+          "cardKind": "fixture",
+          "name": "Damir Dzumhur v Hubert Hurkacz",
+          "stage": "Men's singles",
+          "roundLabel": "Round 1",
+          "matchType": "mens-singles",
+          "court": "Court 4",
+          "date": "2026-08-31",
+          "time": "14:15",
+          "startTimeUtc": "2026-08-31T18:15:00.000Z",
+          "sessionId": "us-open-2026:day-9:court-af:session-1",
+          "sessionStartTimeUtc": "2026-08-31T18:15:00.000Z",
+          "sequenceInSession": 1,
+          "timePrecision": "session-start",
+          "scheduleStatus": "confirmed",
+          "status": "scheduled",
+          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+          "previewPriority": 2,
+          "matchupSides": [
+            {
+              "id": "side:tennis:damir-dzumhur",
+              "name": "Damir Dzumhur",
+              "players": [
+                {
+                  "id": "athlete:tennis:damir-dzumhur",
+                  "name": "Damir Dzumhur",
+                  "seed": 0,
+                  "rank": null,
+                  "nationalityCode": "BA"
+                }
+              ]
+            },
+            {
+              "id": "side:tennis:hubert-hurkacz",
+              "name": "Hubert Hurkacz",
+              "players": [
+                {
+                  "id": "athlete:tennis:hubert-hurkacz",
+                  "name": "Hubert Hurkacz",
+                  "seed": 0,
+                  "rank": null,
+                  "nationalityCode": "PL"
+                }
+              ]
+            }
+          ],
+          "venue": "Court 4",
+          "stakesScore": 2,
+          "summary": "US Open 2026 · Men's singles · Round 1 · Court 4.",
           "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json"
         },
         {
@@ -21770,7 +21770,7 @@
         {
           "name": "US Open official released order of play",
           "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/scheduleDays.json",
-          "checkedAt": "2026-08-31T11:35:50.037Z"
+          "checkedAt": "2026-08-31T15:58:23.452Z"
         },
         {
           "name": "US Open — 2026 tournament schedule",

@@ -12,7 +12,13 @@
   const WEEKLY_PULSE_DATA_GATHERING_ACTIVE = true;
   const WEEKLY_PULSE_OPEN_THRESHOLD = 3;
   const WEEKLY_PULSE_SURVEY_VERSION = "weekly-pulse.v1";
-  const WEEKLY_PULSE_PROMPT_STATE_VERSION = "weekly-pulse-prompt.v1";
+  const WEEKLY_PULSE_PROMPT_STATE_VERSION = "weekly-pulse-prompt.v2";
+  const WEEKLY_PULSE_DISMISS_COOLDOWNS_MS = Object.freeze([
+    24 * 60 * 60 * 1000,
+    48 * 60 * 60 * 1000,
+    96 * 60 * 60 * 1000,
+    7 * 24 * 60 * 60 * 1000,
+  ]);
   const EVENT_NAMES = Object.freeze([
     "opportunity_exposed",
     "fixture_check",
@@ -419,6 +425,27 @@
       openCount: sameSurvey
         ? Math.min(1_000, Math.max(0, Number(current.openCount) || 0) + 1)
         : 1,
+      ignoreCount:sameSurvey ? Math.max(0, Number(current.ignoreCount) || 0) : 0,
+      lastDismissedAt:sameSurvey ? current.lastDismissedAt || null : null,
+      nextEligibleAt:sameSurvey ? current.nextEligibleAt || null : null,
+    };
+  }
+
+  function dismissWeeklyPulsePrompt(current, { surveyId, reference = new Date() } = {}){
+    const nextSurveyId = requiredString(surveyId, "surveyId", { max:96 });
+    const date = reference instanceof Date ? reference : new Date(reference);
+    if (Number.isNaN(date.getTime())) throw new TypeError("A valid dismissal time is required.");
+    const sameSurvey = plainObject(current) && current.surveyId === nextSurveyId;
+    const ignoreCount = Math.min(1_000, (sameSurvey ? Math.max(0, Number(current.ignoreCount) || 0) : 0) + 1);
+    const cooldown = WEEKLY_PULSE_DISMISS_COOLDOWNS_MS[Math.min(ignoreCount - 1, WEEKLY_PULSE_DISMISS_COOLDOWNS_MS.length - 1)];
+    return {
+      schemaVersion:WEEKLY_PULSE_PROMPT_STATE_VERSION,
+      surveyId:nextSurveyId,
+      dayKey:sameSurvey ? current.dayKey || sydneyDateKey(date) : sydneyDateKey(date),
+      openCount:sameSurvey ? Math.max(0, Number(current.openCount) || 0) : 0,
+      ignoreCount,
+      lastDismissedAt:date.toISOString(),
+      nextEligibleAt:new Date(date.getTime() + cooldown).toISOString(),
     };
   }
 
@@ -438,11 +465,14 @@
   }
 
   function shouldPromptWeeklyPulse({ pilot, promptState, surveyId, reference = new Date() } = {}){
+    const now = reference instanceof Date ? reference : new Date(reference);
+    const nextEligibleAt = Date.parse(promptState?.nextEligibleAt || "");
     return Boolean(
       pilotSurveyActive(pilot, reference)
       && plainObject(promptState)
       && promptState.surveyId === surveyId
       && Number(promptState.openCount) >= WEEKLY_PULSE_OPEN_THRESHOLD
+      && (!Number.isFinite(nextEligibleAt) || nextEligibleAt <= now.getTime())
       && !weeklyPulseComplete(pilot, { surveyId })
     );
   }
@@ -498,12 +528,14 @@
     SCHEMA_VERSION,
     SURFACES,
     WEEKLY_PULSE_DATA_GATHERING_ACTIVE,
+    WEEKLY_PULSE_DISMISS_COOLDOWNS_MS,
     WEEKLY_PULSE_OPEN_THRESHOLD,
     WEEKLY_PULSE_PROMPT_STATE_VERSION,
     WEEKLY_PULSE_SURVEY_VERSION,
     calculateWeeklyTsdr,
     createEvent,
     createQueue,
+    dismissWeeklyPulsePrompt,
     nextWeeklyPulsePromptState,
     normalizeWeeklyPulseSurveyId,
     normalizeBatch,

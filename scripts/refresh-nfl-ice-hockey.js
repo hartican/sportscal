@@ -12,13 +12,13 @@ const NHL_SEASON = "20262027";
 const NFL_SEASON = 2026;
 
 async function fetchJson(url){
-  const response = await fetch(url, { headers:{ accept:"application/json", "user-agent":"nothingSport canonical refresh/1.0" } });
+  const response = await fetch(url, { headers:{ accept:"application/json", "user-agent":"nothingSport canonical refresh/1.0" }, signal:AbortSignal.timeout(20_000) });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
   return response.json();
 }
 
 async function fetchText(url){
-  const response = await fetch(url, { headers:{ accept:"text/html", "user-agent":"nothingSport canonical refresh/1.0" } });
+  const response = await fetch(url, { headers:{ accept:"text/html", "user-agent":"nothingSport canonical refresh/1.0" }, signal:AbortSignal.timeout(20_000) });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
   return response.text();
 }
@@ -367,6 +367,21 @@ async function main(){
 }
 
 main().catch(error => {
+  const transient = /fetch failed|abort|timed?\s*out|econn|enotfound|5\d\d\b/i.test(String(error?.stack || error?.message || error));
+  if (transient && fs.existsSync(NFL_PATH) && fs.existsSync(ICE_HOCKEY_PATH)){
+    try{
+      const nfl = JSON.parse(fs.readFileSync(NFL_PATH, "utf8"));
+      const iceHockey = JSON.parse(fs.readFileSync(ICE_HOCKEY_PATH, "utf8"));
+      validate(nfl, { teamCount:32, minimumPlayers:1500, minimumFixtures:250 });
+      validate(iceHockey, { minimumTeamCount:52, minimumPlayers:700, minimumFixtures:1350 });
+      console.warn(`NFL/Ice Hockey refresh source unavailable; preserving existing validated snapshots: ${error.message}`);
+      return;
+    }catch(validationError){
+      console.error(validationError.stack || validationError.message);
+      process.exitCode = 1;
+      return;
+    }
+  }
   console.error(error.stack || error.message);
-  process.exit(1);
+  process.exitCode = 1;
 });

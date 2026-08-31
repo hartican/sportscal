@@ -158,9 +158,7 @@ assert(
     && html.includes("fallback.textContent = viewing.actionLabel || viewing.label;"),
   "viewing actions must read Watch on / Replay on followed by a provider logo with provider-name text fallback"
 );
-assert(/\.swipe-coaching[\s\S]{0,500}color:\s*#43b9ff/.test(html));
-assert(/\.swipe-coaching[\s\S]{0,500}font-size:\s*\.85rem/.test(html));
-assert(/\.swipe-coaching[\s\S]{0,500}opacity:\s*\.7/.test(html));
+assert(!html.includes("Swipe to like") && !html.includes("Swipe to dislike"), "startup and cards must not teach Tinder-style gestures");
 assert(html.includes('data-tab="follow"') && html.includes("renderFollowView"));
 assert(html.includes('["all-fixtures", "Timetable"]') && html.includes('["matches", "Matches"]') && html.includes('["players", "Players"]') && html.includes('["standings", "Standings"]'));
 assert(html.includes("codeInspectorPlayersExpanded") && html.includes('"Top 3 + followed"'));

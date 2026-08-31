@@ -790,6 +790,21 @@ function sortedEvents(events){
   });
 }
 
+function validatedExistingBundleForTransientFailure(){
+  const payload = readExistingCanonicalBundle();
+  if (payload?.schemaVersion !== "canonical-sports.v1"
+    || !Array.isArray(payload?.events) || !payload.events.length
+    || !Array.isArray(payload?.participants) || !payload.participants.length
+    || !Array.isArray(payload?.ladderSnapshots) || payload.ladderSnapshots.length < 2){
+    throw new Error("Existing canonical AFL/NRL bundle is not safe to preserve");
+  }
+  return payload;
+}
+
+function isTransientSourceFailure(error){
+  return /fetch failed|timed?\s*out|abort|network|socket|econn|enotfound|eai_again/i.test(String(error?.message || error));
+}
+
 async function main(){
   const checkedAt = new Date().toISOString();
   const existingBundle = readExistingCanonicalBundle();
@@ -890,6 +905,15 @@ async function main(){
 
 if (require.main === module){
   main().catch(error => {
+    if (isTransientSourceFailure(error)){
+      try {
+        const existing = validatedExistingBundleForTransientFailure();
+        console.warn(`Canonical AFL/NRL sources temporarily unavailable; preserving ${existing.events.length} validated fixtures for immediate canonical checks.`);
+        return;
+      } catch (validationError){
+        console.error(validationError.stack || validationError.message);
+      }
+    }
     console.error(error.stack || error.message);
     process.exitCode = 1;
   });

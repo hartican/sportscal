@@ -26,7 +26,7 @@
   "rules": {
     "competition:premier-league": { "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league" },
     "competition:uefa-champions-league": { "sourceUrl": "https://www.stan.com.au/watch/sport/football/uefa-champions-league" },
-    "competition:tennis:us-open": { "sourceUrl": "https://www.stan.com.au/watch/sport/tennis" },
+    "competition:tennis:us-open": { "sourceUrl": "https://www.stan.com.au/watch/sport/tennis/us-open" },
     "competition:afl": { "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights" },
     "competition:nrl": { "sourceUrl": "https://www.foxtel.com.au/watch/nrl.html/" },
     "competition:rugby-league-world-cup": { "sourceUrl": "https://sevenwestmedia.com.au/wp-content/uploads/2025/10/Live-free-and-exclusive-%E2%80%93-Rugby-League-World-Cup.pdf" },

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-08-31T11:48:19.558Z",
+  "generatedAt": "2026-08-31T15:59:53.850Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -1974,10 +1974,10 @@
       "issues": []
     },
     {
-      "id": "tennis-tournament-grand-slam-us-open-2026-2026-08-31",
+      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-01",
       "name": "US Open — Grand Slam",
       "sport": "Tennis",
-      "date": "2026-08-31",
+      "date": "2026-09-01",
       "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,

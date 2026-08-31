@@ -86,6 +86,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-team-player-directories.js"],
   ["scripts/refresh-nfl-ice-hockey.js"],
   ["scripts/refresh-nfl-ice-hockey.js", "--check"],
+  ["scripts/validate-refresh-resilience.js"],
   ["scripts/refresh-official-follow-fixtures.js"],
   ["scripts/refresh-official-follow-fixtures.js", "--check"],
   ["scripts/refresh-swimming-directory.js"],

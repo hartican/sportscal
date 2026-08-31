@@ -83,6 +83,54 @@ alter table public.nothingsports_chat_messages
   add column if not exists reply_to_message_id uuid references public.nothingsports_chat_messages (id) on delete set null,
   add column if not exists sender_display_name text;
 
+alter table public.nothingsports_chat_rooms drop constraint if exists nothingsports_chat_rooms_status_check;
+alter table public.nothingsports_chat_rooms drop constraint if exists nothingsports_chat_rooms_check;
+alter table public.nothingsports_chat_rooms drop constraint if exists nothingsports_chat_rooms_lifecycle_check;
+alter table public.nothingsports_chat_rooms add constraint nothingsports_chat_rooms_status_check
+  check (status in ('open', 'closing', 'closed'));
+alter table public.nothingsports_chat_rooms add constraint nothingsports_chat_rooms_lifecycle_check
+  check ((status in ('open', 'closing') and closed_at is null and purge_at is null) or (status = 'closed' and closed_at is not null and purge_at is not null));
+alter table public.nothingsports_chat_messages drop constraint if exists nothingsports_chat_messages_message_type_check;
+alter table public.nothingsports_chat_messages add constraint nothingsports_chat_messages_message_type_check
+  check (message_type in ('text', 'media', 'mixed'));
+
+create table if not exists public.nothingsports_chat_attachments (
+  attachment_id uuid primary key default gen_random_uuid(),
+  room_id uuid not null references public.nothingsports_chat_rooms(id) on delete cascade,
+  message_id uuid references public.nothingsports_chat_messages(id) on delete cascade,
+  uploader_id uuid not null references auth.users(id) on delete cascade,
+  kind text not null check (kind in ('image','gif','audio','pdf','file')),
+  file_name text not null check (char_length(file_name) between 1 and 120),
+  content_type text not null check (char_length(content_type) between 3 and 120),
+  byte_size bigint not null check (byte_size between 1 and 26214400),
+  storage_bucket text not null default 'nothingsports-chat-transient',
+  object_path text not null unique,
+  status text not null default 'pending' check (status in ('pending','ready','saved')),
+  ready_at timestamptz,
+  saved_at timestamptz,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists public.nothingsports_saved_game_media (
+  saved_media_id uuid primary key default gen_random_uuid(),
+  owner_id uuid not null references auth.users(id) on delete cascade,
+  source_attachment_id uuid references public.nothingsports_chat_attachments(attachment_id) on delete set null,
+  room_id uuid references public.nothingsports_chat_rooms(id) on delete set null,
+  event_id text,
+  file_name text not null,
+  content_type text not null,
+  byte_size bigint not null check (byte_size between 1 and 26214400),
+  storage_bucket text not null default 'nothingsports-saved-game-media',
+  object_path text not null unique,
+  created_at timestamptz not null default now()
+);
+
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values
+  ('nothingsports-chat-transient', 'nothingsports-chat-transient', false, 26214400, array['image/jpeg','image/png','image/webp','image/gif','audio/mpeg','audio/mp4','audio/wav','audio/ogg','application/pdf','text/plain','text/csv','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']),
+  ('nothingsports-saved-game-media', 'nothingsports-saved-game-media', false, 26214400, array['image/jpeg','image/png','image/webp','image/gif','audio/mpeg','audio/mp4','audio/wav','audio/ogg','application/pdf','text/plain','text/csv','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'])
+on conflict (id) do update set public=false, file_size_limit=excluded.file_size_limit, allowed_mime_types=excluded.allowed_mime_types;
+
 do $$
 begin
   if not exists (select 1 from pg_catalog.pg_constraint where conname = 'nothingsports_chat_rooms_guest_share_version_check') then
@@ -202,6 +250,18 @@ create index if not exists nothingsports_chat_anonymous_signup_tickets_room_idx
   on public.nothingsports_chat_anonymous_signup_tickets (room_id);
 create index if not exists nothingsports_chat_notification_installation_idx
   on public.nothingsports_chat_notification_deliveries (installation_id);
+create index if not exists nothingsports_chat_attachments_room_idx
+  on public.nothingsports_chat_attachments (room_id, message_id, status);
+create index if not exists nothingsports_chat_attachments_message_idx
+  on public.nothingsports_chat_attachments (message_id) where message_id is not null;
+create index if not exists nothingsports_chat_attachments_uploader_idx
+  on public.nothingsports_chat_attachments (uploader_id, created_at desc);
+create index if not exists nothingsports_saved_game_media_owner_idx
+  on public.nothingsports_saved_game_media (owner_id, event_id, created_at desc);
+create index if not exists nothingsports_saved_game_media_source_idx
+  on public.nothingsports_saved_game_media (source_attachment_id) where source_attachment_id is not null;
+create index if not exists nothingsports_saved_game_media_room_idx
+  on public.nothingsports_saved_game_media (room_id) where room_id is not null;
 
 create or replace function public.protect_nothingsports_chat_room_lifecycle()
 returns trigger
@@ -225,10 +285,15 @@ begin
     new.guest_share_disabled_at := coalesce(new.guest_share_disabled_at, new.closed_at);
     delete from public.nothingsports_chat_anonymous_signup_tickets
     where room_id = old.id;
-  else
+  elsif new.status = 'open' then
     new.closed_at := null;
     new.closed_by := null;
     new.purge_at := null;
+  else
+    new.closed_at := null;
+    new.purge_at := null;
+    new.guest_share_enabled := false;
+    new.guest_share_disabled_at := coalesce(new.guest_share_disabled_at, now());
   end if;
   new.updated_at := now();
   return new;
@@ -800,6 +865,10 @@ alter table public.nothingsports_chat_anonymous_session_limits enable row level 
 alter table public.nothingsports_chat_anonymous_session_limits force row level security;
 alter table public.nothingsports_chat_anonymous_signup_tickets enable row level security;
 alter table public.nothingsports_chat_anonymous_signup_tickets force row level security;
+alter table public.nothingsports_chat_attachments enable row level security;
+alter table public.nothingsports_chat_attachments force row level security;
+alter table public.nothingsports_saved_game_media enable row level security;
+alter table public.nothingsports_saved_game_media force row level security;
 
 revoke all on table public.nothingsports_chat_profiles from public, anon, authenticated;
 revoke all on table public.nothingsports_chat_rooms from public, anon, authenticated;
@@ -809,6 +878,8 @@ revoke all on table public.nothingsports_chat_reactions from public, anon, authe
 revoke all on table public.nothingsports_chat_notification_deliveries from public, anon, authenticated;
 revoke all on table public.nothingsports_chat_anonymous_session_limits from public, anon, authenticated;
 revoke all on table public.nothingsports_chat_anonymous_signup_tickets from public, anon, authenticated, supabase_auth_admin;
+revoke all on table public.nothingsports_chat_attachments from public, anon, authenticated;
+revoke all on table public.nothingsports_saved_game_media from public, anon, authenticated;
 grant select, insert, update, delete on table public.nothingsports_chat_profiles to service_role;
 grant select, insert, update, delete on table public.nothingsports_chat_rooms to service_role;
 grant select, insert, update, delete on table public.nothingsports_chat_members to service_role;
@@ -817,6 +888,8 @@ grant select, insert, update, delete on table public.nothingsports_chat_reaction
 grant select, insert, update, delete on table public.nothingsports_chat_notification_deliveries to service_role;
 grant select, insert, update, delete on table public.nothingsports_chat_anonymous_session_limits to service_role;
 grant select, insert, update, delete on table public.nothingsports_chat_anonymous_signup_tickets to service_role;
+grant select, insert, update, delete on table public.nothingsports_chat_attachments to service_role;
+grant select, insert, update, delete on table public.nothingsports_saved_game_media to service_role;
 grant usage on schema public to supabase_auth_admin;
 grant select, delete on table public.nothingsports_chat_anonymous_signup_tickets to supabase_auth_admin;
 
@@ -862,6 +935,12 @@ create policy "deny direct anonymous chat session limit access" on public.nothin
 drop policy if exists "deny direct anonymous signup ticket access" on public.nothingsports_chat_anonymous_signup_tickets;
 create policy "deny direct anonymous signup ticket access" on public.nothingsports_chat_anonymous_signup_tickets
   for all to anon, authenticated using (false) with check (false);
+drop policy if exists "deny direct chat attachment access" on public.nothingsports_chat_attachments;
+create policy "deny direct chat attachment access" on public.nothingsports_chat_attachments
+  for all to anon, authenticated using (false) with check (false);
+drop policy if exists "deny direct saved game media access" on public.nothingsports_saved_game_media;
+create policy "deny direct saved game media access" on public.nothingsports_saved_game_media
+  for all to anon, authenticated using (false) with check (false);
 drop policy if exists "auth hook reads anonymous signup tickets" on public.nothingsports_chat_anonymous_signup_tickets;
 create policy "auth hook reads anonymous signup tickets" on public.nothingsports_chat_anonymous_signup_tickets
   for select to supabase_auth_admin using (true);
@@ -872,7 +951,9 @@ create policy "auth hook consumes anonymous signup tickets" on public.nothingspo
 comment on table public.nothingsports_chat_profiles is 'Server-only private chat identity. Email is never returned to room members.';
 comment on table public.nothingsports_chat_rooms is 'Private fixture chat rooms. Closure is irreversible and purge follows seven days later.';
 comment on table public.nothingsports_chat_members is 'Sole member-access relationship for private fixture chat.';
-comment on table public.nothingsports_chat_messages is 'Plain-text phase-1 chat messages with idempotent client IDs.';
+comment on table public.nothingsports_chat_messages is 'Private text and media chat messages with idempotent client IDs.';
+comment on table public.nothingsports_chat_attachments is 'Private transient chat media removed when its room closes unless the uploader saves a private copy.';
+comment on table public.nothingsports_saved_game_media is 'Private account-owned game media explicitly saved by its original uploader.';
 comment on table public.nothingsports_chat_reactions is 'Server-only fixed-palette chat reactions. Inactive rows are polling tombstones.';
 comment on table public.nothingsports_chat_notification_deliveries is 'Idempotent privacy-safe chat push delivery ledger; senders are excluded.';
 comment on table public.nothingsports_chat_anonymous_session_limits is 'Server-only per-room anonymous-session counters keyed by an HMAC of the Vercel client IP; raw IP addresses are never stored.';

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-08-31T11:48:19.439Z",
+  "generatedAt": "2026-08-31T15:59:53.737Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
@@ -10,10 +10,10 @@
   },
   "cards": [
     {
-      "id": "tennis-tournament-grand-slam-us-open-2026-2026-08-31",
+      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-01",
       "name": "US Open — Grand Slam",
       "sport": "Tennis",
-      "date": "2026-08-31",
+      "date": "2026-09-01",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
