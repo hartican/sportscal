@@ -233,6 +233,7 @@ assert.match(releaseScript, /"feeds\/provider-exports\/tennis\/us-open-2026-offi
 const canonicalRefreshWorkflow = fs.readFileSync(path.join(projectRoot, ".github/workflows/canonical-card-refresh.yml"), "utf8");
 assert.match(canonicalRefreshWorkflow, /scripts\/update-sportscal-cards-and-release\.sh/, "the cloud schedule must enter the canonical update and immutable release path");
 assert.doesNotMatch(canonicalRefreshWorkflow, /node\s+scripts\/refresh-us-open-events\.js/, "the cloud schedule must not create a US Open-only refresh path");
+assert.match(canonicalRefreshWorkflow, /runs-on:\s*macos-15/, "the canonical cloud refresh must retain macOS PDFKit for official ATP ranking extraction");
 assert.match(canonicalRefreshWorkflow, /timezone:\s*Australia\/Sydney/, "the cloud schedule must retain Sydney wall-clock semantics across daylight-saving changes");
 assert.match(canonicalRefreshWorkflow, /contents:\s*write/, "the canonical cloud refresh must have permission to publish its reviewed output commit");
 assert.match(canonicalRefreshWorkflow, /cancel-in-progress:\s*false/, "overlapping canonical refreshes must serialize instead of cancelling a release in flight");
