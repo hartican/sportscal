@@ -13,7 +13,7 @@ create table if not exists public.nothingsports_marquee_campaigns (
   candidate jsonb not null,
   draft_copy jsonb not null,
   approved_copy jsonb,
-  proposed_send_at timestamptz not null,
+  proposed_send_at timestamptz,
   approved_by uuid references auth.users(id) on delete set null,
   approved_at timestamptz,
   exported_by uuid references auth.users(id) on delete set null,
@@ -40,6 +40,7 @@ alter table public.nothingsports_marquee_campaigns add column if not exists expo
 alter table public.nothingsports_marquee_campaigns add column if not exists export_snapshot jsonb;
 alter table public.nothingsports_marquee_campaigns add column if not exists export_format text;
 alter table public.nothingsports_marquee_campaigns add column if not exists export_stale boolean not null default false;
+alter table public.nothingsports_marquee_campaigns alter column proposed_send_at drop not null;
 
 alter table public.nothingsports_marquee_campaigns drop constraint if exists nothingsports_marquee_campaigns_state_check;
 alter table public.nothingsports_marquee_campaigns add constraint nothingsports_marquee_campaigns_state_check

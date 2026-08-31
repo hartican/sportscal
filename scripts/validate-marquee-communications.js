@@ -140,6 +140,7 @@ async function main(){
   assert.match(sql, /export_stale/);
   assert.match(sql, /mailchimp-manual\.v1/);
   assert.match(sql, /state in \([^)]*'exported'/s);
+  assert.match(sql, /alter table public\.nothingsports_marquee_campaigns alter column proposed_send_at drop not null/i);
 
   const commsSource = read("api/comms.js"), adminSource = read("admin.html") + read("config/admin-comms-ui.js"), participatePageSource = read("participate.html"), participationSource = read("api/participation.js"), worker = read("service-worker.js"), vercel = JSON.parse(read("vercel.json"));
   assert.match(commsSource, /app_metadata/);
