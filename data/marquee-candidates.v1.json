@@ -1,15 +1,347 @@
 {
   "schemaVersion": "marquee-candidates.v1",
   "sourceRevision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-08-30T23:53:59.258Z",
-  "generatedAt": "2026-08-29T00:00:00.000Z",
+  "generatedAt": "2026-08-31T00:00:00.000Z",
   "shadowMode": true,
   "summary": {
     "stakesFiveFuture": 5,
+    "shown": 5,
     "eligible": 2,
+    "watching": 3,
     "actionable": 0,
     "late": 0
   },
   "candidates": [
+    {
+      "campaignId": "marquee_01bb48936c3ff875",
+      "campaignRevision": 1,
+      "contentHash": "eb8753a62c078f012e7c4262f09e2a0e55cbce9f9e9f2cb9996d32879755cdc5",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "evt_83",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window"
+      ],
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sat",
+          "weekday": "Saturday",
+          "date": "Sat 26 Sept 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "NRL — finals progression explainer",
+        "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
+        "checkedAt": "2026-08-29T23:56:41.761Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-08-30T23:53:59.258Z"
+      },
+      "material": {
+        "title": "NRL Preliminary Finals",
+        "participants": [],
+        "sport": "NRL",
+        "competition": "all",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "",
+        "broadcaster": "Nine / Kayo Sports",
+        "stakes": 5,
+        "source": {
+          "name": "NRL — finals progression explainer",
+          "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
+          "checkedAt": "2026-08-29T23:56:41.761Z"
+        },
+        "recognisableTitle": "NRL Preliminary Finals",
+        "matchupLabel": "",
+        "displayDate": "2026-09-26"
+      },
+      "drafts": {
+        "hook": "One win from Accor: rested qualifying winners meet the teams that survived the sudden-death middle week.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE NRL: NRL Preliminary Finals. Sat 26 Sept 2026; exact time TBC. 5/5 stakes. One win from Accor: rested qualifying winners meet the teams that survived the sudden-death middle week. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Finals, listed for Sat 26 Sept 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_01bb48936c3ff875-eb8753a62c07.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_01bb48936c3ff875-eb8753a62c07.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: NRL Preliminary Finals — Sat 26 Sept 2026 · time TBC",
+          "preheader": "Join the NRL Preliminary Finals watch party, then rate it after the finish.",
+          "headline": "NRL Preliminary Finals: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "The preliminary finals join two paths: Week 1 qualifying winners return from a bye against teams that have survived the semi-finals. Both games are sudden death, team-specific stories remain conditional, and the winners reach the 4 October Grand Final.",
+            "Join us for the NRL Preliminary Finals. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "NRL Preliminary Finals is listed for Sat 26 Sept 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Nine / Kayo Sports.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/evt_83?source=marquee&campaign=marquee_01bb48936c3ff875"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/evt_83?source=marquee&campaign=marquee_01bb48936c3ff875&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/evt_83?source=marquee&campaign=marquee_01bb48936c3ff875",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/evt_83?source=marquee&campaign=marquee_01bb48936c3ff875&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_01bb48936c3ff875-eb8753a62c07.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_01bb48936c3ff875-eb8753a62c07.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Finals, listed for Sat 26 Sept 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sat",
+          "weekday": "Saturday",
+          "date": "Sat 26 Sept 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_01bb48936c3ff875",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/evt_83?source=marquee&campaign=marquee_01bb48936c3ff875",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      }
+    },
+    {
+      "campaignId": "marquee_0e5f2dcbd82ba9be",
+      "campaignRevision": 1,
+      "contentHash": "a8a460d58f6c06665f88b5fbb8c40cf8cbc2e7bfc87d686c83507fe529282539",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "evt_84",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window"
+      ],
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-08-29T19:30:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 4 Oct 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "NRL — 2026 top eight locked after Round 26",
+        "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+        "checkedAt": "2026-08-29T19:30:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-08-30T23:53:59.258Z"
+      },
+      "material": {
+        "title": "NRL Grand Final",
+        "participants": [],
+        "sport": "NRL",
+        "competition": "all",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "",
+        "broadcaster": "Nine / Kayo Sports",
+        "stakes": 5,
+        "source": {
+          "name": "NRL — 2026 top eight locked after Round 26",
+          "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        "recognisableTitle": "NRL Grand Final",
+        "matchupLabel": "",
+        "displayDate": "2026-10-04"
+      },
+      "drafts": {
+        "hook": "Brisbane's absence guarantees a new champion at Accor Stadium, with the first-time Dolphins and title-seeking Warriors inside the locked eight.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE NRL: NRL Grand Final. Sun 4 Oct 2026; exact time TBC. 5/5 stakes. Brisbane's absence guarantees a new champion at Accor Stadium, with the first-time Dolphins and title-seeking Warriors inside the locked eight. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for NRL Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-a8a460d58f6c.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-a8a460d58f6c.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: NRL Grand Final — Sun 4 Oct 2026 · time TBC",
+          "preheader": "Join the NRL Grand Final watch party, then rate it after the finish.",
+          "headline": "NRL Grand Final: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "The 4 October decider will crown a different champion after reigning premier Brisbane missed the finals. The Dolphins have made the eight for the first time, South Sydney is back for the first time since 2022, and the Warriors are still chasing the club's first premiership after Grand Final defeats in 2002 and 2011.",
+            "Join us for the NRL Grand Final. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "NRL Grand Final is listed for Sun 4 Oct 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Nine / Kayo Sports.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/evt_84?source=marquee&campaign=marquee_0e5f2dcbd82ba9be"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/evt_84?source=marquee&campaign=marquee_0e5f2dcbd82ba9be&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/evt_84?source=marquee&campaign=marquee_0e5f2dcbd82ba9be",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/evt_84?source=marquee&campaign=marquee_0e5f2dcbd82ba9be&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_0e5f2dcbd82ba9be-a8a460d58f6c.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_0e5f2dcbd82ba9be-a8a460d58f6c.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for NRL Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 4 Oct 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_0e5f2dcbd82ba9be",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/evt_84?source=marquee&campaign=marquee_0e5f2dcbd82ba9be",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      }
+    },
     {
       "campaignId": "marquee_cd90a197f744002d",
       "campaignRevision": 1,
@@ -19,8 +351,11 @@
       "late": false,
       "eventId": "rlwc-australia-new-zealand-2026",
       "proposedSendAt": "2026-10-13T09:05:00.000Z",
+      "readyForExport": true,
+      "readinessIssues": [],
       "eligibilityEvidence": {
         "stakesExactlyFive": true,
+        "readyForExport": true,
         "atomicType": "match",
         "confirmedUtcStart": true,
         "finish": "derived_from_live_window",
@@ -34,12 +369,14 @@
         "endDerived": true,
         "sydneyStart": {
           "day": "Thu",
+          "weekday": "Thursday",
           "date": "Thu 15 Oct 2026",
           "time": "8:05 pm",
           "timezone": "AEDT"
         },
         "sydneyFinish": {
           "day": "Thu",
+          "weekday": "Thursday",
           "date": "Thu 15 Oct 2026",
           "time": "11:05 pm",
           "timezone": "AEDT"
@@ -68,14 +405,17 @@
           "name": "RLWC 2026 — competition rules",
           "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
           "checkedAt": "2026-08-29T23:56:41.761Z"
-        }
+        },
+        "recognisableTitle": "Rugby League World Cup opener",
+        "matchupLabel": "Kangaroos v Kiwis",
+        "displayDate": "2026-10-15"
       },
       "drafts": {
         "hook": "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
         "instagram": {
           "account": "@_nothingsports",
-          "caption": "UNMISSABLE: Australia v New Zealand. Thu 15 Oct 2026 at 8:05 pm AEDT. 5/5 stakes. The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance. Join the watch party and rate it afterwards — link in bio.",
-          "altText": "Nothing Sport UNMISSABLE card for Australia v New Zealand, starting Thu 15 Oct 2026 at 8:05 pm AEDT.",
+          "caption": "UNMISSABLE RUGBY LEAGUE: Rugby League World Cup opener, Kangaroos v Kiwis. Thu 15 Oct 2026 at 8:05 pm AEDT. 5/5 stakes. The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Rugby League World Cup opener, Kangaroos v Kiwis, starting Thu 15 Oct 2026 at 8:05 pm AEDT.",
           "image": {
             "path": "/assets/marquee/marquee_cd90a197f744002d-b18f3c2c5fba.jpg",
             "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd90a197f744002d-b18f3c2c5fba.jpg",
@@ -86,14 +426,14 @@
           }
         },
         "email": {
-          "subject": "5/5 stakes: Australia v New Zealand — Thu 8:05 pm",
-          "preheader": "Join the watch party, then rate the fixture after it finishes.",
-          "headline": "Australia v New Zealand: one to make time for",
+          "subject": "5/5 stakes: Rugby League World Cup opener, Kangaroos v Kiwis — Thu 8:05 pm",
+          "preheader": "Join the World Cup opener watch party, then rate it after the finish.",
+          "headline": "Thursday watch party: World Cup opener",
           "bodyParagraphs": [
-            "The World Cup opens with the defending champions against the Pacific Cup holders, and only two Pool A sides advance.",
-            "Open the fixture in Nothing Sport to join the watch party, follow the live context and rate it after the finish."
+            "Australia and New Zealand start the men's tournament at Allianz Stadium with current championship credentials on both sides. Cook Islands and Fiji share their pool, and a 2008 precedent cautions that opening night can shape the path without settling the trophy.",
+            "Join us for the Rugby League World Cup opener, Kangaroos v Kiwis, on Thu at 8:05 pm AEDT. Open the fixture for the watch party, live context and post-match rating."
           ],
-          "timingLine": "Australia v New Zealand starts Thu 15 Oct 2026 at 8:05 pm AEDT at Allianz Stadium, Sydney. Expected finish: 11:05 pm AEDT.",
+          "timingLine": "Rugby League World Cup opener, Kangaroos v Kiwis starts Thu 15 Oct 2026 at 8:05 pm AEDT at Allianz Stadium, Sydney. Expected finish: 11:05 pm AEDT.",
           "broadcastLine": "Watch in Australia on Seven / 7plus Sport.",
           "topic": "Marquee fixture alerts",
           "primaryCta": {
@@ -108,6 +448,7 @@
             "utc": "2026-10-13T09:05:00.000Z",
             "sydney": {
               "day": "Tue",
+              "weekday": "Tuesday",
               "date": "Tue 13 Oct 2026",
               "time": "8:05 pm",
               "timezone": "AEDT"
@@ -122,17 +463,19 @@
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for Australia v New Zealand, starting Thu 15 Oct 2026 at 8:05 pm AEDT."
+            "altText": "Nothing Sport UNMISSABLE card for Rugby League World Cup opener, Kangaroos v Kiwis, starting Thu 15 Oct 2026 at 8:05 pm AEDT."
           }
         },
         "when": {
           "day": "Thu",
+          "weekday": "Thursday",
           "date": "Thu 15 Oct 2026",
           "time": "8:05 pm",
           "timezone": "AEDT"
         },
         "finish": {
           "day": "Thu",
+          "weekday": "Thursday",
           "date": "Thu 15 Oct 2026",
           "time": "11:05 pm",
           "timezone": "AEDT"
@@ -162,6 +505,7 @@
         }
       },
       "participation": {
+        "enabled": true,
         "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_cd90a197f744002d",
         "fixtureUrl": "https://nothingsport.vercel.app/fixture/rlwc-australia-new-zealand-2026?source=marquee&campaign=marquee_cd90a197f744002d",
         "ratingWindow": {
@@ -179,8 +523,11 @@
       "late": false,
       "eventId": "rugby-australia-new-zealand-2026-10-17",
       "proposedSendAt": "2026-10-15T04:45:00.000Z",
+      "readyForExport": true,
+      "readinessIssues": [],
       "eligibilityEvidence": {
         "stakesExactlyFive": true,
+        "readyForExport": true,
         "atomicType": "test",
         "confirmedUtcStart": true,
         "finish": "derived_from_live_window",
@@ -194,12 +541,14 @@
         "endDerived": true,
         "sydneyStart": {
           "day": "Sat",
+          "weekday": "Saturday",
           "date": "Sat 17 Oct 2026",
           "time": "3:45 pm",
           "timezone": "AEDT"
         },
         "sydneyFinish": {
           "day": "Sat",
+          "weekday": "Saturday",
           "date": "Sat 17 Oct 2026",
           "time": "6:45 pm",
           "timezone": "AEDT"
@@ -228,14 +577,17 @@
           "name": "Rugby Australia — 2026 Wallabies Test schedule",
           "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
           "checkedAt": "2026-08-29T23:56:41.761Z"
-        }
+        },
+        "recognisableTitle": "Bledisloe Cup — Sydney Test",
+        "matchupLabel": "Wallabies v All Blacks",
+        "displayDate": "2026-10-17"
       },
       "drafts": {
         "hook": "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
         "instagram": {
           "account": "@_nothingsports",
-          "caption": "UNMISSABLE: Australia v New Zealand. Sat 17 Oct 2026 at 3:45 pm AEDT. 5/5 stakes. Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027. Join the watch party and rate it afterwards — link in bio.",
-          "altText": "Nothing Sport UNMISSABLE card for Australia v New Zealand, starting Sat 17 Oct 2026 at 3:45 pm AEDT.",
+          "caption": "UNMISSABLE RUGBY UNION: Bledisloe Cup — Sydney Test, Wallabies v All Blacks. Sat 17 Oct 2026 at 3:45 pm AEDT. 5/5 stakes. Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Bledisloe Cup — Sydney Test, Wallabies v All Blacks, starting Sat 17 Oct 2026 at 3:45 pm AEDT.",
           "image": {
             "path": "/assets/marquee/marquee_4b6a6fbfdd6ce674-12c84dbfe6e5.jpg",
             "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_4b6a6fbfdd6ce674-12c84dbfe6e5.jpg",
@@ -246,14 +598,14 @@
           }
         },
         "email": {
-          "subject": "5/5 stakes: Australia v New Zealand — Sat 3:45 pm",
-          "preheader": "Join the watch party, then rate the fixture after it finishes.",
-          "headline": "Australia v New Zealand: one to make time for",
+          "subject": "5/5 stakes: Bledisloe Cup — Sydney Test, Wallabies v All Blacks — Sat 3:45 pm",
+          "preheader": "Join the Bledisloe Cup watch party, then rate it after the finish.",
+          "headline": "Saturday watch party: Bledisloe Cup",
           "bodyParagraphs": [
-            "Sydney closes the Wallabies' home season on the ground where the rivalry returns for a World Cup pool match in 2027.",
-            "Open the fixture in Nothing Sport to join the watch party, follow the live context and rate it after the finish."
+            "The second Bledisloe Test follows Eden Park by seven days, so its immediate cup stakes cannot be named in advance. New Zealand's long hold and the same-ground 2027 World Cup meeting give Sydney a persistent rivalry chapter beyond a provisional decider label.",
+            "Join us for the Bledisloe Cup — Sydney Test, Wallabies v All Blacks, on Sat at 3:45 pm AEDT. Open the fixture for the watch party, live context and post-match rating."
           ],
-          "timingLine": "Australia v New Zealand starts Sat 17 Oct 2026 at 3:45 pm AEDT at Accor Stadium, Sydney. Expected finish: 6:45 pm AEDT.",
+          "timingLine": "Bledisloe Cup — Sydney Test, Wallabies v All Blacks starts Sat 17 Oct 2026 at 3:45 pm AEDT at Accor Stadium, Sydney. Expected finish: 6:45 pm AEDT.",
           "broadcastLine": "Watch in Australia on Stan Sport.",
           "topic": "Marquee fixture alerts",
           "primaryCta": {
@@ -268,6 +620,7 @@
             "utc": "2026-10-15T04:45:00.000Z",
             "sydney": {
               "day": "Thu",
+              "weekday": "Thursday",
               "date": "Thu 15 Oct 2026",
               "time": "3:45 pm",
               "timezone": "AEDT"
@@ -282,17 +635,19 @@
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for Australia v New Zealand, starting Sat 17 Oct 2026 at 3:45 pm AEDT."
+            "altText": "Nothing Sport UNMISSABLE card for Bledisloe Cup — Sydney Test, Wallabies v All Blacks, starting Sat 17 Oct 2026 at 3:45 pm AEDT."
           }
         },
         "when": {
           "day": "Sat",
+          "weekday": "Saturday",
           "date": "Sat 17 Oct 2026",
           "time": "3:45 pm",
           "timezone": "AEDT"
         },
         "finish": {
           "day": "Sat",
+          "weekday": "Saturday",
           "date": "Sat 17 Oct 2026",
           "time": "6:45 pm",
           "timezone": "AEDT"
@@ -322,6 +677,7 @@
         }
       },
       "participation": {
+        "enabled": true,
         "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_4b6a6fbfdd6ce674",
         "fixtureUrl": "https://nothingsport.vercel.app/fixture/rugby-australia-new-zealand-2026-10-17?source=marquee&campaign=marquee_4b6a6fbfdd6ce674",
         "ratingWindow": {
@@ -329,35 +685,172 @@
           "closesAt": "2026-10-24T07:45:00.000Z"
         }
       }
+    },
+    {
+      "campaignId": "marquee_e6d2378551d1f5e4",
+      "campaignRevision": 1,
+      "contentHash": "578f87f34ad6d7a682fa4c35bd7858a04f01a20629224b06e62ae1cf1d90a564",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "evt_104",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window"
+      ],
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Fri",
+          "weekday": "Friday",
+          "date": "5–7 Mar 2027",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "FIS — 2026/27 Moguls and Aerials calendar",
+        "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
+        "checkedAt": "2026-08-29T23:56:41.761Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-08-30T23:53:59.258Z"
+      },
+      "material": {
+        "title": "Shahdag — Moguls World Cup Finals",
+        "participants": [],
+        "sport": "Ski",
+        "competition": "all",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Shahdag, Azerbaijan",
+        "broadcaster": "FIS broadcast",
+        "stakes": 5,
+        "source": {
+          "name": "FIS — 2026/27 Moguls and Aerials calendar",
+          "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
+          "checkedAt": "2026-08-29T23:56:41.761Z"
+        },
+        "recognisableTitle": "Shahdag — Moguls World Cup Finals",
+        "matchupLabel": "",
+        "displayDate": "5–7 Mar 2027"
+      },
+      "drafts": {
+        "hook": "The Crystal Globes return to the venue whose last scheduled final was cancelled by conditions and travel constraints.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE SKI: Shahdag — Moguls World Cup Finals. 5–7 Mar 2027; exact time TBC. 5/5 stakes. The Crystal Globes return to the venue whose last scheduled final was cancelled by conditions and travel constraints. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Shahdag — Moguls World Cup Finals, listed for 5–7 Mar 2027 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_e6d2378551d1f5e4-578f87f34ad6.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e6d2378551d1f5e4-578f87f34ad6.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Shahdag — Moguls World Cup Finals — 5–7 Mar 2027 · time TBC",
+          "preheader": "Join the Shahdag — Moguls World Cup Finals watch party, then rate it after the finish.",
+          "headline": "Shahdag — Moguls World Cup Finals: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "The corrected 5–7 March Shahdag programme is the last scheduled Moguls, Dual Moguls and Aerials stop. It follows a cancelled 2026 visit and a full season path, making the return and the Crystal Globes the verified stakes without predicting conditions or entrants.",
+            "Join us for the Shahdag — Moguls World Cup Finals. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "Shahdag — Moguls World Cup Finals is listed for 5–7 Mar 2027; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on FIS broadcast.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/evt_104?source=marquee&campaign=marquee_e6d2378551d1f5e4"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/evt_104?source=marquee&campaign=marquee_e6d2378551d1f5e4&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/evt_104?source=marquee&campaign=marquee_e6d2378551d1f5e4",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/evt_104?source=marquee&campaign=marquee_e6d2378551d1f5e4&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_e6d2378551d1f5e4-578f87f34ad6.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e6d2378551d1f5e4-578f87f34ad6.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Shahdag — Moguls World Cup Finals, listed for 5–7 Mar 2027 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Fri",
+          "weekday": "Friday",
+          "date": "5–7 Mar 2027",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_e6d2378551d1f5e4",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/evt_104?source=marquee&campaign=marquee_e6d2378551d1f5e4",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      }
     }
   ],
-  "excluded": [
-    {
-      "eventId": "evt_104",
-      "title": "Shahdag — Moguls World Cup Finals",
-      "reasons": [
-        "not_explicitly_atomic",
-        "unconfirmed_utc_start",
-        "missing_finish_or_live_window"
-      ]
-    },
-    {
-      "eventId": "evt_83",
-      "title": "NRL Preliminary Finals",
-      "reasons": [
-        "not_explicitly_atomic",
-        "unconfirmed_utc_start",
-        "missing_finish_or_live_window"
-      ]
-    },
-    {
-      "eventId": "evt_84",
-      "title": "NRL Grand Final",
-      "reasons": [
-        "not_explicitly_atomic",
-        "unconfirmed_utc_start",
-        "missing_finish_or_live_window"
-      ]
-    }
-  ]
+  "excluded": []
 }

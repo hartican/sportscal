@@ -61,7 +61,7 @@ function mergedEvent(event, canonical){
   };
 }
 function imageSvg(candidate, logoData){
-  const titleLines = wrapWords(candidate.material.title, 24, 4);
+  const titleLines = wrapWords(candidate.material.recognisableTitle || candidate.material.title, 24, 4);
   const hookLines = wrapWords(candidate.drafts.hook, 52, 3);
   const title = titleLines.map((line, index) => `<tspan x="72" dy="${index ? 86 : 0}">${xml(line)}</tspan>`).join("");
   const hook = hookLines.map((line, index) => `<tspan x="72" dy="${index ? 42 : 0}">${xml(line)}</tspan>`).join("");
@@ -88,23 +88,32 @@ async function generateImage(candidate, logoData){
 }
 function candidateFor(event, evidence, feedMeta, nowMs){
   const timing = evidence.timing;
-  const material = {
+  const copyIdentity = marquee.copyIdentity(event);
+  const readyForExport = evidence.eligible;
+  const hashMaterial = {
     title:marquee.clean(event.displayTitleCompact || event.name), participants:marquee.participantNames(event),
     sport:marquee.clean(event.sport || event.key), competition:marquee.clean(event.competition || event.competitionName || event.round),
     startTimeUtc:timing.startTimeUtc, endTimeUtc:timing.endTimeUtc, venue:marquee.clean(event.venueDisplayName || event.venue),
     broadcaster:marquee.clean(event.broadcaster), stakes:evidence.stakes, source:evidence.source,
   };
-  const contentHash = sha256(canonicalJson(material));
+  const material = {
+    ...hashMaterial,
+    recognisableTitle:copyIdentity.recognisableTitle, matchupLabel:copyIdentity.matchupLabel,
+    displayDate:marquee.clean(event.displayDateLabel || event.date),
+  };
+  // Copy labels and date-only display hints can improve without making an
+  // otherwise unchanged canonical fixture look like changed source material.
+  const contentHash = sha256(canonicalJson(hashMaterial));
   const campaignId = `marquee_${sha256(evidence.fixtureId).slice(0, 16)}`;
-  const state = marquee.campaignState(timing.startTimeUtc, nowMs);
+  const state = readyForExport ? marquee.campaignState(timing.startTimeUtc, nowMs) : { state:"watching", actionable:false, late:false };
   const drafts = marquee.draftCopy(event, timing);
-  const proposedSendAt = new Date(Date.parse(timing.startTimeUtc) - marquee.SEND_LEAD_MS).toISOString();
+  const proposedSendAt = readyForExport ? new Date(Date.parse(timing.startTimeUtc) - marquee.SEND_LEAD_MS).toISOString() : null;
   const fixtureUrl = `${PUBLIC_ORIGIN}/fixture/${encodeURIComponent(evidence.fixtureId)}?source=marquee&campaign=${campaignId}`;
   const ratingUrl = `${fixtureUrl}&intent=rate`;
   return {
     campaignId, campaignRevision:1, contentHash, state:state.state, actionable:state.actionable, late:state.late,
-    eventId:evidence.fixtureId, proposedSendAt,
-    eligibilityEvidence:{ stakesExactlyFive:true, atomicType:evidence.atomicType, confirmedUtcStart:true, finish:evidence.timing.endDerived ? "derived_from_live_window" : "confirmed_end", status:evidence.status, sourceCheckedAt:evidence.source.checkedAt },
+    eventId:evidence.fixtureId, proposedSendAt, readyForExport, readinessIssues:[...evidence.reasons],
+    eligibilityEvidence:{ stakesExactlyFive:true, readyForExport, atomicType:evidence.atomicType || null, confirmedUtcStart:Boolean(timing.startTimeUtc), finish:timing.endTimeUtc ? (timing.endDerived ? "derived_from_live_window" : "confirmed_end") : "unconfirmed", status:evidence.status, sourceCheckedAt:evidence.source.checkedAt },
     timing:{ ...timing, sydneyStart:drafts.when, sydneyFinish:drafts.finish },
     source:{ ...evidence.source, revision:`${feedMeta.version || "feed"}@${feedMeta.publishedAt || "unknown"}` }, material,
     drafts:{
@@ -119,7 +128,7 @@ function candidateFor(event, evidence, feedMeta, nowMs){
         topic:"Marquee fixture alerts",
         primaryCta:{ label:"Open the fixture", url:fixtureUrl },
         secondaryCta:{ label:"Rate it after the finish", url:ratingUrl },
-        suggestedSendAt:{ utc:proposedSendAt, sydney:marquee.sydneyParts(proposedSendAt) },
+        suggestedSendAt:{ utc:proposedSendAt, sydney:proposedSendAt ? marquee.sydneyParts(proposedSendAt) : null },
         joinUrl:fixtureUrl,
         ratingUrl,
       },
@@ -130,7 +139,7 @@ function candidateFor(event, evidence, feedMeta, nowMs){
       email:{ status:"connector_blocked", adapter:"resend-broadcasts", reason:"operator_sender_configuration_required", enabled:false },
       x:{ enabled:false }, linkedin:{ enabled:false }, facebook:{ enabled:false },
     },
-    participation:{ liveUrl:`${PUBLIC_ORIGIN}/live?source=marquee&campaign=${campaignId}`, fixtureUrl, ratingWindow:marquee.ratingWindow(timing) },
+    participation:{ enabled:readyForExport, liveUrl:`${PUBLIC_ORIGIN}/live?source=marquee&campaign=${campaignId}`, fixtureUrl, ratingWindow:marquee.ratingWindow(timing) },
   };
 }
 async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString() } = {}){
@@ -145,10 +154,10 @@ async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString()
     const id = marquee.fixtureId(sourceEvent);
     const event = mergedEvent(sourceEvent, canonical.get(id));
     const evidence = marquee.eligibility(event, nowMs);
-    if (!evidence.eligible){ excluded.push({ eventId:id, title:event.name || "", reasons:evidence.reasons }); continue; }
+    if (!evidence.fixtureId){ excluded.push({ eventId:id, title:event.name || "", reasons:evidence.reasons }); continue; }
     candidates.push(candidateFor(event, evidence, feedMeta, nowMs));
   }
-  candidates.sort((a, b) => a.timing.startTimeUtc.localeCompare(b.timing.startTimeUtc) || a.eventId.localeCompare(b.eventId));
+  candidates.sort((a, b) => (a.timing.startTimeUtc || a.material.displayDate || "9999").localeCompare(b.timing.startTimeUtc || b.material.displayDate || "9999") || a.eventId.localeCompare(b.eventId));
   const logoData = fs.readFileSync(BRAND_LOGO).toString("base64");
   for (const candidate of candidates){
     const image = await generateImage(candidate, logoData);
@@ -158,11 +167,11 @@ async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString()
   const artifact = {
     schemaVersion:marquee.SCHEMA_VERSION, sourceRevision:`${feedMeta.version || "feed"}@${feedMeta.publishedAt || "unknown"}`,
     generatedAt:new Date(nowMs).toISOString(), shadowMode:true,
-    summary:{ stakesFiveFuture:futureFive.length, eligible:candidates.length, actionable:candidates.filter(c => c.actionable).length, late:candidates.filter(c => c.late).length },
+    summary:{ stakesFiveFuture:futureFive.length, shown:candidates.length, eligible:candidates.filter(c => c.readyForExport).length, watching:candidates.filter(c => !c.readyForExport).length, actionable:candidates.filter(c => c.actionable).length, late:candidates.filter(c => c.late).length },
     candidates, excluded:excluded.sort((a, b) => a.eventId.localeCompare(b.eventId)),
   };
   fs.writeFileSync(OUTPUT, `${JSON.stringify(artifact, null, 2)}\n`);
-  console.log(`Marquee candidates: ${artifact.summary.eligible} eligible, ${artifact.summary.actionable} actionable, ${artifact.summary.late} late; ${excluded.length} excluded. Shadow mode wrote ${path.relative(ROOT, OUTPUT)}.`);
+  console.log(`Marquee candidates: ${artifact.summary.shown} shown, ${artifact.summary.eligible} export-ready, ${artifact.summary.watching} watching, ${artifact.summary.actionable} actionable, ${artifact.summary.late} late; ${excluded.length} excluded. Shadow mode wrote ${path.relative(ROOT, OUTPUT)}.`);
   return artifact;
 }
 

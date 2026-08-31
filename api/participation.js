@@ -53,7 +53,7 @@ function artifact(){ return JSON.parse(fs.readFileSync(ARTIFACT, "utf8")); }
 function candidateFor(eventId){
   const id = clean(eventId, 180);
   const candidate = artifact().candidates.find(item => item.eventId === id);
-  if (!candidate) throw new ParticipationError("That fixture is not available for marquee participation.", 404, "fixture_not_participating");
+  if (!candidate || candidate.readyForExport === false || candidate.participation?.enabled === false) throw new ParticipationError("That fixture is not available for marquee participation.", 404, "fixture_not_participating");
   return candidate;
 }
 function rowsPath(table, parameters = {}){ const query = new URLSearchParams(parameters); return `/rest/v1/${table}${query.size ? `?${query}` : ""}`; }

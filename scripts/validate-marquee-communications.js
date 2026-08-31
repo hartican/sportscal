@@ -30,7 +30,7 @@ async function main(){
   assert.equal(comms._test.editableState("needs_reapproval"), true);
   assert.equal(comms._test.editableState("exported"), false);
   assert.equal(comms._test.editableState("approved"), false);
-  const candidate = first.candidates[0];
+  const candidate = first.candidates.find(item => item.readyForExport);
   assert.ok(candidate, "the fixed build must provide a campaign for export transition tests");
   const current = {
     campaign_id:candidate.campaignId,
@@ -67,6 +67,50 @@ async function main(){
   assert.equal(changed.patch.export_stale, true);
   assert.equal(changed.patch.campaign_revision, 4);
   assert.equal(Object.hasOwn(changed.patch, "export_snapshot"), false, "source changes must retain the previous export for audit");
+  assert.equal(changed.patch.draft_copy.email.subject, candidate.drafts.email.subject, "source refreshes must retain an operator's visible draft");
+  const dismissed = comms._test.dismissTransition({ ...current, state:"exported", approved_at:exportTime, export_snapshot:exported.pack }, "2026-08-30T04:02:03.000Z");
+  assert.equal(dismissed.state, "cancelled");
+  assert.equal(dismissed.draft_copy.cms.previousState, "exported");
+  assert.equal(Object.hasOwn(dismissed, "export_snapshot"), false, "dismissal must leave the frozen export columns untouched");
+  const restored = comms._test.restoreTransition({ ...current, ...dismissed, approved_at:exportTime, export_snapshot:exported.pack }, "2026-08-30T05:02:03.000Z");
+  assert.equal(restored.state, "exported");
+  assert.equal(restored.draft_copy.cms.dismissedAt, null);
+  const dismissedSync = comms._test.syncPatch({ ...current, state:"cancelled" }, changedCandidate);
+  assert.equal(dismissedSync.patch.state, "cancelled", "source sync must not silently restore a dismissed CMS item");
+
+  const bledisloe = first.candidates.find(item => item.eventId === "rugby-australia-new-zealand-2026-10-17");
+  const visibleLegacyDraft = {
+    email:{
+      subject:"5/5 stakes: Bledisloe Cup Game I, Australia v New Zealand — Sat 3:45 pm",
+      preheader:"Join the watch party, then rate the fixture after it finishes.",
+      headline:"Saturday watch party: Bledisloe Cup I",
+      bodyParagraphs:["A rivalry-led Bledisloe introduction.", "Join us for the Bledisloe Cup on Sat at 3:45 pm AEDT."],
+    },
+    instagram:{ caption:"UNMISSABLE RUGBY: BLEDISLOE CUP." },
+  };
+  const legacyRow = {
+    campaign_id:bledisloe.campaignId,
+    event_id:bledisloe.eventId,
+    campaign_revision:4,
+    content_hash:bledisloe.contentHash,
+    state:"needs_review",
+    candidate:{ material:bledisloe.material },
+    draft_copy:visibleLegacyDraft,
+    proposed_send_at:bledisloe.proposedSendAt,
+  };
+  const legacyExport = comms._test.exportTransition(legacyRow, { id:"00000000-0000-4000-8000-000000000001" }, exportTime);
+  assert.equal(legacyExport.pack.subject, visibleLegacyDraft.email.subject, "the exact visible operator subject must be exported");
+  assert.deepEqual(legacyExport.pack.bodyParagraphs, visibleLegacyDraft.email.bodyParagraphs, "the exact visible body must be exported");
+  assert.match(legacyExport.pack.primaryCta.url, /^https:\/\/nothingsport\.vercel\.app\/fixture\//, "legacy rows must hydrate their hidden fixture CTA");
+  assert.match(legacyExport.pack.image.url, /^https:\/\/nothingsport\.vercel\.app\/assets\/marquee\//, "legacy rows must hydrate the current first-party image");
+  assert.match(legacyExport.pack.image.altText, /Bledisloe Cup/, "legacy rows must hydrate image alt text");
+  const merged = comms._test.mergeDraft(bledisloe.drafts, visibleLegacyDraft);
+  assert.equal(merged.email.subject, visibleLegacyDraft.email.subject);
+  assert.equal(merged.email.primaryCta.url, bledisloe.drafts.email.primaryCta.url);
+  assert.equal(merged.email.image.publicUrl, bledisloe.drafts.email.image.publicUrl);
+  const watching = first.candidates.find(item => !item.readyForExport);
+  assert.throws(() => comms._test.exportTransition({ ...current, campaign_id:watching.campaignId, event_id:watching.eventId, content_hash:watching.contentHash, candidate:watching, draft_copy:watching.drafts }, { id:"00000000-0000-4000-8000-000000000001" }, exportTime), error => error.code === "campaign_not_ready_for_export");
+  assert.throws(() => participation._test.candidateFor(watching.eventId), error => error.code === "fixture_not_participating", "watching stubs must not become public participation fixtures");
 
   const cookieResponse = responseCapture();
   const identity = participation._test.deviceIdentity({ headers:{} }, cookieResponse, { PARTICIPATION_SECRET:"a".repeat(64) });
@@ -102,21 +146,37 @@ async function main(){
   assert.doesNotMatch(commsSource, /user_metadata\?\.role/);
   assert.match(commsSource, /export-mailchimp/);
   assert.match(commsSource, /reopen-export/);
+  assert.match(commsSource, /dismiss-campaign/);
+  assert.match(commsSource, /restore-campaign/);
   assert.doesNotMatch(commsSource, /SEND NOW|send-now|import-consent|resend-broadcasts|instagram-mcp/);
   assert.doesNotMatch(commsSource, /nothingsports_marquee_subscribers|nothingsports_marquee_deliveries/);
-  assert.match(adminSource, /Nothing Sport prepares the campaign; Mailchimp sends it\./);
+  assert.match(adminSource, /Nothing Sport prepares every 5\/5-stakes suggestion; Mailchimp and your social scheduler send it\./);
   assert.match(adminSource, /src="\/assets\/brand\/web\/nothingsport-logo\.png"/);
   assert.match(participatePageSource, /src="\/assets\/brand\/web\/nothingsport-logo\.png"/);
   assert.doesNotMatch(adminSource + participatePageSource, /nothingsport-logo-(?:day|night)\.png|nothingsport-helm/i);
   assert.match(adminSource, /Prepare Mailchimp export/);
+  assert.match(adminSource, /Primary CTA label/);
+  assert.match(adminSource, /Image alt text/);
+  assert.match(adminSource, /Suggestion stub only/);
+  assert.match(adminSource, /draftCopy:draftFromCard/);
+  assert.match(adminSource, /Approve \+ export selected/);
+  assert.match(adminSource, /Save selected/);
+  assert.match(adminSource, /Dismiss selected/);
+  assert.match(adminSource, /Restore selected/);
+  assert.match(adminSource, /Copy Hootsuite handoff/);
   assert.match(adminSource, /Copy complete handoff/);
+  assert.match(adminSource, /Copy preview text/);
+  assert.match(adminSource, /Copy headline/);
+  assert.match(adminSource, /Copy primary CTA/);
+  assert.match(adminSource, /Copy image URL/);
+  assert.match(adminSource, /Copy alt text/);
   assert.match(adminSource, /Download image/);
   assert.doesNotMatch(adminSource, /Send now|connector.blocked|audienceCount|import-consent/i);
   assert.match(participationSource, /same_origin_required/);
   assert.match(participationSource, /rating_not_open/);
   assert.match(participationSource, /rating_window_closed/);
   assert.doesNotMatch(participationSource, /x-forwarded-for|cf-connecting-ip|request\.ip/i);
-  assert.match(worker, /nothingsport-shell-v196/);
+  assert.match(worker, /nothingsport-shell-v197/);
   assert.match(worker, /\/participate\.html/);
   assert.ok(vercel.rewrites.some(rule => rule.source === "/live" && rule.destination === "/participate.html"));
   assert.ok(vercel.rewrites.some(rule => rule.source === "/fixture/:eventId"));

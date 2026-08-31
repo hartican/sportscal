@@ -11,10 +11,12 @@
     "shadowMode": { "const": true },
     "summary": {
       "type": "object",
-      "required": ["stakesFiveFuture", "eligible", "actionable", "late"],
+      "required": ["stakesFiveFuture", "shown", "eligible", "watching", "actionable", "late"],
       "properties": {
         "stakesFiveFuture": { "type": "integer", "minimum": 0 },
+        "shown": { "type": "integer", "minimum": 0 },
         "eligible": { "type": "integer", "minimum": 0 },
+        "watching": { "type": "integer", "minimum": 0 },
         "actionable": { "type": "integer", "minimum": 0 },
         "late": { "type": "integer", "minimum": 0 }
       },
@@ -24,7 +26,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["campaignId", "campaignRevision", "contentHash", "state", "actionable", "late", "eventId", "proposedSendAt", "eligibilityEvidence", "timing", "source", "material", "drafts", "channels", "participation"],
+        "required": ["campaignId", "campaignRevision", "contentHash", "state", "actionable", "late", "eventId", "proposedSendAt", "readyForExport", "readinessIssues", "eligibilityEvidence", "timing", "source", "material", "drafts", "channels", "participation"],
         "properties": {
           "campaignId": { "type": "string", "pattern": "^marquee_[a-f0-9]{16}$" },
           "campaignRevision": { "const": 1 },
@@ -33,7 +35,9 @@
           "actionable": { "type": "boolean" },
           "late": { "type": "boolean" },
           "eventId": { "type": "string", "minLength": 1 },
-          "proposedSendAt": { "type": "string", "format": "date-time" },
+          "proposedSendAt": { "type": ["string", "null"], "format": "date-time" },
+          "readyForExport": { "type": "boolean" },
+          "readinessIssues": { "type": "array", "items": { "type": "string", "minLength": 1 } },
           "eligibilityEvidence": { "type": "object" },
           "timing": { "type": "object" },
           "source": { "type": "object" },
@@ -97,8 +101,8 @@
       "type": "object",
       "required": ["utc", "sydney"],
       "properties": {
-        "utc": { "type": "string", "format": "date-time" },
-        "sydney": { "type": "object" }
+        "utc": { "type": ["string", "null"], "format": "date-time" },
+        "sydney": { "type": ["object", "null"] }
       },
       "additionalProperties": false
     }
