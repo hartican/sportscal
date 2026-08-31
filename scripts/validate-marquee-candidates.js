@@ -25,6 +25,13 @@ async function main(){
   assert.equal(artifact.summary.watching, artifact.candidates.filter(candidate => !candidate.readyForExport).length);
   assert.equal(artifact.summary.watching, 3);
   assert.equal(artifact.excluded.length, 0);
+  const ordered = [...artifact.candidates].sort((a,b) => {
+    const aSend=Date.parse(a.proposedSendAt||""),bSend=Date.parse(b.proposedSendAt||"");
+    if(Number.isFinite(aSend)!==Number.isFinite(bSend))return Number.isFinite(aSend)?-1:1;
+    if(Number.isFinite(aSend)&&aSend!==bSend)return aSend-bSend;
+    return (a.timing.startTimeUtc||a.material.displayDate||"9999").localeCompare(b.timing.startTimeUtc||b.material.displayDate||"9999");
+  });
+  assert.deepEqual(artifact.candidates.map(candidate=>candidate.campaignId),ordered.map(candidate=>candidate.campaignId),"proposed sends sort first and unscheduled fixtures remain last");
   assert.equal(marquee.eligibility(fixture(), now).eligible, true);
   assert.equal(marquee.eligibility(fixture({ narrativeType:"race" }), now).eligible, true);
   assert.ok(marquee.eligibility(fixture({ storyline:{ stakes:4 } }), now).reasons.includes("stakes_not_five"));
@@ -64,6 +71,11 @@ async function main(){
     assert.equal(candidate.drafts.instagram.image.firstPartyAssetsOnly, true);
     assert.equal(candidate.drafts.email.image.publicUrl, candidate.drafts.instagram.image.publicUrl);
     assert.equal(candidate.drafts.email.image.altText, candidate.drafts.instagram.altText);
+    assert.equal(candidate.assets.fallbackHero.publicUrl,candidate.drafts.email.image.publicUrl);
+    assert.equal(candidate.assets.uploadPolicy,"approved-media-only");
+    assert.ok(candidate.identities.code.publicUrl.startsWith("https://nothingsport.vercel.app/"));
+    assert.ok(["none","subtle","energy"].includes(candidate.drafts.live.animationPreset));
+    assert.deepEqual(candidate.machineSort.proposedSendAt,candidate.proposedSendAt);
     const metadata = await sharp(path.join(ROOT, candidate.drafts.instagram.image.path.replace(/^\//, ""))).metadata();
     assert.equal(metadata.format, "jpeg"); assert.equal(metadata.width, 1080); assert.equal(metadata.height, 1350);
     assert.ok(candidate.drafts.instagram.altText.includes(candidate.material.recognisableTitle));
@@ -90,6 +102,8 @@ async function main(){
   assert.match(bledisloe.drafts.email.headline, /Bledisloe Cup/);
   assert.match(bledisloe.drafts.email.bodyParagraphs[0], /Bledisloe Test/);
   assert.match(bledisloe.drafts.email.bodyParagraphs[1], /Wallabies v All Blacks/);
+  assert.deepEqual(bledisloe.identities.teams.map(team=>team.label),["Wallabies","All Blacks"]);
+  assert.match(bledisloe.identities.code.publicUrl,/sporticon\/rugby\.svg$/);
   assert.ok(artifact.candidates.some(candidate => candidate.drafts.email.suggestedSendAt.sydney?.timezone === "AEDT"), "fixed October candidates must prove Sydney daylight-saving output");
   console.log(`Marquee candidate validation passed (${artifact.summary.eligible} export-ready and ${artifact.summary.watching} watching suggestions).`);
 }

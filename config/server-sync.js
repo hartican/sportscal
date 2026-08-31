@@ -201,6 +201,7 @@
         const error = new Error(payload.error || "Server sync request failed.");
         error.status = response.status;
         error.code = payload.code || "server_sync_request_failed";
+        error.payload = payload;
         throw error;
       }
       return payload;
@@ -514,8 +515,11 @@
         if (reactionAfter) params.set("reactionAfter", reactionAfter);
         return chatAuthenticatedRequest(`/api/chat?${params.toString()}`);
       },
-      async commsRequest(command = null){
-        return authenticatedRequest("/api/comms", command ? {
+      async commsRequest(command = null, query = {}){
+        const params = new URLSearchParams();
+        if (query.campaignId) params.set("campaignId", query.campaignId);
+        if (query.history) params.set("history", query.history);
+        return authenticatedRequest(`/api/comms${params.size ? `?${params}` : ""}`, command ? {
           method:"POST",
           body:JSON.stringify(command),
         } : {});

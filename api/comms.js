@@ -339,3 +339,8 @@ module.exports._test = Object.freeze({
   CommsError, EXPORT_SCHEMA_VERSION, campaignPayload, dismissTransition, editableState, exportTransition,
   isAdminRole, mailchimpPack, mergeDraft, resolveCampaign, reopenTransition, restoreTransition, syncPatch,
 });
+
+// The additive workspace implementation owns the current API. Keeping this
+// compatibility module in place preserves the existing Vercel function path
+// and makes the previous edit/export helpers available to older deployments.
+module.exports = require("../lib/comms-workspace");

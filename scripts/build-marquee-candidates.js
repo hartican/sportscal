@@ -86,6 +86,26 @@ async function generateImage(candidate, logoData){
   await sharp(imageSvg(candidate, logoData)).jpeg({ quality:90, chromaSubsampling:"4:4:4", progressive:true }).toFile(absolutePath);
   return { path:`/assets/marquee/${fileName}`, publicUrl:`${PUBLIC_ORIGIN}/assets/marquee/${fileName}`, width:1080, height:1350, mimeType:"image/jpeg", firstPartyAssetsOnly:true };
 }
+function identityAsset(label, assetPath, registry, rightsStatus = "existing-app-identity"){
+  return { label, path:assetPath, publicUrl:`${PUBLIC_ORIGIN}${assetPath}`, provenance:{ registry, rightsStatus } };
+}
+function identitiesFor(eventId, material){
+  const codeBySport = {
+    NRL:["NRL", "/assets/icons/sporticon/rugby.svg"],
+    "Rugby League":["Rugby League", "/assets/icons/sporticon/rugby.svg"],
+    "Rugby Union":["Rugby Union", "/assets/icons/sporticon/rugby.svg"],
+    Ski:["Ski", "/assets/icons/sporticon/ski_and_snowboard.svg"],
+  };
+  const codeValue=codeBySport[material.sport]||[material.sport||"Sport","/assets/brand/web/nothingsport-app-icon.png"];
+  const teams = eventId === "rugby-australia-new-zealand-2026-10-17" ? [
+    identityAsset("Wallabies", "/assets/identities/national/rugby/wallabies.png", "national-team-identities.v1"),
+    identityAsset("All Blacks", "/assets/identities/national/rugby/all-blacks.png", "national-team-identities.v1"),
+  ] : eventId === "rlwc-australia-new-zealand-2026" ? [
+    identityAsset("Kangaroos", "/assets/identities/national/rugby-league/kangaroos.svg", "national-team-identities.v1"),
+    identityAsset("Kiwis", "/assets/identities/national/rugby-league/kiwis.svg", "national-team-identities.v1"),
+  ] : [];
+  return { code:identityAsset(codeValue[0], codeValue[1], "Sporticon Apache-2.0", "open_use"), teams };
+}
 function candidateFor(event, evidence, feedMeta, nowMs){
   const timing = evidence.timing;
   const copyIdentity = marquee.copyIdentity(event);
@@ -110,12 +130,15 @@ function candidateFor(event, evidence, feedMeta, nowMs){
   const proposedSendAt = readyForExport ? new Date(Date.parse(timing.startTimeUtc) - marquee.SEND_LEAD_MS).toISOString() : null;
   const fixtureUrl = `${PUBLIC_ORIGIN}/fixture/${encodeURIComponent(evidence.fixtureId)}?source=marquee&campaign=${campaignId}`;
   const ratingUrl = `${fixtureUrl}&intent=rate`;
+  const identities=identitiesFor(evidence.fixtureId,material);
+  const live={ headline:drafts.headline, hook:drafts.hook, kicker:`5/5 stakes · ${material.sport||"Sport"}`, heroAssetId:"", logos:{ showCode:true, showTeams:true, order:"code-first" }, focalPosition:{ x:50, y:50 }, animationPreset:"subtle" };
   return {
     campaignId, campaignRevision:1, contentHash, state:state.state, actionable:state.actionable, late:state.late,
     eventId:evidence.fixtureId, proposedSendAt, readyForExport, readinessIssues:[...evidence.reasons],
+    machineSort:{ proposedSendAt, fixtureStartAt:timing.startTimeUtc||null, fixtureDate:material.displayDate||null },
     eligibilityEvidence:{ stakesExactlyFive:true, readyForExport, atomicType:evidence.atomicType || null, confirmedUtcStart:Boolean(timing.startTimeUtc), finish:timing.endTimeUtc ? (timing.endDerived ? "derived_from_live_window" : "confirmed_end") : "unconfirmed", status:evidence.status, sourceCheckedAt:evidence.source.checkedAt },
     timing:{ ...timing, sydneyStart:drafts.when, sydneyFinish:drafts.finish },
-    source:{ ...evidence.source, revision:`${feedMeta.version || "feed"}@${feedMeta.publishedAt || "unknown"}` }, material,
+    source:{ ...evidence.source, revision:`${feedMeta.version || "feed"}@${feedMeta.publishedAt || "unknown"}` }, material, identities, live,
     drafts:{
       hook:drafts.hook, instagram:{ account:"@_nothingsports", caption:drafts.caption, altText:drafts.altText },
       email:{
@@ -133,6 +156,7 @@ function candidateFor(event, evidence, feedMeta, nowMs){
         ratingUrl,
       },
       when:drafts.when, finish:drafts.finish,
+      live,
     },
     channels:{
       instagram:{ status:"connector_blocked", adapter:"instagram-mcp", reason:"requested_connector_not_installed", enabled:false },
@@ -157,12 +181,21 @@ async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString()
     if (!evidence.fixtureId){ excluded.push({ eventId:id, title:event.name || "", reasons:evidence.reasons }); continue; }
     candidates.push(candidateFor(event, evidence, feedMeta, nowMs));
   }
-  candidates.sort((a, b) => (a.timing.startTimeUtc || a.material.displayDate || "9999").localeCompare(b.timing.startTimeUtc || b.material.displayDate || "9999") || a.eventId.localeCompare(b.eventId));
+  candidates.sort((a,b)=>{
+    const aSend=Date.parse(a.proposedSendAt||""),bSend=Date.parse(b.proposedSendAt||"");
+    if(Number.isFinite(aSend)!==Number.isFinite(bSend))return Number.isFinite(aSend)?-1:1;
+    if(Number.isFinite(aSend)&&aSend!==bSend)return aSend-bSend;
+    return (a.timing.startTimeUtc||a.material.displayDate||"9999").localeCompare(b.timing.startTimeUtc||b.material.displayDate||"9999")||a.eventId.localeCompare(b.eventId);
+  });
   const logoData = fs.readFileSync(BRAND_LOGO).toString("base64");
   for (const candidate of candidates){
     const image = await generateImage(candidate, logoData);
+    image.altText=candidate.drafts.instagram.altText;
     candidate.drafts.instagram.image = image;
     candidate.drafts.email.image = { ...image, altText:candidate.drafts.instagram.altText };
+    candidate.assets={ fallbackHero:image, suggestedHeroes:[image], uploadPolicy:"approved-media-only" };
+    candidate.drafts.live.hero={...image};
+    candidate.live.hero={...image};
   }
   const artifact = {
     schemaVersion:marquee.SCHEMA_VERSION, sourceRevision:`${feedMeta.version || "feed"}@${feedMeta.publishedAt || "unknown"}`,

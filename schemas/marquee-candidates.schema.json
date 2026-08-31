@@ -38,10 +38,23 @@
           "proposedSendAt": { "type": ["string", "null"], "format": "date-time" },
           "readyForExport": { "type": "boolean" },
           "readinessIssues": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "machineSort": {
+            "type": "object",
+            "required": ["proposedSendAt", "fixtureStartAt", "fixtureDate"],
+            "properties": {
+              "proposedSendAt": { "type": ["string", "null"], "format": "date-time" },
+              "fixtureStartAt": { "type": ["string", "null"], "format": "date-time" },
+              "fixtureDate": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          },
           "eligibilityEvidence": { "type": "object" },
           "timing": { "type": "object" },
           "source": { "type": "object" },
           "material": { "type": "object" },
+          "assets": { "$ref": "#/$defs/assets" },
+          "identities": { "$ref": "#/$defs/identities" },
+          "live": { "$ref": "#/$defs/live" },
           "drafts": {
             "type": "object",
             "required": ["hook", "instagram", "email", "when", "finish"],
@@ -62,7 +75,8 @@
                   "suggestedSendAt": { "$ref": "#/$defs/suggestedSendAt" }
                 },
                 "additionalProperties": true
-              }
+              },
+              "live": { "$ref": "#/$defs/live" }
             },
             "additionalProperties": true
           },
@@ -105,6 +119,51 @@
         "sydney": { "type": ["object", "null"] }
       },
       "additionalProperties": false
+    },
+    "assets": {
+      "type": "object",
+      "required": ["fallbackHero", "suggestedHeroes", "uploadPolicy"],
+      "properties": {
+        "fallbackHero": { "$ref": "#/$defs/image" },
+        "suggestedHeroes": { "type": "array", "items": { "$ref": "#/$defs/image" } },
+        "uploadPolicy": { "const": "approved-media-only" }
+      },
+      "additionalProperties": true
+    },
+    "identityAsset": {
+      "type": "object",
+      "required": ["label", "path", "publicUrl", "provenance"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "pattern": "^/assets/" },
+        "publicUrl": { "type": "string", "pattern": "^https://" },
+        "provenance": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "identities": {
+      "type": "object",
+      "required": ["code", "teams"],
+      "properties": {
+        "code": { "$ref": "#/$defs/identityAsset" },
+        "teams": { "type": "array", "items": { "$ref": "#/$defs/identityAsset" } }
+      },
+      "additionalProperties": false
+    },
+    "live": {
+      "type": "object",
+      "required": ["headline", "hook", "kicker", "heroAssetId", "logos", "focalPosition", "animationPreset"],
+      "properties": {
+        "headline": { "type": "string", "minLength": 1, "maxLength": 240 },
+        "hook": { "type": "string", "minLength": 1, "maxLength": 800 },
+        "kicker": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "heroAssetId": { "type": "string" },
+        "hero": { "$ref": "#/$defs/image" },
+        "logos": { "type": "object" },
+        "focalPosition": { "type": "object" },
+        "animationPreset": { "enum": ["none", "subtle", "energy"] }
+      },
+      "additionalProperties": true
     }
   },
   "additionalProperties": false

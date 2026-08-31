@@ -10,6 +10,7 @@ const nothingscoreMarqueeHandler = require("../lib/nothingscore-marquee-handler"
 const COOKIE_NAME = "__Host-ns_marquee_guest";
 const DEVICES = "nothingsports_fixture_devices";
 const PARTICIPATION = "nothingsports_fixture_participation";
+const CAMPAIGNS = "nothingsports_marquee_campaigns";
 const ARTIFACT = path.join(__dirname, "../data/marquee-candidates.v1.json");
 
 class ParticipationError extends Error {
@@ -50,9 +51,9 @@ function sameOrigin(request){
   try{ return new URL(origin).origin === requestOrigin(request); }catch(_error){ return false; }
 }
 function artifact(){ return JSON.parse(fs.readFileSync(ARTIFACT, "utf8")); }
-function candidateFor(eventId){
-  const id = clean(eventId, 180);
-  const candidate = artifact().candidates.find(item => item.eventId === id);
+function candidateFor(eventId, campaignId = ""){
+  const id = clean(eventId, 180), campaign = clean(campaignId, 80);
+  const candidate = artifact().candidates.find(item => campaign ? item.campaignId === campaign : item.eventId === id);
   if (!candidate || candidate.readyForExport === false || candidate.participation?.enabled === false) throw new ParticipationError("That fixture is not available for marquee participation.", 404, "fixture_not_participating");
   return candidate;
 }
@@ -76,13 +77,19 @@ async function takeRateLimit(hash, action, now){
   const payload = await supabaseServiceRequest("/rest/v1/rpc/nothingsports_marquee_take_rate_limit", { method:"POST", body:{ target_device_hash:hash, target_action:action, target_now:now, window_seconds:60, maximum_requests:10 } });
   if (payload !== true) throw new ParticipationError("Please wait before trying that again.", 429, "participation_rate_limited");
 }
-function publicFixture(candidate, nowMs){
+async function publishedPresentation(candidate){
+  const current = (await rows(CAMPAIGNS, { campaign_id:`eq.${candidate.campaignId}`, select:"live_published_snapshot,live_published_revision,live_published_at", limit:"1" }))[0] || null;
+  const published = current?.live_published_snapshot;
+  return published?.presentation ? { ...published.presentation, publishedRevision:current.live_published_revision, publishedAt:current.live_published_at } : candidate.live || candidate.drafts?.live || {};
+}
+function publicFixture(candidate, nowMs, presentation = {}){
   const opensAt = Date.parse(candidate.participation.ratingWindow.opensAt), closesAt = Date.parse(candidate.participation.ratingWindow.closesAt);
   return {
     eventId:candidate.eventId, campaignId:candidate.campaignId, title:candidate.material.title,
     sport:candidate.material.sport, startTimeUtc:candidate.timing.startTimeUtc, endTimeUtc:candidate.timing.endTimeUtc,
     sydneyStart:candidate.timing.sydneyStart, sydneyFinish:candidate.timing.sydneyFinish,
-    broadcaster:candidate.material.broadcaster, hook:candidate.drafts.hook,
+    broadcaster:candidate.material.broadcaster, hook:candidate.drafts.hook, material:candidate.material,
+    assets:candidate.assets, identities:candidate.identities, presentation,
     rating:{ opensAt:candidate.participation.ratingWindow.opensAt, closesAt:candidate.participation.ratingWindow.closesAt, open:nowMs >= opensAt && nowMs <= closesAt },
   };
 }
@@ -96,8 +103,9 @@ module.exports = async function participationHandler(request, response){
   try{
     if (!["GET", "POST"].includes(request.method || "GET")){ response.setHeader("Allow", "GET, POST"); response.status(405).json({ error:"Participation supports GET and POST only.", code:"method_not_allowed" }); return; }
     const body = (request.method || "GET") === "POST" ? bodyOf(request) : {};
-    const eventId = clean(body.eventId || queryValue(request, "eventId"), 180);
-    const candidate = candidateFor(eventId);
+    const campaignId = clean(body.campaignId || queryValue(request, "campaign"), 80);
+    const requestedEventId = clean(body.eventId || queryValue(request, "eventId"), 180);
+    const candidate = candidateFor(requestedEventId, campaignId), eventId = candidate.eventId;
     const now = new Date().toISOString(), nowMs = Date.parse(now);
     const device = deviceIdentity(request, response);
     await rememberDevice(device.hash, now);
@@ -118,7 +126,7 @@ module.exports = async function participationHandler(request, response){
       }
       await supabaseServiceRequest(rowsPath(PARTICIPATION, { on_conflict:"event_id,device_hash" }), { method:"POST", headers:{ Prefer:"resolution=merge-duplicates,return=minimal" }, body:next });
     }
-    response.status(200).json({ schemaVersion:"marquee-participation.v1", fixture:publicFixture(candidate, nowMs), aggregate:await aggregate(eventId, device.hash) });
+    response.status(200).json({ schemaVersion:"marquee-participation.v1", fixture:publicFixture(candidate, nowMs, await publishedPresentation(candidate)), aggregate:await aggregate(eventId, device.hash) });
   }catch(error){
     if (error instanceof ParticipationError){ response.status(error.status).json({ error:error.message, code:error.code }); return; }
     if (error instanceof SupabaseRequestError){ const outgoing = publicError(error); response.status(outgoing.status).json(outgoing.body); return; }
