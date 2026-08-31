@@ -1,0 +1,81 @@
+name: Canonical card refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 0,3,6,9,12,15,18,21 * * *"
+      timezone: Australia/Sydney
+
+permissions:
+  contents: write
+
+concurrency:
+  group: canonical-card-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Select tournament or baseline cadence
+        id: cadence
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          sydney_date="$(TZ=Australia/Sydney date +%F)"
+          sydney_hour="$(TZ=Australia/Sydney date +%H)"
+          if [[ "$sydney_date" < "2026-09-15" || "$sydney_hour" == "09" || "$sydney_hour" == "12" || "$sydney_hour" == "21" ]]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check out main
+        if: steps.cadence.outputs.run == 'true'
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node
+        if: steps.cadence.outputs.run == 'true'
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install project and deployment dependencies
+        if: steps.cadence.outputs.run == 'true'
+        run: |
+          npm ci
+          npm install --global vercel@59.1.4
+
+      - name: Link the immutable deployment target
+        if: steps.cadence.outputs.run == 'true'
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          mkdir -p .vercel
+          node -e 'const fs=require("node:fs"); fs.writeFileSync(".vercel/project.json", JSON.stringify({orgId:process.env.VERCEL_ORG_ID,projectId:process.env.VERCEL_PROJECT_ID}, null, 2) + "\n", {mode:0o600})'
+
+      - name: Configure release author
+        if: steps.cadence.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Refresh, validate, publish and deploy
+        if: steps.cadence.outputs.run == 'true'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          RELEASE_COMMIT_MESSAGE: Automated canonical sports refresh
+        run: bash scripts/update-sportscal-cards-and-release.sh

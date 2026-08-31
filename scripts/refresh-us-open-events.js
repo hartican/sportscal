@@ -5,6 +5,8 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const countryFlags = require("../config/country-flags.js");
+const tennisCatalogue = require("../data/canonical/tennis-catalogue-2026.json");
+const tennisContext = require("../data/canonical/tennis-context-2026.json");
 const { deduplicateFixtures } = require("./lib/major-event-fixture-identity.js");
 
 const ROOT = path.resolve(__dirname, "..");
@@ -34,6 +36,9 @@ const NEUTRAL_PLAYER_COUNTRY_OVERRIDES = Object.freeze({
   wta330102: "RU", // Julia Avdeeva
   wta328578: "RU", // Darya Astakhova
   wta332168: "RU", // Alexandra Shubladze
+  wta327367: "RU", // Anastasia Zakharova
+  wta324267: "RU", // Anna Blinkova
+  wta331330: "RU", // Alina Korneeva
 });
 
 const EVENT_LABELS = Object.freeze({
@@ -76,6 +81,28 @@ function slug(value){
     .replace(/^-|-$/g, "");
 }
 
+const CANONICAL_COUNTRY_RECORDS = [
+  ...(tennisCatalogue.athletes || []).map(athlete => ({
+    providerAlias:athlete.providerAlias,
+    displayName:athlete.displayName,
+    countryCode:athlete.nationalityCode,
+  })),
+  ...(tennisContext.participants || []).map(participant => ({
+    providerAlias:participant.metadata?.providerAlias,
+    displayName:participant.displayName,
+    countryCode:participant.countryCode || participant.metadata?.representedCountryCode,
+  })),
+];
+const CANONICAL_PLAYER_COUNTRY_BY_PROVIDER_ID = new Map(CANONICAL_COUNTRY_RECORDS.flatMap(athlete => {
+  const provider = String(athlete?.providerAlias || "").match(/^(atp|wta):player:(.+)$/i);
+  const country = countryFlags.alpha2(athlete?.countryCode);
+  return provider && country ? [[`${provider[1].toLowerCase()}${provider[2].toLowerCase()}`, country]] : [];
+}));
+const CANONICAL_PLAYER_COUNTRY_BY_NAME = new Map(CANONICAL_COUNTRY_RECORDS.flatMap(athlete => {
+  const country = countryFlags.alpha2(athlete?.countryCode);
+  return country && athlete?.displayName ? [[slug(athlete.displayName), country]] : [];
+}));
+
 function sourceDate(day){
   const match = String(day?.message || day?.messageShort || "").match(/(?:Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday),?\s+([A-Za-z]+)\s+(\d{1,2})/i);
   if (!match) throw new Error(`US Open schedule day ${day?.tournDay || "unknown"} has no parseable official date label`);
@@ -115,8 +142,11 @@ function playerFromTeam(team, suffix){
   if (!name) return null;
   const providerId = compactWhitespace(team?.[`id${suffix}`]);
   const publishedCountry = compactWhitespace(team?.[`nation${suffix}`]).toUpperCase();
+  const canonicalCountry = CANONICAL_PLAYER_COUNTRY_BY_PROVIDER_ID.get(providerId.toLowerCase())
+    || CANONICAL_PLAYER_COUNTRY_BY_NAME.get(slug(name));
   const nationalityCode = countryFlags.alpha2(publishedCountry)
     || countryFlags.alpha2(NEUTRAL_PLAYER_COUNTRY_OVERRIDES[providerId])
+    || canonicalCountry
     || publishedCountry
     || NEUTRAL_PLAYER_COUNTRY_OVERRIDES[providerId];
   if (!nationalityCode) throw new Error(`US Open fixture has no published country identity for ${name} (${providerId || "no provider id"})`);
@@ -225,13 +255,27 @@ function validateSnapshot(snapshot){
   });
 }
 
+function isPublishedMatch(match){
+  const namedPlayers = team => (Array.isArray(team) ? team : []).some(record => (
+    cleanPersonName(`${record?.firstNameA || ""} ${record?.lastNameA || ""}`)
+    || cleanPersonName(`${record?.firstNameB || ""} ${record?.lastNameB || ""}`)
+  ));
+  return compactWhitespace(match?.match_id) !== "0"
+    && Boolean(compactWhitespace(match?.match_id))
+    && Boolean(compactWhitespace(match?.eventCode))
+    && namedPlayers(match?.team1)
+    && namedPlayers(match?.team2);
+}
+
 function fixturesFromSnapshot(snapshot){
   validateSnapshot(snapshot);
   const dayByFeedUrl = new Map(snapshot.scheduleDays.eventDays.filter(day => day?.feedUrl).map(day => [day.feedUrl, day]));
   const imported = snapshot.scheduleFeeds.flatMap(feed => {
     const day = dayByFeedUrl.get(feed.sourceUrl);
     if (!day) throw new Error(`US Open snapshot cannot map ${feed.sourceUrl} to a released day`);
-    return feed.payload.courts.flatMap(court => (court.matches || []).map(match => fixtureFromMatch(match, court, day, feed.sourceUrl, snapshot.capturedAt)));
+    return feed.payload.courts.flatMap(court => (court.matches || [])
+      .filter(isPublishedMatch)
+      .map(match => fixtureFromMatch(match, court, day, feed.sourceUrl, snapshot.capturedAt)));
   });
   const fixtures = [...new Map(imported.map(fixture => [fixture.id, fixture])).values()];
   if (!fixtures.length) throw new Error("US Open official fixtures are empty");
@@ -371,4 +415,4 @@ if (require.main === module){
   });
 }
 
-module.exports = { AUTO_ID_PREFIX, CHECK_ONLY, SCHEDULE_DAYS_URL, currentScheduleDays, fetchOfficialSnapshot, fixtureFromMatch, fixturesFromSnapshot, mergeCatalogue, releasedScheduleDays, sourceDate, stakesPolicyForMatch, statusForMatch };
+module.exports = { AUTO_ID_PREFIX, CHECK_ONLY, SCHEDULE_DAYS_URL, currentScheduleDays, fetchOfficialSnapshot, fixtureFromMatch, fixturesFromSnapshot, isPublishedMatch, mergeCatalogue, releasedScheduleDays, sourceDate, stakesPolicyForMatch, statusForMatch };

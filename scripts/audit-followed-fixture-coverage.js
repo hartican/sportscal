@@ -31,6 +31,9 @@ function stableEventId(event){
 function profileState(profile){
   return {
     preferences:{
+      followFirst:{
+        collectionFollows:profile.collectionFollows || [],
+      },
       preferenceGraph:{
         domainPreferences:[],
         competitionPreferences:[],

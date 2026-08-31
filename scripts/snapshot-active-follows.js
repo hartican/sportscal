@@ -23,6 +23,14 @@ function activeEntityFollows(preferences){
     .sort((first, second) => first.participantId.localeCompare(second.participantId));
 }
 
+function activeCollectionFollows(preferences){
+  const followFirst = preferences?.followFirst || preferences?.follow_first || {};
+  const values = Array.isArray(followFirst.collectionFollows)
+    ? followFirst.collectionFollows
+    : Array.isArray(followFirst.collection_follows) ? followFirst.collection_follows : [];
+  return Array.from(new Set(values.map(String).filter(id => id.startsWith("collection:tennis:")))).sort();
+}
+
 function serviceHeaders(key){
   const serverKey = String(key || "").trim();
   const headers = { apikey:serverKey, Accept:"application/json" };
@@ -45,6 +53,7 @@ async function fetchProfiles({ fetchImpl = fetch, url = process.env.SUPABASE_URL
   return rows.map(row => ({
     profileHash:anonymisedProfileId(row.user_id),
     entityFollows:activeEntityFollows(row.preferences),
+    collectionFollows:activeCollectionFollows(row.preferences),
   }));
 }
 
@@ -80,4 +89,4 @@ if (require.main === module){
   });
 }
 
-module.exports = { activeEntityFollows, anonymisedProfileId, fetchProfiles, serviceHeaders };
+module.exports = { activeCollectionFollows, activeEntityFollows, anonymisedProfileId, fetchProfiles, serviceHeaders };

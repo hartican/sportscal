@@ -12,7 +12,8 @@ const ticketing = require("../config/ticketing.js");
 const aflNrlCanonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const usOpenScheduleSnapshot = JSON.parse(fs.readFileSync("feeds/provider-exports/tennis/us-open-2026-official-schedule.json", "utf8"));
 
-const REFERENCE = new Date("2026-08-30T06:00:00.000Z");
+const REFERENCE = new Date(usOpenScheduleSnapshot.capturedAt);
+const FUTURE_REFERENCE = new Date(REFERENCE.getTime() + 24 * 60 * 60 * 1000).toISOString();
 const catalogue = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
 const feed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 const schema = JSON.parse(fs.readFileSync("schemas/major-events.schema.json", "utf8"));
@@ -123,7 +124,7 @@ assert.deepEqual(actualUsOpenIdentities, expectedOfficialUsOpenIdentities, "US O
 const expectedOfficialUsOpenIds = new Set(expectedOfficialUsOpenFixtures.map(event => event.id));
 assert(officialUsOpenFixtures.every(event => expectedOfficialUsOpenIds.has(event.id)), "non-overlapping US Open Events IDs must remain stable against official match IDs");
 assert.equal(usOpen.competitionId, "competition:tennis:us-open:2026", "US Open parent and child fixtures must inherit the tournament graphic identity");
-assert.equal(usOpen.phaseIdentity, "qualification", "the current US Open card must identify the released qualifying phase without pretending the main draw is published");
+assert.equal(usOpen.phaseIdentity, "main-draw", "the current US Open card must identify the released main draw once official matchups are published");
 assert(officialUsOpenFixtures.every(event => event.name.includes(" v ") && !/\b(?:TBC|Qualifier)\b/i.test(event.name)), "released US Open fixtures must use full published player-v-player names");
 assert(officialUsOpenFixtures.every(event => event.stage && event.roundLabel && event.court), "released US Open fixtures must retain event, round and court naming");
 assert(officialUsOpenFixtures.every(event => event.matchupSides.length === 2), "released US Open fixtures must retain exactly two matchup sides");
@@ -217,8 +218,8 @@ const invalidCopies = [
   [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, stakesScore: 4 }) }, /stakes/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, ticketing: { ...record.ticketing, url: "https://www.usopen.org/" } } : record) }, /ticket URL/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, startDate: "2028-01-01", endDate: "2028-01-14" } : record) }, /retention horizon/],
-  [{ ...catalogue, publishedAt: "2026-08-31T00:00:00.000Z" }, /non-future/],
-  [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: record.sources.map(source => ({ ...source, checkedAt: "2026-08-31T00:00:00.000Z" })) }) }, /future-dated source/],
+  [{ ...catalogue, publishedAt: FUTURE_REFERENCE }, /non-future/],
+  [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: record.sources.map(source => ({ ...source, checkedAt: FUTURE_REFERENCE })) }) }, /future-dated source/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:australian-grand-prix-2027" ? { ...record, season: 2028 } : record) }, /TBC records/],
 ];
 invalidCopies.forEach(([document, message]) => {

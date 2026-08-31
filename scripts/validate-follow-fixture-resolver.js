@@ -13,7 +13,7 @@ const {
   resolveUserFollowFixtures,
 } = require("../lib/follow-fixture-resolver");
 const { buildArtifact, validatePrivacy } = require("./build-follow-fixtures");
-const { serviceHeaders } = require("./snapshot-active-follows");
+const { activeCollectionFollows, serviceHeaders } = require("./snapshot-active-follows");
 const {
   parseDiamondsArticle,
   parseHockeySchedulePage,
@@ -24,6 +24,10 @@ const { buildServerFeed } = require("../lib/server-feed-pipeline");
 
 function state(...entityFollows){
   return { preferences:{ preferenceGraph:{ entityFollows } } };
+}
+
+function collectionState(collectionFollows, ...entityFollows){
+  return { preferences:{ followFirst:{ collectionFollows }, preferenceGraph:{ entityFollows } } };
 }
 
 function follow(participantId, followLevel = "follow"){
@@ -54,6 +58,10 @@ const tennisPlayerState = state(follow("competitor:tennis:atp:carlos-alcaraz"));
 assert(expandedFollowEntityIds(tennisPlayerState).has("athlete:tennis:carlos-alcaraz"), "ATP/WTA follow ids must resolve the official US Open athlete identity");
 const tennisPlayerFixtures = resolveUserFollowFixtures({ events:[], userState:tennisPlayerState }).events;
 assert(tennisPlayerFixtures.some(event => event.participantIds.includes("athlete:tennis:carlos-alcaraz")), "a followed player with a published US Open match must resolve that fixture");
+const mensTopTenState = collectionState(["collection:tennis:mens-top-10"]);
+assert(expandedFollowEntityIds(mensTopTenState).has("athlete:tennis:novak-djokovic"), "the Men's current top 10 collection must expand to Djokovic on the server");
+const mutedDjokovicState = collectionState(["collection:tennis:mens-top-10"], follow("athlete:tennis:novak-djokovic", "mute"));
+assert(!expandedFollowEntityIds(mutedDjokovicState).has("athlete:tennis:novak-djokovic"), "an explicit Djokovic mute must override the inherited top-10 follow");
 
 const nflPlayerState = state(follow("athlete:nfl:5084939"));
 nflPlayerState.preferences.preferenceGraph.domainPreferences = [{
@@ -170,7 +178,8 @@ assert.deepEqual(serviceHeaders("legacy.service.role"), {
   Authorization:"Bearer legacy.service.role",
   Accept:"application/json",
 }, "legacy service-role JWTs must remain bearer tokens");
-const privatePayload = { schemaVersion:"follow-snapshot.v1", profiles:[{ profileHash:"anonymous", entityFollows:[follow("team:nfl:gb")] }] };
+assert.deepEqual(activeCollectionFollows({ followFirst:{ collectionFollows:["collection:tennis:mens-top-10", "collection:tennis:mens-top-10"] } }), ["collection:tennis:mens-top-10"], "the encrypted production snapshot must preserve inherited Tennis collection follows without duplicates");
+const privatePayload = { schemaVersion:"follow-snapshot.v1", profiles:[{ profileHash:"anonymous", entityFollows:[follow("team:nfl:gb")], collectionFollows:["collection:tennis:mens-top-10"] }] };
 const envelope = encryptSnapshot(privatePayload, rawKey);
 assert(!JSON.stringify(envelope).includes("team:nfl:gb"), "the temporary server snapshot must be encrypted at rest");
 assert.deepEqual(decryptSnapshot(envelope, rawKey), privatePayload);
@@ -182,6 +191,7 @@ const artifact = buildArtifact({ schemaVersion:"follow-snapshot.v1", profiles:[{
 assert(validatePrivacy(artifact));
 assert(!JSON.stringify(artifact).includes("anonymous"));
 assert(!JSON.stringify(artifact).includes("entityFollows"));
+assert(!JSON.stringify(artifact).includes("collectionFollows"));
 
 const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "follow-fixture-permission-test-"));
 try{

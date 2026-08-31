@@ -18,6 +18,9 @@ function eventId(event){
 function userStateForProfile(profile){
   return {
     preferences:{
+      followFirst:{
+        collectionFollows:profile.collectionFollows || [],
+      },
       preferenceGraph:{
         domainPreferences:[],
         competitionPreferences:[],
@@ -65,7 +68,7 @@ function buildArtifact(snapshot, { now = new Date(), baseEvents = baseFeed.event
 
 function validatePrivacy(payload){
   const serialized = JSON.stringify(payload);
-  for (const forbidden of ["user_id", "userId", "profileHash", "entityFollows", "followLevel"]){
+  for (const forbidden of ["user_id", "userId", "profileHash", "entityFollows", "collectionFollows", "followLevel"]){
     if (serialized.includes(`\"${forbidden}\"`)) throw new Error(`Follow fixture artifact must not contain ${forbidden}`);
   }
   if (payload.schemaVersion !== "follow-fixtures.v1" || !Array.isArray(payload.events)) throw new Error("Follow fixture artifact is invalid");

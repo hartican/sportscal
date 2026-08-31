@@ -227,6 +227,16 @@ assert.match(releaseScript, /item\.target === "production"/, "the release metada
 assert.match(releaseScript, /validate-live-editorial-render-coverage\.js/, "every production release must prove that live data remains visible through the live browser predicate");
 assert.match(releaseScript, /"data\/canonical\/contexts\.js"/, "the release commit must include the regenerated direct-file context bundle");
 assert.match(releaseScript, /"data\/canonical\/joint-tennis-tournament-2026\.js"/, "the release commit must include the regenerated direct-file tournament bundle");
+assert.match(releaseScript, /"data\/follow-fixtures\.v1\.json"/, "the release commit must include the regenerated private-follow fixture projection");
+assert.match(releaseScript, /"data\/major-events\.v1\.json"/, "the release commit must include refreshed major-event child fixtures");
+assert.match(releaseScript, /"feeds\/provider-exports\/tennis\/us-open-2026-official-schedule\.json"/, "the release commit must preserve the released official US Open snapshot for offline refreshes");
+const canonicalRefreshWorkflow = fs.readFileSync(path.join(projectRoot, ".github/workflows/canonical-card-refresh.yml"), "utf8");
+assert.match(canonicalRefreshWorkflow, /scripts\/update-sportscal-cards-and-release\.sh/, "the cloud schedule must enter the canonical update and immutable release path");
+assert.doesNotMatch(canonicalRefreshWorkflow, /node\s+scripts\/refresh-us-open-events\.js/, "the cloud schedule must not create a US Open-only refresh path");
+assert.match(canonicalRefreshWorkflow, /timezone:\s*Australia\/Sydney/, "the cloud schedule must retain Sydney wall-clock semantics across daylight-saving changes");
+assert.match(canonicalRefreshWorkflow, /contents:\s*write/, "the canonical cloud refresh must have permission to publish its reviewed output commit");
+assert.match(canonicalRefreshWorkflow, /cancel-in-progress:\s*false/, "overlapping canonical refreshes must serialize instead of cancelling a release in flight");
+assert.match(canonicalRefreshWorkflow, /SUPABASE_SECRET_KEY:\s*\$\{\{ secrets\.SUPABASE_SECRET_KEY \}\}/, "the canonical cloud refresh must prefer the current server-only Supabase secret");
 assert.match(snapshotScript, /materialize-git-tree\.js "\$DEPLOY_SHA"/, "the deployment helper must materialise the resolved immutable commit from Git objects");
 assert.doesNotMatch(snapshotScript, /(?:git archive|git checkout|rsync -a)/, "immutable staging must avoid mutable worktree copies and the macOS bulk Git paths that can SIGBUS");
 const materializerSource = fs.readFileSync(path.join(projectRoot, "scripts/materialize-git-tree.js"), "utf8");

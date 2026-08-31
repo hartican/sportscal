@@ -17,9 +17,12 @@ CARD_OUTPUT_FILES=(
   "data/events.js"
   "data/events.json"
   "data/feed-meta.json"
+  "data/follow-fixtures.v1.json"
+  "data/major-events.v1.json"
   "data/marquee-candidates.v1.json"
   "assets/marquee"
   "feeds/incoming/events.json"
+  "feeds/provider-exports/tennis/us-open-2026-official-schedule.json"
 )
 
 SECRET_PATH="planning-sportscal/Archive/supabase_keys.txt"

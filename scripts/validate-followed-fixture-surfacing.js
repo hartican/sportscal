@@ -4,9 +4,12 @@
 
 const assert = require("node:assert/strict");
 const { buildServerFeed } = require("../lib/server-feed-pipeline");
+const { resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
 
 const LIVERPOOL_ID = "event:premier-league:128939";
 const LIVERPOOL_TEAM_ID = "team:football:epl:10";
+const DJOKOVIC_ID = "athlete:tennis:novak-djokovic";
+const DJOKOVIC_US_OPEN_ID = "fixture:us-open-2026:official:ms:1148";
 
 function genericEvent(index){
   const start = new Date(Date.UTC(2026, 7, 30 + index, 9, 0));
@@ -92,4 +95,48 @@ for (const [label, now, expectedStatus] of [
   assert(feed.events.length <= 20, `${label}: the startup page limit must be retained`);
 }
 
-console.log("Followed Liverpool fixture stays on page one before and after kickoff.");
+const topTenTennisState = {
+  preferences: {
+    followedSports: ["tennis"],
+    followFirst: {
+      collectionFollows: ["collection:tennis:mens-top-10"],
+    },
+    preferenceGraph: {
+      domainPreferences: [{
+        sportDomainId: "sport:tennis",
+        enabled: true,
+        includeAllFixtures: false,
+        includeMajorEvents: false,
+        includeFollowedTeams: true,
+      }],
+      competitionPreferences: [],
+      entityFollows: [],
+    },
+  },
+};
+
+const resolvedTennis = resolveUserFollowFixtures({ events: [], userState: topTenTennisState });
+const djokovicFixture = resolvedTennis.events.find(event => (
+  event.id === DJOKOVIC_US_OPEN_ID
+  && event.participantIds.includes(DJOKOVIC_ID)
+));
+assert(djokovicFixture, "the Men's current top 10 collection must resolve Djokovic's released US Open match");
+
+const djokovicFeed = buildServerFeed({
+  events: [...Array.from({ length: 55 }, (_, index) => genericEvent(index)), djokovicFixture],
+  userId: "00000000-0000-4000-8000-000000000002",
+  userState: topTenTennisState,
+  participants: resolvedTennis.participants,
+  now: new Date("2026-08-31T04:00:00.000Z"),
+  limit: 20,
+});
+assert(
+  djokovicFeed.events.some(event => event.id === DJOKOVIC_US_OPEN_ID),
+  "Djokovic's completed US Open match must remain on the initial Today page for an inherited top-10 follow",
+);
+assert(
+  djokovicFeed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === DJOKOVIC_US_OPEN_ID),
+  "the inherited Djokovic follow must materialise a first-page server card",
+);
+
+console.log("Followed Liverpool and inherited top-10 Djokovic fixtures stay on page one around play.");
