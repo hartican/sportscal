@@ -89,6 +89,11 @@ function publicFixture(candidate, nowMs){
 
 module.exports = async function participationHandler(request, response){
   const routeMode = queryValue(request, "mode");
+  if (routeMode === "private-module"){
+    response.setHeader("Cache-Control", "private, no-store, max-age=0");
+    response.status(404).json({ error:"Not found.", code:"not_found" });
+    return;
+  }
   if (routeMode === "nothingscore") return nothingscoreHandler(request, response);
   if (routeMode === "nothingscore-marquee") return nothingscoreMarqueeHandler(request, response);
   response.setHeader("Cache-Control", "private, no-store, max-age=0");

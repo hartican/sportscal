@@ -3,7 +3,7 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
-const demo = require("../config/nsc-demo-panel");
+const demo = require("../lib/nsc-modelled-panel");
 const nsc = require("../config/nothingscore");
 const server = require("../lib/nothingscore-server");
 const { safeSignal, validateSnapshot } = require("./snapshot-editorial-nothingscore");
@@ -15,6 +15,7 @@ const now = new Date("2026-09-13T06:30:00.000Z");
 const event = { canonicalEventId:"demo-australia-grand-final", sport:"AFL", competition:"AFL", name:"Australia Grand Final", stakesScore:5, startTimeUtc:"2026-09-13T06:00:00.000Z" };
 assert.equal(demo.SCHEMA_VERSION,"nsc-modelled-panel.v2");
 assert.equal(demo.PERSONAS.length,6,"the six behavioural personas remain an internal deterministic panel");
+assert(demo.PERSONAS.every(persona=>/^cohort-0[1-6]$/.test(persona.id)&&!Object.hasOwn(persona,"displayName")&&!Object.hasOwn(persona,"handle")),"the private panel definition must not retain fictional public identities");
 assert.equal(demo.enabled(undefined),false,"missing configuration must be off");
 assert.equal(demo.enabled("off"),false);
 assert.equal(demo.enabled("internal"),false,"internal cohorts must not leak to public requests");
@@ -34,7 +35,7 @@ assert(outlierRate>=.07&&outlierRate<=.09,`stable mild outliers should be approx
 assert.deepEqual(server.largestRemainderPercentages([4,1,1]),[67,17,16],"largest-remainder ties must follow the displayed high, middle, low order");
 assert.equal(server.largestRemainderPercentages([4,1,1]).reduce((total,value)=>total+value,0),100);
 assert.deepEqual(server.largestRemainderPercentages([0,0,0]),[0,0,0]);
-const connie=demo.PERSONAS.find(item=>item.id==="connie-completist"),parker=demo.PERSONAS.find(item=>item.id==="parker-player-first");
+const connie=demo.PERSONAS.find(item=>item.id==="cohort-03"),parker=demo.PERSONAS.find(item=>item.id==="cohort-06");
 assert.equal(demo.participates(connie,{canonicalEventId:"football-final",sport:"Football",name:"Global final",stakesScore:5}),false,"the AFL/NRL completist must not pad unrelated sports");
 assert.equal(demo.participates(parker,{canonicalEventId:"afl-final",sport:"AFL",name:"Grand Final",stakesScore:5}),false,"the athlete-first cohort must stay within tennis, motorsport and surfing");
 
@@ -128,7 +129,10 @@ assert.deepEqual(validateSnapshot(document),[]);
 assert.equal(JSON.stringify(safe).includes("demo:"),false,"editorial memory must contain no demo or real identity");
 assert.equal(safe.impact.uniqueContributorCount,3,"privacy-safe audience memory must retain the real aggregate only");
 
-const html=fs.readFileSync("index.html","utf8"),serverSource=fs.readFileSync("lib/nothingscore-server.js","utf8"),demoSource=fs.readFileSync("config/nsc-demo-panel.js","utf8"),visualSource=fs.readFileSync("config/nsc-visual.js","utf8");
+const html=fs.readFileSync("index.html","utf8"),serverSource=fs.readFileSync("lib/nothingscore-server.js","utf8"),demoSource=fs.readFileSync("lib/nsc-modelled-panel.js","utf8"),visualSource=fs.readFileSync("config/nsc-visual.js","utf8"),participationSource=fs.readFileSync("api/participation.js","utf8"),vercel=JSON.parse(fs.readFileSync("vercel.json","utf8"));
+assert.equal(fs.existsSync("config/nsc-demo-panel.js"),false,"modelled panel definitions must not remain in the public config directory");
+assert(vercel.rewrites.some(rewrite=>rewrite.source==="/lib/nsc-modelled-panel.js"&&rewrite.destination==="/api/participation?mode=private-module"),"the server module path must be denied by the existing multiplexed API function");
+assert.match(participationSource,/routeMode === "private-module"[\s\S]{0,220}Cache-Control[\s\S]{0,220}status\(404\)/,"the private module route must return a non-cacheable 404 before any participation handling");
 assert.match(serverSource,/Early panel · includes modelled responses\./);
 assert.match(html,/Independent context/);
 assert.doesNotMatch(html,/nsc-demo-badge|>Demo</,"modelled personas must never appear as named public contributors");
