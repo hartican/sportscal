@@ -259,15 +259,17 @@ function runTournamentGate(probeJson){
     fs.chmodSync(nodeStubPath, 0o755);
     fs.writeFileSync(path.join(fixtureScripts, "update-sportscal-cards-and-release.sh"), "#!/usr/bin/env bash\nset -euo pipefail\nprintf '%s\\n' \"${RELEASE_COMMIT_MESSAGE:-}\" > \"$RELEASE_MARKER_PATH\"\n");
     fs.chmodSync(path.join(fixtureScripts, "update-sportscal-cards-and-release.sh"), 0o755);
+    const fixtureEnvironment = {
+      ...process.env,
+      NODE_BIN: nodeStubPath,
+      NODE_ARGS_PATH: nodeArgsPath,
+      RELEASE_MARKER_PATH: releaseMarkerPath,
+      TOURNAMENT_PROBE_JSON: probeJson,
+    };
+    delete fixtureEnvironment.RELEASE_COMMIT_MESSAGE;
     const result = spawnSync("bash", ["scripts/check-active-tournament-and-release.sh"], {
       cwd: fixtureRoot,
-      env: {
-        ...process.env,
-        NODE_BIN: nodeStubPath,
-        NODE_ARGS_PATH: nodeArgsPath,
-        RELEASE_MARKER_PATH: releaseMarkerPath,
-        TOURNAMENT_PROBE_JSON: probeJson,
-      },
+      env: fixtureEnvironment,
       encoding: "utf8",
     });
     return {
