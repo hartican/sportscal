@@ -1,10 +1,10 @@
 {
   "schemaVersion": "us-open-official-schedule-snapshot.v1",
   "tournament": "US Open 2026",
-  "capturedAt": "2026-08-31T05:57:23.429Z",
+  "capturedAt": "2026-08-31T06:13:24.127Z",
   "scheduleDaysSourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/scheduleDays.json",
   "scheduleDays": {
-    "lastUpdated": 1788149648,
+    "lastUpdated": 1788156220,
     "eventDays": [
       {
         "message": "Fan Week Day 1: Sunday, August 23",
@@ -119,9 +119,9 @@
         "quals": false,
         "practice": false,
         "epoch": 1788148800,
-        "lastWrite": 1788149648,
+        "lastWrite": 1788156219,
         "matchCount": 42,
-        "winnerCount": 32,
+        "winnerCount": 33,
         "released": true,
         "currentDay": false
       },
@@ -31462,9 +31462,9 @@
                 "roundCode": "1",
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
-                "duration": null,
-                "status": "In Progress",
-                "statusCode": "A",
+                "duration": "1:48",
+                "status": "Completed",
+                "statusCode": "D",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -31497,15 +31497,60 @@
                     "nationB": null,
                     "idB": null,
                     "seed": null,
-                    "won": false
+                    "won": true
                   }
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [],
-                  "setDurations": [],
-                  "sets": [],
-                  "gameScore": []
+                  "setsWon": [
+                    2,
+                    2,
+                    2,
+                    0,
+                    0,
+                    0
+                  ],
+                  "setDurations": [
+                    "32",
+                    "76",
+                    "0",
+                    "0",
+                    "0"
+                  ],
+                  "sets": [
+                    [
+                      {
+                        "score": 2,
+                        "scoreDisplay": "2",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": 6,
+                        "tiebreakDisplay": "6"
+                      },
+                      {
+                        "score": 7,
+                        "scoreDisplay": "7",
+                        "tiebreak": 8,
+                        "tiebreakDisplay": "8"
+                      }
+                    ]
+                  ],
+                  "gameScore": [
+                    null,
+                    null
+                  ]
                 }
               }
             ]

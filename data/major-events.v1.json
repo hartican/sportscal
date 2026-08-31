@@ -16667,9 +16667,12 @@
           "sequenceInSession": 2,
           "timePrecision": "follows",
           "scheduleStatus": "confirmed",
-          "status": "live",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-          "previewPriority": 5,
+          "status": "completed",
+          "statusUpdatedAt": "2026-08-31T06:13:24.127Z",
+          "resultPublishedAt": "2026-08-31T06:13:24.127Z",
+          "scoreDisplay": "Venus Williams 2-6 6(6)-7(8) Sofia Kenin",
+          "result": "Venus Williams 2-6 6(6)-7(8) Sofia Kenin",
+          "previewPriority": 4,
           "matchupSides": [
             {
               "id": "side:tennis:venus-williams",
@@ -21767,7 +21770,7 @@
         {
           "name": "US Open official released order of play",
           "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/scheduleDays.json",
-          "checkedAt": "2026-08-31T05:57:23.429Z"
+          "checkedAt": "2026-08-31T06:13:24.127Z"
         },
         {
           "name": "US Open — 2026 tournament schedule",
