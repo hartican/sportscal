@@ -105,7 +105,7 @@ run_push() {
   local refspec="${1:-HEAD:main}"
   local source_ref="${refspec%%:*}"
   local target_ref="${refspec#*:}"
-  local source_sha origin_url original_objects push_git_dir
+  local source_sha origin_url original_objects push_git_dir checkout_extraheader
   local push_output
 
   if [[ "$target_ref" == "$refspec" ]]; then
@@ -124,6 +124,10 @@ run_push() {
   git init --bare --quiet "$push_git_dir"
   printf '%s\n' "$original_objects" > "$push_git_dir/objects/info/alternates"
   git --git-dir="$push_git_dir" remote add origin "$origin_url"
+  checkout_extraheader="$(git config --local --get http.https://github.com/.extraheader || true)"
+  if [[ -n "$checkout_extraheader" ]]; then
+    git --git-dir="$push_git_dir" config http.https://github.com/.extraheader "$checkout_extraheader"
+  fi
   git --git-dir="$push_git_dir" update-ref refs/heads/release "$source_sha"
 
   set +e
