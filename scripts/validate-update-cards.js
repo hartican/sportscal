@@ -202,6 +202,10 @@ assert.match(updaterSource, /fs\.chmodSync\(snapshotDirectory, 0o700\)/, "the te
 assert.match(updaterSource, /finally[^]*fs\.rmSync\(snapshotDirectory, \{ recursive:true, force:true \}\)/, "the snapshot must be deleted even after a failed update step");
 const followSnapshotSource = fs.readFileSync(path.join(projectRoot, "scripts/snapshot-active-follows.js"), "utf8");
 assert.match(followSnapshotSource, /FOLLOW_SNAPSHOT_PRELOADED_PATH[^]*readSnapshot[^]*encryptSnapshot/, "connector-captured profiles must remain encrypted at rest before the canonical updater accepts them");
+assert.match(followSnapshotSource, /SUPABASE_SECRET_KEY\s*\|\|\s*process\.env\.SUPABASE_SERVICE_ROLE_KEY/, "the canonical follow snapshot must accept the configured modern Supabase server secret without requiring a new legacy key");
+const followSnapshotGrant = fs.readFileSync(path.join(projectRoot, "supabase/nothingsports-user-state-service-snapshot.sql"), "utf8");
+assert.match(followSnapshotGrant, /grant\s+select\s+on\s+table\s+public\.nothingsports_user_state\s+to\s+service_role/i, "the backend-only updater role must be able to read the forced-RLS follow source");
+assert.doesNotMatch(followSnapshotGrant, /grant[^;]+to\s+(anon|authenticated)/i, "the updater grant must not broaden public or signed-in table access");
 
 assert.match(wrapperScript, /SKIP_RELEASE=1 "\$NODE_BIN" scripts\/update-cards\.js -p --local-only/, "the wrapper must explicitly suppress update-cards' nested release so each run deploys once");
 assert.match(wrapperScript, /\$WEBSITE_URL\/service-worker\.js/, "the release wrapper must verify the served service worker");

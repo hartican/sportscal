@@ -2,7 +2,7 @@
 
 const nsc = require("./nothingscore");
 
-const SCHEMA_VERSION = "nsc-demo-panel.v1";
+const SCHEMA_VERSION = "nsc-modelled-panel.v2";
 const MODES = Object.freeze(["off", "internal", "public"]);
 const PERSONAS = Object.freeze([
   Object.freeze({ id:"casey-curator", displayName:"Casey Curator", handle:"@demo_casey", audienceCohort:"multi-sport-marquee", sports:["afl","nrl","football","tennis","formula 1","surfing"], keywords:["final","major","world cup","grand prix","slam","origin"], selectivity:0.78 }),
@@ -50,11 +50,20 @@ function participates(persona, event){
   const stable = (hash(`${SCHEMA_VERSION}|${eventId(event)}|${persona.id}|participates`) % 1000) / 1000;
   return affinity(persona, event) >= persona.selectivity || stable > persona.selectivity + .18;
 }
+function outlierFor(persona, event, phase, bucketStart = ""){
+  return hash(`${SCHEMA_VERSION}|${eventId(event)}|${persona.id}|${phase}|${bucketStart}|mild-outlier`) % 100 < 8;
+}
+function applyOutlier(rating, persona, event, phase, bucketStart = ""){
+  if (!outlierFor(persona, event, phase, bucketStart)) return rating;
+  const direction = rating >= 4 ? -1 : rating <= 2 ? 1 : (hash(`${SCHEMA_VERSION}|${eventId(event)}|${persona.id}|${phase}|${bucketStart}|outlier-direction`) % 2 ? 1 : -1);
+  return Math.max(1, Math.min(5, rating + direction));
+}
 function ratingFor(persona, event, phase, bucketStart = ""){
   const stakes = stakesValue(event);
   const noise = (hash(`${SCHEMA_VERSION}|${eventId(event)}|${persona.id}|${phase}|${bucketStart}`) % 5) - 2;
   const phaseShift = phase === "impact" ? ((hash(`${eventId(event)}|impact`) % 3) - 1) : phase === "pulse" ? 1 : 0;
-  return Math.max(1, Math.min(5, Math.round(stakes * .62 + affinity(persona, event) * 1.7 + noise * .28 + phaseShift * .25)));
+  const rating = Math.max(1, Math.min(5, Math.round(stakes * .62 + affinity(persona, event) * 1.7 + noise * .28 + phaseShift * .25)));
+  return applyOutlier(rating, persona, event, phase, bucketStart);
 }
 function tagsFor(persona, event, phase, rating){
   if (rating < 4 || phase === "pulse") return [];
@@ -75,7 +84,7 @@ function demoRows(event, phase, nowValue = new Date(), options = {}){
     const rating = ratingFor(persona, event, phase);
     const start=Date.parse(event?.startTimeUtc||""),end=Date.parse(event?.endTimeUtc||"");
     const updated=phase==="heat"?start:(Number.isFinite(end)?end:Number.isFinite(start)?start+Number(event?.liveWindow||3)*3600000:0);
-    return { userId:`demo:${persona.id}`, phase, rating, tags:tagsFor(persona,event,phase,rating), bucketStart:"1970-01-01T00:00:00.000Z", updatedAt:new Date(Number.isFinite(updated)?updated:0).toISOString(), persona:"general", demo:true, audienceCohort:persona.audienceCohort, displayName:persona.displayName, handle:persona.handle };
+    return { userId:`modelled:${persona.id}`, phase, rating, tags:tagsFor(persona,event,phase,rating), bucketStart:"1970-01-01T00:00:00.000Z", updatedAt:new Date(Number.isFinite(updated)?updated:0).toISOString(), persona:"general", modelled:true, demo:true, audienceCohort:persona.audienceCohort };
   });
   const start = Date.parse(event?.startTimeUtc || "") || now.getTime() - 25 * 60_000;
   if(now.getTime()<start)return[];
@@ -86,9 +95,9 @@ function demoRows(event, phase, nowValue = new Date(), options = {}){
   const rows = [];
   for (let bucket = Math.ceil(first / nsc.PULSE_BUCKET_MS) * nsc.PULSE_BUCKET_MS; bucket <= anchor; bucket += nsc.PULSE_BUCKET_MS){
     const bucketStart = new Date(bucket).toISOString();
-    active.forEach(persona => rows.push({ userId:`demo:${persona.id}`, phase:"pulse", rating:ratingFor(persona,event,"pulse",bucketStart), tags:[], bucketStart, updatedAt:bucketStart, persona:"general", demo:true, audienceCohort:persona.audienceCohort, displayName:persona.displayName, handle:persona.handle }));
+    active.forEach(persona => rows.push({ userId:`modelled:${persona.id}`, phase:"pulse", rating:ratingFor(persona,event,"pulse",bucketStart), tags:[], bucketStart, updatedAt:bucketStart, persona:"general", modelled:true, demo:true, audienceCohort:persona.audienceCohort }));
   }
   return rows;
 }
 
-module.exports = Object.freeze({ SCHEMA_VERSION, MODES, PERSONAS, activePersonas, affinity, demoRows, enabled, hash, mode, participates, ratingFor, stakesValue });
+module.exports = Object.freeze({ SCHEMA_VERSION, MODES, PERSONAS, activePersonas, affinity, applyOutlier, demoRows, enabled, hash, mode, outlierFor, participates, ratingFor, stakesValue });

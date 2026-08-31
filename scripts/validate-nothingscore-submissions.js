@@ -91,9 +91,12 @@ async function snapshotContract(){
   const supabaseCache = require.cache[supabasePath];
   const userId="11111111-1111-4111-8111-111111111111";
   const eventId="fifa-group-australia-turkiye-2026";
+  let rolloutConfigured=true,publicEnabled=true;
   supabaseCache.exports={
     ...actualSupabase,
     async supabaseServiceRequest(path){
+      if(path.includes("nothingsports_nsc_early_panel_state"))return rolloutConfigured?[{id:"public",public_enabled:publicEnabled,retirement_threshold:10,retired_at:publicEnabled?null:"2026-06-12T00:00:00.000Z",updated_at:"2026-06-12T00:00:00.000Z"}]:[];
+      if(path.includes("nothingsports_nsc_pilot_members"))return[{user_id:userId,approved:true,suspended:false}];
       if(path.includes("nothingsports_nsc_contributions"))return[{
         event_id:eventId,user_id:userId,phase:"heat",bucket_start:"1970-01-01T00:00:00.000Z",
         rating:5,tags:["Big stakes"],submitted_at:"2026-06-13T01:00:00.000Z",
@@ -113,17 +116,36 @@ async function snapshotContract(){
   delete require.cache[serverPath];
   try{
     const server=require(serverPath);
-    const [snapshot]=await server.snapshots([eventId],{userId,now:new Date("2026-06-13T02:00:00.000Z"),demoMode:"public"});
+    const fixedNow=new Date("2026-06-13T02:00:00.000Z");
+    const [snapshot]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
     assert.equal(snapshot.phase,"heat");
     assert.equal(snapshot.aggregate.contributorMix.real,1);
-    assert(snapshot.aggregate.contributorMix.demo>0,"public mode must disclose deterministic demo cohorts separately");
-    assert.equal(snapshot.crowdEditorial.mode,"demo","fewer than three real contributors must retain the demo disclosure");
+    assert(snapshot.aggregate.contributorMix.modelled>0,"public mode must disclose deterministic modelled responses separately");
+    assert.equal(snapshot.aggregate.contributorMix.demo,snapshot.aggregate.contributorMix.modelled,"cached readers retain the temporary demo count alias");
+    assert.equal(snapshot.crowdEditorial.mode,"demo","cached readers retain the temporary mode value");
+    assert.equal(snapshot.crowdEditorial.presentationMode,"early");
+    assert.deepEqual(snapshot.earlyPanel,{publicEnabled:true,includesModelled:true,disclosure:"Early panel · includes modelled responses.",activeRealContributors90d:1,retirementThreshold:10});
     assert.equal(snapshot.series,undefined,"batch summaries must not carry graph payloads until card detail is requested");
     assert.deepEqual(snapshot.currentUser.submissions.heat,{
       phase:"heat",rating:5,tags:["Big stakes"],bucketStart:"1970-01-01T00:00:00.000Z",
       submitted:true,submittedAt:"2026-06-13T01:00:00.000Z",pointsAwarded:3,
     });
     assert.deepEqual(snapshot.currentUser.contribution,snapshot.currentUser.submissions.heat,"the active-phase compatibility field must expose the same durable receipt");
+    const [repeat]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
+    assert.deepEqual(repeat,snapshot,"identical frozen-clock requests must produce identical public output");
+    const [detail]=await server.snapshots([eventId],{userId,detailId:eventId,now:fixedNow,demoMode:"public"});
+    assert(detail.contributors.every(contributor=>contributor.demo===false&&!contributor.audienceCohort),"public contributor payloads must contain genuine public profiles only");
+    assert.equal(JSON.stringify(detail.contributors).includes("modelled:"),false);
+    publicEnabled=false;
+    const [retired]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
+    assert.equal(retired.earlyPanel.includesModelled,false);
+    assert.equal(retired.crowdEditorial,null,"after retirement, one genuine response is below the three-person aggregate gate");
+    assert.equal(retired.aggregate.score,null);
+    rolloutConfigured=false;publicEnabled=true;
+    const [missing]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
+    assert.equal(missing.earlyPanel.includesModelled,false,"missing rollout configuration must degrade to genuine-only results");
+    const [killed]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"off"});
+    assert.equal(killed.earlyPanel.includesModelled,false,"the environment kill switch must take precedence over stored rollout state");
   }finally{
     delete require.cache[serverPath];
     supabaseCache.exports=actualSupabase;

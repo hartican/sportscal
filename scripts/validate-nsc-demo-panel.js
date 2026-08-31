@@ -13,8 +13,8 @@ const footballCore = require("../data/football/core-events.json");
 
 const now = new Date("2026-09-13T06:30:00.000Z");
 const event = { canonicalEventId:"demo-australia-grand-final", sport:"AFL", competition:"AFL", name:"Australia Grand Final", stakesScore:5, startTimeUtc:"2026-09-13T06:00:00.000Z" };
-assert.equal(demo.SCHEMA_VERSION,"nsc-demo-panel.v1");
-assert.deepEqual(demo.PERSONAS.map(item=>item.displayName),["Casey Curator","Hayden Hybrid","Connie Completist","Tahlia Team-First","Evie Event-First","Parker Player-First"]);
+assert.equal(demo.SCHEMA_VERSION,"nsc-modelled-panel.v2");
+assert.equal(demo.PERSONAS.length,6,"the six behavioural personas remain an internal deterministic panel");
 assert.equal(demo.enabled(undefined),false,"missing configuration must be off");
 assert.equal(demo.enabled("off"),false);
 assert.equal(demo.enabled("internal"),false,"internal cohorts must not leak to public requests");
@@ -24,9 +24,13 @@ assert.equal(demo.enabled("public"),true);
 const heatA=demo.demoRows(event,"heat",now,{mode:"public"}),heatB=demo.demoRows(event,"heat",now,{mode:"public"});
 assert.deepEqual(heatA,heatB,"pinned time and event/persona hash must be deterministic");
 assert(heatA.length>0);
-assert(heatA.every(row=>row.demo===true&&row.persona==="general"&&row.userId.startsWith("demo:")&&row.audienceCohort),"demo cohorts must carry ordinary weight and disclosure metadata");
-assert(heatA.every(row=>nsc.personaWeight(row.persona)===1),"demo contributors must never inherit authority weights");
+assert(heatA.every(row=>row.modelled===true&&row.demo===true&&row.persona==="general"&&row.userId.startsWith("modelled:")&&row.audienceCohort),"modelled cohorts must carry ordinary weight and temporary wire compatibility metadata");
+assert(heatA.every(row=>!Object.hasOwn(row,"displayName")&&!Object.hasOwn(row,"handle")),"modelled identities must never enter a public snapshot row");
+assert(heatA.every(row=>nsc.personaWeight(row.persona)===1),"modelled contributors must never inherit authority weights");
 assert.equal(demo.demoRows(event,"heat",now,{mode:"off"}).length,0);
+const outlierCorpus=Array.from({length:500},(_,index)=>({canonicalEventId:`outlier-${index}`,sport:index%2?"AFL":"Tennis",name:`Fixture ${index}`,stakesScore:index%5+1}));
+const outlierRate=outlierCorpus.flatMap(fixture=>demo.PERSONAS.map(persona=>demo.outlierFor(persona,fixture,"heat"))).filter(Boolean).length/(outlierCorpus.length*demo.PERSONAS.length);
+assert(outlierRate>=.07&&outlierRate<=.09,`stable mild outliers should be approximately 8%, received ${(outlierRate*100).toFixed(2)}%`);
 assert.deepEqual(server.largestRemainderPercentages([4,1,1]),[67,17,16],"largest-remainder ties must follow the displayed high, middle, low order");
 assert.equal(server.largestRemainderPercentages([4,1,1]).reduce((total,value)=>total+value,0),100);
 assert.deepEqual(server.largestRemainderPercentages([0,0,0]),[0,0,0]);
@@ -38,22 +42,31 @@ const pulse=demo.demoRows(event,"pulse",now,{mode:"public"});
 assert(pulse.length>heatA.length,"Pulse must provide deterministic five-minute contributions");
 assert(pulse.every(row=>Date.parse(row.bucketStart)%nsc.PULSE_BUCKET_MS===0));
 const timeline=server.pulseSeries([],pulse);
-assert(timeline.length>=2&&timeline.every(row=>Object.hasOwn(row,"realContributors")&&Object.hasOwn(row,"demoContributors")&&Object.hasOwn(row,"demoScore")));
+assert(timeline.length>=2&&timeline.every(row=>Object.hasOwn(row,"realContributors")&&Object.hasOwn(row,"modelledContributors")&&Object.hasOwn(row,"demoContributors")&&Object.hasOwn(row,"modelledScore")));
 
 const twoReal=[1,2].map(number=>({userId:`real-${number}`,rating:4,tags:["Big stakes"],persona:"general"}));
 const threeReal=[...twoReal,{userId:"real-3",rating:5,tags:["Big stakes"],persona:"general"}];
 const demoAggregate=nsc.aggregateRatings([...twoReal,...heatA]);
-const demoCopy=server.crowdEditorial("heat",twoReal,heatA,nsc.aggregateRatings(twoReal),demoAggregate,[]);
+const demoCopy=server.crowdEditorial("heat",twoReal,heatA,nsc.aggregateRatings(twoReal),demoAggregate,[],{includesModelled:true});
 assert.equal(demoCopy.mode,"demo");
-assert.equal(demoCopy.label,"Crowd view · demo panel");
+assert.equal(demoCopy.presentationMode,"early");
+assert.equal(demoCopy.label,"Early panel");
 assert.equal(demoCopy.contributorMix.real,2);
 assert.equal(demoCopy.contributorMix.demo,heatA.length);
+assert.equal(demoCopy.contributorMix.modelled,heatA.length);
 assert.equal(Object.values(demoCopy.percentages).reduce((total,value)=>total+value,0),100,"the three compact bands must total 100%");
 assert.match(demoCopy.text,/^\d+% Major or Essential · \d+% Notable · \d+% Routine or Interesting, from \d+ contributors\./);
-const realCopy=server.crowdEditorial("heat",threeReal,heatA,nsc.aggregateRatings(threeReal),nsc.aggregateRatings([...threeReal,...heatA]),[]);
+assert.match(demoCopy.editorialSentence,/^Early panel: \d+% rate it Major or Essential across \d+ displayed responses\./);
+const stillEarlyCopy=server.crowdEditorial("heat",threeReal,heatA,nsc.aggregateRatings(threeReal),nsc.aggregateRatings([...threeReal,...heatA]),[],{includesModelled:true});
+assert.equal(stillEarlyCopy.presentationMode,"early","the public Early panel must remain mixed even after three genuine contributors");
+assert.equal(stillEarlyCopy.contributorCount,threeReal.length+heatA.length);
+const realCopy=server.crowdEditorial("heat",threeReal,[],nsc.aggregateRatings(threeReal),nsc.aggregateRatings(threeReal),[],{includesModelled:false});
 assert.equal(realCopy.mode,"real","three genuine contributors must promote real-only crowd editorial");
-assert.equal(realCopy.contributorCount,3,"demo cohorts must not enter the real promotion count");
+assert.equal(realCopy.presentationMode,"real");
+assert.equal(realCopy.contributorCount,3,"modelled cohorts must not enter the real promotion count");
+assert.match(realCopy.editorialSentence,/^Community response:/);
 assert(!realCopy.text.includes("Australia")&&!realCopy.text.includes("Grand Final"),"crowd prose must not invent or repeat match facts");
+assert.equal(server.crowdEditorial("heat",twoReal,[],nsc.aggregateRatings(twoReal),nsc.aggregateRatings(twoReal),[],{includesModelled:false}),null,"retired aggregates require three genuine current-phase contributors");
 
 const formulaRows=[
   {userId:"formula-1",rating:5,tags:["Rivalry","Big stakes"],updatedAt:"2026-09-01T00:00:00Z"},
@@ -65,12 +78,26 @@ const formulaRows=[
   {userId:"formula-1",rating:1,tags:["Box office"],updatedAt:"2026-08-31T00:00:00Z"},
 ];
 const formulaAggregate=nsc.aggregateRatings(formulaRows);
-const formulaCopy=server.crowdEditorial("heat",formulaRows,[],formulaAggregate,formulaAggregate,[]);
+const formulaCopy=server.crowdEditorial("heat",formulaRows,[],formulaAggregate,formulaAggregate,[],{includesModelled:false});
 assert.equal(formulaCopy.text,"67% Major or Essential · 17% Notable · 16% Routine or Interesting, from 6 contributors. Rivalry leads at 50%; Big stakes follows at 33%.","compact crowd copy must use the fixed deterministic percentage template and unique-contributor denominator");
 assert.deepEqual(formulaCopy.leadingTags,[{tag:"Rivalry",count:3,percentage:50},{tag:"Big stakes",count:2,percentage:33}]);
 const distribution=server.distribution(threeReal,heatA,[...threeReal,...heatA]);
 assert.equal(distribution.reduce((total,row)=>total+row.displayPercent,0),100);
-assert(distribution.every(row=>["rating","realCount","demoCount","realPercent","demoPercent","displayPercent"].every(key=>Object.hasOwn(row,key))));
+assert(distribution.every(row=>["rating","realCount","modelledCount","demoCount","realPercent","modelledPercent","demoPercent","displayPercent"].every(key=>Object.hasOwn(row,key))));
+
+const boundaryNow=new Date("2026-08-31T00:00:00.000Z"),boundary=new Date("2026-06-02T00:00:00.000Z").toISOString();
+const activeContributions=[
+  {user_id:"one",phase:"heat",rating:4,submitted_at:boundary,updated_at:boundary},
+  {user_id:"one",phase:"impact",rating:5,submitted_at:"2026-08-01T00:00:00.000Z",updated_at:"2026-08-01T00:00:00.000Z"},
+  {user_id:"two",phase:"pulse",rating:3,submitted_at:null,updated_at:"2026-08-30T00:00:00.000Z"},
+  {user_id:"three",phase:"heat",rating:3,submitted_at:"2026-08-30T00:00:00.000Z",updated_at:"2026-08-30T00:00:00.000Z"},
+  {user_id:"four",phase:"heat",rating:5,submitted_at:"2026-06-01T23:59:59.999Z",updated_at:"2026-06-01T23:59:59.999Z"},
+];
+const approvedPilots=[
+  {user_id:"one",approved:true,suspended:false},{user_id:"two",approved:true,suspended:false},
+  {user_id:"three",approved:true,suspended:true},{user_id:"four",approved:true,suspended:false},
+];
+assert.equal(server.activeRealContributors90d(activeContributions,approvedPilots,boundaryNow),2,"90-day counting must include the exact boundary, deduplicate accounts and exclude suspended accounts");
 
 const timedLegacy=server.eventWithTiming({date:"2026-08-19",time:"20:00",liveWindow:3});
 assert.equal(timedLegacy.startTimeUtc,"2026-08-19T10:00:00.000Z","legacy Sydney fixture clocks must enter the correct NSC phase");
@@ -102,18 +129,20 @@ assert.equal(JSON.stringify(safe).includes("demo:"),false,"editorial memory must
 assert.equal(safe.impact.uniqueContributorCount,3,"privacy-safe audience memory must retain the real aggregate only");
 
 const html=fs.readFileSync("index.html","utf8"),serverSource=fs.readFileSync("lib/nothingscore-server.js","utf8"),demoSource=fs.readFileSync("config/nsc-demo-panel.js","utf8"),visualSource=fs.readFileSync("config/nsc-visual.js","utf8");
-assert.match(serverSource,/Crowd view · demo panel/);
+assert.match(serverSource,/Early panel · includes modelled responses\./);
 assert.match(html,/Independent context/);
-assert.match(html,/nsc-demo-badge/);
-assert.match(html,/dataset\.demoExposure/);
-assert.match(html,/loadDeferredScript\("config\/nsc-visual\.js\?v=197"\)/,"the graph renderer must stay off the critical startup path");
+assert.doesNotMatch(html,/nsc-demo-badge|>Demo</,"modelled personas must never appear as named public contributors");
+assert.match(html,/dataset\.modelledExposure/);
+assert.match(html,/loadDeferredScript\("config\/nsc-visual\.js\?v=198"\)/,"the graph renderer must stay off the critical startup path");
 assert.match(visualSource,/createElementNS\("http:\/\/www\.w3\.org\/2000\/svg"/);
 assert.match(visualSource,/Accessible data for/);
+assert.match(visualSource,/Community responses/);
+assert.match(visualSource,/Modelled responses/);
 assert.match(html,/How do you think it’ll go\?/);
 assert.doesNotMatch(html,/name:"Anticipation"|>Anticipation</,"the public reader must use the agreed pre-fixture wording");
 assert.match(html,/function openSportRoundSummary[\s\S]*openCodeInspector/);
 assert.doesNotMatch(html,/function openSportRoundSummary[\s\S]{0,600}setActiveFeedFilter/,"round summaries must not turn Feed into a one-sport view");
 assert.doesNotMatch(demoSource,/supabase|auth|telemetry|awardPoints/i,"demo definitions must not write identities, telemetry or progression");
-assert.match(demoSource,/persona:"general", demo:true/);
+assert.match(demoSource,/persona:"general", modelled:true, demo:true/);
 
 console.log(`Demo crowd validation passed: ${demo.PERSONAS.length} cohorts, deterministic ${heatA.length} pre-fixture contributors and ${timeline.length} Pulse buckets.`);

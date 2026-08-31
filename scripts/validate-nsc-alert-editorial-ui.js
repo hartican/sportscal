@@ -30,11 +30,14 @@ function assertOrder(source, markers, message){
   });
 }
 
-// Cards expose only the current action or a durable receipt; aggregate/social detail stays in the drawer.
+// Cards expose a dedicated deterministic NSC strip plus the current action or durable receipt.
 const cardSummary = section(html, "function buildNothingscoreSummary(ev)", "function openNothingscoreLeaderboard");
 assert.match(cardSummary, /currentUser\?\.submissions\?\.\[snapshot\.phase\]/);
-assert.match(cardSummary, /buildNothingscoreReceipt\(receipt, phaseCopy\.name\)/);
+assert.match(cardSummary, /buildNothingscoreReceipt\(receipt, phaseCopy\.submissionLabel \|\| phaseCopy\.name\)/);
 assert.match(cardSummary, /Submit \$\{phaseCopy\.name\}/);
+assert.match(cardSummary, /nsc-compact-strip/);
+assert.match(cardSummary, /editorial\?\.text/);
+assert.match(cardSummary, /snapshot\.earlyPanel\?\.includesModelled/);
 for (const retiredCardMeta of ["Building", "aggregate", "contributor", "like", "Watching Now"]){
   assert(!cardSummary.includes(retiredCardMeta), `NSC card summary must not contain ${retiredCardMeta}`);
 }

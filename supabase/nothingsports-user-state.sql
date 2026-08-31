@@ -26,6 +26,7 @@ alter table public.nothingsports_user_state force row level security;
 revoke all on table public.nothingsports_user_state from anon;
 revoke all on table public.nothingsports_user_state from authenticated;
 grant select, insert, update on table public.nothingsports_user_state to authenticated;
+grant select on table public.nothingsports_user_state to service_role;
 
 drop policy if exists "nothingSports users can read their own state"
   on public.nothingsports_user_state;

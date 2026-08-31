@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="197">
+<meta name="app-shell-version" content="198">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -2168,6 +2168,7 @@ main{
 .major-event-identity h3{ margin:3px 0 5px; font:700 1.08rem/1.18 'Cardo', Georgia, serif; }
 .major-event-summary{ max-width:760px; margin:0 auto; color:var(--text-dim); font-size:0.82rem; line-height:1.5; }
 .major-event-facts{ display:flex; flex-wrap:wrap; justify-content:center; gap:5px 10px; margin-top:7px; color:var(--text-dim); font-size:0.7rem; }
+.major-event-stakes{ margin-top:9px; color:var(--text-dim); font-size:.7rem; font-weight:850; }
 .major-event-body{ display:grid; grid-template-columns:minmax(0, 1.15fr) minmax(260px, 0.85fr); gap:22px; padding:14px 20px 20px; border-top:1px solid var(--border); }
 .major-event-card.is-selected .major-event-body{ grid-template-columns:1fr; }
 .major-event-body h4{ margin:0 0 8px; font-size:0.8rem; }
@@ -2560,15 +2561,15 @@ main{
   text-wrap:pretty;
 }
 .editorial-l0-consequence,
-.editorial-consequence-copy{
+.editorial-consequence-copy,
+.editorial-l0-supplement{
   margin:6px 0 0;
   color:color-mix(in srgb, var(--text) 88%, var(--text-dim));
   font:650 .8rem/1.45 'Cardo', Georgia, serif;
   text-wrap:pretty;
 }
-.editorial-l0-consequence{ padding-top:6px; border-top:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 18%, var(--border)); }
-.crowd-editorial-demo{ border-left-color:#ff4faf; background:color-mix(in srgb, #ff4faf 7%, transparent); }
-.crowd-editorial-demo .editorial-l0-hook-label{ color:#df2789; }
+.editorial-l0-consequence,
+.editorial-l0-supplement{ padding-top:6px; border-top:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 18%, var(--border)); }
 .independent-context{ margin-top:12px; }
 
 .major-event-identity .editorial-l0-hook{
@@ -5779,6 +5780,15 @@ body.chat-open{ overflow:hidden; }
   font-size:.68rem;
   line-height:1.35;
 }
+.nsc-compact-strip{
+  width:100%;
+  padding:8px 10px;
+  border:1px solid color-mix(in srgb, var(--sport-color, var(--accent)) 30%, var(--border));
+  border-radius:10px;
+  background:color-mix(in srgb, var(--sport-color, var(--accent)) 5%, var(--panel-bg));
+}
+.nsc-compact-result{ flex:1 1 260px; min-width:0; color:var(--text); font-size:.7rem; font-weight:800; font-variant-numeric:tabular-nums; }
+.nsc-early-disclosure{ flex:1 0 100%; margin:0; color:var(--text-dim); font-size:.59rem; line-height:1.35; }
 .nsc-summary strong{ color:var(--text); font-size:.73rem; }
 .nsc-receipt{
   display:flex;
@@ -5828,8 +5838,7 @@ body.chat-open{ overflow:hidden; }
 .nsc-panel-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
 .nsc-panel-head h4{ font-size:.82rem; }
 .nsc-panel-head p,.nsc-note{ margin-top:4px; color:var(--text-dim); font-size:.68rem; line-height:1.45; }
-.nsc-demo-disclosure{ margin:6px 0 0; color:var(--text-dim); font-size:.64rem; line-height:1.4; }
-.nsc-contributor-copy .nsc-demo-badge{ display:inline-flex; width:auto; vertical-align:middle; margin-left:4px; padding:2px 5px; border:1px solid color-mix(in srgb,#ff4faf 58%,var(--border)); border-radius:999px; color:#df2789; font:900 .52rem/1 'DM Sans',sans-serif; letter-spacing:.04em; text-transform:uppercase; }
+.nsc-early-disclosure-expanded{ margin:6px 0 0; color:var(--text-dim); font-size:.64rem; line-height:1.4; }
 .nsc-score-large{ flex:0 0 auto; color:var(--text); font-size:1.15rem; font-weight:950; font-variant-numeric:tabular-nums; }
 .nsc-choice-row{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; margin-top:12px; }
 .nsc-choice{
@@ -7088,7 +7097,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=197")
+  : loadDeferredScript("config/national-team-identities.js?v=198")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -12205,7 +12214,7 @@ function selectedSentenceForDisplay(ev){
   return storylineCopyForDisplay(ev).hook;
 }
 
-function buildEditorialL0Hook(copy, consequenceCopy = "", { labelText = "Why it matters", className = "" } = {}){
+function buildEditorialL0Hook(copy, consequenceCopy = "", { labelText = "Why it matters", className = "", supplementalCopy = "" } = {}){
   const value = String(copy || "").trim();
   if (!value) return null;
   const hook = document.createElement("aside");
@@ -12225,18 +12234,19 @@ function buildEditorialL0Hook(copy, consequenceCopy = "", { labelText = "Why it 
     second.textContent = consequence;
     hook.appendChild(second);
   }
+  const supplemental = String(supplementalCopy || "").trim();
+  if (supplemental && supplemental !== value && supplemental !== consequence){
+    const third = document.createElement("p");
+    third.className = "editorial-l0-supplement";
+    third.textContent = supplemental;
+    hook.appendChild(third);
+  }
   return hook;
 }
 
-function buildCrowdEditorialL0(snapshot){
-  const editorial = snapshot?.crowdEditorial;
-  if (!editorial?.text || !["real", "demo"].includes(editorial.mode)) return null;
-  const hook = buildEditorialL0Hook(editorial.text, "", { labelText:editorial.label || "Crowd view", className:`crowd-editorial crowd-editorial-${editorial.mode}` });
-  if (hook){
-    hook.dataset.crowdMode = editorial.mode;
-    hook.dataset.demoExposure = String(editorial.mode === "demo");
-  }
-  return hook;
+function crowdEditorialSupplement(snapshot){
+  if (!snapshot || snapshot?.phase === "pulse") return "";
+  return String(snapshot?.crowdEditorial?.editorialSentence || "").trim();
 }
 
 function editorialNarrativeReadyForCard(narrative){
@@ -12279,12 +12289,13 @@ function appendEditorialConsequence(host, record){
   return paragraph;
 }
 
-function buildIndependentContext(record, state){
+function buildIndependentContext(record, state, snapshot = nothingscoreSnapshotFor(record)){
   const copy = editorialNarrativeCopyForDisplay(record, state);
   if (!copy) return null;
   return buildEditorialL0Hook(copy, editorialConsequenceForDisplay(record), {
     labelText:"Independent context",
     className:`independent-context independent-context-${state}`,
+    supplementalCopy:crowdEditorialSupplement(snapshot),
   });
 }
 
@@ -15602,12 +15613,8 @@ function buildNothingscoreSummary(ev){
     summary.hidden = true;
     return summary;
   }
+  summary.classList.add("nsc-compact-strip");
   const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
-  const receipt = snapshot.currentUser?.submissions?.[snapshot.phase] || null;
-  if (receipt && ["heat", "impact"].includes(snapshot.phase)){
-    summary.appendChild(buildNothingscoreReceipt(receipt, phaseCopy.submissionLabel || phaseCopy.name));
-    return summary;
-  }
   const phase = document.createElement("span");
   phase.className = "nsc-phase";
   if (snapshot.phase === "pulse"){
@@ -15617,9 +15624,28 @@ function buildNothingscoreSummary(ev){
     phase.appendChild(dot);
   }
   phase.append(document.createTextNode(phaseCopy.name));
-  const action = document.createElement("strong");
-  action.textContent = snapshot.phase === "pulse" ? "Add your live score" : snapshot.phase === "heat" ? "Add your view" : `Submit ${phaseCopy.name}`;
-  summary.append(phase, action);
+  summary.appendChild(phase);
+  const editorial = snapshot.crowdEditorial;
+  if (editorial?.text){
+    const result = document.createElement("strong");
+    result.className = "nsc-compact-result";
+    result.textContent = editorial.text;
+    summary.appendChild(result);
+    summary.dataset.crowdMode = editorial.presentationMode || editorial.mode;
+    summary.dataset.modelledExposure = String(editorial.presentationMode === "early");
+  } else {
+    const action = document.createElement("strong");
+    action.textContent = snapshot.phase === "pulse" ? "Add your live score" : snapshot.phase === "heat" ? "Add your view" : `Submit ${phaseCopy.name}`;
+    summary.appendChild(action);
+  }
+  if (snapshot.earlyPanel?.includesModelled && snapshot.earlyPanel.disclosure){
+    const disclosure = document.createElement("p");
+    disclosure.className = "nsc-early-disclosure";
+    disclosure.textContent = snapshot.earlyPanel.disclosure;
+    summary.appendChild(disclosure);
+  }
+  const receipt = snapshot.currentUser?.submissions?.[snapshot.phase] || null;
+  if (receipt && ["heat", "impact"].includes(snapshot.phase)) summary.appendChild(buildNothingscoreReceipt(receipt, phaseCopy.submissionLabel || phaseCopy.name));
   return summary;
 }
 
@@ -15862,7 +15888,7 @@ function buildNothingscoreChoices(ev, snapshot, panel){
 let nothingscoreVisualLoad = null;
 function ensureNothingscoreVisual(){
   if (globalThis.NOTHINGSPORTS_NSC_VISUAL) return Promise.resolve(globalThis.NOTHINGSPORTS_NSC_VISUAL);
-  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=197").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
+  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=198").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
   return nothingscoreVisualLoad;
 }
 function buildNothingscoreVisual(snapshot){
@@ -15895,12 +15921,6 @@ function buildNothingscoreContributors(snapshot, panel){
       copy.className = "nsc-contributor-copy";
       const name = document.createElement("strong");
       name.textContent = contributor.displayName;
-      if (contributor.demo){
-        const badge = document.createElement("span");
-        badge.className = "nsc-demo-badge";
-        badge.textContent = "Demo";
-        name.append(" ", badge);
-      }
       const details = document.createElement("span");
       details.textContent = [contributor.handle, `${Number(contributor.rating).toFixed(1)}/5`, ...(contributor.tags || [])].filter(Boolean).join(" · ");
       copy.append(name, details);
@@ -15941,11 +15961,10 @@ function buildNothingscorePanel(ev, snapshot, state){
   head.appendChild(heading);
   panel.appendChild(head);
 
-  const mix = snapshot.aggregate?.contributorMix;
-  if (mix?.demo){
+  if (snapshot.earlyPanel?.includesModelled && snapshot.earlyPanel.disclosure){
     const disclosure = document.createElement("p");
-    disclosure.className = "nsc-demo-disclosure";
-    disclosure.textContent = `Demo panel · ${mix.demo} simulated cohort${mix.demo === 1 ? "" : "s"}, shown separately from ${mix.real} real contributor${mix.real === 1 ? "" : "s"}.`;
+    disclosure.className = "nsc-early-disclosure-expanded";
+    disclosure.textContent = snapshot.earlyPanel.disclosure;
     panel.appendChild(disclosure);
   }
   const visual = buildNothingscoreVisual(snapshot);
@@ -16294,15 +16313,11 @@ function buildEventCard(ev, options = {}){
   }
   mainDiv.appendChild(metaRow);
   const socialSnapshot = nothingscoreSnapshotFor(ev);
-  if (state === "compact"){
-    const crowdHook = buildCrowdEditorialL0(socialSnapshot);
-    if (crowdHook) mainDiv.appendChild(crowdHook);
-    else if (enrichment.stakesScore >= 2){
-      const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(ev), editorialConsequenceForDisplay(ev));
-      if (editorialHook) mainDiv.appendChild(editorialHook);
-    }
-  }
   mainDiv.appendChild(buildNothingscoreSummary(ev));
+  if (state === "compact"){
+    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(ev), editorialConsequenceForDisplay(ev), { supplementalCopy:crowdEditorialSupplement(socialSnapshot) });
+    if (editorialHook) mainDiv.appendChild(editorialHook);
+  }
   const followContext = buildFollowContext(enrichment.followContext);
   if (followContext) mainDiv.appendChild(followContext);
   const jerseyContext = buildStageJerseyContext(ev);
@@ -16319,8 +16334,7 @@ function buildEventCard(ev, options = {}){
   expectedBlock.className = "rating-block";
   expectedBlock.innerHTML = `${VECTOR_ASSETS.stakesMarkup(enrichment.storyline?.stakes || "medium", { className: "stakes-tier-vector", preferImage: true })}<span>Stakes: <span class="expected-num">${enrichment.stakesScore}/5</span></span>`;
   expectedBlock.appendChild(buildStakesMeter(ev));
-  if (matchupIdentity && state === "compact") metaRow.appendChild(expectedBlock);
-  else ratingRow.appendChild(expectedBlock);
+  ratingRow.appendChild(expectedBlock);
 
   if (state === "opened" && status === "past" && spoilerVisible){
     const actualBlock = document.createElement("div");
@@ -16357,7 +16371,7 @@ function buildEventCard(ev, options = {}){
   mainDiv.id = `${nameEl.id}-details`;
 
   if (state === "selected"){
-    const independent = buildIndependentContext(ev, state);
+    const independent = buildIndependentContext(ev, state, socialSnapshot);
     if (independent) expansionRegion.appendChild(independent);
     else {
       const selected = document.createElement("div");
@@ -16387,7 +16401,7 @@ function buildEventCard(ev, options = {}){
   }
 
   if (state === "opened"){
-    const independent = buildIndependentContext(ev, state);
+    const independent = buildIndependentContext(ev, state, socialSnapshot);
     if (independent) expansionRegion.appendChild(independent);
     else {
       const spiel = document.createElement("div");
@@ -19689,12 +19703,10 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
       showToast(wasAdded ? `${subEvent.name} removed from Feed.` : `${subEvent.name} added to Feed.`);
     });
     row.append(copy, button);
-    const crowdHook = buildCrowdEditorialL0(nothingscoreSnapshotFor(crowdEvent));
-    if (crowdHook) row.appendChild(crowdHook);
-    else {
-      const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(editorialRecord), editorialConsequenceForDisplay(editorialRecord));
-      if (editorialHook) row.appendChild(editorialHook);
-    }
+    const crowdSnapshot = nothingscoreSnapshotFor(crowdEvent);
+    row.appendChild(buildNothingscoreSummary(crowdEvent));
+    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(editorialRecord), editorialConsequenceForDisplay(editorialRecord), { supplementalCopy:crowdEditorialSupplement(crowdSnapshot) });
+    if (editorialHook) row.appendChild(editorialHook);
     list.appendChild(row);
   });
   if (level === "L2" && timeline.hasOlder && !includeOlder){
@@ -19931,29 +19943,29 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   title.textContent = record.name;
   const facts = document.createElement("div");
   facts.className = "major-event-facts";
-  [majorEventDateLabel(record), record.venue, record.location, `Stakes ${record.stakesScore}/5`].filter(Boolean).forEach(value => {
+  [majorEventDateLabel(record), record.venue, record.location].filter(Boolean).forEach(value => {
     const fact = document.createElement("span");
     fact.textContent = value;
     facts.appendChild(fact);
   });
   identity.append(logo, kicker, title);
   identity.appendChild(facts);
-  if (state === "compact"){
-    const crowdHook = buildCrowdEditorialL0(socialSnapshot);
-    if (crowdHook) identity.appendChild(crowdHook);
-    else {
-      const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(record), editorialConsequenceForDisplay(record));
-      if (editorialHook) identity.appendChild(editorialHook);
-    }
-  }
   identity.appendChild(buildNothingscoreSummary(crowdEvent));
+  if (state === "compact"){
+    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(record), editorialConsequenceForDisplay(record), { supplementalCopy:crowdEditorialSupplement(socialSnapshot) });
+    if (editorialHook) identity.appendChild(editorialHook);
+  }
+  const stakesFact = document.createElement("div");
+  stakesFact.className = "major-event-stakes";
+  stakesFact.textContent = `Stakes ${record.stakesScore}/5`;
+  identity.appendChild(stakesFact);
 
   if (state !== "compact"){
     if (socialSnapshot){
       if (state === "opened") void loadNothingscoreDetail(crowdEvent);
       identity.appendChild(buildNothingscorePanel(crowdEvent, socialSnapshot, state));
     }
-    const independent = buildIndependentContext(record, state);
+    const independent = buildIndependentContext(record, state, socialSnapshot);
     if (independent) identity.appendChild(independent);
   }
 

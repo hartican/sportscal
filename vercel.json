@@ -43,6 +43,10 @@
       "destination": "/api/comms?mode=admin-reports"
     },
     {
+      "source": "/api/admin/panel",
+      "destination": "/api/comms?mode=admin-panel"
+    },
+    {
       "source": "/live",
       "destination": "/participate.html"
     },

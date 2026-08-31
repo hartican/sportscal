@@ -30,7 +30,11 @@ assert(html.includes('className = "major-event-ticket-link event-quick-action"')
 
 assert(html.includes('.matchup-team-logo-slot{ width:74px; height:70px;') && html.includes('width:min(100%, 88px);') && html.includes('height:90px;'), "fixture matchups must use the approximately 35 percent smaller logo frames");
 assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
-assert(html.includes("metaRow.appendChild(expectedBlock)") && html.includes("while (badges.firstChild) metaRow.appendChild(badges.firstChild)") && !html.includes("sessionDismissedEventIds"), "stakes, tags and status must share the metadata rail while dismissal stays durable");
+const compactNscIndex = html.indexOf("mainDiv.appendChild(buildNothingscoreSummary(ev));");
+const compactEditorialIndex = html.indexOf("const editorialHook = buildEditorialL0Hook", compactNscIndex);
+const compactStakesIndex = html.indexOf('ratingRow.className = "rating-row"', compactEditorialIndex);
+assert(compactNscIndex >= 0 && compactNscIndex < compactEditorialIndex && compactEditorialIndex < compactStakesIndex, "compact fixtures must order the independent NSC strip, sourced editorial and Stakes components");
+assert(html.includes("while (badges.firstChild) metaRow.appendChild(badges.firstChild)") && !html.includes("sessionDismissedEventIds"), "tags and status must retain the compact metadata rail while dismissal stays durable");
 assert(html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && html.includes("}, 1400);"), "likes must retain cards with feedback while dislikes dismiss exact editions");
 assert(html.includes('"Liked — future feed suggestions will adapt."') && html.includes('"Like removed — future feed suggestions will no longer use it."') && html.includes('actionLabel:"Undo"'), "feedback must explain reversible learning and keep dismissal recoverable");
 

@@ -13,6 +13,7 @@ const {
   resolveUserFollowFixtures,
 } = require("../lib/follow-fixture-resolver");
 const { buildArtifact, validatePrivacy } = require("./build-follow-fixtures");
+const { serviceHeaders } = require("./snapshot-active-follows");
 const {
   parseDiamondsArticle,
   parseHockeySchedulePage,
@@ -160,6 +161,15 @@ assert(diamondsEvents.every(event => event.scheduleStatus === "time-tbc"), "unpu
 assert(diamondsEvents.every(event => event.timeTbc === true), "unpublished Diamonds start times must not render as midnight");
 
 const rawKey = Buffer.alloc(32, 7).toString("base64");
+assert.deepEqual(serviceHeaders("sb_secret_modern"), {
+  apikey:"sb_secret_modern",
+  Accept:"application/json",
+}, "modern opaque secrets must never be sent as bearer JWTs");
+assert.deepEqual(serviceHeaders("legacy.service.role"), {
+  apikey:"legacy.service.role",
+  Authorization:"Bearer legacy.service.role",
+  Accept:"application/json",
+}, "legacy service-role JWTs must remain bearer tokens");
 const privatePayload = { schemaVersion:"follow-snapshot.v1", profiles:[{ profileHash:"anonymous", entityFollows:[follow("team:nfl:gb")] }] };
 const envelope = encryptSnapshot(privatePayload, rawKey);
 assert(!JSON.stringify(envelope).includes("team:nfl:gb"), "the temporary server snapshot must be encrypted at rest");

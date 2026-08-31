@@ -18,7 +18,7 @@ async function main(){
   const profiles=new Map([
     [jimId,{user_id:jimId,profile_id:"20000000-0000-4000-8000-000000000002",display_name:"Jim Sample",handle:"jim_sample",visibility:"visible",updated_at:"2026-08-20T00:00:00Z"}],
     [reporterId,{user_id:reporterId,profile_id:"20000000-0000-4000-8000-000000000003",display_name:"Riley Reporter",handle:"riley_reporter",visibility:"visible",updated_at:"2026-08-20T00:00:00Z"}],
-  ]),pilots=new Map(),reports=[{report_id:reportId,reporter_user_id:reporterId,target_user_id:jimId,reason:"offensive",status:"open",created_at:"2026-08-30T00:00:00Z",reviewed_at:null,resolution:null,resolved_at:null}],audits=[];
+  ]),pilots=new Map(),contributions=[],panelState={id:"public",public_enabled:true,retirement_threshold:10,retired_at:null,retired_by:null,updated_at:"2026-08-31T00:00:00Z"},reports=[{report_id:reportId,reporter_user_id:reporterId,target_user_id:jimId,reason:"offensive",status:"open",created_at:"2026-08-30T00:00:00Z",reviewed_at:null,resolution:null,resolved_at:null}],audits=[];
 
   supabase.authenticatedUser=async()=>({id:actorId,app_metadata:{role:"admin"},user_metadata:{role:"viewer"}});
   supabase.supabaseServiceRequest=async(path,options={})=>{
@@ -32,6 +32,11 @@ async function main(){
       if(method==="POST"){const next={...(pilots.get(options.body.user_id)||{}),...options.body};pilots.set(options.body.user_id,next);return[next]}
       const userId=(url.searchParams.get("user_id")||"").replace(/^eq\./,"");return userId?(pilots.has(userId)?[pilots.get(userId)]:[]):[...pilots.values()];
     }
+    if(table==="nothingsports_nsc_contributions")return contributions;
+    if(table==="nothingsports_nsc_early_panel_state"){
+      if(method==="PATCH"){Object.assign(panelState,options.body);return[panelState]}
+      return[panelState];
+    }
     if(table==="nothingsports_nsc_username_reports"){
       if(method==="PATCH"){const id=url.searchParams.get("report_id").replace(/^eq\./,"");const report=reports.find(item=>item.report_id===id);Object.assign(report,options.body);return[]}
       const id=(url.searchParams.get("report_id")||"").replace(/^eq\./,"");const status=(url.searchParams.get("status")||"").replace(/^eq\./,"");return reports.filter(report=>(!id||report.report_id===id)&&(!status||report.status===status));
@@ -40,7 +45,7 @@ async function main(){
     throw new Error(`Unhandled mock request ${method} ${path}`);
   };
   delete require.cache[require.resolve("../lib/admin-moderation")];delete require.cache[require.resolve("../lib/admin-api")];
-  const{usersHandler,reportsHandler}=require("../lib/admin-api");
+  const{usersHandler,reportsHandler,panelHandler}=require("../lib/admin-api");
   try{
     const usersResponse=responseCapture();await usersHandler({method:"GET",headers:{authorization:"Bearer test"},query:{q:"jim"}},usersResponse);
     assert.equal(usersResponse.statusCode,200);assert.equal(usersResponse.body.users.length,1);assert.equal(usersResponse.body.users[0].email,"jim@example.test");assert.equal(Object.hasOwn(usersResponse.body.users[0],"id"),false,"raw Auth IDs must not leave the users API");
@@ -58,6 +63,16 @@ async function main(){
     assert.equal(reviewed.statusCode,200);assert.equal(reports[0].status,"reviewed");assert.deepEqual(pilots.get(jimId),beforePilot,"reviewing a report must not change pilot access");assert.equal(profiles.get(jimId).visibility,beforeVisibility,"reviewing a report must not hide the profile");
     const hidden=responseCapture();await reportsHandler({method:"POST",headers:{authorization:"Bearer test"},body:{action:"hide-profile",reportId,confirm:true}},hidden);
     assert.equal(hidden.statusCode,200);assert.equal(profiles.get(jimId).visibility,"hidden");assert.equal(pilots.get(jimId).approved,true,"profile moderation must remain independent from pilot approval");assert.equal(audits.at(-1).report_id,reportId);
+
+    const panelBefore=responseCapture();await panelHandler({method:"GET",headers:{authorization:"Bearer test"}},panelBefore);
+    assert.equal(panelBefore.statusCode,200);assert.equal(panelBefore.body.activeRealContributors90d,0);assert.equal(panelBefore.body.retirementThreshold,10);assert.equal(panelBefore.body.eligibleToRetire,false);
+    const premature=responseCapture();await panelHandler({method:"POST",headers:{authorization:"Bearer test"},body:{action:"retire-early-panel",confirm:true}},premature);
+    assert.equal(premature.statusCode,409,"the public panel cannot be retired before the genuine-contributor milestone");
+    for(let index=0;index<10;index+=1){const id=`30000000-0000-4000-8000-${String(index).padStart(12,"0")}`;pilots.set(id,{user_id:id,approved:true,suspended:false});contributions.push({user_id:id,phase:"heat",rating:4,submitted_at:"2026-08-30T00:00:00Z",updated_at:"2026-08-30T00:00:00Z"})}
+    const retired=responseCapture();await panelHandler({method:"POST",headers:{authorization:"Bearer test"},body:{action:"retire-early-panel",confirm:true}},retired);
+    assert.equal(retired.statusCode,200);assert.equal(panelState.public_enabled,false);assert.equal(audits.at(-1).action,"retire-early-panel");
+    const restored=responseCapture();await panelHandler({method:"POST",headers:{authorization:"Bearer test"},body:{action:"restore-early-panel",confirm:true}},restored);
+    assert.equal(restored.statusCode,200);assert.equal(panelState.public_enabled,true);assert.equal(audits.at(-1).action,"restore-early-panel");
   }finally{
     supabase.supabaseServiceRequest=originalRequest;supabase.authenticatedUser=originalUser;
   }

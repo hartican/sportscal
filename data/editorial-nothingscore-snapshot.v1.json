@@ -1,6 +1,357 @@
 {
   "schemaVersion": "editorial-nothingscore-snapshot.v1",
-  "capturedAt": "2026-08-30T00:00:00.000Z",
-  "source": "preserved-empty",
-  "signals": []
+  "capturedAt": "2026-08-31T02:32:08.446Z",
+  "source": "supabase-aggregate",
+  "signals": [
+    {
+      "sourceEventId": "evt_78",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_67",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_68",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_69",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_70",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_71",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_72",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_73",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_79",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_74",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "fifa-group-australia-turkiye-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_80",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_75",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "fifa-group-usa-australia-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_76",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_77",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "fifa-group-paraguay-australia-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_0",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "fifa-r32-australia-egypt-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_1",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_8",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_46",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_18",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "fifa-r16-canada-morocco-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "fifa-r16-paraguay-france-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-auger-aliassime-davidovich-fokina-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-djokovic-safiullin-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-gauff-bencic-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-muchova-krejcikova-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-osaka-sabalenka-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-pegula-jovic-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-sinner-mochizuki-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-struff-hurkacz-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_47",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_19",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "fifa-r16-brazil-norway-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "fifa-r16-mexico-england-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "evt_48",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-cobolli-de-minaur-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-fery-dimitrov-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-fritz-bublik-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-kostyuk-krueger-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-mertens-bouzkova-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-noskova-keys-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-paolini-eala-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-r4-zverev-lehecka-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "fifa-r16-portugal-spain-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "fifa-r16-usa-belgium-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-qf-djokovic-auger-aliassime-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    },
+    {
+      "sourceEventId": "wimbledon-qf-gauff-pegula-2026",
+      "anticipation": null,
+      "pulse": null,
+      "impact": null,
+      "capturedAt": "2026-08-31T02:32:08.446Z"
+    }
+  ]
 }

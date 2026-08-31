@@ -532,6 +532,9 @@
         if (status) params.set("status", status);
         return authenticatedRequest(`/api/admin/reports${params.size ? `?${params}` : ""}`);
       },
+      async adminPanelRequest(command = null){
+        return authenticatedRequest("/api/admin/panel", command ? { method:"POST", body:JSON.stringify(command) } : {});
+      },
       async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "" } = {}, command = null){
         if (command){
           return authenticatedRequest("/api/nothingscore", { method:"POST", body:JSON.stringify(command) });

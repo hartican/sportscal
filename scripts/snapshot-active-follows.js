@@ -23,12 +23,21 @@ function activeEntityFollows(preferences){
     .sort((first, second) => first.participantId.localeCompare(second.participantId));
 }
 
-async function fetchProfiles({ fetchImpl = fetch, url = process.env.SUPABASE_URL, key = process.env.SUPABASE_SERVICE_ROLE_KEY } = {}){
+function serviceHeaders(key){
+  const serverKey = String(key || "").trim();
+  const headers = { apikey:serverKey, Accept:"application/json" };
+  if (serverKey && !serverKey.startsWith("sb_secret_")){
+    headers.Authorization = `Bearer ${serverKey}`;
+  }
+  return headers;
+}
+
+async function fetchProfiles({ fetchImpl = fetch, url = process.env.SUPABASE_URL, key = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY } = {}){
   const baseUrl = cleanBaseUrl(url);
-  if (!baseUrl || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required for the server-only follow snapshot");
+  if (!baseUrl || !key) throw new Error("SUPABASE_URL and a Supabase server secret are required for the server-only follow snapshot");
   const endpoint = `${baseUrl}/rest/v1/nothingsports_user_state?select=user_id,preferences&order=updated_at.asc`;
   const response = await fetchImpl(endpoint, {
-    headers:{ apikey:key, Authorization:`Bearer ${key}`, Accept:"application/json" },
+    headers:serviceHeaders(key),
   });
   const body = await response.text();
   if (!response.ok) throw new Error(`Supabase follow snapshot failed (${response.status})`);
@@ -71,4 +80,4 @@ if (require.main === module){
   });
 }
 
-module.exports = { activeEntityFollows, anonymisedProfileId, fetchProfiles };
+module.exports = { activeEntityFollows, anonymisedProfileId, fetchProfiles, serviceHeaders };

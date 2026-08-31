@@ -312,6 +312,7 @@ module.exports = async function commsHandler(request, response){
   const mode = clean(request?.query?.mode, 40);
   if (mode === "admin-users") return adminApi.usersHandler(request, response);
   if (mode === "admin-reports") return adminApi.reportsHandler(request, response);
+  if (mode === "admin-panel") return adminApi.panelHandler(request, response);
   privateHeaders(response);
   try{
     if (!["GET", "POST"].includes(request.method || "GET")){ response.setHeader("Allow", "GET, POST"); response.status(405).json({ error:"Comms supports GET and POST only.", code:"method_not_allowed" }); return; }
