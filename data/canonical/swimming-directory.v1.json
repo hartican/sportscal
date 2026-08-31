@@ -1,7 +1,7 @@
 {
   "schemaVersion": "individual-sport-directory.v1",
   "sportKey": "swimming",
-  "generatedAt": "2026-08-30T22:45:44.9909688Z",
+  "generatedAt": "2026-08-31T05:55:12.7285195Z",
   "source": {
     "publisher": "World Aquatics",
     "url": "https://www.worldaquatics.com/swimming/rankings",
@@ -223,7 +223,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 106,
+          "rank": 110,
           "aquaPoints": 836,
           "time": "1:59.11",
           "resultDate": "2026-05-01T00:00:00",
@@ -338,7 +338,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 116,
+          "rank": 117,
           "aquaPoints": 835,
           "time": "54.91",
           "resultDate": "2026-01-17T00:00:00",
@@ -413,7 +413,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 7,
+          "rank": 10,
           "aquaPoints": 941,
           "time": "24.09",
           "resultDate": "2026-07-05T00:00:00",
@@ -437,11 +437,11 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 14,
-          "aquaPoints": 905,
-          "time": "1:56.02",
-          "resultDate": "2026-06-26T00:00:00",
-          "eventName": "62nd Internazionali d'Italia Sette Colli 2026 (50m)"
+          "rank": 7,
+          "aquaPoints": 938,
+          "time": "1:54.65",
+          "resultDate": "2026-08-13T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
         },
         {
           "disciplineId": "92843db8-085a-4e5c-9482-32ba3e87b663",
@@ -523,7 +523,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 22,
+          "rank": 24,
           "aquaPoints": 892,
           "time": "1:56.57",
           "resultDate": "2026-05-01T00:00:00",
@@ -574,7 +574,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 6,
+          "rank": 8,
           "aquaPoints": 946,
           "time": "24.05",
           "resultDate": "2026-08-01T00:00:00",
@@ -586,7 +586,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 6,
+          "rank": 8,
           "aquaPoints": 928,
           "time": "1:55.05",
           "resultDate": "2026-07-29T00:00:00",
@@ -697,7 +697,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 69,
+          "rank": 72,
           "aquaPoints": 856,
           "time": "54.44",
           "resultDate": "2026-06-12T00:00:00",
@@ -771,7 +771,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 60,
+          "rank": 61,
           "aquaPoints": 853,
           "time": "24.89",
           "resultDate": "2026-04-07T00:00:00",
@@ -872,7 +872,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 29,
+          "rank": 32,
           "aquaPoints": 883,
           "time": "1:56.94",
           "resultDate": "2026-03-06T00:00:00",
@@ -1045,7 +1045,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 18,
+          "rank": 21,
           "aquaPoints": 906,
           "time": "53.43",
           "resultDate": "2026-06-18T00:00:00",
@@ -1129,14 +1129,49 @@
           "distance": 50,
           "poolConfiguration": "LCM",
           "rank": 3,
-          "aquaPoints": 968,
-          "time": "23.86",
-          "resultDate": "2026-06-28T00:00:00",
-          "eventName": "62nd Internazionali d'Italia Sette Colli 2026 (50m)"
+          "aquaPoints": 972,
+          "time": "23.83",
+          "resultDate": "2026-08-14T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
         }
       ],
-      "bestAquaPoints": 968,
+      "bestAquaPoints": 972,
       "ranking": 13,
+      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
+    },
+    {
+      "id": "athlete:swimming:d5cb8e16-7299-48a9-b06f-a2094c773cec",
+      "displayName": "Katarzyna Wasick",
+      "aliases": [
+        "WASICK Katarzyna"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "genderCategory": "female",
+      "countryCode": "POL",
+      "countryBasis": "official-world-aquatics-ranking",
+      "identityId": "athlete:swimming:d5cb8e16-7299-48a9-b06f-a2094c773cec",
+      "leagueId": "competition:world-aquatics-swimming",
+      "sourceRefs": [
+        "https://www.worldaquatics.com/swimming/rankings",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
+      ],
+      "eventRanks": [
+        {
+          "disciplineId": "0c83f9af-cff0-4493-99f3-073423fa760a",
+          "disciplineName": "Women's 50m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 50,
+          "poolConfiguration": "LCM",
+          "rank": 4,
+          "aquaPoints": 971,
+          "time": "23.84",
+          "resultDate": "2026-08-15T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        }
+      ],
+      "bestAquaPoints": 971,
+      "ranking": 14,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1184,7 +1219,7 @@
         }
       ],
       "bestAquaPoints": 966,
-      "ranking": 14,
+      "ranking": 15,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1213,7 +1248,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 4,
+          "rank": 5,
           "aquaPoints": 965,
           "time": "23.89",
           "resultDate": "2026-08-15T00:00:00",
@@ -1237,7 +1272,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 42,
+          "rank": 46,
           "aquaPoints": 875,
           "time": "1:57.30",
           "resultDate": "2026-06-10T00:00:00",
@@ -1245,7 +1280,7 @@
         }
       ],
       "bestAquaPoints": 965,
-      "ranking": 15,
+      "ranking": 16,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1299,7 +1334,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 13,
+          "rank": 14,
           "aquaPoints": 912,
           "time": "24.34",
           "resultDate": "2026-04-11T00:00:00",
@@ -1319,7 +1354,7 @@
         }
       ],
       "bestAquaPoints": 963,
-      "ranking": 16,
+      "ranking": 17,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1380,7 +1415,7 @@
         }
       ],
       "bestAquaPoints": 962,
-      "ranking": 17,
+      "ranking": 18,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1434,7 +1469,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 187,
+          "rank": 190,
           "aquaPoints": 811,
           "time": "55.44",
           "resultDate": "2026-03-04T00:00:00",
@@ -1446,7 +1481,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 144,
+          "rank": 145,
           "aquaPoints": 806,
           "time": "25.36",
           "resultDate": "2026-08-01T00:00:00",
@@ -1454,7 +1489,7 @@
         }
       ],
       "bestAquaPoints": 959,
-      "ranking": 18,
+      "ranking": 19,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1495,7 +1530,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 31,
+          "rank": 33,
           "aquaPoints": 875,
           "time": "24.68",
           "resultDate": "2026-07-01T00:00:00",
@@ -1507,7 +1542,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 43,
+          "rank": 49,
           "aquaPoints": 870,
           "time": "54.15",
           "resultDate": "2026-06-27T00:00:00",
@@ -1515,7 +1550,7 @@
         }
       ],
       "bestAquaPoints": 958,
-      "ranking": 19,
+      "ranking": 20,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1584,7 +1619,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 68,
+          "rank": 72,
           "aquaPoints": 856,
           "time": "1:58.20",
           "resultDate": "2026-08-12T00:00:00",
@@ -1628,7 +1663,68 @@
         }
       ],
       "bestAquaPoints": 954,
-      "ranking": 20,
+      "ranking": 21,
+      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
+    },
+    {
+      "id": "athlete:swimming:9aa89358-d8bf-4d72-9edd-5682133d972d",
+      "displayName": "Sara Curtis",
+      "aliases": [
+        "CURTIS Sara"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "genderCategory": "female",
+      "countryCode": "ITA",
+      "countryBasis": "official-world-aquatics-ranking",
+      "identityId": "athlete:swimming:9aa89358-d8bf-4d72-9edd-5682133d972d",
+      "leagueId": "competition:world-aquatics-swimming",
+      "sourceRefs": [
+        "https://www.worldaquatics.com/swimming/rankings",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
+      ],
+      "eventRanks": [
+        {
+          "disciplineId": "0c83f9af-cff0-4493-99f3-073423fa760a",
+          "disciplineName": "Women's 50m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 50,
+          "poolConfiguration": "LCM",
+          "rank": 6,
+          "aquaPoints": 953,
+          "time": "23.99",
+          "resultDate": "2026-08-15T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        },
+        {
+          "disciplineId": "873a81be-6b94-4cfc-85c4-ab7ddb0898cf",
+          "disciplineName": "Women's 100m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 100,
+          "poolConfiguration": "LCM",
+          "rank": 8,
+          "aquaPoints": 945,
+          "time": "52.69",
+          "resultDate": "2026-06-27T00:00:00",
+          "eventName": "62nd Internazionali d'Italia Sette Colli 2026 (50m)"
+        },
+        {
+          "disciplineId": "876046b7-6373-4ca8-aa6b-59f690accfcc",
+          "disciplineName": "Women's 100m Backstroke",
+          "stroke": "BACKSTROKE",
+          "distance": 100,
+          "poolConfiguration": "LCM",
+          "rank": 9,
+          "aquaPoints": 934,
+          "time": "58.43",
+          "resultDate": "2026-08-16T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        }
+      ],
+      "bestAquaPoints": 953,
+      "ranking": 22,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1656,7 +1752,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 5,
+          "rank": 7,
           "aquaPoints": 949,
           "time": "24.02",
           "resultDate": "2026-06-20T00:00:00",
@@ -1668,7 +1764,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 23,
+          "rank": 28,
           "aquaPoints": 897,
           "time": "53.61",
           "resultDate": "2026-06-18T00:00:00",
@@ -1676,7 +1772,7 @@
         }
       ],
       "bestAquaPoints": 949,
-      "ranking": 21,
+      "ranking": 23,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1711,7 +1807,7 @@
         }
       ],
       "bestAquaPoints": 946,
-      "ranking": 22,
+      "ranking": 24,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1766,7 +1862,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 29,
+          "rank": 31,
           "aquaPoints": 877,
           "time": "24.66",
           "resultDate": "2026-06-19T00:00:00",
@@ -1778,7 +1874,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 64,
+          "rank": 67,
           "aquaPoints": 858,
           "time": "54.40",
           "resultDate": "2026-04-30T00:00:00",
@@ -1798,7 +1894,7 @@
         }
       ],
       "bestAquaPoints": 945,
-      "ranking": 23,
+      "ranking": 25,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1856,7 +1952,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 38,
+          "rank": 43,
           "aquaPoints": 877,
           "time": "54.02",
           "resultDate": "2026-04-14T00:00:00",
@@ -1924,27 +2020,100 @@
         }
       ],
       "bestAquaPoints": 945,
-      "ranking": 24,
+      "ranking": 26,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
-      "id": "athlete:swimming:9aa89358-d8bf-4d72-9edd-5682133d972d",
-      "displayName": "Sara Curtis",
+      "id": "athlete:swimming:22808291-2ff4-48b5-a691-31485022bbd2",
+      "displayName": "Barbora Seemanova",
       "aliases": [
-        "CURTIS Sara"
+        "SEEMANOVA Barbora"
       ],
       "active": true,
       "entityType": "athlete",
       "genderCategory": "female",
-      "countryCode": "ITA",
+      "countryCode": "CZE",
       "countryBasis": "official-world-aquatics-ranking",
-      "identityId": "athlete:swimming:9aa89358-d8bf-4d72-9edd-5682133d972d",
+      "identityId": "athlete:swimming:22808291-2ff4-48b5-a691-31485022bbd2",
+      "leagueId": "competition:world-aquatics-swimming",
+      "sourceRefs": [
+        "https://www.worldaquatics.com/swimming/rankings",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=400&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026"
+      ],
+      "eventRanks": [
+        {
+          "disciplineId": "ede12060-c16e-4a7f-9d8b-b86fa1e50652",
+          "disciplineName": "Women's 200m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 200,
+          "poolConfiguration": "LCM",
+          "rank": 6,
+          "aquaPoints": 944,
+          "time": "1:54.38",
+          "resultDate": "2026-08-13T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        },
+        {
+          "disciplineId": "873a81be-6b94-4cfc-85c4-ab7ddb0898cf",
+          "disciplineName": "Women's 100m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 100,
+          "poolConfiguration": "LCM",
+          "rank": 24,
+          "aquaPoints": 901,
+          "time": "53.52",
+          "resultDate": "2026-08-10T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        },
+        {
+          "disciplineId": "0e48c4a7-d3cc-43a2-bd50-c50aae90e97c",
+          "disciplineName": "Women's 100m Butterfly",
+          "stroke": "BUTTERFLY",
+          "distance": 100,
+          "poolConfiguration": "LCM",
+          "rank": 18,
+          "aquaPoints": 859,
+          "time": "57.43",
+          "resultDate": "2026-08-13T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        },
+        {
+          "disciplineId": "70a98a54-1928-4164-886e-7a419e816f1e",
+          "disciplineName": "Women's 400m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 400,
+          "poolConfiguration": "LCM",
+          "rank": 37,
+          "aquaPoints": 840,
+          "time": "4:08.16",
+          "resultDate": "2026-08-16T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        }
+      ],
+      "bestAquaPoints": 944,
+      "ranking": 27,
+      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
+    },
+    {
+      "id": "athlete:swimming:832c32de-f44d-46ce-8449-6f9eda36aad2",
+      "displayName": "Milou Van Wijk",
+      "aliases": [
+        "VAN WIJK Milou"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "genderCategory": "female",
+      "countryCode": "NED",
+      "countryBasis": "official-world-aquatics-ranking",
+      "identityId": "athlete:swimming:832c32de-f44d-46ce-8449-6f9eda36aad2",
       "leagueId": "competition:world-aquatics-swimming",
       "sourceRefs": [
         "https://www.worldaquatics.com/swimming/rankings",
         "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026"
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
       ],
       "eventRanks": [
         {
@@ -1953,11 +2122,11 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 8,
-          "aquaPoints": 945,
-          "time": "52.69",
-          "resultDate": "2026-06-27T00:00:00",
-          "eventName": "62nd Internazionali d'Italia Sette Colli 2026 (50m)"
+          "rank": 9,
+          "aquaPoints": 944,
+          "time": "52.71",
+          "resultDate": "2026-08-11T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
         },
         {
           "disciplineId": "0c83f9af-cff0-4493-99f3-073423fa760a",
@@ -1965,27 +2134,15 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 7,
-          "aquaPoints": 941,
-          "time": "24.09",
-          "resultDate": "2026-06-28T00:00:00",
-          "eventName": "62nd Internazionali d'Italia Sette Colli 2026 (50m)"
-        },
-        {
-          "disciplineId": "876046b7-6373-4ca8-aa6b-59f690accfcc",
-          "disciplineName": "Women's 100m Backstroke",
-          "stroke": "BACKSTROKE",
-          "distance": 100,
-          "poolConfiguration": "LCM",
           "rank": 9,
-          "aquaPoints": 934,
-          "time": "58.43",
-          "resultDate": "2026-08-16T00:00:00",
+          "aquaPoints": 943,
+          "time": "24.07",
+          "resultDate": "2026-08-14T00:00:00",
           "eventName": "2026 European Aquatics Championships (50m)"
         }
       ],
-      "bestAquaPoints": 945,
-      "ranking": 25,
+      "bestAquaPoints": 944,
+      "ranking": 28,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2028,7 +2185,7 @@
           "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 37,
+          "rank": 41,
           "aquaPoints": 877,
           "time": "1:57.23",
           "resultDate": "2026-03-14T00:00:00",
@@ -2052,7 +2209,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 85,
+          "rank": 88,
           "aquaPoints": 848,
           "time": "54.61",
           "resultDate": "2026-04-14T00:00:00",
@@ -2072,7 +2229,7 @@
         }
       ],
       "bestAquaPoints": 943,
-      "ranking": 26,
+      "ranking": 29,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2120,176 +2277,6 @@
         }
       ],
       "bestAquaPoints": 942,
-      "ranking": 27,
-      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
-    },
-    {
-      "id": "athlete:swimming:807bbc03-4322-4b07-b59a-0faf43ac7791",
-      "displayName": "Qianting Tang",
-      "aliases": [
-        "TANG Qianting"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "genderCategory": "female",
-      "countryCode": "CHN",
-      "countryBasis": "official-world-aquatics-ranking",
-      "identityId": "athlete:swimming:807bbc03-4322-4b07-b59a-0faf43ac7791",
-      "leagueId": "competition:world-aquatics-swimming",
-      "sourceRefs": [
-        "https://www.worldaquatics.com/swimming/rankings",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026"
-      ],
-      "eventRanks": [
-        {
-          "disciplineId": "74a4e236-13d1-47a8-b538-541dc8792ae4",
-          "disciplineName": "Women's 100m Breaststroke",
-          "stroke": "BREASTSTROKE",
-          "distance": 100,
-          "poolConfiguration": "LCM",
-          "rank": 4,
-          "aquaPoints": 940,
-          "time": "1:05.46",
-          "resultDate": "2026-08-13T00:00:00",
-          "eventName": "2026 Pan Pacific Swimming Championships (50m)"
-        }
-      ],
-      "bestAquaPoints": 940,
-      "ranking": 28,
-      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
-    },
-    {
-      "id": "athlete:swimming:9735b9ab-d13f-41d9-b568-41f3b6aba5e1",
-      "displayName": "Taylor Ruck",
-      "aliases": [
-        "RUCK Taylor"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "genderCategory": "female",
-      "countryCode": "CAN",
-      "countryBasis": "official-world-aquatics-ranking",
-      "identityId": "athlete:swimming:9735b9ab-d13f-41d9-b568-41f3b6aba5e1",
-      "leagueId": "competition:world-aquatics-swimming",
-      "sourceRefs": [
-        "https://www.worldaquatics.com/swimming/rankings",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BUTTERFLY&timesMode=BEST_TIMES&year=2026"
-      ],
-      "eventRanks": [
-        {
-          "disciplineId": "876046b7-6373-4ca8-aa6b-59f690accfcc",
-          "disciplineName": "Women's 100m Backstroke",
-          "stroke": "BACKSTROKE",
-          "distance": 100,
-          "poolConfiguration": "LCM",
-          "rank": 8,
-          "aquaPoints": 937,
-          "time": "58.37",
-          "resultDate": "2026-07-05T00:00:00",
-          "eventName": "2026 Canadian Swimming Trials (50m)"
-        },
-        {
-          "disciplineId": "0c83f9af-cff0-4493-99f3-073423fa760a",
-          "disciplineName": "Women's 50m Freestyle",
-          "stroke": "FREESTYLE",
-          "distance": 50,
-          "poolConfiguration": "LCM",
-          "rank": 9,
-          "aquaPoints": 925,
-          "time": "24.23",
-          "resultDate": "2026-08-15T00:00:00",
-          "eventName": "2026 Pan Pacific Swimming Championships (50m)"
-        },
-        {
-          "disciplineId": "873a81be-6b94-4cfc-85c4-ab7ddb0898cf",
-          "disciplineName": "Women's 100m Freestyle",
-          "stroke": "FREESTYLE",
-          "distance": 100,
-          "poolConfiguration": "LCM",
-          "rank": 14,
-          "aquaPoints": 925,
-          "time": "53.06",
-          "resultDate": "2026-07-06T00:00:00",
-          "eventName": "2026 Canadian Swimming Trials (50m)"
-        },
-        {
-          "disciplineId": "0e48c4a7-d3cc-43a2-bd50-c50aae90e97c",
-          "disciplineName": "Women's 100m Butterfly",
-          "stroke": "BUTTERFLY",
-          "distance": 100,
-          "poolConfiguration": "LCM",
-          "rank": 8,
-          "aquaPoints": 892,
-          "time": "56.71",
-          "resultDate": "2026-08-14T00:00:00",
-          "eventName": "2026 Pan Pacific Swimming Championships (50m)"
-        },
-        {
-          "disciplineId": "ede12060-c16e-4a7f-9d8b-b86fa1e50652",
-          "disciplineName": "Women's 200m Freestyle",
-          "stroke": "FREESTYLE",
-          "distance": 200,
-          "poolConfiguration": "LCM",
-          "rank": 182,
-          "aquaPoints": 808,
-          "time": "2:00.48",
-          "resultDate": "2026-05-20T00:00:00",
-          "eventName": "2026 TYR Pro Swim Series - Sacramento (Time Trials) (50m)"
-        }
-      ],
-      "bestAquaPoints": 937,
-      "ranking": 29,
-      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
-    },
-    {
-      "id": "athlete:swimming:0f88fc56-4655-4ded-bade-472b66ff410c",
-      "displayName": "Satomi Suzuki",
-      "aliases": [
-        "SUZUKI Satomi"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "genderCategory": "female",
-      "countryCode": "JPN",
-      "countryBasis": "official-world-aquatics-ranking",
-      "identityId": "athlete:swimming:0f88fc56-4655-4ded-bade-472b66ff410c",
-      "leagueId": "competition:world-aquatics-swimming",
-      "sourceRefs": [
-        "https://www.worldaquatics.com/swimming/rankings",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026"
-      ],
-      "eventRanks": [
-        {
-          "disciplineId": "74a4e236-13d1-47a8-b538-541dc8792ae4",
-          "disciplineName": "Women's 100m Breaststroke",
-          "stroke": "BREASTSTROKE",
-          "distance": 100,
-          "poolConfiguration": "LCM",
-          "rank": 5,
-          "aquaPoints": 934,
-          "time": "1:05.60",
-          "resultDate": "2026-03-20T00:00:00",
-          "eventName": "2026 Japan Swim (50m)"
-        },
-        {
-          "disciplineId": "7e030701-5157-47d1-b25a-ca32c41deaec",
-          "disciplineName": "Women's 200m Breaststroke",
-          "stroke": "BREASTSTROKE",
-          "distance": 200,
-          "poolConfiguration": "LCM",
-          "rank": 15,
-          "aquaPoints": 870,
-          "time": "2:24.06",
-          "resultDate": "2026-08-15T00:00:00",
-          "eventName": "2026 Pan Pacific Swimming Championships (50m)"
-        }
-      ],
-      "bestAquaPoints": 934,
       "ranking": 30,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },

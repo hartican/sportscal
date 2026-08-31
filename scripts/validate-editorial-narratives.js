@@ -115,10 +115,10 @@ assert(eventSchema.$defs.editorialNarrative.properties.schemaVersion.enum.includ
 assert(majorSchema.$defs.event.properties.editorialNarrative, "the major-event schema must publish the event editorial projection contract");
 
 const html = fs.readFileSync("index.html", "utf8");
-assert.match(html, /mainDiv\.appendChild\(buildNothingscoreSummary\(ev\)\)[^]*state === "compact"[^]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(ev\), editorialConsequenceForDisplay\(ev\), \{ supplementalCopy:crowdEditorialSupplement\(socialSnapshot\) \}\)/, "Feed cards must render deterministic NSC statistics independently before every validated sourced editorial box");
-assert.match(html, /function buildIndependentContext\(record, state, snapshot[^)]*\)[^]*editorialNarrativeCopyForDisplay\(record, state\)[^]*labelText:"Independent context"/, "expanded Feed and Events cards must keep validated sourced editorial in the independent-context box");
-assert.match(html, /editorialNarrativeCopyForDisplay\(record, state\)/, "selected and opened Major Events cards must render their validated editorial copy");
-assert.match(html, /identity\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\)[^]*state === "compact"[^]*buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(record\), editorialConsequenceForDisplay\(record\), \{ supplementalCopy:crowdEditorialSupplement\(socialSnapshot\) \}\)/, "major-event cards must render NSC statistics and validated editorial as independent compact components");
+assert.match(html, /const whyItMatters = buildEventWhyItMatters\(ev\);[^]*if \(whyItMatters\) mainDiv\.appendChild\(whyItMatters\);[^]*mainDiv\.appendChild\(buildEventNothingscoreAction\(ev\)\);/, "Feed cards must place the contribution action directly beneath validated Why it matters copy");
+assert.doesNotMatch(html, /labelText:"Independent context"/, "expanded cards must not repeat editorial in a second metadata box");
+assert.doesNotMatch(html, /editorialNarrativeCopyForDisplay\(/, "selected and opened cards must not repeat a second synopsis block beneath Why it matters");
+assert.match(html, /const whyItMatters = buildEventWhyItMatters\(record\);[^]*if \(whyItMatters\) identity\.appendChild\(whyItMatters\);[^]*identity\.appendChild\(buildEventNothingscoreAction\(crowdEvent\)\);/, "major-event cards must place the contribution action directly beneath validated Why it matters copy");
 assert.match(html, /completed && isSpoilerVisible\(record\)[^]*spoilerOnSentence[^]*previewSentence/, "completed spoiler-on cards must prefer sourced result consequences while spoiler-off retains preview copy");
 assert.doesNotMatch(html, /buildEditorialL0Hook\((?:selectedSentenceForDisplay\(ev\)|record\.summary)/, "schedule and structural fallback copy must never be relabelled Why it matters");
 assert.match(html, /editorial-l0-hook-label[^]*Why it matters/, "L0 hooks need a visible editorial label");

@@ -82,6 +82,7 @@ assert.equal(familyOnly.events.length, 1, "an Event family follow must surface i
 
 const collectionIndex = {
   "collection:tennis:all-time-greats": { memberIds:["athlete:tennis:roger-federer"] },
+  "collection:tennis:mens-top-10": { memberIds:["competitor:tennis:atp:carlos-alcaraz"] },
 };
 let preferences = followFirst.migratePreferences({ preferenceGraph:{ profileId:"profile:test", entityFollows:[] } });
 assert.deepEqual(preferences.followFirst.collectionFollows, []);
@@ -90,6 +91,17 @@ preferences = followFirst.setCollectionFollow(preferences, "collection:tennis:al
 assert.equal(
   followFirst.effectiveParticipantFollow("athlete:tennis:roger-federer", preferences, collectionIndex).source,
   "collection"
+);
+preferences = followFirst.setCollectionFollow(preferences, "collection:tennis:mens-top-10", true);
+assert.equal(
+  followFirst.effectiveParticipantFollow("athlete:tennis:carlos-alcaraz", preferences, collectionIndex).source,
+  "collection",
+  "an ATP/WTA collection identity must follow the matching official athlete fixture identity"
+);
+assert.equal(
+  followFirst.reasonForEvent({ participantIds:["athlete:tennis:roman-safiullin", "athlete:tennis:carlos-alcaraz"] }, preferences, { collectionsById:collectionIndex })?.type,
+  "collection",
+  "Events must recognise inherited top-10 follows across the official athlete identity alias"
 );
 preferences.preferenceGraph.entityFollows.push({ profileId:"profile:test", participantId:"athlete:tennis:roger-federer", followLevel:"mute" });
 assert.equal(
@@ -131,6 +143,9 @@ assert.equal(tennisDirectory.collections.find(item => item.id === "collection:te
 assert.equal(tennisDirectory.collections.find(item => item.id === "collection:tennis:womens-top-10").memberIds.length, 10);
 
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
+assert(html.includes('config/follow-first.js?v=204') && worker.includes('"/config/follow-first.js?v=204"'), "the hierarchical follow runtime must use the current app-shell URL so installed updates cannot retain stale collection identity rules");
+assert(/ensureFollowCollectionDirectories\(userPreferences\)\.then\(\(\) => \{[\s\S]{0,500}renderAll\(\{ preserveViewport:true \}\)/.test(html), "saved collection follows must automatically re-render Feed and Events when their lazy directory becomes available");
 assert(html.includes("activeMajorEventNowId") && html.includes("events-now-marker"), "Events must keep one active card-local Now marker");
 assert(html.includes("Follow Event") && html.includes("Unfollow Event"), "Event cards must expose family follow controls");
 assert(html.includes("renderTennisFollowCollections"), "Sports & Australia must expose expandable Tennis collections");

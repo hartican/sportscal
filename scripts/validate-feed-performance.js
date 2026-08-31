@@ -13,7 +13,8 @@ const AUDIT_PATH = path.join(ROOT, "data/coverage/feed-performance-audit.json");
 
 function localScriptPaths(html){
   return Array.from(html.matchAll(/<script[^>]+src="([^"]+)"/g), match => match[1])
-    .filter(source => !/^https?:/i.test(source));
+    .filter(source => !/^https?:/i.test(source))
+    .map(source => source.split(/[?#]/, 1)[0]);
 }
 
 function readAtRef(ref, filePath){

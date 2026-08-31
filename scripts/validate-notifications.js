@@ -111,6 +111,12 @@ async function main(){
   assert(html.includes("Background notifications") && !html.includes("Local reminder—keep Nothing Sport open"), "notification copy must describe background delivery honestly");
   assert(worker.includes("new URL(targetUrl, self.location.origin)"), "notification taps must resolve an origin-safe event URL");
   assert(migration.includes("claimed_at timestamptz") && migration.includes("grant select, insert, update, delete"), "the database update must add claims and retain service-role grants");
+  assert.match(migration, /delivery_mode text not null default 'match-15'/i, "reminders must persist whether they target match, broadcast, or session timing");
+  assert.match(migration, /create table if not exists public\.nothingsports_notification_dispatch_health/i, "dispatcher health must be queryable from one server-only row");
+  assert.match(migration, /create table if not exists public\.nothingsports_notification_tests/i, "test notifications must retain sent and received diagnostics");
+  assert.match(worker, /nothingsport-notification-received[\s\S]{0,500}testId/, "the service worker must acknowledge a displayed test to an open client when possible");
+  assert.match(html, /action:"status"[\s\S]{0,800}action:"test"/, "Settings must expose live reminder status and a real system-notification test");
+  assert.match(html, /timePrecision === "follows"[\s\S]{0,400}deliveryMode:"session-start"/, "follows-only fixtures must schedule against the official session start without inventing match time");
   [migration, installationMigration].forEach(source => {
     assert.match(source, /chat_alerts_enabled boolean not null default true/i, "chat alerts must default on per installation");
     assert.match(source, /badges_enabled boolean not null default true/i, "unread app badges must default on per installation");
@@ -188,6 +194,7 @@ async function main(){
       eventId:"event:fanout",
       title:"Fan-out final",
       startsAt,
+      deliveryMode:"match-15",
       viewingUrl:"https://nothingsport.vercel.app/?event=event%3Afanout",
     });
     assert.equal(response.statusCode, 200);
@@ -197,6 +204,23 @@ async function main(){
     const newDevice = writes.find(call => call.options.body.installation_id === secondInstallationId).options.body;
     assert(!Object.prototype.hasOwnProperty.call(unchanged, "dispatched_at"), "unchanged sporting starts must preserve delivery state");
     assert.equal(newDevice.dispatched_at, null, "a newly scheduled installation must start undispatched");
+    assert.equal(newDevice.delivery_mode, "match-15");
+
+    serviceCalls.length = 0;
+    const sessionResponse = await notificationApi.run({
+      action:"remind",
+      installationId,
+      secret,
+      eventId:"event:session-follows",
+      title:"Session-relative match",
+      startsAt,
+      deliveryMode:"session-start",
+    });
+    assert.equal(sessionResponse.statusCode, 200);
+    assert.equal(sessionResponse.payload.leadMinutes, 0);
+    const sessionWrite = serviceCalls.find(call => call.path.startsWith("/rest/v1/nothingsports_reminders?on_conflict=")).options.body;
+    assert.equal(sessionWrite.remind_at, startsAt, "a follows-only reminder must fire at the exact official session start");
+    assert.equal(sessionWrite.delivery_mode, "session-start");
 
     serviceCalls.length = 0;
     const cancelled = await notificationApi.run({ action:"cancel", installationId, secret, eventId:"event:fanout" });
@@ -215,6 +239,7 @@ async function main(){
     remind_at:new Date(Date.now() - 1000).toISOString(),
     claimed_at:null,
     attempts:0,
+    delivery_mode:"session-start",
   };
   const installation = {
     installation_id:installationId,
@@ -224,6 +249,7 @@ async function main(){
     timezone:"Australia/Sydney",
   };
   let sends = 0;
+  const dispatchedPayloads = [];
   let claimAllowed = true;
   const dispatchCalls = [];
   const dispatchService = async (path, options = {}) => {
@@ -233,12 +259,13 @@ async function main(){
     if (path.includes("nothingsports_push_installations?installation_id=in.")) return [installation];
     return null;
   };
-  const dispatcher = await dispatchHarness({ serviceRequest:dispatchService, sendNotification:async () => { sends += 1; } });
+  const dispatcher = await dispatchHarness({ serviceRequest:dispatchService, sendNotification:async (_subscription, payload) => { sends += 1; dispatchedPayloads.push(JSON.parse(payload)); } });
   try{
     let response = await dispatcher.run();
     assert.equal(response.statusCode, 200);
     assert.equal(sends, 1);
     assert.equal(response.payload.claimed, 1);
+    assert.equal(dispatchedPayloads[0].title, "Session starts now: Claimed final");
     assert(dispatchCalls.some(call => call.options.method === "PATCH" && call.path.includes("claimed_at.is.null")), "dispatch must atomically claim a due row before sending");
 
     claimAllowed = false;

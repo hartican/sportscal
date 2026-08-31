@@ -66,11 +66,11 @@ assert(!/name:\s*"Heat"|Heat can help/.test(html));
 assert(!/Heat blended/.test(enrichment));
 assert.match(html, /name:"How do you think it’ll go\?"/);
 assert.match(internalNothingscore, /PHASES = Object\.freeze\(\["heat",\s*"pulse",\s*"impact"\]\)/, "internal nothingscore.v1 phase must remain heat");
-assert.match(html, /label\.textContent = "Sentiment"/, "privacy-safe Sentiment memory may remain available to non-card NSC surfaces");
+assert.doesNotMatch(html, /label\.textContent = "Sentiment"/, "privacy-safe Sentiment memory must remain stored but invisible while the crowd-results structure is being refined");
 assert.doesNotMatch(html, /if \(state !== "compact"\)[\s\S]{0,240}buildEditorialSentiment\(ev\)/, "NSC aggregate Sentiment must not appear on event cards");
 assert.doesNotMatch(html, /buildEditorialSentiment\(record\)[\s\S]{0,120}identity\.appendChild\(sentiment\)/, "NSC aggregate Sentiment must not appear on major-event cards");
 assert.match(html, /Editorial standards/);
 assert(!html.includes("Official sources"), "research citations must stay out of cards");
 assert(!html.includes('script src="scripts/snapshot-editorial-nothingscore.js"'), "server aggregate work must add no startup request");
 
-console.log("Editorial Sentiment valid: aggregate-only snapshot, three-contributor threshold, explicit one-chapter carry, expiry, L1 display and internal heat compatibility passed.");
+console.log("Editorial Sentiment valid: aggregate-only snapshot, three-contributor threshold, explicit one-chapter carry, expiry, hidden presentation and internal heat compatibility passed.");

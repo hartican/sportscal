@@ -134,10 +134,10 @@ assert.equal(fs.existsSync("config/nsc-demo-panel.js"),false,"modelled panel def
 assert.equal(fs.existsSync("lib/nsc-modelled-panel.js"),false,"modelled panel definitions must not remain in the public static library directory");
 assert(fs.existsSync("api/_nsc-modelled-panel.js"),"the model must use Vercel's underscore-prefixed private API utility convention");
 assert.match(serverSource,/Early panel · includes modelled responses\./);
-assert.match(html,/Independent context/);
+assert.doesNotMatch(html,/Independent context/);
 assert.doesNotMatch(html,/nsc-demo-badge|>Demo</,"modelled personas must never appear as named public contributors");
 assert.match(html,/dataset\.modelledExposure/);
-assert.match(html,/loadDeferredScript\("config\/nsc-visual\.js\?v=199"\)/,"the graph renderer must stay off the critical startup path");
+assert.match(html,/loadDeferredScript\("config\/nsc-visual\.js\?v=204"\)/,"the graph renderer must stay off the critical startup path");
 assert.match(visualSource,/createElementNS\("http:\/\/www\.w3\.org\/2000\/svg"/);
 assert.match(visualSource,/Accessible data for/);
 assert.match(visualSource,/Community responses/);

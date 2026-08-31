@@ -6,11 +6,16 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const { buildServerFeed } = require("../lib/server-feed-pipeline");
 const { resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
+const followFeedPolicy = require("../config/follow-feed-policy");
+const majorEventsConfig = require("../config/major-events");
+const majorEventsDocument = require("../data/major-events.v1.json");
+const tennisWatchPool = require("../data/canonical/tennis-watch-pool-2026.json");
 
 const LIVERPOOL_ID = "event:premier-league:128939";
 const LIVERPOOL_TEAM_ID = "team:football:epl:10";
 const DJOKOVIC_ID = "athlete:tennis:novak-djokovic";
 const DJOKOVIC_US_OPEN_ID = "fixture:us-open-2026:official:ms:1148";
+const ALCARAZ_US_OPEN_ID = "fixture:us-open-2026:official:ms:1164";
 
 function genericEvent(index){
   const start = new Date(Date.UTC(2026, 7, 30 + index, 9, 0));
@@ -117,6 +122,70 @@ const topTenTennisState = {
 };
 
 const resolvedTennis = resolveUserFollowFixtures({ events: [], userState: topTenTennisState });
+const topTenCollection = tennisWatchPool.collections.find(collection => collection.id === "collection:tennis:mens-top-10");
+const normalizedTopTenIds = new Set((topTenCollection?.memberIds || []).flatMap(id => {
+  const slug = String(id).match(/^competitor:tennis:(?:atp|wta):(.+)$/)?.[1];
+  return slug ? [id, `athlete:tennis:${slug}`] : [id];
+}));
+const releasedTopTenFixtures = resolvedTennis.events.filter(event => (
+  event.status !== "cancelled"
+  && event.date
+  && (event.participantIds || []).some(id => normalizedTopTenIds.has(id))
+));
+const surfacedTopTenIds = new Set(releasedTopTenFixtures.flatMap(event => event.participantIds || []).filter(id => normalizedTopTenIds.has(id)));
+const membersWithReleasedFixtures = [...normalizedTopTenIds].filter(id => releasedTopTenFixtures.some(event => (event.participantIds || []).includes(id)));
+membersWithReleasedFixtures.forEach(id => assert(surfacedTopTenIds.has(id), `${id} must retain every released top-10 fixture`));
+
+const alcarazFixture = resolvedTennis.events.find(event => event.id === ALCARAZ_US_OPEN_ID);
+assert(alcarazFixture, "Alcaraz v Safiullin must resolve from the inherited Men's top-10 follow");
+assert.equal(alcarazFixture.timePrecision, "follows", "Alcaraz v Safiullin must preserve follows timing precision");
+assert.equal(alcarazFixture.startTimeUtc, null, "a follows fixture must not invent an exact match start");
+assert.equal(alcarazFixture.sessionStartTimeUtc, "2026-08-31T15:30:00.000Z", "the official session start must remain available for display and reminders");
+const usOpen = majorEventsDocument.events.find(event => event.id === "major-event:us-open-2026");
+const rawAlcarazFixture = usOpen.subEvents.find(event => event.id === ALCARAZ_US_OPEN_ID);
+const alcarazTimeline = majorEventsConfig.phaseTimeline({ ...usOpen, subEvents:[rawAlcarazFixture] }, new Date("2026-08-31T04:00:00.000Z"), { level:"L2" });
+assert.equal(alcarazTimeline.upcoming[0].displayTime, "Follows · session starts 1:30am", "Events must distinguish the official session start from an exact match start");
+assert.equal(majorEventsConfig.fixtureFromSubEvent(rawAlcarazFixture, usOpen).displayTimeLabel, "Follows · session starts 1:30am", "Feed must use the same follows timing copy");
+
+assert.deepEqual(
+  followFeedPolicy.followedFixtureDecision(alcarazFixture, { followed:true, now:new Date("2026-08-31T04:00:00.000Z") }),
+  { mode:"immediate", include:true, label:"In Feed via follow" },
+  "a released 4/5 followed fixture must enter Feed as soon as date and opponents are known",
+);
+
+const activeTopTenFixtures = releasedTopTenFixtures.filter(event => event.date >= "2026-08-31" && ["scheduled", "live", "completed"].includes(event.status));
+const auditedTopTenFeed = buildServerFeed({
+  events:activeTopTenFixtures,
+  userId:"00000000-0000-4000-8000-000000000003",
+  userState:topTenTennisState,
+  participants:resolvedTennis.participants,
+  now:new Date("2026-08-31T04:00:00.000Z"),
+  limit:1000,
+});
+activeTopTenFixtures.forEach(fixture => {
+  const decision = followFeedPolicy.followedFixtureDecision(fixture, { followed:true, now:new Date("2026-08-31T04:00:00.000Z") });
+  assert.equal(
+    auditedTopTenFeed.events.some(event => event.id === fixture.id),
+    decision.include,
+    `${fixture.name} must match the shared ${decision.mode} Feed rule`,
+  );
+});
+const lowStakesTomorrow = { ...alcarazFixture, id:"fixture:test:tomorrow", eventId:"fixture:test:tomorrow", canonicalEventId:"fixture:test:tomorrow", stakesScore:2, storyline:{ stakes:2 }, date:"2026-09-01" };
+assert.deepEqual(
+  followFeedPolicy.followedFixtureDecision(lowStakesTomorrow, { followed:true, now:new Date("2026-08-31T04:00:00.000Z") }),
+  { mode:"match-day", include:false, label:"Auto-adds on match day" },
+  "a released 2/5 followed fixture must wait for match day",
+);
+assert.deepEqual(
+  followFeedPolicy.followedFixtureDecision({ ...lowStakesTomorrow, date:"2026-08-30" }, { followed:true, now:new Date("2026-08-31T04:00:00.000Z") }),
+  { mode:"match-day", include:true, label:"In Feed via follow" },
+  "a match-day followed fixture must remain available through its normal post-match retention window",
+);
+assert.deepEqual(
+  followFeedPolicy.followedFixtureDecision({ ...lowStakesTomorrow, stakesScore:1, storyline:{ stakes:1 } }, { followed:true, now:new Date("2026-09-01T04:00:00.000Z") }),
+  { mode:"manual", include:false, label:"Add to Feed" },
+  "a 1/5 followed fixture must remain manual-only even on match day",
+);
 const djokovicFixture = resolvedTennis.events.find(event => (
   event.id === DJOKOVIC_US_OPEN_ID
   && event.participantIds.includes(DJOKOVIC_ID)
@@ -143,10 +212,10 @@ assert(
 const html = fs.readFileSync("index.html", "utf8");
 assert.match(
   html,
-  /function automaticallyFollowedMajorEventFixtures[^]*automaticEventFollowReason\(fixture\)[^]*const specialEvents = \[\.\.\.automaticallyFollowedMajorEventFixtures\(\), \.\.\.selectedMajorEventFixtures\(\)\]/,
-  "today's released Major Event fixtures must have a local automatic-follow backstop instead of requiring Add to Feed",
+  /function automaticallyFollowedMajorEventFixtures[^]*FOLLOW_FEED_POLICY\.followedFixtureDecision[^]*const specialEvents = \[\.\.\.automaticallyFollowedMajorEventFixtures\(\), \.\.\.selectedMajorEventFixtures\(\)\]/,
+  "released Major Event fixtures must share the automatic follow policy instead of requiring Add to Feed",
 );
-assert(html.includes('autoFeedToday ? "In Feed via follow" : "Auto-adds on match day"'), "Events must explain that followed fixtures enter Feed automatically");
+assert(html.includes("automaticDecision.label"), "Events must render the same followed-fixture policy label used by Feed");
 assert(html.includes("ensureFollowCollectionDirectories(userPreferences)"), "cloud-restored collection follows must load their membership directory after every shell update");
 
 console.log("Followed Liverpool and inherited top-10 Djokovic fixtures stay on page one around play.");

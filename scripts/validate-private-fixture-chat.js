@@ -144,6 +144,8 @@ async function run(){
   assert.match(api, /messageQuery\.created_at = `gte\.\$\{after\}`/, "message polling must include simultaneous rows at the cursor instant");
   assert.doesNotMatch(api, /console\.(?:log|info|warn|error)[^\n]*capability/i, "share credentials must never enter server logs");
   assert.equal(vercel.functions?.["api/chat.js"]?.includeFiles, "data/feed/*.json", "the deployed chat function must include canonical fixture pages");
+  assert.match(api, /require\("@vercel\/functions"\)/, "chat must use the Vercel request-lifetime API");
+  assert.match(api, /const notificationFanout = dispatchChatMessageNotifications\([\s\S]{0,300}waitUntil\(notificationFanout\)/, "push fan-out must continue after the message acknowledgement instead of blocking it");
   feedManifest.pages.forEach(page => {
     assert.match(page.path, /^data\/feed\/[^/]+\.json$/, "every chat fixture page must match the Vercel includeFiles glob");
     assert(fs.existsSync(page.path), `chat fixture page must exist: ${page.path}`);
@@ -177,8 +179,8 @@ async function run(){
   assert.match(html, /copy\.className = "chat-user-copy"/);
   assert.match(html, /name\.className = "chat-user-name"/);
   assert.match(html, /email\.className = "chat-user-email"/, "member names and email addresses must render as separate rows");
-  assert.match(worker, /nothingsport-shell-v199/);
-  assert.equal(html.match(/name="app-shell-version" content="(\d+)"/)?.[1], "199");
+  assert.match(worker, /nothingsport-shell-v204/);
+  assert.equal(html.match(/name="app-shell-version" content="(\d+)"/)?.[1], "204");
   assert.match(worker, /"\/config\/chat-contract\.js"/);
 
   const ids = {

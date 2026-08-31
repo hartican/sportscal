@@ -99,7 +99,14 @@ assert.doesNotMatch(html, /<form[^>]+class="chat-composer"/, "the retired fixed 
 
 // Replies remain one level, while grouped reactions use the exact fixed palette and their own cursor.
 const sendMessage = section(html, "async function sendChatMessage(form)", "function buildChatComposer");
-assert.match(sendMessage, /replyToMessageId:chatState\.replyToMessageId/);
+assert.match(sendMessage, /const replyToMessageId = chatState\.replyToMessageId/);
+assertOrder(sendMessage, [
+  "mergeChatMessages([optimisticMessage])",
+  "renderOpenChatRoom({ autoScroll:true",
+  "await serverSyncClient.chatRequest",
+], "optimistic chat send");
+assert.match(sendMessage, /clientId/);
+assert.match(sendMessage, /chatState\.messages = chatState\.messages\.filter\(message => message\.messageId !== optimisticMessage\.messageId\)/, "a failed optimistic message must be removed before restoring the draft");
 const messageView = section(html, "function chatMessageElement(message)", "function renderChatPublicProfileForm");
 assert.match(messageView, /if \(message\.replyTo\)/);
 assert.match(messageView, /message\.replyTo\.senderName/);

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-fixtures.v1",
-  "generatedAt": "2026-08-31T08:42:37.790Z",
+  "generatedAt": "2026-08-31T11:47:19.054Z",
   "sources": [
     {
       "sourceName": "US Open official schedule",
@@ -10,13 +10,13 @@
     },
     {
       "sourceName": "US Open official schedule",
-      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/bencic-cobolli_defeat_superstars_williams-alcaraz_in_2026_us_open_mixed_doubles.html",
+      "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html",
       "sourceType": "official",
       "checkedAt": null
     },
     {
       "sourceName": "US Open official schedule",
-      "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html",
+      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/bencic-cobolli_defeat_superstars_williams-alcaraz_in_2026_us_open_mixed_doubles.html",
       "sourceType": "official",
       "checkedAt": null
     },
@@ -128,6 +128,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Elina Svitolina / Gael Monfils v Alexandra Eala / Felix Auger-Aliassime",
+      "timelineSortTimeUtc": "2026-08-25T14:00:00.000Z",
       "endTimeUtc": "2026-08-25T17:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -167,1050 +168,6 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:xd:5105",
-      "stableMatchId": "usopen-2026-xd-5105",
-      "cardKind": "fixture",
-      "name": "Karolina Muchova / Jakub Mensik v Kristina Mladenovic / Marcelo Arevalo",
-      "stage": "Mixed doubles",
-      "roundLabel": "Round 1",
-      "matchType": "mixed-doubles",
-      "court": "Louis Armstrong Stadium",
-      "date": "2026-08-26",
-      "time": "00:00",
-      "startTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-ab:session-1",
-      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Karolina Muchova / Jakub Mensik 4-1 2-4 [10]-[7] Kristina Mladenovic / Marcelo Arevalo",
-      "result": "Karolina Muchova / Jakub Mensik 4-1 2-4 [10]-[7] Kristina Mladenovic / Marcelo Arevalo",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:karolina-muchova-jakub-mensik",
-          "name": "Karolina Muchova / Jakub Mensik",
-          "players": [
-            {
-              "id": "athlete:tennis:karolina-muchova",
-              "name": "Karolina Muchova",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "CZ"
-            },
-            {
-              "id": "athlete:tennis:jakub-mensik",
-              "name": "Jakub Mensik",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "CZ"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:kristina-mladenovic-marcelo-arevalo",
-          "name": "Kristina Mladenovic / Marcelo Arevalo",
-          "players": [
-            {
-              "id": "athlete:tennis:kristina-mladenovic",
-              "name": "Kristina Mladenovic",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "FR"
-            },
-            {
-              "id": "athlete:tennis:marcelo-arevalo",
-              "name": "Marcelo Arevalo",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "ESA"
-            }
-          ]
-        }
-      ],
-      "venue": "Louis Armstrong Stadium",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:xd:5105",
-      "canonicalEventId": "fixture:us-open-2026:official:xd:5105",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Karolina Muchova / Jakub Mensik v Kristina Mladenovic / Marcelo Arevalo",
-      "endTimeUtc": "2026-08-25T17:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:karolina-muchova",
-        "athlete:tennis:jakub-mensik",
-        "athlete:tennis:kristina-mladenovic",
-        "athlete:tennis:marcelo-arevalo"
-      ],
-      "homeParticipantId": "side:tennis:karolina-muchova-jakub-mensik",
-      "awayParticipantId": "side:tennis:kristina-mladenovic-marcelo-arevalo",
-      "participants": [
-        {
-          "name": "Karolina Muchova",
-          "role": "home"
-        },
-        {
-          "name": "Jakub Mensik",
-          "role": "home"
-        },
-        {
-          "name": "Kristina Mladenovic",
-          "role": "away"
-        },
-        {
-          "name": "Marcelo Arevalo",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:xd:5106",
-      "stableMatchId": "usopen-2026-xd-5106",
-      "cardKind": "fixture",
-      "name": "Emma Navarro / Tommy Paul v Amanda Anisimova / Learner Tien",
-      "stage": "Mixed doubles",
-      "roundLabel": "Round 1",
-      "matchType": "mixed-doubles",
-      "court": "Louis Armstrong Stadium",
-      "date": "2026-08-26",
-      "time": "00:00",
-      "startTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-ab:session-1",
-      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sequenceInSession": 3,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Emma Navarro / Tommy Paul 5-3 4-2 Amanda Anisimova / Learner Tien",
-      "result": "Emma Navarro / Tommy Paul 5-3 4-2 Amanda Anisimova / Learner Tien",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:emma-navarro-tommy-paul",
-          "name": "Emma Navarro / Tommy Paul",
-          "players": [
-            {
-              "id": "athlete:tennis:emma-navarro",
-              "name": "Emma Navarro",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "US"
-            },
-            {
-              "id": "athlete:tennis:tommy-paul",
-              "name": "Tommy Paul",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:amanda-anisimova-learner-tien",
-          "name": "Amanda Anisimova / Learner Tien",
-          "players": [
-            {
-              "id": "athlete:tennis:amanda-anisimova",
-              "name": "Amanda Anisimova",
-              "seed": 3,
-              "rank": null,
-              "nationalityCode": "US"
-            },
-            {
-              "id": "athlete:tennis:learner-tien",
-              "name": "Learner Tien",
-              "seed": 3,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        }
-      ],
-      "venue": "Louis Armstrong Stadium",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:xd:5106",
-      "canonicalEventId": "fixture:us-open-2026:official:xd:5106",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Emma Navarro / Tommy Paul v Amanda Anisimova / Learner Tien",
-      "endTimeUtc": "2026-08-25T17:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:emma-navarro",
-        "athlete:tennis:tommy-paul",
-        "athlete:tennis:amanda-anisimova",
-        "athlete:tennis:learner-tien"
-      ],
-      "homeParticipantId": "side:tennis:emma-navarro-tommy-paul",
-      "awayParticipantId": "side:tennis:amanda-anisimova-learner-tien",
-      "participants": [
-        {
-          "name": "Emma Navarro",
-          "role": "home"
-        },
-        {
-          "name": "Tommy Paul",
-          "role": "home"
-        },
-        {
-          "name": "Amanda Anisimova",
-          "role": "away"
-        },
-        {
-          "name": "Learner Tien",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:xd:5107",
-      "stableMatchId": "usopen-2026-xd-5107",
-      "cardKind": "fixture",
-      "name": "Mirra Andreeva / Andrey Rublev v Sara Errani / Andrea Vavassori",
-      "stage": "Mixed doubles",
-      "roundLabel": "Round 1",
-      "matchType": "mixed-doubles",
-      "court": "Louis Armstrong Stadium",
-      "date": "2026-08-26",
-      "time": "00:00",
-      "startTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-ab:session-1",
-      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sequenceInSession": 5,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Mirra Andreeva / Andrey Rublev 1-4 4-1 [11]-[9] Sara Errani / Andrea Vavassori",
-      "result": "Mirra Andreeva / Andrey Rublev 1-4 4-1 [11]-[9] Sara Errani / Andrea Vavassori",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:mirra-andreeva-andrey-rublev",
-          "name": "Mirra Andreeva / Andrey Rublev",
-          "players": [
-            {
-              "id": "athlete:tennis:mirra-andreeva",
-              "name": "Mirra Andreeva",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "RU"
-            },
-            {
-              "id": "athlete:tennis:andrey-rublev",
-              "name": "Andrey Rublev",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "RU"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:sara-errani-andrea-vavassori",
-          "name": "Sara Errani / Andrea Vavassori",
-          "players": [
-            {
-              "id": "athlete:tennis:sara-errani",
-              "name": "Sara Errani",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "IT"
-            },
-            {
-              "id": "athlete:tennis:andrea-vavassori",
-              "name": "Andrea Vavassori",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "IT"
-            }
-          ]
-        }
-      ],
-      "venue": "Louis Armstrong Stadium",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:xd:5107",
-      "canonicalEventId": "fixture:us-open-2026:official:xd:5107",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Mirra Andreeva / Andrey Rublev v Sara Errani / Andrea Vavassori",
-      "endTimeUtc": "2026-08-25T17:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:mirra-andreeva",
-        "athlete:tennis:andrey-rublev",
-        "athlete:tennis:sara-errani",
-        "athlete:tennis:andrea-vavassori"
-      ],
-      "homeParticipantId": "side:tennis:mirra-andreeva-andrey-rublev",
-      "awayParticipantId": "side:tennis:sara-errani-andrea-vavassori",
-      "participants": [
-        {
-          "name": "Mirra Andreeva",
-          "role": "home"
-        },
-        {
-          "name": "Andrey Rublev",
-          "role": "home"
-        },
-        {
-          "name": "Sara Errani",
-          "role": "away"
-        },
-        {
-          "name": "Andrea Vavassori",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:xd:5108",
-      "stableMatchId": "usopen-2026-xd-5108",
-      "cardKind": "fixture",
-      "name": "Diana Shnaider / Casper Ruud v Jessica Pegula / Taylor Fritz",
-      "stage": "Mixed doubles",
-      "roundLabel": "Round 1",
-      "matchType": "mixed-doubles",
-      "court": "Louis Armstrong Stadium",
-      "date": "2026-08-26",
-      "time": "00:00",
-      "startTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-ab:session-1",
-      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sequenceInSession": 6,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Diana Shnaider / Casper Ruud 4-2 4-1 Jessica Pegula / Taylor Fritz",
-      "result": "Diana Shnaider / Casper Ruud 4-2 4-1 Jessica Pegula / Taylor Fritz",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:diana-shnaider-casper-ruud",
-          "name": "Diana Shnaider / Casper Ruud",
-          "players": [
-            {
-              "id": "athlete:tennis:diana-shnaider",
-              "name": "Diana Shnaider",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "RU"
-            },
-            {
-              "id": "athlete:tennis:casper-ruud",
-              "name": "Casper Ruud",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "NO"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:jessica-pegula-taylor-fritz",
-          "name": "Jessica Pegula / Taylor Fritz",
-          "players": [
-            {
-              "id": "athlete:tennis:jessica-pegula",
-              "name": "Jessica Pegula",
-              "seed": 2,
-              "rank": null,
-              "nationalityCode": "US"
-            },
-            {
-              "id": "athlete:tennis:taylor-fritz",
-              "name": "Taylor Fritz",
-              "seed": 2,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        }
-      ],
-      "venue": "Louis Armstrong Stadium",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:xd:5108",
-      "canonicalEventId": "fixture:us-open-2026:official:xd:5108",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Diana Shnaider / Casper Ruud v Jessica Pegula / Taylor Fritz",
-      "endTimeUtc": "2026-08-25T17:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:diana-shnaider",
-        "athlete:tennis:casper-ruud",
-        "athlete:tennis:jessica-pegula",
-        "athlete:tennis:taylor-fritz"
-      ],
-      "homeParticipantId": "side:tennis:diana-shnaider-casper-ruud",
-      "awayParticipantId": "side:tennis:jessica-pegula-taylor-fritz",
-      "participants": [
-        {
-          "name": "Diana Shnaider",
-          "role": "home"
-        },
-        {
-          "name": "Casper Ruud",
-          "role": "home"
-        },
-        {
-          "name": "Jessica Pegula",
-          "role": "away"
-        },
-        {
-          "name": "Taylor Fritz",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:xd:5203",
-      "stableMatchId": "usopen-2026-xd-5203",
-      "cardKind": "fixture",
-      "name": "Karolina Muchova / Jakub Mensik v Emma Navarro / Tommy Paul",
-      "stage": "Mixed doubles",
-      "roundLabel": "Round 2",
-      "matchType": "mixed-doubles",
-      "court": "Louis Armstrong Stadium",
-      "date": "2026-08-26",
-      "time": "00:00",
-      "startTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-ab:session-1",
-      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sequenceInSession": 4,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Karolina Muchova / Jakub Mensik 4-1 5-3 Emma Navarro / Tommy Paul",
-      "result": "Karolina Muchova / Jakub Mensik 4-1 5-3 Emma Navarro / Tommy Paul",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:karolina-muchova-jakub-mensik",
-          "name": "Karolina Muchova / Jakub Mensik",
-          "players": [
-            {
-              "id": "athlete:tennis:karolina-muchova",
-              "name": "Karolina Muchova",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "CZ"
-            },
-            {
-              "id": "athlete:tennis:jakub-mensik",
-              "name": "Jakub Mensik",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "CZ"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:emma-navarro-tommy-paul",
-          "name": "Emma Navarro / Tommy Paul",
-          "players": [
-            {
-              "id": "athlete:tennis:emma-navarro",
-              "name": "Emma Navarro",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "US"
-            },
-            {
-              "id": "athlete:tennis:tommy-paul",
-              "name": "Tommy Paul",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        }
-      ],
-      "venue": "Louis Armstrong Stadium",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Mixed doubles · Round 2 · Louis Armstrong Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:xd:5203",
-      "canonicalEventId": "fixture:us-open-2026:official:xd:5203",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Karolina Muchova / Jakub Mensik v Emma Navarro / Tommy Paul",
-      "endTimeUtc": "2026-08-25T17:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:karolina-muchova",
-        "athlete:tennis:jakub-mensik",
-        "athlete:tennis:emma-navarro",
-        "athlete:tennis:tommy-paul"
-      ],
-      "homeParticipantId": "side:tennis:karolina-muchova-jakub-mensik",
-      "awayParticipantId": "side:tennis:emma-navarro-tommy-paul",
-      "participants": [
-        {
-          "name": "Karolina Muchova",
-          "role": "home"
-        },
-        {
-          "name": "Jakub Mensik",
-          "role": "home"
-        },
-        {
-          "name": "Emma Navarro",
-          "role": "away"
-        },
-        {
-          "name": "Tommy Paul",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:xd:5204",
-      "stableMatchId": "usopen-2026-xd-5204",
-      "cardKind": "fixture",
-      "name": "Mirra Andreeva / Andrey Rublev v Diana Shnaider / Casper Ruud",
-      "stage": "Mixed doubles",
-      "roundLabel": "Round 2",
-      "matchType": "mixed-doubles",
-      "court": "Louis Armstrong Stadium",
-      "date": "2026-08-26",
-      "time": "00:00",
-      "startTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-ab:session-1",
-      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
-      "sequenceInSession": 7,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Mirra Andreeva / Andrey Rublev 4-1 4(9)-5(11) [10]-[5] Diana Shnaider / Casper Ruud",
-      "result": "Mirra Andreeva / Andrey Rublev 4-1 4(9)-5(11) [10]-[5] Diana Shnaider / Casper Ruud",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:mirra-andreeva-andrey-rublev",
-          "name": "Mirra Andreeva / Andrey Rublev",
-          "players": [
-            {
-              "id": "athlete:tennis:mirra-andreeva",
-              "name": "Mirra Andreeva",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "RU"
-            },
-            {
-              "id": "athlete:tennis:andrey-rublev",
-              "name": "Andrey Rublev",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "RU"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:diana-shnaider-casper-ruud",
-          "name": "Diana Shnaider / Casper Ruud",
-          "players": [
-            {
-              "id": "athlete:tennis:diana-shnaider",
-              "name": "Diana Shnaider",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "RU"
-            },
-            {
-              "id": "athlete:tennis:casper-ruud",
-              "name": "Casper Ruud",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "NO"
-            }
-          ]
-        }
-      ],
-      "venue": "Louis Armstrong Stadium",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Mixed doubles · Round 2 · Louis Armstrong Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:xd:5204",
-      "canonicalEventId": "fixture:us-open-2026:official:xd:5204",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Mirra Andreeva / Andrey Rublev v Diana Shnaider / Casper Ruud",
-      "endTimeUtc": "2026-08-25T17:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:mirra-andreeva",
-        "athlete:tennis:andrey-rublev",
-        "athlete:tennis:diana-shnaider",
-        "athlete:tennis:casper-ruud"
-      ],
-      "homeParticipantId": "side:tennis:mirra-andreeva-andrey-rublev",
-      "awayParticipantId": "side:tennis:diana-shnaider-casper-ruud",
-      "participants": [
-        {
-          "name": "Mirra Andreeva",
-          "role": "home"
-        },
-        {
-          "name": "Andrey Rublev",
-          "role": "home"
-        },
-        {
-          "name": "Diana Shnaider",
-          "role": "away"
-        },
-        {
-          "name": "Casper Ruud",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:mq:11158",
-      "stableMatchId": "usopen-2026-mq-11158",
-      "cardKind": "fixture",
-      "name": "Bernard Tomic v Lloyd Harris",
-      "stage": "Men's qualifying singles",
-      "roundLabel": "Round 1",
-      "matchType": "mens-qualifying-singles",
-      "court": "Court 7",
-      "date": "2026-08-26",
-      "time": "01:00",
-      "startTimeUtc": "2026-08-25T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-ah:session-1",
-      "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Bernard Tomic 2-6 7-5 2-6 Lloyd Harris",
-      "result": "Bernard Tomic 2-6 7-5 2-6 Lloyd Harris",
-      "previewPriority": 3,
-      "matchupSides": [
-        {
-          "id": "side:tennis:bernard-tomic",
-          "name": "Bernard Tomic",
-          "players": [
-            {
-              "id": "athlete:tennis:bernard-tomic",
-              "name": "Bernard Tomic",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "AU"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:lloyd-harris",
-          "name": "Lloyd Harris",
-          "players": [
-            {
-              "id": "athlete:tennis:lloyd-harris",
-              "name": "Lloyd Harris",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "RSA"
-            }
-          ]
-        }
-      ],
-      "venue": "Court 7",
-      "stakesScore": 3,
-      "summary": "US Open 2026 · Men's qualifying singles · Round 1 · Court 7.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:mq:11158",
-      "canonicalEventId": "fixture:us-open-2026:official:mq:11158",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Bernard Tomic v Lloyd Harris",
-      "endTimeUtc": "2026-08-25T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:bernard-tomic",
-        "athlete:tennis:lloyd-harris"
-      ],
-      "homeParticipantId": "side:tennis:bernard-tomic",
-      "awayParticipantId": "side:tennis:lloyd-harris",
-      "participants": [
-        {
-          "name": "Bernard Tomic",
-          "role": "home"
-        },
-        {
-          "name": "Lloyd Harris",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 3,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 3,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:wq:12111",
-      "stableMatchId": "usopen-2026-wq-12111",
-      "cardKind": "fixture",
-      "name": "Alice Tubello v Priscilla Hon",
-      "stage": "Women's qualifying singles",
-      "roundLabel": "Round 1",
-      "matchType": "womens-qualifying-singles",
-      "court": "Court 7",
-      "date": "2026-08-26",
-      "time": "01:00",
-      "startTimeUtc": "2026-08-25T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-ah:session-1",
-      "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
-      "sequenceInSession": 3,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Alice Tubello 4-6 6-4 2-6 Priscilla Hon",
-      "result": "Alice Tubello 4-6 6-4 2-6 Priscilla Hon",
-      "previewPriority": 3,
-      "matchupSides": [
-        {
-          "id": "side:tennis:alice-tubello",
-          "name": "Alice Tubello",
-          "players": [
-            {
-              "id": "athlete:tennis:alice-tubello",
-              "name": "Alice Tubello",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "FR"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:priscilla-hon",
-          "name": "Priscilla Hon",
-          "players": [
-            {
-              "id": "athlete:tennis:priscilla-hon",
-              "name": "Priscilla Hon",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "AU"
-            }
-          ]
-        }
-      ],
-      "venue": "Court 7",
-      "stakesScore": 3,
-      "summary": "US Open 2026 · Women's qualifying singles · Round 1 · Court 7.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:wq:12111",
-      "canonicalEventId": "fixture:us-open-2026:official:wq:12111",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Alice Tubello v Priscilla Hon",
-      "endTimeUtc": "2026-08-25T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:alice-tubello",
-        "athlete:tennis:priscilla-hon"
-      ],
-      "homeParticipantId": "side:tennis:alice-tubello",
-      "awayParticipantId": "side:tennis:priscilla-hon",
-      "participants": [
-        {
-          "name": "Alice Tubello",
-          "role": "home"
-        },
-        {
-          "name": "Priscilla Hon",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 3,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 3,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:wq:12120",
-      "stableMatchId": "usopen-2026-wq-12120",
-      "cardKind": "fixture",
-      "name": "Suzan Lamens v Emerson Jones",
-      "stage": "Women's qualifying singles",
-      "roundLabel": "Round 1",
-      "matchType": "womens-qualifying-singles",
-      "court": "Court 12",
-      "date": "2026-08-26",
-      "time": "01:00",
-      "startTimeUtc": "2026-08-25T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-am:session-1",
-      "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Suzan Lamens 7-5 6(7)-7(9) 6-2 Emerson Jones",
-      "result": "Suzan Lamens 7-5 6(7)-7(9) 6-2 Emerson Jones",
-      "previewPriority": 3,
-      "matchupSides": [
-        {
-          "id": "side:tennis:suzan-lamens",
-          "name": "Suzan Lamens",
-          "players": [
-            {
-              "id": "athlete:tennis:suzan-lamens",
-              "name": "Suzan Lamens",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "NL"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:emerson-jones",
-          "name": "Emerson Jones",
-          "players": [
-            {
-              "id": "athlete:tennis:emerson-jones",
-              "name": "Emerson Jones",
-              "seed": 18,
-              "rank": null,
-              "nationalityCode": "AU"
-            }
-          ]
-        }
-      ],
-      "venue": "Court 12",
-      "stakesScore": 3,
-      "summary": "US Open 2026 · Women's qualifying singles · Round 1 · Court 12.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:wq:12120",
-      "canonicalEventId": "fixture:us-open-2026:official:wq:12120",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Suzan Lamens v Emerson Jones",
-      "endTimeUtc": "2026-08-25T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:suzan-lamens",
-        "athlete:tennis:emerson-jones"
-      ],
-      "homeParticipantId": "side:tennis:suzan-lamens",
-      "awayParticipantId": "side:tennis:emerson-jones",
-      "participants": [
-        {
-          "name": "Suzan Lamens",
-          "role": "home"
-        },
-        {
-          "name": "Emerson Jones",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 3,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 3,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
@@ -1297,6 +254,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Aryna Sabalenka / Novak Djokovic v Katerina Siniakova / Henry Patten",
+      "timelineSortTimeUtc": "2026-08-25T15:00:00.000Z",
       "endTimeUtc": "2026-08-25T18:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -1336,381 +294,6 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:xd:5103",
-      "stableMatchId": "usopen-2026-xd-5103",
-      "cardKind": "fixture",
-      "name": "Belinda Bencic / Flavio Cobolli v Taylor Townsend / Alexander Zverev",
-      "stage": "Mixed doubles",
-      "roundLabel": "Round 1",
-      "matchType": "mixed-doubles",
-      "court": "Arthur Ashe Stadium",
-      "date": "2026-08-26",
-      "time": "01:00",
-      "startTimeUtc": "2026-08-25T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-aa:session-1",
-      "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
-      "sequenceInSession": 3,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Belinda Bencic / Flavio Cobolli 4-2 4-2 Taylor Townsend / Alexander Zverev",
-      "result": "Belinda Bencic / Flavio Cobolli 4-2 4-2 Taylor Townsend / Alexander Zverev",
-      "previewPriority": 4,
-      "matchupSides": [
-        {
-          "id": "side:tennis:belinda-bencic-flavio-cobolli",
-          "name": "Belinda Bencic / Flavio Cobolli",
-          "players": [
-            {
-              "id": "athlete:tennis:belinda-bencic",
-              "name": "Belinda Bencic",
-              "seed": 4,
-              "rank": null,
-              "nationalityCode": "CH"
-            },
-            {
-              "id": "athlete:tennis:flavio-cobolli",
-              "name": "Flavio Cobolli",
-              "seed": 4,
-              "rank": null,
-              "nationalityCode": "IT"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:taylor-townsend-alexander-zverev",
-          "name": "Taylor Townsend / Alexander Zverev",
-          "players": [
-            {
-              "id": "athlete:tennis:taylor-townsend",
-              "name": "Taylor Townsend",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "US"
-            },
-            {
-              "id": "athlete:tennis:alexander-zverev",
-              "name": "Alexander Zverev",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "DE"
-            }
-          ]
-        }
-      ],
-      "venue": "Arthur Ashe Stadium",
-      "stakesScore": 4,
-      "marquee": true,
-      "summary": "US Open 2026 · Mixed doubles · Round 1 · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:xd:5103",
-      "canonicalEventId": "fixture:us-open-2026:official:xd:5103",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Belinda Bencic / Flavio Cobolli v Taylor Townsend / Alexander Zverev",
-      "endTimeUtc": "2026-08-25T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:belinda-bencic",
-        "athlete:tennis:flavio-cobolli",
-        "athlete:tennis:taylor-townsend",
-        "athlete:tennis:alexander-zverev"
-      ],
-      "homeParticipantId": "side:tennis:belinda-bencic-flavio-cobolli",
-      "awayParticipantId": "side:tennis:taylor-townsend-alexander-zverev",
-      "participants": [
-        {
-          "name": "Belinda Bencic",
-          "role": "home"
-        },
-        {
-          "name": "Flavio Cobolli",
-          "role": "home"
-        },
-        {
-          "name": "Taylor Townsend",
-          "role": "away"
-        },
-        {
-          "name": "Alexander Zverev",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 4,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:xd:5201",
-      "stableMatchId": "usopen-2026-xd-5201",
-      "cardKind": "fixture",
-      "name": "Katerina Siniakova / Henry Patten v Elina Svitolina / Gael Monfils",
-      "stage": "Mixed doubles",
-      "roundLabel": "Round 2",
-      "matchType": "mixed-doubles",
-      "court": "Arthur Ashe Stadium",
-      "date": "2026-08-26",
-      "time": "01:00",
-      "startTimeUtc": "2026-08-25T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-3:court-aa:session-1",
-      "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
-      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Katerina Siniakova / Henry Patten 4(6)-5(8) 5(7)-4(3) [8]-[10] Elina Svitolina / Gael Monfils",
-      "result": "Katerina Siniakova / Henry Patten 4(6)-5(8) 5(7)-4(3) [8]-[10] Elina Svitolina / Gael Monfils",
-      "previewPriority": 4,
-      "matchupSides": [
-        {
-          "id": "side:tennis:katerina-siniakova-henry-patten",
-          "name": "Katerina Siniakova / Henry Patten",
-          "players": [
-            {
-              "id": "athlete:tennis:katerina-siniakova",
-              "name": "Katerina Siniakova",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "CZ"
-            },
-            {
-              "id": "athlete:tennis:henry-patten",
-              "name": "Henry Patten",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "GB"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:elina-svitolina-gael-monfils",
-          "name": "Elina Svitolina / Gael Monfils",
-          "players": [
-            {
-              "id": "athlete:tennis:elina-svitolina",
-              "name": "Elina Svitolina",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "UA"
-            },
-            {
-              "id": "athlete:tennis:gael-monfils",
-              "name": "Gael Monfils",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "FR"
-            }
-          ]
-        }
-      ],
-      "venue": "Arthur Ashe Stadium",
-      "stakesScore": 4,
-      "marquee": true,
-      "summary": "US Open 2026 · Mixed doubles · Round 2 · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-      "eventId": "fixture:us-open-2026:official:xd:5201",
-      "canonicalEventId": "fixture:us-open-2026:official:xd:5201",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Katerina Siniakova / Henry Patten v Elina Svitolina / Gael Monfils",
-      "endTimeUtc": "2026-08-25T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:katerina-siniakova",
-        "athlete:tennis:henry-patten",
-        "athlete:tennis:elina-svitolina",
-        "athlete:tennis:gael-monfils"
-      ],
-      "homeParticipantId": "side:tennis:katerina-siniakova-henry-patten",
-      "awayParticipantId": "side:tennis:elina-svitolina-gael-monfils",
-      "participants": [
-        {
-          "name": "Katerina Siniakova",
-          "role": "home"
-        },
-        {
-          "name": "Henry Patten",
-          "role": "home"
-        },
-        {
-          "name": "Elina Svitolina",
-          "role": "away"
-        },
-        {
-          "name": "Gael Monfils",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 4,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
-      "stableMatchId": "usopen-2026-xd-serena-alcaraz-bencic-cobolli",
-      "cardKind": "fixture",
-      "name": "Serena Williams / Carlos Alcaraz v Belinda Bencic / Flavio Cobolli",
-      "stage": "Mixed doubles",
-      "roundLabel": "Quarterfinal",
-      "matchType": "mixed-doubles",
-      "court": "Arthur Ashe Stadium",
-      "date": "2026-08-26",
-      "time": "04:00",
-      "startTimeUtc": "2026-08-25T18:00:00.000Z",
-      "sessionId": "us-open-2026-mixed-doubles-day-1",
-      "sessionStartTimeUtc": "2026-08-25T18:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-25T21:00:00.000Z",
-      "resultPublishedAt": "2026-08-25T21:00:00.000Z",
-      "scoreDisplay": "Bencic / Cobolli 5-4(4), 4-1 Williams / Alcaraz",
-      "result": "Bencic / Cobolli won 5-4(4), 4-1",
-      "previewPriority": 4,
-      "matchupSides": [
-        {
-          "id": "pair:tennis:serena-williams-carlos-alcaraz",
-          "name": "Williams / Alcaraz",
-          "players": [
-            {
-              "id": "athlete:tennis:serena-williams",
-              "name": "Serena Williams",
-              "seed": null,
-              "rank": null,
-              "nationalityCode": "US"
-            },
-            {
-              "id": "athlete:tennis:carlos-alcaraz",
-              "name": "Carlos Alcaraz",
-              "seed": null,
-              "rank": null,
-              "nationalityCode": "ES"
-            }
-          ]
-        },
-        {
-          "id": "pair:tennis:belinda-bencic-flavio-cobolli",
-          "name": "Bencic / Cobolli",
-          "players": [
-            {
-              "id": "athlete:tennis:belinda-bencic",
-              "name": "Belinda Bencic",
-              "seed": 4,
-              "rank": null,
-              "nationalityCode": "CH"
-            },
-            {
-              "id": "athlete:tennis:flavio-cobolli",
-              "name": "Flavio Cobolli",
-              "seed": 4,
-              "rank": null,
-              "nationalityCode": "IT"
-            }
-          ]
-        }
-      ],
-      "venue": "Arthur Ashe Stadium",
-      "stakesScore": 5,
-      "marquee": true,
-      "summary": "US Open 2026 · Mixed doubles · Round 2 · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/bencic-cobolli_defeat_superstars_williams-alcaraz_in_2026_us_open_mixed_doubles.html",
-      "eventId": "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
-      "canonicalEventId": "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Serena Williams / Carlos Alcaraz v Belinda Bencic / Flavio Cobolli",
-      "endTimeUtc": "2026-08-25T21:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:serena-williams",
-        "athlete:tennis:carlos-alcaraz",
-        "athlete:tennis:belinda-bencic",
-        "athlete:tennis:flavio-cobolli"
-      ],
-      "homeParticipantId": "pair:tennis:serena-williams-carlos-alcaraz",
-      "awayParticipantId": "pair:tennis:belinda-bencic-flavio-cobolli",
-      "participants": [
-        {
-          "name": "Serena Williams",
-          "role": "home"
-        },
-        {
-          "name": "Carlos Alcaraz",
-          "role": "home"
-        },
-        {
-          "name": "Belinda Bencic",
-          "role": "away"
-        },
-        {
-          "name": "Flavio Cobolli",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 4,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 5,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
@@ -1797,6 +380,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Serena Williams / Carlos Alcaraz v Erin Routliffe / Lloyd Glasspool",
+      "timelineSortTimeUtc": "2026-08-25T18:00:00.000Z",
       "endTimeUtc": "2026-08-25T21:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -1846,116 +430,107 @@
       "sourceTrust": "verified"
     },
     {
-      "id": "fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
-      "stableMatchId": "usopen-2026-exhibition-federer-mcenroe-roddick-agassi",
+      "id": "fixture:us-open-2026:official:xd:5105",
+      "stableMatchId": "usopen-2026-xd-5105",
       "cardKind": "fixture",
-      "name": "Roger Federer / John McEnroe v Andy Roddick / Andre Agassi",
-      "stage": "Legends exhibition",
-      "roundLabel": "Doubles set",
-      "matchType": "exhibition-doubles",
-      "court": "Arthur Ashe Stadium",
+      "name": "Karolina Muchova / Jakub Mensik v Kristina Mladenovic / Marcelo Arevalo",
+      "stage": "Mixed doubles",
+      "roundLabel": "Round 1",
+      "matchType": "mixed-doubles",
+      "court": "Louis Armstrong Stadium",
       "date": "2026-08-26",
-      "time": "10:00",
-      "startTimeUtc": "2026-08-26T00:00:00.000Z",
-      "sessionId": "us-open-2026-legends-night",
-      "sessionStartTimeUtc": "2026-08-26T00:00:00.000Z",
+      "time": "00:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
       "sequenceInSession": 2,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
       "status": "completed",
-      "statusUpdatedAt": "2026-08-26T00:43:00.000Z",
-      "resultPublishedAt": "2026-08-26T00:43:00.000Z",
-      "scoreDisplay": "7-5",
-      "result": "Roger Federer / John McEnroe 7-5 Andre Agassi / Andy Roddick",
-      "previewPriority": 5,
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Karolina Muchova / Jakub Mensik 4-1 2-4 [10]-[7] Kristina Mladenovic / Marcelo Arevalo",
+      "result": "Karolina Muchova / Jakub Mensik 4-1 2-4 [10]-[7] Kristina Mladenovic / Marcelo Arevalo",
+      "previewPriority": 2,
       "matchupSides": [
         {
-          "id": "pair:tennis:federer-mcenroe",
-          "name": "Federer / McEnroe",
+          "id": "side:tennis:karolina-muchova-jakub-mensik",
+          "name": "Karolina Muchova / Jakub Mensik",
           "players": [
             {
-              "id": "athlete:tennis:roger-federer",
-              "name": "Roger Federer",
-              "seed": null,
+              "id": "athlete:tennis:karolina-muchova",
+              "name": "Karolina Muchova",
+              "seed": 0,
               "rank": null,
-              "nationalityCode": "CH"
+              "nationalityCode": "CZ"
             },
             {
-              "id": "athlete:tennis:john-mcenroe",
-              "name": "John McEnroe",
-              "seed": null,
+              "id": "athlete:tennis:jakub-mensik",
+              "name": "Jakub Mensik",
+              "seed": 0,
               "rank": null,
-              "nationalityCode": "US"
+              "nationalityCode": "CZ"
             }
           ]
         },
         {
-          "id": "pair:tennis:roddick-agassi",
-          "name": "Roddick / Agassi",
+          "id": "side:tennis:kristina-mladenovic-marcelo-arevalo",
+          "name": "Kristina Mladenovic / Marcelo Arevalo",
           "players": [
             {
-              "id": "athlete:tennis:andy-roddick",
-              "name": "Andy Roddick",
-              "seed": null,
+              "id": "athlete:tennis:kristina-mladenovic",
+              "name": "Kristina Mladenovic",
+              "seed": 0,
               "rank": null,
-              "nationalityCode": "US"
+              "nationalityCode": "FR"
             },
             {
-              "id": "athlete:tennis:andre-agassi",
-              "name": "Andre Agassi",
-              "seed": null,
+              "id": "athlete:tennis:marcelo-arevalo",
+              "name": "Marcelo Arevalo",
+              "seed": 0,
               "rank": null,
-              "nationalityCode": "US"
+              "nationalityCode": "ESA"
             }
           ]
         }
       ],
-      "venue": "Arthur Ashe Stadium",
-      "stakesScore": 5,
-      "marquee": true,
-      "summary": "US Open 2026 · Exhibition Doubles · Semifinals · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html",
-      "viewingOptions": [
-        {
-          "providerId": "disney-plus",
-          "eventUrl": "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html",
-          "linkScope": "event",
-          "sourceUrl": "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html",
-          "verifiedAt": "2026-08-26T00:00:00.000Z"
-        }
-      ],
-      "eventId": "fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
-      "canonicalEventId": "fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:xd:5105",
+      "canonicalEventId": "fixture:us-open-2026:official:xd:5105",
       "key": "tennis",
       "sport": "Tennis",
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Roger Federer / John McEnroe v Andy Roddick / Andre Agassi",
-      "endTimeUtc": "2026-08-26T03:00:00.000Z",
+      "displayTitleCompact": "Karolina Muchova / Jakub Mensik v Kristina Mladenovic / Marcelo Arevalo",
+      "timelineSortTimeUtc": "2026-08-25T14:00:00.000Z",
+      "endTimeUtc": "2026-08-25T17:00:00.000Z",
       "timeTbc": true,
       "participantIds": [
-        "athlete:tennis:roger-federer",
-        "athlete:tennis:john-mcenroe",
-        "athlete:tennis:andy-roddick",
-        "athlete:tennis:andre-agassi"
+        "athlete:tennis:karolina-muchova",
+        "athlete:tennis:jakub-mensik",
+        "athlete:tennis:kristina-mladenovic",
+        "athlete:tennis:marcelo-arevalo"
       ],
-      "homeParticipantId": "pair:tennis:federer-mcenroe",
-      "awayParticipantId": "pair:tennis:roddick-agassi",
+      "homeParticipantId": "side:tennis:karolina-muchova-jakub-mensik",
+      "awayParticipantId": "side:tennis:kristina-mladenovic-marcelo-arevalo",
       "participants": [
         {
-          "name": "Roger Federer",
+          "name": "Karolina Muchova",
           "role": "home"
         },
         {
-          "name": "John McEnroe",
+          "name": "Jakub Mensik",
           "role": "home"
         },
         {
-          "name": "Andy Roddick",
+          "name": "Kristina Mladenovic",
           "role": "away"
         },
         {
-          "name": "Andre Agassi",
+          "name": "Marcelo Arevalo",
           "role": "away"
         }
       ],
@@ -1966,10 +541,635 @@
       "broadcastOptions": [
         "Stan Sport"
       ],
-      "expected": 5,
+      "expected": 2,
       "liveWindow": 3,
       "storyline": {
-        "stakes": 5,
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:xd:5106",
+      "stableMatchId": "usopen-2026-xd-5106",
+      "cardKind": "fixture",
+      "name": "Emma Navarro / Tommy Paul v Amanda Anisimova / Learner Tien",
+      "stage": "Mixed doubles",
+      "roundLabel": "Round 1",
+      "matchType": "mixed-doubles",
+      "court": "Louis Armstrong Stadium",
+      "date": "2026-08-26",
+      "time": "00:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
+      "sequenceInSession": 3,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Emma Navarro / Tommy Paul 5-3 4-2 Amanda Anisimova / Learner Tien",
+      "result": "Emma Navarro / Tommy Paul 5-3 4-2 Amanda Anisimova / Learner Tien",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:emma-navarro-tommy-paul",
+          "name": "Emma Navarro / Tommy Paul",
+          "players": [
+            {
+              "id": "athlete:tennis:emma-navarro",
+              "name": "Emma Navarro",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "US"
+            },
+            {
+              "id": "athlete:tennis:tommy-paul",
+              "name": "Tommy Paul",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:amanda-anisimova-learner-tien",
+          "name": "Amanda Anisimova / Learner Tien",
+          "players": [
+            {
+              "id": "athlete:tennis:amanda-anisimova",
+              "name": "Amanda Anisimova",
+              "seed": 3,
+              "rank": null,
+              "nationalityCode": "US"
+            },
+            {
+              "id": "athlete:tennis:learner-tien",
+              "name": "Learner Tien",
+              "seed": 3,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        }
+      ],
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:xd:5106",
+      "canonicalEventId": "fixture:us-open-2026:official:xd:5106",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Emma Navarro / Tommy Paul v Amanda Anisimova / Learner Tien",
+      "timelineSortTimeUtc": "2026-08-25T14:00:00.000Z",
+      "endTimeUtc": "2026-08-25T17:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:emma-navarro",
+        "athlete:tennis:tommy-paul",
+        "athlete:tennis:amanda-anisimova",
+        "athlete:tennis:learner-tien"
+      ],
+      "homeParticipantId": "side:tennis:emma-navarro-tommy-paul",
+      "awayParticipantId": "side:tennis:amanda-anisimova-learner-tien",
+      "participants": [
+        {
+          "name": "Emma Navarro",
+          "role": "home"
+        },
+        {
+          "name": "Tommy Paul",
+          "role": "home"
+        },
+        {
+          "name": "Amanda Anisimova",
+          "role": "away"
+        },
+        {
+          "name": "Learner Tien",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:xd:5107",
+      "stableMatchId": "usopen-2026-xd-5107",
+      "cardKind": "fixture",
+      "name": "Mirra Andreeva / Andrey Rublev v Sara Errani / Andrea Vavassori",
+      "stage": "Mixed doubles",
+      "roundLabel": "Round 1",
+      "matchType": "mixed-doubles",
+      "court": "Louis Armstrong Stadium",
+      "date": "2026-08-26",
+      "time": "00:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
+      "sequenceInSession": 5,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Mirra Andreeva / Andrey Rublev 1-4 4-1 [11]-[9] Sara Errani / Andrea Vavassori",
+      "result": "Mirra Andreeva / Andrey Rublev 1-4 4-1 [11]-[9] Sara Errani / Andrea Vavassori",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:mirra-andreeva-andrey-rublev",
+          "name": "Mirra Andreeva / Andrey Rublev",
+          "players": [
+            {
+              "id": "athlete:tennis:mirra-andreeva",
+              "name": "Mirra Andreeva",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "RU"
+            },
+            {
+              "id": "athlete:tennis:andrey-rublev",
+              "name": "Andrey Rublev",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "RU"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:sara-errani-andrea-vavassori",
+          "name": "Sara Errani / Andrea Vavassori",
+          "players": [
+            {
+              "id": "athlete:tennis:sara-errani",
+              "name": "Sara Errani",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "IT"
+            },
+            {
+              "id": "athlete:tennis:andrea-vavassori",
+              "name": "Andrea Vavassori",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "IT"
+            }
+          ]
+        }
+      ],
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:xd:5107",
+      "canonicalEventId": "fixture:us-open-2026:official:xd:5107",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Mirra Andreeva / Andrey Rublev v Sara Errani / Andrea Vavassori",
+      "timelineSortTimeUtc": "2026-08-25T14:00:00.000Z",
+      "endTimeUtc": "2026-08-25T17:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:mirra-andreeva",
+        "athlete:tennis:andrey-rublev",
+        "athlete:tennis:sara-errani",
+        "athlete:tennis:andrea-vavassori"
+      ],
+      "homeParticipantId": "side:tennis:mirra-andreeva-andrey-rublev",
+      "awayParticipantId": "side:tennis:sara-errani-andrea-vavassori",
+      "participants": [
+        {
+          "name": "Mirra Andreeva",
+          "role": "home"
+        },
+        {
+          "name": "Andrey Rublev",
+          "role": "home"
+        },
+        {
+          "name": "Sara Errani",
+          "role": "away"
+        },
+        {
+          "name": "Andrea Vavassori",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:xd:5108",
+      "stableMatchId": "usopen-2026-xd-5108",
+      "cardKind": "fixture",
+      "name": "Diana Shnaider / Casper Ruud v Jessica Pegula / Taylor Fritz",
+      "stage": "Mixed doubles",
+      "roundLabel": "Round 1",
+      "matchType": "mixed-doubles",
+      "court": "Louis Armstrong Stadium",
+      "date": "2026-08-26",
+      "time": "00:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
+      "sequenceInSession": 6,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Diana Shnaider / Casper Ruud 4-2 4-1 Jessica Pegula / Taylor Fritz",
+      "result": "Diana Shnaider / Casper Ruud 4-2 4-1 Jessica Pegula / Taylor Fritz",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:diana-shnaider-casper-ruud",
+          "name": "Diana Shnaider / Casper Ruud",
+          "players": [
+            {
+              "id": "athlete:tennis:diana-shnaider",
+              "name": "Diana Shnaider",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "RU"
+            },
+            {
+              "id": "athlete:tennis:casper-ruud",
+              "name": "Casper Ruud",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "NO"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:jessica-pegula-taylor-fritz",
+          "name": "Jessica Pegula / Taylor Fritz",
+          "players": [
+            {
+              "id": "athlete:tennis:jessica-pegula",
+              "name": "Jessica Pegula",
+              "seed": 2,
+              "rank": null,
+              "nationalityCode": "US"
+            },
+            {
+              "id": "athlete:tennis:taylor-fritz",
+              "name": "Taylor Fritz",
+              "seed": 2,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        }
+      ],
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:xd:5108",
+      "canonicalEventId": "fixture:us-open-2026:official:xd:5108",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Diana Shnaider / Casper Ruud v Jessica Pegula / Taylor Fritz",
+      "timelineSortTimeUtc": "2026-08-25T14:00:00.000Z",
+      "endTimeUtc": "2026-08-25T17:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:diana-shnaider",
+        "athlete:tennis:casper-ruud",
+        "athlete:tennis:jessica-pegula",
+        "athlete:tennis:taylor-fritz"
+      ],
+      "homeParticipantId": "side:tennis:diana-shnaider-casper-ruud",
+      "awayParticipantId": "side:tennis:jessica-pegula-taylor-fritz",
+      "participants": [
+        {
+          "name": "Diana Shnaider",
+          "role": "home"
+        },
+        {
+          "name": "Casper Ruud",
+          "role": "home"
+        },
+        {
+          "name": "Jessica Pegula",
+          "role": "away"
+        },
+        {
+          "name": "Taylor Fritz",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:xd:5203",
+      "stableMatchId": "usopen-2026-xd-5203",
+      "cardKind": "fixture",
+      "name": "Karolina Muchova / Jakub Mensik v Emma Navarro / Tommy Paul",
+      "stage": "Mixed doubles",
+      "roundLabel": "Round 2",
+      "matchType": "mixed-doubles",
+      "court": "Louis Armstrong Stadium",
+      "date": "2026-08-26",
+      "time": "00:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
+      "sequenceInSession": 4,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Karolina Muchova / Jakub Mensik 4-1 5-3 Emma Navarro / Tommy Paul",
+      "result": "Karolina Muchova / Jakub Mensik 4-1 5-3 Emma Navarro / Tommy Paul",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:karolina-muchova-jakub-mensik",
+          "name": "Karolina Muchova / Jakub Mensik",
+          "players": [
+            {
+              "id": "athlete:tennis:karolina-muchova",
+              "name": "Karolina Muchova",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "CZ"
+            },
+            {
+              "id": "athlete:tennis:jakub-mensik",
+              "name": "Jakub Mensik",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "CZ"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:emma-navarro-tommy-paul",
+          "name": "Emma Navarro / Tommy Paul",
+          "players": [
+            {
+              "id": "athlete:tennis:emma-navarro",
+              "name": "Emma Navarro",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "US"
+            },
+            {
+              "id": "athlete:tennis:tommy-paul",
+              "name": "Tommy Paul",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        }
+      ],
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Mixed doubles · Round 2 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:xd:5203",
+      "canonicalEventId": "fixture:us-open-2026:official:xd:5203",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Karolina Muchova / Jakub Mensik v Emma Navarro / Tommy Paul",
+      "timelineSortTimeUtc": "2026-08-25T14:00:00.000Z",
+      "endTimeUtc": "2026-08-25T17:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:karolina-muchova",
+        "athlete:tennis:jakub-mensik",
+        "athlete:tennis:emma-navarro",
+        "athlete:tennis:tommy-paul"
+      ],
+      "homeParticipantId": "side:tennis:karolina-muchova-jakub-mensik",
+      "awayParticipantId": "side:tennis:emma-navarro-tommy-paul",
+      "participants": [
+        {
+          "name": "Karolina Muchova",
+          "role": "home"
+        },
+        {
+          "name": "Jakub Mensik",
+          "role": "home"
+        },
+        {
+          "name": "Emma Navarro",
+          "role": "away"
+        },
+        {
+          "name": "Tommy Paul",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:xd:5204",
+      "stableMatchId": "usopen-2026-xd-5204",
+      "cardKind": "fixture",
+      "name": "Mirra Andreeva / Andrey Rublev v Diana Shnaider / Casper Ruud",
+      "stage": "Mixed doubles",
+      "roundLabel": "Round 2",
+      "matchType": "mixed-doubles",
+      "court": "Louis Armstrong Stadium",
+      "date": "2026-08-26",
+      "time": "00:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-08-25T14:00:00.000Z",
+      "sequenceInSession": 7,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Mirra Andreeva / Andrey Rublev 4-1 4(9)-5(11) [10]-[5] Diana Shnaider / Casper Ruud",
+      "result": "Mirra Andreeva / Andrey Rublev 4-1 4(9)-5(11) [10]-[5] Diana Shnaider / Casper Ruud",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:mirra-andreeva-andrey-rublev",
+          "name": "Mirra Andreeva / Andrey Rublev",
+          "players": [
+            {
+              "id": "athlete:tennis:mirra-andreeva",
+              "name": "Mirra Andreeva",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "RU"
+            },
+            {
+              "id": "athlete:tennis:andrey-rublev",
+              "name": "Andrey Rublev",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "RU"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:diana-shnaider-casper-ruud",
+          "name": "Diana Shnaider / Casper Ruud",
+          "players": [
+            {
+              "id": "athlete:tennis:diana-shnaider",
+              "name": "Diana Shnaider",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "RU"
+            },
+            {
+              "id": "athlete:tennis:casper-ruud",
+              "name": "Casper Ruud",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "NO"
+            }
+          ]
+        }
+      ],
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Mixed doubles · Round 2 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:xd:5204",
+      "canonicalEventId": "fixture:us-open-2026:official:xd:5204",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Mirra Andreeva / Andrey Rublev v Diana Shnaider / Casper Ruud",
+      "timelineSortTimeUtc": "2026-08-25T14:00:00.000Z",
+      "endTimeUtc": "2026-08-25T17:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:mirra-andreeva",
+        "athlete:tennis:andrey-rublev",
+        "athlete:tennis:diana-shnaider",
+        "athlete:tennis:casper-ruud"
+      ],
+      "homeParticipantId": "side:tennis:mirra-andreeva-andrey-rublev",
+      "awayParticipantId": "side:tennis:diana-shnaider-casper-ruud",
+      "participants": [
+        {
+          "name": "Mirra Andreeva",
+          "role": "home"
+        },
+        {
+          "name": "Andrey Rublev",
+          "role": "home"
+        },
+        {
+          "name": "Diana Shnaider",
+          "role": "away"
+        },
+        {
+          "name": "Casper Ruud",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
@@ -2051,6 +1251,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Roger Federer v Andy Roddick",
+      "timelineSortTimeUtc": "2026-08-26T00:00:00.000Z",
       "endTimeUtc": "2026-08-26T03:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -2090,36 +1291,36 @@
       "sourceTrust": "verified"
     },
     {
-      "id": "fixture:us-open-2026:official:wq:12206",
-      "stableMatchId": "usopen-2026-wq-12206",
+      "id": "fixture:us-open-2026:official:mq:11158",
+      "stableMatchId": "usopen-2026-mq-11158",
       "cardKind": "fixture",
-      "name": "Priscilla Hon v Joanna Garland",
-      "stage": "Women's qualifying singles",
-      "roundLabel": "Round 2",
-      "matchType": "womens-qualifying-singles",
-      "court": "Court 8",
-      "date": "2026-08-27",
+      "name": "Bernard Tomic v Lloyd Harris",
+      "stage": "Men's qualifying singles",
+      "roundLabel": "Round 1",
+      "matchType": "mens-qualifying-singles",
+      "court": "Court 7",
+      "date": "2026-08-26",
       "time": "01:00",
-      "startTimeUtc": "2026-08-26T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-4:court-ai:session-1",
-      "sessionStartTimeUtc": "2026-08-26T15:00:00.000Z",
-      "sequenceInSession": 4,
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-ah:session-1",
+      "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
+      "sequenceInSession": 2,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
       "status": "completed",
       "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
       "resultPublishedAt": "2026-08-28T07:40:01.382Z",
-      "scoreDisplay": "Priscilla Hon 3-6 4-6 Joanna Garland",
-      "result": "Priscilla Hon 3-6 4-6 Joanna Garland",
+      "scoreDisplay": "Bernard Tomic 2-6 7-5 2-6 Lloyd Harris",
+      "result": "Bernard Tomic 2-6 7-5 2-6 Lloyd Harris",
       "previewPriority": 3,
       "matchupSides": [
         {
-          "id": "side:tennis:priscilla-hon",
-          "name": "Priscilla Hon",
+          "id": "side:tennis:bernard-tomic",
+          "name": "Bernard Tomic",
           "players": [
             {
-              "id": "athlete:tennis:priscilla-hon",
-              "name": "Priscilla Hon",
+              "id": "athlete:tennis:bernard-tomic",
+              "name": "Bernard Tomic",
               "seed": 0,
               "rank": null,
               "nationalityCode": "AU"
@@ -2127,45 +1328,46 @@
           ]
         },
         {
-          "id": "side:tennis:joanna-garland",
-          "name": "Joanna Garland",
+          "id": "side:tennis:lloyd-harris",
+          "name": "Lloyd Harris",
           "players": [
             {
-              "id": "athlete:tennis:joanna-garland",
-              "name": "Joanna Garland",
+              "id": "athlete:tennis:lloyd-harris",
+              "name": "Lloyd Harris",
               "seed": 0,
               "rank": null,
-              "nationalityCode": "TPE"
+              "nationalityCode": "RSA"
             }
           ]
         }
       ],
-      "venue": "Court 8",
+      "venue": "Court 7",
       "stakesScore": 3,
-      "summary": "US Open 2026 · Women's qualifying singles · Round 2 · Court 8.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-      "eventId": "fixture:us-open-2026:official:wq:12206",
-      "canonicalEventId": "fixture:us-open-2026:official:wq:12206",
+      "summary": "US Open 2026 · Men's qualifying singles · Round 1 · Court 7.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:mq:11158",
+      "canonicalEventId": "fixture:us-open-2026:official:mq:11158",
       "key": "tennis",
       "sport": "Tennis",
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Priscilla Hon v Joanna Garland",
-      "endTimeUtc": "2026-08-26T18:00:00.000Z",
+      "displayTitleCompact": "Bernard Tomic v Lloyd Harris",
+      "timelineSortTimeUtc": "2026-08-25T15:00:00.000Z",
+      "endTimeUtc": "2026-08-25T18:00:00.000Z",
       "timeTbc": true,
       "participantIds": [
-        "athlete:tennis:priscilla-hon",
-        "athlete:tennis:joanna-garland"
+        "athlete:tennis:bernard-tomic",
+        "athlete:tennis:lloyd-harris"
       ],
-      "homeParticipantId": "side:tennis:priscilla-hon",
-      "awayParticipantId": "side:tennis:joanna-garland",
+      "homeParticipantId": "side:tennis:bernard-tomic",
+      "awayParticipantId": "side:tennis:lloyd-harris",
       "participants": [
         {
-          "name": "Priscilla Hon",
+          "name": "Bernard Tomic",
           "role": "home"
         },
         {
-          "name": "Joanna Garland",
+          "name": "Lloyd Harris",
           "role": "away"
         }
       ],
@@ -2180,6 +1382,721 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 3,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:wq:12111",
+      "stableMatchId": "usopen-2026-wq-12111",
+      "cardKind": "fixture",
+      "name": "Alice Tubello v Priscilla Hon",
+      "stage": "Women's qualifying singles",
+      "roundLabel": "Round 1",
+      "matchType": "womens-qualifying-singles",
+      "court": "Court 7",
+      "date": "2026-08-26",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-ah:session-1",
+      "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
+      "sequenceInSession": 3,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Alice Tubello 4-6 6-4 2-6 Priscilla Hon",
+      "result": "Alice Tubello 4-6 6-4 2-6 Priscilla Hon",
+      "previewPriority": 3,
+      "matchupSides": [
+        {
+          "id": "side:tennis:alice-tubello",
+          "name": "Alice Tubello",
+          "players": [
+            {
+              "id": "athlete:tennis:alice-tubello",
+              "name": "Alice Tubello",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "FR"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:priscilla-hon",
+          "name": "Priscilla Hon",
+          "players": [
+            {
+              "id": "athlete:tennis:priscilla-hon",
+              "name": "Priscilla Hon",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "AU"
+            }
+          ]
+        }
+      ],
+      "venue": "Court 7",
+      "stakesScore": 3,
+      "summary": "US Open 2026 · Women's qualifying singles · Round 1 · Court 7.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:wq:12111",
+      "canonicalEventId": "fixture:us-open-2026:official:wq:12111",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Alice Tubello v Priscilla Hon",
+      "timelineSortTimeUtc": "2026-08-25T15:00:00.000Z",
+      "endTimeUtc": "2026-08-25T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:alice-tubello",
+        "athlete:tennis:priscilla-hon"
+      ],
+      "homeParticipantId": "side:tennis:alice-tubello",
+      "awayParticipantId": "side:tennis:priscilla-hon",
+      "participants": [
+        {
+          "name": "Alice Tubello",
+          "role": "home"
+        },
+        {
+          "name": "Priscilla Hon",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 3,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 3,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:wq:12120",
+      "stableMatchId": "usopen-2026-wq-12120",
+      "cardKind": "fixture",
+      "name": "Suzan Lamens v Emerson Jones",
+      "stage": "Women's qualifying singles",
+      "roundLabel": "Round 1",
+      "matchType": "womens-qualifying-singles",
+      "court": "Court 12",
+      "date": "2026-08-26",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-am:session-1",
+      "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Suzan Lamens 7-5 6(7)-7(9) 6-2 Emerson Jones",
+      "result": "Suzan Lamens 7-5 6(7)-7(9) 6-2 Emerson Jones",
+      "previewPriority": 3,
+      "matchupSides": [
+        {
+          "id": "side:tennis:suzan-lamens",
+          "name": "Suzan Lamens",
+          "players": [
+            {
+              "id": "athlete:tennis:suzan-lamens",
+              "name": "Suzan Lamens",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "NL"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:emerson-jones",
+          "name": "Emerson Jones",
+          "players": [
+            {
+              "id": "athlete:tennis:emerson-jones",
+              "name": "Emerson Jones",
+              "seed": 18,
+              "rank": null,
+              "nationalityCode": "AU"
+            }
+          ]
+        }
+      ],
+      "venue": "Court 12",
+      "stakesScore": 3,
+      "summary": "US Open 2026 · Women's qualifying singles · Round 1 · Court 12.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:wq:12120",
+      "canonicalEventId": "fixture:us-open-2026:official:wq:12120",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Suzan Lamens v Emerson Jones",
+      "timelineSortTimeUtc": "2026-08-25T15:00:00.000Z",
+      "endTimeUtc": "2026-08-25T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:suzan-lamens",
+        "athlete:tennis:emerson-jones"
+      ],
+      "homeParticipantId": "side:tennis:suzan-lamens",
+      "awayParticipantId": "side:tennis:emerson-jones",
+      "participants": [
+        {
+          "name": "Suzan Lamens",
+          "role": "home"
+        },
+        {
+          "name": "Emerson Jones",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 3,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 3,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:xd:5103",
+      "stableMatchId": "usopen-2026-xd-5103",
+      "cardKind": "fixture",
+      "name": "Belinda Bencic / Flavio Cobolli v Taylor Townsend / Alexander Zverev",
+      "stage": "Mixed doubles",
+      "roundLabel": "Round 1",
+      "matchType": "mixed-doubles",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-08-26",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-aa:session-1",
+      "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
+      "sequenceInSession": 3,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Belinda Bencic / Flavio Cobolli 4-2 4-2 Taylor Townsend / Alexander Zverev",
+      "result": "Belinda Bencic / Flavio Cobolli 4-2 4-2 Taylor Townsend / Alexander Zverev",
+      "previewPriority": 4,
+      "matchupSides": [
+        {
+          "id": "side:tennis:belinda-bencic-flavio-cobolli",
+          "name": "Belinda Bencic / Flavio Cobolli",
+          "players": [
+            {
+              "id": "athlete:tennis:belinda-bencic",
+              "name": "Belinda Bencic",
+              "seed": 4,
+              "rank": null,
+              "nationalityCode": "CH"
+            },
+            {
+              "id": "athlete:tennis:flavio-cobolli",
+              "name": "Flavio Cobolli",
+              "seed": 4,
+              "rank": null,
+              "nationalityCode": "IT"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:taylor-townsend-alexander-zverev",
+          "name": "Taylor Townsend / Alexander Zverev",
+          "players": [
+            {
+              "id": "athlete:tennis:taylor-townsend",
+              "name": "Taylor Townsend",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "US"
+            },
+            {
+              "id": "athlete:tennis:alexander-zverev",
+              "name": "Alexander Zverev",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "DE"
+            }
+          ]
+        }
+      ],
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 4,
+      "marquee": true,
+      "summary": "US Open 2026 · Mixed doubles · Round 1 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:xd:5103",
+      "canonicalEventId": "fixture:us-open-2026:official:xd:5103",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Belinda Bencic / Flavio Cobolli v Taylor Townsend / Alexander Zverev",
+      "timelineSortTimeUtc": "2026-08-25T15:00:00.000Z",
+      "endTimeUtc": "2026-08-25T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:belinda-bencic",
+        "athlete:tennis:flavio-cobolli",
+        "athlete:tennis:taylor-townsend",
+        "athlete:tennis:alexander-zverev"
+      ],
+      "homeParticipantId": "side:tennis:belinda-bencic-flavio-cobolli",
+      "awayParticipantId": "side:tennis:taylor-townsend-alexander-zverev",
+      "participants": [
+        {
+          "name": "Belinda Bencic",
+          "role": "home"
+        },
+        {
+          "name": "Flavio Cobolli",
+          "role": "home"
+        },
+        {
+          "name": "Taylor Townsend",
+          "role": "away"
+        },
+        {
+          "name": "Alexander Zverev",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 4,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:xd:5201",
+      "stableMatchId": "usopen-2026-xd-5201",
+      "cardKind": "fixture",
+      "name": "Katerina Siniakova / Henry Patten v Elina Svitolina / Gael Monfils",
+      "stage": "Mixed doubles",
+      "roundLabel": "Round 2",
+      "matchType": "mixed-doubles",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-08-26",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-3:court-aa:session-1",
+      "sessionStartTimeUtc": "2026-08-25T15:00:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Katerina Siniakova / Henry Patten 4(6)-5(8) 5(7)-4(3) [8]-[10] Elina Svitolina / Gael Monfils",
+      "result": "Katerina Siniakova / Henry Patten 4(6)-5(8) 5(7)-4(3) [8]-[10] Elina Svitolina / Gael Monfils",
+      "previewPriority": 4,
+      "matchupSides": [
+        {
+          "id": "side:tennis:katerina-siniakova-henry-patten",
+          "name": "Katerina Siniakova / Henry Patten",
+          "players": [
+            {
+              "id": "athlete:tennis:katerina-siniakova",
+              "name": "Katerina Siniakova",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "CZ"
+            },
+            {
+              "id": "athlete:tennis:henry-patten",
+              "name": "Henry Patten",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "GB"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:elina-svitolina-gael-monfils",
+          "name": "Elina Svitolina / Gael Monfils",
+          "players": [
+            {
+              "id": "athlete:tennis:elina-svitolina",
+              "name": "Elina Svitolina",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "UA"
+            },
+            {
+              "id": "athlete:tennis:gael-monfils",
+              "name": "Gael Monfils",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "FR"
+            }
+          ]
+        }
+      ],
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 4,
+      "marquee": true,
+      "summary": "US Open 2026 · Mixed doubles · Round 2 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "eventId": "fixture:us-open-2026:official:xd:5201",
+      "canonicalEventId": "fixture:us-open-2026:official:xd:5201",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Katerina Siniakova / Henry Patten v Elina Svitolina / Gael Monfils",
+      "timelineSortTimeUtc": "2026-08-25T15:00:00.000Z",
+      "endTimeUtc": "2026-08-25T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:katerina-siniakova",
+        "athlete:tennis:henry-patten",
+        "athlete:tennis:elina-svitolina",
+        "athlete:tennis:gael-monfils"
+      ],
+      "homeParticipantId": "side:tennis:katerina-siniakova-henry-patten",
+      "awayParticipantId": "side:tennis:elina-svitolina-gael-monfils",
+      "participants": [
+        {
+          "name": "Katerina Siniakova",
+          "role": "home"
+        },
+        {
+          "name": "Henry Patten",
+          "role": "home"
+        },
+        {
+          "name": "Elina Svitolina",
+          "role": "away"
+        },
+        {
+          "name": "Gael Monfils",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 4,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
+      "stableMatchId": "usopen-2026-xd-serena-alcaraz-bencic-cobolli",
+      "cardKind": "fixture",
+      "name": "Serena Williams / Carlos Alcaraz v Belinda Bencic / Flavio Cobolli",
+      "stage": "Mixed doubles",
+      "roundLabel": "Quarterfinal",
+      "matchType": "mixed-doubles",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-08-26",
+      "time": "04:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026-mixed-doubles-day-1",
+      "sessionStartTimeUtc": "2026-08-25T18:00:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-25T21:00:00.000Z",
+      "resultPublishedAt": "2026-08-25T21:00:00.000Z",
+      "scoreDisplay": "Bencic / Cobolli 5-4(4), 4-1 Williams / Alcaraz",
+      "result": "Bencic / Cobolli won 5-4(4), 4-1",
+      "previewPriority": 4,
+      "matchupSides": [
+        {
+          "id": "pair:tennis:serena-williams-carlos-alcaraz",
+          "name": "Williams / Alcaraz",
+          "players": [
+            {
+              "id": "athlete:tennis:serena-williams",
+              "name": "Serena Williams",
+              "seed": null,
+              "rank": null,
+              "nationalityCode": "US"
+            },
+            {
+              "id": "athlete:tennis:carlos-alcaraz",
+              "name": "Carlos Alcaraz",
+              "seed": null,
+              "rank": null,
+              "nationalityCode": "ES"
+            }
+          ]
+        },
+        {
+          "id": "pair:tennis:belinda-bencic-flavio-cobolli",
+          "name": "Bencic / Cobolli",
+          "players": [
+            {
+              "id": "athlete:tennis:belinda-bencic",
+              "name": "Belinda Bencic",
+              "seed": 4,
+              "rank": null,
+              "nationalityCode": "CH"
+            },
+            {
+              "id": "athlete:tennis:flavio-cobolli",
+              "name": "Flavio Cobolli",
+              "seed": 4,
+              "rank": null,
+              "nationalityCode": "IT"
+            }
+          ]
+        }
+      ],
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 5,
+      "marquee": true,
+      "summary": "US Open 2026 · Mixed doubles · Round 2 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/bencic-cobolli_defeat_superstars_williams-alcaraz_in_2026_us_open_mixed_doubles.html",
+      "eventId": "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
+      "canonicalEventId": "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Serena Williams / Carlos Alcaraz v Belinda Bencic / Flavio Cobolli",
+      "timelineSortTimeUtc": "2026-08-25T18:00:00.000Z",
+      "endTimeUtc": "2026-08-25T21:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:serena-williams",
+        "athlete:tennis:carlos-alcaraz",
+        "athlete:tennis:belinda-bencic",
+        "athlete:tennis:flavio-cobolli"
+      ],
+      "homeParticipantId": "pair:tennis:serena-williams-carlos-alcaraz",
+      "awayParticipantId": "pair:tennis:belinda-bencic-flavio-cobolli",
+      "participants": [
+        {
+          "name": "Serena Williams",
+          "role": "home"
+        },
+        {
+          "name": "Carlos Alcaraz",
+          "role": "home"
+        },
+        {
+          "name": "Belinda Bencic",
+          "role": "away"
+        },
+        {
+          "name": "Flavio Cobolli",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 4,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 5,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
+      "stableMatchId": "usopen-2026-exhibition-federer-mcenroe-roddick-agassi",
+      "cardKind": "fixture",
+      "name": "Roger Federer / John McEnroe v Andy Roddick / Andre Agassi",
+      "stage": "Legends exhibition",
+      "roundLabel": "Doubles set",
+      "matchType": "exhibition-doubles",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-08-26",
+      "time": "10:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026-legends-night",
+      "sessionStartTimeUtc": "2026-08-26T00:00:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-26T00:43:00.000Z",
+      "resultPublishedAt": "2026-08-26T00:43:00.000Z",
+      "scoreDisplay": "7-5",
+      "result": "Roger Federer / John McEnroe 7-5 Andre Agassi / Andy Roddick",
+      "previewPriority": 5,
+      "matchupSides": [
+        {
+          "id": "pair:tennis:federer-mcenroe",
+          "name": "Federer / McEnroe",
+          "players": [
+            {
+              "id": "athlete:tennis:roger-federer",
+              "name": "Roger Federer",
+              "seed": null,
+              "rank": null,
+              "nationalityCode": "CH"
+            },
+            {
+              "id": "athlete:tennis:john-mcenroe",
+              "name": "John McEnroe",
+              "seed": null,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        },
+        {
+          "id": "pair:tennis:roddick-agassi",
+          "name": "Roddick / Agassi",
+          "players": [
+            {
+              "id": "athlete:tennis:andy-roddick",
+              "name": "Andy Roddick",
+              "seed": null,
+              "rank": null,
+              "nationalityCode": "US"
+            },
+            {
+              "id": "athlete:tennis:andre-agassi",
+              "name": "Andre Agassi",
+              "seed": null,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        }
+      ],
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 5,
+      "marquee": true,
+      "summary": "US Open 2026 · Exhibition Doubles · Semifinals · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html",
+      "viewingOptions": [
+        {
+          "providerId": "disney-plus",
+          "eventUrl": "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html",
+          "linkScope": "event",
+          "sourceUrl": "https://www.usopen.org/en_US/fan-week/roger-federer-an-icon-returns-to-new-york.html",
+          "verifiedAt": "2026-08-26T00:00:00.000Z"
+        }
+      ],
+      "eventId": "fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
+      "canonicalEventId": "fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Roger Federer / John McEnroe v Andy Roddick / Andre Agassi",
+      "timelineSortTimeUtc": "2026-08-26T00:00:00.000Z",
+      "endTimeUtc": "2026-08-26T03:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:roger-federer",
+        "athlete:tennis:john-mcenroe",
+        "athlete:tennis:andy-roddick",
+        "athlete:tennis:andre-agassi"
+      ],
+      "homeParticipantId": "pair:tennis:federer-mcenroe",
+      "awayParticipantId": "pair:tennis:roddick-agassi",
+      "participants": [
+        {
+          "name": "Roger Federer",
+          "role": "home"
+        },
+        {
+          "name": "John McEnroe",
+          "role": "home"
+        },
+        {
+          "name": "Andy Roddick",
+          "role": "away"
+        },
+        {
+          "name": "Andre Agassi",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 5,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 5,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
@@ -2266,6 +2183,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Elina Svitolina / Gael Monfils v Belinda Bencic / Flavio Cobolli",
+      "timelineSortTimeUtc": "2026-08-26T23:00:00.000Z",
       "endTimeUtc": "2026-08-27T02:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -2315,6 +2233,107 @@
       "sourceTrust": "verified"
     },
     {
+      "id": "fixture:us-open-2026:official:wq:12206",
+      "stableMatchId": "usopen-2026-wq-12206",
+      "cardKind": "fixture",
+      "name": "Priscilla Hon v Joanna Garland",
+      "stage": "Women's qualifying singles",
+      "roundLabel": "Round 2",
+      "matchType": "womens-qualifying-singles",
+      "court": "Court 8",
+      "date": "2026-08-27",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-4:court-ai:session-1",
+      "sessionStartTimeUtc": "2026-08-26T15:00:00.000Z",
+      "sequenceInSession": 4,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-28T07:40:01.382Z",
+      "resultPublishedAt": "2026-08-28T07:40:01.382Z",
+      "scoreDisplay": "Priscilla Hon 3-6 4-6 Joanna Garland",
+      "result": "Priscilla Hon 3-6 4-6 Joanna Garland",
+      "previewPriority": 3,
+      "matchupSides": [
+        {
+          "id": "side:tennis:priscilla-hon",
+          "name": "Priscilla Hon",
+          "players": [
+            {
+              "id": "athlete:tennis:priscilla-hon",
+              "name": "Priscilla Hon",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "AU"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:joanna-garland",
+          "name": "Joanna Garland",
+          "players": [
+            {
+              "id": "athlete:tennis:joanna-garland",
+              "name": "Joanna Garland",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "TPE"
+            }
+          ]
+        }
+      ],
+      "venue": "Court 8",
+      "stakesScore": 3,
+      "summary": "US Open 2026 · Women's qualifying singles · Round 2 · Court 8.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
+      "eventId": "fixture:us-open-2026:official:wq:12206",
+      "canonicalEventId": "fixture:us-open-2026:official:wq:12206",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Priscilla Hon v Joanna Garland",
+      "timelineSortTimeUtc": "2026-08-26T15:00:00.000Z",
+      "endTimeUtc": "2026-08-26T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:priscilla-hon",
+        "athlete:tennis:joanna-garland"
+      ],
+      "homeParticipantId": "side:tennis:priscilla-hon",
+      "awayParticipantId": "side:tennis:joanna-garland",
+      "participants": [
+        {
+          "name": "Priscilla Hon",
+          "role": "home"
+        },
+        {
+          "name": "Joanna Garland",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 3,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 3,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
       "id": "fixture:us-open-2026:official:xd:5302",
       "stableMatchId": "usopen-2026-xd-5302",
       "cardKind": "fixture",
@@ -2325,7 +2344,7 @@
       "court": "Arthur Ashe Stadium",
       "date": "2026-08-27",
       "time": "09:00",
-      "startTimeUtc": "2026-08-26T23:00:00.000Z",
+      "startTimeUtc": null,
       "sessionId": "us-open-2026:day-4:court-aa:session-2",
       "sessionStartTimeUtc": "2026-08-26T23:00:00.000Z",
       "sequenceInSession": 2,
@@ -2391,6 +2410,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Karolina Muchova / Jakub Mensik v Mirra Andreeva / Andrey Rublev",
+      "timelineSortTimeUtc": "2026-08-26T23:00:00.000Z",
       "endTimeUtc": "2026-08-27T02:00:00.000Z",
       "timeTbc": true,
       "participantIds": [
@@ -2450,7 +2470,7 @@
       "court": "Arthur Ashe Stadium",
       "date": "2026-08-27",
       "time": "09:00",
-      "startTimeUtc": "2026-08-26T23:00:00.000Z",
+      "startTimeUtc": null,
       "sessionId": "us-open-2026:day-4:court-aa:session-2",
       "sessionStartTimeUtc": "2026-08-26T23:00:00.000Z",
       "sequenceInSession": 3,
@@ -2516,6 +2536,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Belinda Bencic / Flavio Cobolli v Karolina Muchova / Jakub Mensik",
+      "timelineSortTimeUtc": "2026-08-26T23:00:00.000Z",
       "endTimeUtc": "2026-08-27T02:00:00.000Z",
       "timeTbc": true,
       "participantIds": [
@@ -2627,6 +2648,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Marta Kostyuk v Amanda Anisimova",
+      "timelineSortTimeUtc": "2026-08-27T22:00:00.000Z",
       "endTimeUtc": "2026-08-28T01:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -2676,7 +2698,7 @@
       "court": "Arthur Ashe Stadium",
       "date": "2026-08-28",
       "time": "08:00",
-      "startTimeUtc": "2026-08-27T22:00:00.000Z",
+      "startTimeUtc": null,
       "sessionId": "us-open-2026:day-5:court-aa:session-1",
       "sessionStartTimeUtc": "2026-08-27T22:00:00.000Z",
       "sequenceInSession": 2,
@@ -2728,6 +2750,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Learner Tien v Flavio Cobolli",
+      "timelineSortTimeUtc": "2026-08-27T22:00:00.000Z",
       "endTimeUtc": "2026-08-28T01:00:00.000Z",
       "timeTbc": true,
       "participantIds": [
@@ -2828,6 +2851,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Yibing Wu v Adam Walton",
+      "timelineSortTimeUtc": "2026-08-30T15:00:00.000Z",
       "endTimeUtc": "2026-08-30T18:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -2928,6 +2952,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Talia Gibson v Donna Vekic",
+      "timelineSortTimeUtc": "2026-08-30T15:00:00.000Z",
       "endTimeUtc": "2026-08-30T18:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -2957,107 +2982,6 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ms:1133",
-      "stableMatchId": "usopen-2026-ms-1133",
-      "cardKind": "fixture",
-      "name": "Daniil Medvedev v Hugo Gaston",
-      "stage": "Men's singles",
-      "roundLabel": "Round 1",
-      "matchType": "mens-singles",
-      "court": "Arthur Ashe Stadium",
-      "date": "2026-08-31",
-      "time": "02:00",
-      "startTimeUtc": "2026-08-30T16:00:00.000Z",
-      "sessionId": "us-open-2026:day-8:court-aa:session-1",
-      "sessionStartTimeUtc": "2026-08-30T16:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "resultPublishedAt": "2026-08-31T05:45:14.374Z",
-      "scoreDisplay": "Daniil Medvedev 6-4 6-2 6-4 Hugo Gaston",
-      "result": "Daniil Medvedev 6-4 6-2 6-4 Hugo Gaston",
-      "previewPriority": 4,
-      "matchupSides": [
-        {
-          "id": "side:tennis:daniil-medvedev",
-          "name": "Daniil Medvedev",
-          "players": [
-            {
-              "id": "athlete:tennis:daniil-medvedev",
-              "name": "Daniil Medvedev",
-              "seed": 7,
-              "rank": null,
-              "nationalityCode": "RU"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:hugo-gaston",
-          "name": "Hugo Gaston",
-          "players": [
-            {
-              "id": "athlete:tennis:hugo-gaston",
-              "name": "Hugo Gaston",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "FR"
-            }
-          ]
-        }
-      ],
-      "venue": "Arthur Ashe Stadium",
-      "stakesScore": 4,
-      "marquee": true,
-      "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-      "eventId": "fixture:us-open-2026:official:ms:1133",
-      "canonicalEventId": "fixture:us-open-2026:official:ms:1133",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Daniil Medvedev v Hugo Gaston",
-      "endTimeUtc": "2026-08-30T19:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:daniil-medvedev",
-        "athlete:tennis:hugo-gaston"
-      ],
-      "homeParticipantId": "side:tennis:daniil-medvedev",
-      "awayParticipantId": "side:tennis:hugo-gaston",
-      "participants": [
-        {
-          "name": "Daniil Medvedev",
-          "role": "home"
-        },
-        {
-          "name": "Hugo Gaston",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 4,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
@@ -3130,6 +3054,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Jessica Pegula v Elena-Gabriela Ruse",
+      "timelineSortTimeUtc": "2026-08-30T16:00:00.000Z",
       "endTimeUtc": "2026-08-30T19:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -3231,6 +3156,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Mariano Navone v Novak Djokovic",
+      "timelineSortTimeUtc": "2026-08-30T23:00:00.000Z",
       "endTimeUtc": "2026-08-31T02:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -3246,107 +3172,6 @@
         },
         {
           "name": "Novak Djokovic",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 4,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ws:2118",
-      "stableMatchId": "usopen-2026-ws-2118",
-      "cardKind": "fixture",
-      "name": "Venus Williams v Sofia Kenin",
-      "stage": "Women's singles",
-      "roundLabel": "Round 1",
-      "matchType": "womens-singles",
-      "court": "Arthur Ashe Stadium",
-      "date": "2026-08-31",
-      "time": "09:00",
-      "startTimeUtc": "2026-08-30T23:00:00.000Z",
-      "sessionId": "us-open-2026:day-8:court-aa:session-2",
-      "sessionStartTimeUtc": "2026-08-30T23:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-08-31T06:13:24.127Z",
-      "resultPublishedAt": "2026-08-31T06:13:24.127Z",
-      "scoreDisplay": "Venus Williams 2-6 6(6)-7(8) Sofia Kenin",
-      "result": "Venus Williams 2-6 6(6)-7(8) Sofia Kenin",
-      "previewPriority": 4,
-      "matchupSides": [
-        {
-          "id": "side:tennis:venus-williams",
-          "name": "Venus Williams",
-          "players": [
-            {
-              "id": "athlete:tennis:venus-williams",
-              "name": "Venus Williams",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:sofia-kenin",
-          "name": "Sofia Kenin",
-          "players": [
-            {
-              "id": "athlete:tennis:sofia-kenin",
-              "name": "Sofia Kenin",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        }
-      ],
-      "venue": "Arthur Ashe Stadium",
-      "stakesScore": 4,
-      "marquee": true,
-      "summary": "US Open 2026 · Women's singles · Round 1 · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-      "eventId": "fixture:us-open-2026:official:ws:2118",
-      "canonicalEventId": "fixture:us-open-2026:official:ws:2118",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Venus Williams v Sofia Kenin",
-      "endTimeUtc": "2026-08-31T02:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:venus-williams",
-        "athlete:tennis:sofia-kenin"
-      ],
-      "homeParticipantId": "side:tennis:venus-williams",
-      "awayParticipantId": "side:tennis:sofia-kenin",
-      "participants": [
-        {
-          "name": "Venus Williams",
-          "role": "home"
-        },
-        {
-          "name": "Sofia Kenin",
           "role": "away"
         }
       ],
@@ -3432,6 +3257,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Elina Svitolina v Solana Sierra",
+      "timelineSortTimeUtc": "2026-08-30T23:00:00.000Z",
       "endTimeUtc": "2026-08-31T02:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -3471,177 +3297,84 @@
       "sourceTrust": "verified"
     },
     {
-      "id": "fixture:us-open-2026:official:ms:1117",
-      "stableMatchId": "usopen-2026-ms-1117",
+      "id": "fixture:us-open-2026:official:ms:1133",
+      "stableMatchId": "usopen-2026-ms-1133",
       "cardKind": "fixture",
-      "name": "Felix Auger-Aliassime v Rinky Hijikata",
+      "name": "Daniil Medvedev v Hugo Gaston",
       "stage": "Men's singles",
       "roundLabel": "Round 1",
       "matchType": "mens-singles",
-      "court": "Grandstand",
-      "date": "2026-09-01",
-      "time": "01:00",
-      "startTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-9:court-ac:session-1",
-      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sequenceInSession": 5,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:felix-auger-aliassime",
-          "name": "Felix Auger-Aliassime",
-          "players": [
-            {
-              "id": "athlete:tennis:felix-auger-aliassime",
-              "name": "Felix Auger-Aliassime",
-              "seed": 3,
-              "rank": null,
-              "nationalityCode": "CA"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:rinky-hijikata",
-          "name": "Rinky Hijikata",
-          "players": [
-            {
-              "id": "athlete:tennis:rinky-hijikata",
-              "name": "Rinky Hijikata",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "AU"
-            }
-          ]
-        }
-      ],
-      "venue": "Grandstand",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Men's singles · Round 1 · Grandstand.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-      "eventId": "fixture:us-open-2026:official:ms:1117",
-      "canonicalEventId": "fixture:us-open-2026:official:ms:1117",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Felix Auger-Aliassime v Rinky Hijikata",
-      "endTimeUtc": "2026-08-31T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:felix-auger-aliassime",
-        "athlete:tennis:rinky-hijikata"
-      ],
-      "homeParticipantId": "side:tennis:felix-auger-aliassime",
-      "awayParticipantId": "side:tennis:rinky-hijikata",
-      "participants": [
-        {
-          "name": "Felix Auger-Aliassime",
-          "role": "home"
-        },
-        {
-          "name": "Rinky Hijikata",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ws:2111",
-      "stableMatchId": "usopen-2026-ws-2111",
-      "cardKind": "fixture",
-      "name": "Kimberly Birrell v Petra Marcinko",
-      "stage": "Women's singles",
-      "roundLabel": "Round 1",
-      "matchType": "womens-singles",
-      "court": "Court 13",
-      "date": "2026-09-01",
-      "time": "01:00",
-      "startTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-9:court-an:session-1",
-      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-08-31",
+      "time": "02:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-8:court-aa:session-1",
+      "sessionStartTimeUtc": "2026-08-30T16:00:00.000Z",
       "sequenceInSession": 2,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "postponed",
+      "status": "completed",
       "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "scoreDisplay": "Kimberly Birrell 3-6 6(3)-6(3) Petra Marcinko",
+      "resultPublishedAt": "2026-08-31T05:45:14.374Z",
+      "scoreDisplay": "Daniil Medvedev 6-4 6-2 6-4 Hugo Gaston",
+      "result": "Daniil Medvedev 6-4 6-2 6-4 Hugo Gaston",
       "previewPriority": 4,
       "matchupSides": [
         {
-          "id": "side:tennis:kimberly-birrell",
-          "name": "Kimberly Birrell",
+          "id": "side:tennis:daniil-medvedev",
+          "name": "Daniil Medvedev",
           "players": [
             {
-              "id": "athlete:tennis:kimberly-birrell",
-              "name": "Kimberly Birrell",
-              "seed": 0,
+              "id": "athlete:tennis:daniil-medvedev",
+              "name": "Daniil Medvedev",
+              "seed": 7,
               "rank": null,
-              "nationalityCode": "AU"
+              "nationalityCode": "RU"
             }
           ]
         },
         {
-          "id": "side:tennis:petra-marcinko",
-          "name": "Petra Marcinko",
+          "id": "side:tennis:hugo-gaston",
+          "name": "Hugo Gaston",
           "players": [
             {
-              "id": "athlete:tennis:petra-marcinko",
-              "name": "Petra Marcinko",
+              "id": "athlete:tennis:hugo-gaston",
+              "name": "Hugo Gaston",
               "seed": 0,
               "rank": null,
-              "nationalityCode": "HR"
+              "nationalityCode": "FR"
             }
           ]
         }
       ],
-      "venue": "Court 13",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Women's singles · Round 1 · Court 13.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-      "eventId": "fixture:us-open-2026:official:ws:2111",
-      "canonicalEventId": "fixture:us-open-2026:official:ws:2111",
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 4,
+      "marquee": true,
+      "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
+      "eventId": "fixture:us-open-2026:official:ms:1133",
+      "canonicalEventId": "fixture:us-open-2026:official:ms:1133",
       "key": "tennis",
       "sport": "Tennis",
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Kimberly Birrell v Petra Marcinko",
-      "endTimeUtc": "2026-08-31T18:00:00.000Z",
+      "displayTitleCompact": "Daniil Medvedev v Hugo Gaston",
+      "timelineSortTimeUtc": "2026-08-30T16:00:00.000Z",
+      "endTimeUtc": "2026-08-30T19:00:00.000Z",
       "timeTbc": true,
       "participantIds": [
-        "athlete:tennis:kimberly-birrell",
-        "athlete:tennis:petra-marcinko"
+        "athlete:tennis:daniil-medvedev",
+        "athlete:tennis:hugo-gaston"
       ],
-      "homeParticipantId": "side:tennis:kimberly-birrell",
-      "awayParticipantId": "side:tennis:petra-marcinko",
+      "homeParticipantId": "side:tennis:daniil-medvedev",
+      "awayParticipantId": "side:tennis:hugo-gaston",
       "participants": [
         {
-          "name": "Kimberly Birrell",
+          "name": "Daniil Medvedev",
           "role": "home"
         },
         {
-          "name": "Petra Marcinko",
+          "name": "Hugo Gaston",
           "role": "away"
         }
       ],
@@ -3655,7 +3388,7 @@
       "expected": 4,
       "liveWindow": 3,
       "storyline": {
-        "stakes": 2,
+        "stakes": 4,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
@@ -3666,33 +3399,36 @@
       "sourceTrust": "verified"
     },
     {
-      "id": "fixture:us-open-2026:official:ws:2116",
-      "stableMatchId": "usopen-2026-ws-2116",
+      "id": "fixture:us-open-2026:official:ws:2118",
+      "stableMatchId": "usopen-2026-ws-2118",
       "cardKind": "fixture",
-      "name": "Katie Volynets v Linda Noskova",
+      "name": "Venus Williams v Sofia Kenin",
       "stage": "Women's singles",
       "roundLabel": "Round 1",
       "matchType": "womens-singles",
-      "court": "Court 11",
-      "date": "2026-09-01",
-      "time": "01:00",
-      "startTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-9:court-al:session-1",
-      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sequenceInSession": 4,
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-08-31",
+      "time": "09:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-8:court-aa:session-2",
+      "sessionStartTimeUtc": "2026-08-30T23:00:00.000Z",
+      "sequenceInSession": 2,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 2,
+      "status": "completed",
+      "statusUpdatedAt": "2026-08-31T06:13:24.127Z",
+      "resultPublishedAt": "2026-08-31T06:13:24.127Z",
+      "scoreDisplay": "Venus Williams 2-6 6(6)-7(8) Sofia Kenin",
+      "result": "Venus Williams 2-6 6(6)-7(8) Sofia Kenin",
+      "previewPriority": 4,
       "matchupSides": [
         {
-          "id": "side:tennis:katie-volynets",
-          "name": "Katie Volynets",
+          "id": "side:tennis:venus-williams",
+          "name": "Venus Williams",
           "players": [
             {
-              "id": "athlete:tennis:katie-volynets",
-              "name": "Katie Volynets",
+              "id": "athlete:tennis:venus-williams",
+              "name": "Venus Williams",
               "seed": 0,
               "rank": null,
               "nationalityCode": "US"
@@ -3700,45 +3436,47 @@
           ]
         },
         {
-          "id": "side:tennis:linda-noskova",
-          "name": "Linda Noskova",
+          "id": "side:tennis:sofia-kenin",
+          "name": "Sofia Kenin",
           "players": [
             {
-              "id": "athlete:tennis:linda-noskova",
-              "name": "Linda Noskova",
-              "seed": 6,
+              "id": "athlete:tennis:sofia-kenin",
+              "name": "Sofia Kenin",
+              "seed": 0,
               "rank": null,
-              "nationalityCode": "CZ"
+              "nationalityCode": "US"
             }
           ]
         }
       ],
-      "venue": "Court 11",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Women's singles · Round 1 · Court 11.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-      "eventId": "fixture:us-open-2026:official:ws:2116",
-      "canonicalEventId": "fixture:us-open-2026:official:ws:2116",
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 4,
+      "marquee": true,
+      "summary": "US Open 2026 · Women's singles · Round 1 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
+      "eventId": "fixture:us-open-2026:official:ws:2118",
+      "canonicalEventId": "fixture:us-open-2026:official:ws:2118",
       "key": "tennis",
       "sport": "Tennis",
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Katie Volynets v Linda Noskova",
-      "endTimeUtc": "2026-08-31T18:00:00.000Z",
+      "displayTitleCompact": "Venus Williams v Sofia Kenin",
+      "timelineSortTimeUtc": "2026-08-30T23:00:00.000Z",
+      "endTimeUtc": "2026-08-31T02:00:00.000Z",
       "timeTbc": true,
       "participantIds": [
-        "athlete:tennis:katie-volynets",
-        "athlete:tennis:linda-noskova"
+        "athlete:tennis:venus-williams",
+        "athlete:tennis:sofia-kenin"
       ],
-      "homeParticipantId": "side:tennis:katie-volynets",
-      "awayParticipantId": "side:tennis:linda-noskova",
+      "homeParticipantId": "side:tennis:venus-williams",
+      "awayParticipantId": "side:tennis:sofia-kenin",
       "participants": [
         {
-          "name": "Katie Volynets",
+          "name": "Venus Williams",
           "role": "home"
         },
         {
-          "name": "Linda Noskova",
+          "name": "Sofia Kenin",
           "role": "away"
         }
       ],
@@ -3749,107 +3487,10 @@
       "broadcastOptions": [
         "Stan Sport"
       ],
-      "expected": 2,
+      "expected": 4,
       "liveWindow": 3,
       "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ws:2126",
-      "stableMatchId": "usopen-2026-ws-2126",
-      "cardKind": "fixture",
-      "name": "Maya Joint v Liudmila Samsonova",
-      "stage": "Women's singles",
-      "roundLabel": "Round 1",
-      "matchType": "womens-singles",
-      "court": "Court 10",
-      "date": "2026-09-01",
-      "time": "01:00",
-      "startTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-9:court-ak:session-1",
-      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sequenceInSession": 4,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:maya-joint",
-          "name": "Maya Joint",
-          "players": [
-            {
-              "id": "athlete:tennis:maya-joint",
-              "name": "Maya Joint",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "AU"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:liudmila-samsonova",
-          "name": "Liudmila Samsonova",
-          "players": [
-            {
-              "id": "athlete:tennis:liudmila-samsonova",
-              "name": "Liudmila Samsonova",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "RU"
-            }
-          ]
-        }
-      ],
-      "venue": "Court 10",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Women's singles · Round 1 · Court 10.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-      "eventId": "fixture:us-open-2026:official:ws:2126",
-      "canonicalEventId": "fixture:us-open-2026:official:ws:2126",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Maya Joint v Liudmila Samsonova",
-      "endTimeUtc": "2026-08-31T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:maya-joint",
-        "athlete:tennis:liudmila-samsonova"
-      ],
-      "homeParticipantId": "side:tennis:maya-joint",
-      "awayParticipantId": "side:tennis:liudmila-samsonova",
-      "participants": [
-        {
-          "name": "Maya Joint",
-          "role": "home"
-        },
-        {
-          "name": "Liudmila Samsonova",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
+        "stakes": 4,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
@@ -3918,6 +3559,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Sinja Kraus v Karolina Muchova",
+      "timelineSortTimeUtc": "2026-08-31T15:00:00.000Z",
       "endTimeUtc": "2026-08-31T18:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -3947,201 +3589,6 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ws:2140",
-      "stableMatchId": "usopen-2026-ws-2140",
-      "cardKind": "fixture",
-      "name": "Ashlyn Krueger v Amanda Anisimova",
-      "stage": "Women's singles",
-      "roundLabel": "Round 1",
-      "matchType": "womens-singles",
-      "court": "Louis Armstrong Stadium",
-      "date": "2026-09-01",
-      "time": "01:00",
-      "startTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-9:court-ab:session-1",
-      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:ashlyn-krueger",
-          "name": "Ashlyn Krueger",
-          "players": [
-            {
-              "id": "athlete:tennis:ashlyn-krueger",
-              "name": "Ashlyn Krueger",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:amanda-anisimova",
-          "name": "Amanda Anisimova",
-          "players": [
-            {
-              "id": "athlete:tennis:amanda-anisimova",
-              "name": "Amanda Anisimova",
-              "seed": 10,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        }
-      ],
-      "venue": "Louis Armstrong Stadium",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Women's singles · Round 1 · Louis Armstrong Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-      "eventId": "fixture:us-open-2026:official:ws:2140",
-      "canonicalEventId": "fixture:us-open-2026:official:ws:2140",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Ashlyn Krueger v Amanda Anisimova",
-      "endTimeUtc": "2026-08-31T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:ashlyn-krueger",
-        "athlete:tennis:amanda-anisimova"
-      ],
-      "homeParticipantId": "side:tennis:ashlyn-krueger",
-      "awayParticipantId": "side:tennis:amanda-anisimova",
-      "participants": [
-        {
-          "name": "Ashlyn Krueger",
-          "role": "home"
-        },
-        {
-          "name": "Amanda Anisimova",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ms:1164",
-      "stableMatchId": "usopen-2026-ms-1164",
-      "cardKind": "fixture",
-      "name": "Roman Safiullin v Carlos Alcaraz",
-      "stage": "Men's singles",
-      "roundLabel": "Round 1",
-      "matchType": "mens-singles",
-      "court": "Arthur Ashe Stadium",
-      "date": "2026-09-01",
-      "time": "01:30",
-      "startTimeUtc": "2026-08-31T15:30:00.000Z",
-      "sessionId": "us-open-2026:day-9:court-aa:session-1",
-      "sessionStartTimeUtc": "2026-08-31T15:30:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 4,
-      "matchupSides": [
-        {
-          "id": "side:tennis:roman-safiullin",
-          "name": "Roman Safiullin",
-          "players": [
-            {
-              "id": "athlete:tennis:roman-safiullin",
-              "name": "Roman Safiullin",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "RU"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:carlos-alcaraz",
-          "name": "Carlos Alcaraz",
-          "players": [
-            {
-              "id": "athlete:tennis:carlos-alcaraz",
-              "name": "Carlos Alcaraz",
-              "seed": 2,
-              "rank": null,
-              "nationalityCode": "ES"
-            }
-          ]
-        }
-      ],
-      "venue": "Arthur Ashe Stadium",
-      "stakesScore": 4,
-      "marquee": true,
-      "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-      "eventId": "fixture:us-open-2026:official:ms:1164",
-      "canonicalEventId": "fixture:us-open-2026:official:ms:1164",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Roman Safiullin v Carlos Alcaraz",
-      "endTimeUtc": "2026-08-31T18:30:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:roman-safiullin",
-        "athlete:tennis:carlos-alcaraz"
-      ],
-      "homeParticipantId": "side:tennis:roman-safiullin",
-      "awayParticipantId": "side:tennis:carlos-alcaraz",
-      "participants": [
-        {
-          "name": "Roman Safiullin",
-          "role": "home"
-        },
-        {
-          "name": "Carlos Alcaraz",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 4,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
@@ -4211,6 +3658,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Aryna Sabalenka v Camila Osorio",
+      "timelineSortTimeUtc": "2026-08-31T15:30:00.000Z",
       "endTimeUtc": "2026-08-31T18:30:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -4309,6 +3757,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Ben Shelton v Tallon Griekspoor",
+      "timelineSortTimeUtc": "2026-08-31T23:00:00.000Z",
       "endTimeUtc": "2026-09-01T02:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -4406,6 +3855,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Iga Swiatek v Xiyu Wang",
+      "timelineSortTimeUtc": "2026-08-31T23:00:00.000Z",
       "endTimeUtc": "2026-09-01T02:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -4445,6 +3895,596 @@
       "sourceTrust": "verified"
     },
     {
+      "id": "fixture:us-open-2026:official:ms:1117",
+      "stableMatchId": "usopen-2026-ms-1117",
+      "cardKind": "fixture",
+      "name": "Felix Auger-Aliassime v Rinky Hijikata",
+      "stage": "Men's singles",
+      "roundLabel": "Round 1",
+      "matchType": "mens-singles",
+      "court": "Grandstand",
+      "date": "2026-09-01",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-9:court-ac:session-1",
+      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
+      "sequenceInSession": 5,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:felix-auger-aliassime",
+          "name": "Felix Auger-Aliassime",
+          "players": [
+            {
+              "id": "athlete:tennis:felix-auger-aliassime",
+              "name": "Felix Auger-Aliassime",
+              "seed": 3,
+              "rank": null,
+              "nationalityCode": "CA"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:rinky-hijikata",
+          "name": "Rinky Hijikata",
+          "players": [
+            {
+              "id": "athlete:tennis:rinky-hijikata",
+              "name": "Rinky Hijikata",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "AU"
+            }
+          ]
+        }
+      ],
+      "venue": "Grandstand",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Men's singles · Round 1 · Grandstand.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "eventId": "fixture:us-open-2026:official:ms:1117",
+      "canonicalEventId": "fixture:us-open-2026:official:ms:1117",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Felix Auger-Aliassime v Rinky Hijikata",
+      "timelineSortTimeUtc": "2026-08-31T15:00:00.000Z",
+      "endTimeUtc": "2026-08-31T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:felix-auger-aliassime",
+        "athlete:tennis:rinky-hijikata"
+      ],
+      "homeParticipantId": "side:tennis:felix-auger-aliassime",
+      "awayParticipantId": "side:tennis:rinky-hijikata",
+      "participants": [
+        {
+          "name": "Felix Auger-Aliassime",
+          "role": "home"
+        },
+        {
+          "name": "Rinky Hijikata",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2111",
+      "stableMatchId": "usopen-2026-ws-2111",
+      "cardKind": "fixture",
+      "name": "Kimberly Birrell v Petra Marcinko",
+      "stage": "Women's singles",
+      "roundLabel": "Round 1",
+      "matchType": "womens-singles",
+      "court": "Court 13",
+      "date": "2026-09-01",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-9:court-an:session-1",
+      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "postponed",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "scoreDisplay": "Kimberly Birrell 3-6 6(3)-6(3) Petra Marcinko",
+      "previewPriority": 4,
+      "matchupSides": [
+        {
+          "id": "side:tennis:kimberly-birrell",
+          "name": "Kimberly Birrell",
+          "players": [
+            {
+              "id": "athlete:tennis:kimberly-birrell",
+              "name": "Kimberly Birrell",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "AU"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:petra-marcinko",
+          "name": "Petra Marcinko",
+          "players": [
+            {
+              "id": "athlete:tennis:petra-marcinko",
+              "name": "Petra Marcinko",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "HR"
+            }
+          ]
+        }
+      ],
+      "venue": "Court 13",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Women's singles · Round 1 · Court 13.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "eventId": "fixture:us-open-2026:official:ws:2111",
+      "canonicalEventId": "fixture:us-open-2026:official:ws:2111",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Kimberly Birrell v Petra Marcinko",
+      "timelineSortTimeUtc": "2026-08-31T15:00:00.000Z",
+      "endTimeUtc": "2026-08-31T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:kimberly-birrell",
+        "athlete:tennis:petra-marcinko"
+      ],
+      "homeParticipantId": "side:tennis:kimberly-birrell",
+      "awayParticipantId": "side:tennis:petra-marcinko",
+      "participants": [
+        {
+          "name": "Kimberly Birrell",
+          "role": "home"
+        },
+        {
+          "name": "Petra Marcinko",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 4,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2116",
+      "stableMatchId": "usopen-2026-ws-2116",
+      "cardKind": "fixture",
+      "name": "Katie Volynets v Linda Noskova",
+      "stage": "Women's singles",
+      "roundLabel": "Round 1",
+      "matchType": "womens-singles",
+      "court": "Court 11",
+      "date": "2026-09-01",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-9:court-al:session-1",
+      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
+      "sequenceInSession": 4,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:katie-volynets",
+          "name": "Katie Volynets",
+          "players": [
+            {
+              "id": "athlete:tennis:katie-volynets",
+              "name": "Katie Volynets",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:linda-noskova",
+          "name": "Linda Noskova",
+          "players": [
+            {
+              "id": "athlete:tennis:linda-noskova",
+              "name": "Linda Noskova",
+              "seed": 6,
+              "rank": null,
+              "nationalityCode": "CZ"
+            }
+          ]
+        }
+      ],
+      "venue": "Court 11",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Women's singles · Round 1 · Court 11.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "eventId": "fixture:us-open-2026:official:ws:2116",
+      "canonicalEventId": "fixture:us-open-2026:official:ws:2116",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Katie Volynets v Linda Noskova",
+      "timelineSortTimeUtc": "2026-08-31T15:00:00.000Z",
+      "endTimeUtc": "2026-08-31T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:katie-volynets",
+        "athlete:tennis:linda-noskova"
+      ],
+      "homeParticipantId": "side:tennis:katie-volynets",
+      "awayParticipantId": "side:tennis:linda-noskova",
+      "participants": [
+        {
+          "name": "Katie Volynets",
+          "role": "home"
+        },
+        {
+          "name": "Linda Noskova",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2126",
+      "stableMatchId": "usopen-2026-ws-2126",
+      "cardKind": "fixture",
+      "name": "Maya Joint v Liudmila Samsonova",
+      "stage": "Women's singles",
+      "roundLabel": "Round 1",
+      "matchType": "womens-singles",
+      "court": "Court 10",
+      "date": "2026-09-01",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-9:court-ak:session-1",
+      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
+      "sequenceInSession": 4,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:maya-joint",
+          "name": "Maya Joint",
+          "players": [
+            {
+              "id": "athlete:tennis:maya-joint",
+              "name": "Maya Joint",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "AU"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:liudmila-samsonova",
+          "name": "Liudmila Samsonova",
+          "players": [
+            {
+              "id": "athlete:tennis:liudmila-samsonova",
+              "name": "Liudmila Samsonova",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "RU"
+            }
+          ]
+        }
+      ],
+      "venue": "Court 10",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Women's singles · Round 1 · Court 10.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "eventId": "fixture:us-open-2026:official:ws:2126",
+      "canonicalEventId": "fixture:us-open-2026:official:ws:2126",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Maya Joint v Liudmila Samsonova",
+      "timelineSortTimeUtc": "2026-08-31T15:00:00.000Z",
+      "endTimeUtc": "2026-08-31T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:maya-joint",
+        "athlete:tennis:liudmila-samsonova"
+      ],
+      "homeParticipantId": "side:tennis:maya-joint",
+      "awayParticipantId": "side:tennis:liudmila-samsonova",
+      "participants": [
+        {
+          "name": "Maya Joint",
+          "role": "home"
+        },
+        {
+          "name": "Liudmila Samsonova",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2140",
+      "stableMatchId": "usopen-2026-ws-2140",
+      "cardKind": "fixture",
+      "name": "Ashlyn Krueger v Amanda Anisimova",
+      "stage": "Women's singles",
+      "roundLabel": "Round 1",
+      "matchType": "womens-singles",
+      "court": "Louis Armstrong Stadium",
+      "date": "2026-09-01",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-9:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:ashlyn-krueger",
+          "name": "Ashlyn Krueger",
+          "players": [
+            {
+              "id": "athlete:tennis:ashlyn-krueger",
+              "name": "Ashlyn Krueger",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:amanda-anisimova",
+          "name": "Amanda Anisimova",
+          "players": [
+            {
+              "id": "athlete:tennis:amanda-anisimova",
+              "name": "Amanda Anisimova",
+              "seed": 10,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        }
+      ],
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Women's singles · Round 1 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "eventId": "fixture:us-open-2026:official:ws:2140",
+      "canonicalEventId": "fixture:us-open-2026:official:ws:2140",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Ashlyn Krueger v Amanda Anisimova",
+      "timelineSortTimeUtc": "2026-08-31T15:00:00.000Z",
+      "endTimeUtc": "2026-08-31T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:ashlyn-krueger",
+        "athlete:tennis:amanda-anisimova"
+      ],
+      "homeParticipantId": "side:tennis:ashlyn-krueger",
+      "awayParticipantId": "side:tennis:amanda-anisimova",
+      "participants": [
+        {
+          "name": "Ashlyn Krueger",
+          "role": "home"
+        },
+        {
+          "name": "Amanda Anisimova",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1164",
+      "stableMatchId": "usopen-2026-ms-1164",
+      "cardKind": "fixture",
+      "name": "Roman Safiullin v Carlos Alcaraz",
+      "stage": "Men's singles",
+      "roundLabel": "Round 1",
+      "matchType": "mens-singles",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-09-01",
+      "time": "01:30",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-9:court-aa:session-1",
+      "sessionStartTimeUtc": "2026-08-31T15:30:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "previewPriority": 4,
+      "matchupSides": [
+        {
+          "id": "side:tennis:roman-safiullin",
+          "name": "Roman Safiullin",
+          "players": [
+            {
+              "id": "athlete:tennis:roman-safiullin",
+              "name": "Roman Safiullin",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "RU"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:carlos-alcaraz",
+          "name": "Carlos Alcaraz",
+          "players": [
+            {
+              "id": "athlete:tennis:carlos-alcaraz",
+              "name": "Carlos Alcaraz",
+              "seed": 2,
+              "rank": null,
+              "nationalityCode": "ES"
+            }
+          ]
+        }
+      ],
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 4,
+      "marquee": true,
+      "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "eventId": "fixture:us-open-2026:official:ms:1164",
+      "canonicalEventId": "fixture:us-open-2026:official:ms:1164",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Roman Safiullin v Carlos Alcaraz",
+      "timelineSortTimeUtc": "2026-08-31T15:30:00.000Z",
+      "endTimeUtc": "2026-08-31T18:30:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:roman-safiullin",
+        "athlete:tennis:carlos-alcaraz"
+      ],
+      "homeParticipantId": "side:tennis:roman-safiullin",
+      "awayParticipantId": "side:tennis:carlos-alcaraz",
+      "participants": [
+        {
+          "name": "Roman Safiullin",
+          "role": "home"
+        },
+        {
+          "name": "Carlos Alcaraz",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 4,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
       "id": "fixture:us-open-2026:official:ws:2157",
       "stableMatchId": "usopen-2026-ws-2157",
       "cardKind": "fixture",
@@ -4455,7 +4495,7 @@
       "court": "Arthur Ashe Stadium",
       "date": "2026-09-01",
       "time": "09:00",
-      "startTimeUtc": "2026-08-31T23:00:00.000Z",
+      "startTimeUtc": null,
       "sessionId": "us-open-2026:day-9:court-aa:session-2",
       "sessionStartTimeUtc": "2026-08-31T23:00:00.000Z",
       "sequenceInSession": 2,
@@ -4504,6 +4544,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Naomi Osaka v Anastasia Zakharova",
+      "timelineSortTimeUtc": "2026-08-31T23:00:00.000Z",
       "endTimeUtc": "2026-09-01T02:00:00.000Z",
       "timeTbc": true,
       "participantIds": [
@@ -4533,200 +4574,6 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ms:1109",
-      "stableMatchId": "usopen-2026-ms-1109",
-      "cardKind": "fixture",
-      "name": "Rafael Jodar v Thanasi Kokkinakis",
-      "stage": "Men's singles",
-      "roundLabel": "Round 1",
-      "matchType": "mens-singles",
-      "court": "Stadium 17",
-      "date": "2026-09-02",
-      "time": "01:00",
-      "startTimeUtc": "2026-09-01T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-10:court-ad:session-1",
-      "sessionStartTimeUtc": "2026-09-01T15:00:00.000Z",
-      "sequenceInSession": 3,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:rafael-jodar",
-          "name": "Rafael Jodar",
-          "players": [
-            {
-              "id": "athlete:tennis:rafael-jodar",
-              "name": "Rafael Jodar",
-              "seed": 12,
-              "rank": null,
-              "nationalityCode": "ES"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:thanasi-kokkinakis",
-          "name": "Thanasi Kokkinakis",
-          "players": [
-            {
-              "id": "athlete:tennis:thanasi-kokkinakis",
-              "name": "Thanasi Kokkinakis",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "AU"
-            }
-          ]
-        }
-      ],
-      "venue": "Stadium 17",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Men's singles · Round 1 · Stadium 17.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-      "eventId": "fixture:us-open-2026:official:ms:1109",
-      "canonicalEventId": "fixture:us-open-2026:official:ms:1109",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Rafael Jodar v Thanasi Kokkinakis",
-      "endTimeUtc": "2026-09-01T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:rafael-jodar",
-        "athlete:tennis:thanasi-kokkinakis"
-      ],
-      "homeParticipantId": "side:tennis:rafael-jodar",
-      "awayParticipantId": "side:tennis:thanasi-kokkinakis",
-      "participants": [
-        {
-          "name": "Rafael Jodar",
-          "role": "home"
-        },
-        {
-          "name": "Thanasi Kokkinakis",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ms:1116",
-      "stableMatchId": "usopen-2026-ms-1116",
-      "cardKind": "fixture",
-      "name": "Andrea Guerrieri v Alex de Minaur",
-      "stage": "Men's singles",
-      "roundLabel": "Round 1",
-      "matchType": "mens-singles",
-      "court": "Grandstand",
-      "date": "2026-09-02",
-      "time": "01:00",
-      "startTimeUtc": "2026-09-01T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-10:court-ac:session-1",
-      "sessionStartTimeUtc": "2026-09-01T15:00:00.000Z",
-      "sequenceInSession": 4,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:andrea-guerrieri",
-          "name": "Andrea Guerrieri",
-          "players": [
-            {
-              "id": "athlete:tennis:andrea-guerrieri",
-              "name": "Andrea Guerrieri",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "IT"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:alex-de-minaur",
-          "name": "Alex de Minaur",
-          "players": [
-            {
-              "id": "athlete:tennis:alex-de-minaur",
-              "name": "Alex de Minaur",
-              "seed": 6,
-              "rank": null,
-              "nationalityCode": "AU"
-            }
-          ]
-        }
-      ],
-      "venue": "Grandstand",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Men's singles · Round 1 · Grandstand.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-      "eventId": "fixture:us-open-2026:official:ms:1116",
-      "canonicalEventId": "fixture:us-open-2026:official:ms:1116",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Andrea Guerrieri v Alex de Minaur",
-      "endTimeUtc": "2026-09-01T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:andrea-guerrieri",
-        "athlete:tennis:alex-de-minaur"
-      ],
-      "homeParticipantId": "side:tennis:andrea-guerrieri",
-      "awayParticipantId": "side:tennis:alex-de-minaur",
-      "participants": [
-        {
-          "name": "Andrea Guerrieri",
-          "role": "home"
-        },
-        {
-          "name": "Alex de Minaur",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
@@ -4795,6 +4642,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Francisco Comesana v Flavio Cobolli",
+      "timelineSortTimeUtc": "2026-09-01T15:00:00.000Z",
       "endTimeUtc": "2026-09-01T18:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -4810,103 +4658,6 @@
         },
         {
           "name": "Flavio Cobolli",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ws:2133",
-      "stableMatchId": "usopen-2026-ws-2133",
-      "cardKind": "fixture",
-      "name": "Mirra Andreeva v Janice Tjen",
-      "stage": "Women's singles",
-      "roundLabel": "Round 1",
-      "matchType": "womens-singles",
-      "court": "Louis Armstrong Stadium",
-      "date": "2026-09-02",
-      "time": "01:00",
-      "startTimeUtc": "2026-09-01T15:00:00.000Z",
-      "sessionId": "us-open-2026:day-10:court-ab:session-1",
-      "sessionStartTimeUtc": "2026-09-01T15:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:mirra-andreeva",
-          "name": "Mirra Andreeva",
-          "players": [
-            {
-              "id": "athlete:tennis:mirra-andreeva",
-              "name": "Mirra Andreeva",
-              "seed": 5,
-              "rank": null,
-              "nationalityCode": "RU"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:janice-tjen",
-          "name": "Janice Tjen",
-          "players": [
-            {
-              "id": "athlete:tennis:janice-tjen",
-              "name": "Janice Tjen",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "ID"
-            }
-          ]
-        }
-      ],
-      "venue": "Louis Armstrong Stadium",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Women's singles · Round 1 · Louis Armstrong Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-      "eventId": "fixture:us-open-2026:official:ws:2133",
-      "canonicalEventId": "fixture:us-open-2026:official:ws:2133",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Mirra Andreeva v Janice Tjen",
-      "endTimeUtc": "2026-09-01T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:mirra-andreeva",
-        "athlete:tennis:janice-tjen"
-      ],
-      "homeParticipantId": "side:tennis:mirra-andreeva",
-      "awayParticipantId": "side:tennis:janice-tjen",
-      "participants": [
-        {
-          "name": "Mirra Andreeva",
-          "role": "home"
-        },
-        {
-          "name": "Janice Tjen",
           "role": "away"
         }
       ],
@@ -4989,6 +4740,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Thea Frodin v Elena Rybakina",
+      "timelineSortTimeUtc": "2026-09-01T15:00:00.000Z",
       "endTimeUtc": "2026-09-01T18:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -5018,202 +4770,6 @@
       "liveWindow": 3,
       "storyline": {
         "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ms:1125",
-      "stableMatchId": "usopen-2026-ms-1125",
-      "cardKind": "fixture",
-      "name": "Taylor Fritz v Darwin Blanch",
-      "stage": "Men's singles",
-      "roundLabel": "Round 1",
-      "matchType": "mens-singles",
-      "court": "Arthur Ashe Stadium",
-      "date": "2026-09-02",
-      "time": "01:30",
-      "startTimeUtc": "2026-09-01T15:30:00.000Z",
-      "sessionId": "us-open-2026:day-10:court-aa:session-1",
-      "sessionStartTimeUtc": "2026-09-01T15:30:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 4,
-      "matchupSides": [
-        {
-          "id": "side:tennis:taylor-fritz",
-          "name": "Taylor Fritz",
-          "players": [
-            {
-              "id": "athlete:tennis:taylor-fritz",
-              "name": "Taylor Fritz",
-              "seed": 9,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:darwin-blanch",
-          "name": "Darwin Blanch",
-          "players": [
-            {
-              "id": "athlete:tennis:darwin-blanch",
-              "name": "Darwin Blanch",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        }
-      ],
-      "venue": "Arthur Ashe Stadium",
-      "stakesScore": 4,
-      "marquee": true,
-      "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-      "eventId": "fixture:us-open-2026:official:ms:1125",
-      "canonicalEventId": "fixture:us-open-2026:official:ms:1125",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Taylor Fritz v Darwin Blanch",
-      "endTimeUtc": "2026-09-01T18:30:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:taylor-fritz",
-        "athlete:tennis:darwin-blanch"
-      ],
-      "homeParticipantId": "side:tennis:taylor-fritz",
-      "awayParticipantId": "side:tennis:darwin-blanch",
-      "participants": [
-        {
-          "name": "Taylor Fritz",
-          "role": "home"
-        },
-        {
-          "name": "Darwin Blanch",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 4,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ms:1101",
-      "stableMatchId": "usopen-2026-ms-1101",
-      "cardKind": "fixture",
-      "name": "Alexander Zverev v Lorenzo Sonego",
-      "stage": "Men's singles",
-      "roundLabel": "Round 1",
-      "matchType": "mens-singles",
-      "court": "Arthur Ashe Stadium",
-      "date": "2026-09-02",
-      "time": "09:00",
-      "startTimeUtc": "2026-09-01T23:00:00.000Z",
-      "sessionId": "us-open-2026:day-10:court-aa:session-2",
-      "sessionStartTimeUtc": "2026-09-01T23:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 4,
-      "matchupSides": [
-        {
-          "id": "side:tennis:alexander-zverev",
-          "name": "Alexander Zverev",
-          "players": [
-            {
-              "id": "athlete:tennis:alexander-zverev",
-              "name": "Alexander Zverev",
-              "seed": 1,
-              "rank": null,
-              "nationalityCode": "DE"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:lorenzo-sonego",
-          "name": "Lorenzo Sonego",
-          "players": [
-            {
-              "id": "athlete:tennis:lorenzo-sonego",
-              "name": "Lorenzo Sonego",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "IT"
-            }
-          ]
-        }
-      ],
-      "venue": "Arthur Ashe Stadium",
-      "stakesScore": 4,
-      "marquee": true,
-      "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-      "eventId": "fixture:us-open-2026:official:ms:1101",
-      "canonicalEventId": "fixture:us-open-2026:official:ms:1101",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Alexander Zverev v Lorenzo Sonego",
-      "endTimeUtc": "2026-09-02T02:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:alexander-zverev",
-        "athlete:tennis:lorenzo-sonego"
-      ],
-      "homeParticipantId": "side:tennis:alexander-zverev",
-      "awayParticipantId": "side:tennis:lorenzo-sonego",
-      "participants": [
-        {
-          "name": "Alexander Zverev",
-          "role": "home"
-        },
-        {
-          "name": "Lorenzo Sonego",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 4,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
@@ -5283,6 +4839,7 @@
       "sportDomainId": "sport:tennis",
       "competitionId": "competition:us-open-2026",
       "displayTitleCompact": "Zeynep Sonmez v Coco Gauff",
+      "timelineSortTimeUtc": "2026-09-01T23:00:00.000Z",
       "endTimeUtc": "2026-09-02T02:00:00.000Z",
       "timeTbc": false,
       "participantIds": [
@@ -5298,6 +4855,498 @@
         },
         {
           "name": "Coco Gauff",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 4,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1109",
+      "stableMatchId": "usopen-2026-ms-1109",
+      "cardKind": "fixture",
+      "name": "Rafael Jodar v Thanasi Kokkinakis",
+      "stage": "Men's singles",
+      "roundLabel": "Round 1",
+      "matchType": "mens-singles",
+      "court": "Stadium 17",
+      "date": "2026-09-02",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-10:court-ad:session-1",
+      "sessionStartTimeUtc": "2026-09-01T15:00:00.000Z",
+      "sequenceInSession": 3,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:rafael-jodar",
+          "name": "Rafael Jodar",
+          "players": [
+            {
+              "id": "athlete:tennis:rafael-jodar",
+              "name": "Rafael Jodar",
+              "seed": 12,
+              "rank": null,
+              "nationalityCode": "ES"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:thanasi-kokkinakis",
+          "name": "Thanasi Kokkinakis",
+          "players": [
+            {
+              "id": "athlete:tennis:thanasi-kokkinakis",
+              "name": "Thanasi Kokkinakis",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "AU"
+            }
+          ]
+        }
+      ],
+      "venue": "Stadium 17",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Men's singles · Round 1 · Stadium 17.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "eventId": "fixture:us-open-2026:official:ms:1109",
+      "canonicalEventId": "fixture:us-open-2026:official:ms:1109",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Rafael Jodar v Thanasi Kokkinakis",
+      "timelineSortTimeUtc": "2026-09-01T15:00:00.000Z",
+      "endTimeUtc": "2026-09-01T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:rafael-jodar",
+        "athlete:tennis:thanasi-kokkinakis"
+      ],
+      "homeParticipantId": "side:tennis:rafael-jodar",
+      "awayParticipantId": "side:tennis:thanasi-kokkinakis",
+      "participants": [
+        {
+          "name": "Rafael Jodar",
+          "role": "home"
+        },
+        {
+          "name": "Thanasi Kokkinakis",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1116",
+      "stableMatchId": "usopen-2026-ms-1116",
+      "cardKind": "fixture",
+      "name": "Andrea Guerrieri v Alex de Minaur",
+      "stage": "Men's singles",
+      "roundLabel": "Round 1",
+      "matchType": "mens-singles",
+      "court": "Grandstand",
+      "date": "2026-09-02",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-10:court-ac:session-1",
+      "sessionStartTimeUtc": "2026-09-01T15:00:00.000Z",
+      "sequenceInSession": 4,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:andrea-guerrieri",
+          "name": "Andrea Guerrieri",
+          "players": [
+            {
+              "id": "athlete:tennis:andrea-guerrieri",
+              "name": "Andrea Guerrieri",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "IT"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:alex-de-minaur",
+          "name": "Alex de Minaur",
+          "players": [
+            {
+              "id": "athlete:tennis:alex-de-minaur",
+              "name": "Alex de Minaur",
+              "seed": 6,
+              "rank": null,
+              "nationalityCode": "AU"
+            }
+          ]
+        }
+      ],
+      "venue": "Grandstand",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Men's singles · Round 1 · Grandstand.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "eventId": "fixture:us-open-2026:official:ms:1116",
+      "canonicalEventId": "fixture:us-open-2026:official:ms:1116",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Andrea Guerrieri v Alex de Minaur",
+      "timelineSortTimeUtc": "2026-09-01T15:00:00.000Z",
+      "endTimeUtc": "2026-09-01T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:andrea-guerrieri",
+        "athlete:tennis:alex-de-minaur"
+      ],
+      "homeParticipantId": "side:tennis:andrea-guerrieri",
+      "awayParticipantId": "side:tennis:alex-de-minaur",
+      "participants": [
+        {
+          "name": "Andrea Guerrieri",
+          "role": "home"
+        },
+        {
+          "name": "Alex de Minaur",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2133",
+      "stableMatchId": "usopen-2026-ws-2133",
+      "cardKind": "fixture",
+      "name": "Mirra Andreeva v Janice Tjen",
+      "stage": "Women's singles",
+      "roundLabel": "Round 1",
+      "matchType": "womens-singles",
+      "court": "Louis Armstrong Stadium",
+      "date": "2026-09-02",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-10:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-09-01T15:00:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:mirra-andreeva",
+          "name": "Mirra Andreeva",
+          "players": [
+            {
+              "id": "athlete:tennis:mirra-andreeva",
+              "name": "Mirra Andreeva",
+              "seed": 5,
+              "rank": null,
+              "nationalityCode": "RU"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:janice-tjen",
+          "name": "Janice Tjen",
+          "players": [
+            {
+              "id": "athlete:tennis:janice-tjen",
+              "name": "Janice Tjen",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "ID"
+            }
+          ]
+        }
+      ],
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Women's singles · Round 1 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "eventId": "fixture:us-open-2026:official:ws:2133",
+      "canonicalEventId": "fixture:us-open-2026:official:ws:2133",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Mirra Andreeva v Janice Tjen",
+      "timelineSortTimeUtc": "2026-09-01T15:00:00.000Z",
+      "endTimeUtc": "2026-09-01T18:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:mirra-andreeva",
+        "athlete:tennis:janice-tjen"
+      ],
+      "homeParticipantId": "side:tennis:mirra-andreeva",
+      "awayParticipantId": "side:tennis:janice-tjen",
+      "participants": [
+        {
+          "name": "Mirra Andreeva",
+          "role": "home"
+        },
+        {
+          "name": "Janice Tjen",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1125",
+      "stableMatchId": "usopen-2026-ms-1125",
+      "cardKind": "fixture",
+      "name": "Taylor Fritz v Darwin Blanch",
+      "stage": "Men's singles",
+      "roundLabel": "Round 1",
+      "matchType": "mens-singles",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-09-02",
+      "time": "01:30",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-10:court-aa:session-1",
+      "sessionStartTimeUtc": "2026-09-01T15:30:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "previewPriority": 4,
+      "matchupSides": [
+        {
+          "id": "side:tennis:taylor-fritz",
+          "name": "Taylor Fritz",
+          "players": [
+            {
+              "id": "athlete:tennis:taylor-fritz",
+              "name": "Taylor Fritz",
+              "seed": 9,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:darwin-blanch",
+          "name": "Darwin Blanch",
+          "players": [
+            {
+              "id": "athlete:tennis:darwin-blanch",
+              "name": "Darwin Blanch",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        }
+      ],
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 4,
+      "marquee": true,
+      "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "eventId": "fixture:us-open-2026:official:ms:1125",
+      "canonicalEventId": "fixture:us-open-2026:official:ms:1125",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Taylor Fritz v Darwin Blanch",
+      "timelineSortTimeUtc": "2026-09-01T15:30:00.000Z",
+      "endTimeUtc": "2026-09-01T18:30:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:taylor-fritz",
+        "athlete:tennis:darwin-blanch"
+      ],
+      "homeParticipantId": "side:tennis:taylor-fritz",
+      "awayParticipantId": "side:tennis:darwin-blanch",
+      "participants": [
+        {
+          "name": "Taylor Fritz",
+          "role": "home"
+        },
+        {
+          "name": "Darwin Blanch",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 4,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1101",
+      "stableMatchId": "usopen-2026-ms-1101",
+      "cardKind": "fixture",
+      "name": "Alexander Zverev v Lorenzo Sonego",
+      "stage": "Men's singles",
+      "roundLabel": "Round 1",
+      "matchType": "mens-singles",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-09-02",
+      "time": "09:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-10:court-aa:session-2",
+      "sessionStartTimeUtc": "2026-09-01T23:00:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "previewPriority": 4,
+      "matchupSides": [
+        {
+          "id": "side:tennis:alexander-zverev",
+          "name": "Alexander Zverev",
+          "players": [
+            {
+              "id": "athlete:tennis:alexander-zverev",
+              "name": "Alexander Zverev",
+              "seed": 1,
+              "rank": null,
+              "nationalityCode": "DE"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:lorenzo-sonego",
+          "name": "Lorenzo Sonego",
+          "players": [
+            {
+              "id": "athlete:tennis:lorenzo-sonego",
+              "name": "Lorenzo Sonego",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "IT"
+            }
+          ]
+        }
+      ],
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 4,
+      "marquee": true,
+      "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "eventId": "fixture:us-open-2026:official:ms:1101",
+      "canonicalEventId": "fixture:us-open-2026:official:ms:1101",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Alexander Zverev v Lorenzo Sonego",
+      "timelineSortTimeUtc": "2026-09-01T23:00:00.000Z",
+      "endTimeUtc": "2026-09-02T02:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:alexander-zverev",
+        "athlete:tennis:lorenzo-sonego"
+      ],
+      "homeParticipantId": "side:tennis:alexander-zverev",
+      "awayParticipantId": "side:tennis:lorenzo-sonego",
+      "participants": [
+        {
+          "name": "Alexander Zverev",
+          "role": "home"
+        },
+        {
+          "name": "Lorenzo Sonego",
           "role": "away"
         }
       ],

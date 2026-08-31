@@ -111,6 +111,7 @@ for (const id of ["one", "two", "three"]) opened = followFirst.registerOpen(open
 assert.equal(followFirst.shouldPromptRefinement(opened), true);
 
 const html = fs.readFileSync("index.html", "utf8");
+const eventCardSource = html.match(/function buildEventCard\(ev, options = \{\}\)\{[\s\S]*?\n  return card;\n\}/)?.[0] || "";
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const notificationApi = fs.readFileSync("api/notifications.js", "utf8");
 const dispatchApi = fs.readFileSync("api/notification-dispatch.js", "utf8");
@@ -143,8 +144,8 @@ assert(!html.includes('id="calendarSyncBtn"') && !html.includes('id="calendarSyn
 assert(!fs.existsSync("api/calendar.js") && !fs.existsSync("lib/calendar-sync.js"));
 
 assert(html.includes('className = "matchup-stage-badge"') && html.includes("FOLLOW_FIRST?.stageLabel"));
-assert(html.includes('className = "follow-reason-tag"') && followFirstSource.includes("Because you follow"));
-assert(html.includes("followReason?.displayTag"), "visible follow context must respect the player-only display flag");
+assert(followFirstSource.includes("Because you follow") && html.includes("function automaticEventFollowReason"), "follow context must remain available to eligibility without becoming card metadata");
+assert(!eventCardSource.includes("follow-reason-tag"), "Feed cards must not render follow-reason labels");
 assert(html.includes("stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(ev))"), "raw feed cards must derive their 5/5 sporting stakes before follow eligibility is evaluated");
 assert(html.includes("toggleAustraliaInternationals") && html.includes("australiaInternationalsEnabled"), "Follow must expose one global Australia-in-internationals switch");
 assert(!html.includes("toggleAussiesOnly") && !html.includes("australiansOnlySportIds"), "per-sport Australia toggles must be retired from runtime UI");
@@ -180,7 +181,7 @@ const quickReminderSource = html.match(/async function toggleQuickReminder[\s\S]
 assert(quickReminderSource.includes("ensureWebPushReminder") && quickReminderSource.includes("removeWebPushReminder"), "reminders must be confirmed through Web Push before local state changes");
 assert(!html.includes("scheduleBrowserReminders()") && !html.includes("deliverBrowserReminder"), "the active-app timer path must stay retired");
 assert(html.includes("Background notifications") && html.includes("even when Nothing Sport is closed"));
-assert(notificationApi.includes("remind_at") && notificationApi.includes("15 * 60 * 1000"));
+assert(notificationApi.includes("remind_at") && notificationApi.includes('deliveryMode === "session-start" ? 0 : 15') && notificationApi.includes("leadMinutes * 60 * 1000"), "follow-only session reminders must fire at session start while exact and broadcast starts retain the 15-minute lead");
 assert(dispatchApi.includes("CRON_SECRET") && dispatchApi.includes("webpush.sendNotification") && dispatchApi.includes("claimed_at"));
 assert(worker.includes('addEventListener("push"') && worker.includes('addEventListener("notificationclick"'));
 assert(!Array.isArray(vercel.crons) || !vercel.crons.some(cron => cron.path === "/api/notification-dispatch"), "cron-job.org must be the sole reminder dispatcher");

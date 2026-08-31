@@ -92,7 +92,7 @@ function auditProfile(profile, { now = new Date(), baseEvents = baseFeed.events 
     const directState = { preferences:{ preferenceGraph:{ entityFollows:[follow], domainPreferences:[], competitionPreferences:[] } } };
     const resolvedIds = expandedFollowEntityIds(directState);
     const fixtures = normalized.filter(event => retainedFixture(event, reference) && eventMatchesEntities(event, resolvedIds));
-    const eligible = fixtures.filter(event => shouldEnrichEvent(event, userState.preferences, {}, resolvedIds));
+    const eligible = fixtures.filter(event => shouldEnrichEvent(event, userState.preferences, {}, resolvedIds, reference));
     if (eligible.length && eligible.some(event => feedEventIds.has(stableEventId(event)))){
       const activeFixtures = eligible.filter(event => {
         const state = cardLifecycle.lifecycleState(event, { now:reference }).state;
@@ -102,7 +102,7 @@ function auditProfile(profile, { now = new Date(), baseEvents = baseFeed.events 
       if (missingActiveCard) return { entityId:follow.participantId, status:"published_fixture_missing", fixtureCount:fixtures.length, reason:"active_card_missing" };
       return { entityId:follow.participantId, status:"surfaced", fixtureCount:eligible.length };
     }
-    if (fixtures.length) return { entityId:follow.participantId, status:"published_fixture_missing", fixtureCount:fixtures.length };
+    if (fixtures.length) return { entityId:follow.participantId, status:"policy_filtered", fixtureCount:fixtures.length, reason:"stakes_policy" };
     return {
       entityId:follow.participantId,
       status:"no_current_fixture",
@@ -126,6 +126,9 @@ function auditProfile(profile, { now = new Date(), baseEvents = baseFeed.events 
     noCurrentFixture:classifications
       .filter(item => item.status === "no_current_fixture")
       .map(item => ({ entityId:item.entityId, reason:item.classificationReason })),
+    policyFiltered:classifications
+      .filter(item => item.status === "policy_filtered")
+      .map(item => ({ entityId:item.entityId, reason:item.reason, fixtureCount:item.fixtureCount })),
     failures:classifications.filter(item => item.status === "published_fixture_missing"),
     sameDayFixtures:sameDayFollowed.length,
     missingSameDay:missingSameDay.map(stableEventId),
@@ -144,6 +147,10 @@ function main(){
     if (result.noCurrentFixture.length){
       const labels = result.noCurrentFixture.map(item => `${item.entityId} (${item.reason})`);
       console.log(`Profile ${result.profileHash} no_current_fixture: ${labels.join(", ")}`);
+    }
+    if (result.policyFiltered.length){
+      const labels = result.policyFiltered.map(item => `${item.entityId} (${item.fixtureCount} stakes-policy fixture${item.fixtureCount === 1 ? "" : "s"})`);
+      console.log(`Profile ${result.profileHash} policy_filtered: ${labels.join(", ")}`);
     }
   });
   const failures = results.flatMap(result => [

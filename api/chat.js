@@ -3,6 +3,7 @@
 const crypto = require("node:crypto");
 const fs = require("node:fs");
 const path = require("node:path");
+const { waitUntil } = require("@vercel/functions");
 const chatContract = require("../config/chat-contract");
 const {
   ChatCapabilityError,
@@ -745,11 +746,14 @@ async function sendMessage(body, user, admin, profile){
   } else {
     replyTo = null;
   }
+  const notificationFanout = dispatchChatMessageNotifications({ message:row, room, senderId:user.id })
+    .catch(() => ({ attempted:0, sent:0, failed:0 }));
   try{
-    await dispatchChatMessageNotifications({ message:row, room, senderId:user.id });
+    waitUntil(notificationFanout);
   }catch(_error){
-    // A saved message must never be rolled back or reported failed because push
-    // delivery is unavailable. The delivery ledger remains safe to retry.
+    // Local and non-Vercel runtimes may not expose a request context. The
+    // promise has already started and remains deliberately detached from ack.
+    void notificationFanout;
   }
   let replySenderName = null;
   if (replyTo){

@@ -124,7 +124,13 @@
   }
 
   function timelineDisplayTime(subEvent, timeZone){
-    if (subEvent?.timePrecision === "follows") return "Follows";
+    if (subEvent?.timePrecision === "follows"){
+      const session = new Date(subEvent?.sessionStartTimeUtc || "").getTime();
+      if (!Number.isFinite(session)) return "Follows";
+      const label = new Intl.DateTimeFormat("en-AU", { timeZone, hour:"numeric", minute:"2-digit", hour12:true })
+        .format(new Date(session)).replace(/\s/g, "").toLowerCase();
+      return `Follows · session starts ${label}`;
+    }
     if (["unpublished", "date-only"].includes(subEvent?.timePrecision)) return "Time unpublished";
     const direct = new Date(subEvent?.startTimeUtc || "").getTime();
     if (!Number.isFinite(direct)) return "Time TBC";
@@ -443,7 +449,7 @@
       sessionStartTimeUtc:subEvent.sessionStartTimeUtc || null,
       sequenceInSession:Number(subEvent.sequenceInSession) || 0,
       timePrecision:subEvent.timePrecision || (Number.isFinite(directTime) ? "exact" : "follows"),
-      ...(follows ? { displayTimeLabel:`Follows · ${subEvent.venue || parent.venue || "Venue TBC"}` } : {}),
+      ...(follows ? { displayTimeLabel:timelineDisplayTime(subEvent, "Australia/Sydney") } : {}),
       venue: subEvent.venue || parent.venue,
       status: subEvent.status || "scheduled",
       scheduleStatus:subEvent.scheduleStatus || "confirmed",

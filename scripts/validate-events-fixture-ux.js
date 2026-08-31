@@ -19,6 +19,7 @@ assert(/function focusMajorEventCard[\s\S]{0,900}requestAnimationFrame\(restoreT
 assert(html.includes('card.dataset.cardState = state') && html.includes('state === "selected" ? "is-selected"') && html.includes('state === "opened" ? "is-opened"'), "both Events card types must expose compact, selected and opened states");
 assert(html.includes("refreshExpandableCard(eventCard, buildMajorEventCard(record") && html.includes("refreshExpandableCard(eventCard, buildTicketSaleCard(record"), "Events expansion must patch the stable keyed card");
 assert(/function mutateWithScrollContinuity[\s\S]{0,2600}getBoundingClientRect\(\)\.top[\s\S]{0,900}window\.scrollBy/.test(html), "the shared transaction must restore the selected anchor with one measured correction");
+assert(/function refreshExpandableCard[\s\S]{0,700}anchorStrategy:"target"/.test(html), "user-driven expansion must anchor the card being expanded even when it becomes taller than the viewport");
 assert(html.includes('card.dataset.scrollKey = `major-event:${record.id}`') && html.includes('card.dataset.scrollKey = `ticket-alert:${record.id}`'), "both Events collections must expose stable scroll identities");
 assert(html.includes('.major-event-logo{ display:grid; place-items:center; width:88px; height:90px;') && html.includes('.major-event-logo{ width:74px; height:70px;'), "Events identities must share the compact desktop and mobile fixture frames");
 assert(html.includes("renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta)"), "both Events card types must use the shared official identity renderer");
@@ -30,11 +31,17 @@ assert(html.includes('className = "major-event-ticket-link event-quick-action"')
 
 assert(html.includes('.matchup-team-logo-slot{ width:74px; height:70px;') && html.includes('width:min(100%, 88px);') && html.includes('height:90px;'), "fixture matchups must use the approximately 35 percent smaller logo frames");
 assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
-const compactNscIndex = html.indexOf("mainDiv.appendChild(buildNothingscoreSummary(ev));");
-const compactEditorialIndex = html.indexOf("const editorialHook = buildEditorialL0Hook", compactNscIndex);
-const compactStakesIndex = html.indexOf('ratingRow.className = "rating-row"', compactEditorialIndex);
-assert(compactNscIndex >= 0 && compactNscIndex < compactEditorialIndex && compactEditorialIndex < compactStakesIndex, "compact fixtures must order the independent NSC strip, sourced editorial and Stakes components");
-assert(html.includes("while (badges.firstChild) metaRow.appendChild(badges.firstChild)") && !html.includes("sessionDismissedEventIds"), "tags and status must retain the compact metadata rail while dismissal stays durable");
+const eventCardSource = html.slice(html.indexOf("function buildEventCard"), html.indexOf("function jointTournamentIsActive"));
+assert(!eventCardSource.includes("buildNothingscoreSummary") && !eventCardSource.includes("buildNothingscorePanel"), "Feed cards must not fetch or render public Nothingscore aggregates");
+assert(!eventCardSource.includes("follow-reason-tag") && !eventCardSource.includes("new-tag") && !eventCardSource.includes("event-meta-row") && !eventCardSource.includes("Independent context"), "Feed cards must omit meta labels and duplicate metadata rails");
+assert(eventCardSource.includes("buildEventNothingscoreAction(ev)") && eventCardSource.indexOf("buildEventWhyItMatters(ev)") < eventCardSource.indexOf("buildEventNothingscoreAction(ev)"), "the lifecycle-specific contribution button must sit immediately below Why it matters");
+assert(!eventCardSource.includes("buildPostEventRatingPrompt"), "Feed cards must keep the separate impact rating prompt hidden behind the contribution action");
+assert(/function buildFeedStakesRow[\s\S]{0,1200}positive[\s\S]{0,600}buildStakesMeter[\s\S]{0,600}negative/.test(html), "Feed must place thumbs up left and thumbs down right of Stakes");
+assert(/function buildStakesMeter[\s\S]{0,1200}stakes-flame[\s\S]{0,800}STAKES/.test(html), "Stakes must use five filled or hollow white flame glyphs with the numeric label below");
+const majorCardSource = html.slice(html.indexOf("function buildMajorEventCard"), html.indexOf("function buildTicketSaleCard"));
+assert(!majorCardSource.includes("buildEventFeedbackButtons"), "Events cards must not show thumbs controls");
+assert(!majorCardSource.includes("buildNothingscoreSummary") && !majorCardSource.includes("buildNothingscorePanel") && !majorCardSource.includes("buildIndependentContext"), "Events cards must keep public Nothingscore results and redundant context panels hidden");
+assert(!html.includes("while (badges.firstChild) metaRow.appendChild(badges.firstChild)") && !html.includes("sessionDismissedEventIds"), "card tags must be removed while dismissal remains durable");
 assert(html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && html.includes("}, 1400);"), "likes must retain cards with feedback while dislikes dismiss exact editions");
 assert(html.includes('"Liked — future feed suggestions will adapt."') && html.includes('"Like removed — future feed suggestions will no longer use it."') && html.includes('actionLabel:"Undo"'), "feedback must explain reversible learning and keep dismissal recoverable");
 

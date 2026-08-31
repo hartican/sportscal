@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="199">
+<meta name="app-shell-version" content="204">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6738,6 +6738,45 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .major-event-match-action,
   .code-inspector-feed-action{ width:100%; min-height:var(--card-action-height); height:var(--card-action-height); }
 }
+
+/* Restrained fixture surface. */
+.nsc-card-action{
+  width:100%;
+  min-height:38px;
+  margin-top:8px;
+  border-color:color-mix(in srgb,var(--sport-color,var(--accent)) 46%,var(--border));
+}
+.stakes-meter{
+  display:grid;
+  justify-items:center;
+  gap:3px;
+  min-width:112px;
+  color:#fff;
+}
+.stakes-flames{ display:flex; align-items:center; justify-content:center; gap:5px; }
+.stakes-flame{ display:grid; place-items:center; width:16px; height:20px; color:#fff; }
+.stakes-flame svg{ width:100%; height:100%; overflow:visible; }
+.stakes-flame path{ fill:transparent; stroke:currentColor; stroke-width:1.65; stroke-linejoin:round; }
+.stakes-flame.is-filled path{ fill:currentColor; }
+.stakes-meter small{ color:var(--text-dim); font:850 .56rem/1 'DM Sans',sans-serif; letter-spacing:.08em; }
+.feed-stakes-row{
+  display:grid;
+  grid-template-columns:38px minmax(112px,1fr) 38px;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+}
+.feed-stakes-row .event-feedback-button{ width:38px; height:38px; padding:0; border-radius:999px; }
+.feed-stakes-row .event-feedback-button:last-child{ justify-self:end; }
+.event-compact-footer{ grid-template-columns:minmax(100px,1fr) minmax(112px,1fr); }
+.event-compact-footer.without-events-link{ grid-template-columns:minmax(100px,1fr); }
+.major-event-match > .nsc-card-action{ grid-column:1 / -1; width:auto; justify-self:start; margin-top:0; }
+.major-event-identity > .stakes-meter{ margin:10px auto 0; }
+.major-event-identity > .nsc-card-action{ max-width:420px; margin-inline:auto; }
+@media (max-width:430px){
+  .feed-stakes-row{ gap:7px; }
+  .major-event-match > .nsc-card-action{ width:100%; }
+}
 </style>
 </head>
 <body>
@@ -7062,7 +7101,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/team-follow-catalogue.js"></script>
 <script src="config/event-taxonomy-compat.js"></script>
 <script src="config/preference-taxonomy.js"></script>
-<script src="config/follow-first.js"></script>
+<script src="config/follow-first.js?v=204"></script>
+<script src="config/follow-feed-policy.js?v=204"></script>
 <script src="config/tennis-coverage.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/sport-hubs.js"></script>
@@ -7097,7 +7137,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=199")
+  : loadDeferredScript("config/national-team-identities.js?v=204")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7877,6 +7917,7 @@ const TENNIS_COVERAGE = globalThis.NOTHINGSPORTS_TENNIS_COVERAGE || null;
 
 const PREFERENCE_SYSTEM = globalThis.NOTHINGSPORTS_PREFERENCE_SYSTEM || null;
 const FOLLOW_FIRST = globalThis.NOTHINGSPORTS_FOLLOW_FIRST || null;
+const FOLLOW_FEED_POLICY = globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY;
 const PERSONALISED_FEED = globalThis.NOTHINGSPORTS_PERSONALISED_FEED || null;
 const TEAM_FOLLOW_CATALOGUE = globalThis.NOTHINGSPORTS_TEAM_FOLLOW_CATALOGUE || null;
 const FEED_CONTROLS = globalThis.NOTHINGSPORTS_FEED_CONTROLS || null;
@@ -8090,7 +8131,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=199",
+  moduleScriptUrl: "config/major-events.js?v=204",
   url: "data/major-events.v1.json",
 });
 
@@ -8551,6 +8592,7 @@ let nothingscorePollFailures = 0;
 let nothingscoreRenderQueued = false;
 let nothingscorePreviousFocus = null;
 let nothingscoreLeaderboardPeriod = "weekly";
+let activeNothingscoreContributionEvent = null;
 let publicProfileSettingsLoading = null;
 const NOTHINGSCORE_SOUND_KEY = "ns_nothingscore_sound_v1";
 let nothingscoreAudioContext = null;
@@ -9486,7 +9528,12 @@ function setGlobalSpoilerPreference(nextShowSpoilers, { notify = false } = {}){
 }
 
 let userPreferences = loadPreferences();
-void ensureFollowCollectionDirectories(userPreferences).catch(() => {});
+void ensureFollowCollectionDirectories(userPreferences).then(() => {
+  // Collection membership is lazy data, but its consequences are not. Once
+  // the saved group directory arrives, immediately correct any Feed or Events
+  // surface that rendered while it was still loading.
+  if (document.readyState !== "loading") renderAll({ preserveViewport:true });
+}).catch(() => {});
 let ratings = loadRatings();
 let eventActions = loadEventActions();
 let eventSpoilerState = loadEventSpoilerState(eventActions);
@@ -11767,15 +11814,16 @@ function selectedMajorEventFixtures(){
 
 function automaticallyFollowedMajorEventFixtures(reference = nowAEST()){
   if (!majorEventsDocument?.events?.length) return [];
-  const todayKey = MAJOR_EVENTS?.dateKey?.(reference, "Australia/Sydney") || formatDateKey(reference);
   const fixtures = new Map();
   majorEventsDocument.events.filter(record => record.kind !== "ticket_sale").forEach(parent => {
     majorEventSubEvents(parent).forEach(subEvent => {
       const fixture = majorEventFixtureSnapshot(subEvent, parent);
-      if (!fixture || fixture.date !== todayKey || !automaticEventFollowReason(fixture)) return;
+      const followed = Boolean(fixture && automaticEventFollowReason(fixture));
+      const decision = FOLLOW_FEED_POLICY.followedFixtureDecision(fixture, { followed, now:reference });
+      if (!fixture || !decision.include) return;
       const action = getEventAction(fixture);
       if (action.archived || action.dismissed || eventIsAutoArchived(fixture, reference) || !eventMeetsDerivedRetention(fixture, reference)) return;
-      fixtures.set(String(fixture.eventId || fixture.id), { ...fixture, automaticFollow:true });
+      fixtures.set(String(fixture.eventId || fixture.id), { ...fixture, automaticFollow:true, automaticFollowMode:decision.mode });
     });
   });
   return [...fixtures.values()];
@@ -12265,11 +12313,6 @@ function buildEditorialL0Hook(copy, consequenceCopy = "", { labelText = "Why it 
   return hook;
 }
 
-function crowdEditorialSupplement(snapshot){
-  if (!snapshot || snapshot?.phase === "pulse") return "";
-  return String(snapshot?.crowdEditorial?.editorialSentence || "").trim();
-}
-
 function editorialNarrativeReadyForCard(narrative){
   return Boolean(ENRICHMENT_ENGINE?.editorialNarrativeReadyForCard?.(narrative));
 }
@@ -12282,15 +12325,6 @@ function editorialNarrativeHookForDisplay(record){
   return narrative.hook || "";
 }
 
-function editorialNarrativeCopyForDisplay(record, state){
-  if (!["selected", "opened"].includes(state)) return "";
-  const narrative = record?.editorialNarrative;
-  if (!editorialNarrativeReadyForCard(narrative)) return "";
-  const completed = record.status === "completed" || getEventStatus(record) === "past";
-  if (completed && isSpoilerVisible(record)) return narrative.synopsisSpoilerOn || narrative.synopsis || "";
-  return narrative.synopsis || "";
-}
-
 function editorialConsequenceForDisplay(record){
   const narrative = record?.editorialNarrative;
   const consequence = narrative?.consequence;
@@ -12298,45 +12332,6 @@ function editorialConsequenceForDisplay(record){
   const completed = record.status === "completed" || getEventStatus(record) === "past";
   if (completed && isSpoilerVisible(record)) return consequence.spoilerOnSentence || consequence.previewSentence || "";
   return consequence.previewSentence || "";
-}
-
-function appendEditorialConsequence(host, record){
-  const copy = editorialConsequenceForDisplay(record);
-  if (!copy) return null;
-  const paragraph = document.createElement("p");
-  paragraph.className = "editorial-consequence-copy";
-  paragraph.textContent = copy;
-  host.appendChild(paragraph);
-  return paragraph;
-}
-
-function buildIndependentContext(record, state, snapshot = nothingscoreSnapshotFor(record)){
-  const copy = editorialNarrativeCopyForDisplay(record, state);
-  if (!copy) return null;
-  return buildEditorialL0Hook(copy, editorialConsequenceForDisplay(record), {
-    labelText:"Independent context",
-    className:`independent-context independent-context-${state}`,
-    supplementalCopy:crowdEditorialSupplement(snapshot),
-  });
-}
-
-function buildEditorialSentiment(record){
-  const memory = record?.editorialNarrative?.sentiment;
-  const contributors = Number(memory?.uniqueContributorCount || 0);
-  const impact = Number(memory?.impactScore);
-  const expiry = Date.parse(memory?.expiresAt || "");
-  if (!memory || contributors < 3 || !Number.isFinite(impact) || (Number.isFinite(expiry) && expiry <= Date.now())) return null;
-  const wrapper = document.createElement("aside");
-  wrapper.className = "editorial-sentiment";
-  wrapper.setAttribute("aria-label", "Sentiment from the previous narrative chapter");
-  const label = document.createElement("strong");
-  label.textContent = "Sentiment";
-  const chapter = memory.relationship === "source" ? "This chapter" : "Previous chapter";
-  const tags = Array.isArray(memory.leadingTags) ? memory.leadingTags.filter(Boolean).slice(0, 3) : [];
-  const copy = document.createElement("span");
-  copy.textContent = `${chapter}: ${impact.toFixed(1)}/5 Impact from ${contributors} contributors${tags.length ? ` · ${tags.join(", ")}.` : "."}`;
-  wrapper.append(label, copy);
-  return wrapper;
 }
 
 function buildEventTimingStateChip(event, timing = FEED_CONTROLS?.timingState?.(event, nowAEST())){
@@ -14443,10 +14438,31 @@ function buildPostEventRatingPrompt(ev){
 }
 
 function buildStakesMeter(ev){
-  const wrap = document.createElement("span");
+  const score = Math.max(1, Math.min(5, Math.round(Number(ev?.stakesScore || ev?.storyline?.stakes || 1))));
+  const wrap = document.createElement("div");
   wrap.className = "stakes-meter";
-  wrap.innerHTML = VECTOR_ASSETS.intensityMarkup(ev.stakesScore, { className: "stakes-vector", label: `Stakes ${ev.stakesScore} out of 5`, preferImage: true });
+  wrap.setAttribute("aria-label", `Stakes ${score} out of 5`);
+  const flames = document.createElement("span");
+  flames.className = "stakes-flames";
+  flames.setAttribute("aria-hidden", "true");
+  for (let value = 1; value <= 5; value += 1){
+    const flame = document.createElement("span");
+    flame.className = `stakes-flame${value <= score ? " is-filled" : ""}`;
+    flame.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12.2 2.2c.5 3-1.1 4.4-2.4 5.8-1.2 1.3-2.2 2.5-2.2 4.4 0 1.2.5 2.3 1.4 3.1-.1-1.8.8-3.2 2.3-4.6.2 2.2 1.8 3 1.8 5 0 .8-.2 1.6-.7 2.2 2.3-.3 4-2.3 4-4.8 0-2.6-1.4-4.8-4.2-7.1 0 1.8-.5 3-1.4 4.1.1-2.7 2.1-4.5 1.4-8.1Z"/></svg>';
+    flames.appendChild(flame);
+  }
+  const label = document.createElement("small");
+  label.textContent = `STAKES ${score}/5`;
+  wrap.append(flames, label);
   return wrap;
+}
+
+function buildFeedStakesRow(ev){
+  const row = document.createElement("div");
+  row.className = "feed-stakes-row";
+  const [positive, negative] = buildEventFeedbackButtons(ev);
+  row.append(positive, buildStakesMeter(ev), negative);
+  return row;
 }
 
 function buildSpoilerOverrideControl(ev){
@@ -14566,7 +14582,6 @@ function buildEventCompactFooter(ev, options = {}, refreshCard = null){
   const footer = document.createElement("footer");
   footer.className = "event-compact-footer";
   footer.appendChild(buildSpoilerOverrideButton(ev, refreshCard));
-  buildEventFeedbackButtons(ev).forEach(button => footer.appendChild(button));
 
   const majorEventId = eventMajorEventId(ev);
   if (majorEventId){
@@ -14755,7 +14770,8 @@ function reconcileKeyedScrollNodes(previousNodes){
   });
 }
 
-function scrollContinuityAnchorFor(target){
+function scrollContinuityAnchorFor(target, strategy = "auto"){
+  if (strategy === "target" && target?.getBoundingClientRect) return target;
   const viewportTop = stickyFeedChromeHeight() + 12;
   const viewportBottom = window.innerHeight - 12;
   const targetRect = target?.getBoundingClientRect?.();
@@ -14770,15 +14786,15 @@ function scrollContinuityAnchorFor(target){
     || null;
 }
 
-function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focusTarget = null } = {}){
+function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focusTarget = null, anchorStrategy = "auto" } = {}){
   if (typeof mutate !== "function") return false;
-  const anchor = scrollContinuityAnchorFor(target);
+  const anchor = scrollContinuityAnchorFor(target, anchorStrategy);
   const anchorKey = scrollKeyForElement(anchor);
   const anchorTop = anchor?.getBoundingClientRect?.().top;
   const previousNodes = captureKeyedScrollNodes();
   mutate();
   reconcileKeyedScrollNodes(previousNodes);
-  window.requestAnimationFrame(() => {
+  const restoreAnchor = () => {
     const currentAnchor = anchor?.isConnected
       ? anchor
       : anchorKey
@@ -14789,6 +14805,14 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
       const correction = scrollCorrectionForAnchor(anchorTop, currentAnchor.getBoundingClientRect().top, window.scrollY, maxScrollY);
       if (Math.abs(correction) >= 0.5) window.scrollBy(0, correction);
     }
+  };
+  window.requestAnimationFrame(() => {
+    restoreAnchor();
+    // Replacing a focused disclosure control can trigger the browser's own
+    // post-layout anchoring after the first frame. Measure once more so the
+    // tapped card, rather than the removed child control, remains stationary.
+    window.requestAnimationFrame(() => {
+      restoreAnchor();
     if (restoreFocus){
       const requestedFocus = typeof focusTarget === "string"
         ? document.querySelector(focusTarget)
@@ -14801,6 +14825,7 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
               : null;
       requestedFocus?.focus?.({ preventScroll:true });
     }
+    });
   });
   return true;
 }
@@ -15113,17 +15138,23 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
 }
 
 function eventReminderTiming(ev){
-  if (ev.timePrecision === "follows") return null;
+  if (ev.timePrecision === "follows"){
+    const sessionStart = Date.parse(ev.sessionStartTimeUtc || ev.timelineSortTimeUtc || "");
+    return Number.isFinite(sessionStart)
+      ? { startsAt:new Date(sessionStart).toISOString(), fallback:false, deliveryMode:"session-start" }
+      : null;
+  }
   if (ev.startTimeUtc && !Number.isNaN(Date.parse(ev.startTimeUtc))){
-    return { startsAt:new Date(ev.startTimeUtc).toISOString(), fallback:false };
+    return { startsAt:new Date(ev.startTimeUtc).toISOString(), fallback:false, deliveryMode:"match-15" };
   }
   if (!ev.date || !ev.time) return null;
   const inferred = eventDateTime(ev);
-  return Number.isNaN(inferred.getTime()) ? null : { startsAt:inferred.toISOString(), fallback:true };
+  return Number.isNaN(inferred.getTime()) ? null : { startsAt:inferred.toISOString(), fallback:true, deliveryMode:"broadcast-15" };
 }
 
 function reminderCanBeScheduled(timing, reference = Date.now()){
-  return Boolean(timing && Date.parse(timing.startsAt) - 15 * 60 * 1000 > Number(reference));
+  const leadMinutes = timing?.deliveryMode === "session-start" ? 0 : 15;
+  return Boolean(timing && Date.parse(timing.startsAt) - leadMinutes * 60 * 1000 > Number(reference));
 }
 
 const PUSH_INSTALLATION_STORAGE_KEY = "ns_push_installation_v1";
@@ -15268,6 +15299,43 @@ async function syncPermittedChatPushInstallation(){
   }
 }
 
+async function notificationDiagnosticsCommand(action, extra = {}){
+  const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
+  if (!credentials?.installationId || !credentials?.secret) throw new Error("Enable system alerts on this device first.");
+  const authenticated = Boolean(serverSyncClient.getSession?.());
+  if (action === "status") return serverSyncClient.notificationCommand({ action:"status", ...credentials, ...extra }, { authenticated });
+  if (action === "test") return serverSyncClient.notificationCommand({ action:"test", ...credentials, ...extra }, { authenticated });
+  throw new Error("Unknown notification diagnostic action.");
+}
+
+function notificationDiagnosticsCopy(payload){
+  if (!payload) return "Notification diagnostics are unavailable.";
+  const dispatcher = payload.dispatcher;
+  const latestTest = payload.latestTest;
+  const scheduler = dispatcher?.last_completed_at
+    ? `Scheduler last checked ${new Date(dispatcher.last_completed_at).toLocaleString("en-AU")}${dispatcher.last_error ? ` · ${dispatcher.last_error}` : " · healthy"}.`
+    : "Scheduler has not reported a completed check yet.";
+  const receipt = latestTest?.received_at
+    ? ` Last test received ${new Date(latestTest.received_at).toLocaleString("en-AU")}.`
+    : latestTest?.dispatched_at
+      ? " Latest test was sent; open-app receipt has not been observed yet."
+      : latestTest?.last_error ? ` Latest test failed: ${latestTest.last_error}.` : "";
+  return `${payload.installations?.length || 0} enabled device${payload.installations?.length === 1 ? "" : "s"} · ${payload.reminders?.pending || 0} future reminder${payload.reminders?.pending === 1 ? "" : "s"}. ${scheduler}${receipt}`;
+}
+
+async function refreshNotificationDiagnosticsStatus(){
+  const host = document.getElementById("notificationDiagnosticsStatus");
+  if (!host) return null;
+  try{
+    const payload = await notificationDiagnosticsCommand("status");
+    host.textContent = notificationDiagnosticsCopy(payload);
+    return payload;
+  }catch(error){
+    host.textContent = error.message || "Notification diagnostics are unavailable.";
+    return null;
+  }
+}
+
 function notificationEventUrl(ev){
   const target = new URL("/", window.location.origin);
   target.searchParams.set("event", String(ev.eventId || ev.id));
@@ -15282,6 +15350,7 @@ async function createWebPushReminder(ev, timing, installation){
     eventId:String(ev.eventId || ev.id),
     title:spoilerSafeDisplayTitle(ev),
     startsAt:timing.startsAt,
+    deliveryMode:timing.deliveryMode,
     viewingUrl:notificationEventUrl(ev),
     fallbackToBroadcast:Boolean(timing.fallback),
   }, { authenticated:Boolean(serverSyncClient.getSession?.()) });
@@ -15378,7 +15447,7 @@ async function toggleQuickReminder(ev, button){
     button.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${enabled ? "Reminder on" : "Remind me"}</span>`;
     showExplanation("");
     showToast(enabled
-      ? `Background reminder set for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}${serverSyncClient.getSession?.() ? " on every enabled device" : " on this device"}.`
+      ? `Background reminder set ${timing.deliveryMode === "session-start" ? "for the official session start" : `for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}`}${serverSyncClient.getSession?.() ? " on every enabled device" : " on this device"}.`
       : "Reminder removed.");
   }catch(error){
     const message = error?.message || "Notifications could not be enabled on this device.";
@@ -15527,6 +15596,7 @@ function refreshExpandableCard(card, replacement, { restoreFocus = false, focusT
   return mutateWithScrollContinuity(card, () => patchElementInPlace(card, replacement), {
     restoreFocus,
     focusTarget:focusTarget || card,
+    anchorStrategy:"target",
   });
 }
 
@@ -15915,7 +15985,7 @@ function buildNothingscoreChoices(ev, snapshot, panel){
 let nothingscoreVisualLoad = null;
 function ensureNothingscoreVisual(){
   if (globalThis.NOTHINGSPORTS_NSC_VISUAL) return Promise.resolve(globalThis.NOTHINGSPORTS_NSC_VISUAL);
-  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=199").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
+  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=204").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
   return nothingscoreVisualLoad;
 }
 function buildNothingscoreVisual(snapshot){
@@ -15975,6 +16045,7 @@ function buildNothingscoreContributors(snapshot, panel){
 }
 
 function buildNothingscorePanel(ev, snapshot, state){
+  void state;
   const panel = document.createElement("section");
   panel.className = "nsc-panel";
   panel.dataset.nscPanel = nothingscoreEventId(ev);
@@ -15987,15 +16058,6 @@ function buildNothingscorePanel(ev, snapshot, state){
   heading.appendChild(title);
   head.appendChild(heading);
   panel.appendChild(head);
-
-  if (snapshot.earlyPanel?.includesModelled && snapshot.earlyPanel.disclosure){
-    const disclosure = document.createElement("p");
-    disclosure.className = "nsc-early-disclosure-expanded";
-    disclosure.textContent = snapshot.earlyPanel.disclosure;
-    panel.appendChild(disclosure);
-  }
-  const visual = buildNothingscoreVisual(snapshot);
-  if (visual) panel.appendChild(visual);
 
   const status = document.createElement("p");
   status.className = "nsc-status";
@@ -16023,7 +16085,6 @@ function buildNothingscorePanel(ev, snapshot, state){
   } else {
     buildNothingscoreChoices(ev, snapshot, panel);
   }
-  buildNothingscoreContributors(snapshot, panel);
   return panel;
 }
 
@@ -16076,8 +16137,31 @@ function scheduleNothingscoreHeartbeat(delay = 60_000){
   }, delay);
 }
 
+function buildEventWhyItMatters(ev){
+  const hook = editorialNarrativeHookForDisplay(ev) || selectedSentenceForDisplay(ev);
+  return buildEditorialL0Hook(hook, editorialConsequenceForDisplay(ev), { labelText:"Why it matters" });
+}
+
+function nothingscoreActionLabelForEvent(ev){
+  const status = getEventStatus(ev);
+  if (status === "live") return "Add live Pulse";
+  if (status === "past" || ev?.status === "completed") return "How did it land?";
+  return "How do you think it’ll go?";
+}
+
+function buildEventNothingscoreAction(ev){
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "btn ghost nsc-card-action";
+  button.textContent = nothingscoreActionLabelForEvent(ev);
+  button.addEventListener("click", event => {
+    event.stopPropagation();
+    void openNothingscoreContribution(ev);
+  });
+  return button;
+}
+
 function buildEventCard(ev, options = {}){
-  registerNothingscoreEvent(ev);
   const meta = sportMetaForEvent(ev);
   const status = getEventStatus(ev);
   const timingState = FEED_CONTROLS?.timingState?.(ev, nowAEST()) || null;
@@ -16190,14 +16274,6 @@ function buildEventCard(ev, options = {}){
 
   const nameWrap = document.createElement("div");
   nameWrap.className = "event-title-stack";
-  const followReason = eventFollowReason(ev);
-  if (activeTab === "feed" && followReason?.displayTag){
-    const reason = document.createElement("span");
-    reason.className = "follow-reason-tag";
-    reason.textContent = followReason.label;
-    nameWrap.appendChild(reason);
-    card.dataset.followReason = followReason.type;
-  }
   if (matchupIdentity) mainDiv.appendChild(matchupIdentity);
   let dateLine = null;
   if (expandable){
@@ -16227,13 +16303,6 @@ function buildEventCard(ev, options = {}){
   const nameLine = document.createElement("div");
   nameLine.className = "event-name-line";
   if (matchupIdentity) nameLine.classList.add("matchup-visual-title-hidden");
-  if (presentation.isNew){
-    const label = document.createElement("span");
-    label.className = "new-tag";
-    label.textContent = "New";
-    label.setAttribute("aria-label", "Newly surfaced fixture");
-    nameLine.appendChild(label);
-  }
   const nameEl = document.createElement("div");
   nameEl.className = "event-name";
   nameEl.id = `event-title-${String(ev.eventId || ev.id).replace(/[^a-z0-9_-]/gi, "-")}`;
@@ -16257,155 +16326,20 @@ function buildEventCard(ev, options = {}){
   nameWrap.appendChild(nameLine);
   if (displayedResult) nameWrap.appendChild(displayedResult);
   if (matchupIdentity && dateLine) nameWrap.appendChild(dateLine);
-  if (state === "opened" && ev.venue){
-      const venueEl = document.createElement("div");
-      venueEl.className = "event-venue";
-      venueEl.textContent = ev.venueDisplayName || ev.venue;
-      nameWrap.appendChild(venueEl);
-  }
   topRow.appendChild(nameWrap);
 
-  const badges = document.createElement("div");
-  badges.className = "badges";
-  if (localGame){
-    const b = document.createElement("span");
-    b.className = "badge local-game";
-    b.textContent = "LOCAL GAME";
-    badges.appendChild(b);
-  }
-  if (enrichment.storyline?.visibleLabel){
-    const displayLabel = enrichment.storyline.visibleLabel === "Must Watch"
-      ? "Top pick"
-      : enrichment.storyline.visibleLabel;
-    const b = document.createElement("span");
-    b.className = "badge editorial";
-    b.innerHTML = `${VECTOR_ASSETS.editorialMarkup(enrichment.storyline.visibleLabel, { className: "semantic-badge-glyph", label: displayLabel, preferImage: true })}<span>${displayLabel}</span>`;
-    badges.appendChild(b);
-  }
-  if (recommendationProfile.label){
-    const b = document.createElement("span");
-    b.className = "badge discovery";
-    b.textContent = recommendationProfile.label;
-    badges.appendChild(b);
-  }
-  if (upgraded){
-    const b = document.createElement("span");
-    b.className = "badge exceeded";
-    b.textContent = "Promoted replay";
-    badges.appendChild(b);
-  }
-  if (spoilerProtected){
-    const b = document.createElement("span");
-    b.className = "badge spoiler-safe";
-    b.textContent = "Spoiler safe";
-    badges.appendChild(b);
-  }
-  if (!(matchupIdentity && state === "compact")) topRow.appendChild(badges);
   mainDiv.appendChild(topRow);
+  const whyItMatters = buildEventWhyItMatters(ev);
+  if (whyItMatters) mainDiv.appendChild(whyItMatters);
+  mainDiv.appendChild(buildEventNothingscoreAction(ev));
 
-  const metaRow = document.createElement("div");
-  metaRow.className = "event-meta-row";
-  metaRow.innerHTML = `
-    <span class="meta-item sport-tag">${glyphMarkup(meta.glyph, { preferImage: true })}<span>${meta.label}</span></span>
-    <span class="meta-item">${glyphMarkup("ui:clock", { preferImage: true })}<span>${eventTimeLabel(ev)}</span></span>
-  `;
-  if (matchupIdentity){
-    const competitionTag = metaRow.querySelector(".sport-tag");
-    const competitionIcon = document.createElement("span");
-    competitionIcon.className = "event-icon matchup-competition-icon";
-    renderEventIdentityMark(competitionIcon, ev, meta);
-    const competitionLabel = document.createElement("span");
-    competitionLabel.textContent = CARD_IDENTITIES?.markForEvent(ev)?.label || meta.label;
-    competitionTag.classList.add("matchup-competition-tag");
-    competitionTag.replaceChildren(competitionIcon, competitionLabel);
-    if (state === "compact"){
-      metaRow.classList.add("matchup-meta-rail");
-      while (badges.firstChild) metaRow.appendChild(badges.firstChild);
-    }
-  }
-  if (expandable){
-    const dateItem = document.createElement("span");
-    dateItem.className = "meta-item";
-    dateItem.innerHTML = `${glyphMarkup("ui:calendar", { preferImage: true })}<span>${eventDateLabel(ev)}</span>`;
-    metaRow.appendChild(dateItem);
-  }
-  if (state === "opened"){
-    const broadcaster = document.createElement("span");
-    broadcaster.className = "meta-item";
-    broadcaster.innerHTML = VECTOR_ASSETS.broadcastMarkup("live", { preferImage: true });
-    const broadcasterCopy = document.createElement("span");
-    broadcasterCopy.textContent = ev.broadcaster;
-    broadcaster.appendChild(broadcasterCopy);
-    metaRow.appendChild(broadcaster);
-  }
-  mainDiv.appendChild(metaRow);
-  const socialSnapshot = nothingscoreSnapshotFor(ev);
-  mainDiv.appendChild(buildNothingscoreSummary(ev));
-  if (state === "compact"){
-    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(ev), editorialConsequenceForDisplay(ev), { supplementalCopy:crowdEditorialSupplement(socialSnapshot) });
-    if (editorialHook) mainDiv.appendChild(editorialHook);
-  }
-  const followContext = buildFollowContext(enrichment.followContext);
-  if (followContext) mainDiv.appendChild(followContext);
-  const jerseyContext = buildStageJerseyContext(ev);
-  if (jerseyContext) mainDiv.appendChild(jerseyContext);
-
-  if (isSessionRatingPromptEvent(ev)){
-    mainDiv.appendChild(buildPostEventRatingPrompt(ev));
-  }
-
-  const ratingRow = document.createElement("div");
-  ratingRow.className = "rating-row";
-
-  const expectedBlock = document.createElement("div");
-  expectedBlock.className = "rating-block";
-  expectedBlock.innerHTML = `${VECTOR_ASSETS.stakesMarkup(enrichment.storyline?.stakes || "medium", { className: "stakes-tier-vector", preferImage: true })}<span>Stakes: <span class="expected-num">${enrichment.stakesScore}/5</span></span>`;
-  expectedBlock.appendChild(buildStakesMeter(ev));
-  ratingRow.appendChild(expectedBlock);
-
-  if (state === "opened" && status === "past" && spoilerVisible){
-    const actualBlock = document.createElement("div");
-    actualBlock.className = "rating-block";
-    const label = document.createElement("span");
-    label.textContent = "Actual spectacle:";
-    actualBlock.appendChild(label);
-    actualBlock.appendChild(buildStars(ev, true));
-    if (actual !== null){
-      const num = document.createElement("span");
-      num.className = "expected-num";
-      num.style.marginLeft = "4px";
-      num.textContent = actualRatingLabel(actual);
-      actualBlock.appendChild(num);
-    }
-    ratingRow.appendChild(actualBlock);
-  }
-
-  if (ratingRow.childElementCount) mainDiv.appendChild(ratingRow);
+  mainDiv.appendChild(activeTab === "feed" && !options.archived ? buildFeedStakesRow(ev) : buildStakesMeter(ev));
   const expansionRegion = document.createElement("div");
   expansionRegion.className = "event-expansion-region";
   expansionRegion.dataset.scrollDetailRegion = String(ev.eventId || ev.id);
-  if (state !== "compact" && socialSnapshot){
-    if (state === "opened") void loadNothingscoreDetail(ev);
-    expansionRegion.appendChild(buildNothingscorePanel(ev, socialSnapshot, state));
-  }
-  if (state === "compact" && swipeEligible){
-    const feedback = document.createElement("div");
-    feedback.className = "event-inline-feedback";
-    feedback.setAttribute("aria-label", "Event feedback");
-    buildEventFeedbackButtons(ev).forEach(button => feedback.appendChild(button));
-    expansionRegion.appendChild(feedback);
-  }
   mainDiv.id = `${nameEl.id}-details`;
 
   if (state === "selected"){
-    const independent = buildIndependentContext(ev, state, socialSnapshot);
-    if (independent) expansionRegion.appendChild(independent);
-    else {
-      const selected = document.createElement("div");
-      selected.className = "event-selected-copy";
-      selected.textContent = selectedSentenceForDisplay(ev);
-      expansionRegion.appendChild(selected);
-    }
     if (spoilerProtected){
       const spoilerPanel = document.createElement("div");
       spoilerPanel.className = "spoiler-panel";
@@ -16428,24 +16362,6 @@ function buildEventCard(ev, options = {}){
   }
 
   if (state === "opened"){
-    const independent = buildIndependentContext(ev, state, socialSnapshot);
-    if (independent) expansionRegion.appendChild(independent);
-    else {
-      const spiel = document.createElement("div");
-      spiel.className = "event-opened-copy";
-      spiel.textContent = eventSpielForDisplay(ev);
-      expansionRegion.appendChild(spiel);
-    }
-
-    if (enrichment.editorialOverride){
-      const editorialNote = document.createElement("p");
-      editorialNote.className = "editorial-review-note";
-      const reviewedAt = new Date(enrichment.editorialOverride.reviewedAt);
-      const reviewedLabel = Number.isNaN(reviewedAt.getTime()) ? "reviewed" : `reviewed ${reviewedAt.toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}`;
-      editorialNote.textContent = `Editorially reviewed · ${reviewedLabel}`;
-      expansionRegion.appendChild(editorialNote);
-    }
-
     if (spoilerProtected){
       const spoilerPanel = document.createElement("div");
       spoilerPanel.className = "spoiler-panel";
@@ -16456,12 +16372,6 @@ function buildEventCard(ev, options = {}){
       expansionRegion.appendChild(spoilerPanel);
     }
 
-    const details = document.createElement("div");
-    details.className = "event-detail-grid";
-    details.innerHTML = `
-      <div class="event-detail-item"><strong>Broadcast</strong>${ev.broadcaster}</div>
-    `;
-    expansionRegion.appendChild(details);
     if (options.archived){
       expansionRegion.appendChild(buildEventActionPanel(ev, {
         archived: true,
@@ -19678,7 +19588,6 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
     const { subEvent } = item;
     const fixture = majorEventFixtureSnapshot(subEvent, record);
     const crowdEvent = majorSubEventNothingscoreEvent(subEvent, record, fixture);
-    registerNothingscoreEvent(crowdEvent);
     const editorialRecord = MAJOR_EVENTS.editorialRecordForSubEvent(subEvent, record, [...EVENTS, ...activeEvents]);
     const row = document.createElement("article");
     row.className = `major-event-match is-${item.effectiveStatus}`;
@@ -19720,14 +19629,14 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
     button.className = "major-event-match-action";
     const pinEligible = Boolean(fixture);
     const automaticReason = pinEligible ? automaticEventFollowReason(fixture) : null;
-    const autoFeedToday = Boolean(automaticReason && fixture.date === (MAJOR_EVENTS?.dateKey?.(nowAEST(), "Australia/Sydney") || formatDateKey(nowAEST())));
-    button.disabled = !pinEligible || Boolean(automaticReason);
+    const automaticDecision = FOLLOW_FEED_POLICY.followedFixtureDecision(fixture, { followed:Boolean(automaticReason), now:nowAEST() });
+    button.disabled = !pinEligible || automaticDecision.mode !== "manual" && automaticDecision.mode !== "ineligible";
     const syncPinButton = () => {
       const added = Boolean(pinEligible && getEventAction(fixture)?.addedToFixtures);
-      button.setAttribute("aria-pressed", String(Boolean(automaticReason) || added));
-      button.classList.toggle("active", Boolean(automaticReason) || added);
+      button.setAttribute("aria-pressed", String(automaticDecision.include || added));
+      button.classList.toggle("active", automaticDecision.include || added);
       button.textContent = automaticReason
-        ? (autoFeedToday ? "In Feed via follow" : "Auto-adds on match day")
+        ? automaticDecision.label
         : pinEligible ? (added ? "Remove from Feed" : "Add to Feed") : "Time not confirmed";
       return added;
     };
@@ -19739,16 +19648,15 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
       : "A published exact or session-relative start is required before this match can be added.";
     button.addEventListener("click", () => {
       const wasAdded = syncPinButton();
-      if (!pinEligible || automaticReason || !setMajorEventFixtureAdded(subEvent, record, !wasAdded)) return;
+      if (!pinEligible || (automaticReason && automaticDecision.mode !== "manual") || !setMajorEventFixtureAdded(subEvent, record, !wasAdded)) return;
       syncPinButton();
       renderTabCounts();
       showToast(wasAdded ? `${subEvent.name} removed from Feed.` : `${subEvent.name} added to Feed.`);
     });
     row.append(copy, button);
-    const crowdSnapshot = nothingscoreSnapshotFor(crowdEvent);
-    row.appendChild(buildNothingscoreSummary(crowdEvent));
-    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(editorialRecord), editorialConsequenceForDisplay(editorialRecord), { supplementalCopy:crowdEditorialSupplement(crowdSnapshot) });
+    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(editorialRecord), editorialConsequenceForDisplay(editorialRecord));
     if (editorialHook) row.appendChild(editorialHook);
+    row.appendChild(buildEventNothingscoreAction(crowdEvent));
     list.appendChild(row);
   });
   if (level === "L2" && timeline.hasOlder && !includeOlder){
@@ -19871,8 +19779,6 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
   const actionEvent = majorEventActionEvent(record);
   const crowdEvent = majorEventNothingscoreEvent(record);
-  registerNothingscoreEvent(crowdEvent);
-  const socialSnapshot = nothingscoreSnapshotFor(crowdEvent);
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
   const eventCard = interactionCard || card;
@@ -19942,7 +19848,6 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
     toggleMajorEventFollow(familyId);
   });
   ticketRow.appendChild(familyFollow);
-  buildEventFeedbackButtons(actionEvent).forEach(button => ticketRow.appendChild(button));
   const inspect = document.createElement("button");
   inspect.type = "button";
   inspect.className = "event-quick-action";
@@ -19971,45 +19876,21 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   logo.className = "major-event-logo";
   logo.dataset.scrollStable = `major-event-logo:${record.id}`;
   renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta);
-  const kicker = document.createElement("div");
-  kicker.className = "major-event-kicker";
-  kicker.textContent = record.kind === "tournament" ? "Tournament" : "Major event";
-  const followReason = eventFollowReason(majorEventActionEvent(record));
-  if (followReason?.displayTag){
-    const reason = document.createElement("span");
-    reason.className = "follow-reason-tag";
-    reason.textContent = followReason.label;
-    identity.appendChild(reason);
-  }
   const title = document.createElement("h3");
   title.textContent = record.name;
   const facts = document.createElement("div");
   facts.className = "major-event-facts";
-  [majorEventDateLabel(record), record.venue, record.location].filter(Boolean).forEach(value => {
+  [majorEventDateLabel(record), record.venue].filter(Boolean).forEach(value => {
     const fact = document.createElement("span");
     fact.textContent = value;
     facts.appendChild(fact);
   });
-  identity.append(logo, kicker, title);
+  identity.append(logo, title);
   identity.appendChild(facts);
-  identity.appendChild(buildNothingscoreSummary(crowdEvent));
-  if (state === "compact"){
-    const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(record), editorialConsequenceForDisplay(record), { supplementalCopy:crowdEditorialSupplement(socialSnapshot) });
-    if (editorialHook) identity.appendChild(editorialHook);
-  }
-  const stakesFact = document.createElement("div");
-  stakesFact.className = "major-event-stakes";
-  stakesFact.textContent = `Stakes ${record.stakesScore}/5`;
-  identity.appendChild(stakesFact);
-
-  if (state !== "compact"){
-    if (socialSnapshot){
-      if (state === "opened") void loadNothingscoreDetail(crowdEvent);
-      identity.appendChild(buildNothingscorePanel(crowdEvent, socialSnapshot, state));
-    }
-    const independent = buildIndependentContext(record, state, socialSnapshot);
-    if (independent) identity.appendChild(independent);
-  }
+  const whyItMatters = buildEventWhyItMatters(record);
+  if (whyItMatters) identity.appendChild(whyItMatters);
+  identity.appendChild(buildEventNothingscoreAction(crowdEvent));
+  identity.appendChild(buildStakesMeter(record));
 
   card.append(identity, ticketRow);
   if (state === "opened"){
@@ -20230,7 +20111,6 @@ function buildTicketSaleCard(record, { interactionCard = null } = {}){
     inventory.textContent = "Selling quickly";
     actions.appendChild(inventory);
   }
-  buildEventFeedbackButtons(actionEvent).forEach(button => actions.appendChild(button));
   const expand = document.createElement("button");
   expand.type = "button";
   expand.className = "major-event-expand-control";
@@ -21807,7 +21687,10 @@ function renderNotificationSettings(body){
       <label class="viewing-toggle"><input type="checkbox" id="notificationSoundsEnabled" ${preferences.soundsEnabled !== false ? "checked" : ""}><span><strong>In-app sounds</strong>Play a short cue for an incoming chat message. Impact sound has its own switch in NSC.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="notificationBadgesEnabled" ${preferences.badgesEnabled !== false ? "checked" : ""}><span><strong>Unread badges</strong>Show the total unread chat message count on the app icon where supported.</span></label>
       <button class="btn ${permission === "granted" && enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn" ${permission === "unsupported" ? "disabled" : ""}>${actionLabel}</button>
+      <button class="btn ghost" type="button" id="testChatSoundBtn">Play test sound</button>
+      <button class="btn ghost" type="button" id="testSystemNotificationBtn" ${permission === "unsupported" ? "disabled" : ""}>Send test notification</button>
       <p class="preference-help" id="notificationPermissionStatus">${statusCopy}</p>
+      <p class="preference-help" id="notificationDiagnosticsStatus">Checking device and scheduler status…</p>
     </section>
   </div>`;
   [["chatAlertsEnabled","chatAlertsEnabled"],["sportingRemindersEnabled","sportingRemindersEnabled"],["notificationSoundsEnabled","soundsEnabled"],["notificationBadgesEnabled","badgesEnabled"]].forEach(([id,key]) => {
@@ -21843,6 +21726,30 @@ function renderNotificationSettings(body){
       button.disabled = false;
     }
   });
+  document.getElementById("testChatSoundBtn").addEventListener("click", async event => {
+    const status = document.getElementById("notificationPermissionStatus");
+    event.currentTarget.disabled = true;
+    draftPreferences.followFirst.notifications.soundsEnabled = true;
+    const played = await playIncomingChatSound({ force: true });
+    status.textContent = played ? "Test sound played." : "Sound is blocked on this device. Check volume and browser sound permissions.";
+    event.currentTarget.disabled = false;
+  });
+  document.getElementById("testSystemNotificationBtn").addEventListener("click", async event => {
+    const status = document.getElementById("notificationPermissionStatus");
+    event.currentTarget.disabled = true;
+    status.textContent = "Sending a real system notification to this device…";
+    try{
+      await ensurePushInstallation();
+      const result = await notificationDiagnosticsCommand("test");
+      status.textContent = result.sent ? "Test notification sent. Its receipt will appear below when the open app observes it." : "The test was not sent.";
+      await refreshNotificationDiagnosticsStatus();
+    }catch(error){
+      status.textContent = error.message || "The test notification could not be sent.";
+    }finally{
+      event.currentTarget.disabled = false;
+    }
+  });
+  void refreshNotificationDiagnosticsStatus();
 }
 
 function renderLocationSettings(body){
@@ -23001,19 +22908,19 @@ async function openRequestedChatRoomFromLocation(){
 
 const CHAT_REACTION_EMOJIS = Object.freeze(["👍", "❤️", "😂", "😮", "😢", "👏"]);
 
-function prepareChatAudio(){
-  if (userPreferences?.followFirst?.notifications?.soundsEnabled === false) return null;
+async function prepareChatAudio({ force = false } = {}){
+  if (!force && userPreferences?.followFirst?.notifications?.soundsEnabled === false) return null;
   try{
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     if (!AudioContext) return null;
     chatAudioContext ||= new AudioContext();
-    if (chatAudioContext.state === "suspended") void chatAudioContext.resume().catch(() => null);
+    if (chatAudioContext.state === "suspended") await chatAudioContext.resume();
     return chatAudioContext;
   }catch(_error){ return null; }
 }
 
-function playIncomingChatSound(){
-  const audio = prepareChatAudio();
+async function playIncomingChatSound({ force = false } = {}){
+  const audio = await prepareChatAudio({ force });
   if (!audio || audio.state !== "running") return false;
   try{
     const oscillator = audio.createOscillator();
@@ -23432,24 +23339,45 @@ async function sendChatMessage(form){
   }
   const submit = form.querySelector('[type="submit"]');
   submit.disabled = true;
+  const clientId = globalThis.crypto?.randomUUID?.() || `message_${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`;
+  const replyToMessageId = chatState.replyToMessageId;
+  const replyToMessage = chatMessageById(replyToMessageId);
+  const optimisticMessage = {
+    messageId:`optimistic:${clientId}`,
+    clientId,
+    messageType:"text",
+    body,
+    sentAt:new Date().toISOString(),
+    senderName:chatState.profile?.displayName || room.viewer?.displayName || "You",
+    own:true,
+    pending:true,
+    replyTo:replyToMessage ? {
+      messageId:replyToMessage.messageId,
+      senderName:replyToMessage.senderName,
+      body:replyToMessage.body,
+    } : null,
+  };
+  mergeChatMessages([optimisticMessage]);
+  chatState.draftBody = "";
+  chatState.replyToMessageId = null;
+  renderOpenChatRoom({ autoScroll:true, focusComposer:true });
   try{
-    const clientId = globalThis.crypto?.randomUUID?.() || `message_${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`;
     const payload = await serverSyncClient.chatRequest({}, {
       action:"send-message",
       roomId:room.roomId,
       clientId,
       body,
-      ...(chatState.replyToMessageId ? { replyToMessageId:chatState.replyToMessageId } : {}),
+      ...(replyToMessageId ? { replyToMessageId:replyToMessageId } : {}),
     });
     mergeChatMessages([payload.message]);
-    chatState.draftBody = "";
-    chatState.replyToMessageId = null;
     renderOpenChatRoom({ autoScroll:true, focusComposer:true });
     void refreshChatActive();
   }catch(error){
+    chatState.messages = chatState.messages.filter(message => message.messageId !== optimisticMessage.messageId);
+    chatState.draftBody = body;
+    chatState.replyToMessageId = replyToMessageId;
     chatConnection(error.message || "The message could not be sent.", "retrying");
-    submit.disabled = false;
-    input.focus();
+    renderOpenChatRoom({ autoScroll:true, focusComposer:true });
   }
 }
 
@@ -23593,7 +23521,13 @@ async function markCurrentChatRead(){
 
 function mergeChatMessages(messages){
   const byId = new Map(chatState.messages.map(message => [message.messageId, message]));
-  (messages || []).forEach(message => byId.set(message.messageId, message));
+  (messages || []).forEach(message => {
+    if (message.clientId){
+      const previous = [...byId.values()].find(candidate => candidate.clientId === message.clientId && candidate.messageId !== message.messageId);
+      if (previous) byId.delete(previous.messageId);
+    }
+    byId.set(message.messageId, message);
+  });
   chatState.messages = [...byId.values()].sort((first, second) => Date.parse(first.sentAt) - Date.parse(second.sentAt));
 }
 
@@ -23780,7 +23714,6 @@ function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
     nothingscoreWatching.clear();
     window.clearTimeout(nothingscoreHeartbeatTimer);
   }
-  activeEvents.slice(0, 50).forEach(event => registerNothingscoreEvent(event, { force:true }));
   nothingscoreQueueRender();
   if (document.getElementById("nothingscoreBackdrop")?.classList.contains("show")) void refreshNothingscoreDrawer();
 }
@@ -23806,12 +23739,29 @@ function setNothingscoreDrawerOpen(open){
   } else {
     nothingscorePreviousFocus?.focus?.();
     nothingscorePreviousFocus = null;
+    activeNothingscoreContributionEvent = null;
   }
 }
 
 function openNothingscoreDrawer(){
+  activeNothingscoreContributionEvent = null;
   setNothingscoreDrawerOpen(true);
   void refreshNothingscoreDrawer();
+}
+
+async function openNothingscoreContribution(ev){
+  activeNothingscoreContributionEvent = ev;
+  setNothingscoreDrawerOpen(true);
+  try{
+    const payload = await serverSyncClient?.nothingscoreRequest?.({ eventId:nothingscoreEventId(ev) });
+    if (payload?.viewer) nothingscoreViewer = payload.viewer;
+    if (payload?.detail) mergeNothingscoreSnapshot(payload.detail);
+  }catch(error){
+    console.warn("Nothingscore contribution unavailable", error);
+  }
+  if (document.getElementById("nothingscoreBackdrop")?.classList.contains("show") && activeNothingscoreContributionEvent === ev){
+    renderNothingscoreDrawer();
+  }
 }
 
 function nothingscoreProfileForm(){
@@ -23887,6 +23837,24 @@ async function setNothingscoreProfileVisibility(visibility){
 function renderNothingscoreDrawer(){
   const body = document.getElementById("nothingscoreBody");
   body.replaceChildren();
+  const drawerTitle = document.getElementById("nothingscoreTitle");
+  const drawerSubtitle = document.getElementById("nothingscoreSubtitle");
+  if (activeNothingscoreContributionEvent){
+    const ev = activeNothingscoreContributionEvent;
+    drawerTitle.textContent = nothingscoreActionLabelForEvent(ev);
+    drawerSubtitle.textContent = spoilerSafeDisplayTitle(ev);
+    const snapshot = nothingscoreSnapshotFor(ev);
+    if (snapshot) body.appendChild(buildNothingscorePanel(ev, snapshot, "selected"));
+    else {
+      const loading = document.createElement("p");
+      loading.className = "chat-empty";
+      loading.textContent = "Loading your contribution form…";
+      body.appendChild(loading);
+    }
+    return;
+  }
+  drawerTitle.textContent = "Nothingscore";
+  drawerSubtitle.textContent = "Your private contribution tools and leaderboard.";
   const sound = document.createElement("label");
   sound.className = "pilot-disclosure nsc-sound-setting";
   const soundInput = document.createElement("input");
@@ -24055,6 +24023,10 @@ async function loadNothingscoreLeaderboard(){
 }
 
 async function refreshNothingscoreDrawer(){
+  if (activeNothingscoreContributionEvent){
+    await openNothingscoreContribution(activeNothingscoreContributionEvent);
+    return;
+  }
   try{ await refreshNothingscoreViewer(); }catch(_error){ /* Read-only leaderboard still remains available. */ }
   if (!document.getElementById("nothingscoreBackdrop").classList.contains("show")) return;
   renderNothingscoreDrawer();
@@ -24341,6 +24313,14 @@ if (userPreferences.followFirst?.location?.mode === "automatic" && navigator.per
   }).catch(() => {});
 }
 if ("serviceWorker" in navigator){
+  navigator.serviceWorker.addEventListener("message", event => {
+    if (event.data?.type !== "nothingsport-notification-received" || event.data?.kind !== "test" || !event.data?.testId) return;
+    const credentials = readStorage(PUSH_INSTALLATION_STORAGE_KEY, null);
+    if (!credentials?.installationId || !credentials?.secret) return;
+    void serverSyncClient.notificationCommand({ action:"receipt", ...credentials, testId:event.data.testId }, { authenticated:Boolean(serverSyncClient.getSession?.()) })
+      .then(() => refreshNotificationDiagnosticsStatus())
+      .catch(() => null);
+  });
   navigator.serviceWorker.addEventListener("controllerchange", () => {
     startupCoordinator.controllerChanged();
   });

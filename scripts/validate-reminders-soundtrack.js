@@ -38,6 +38,8 @@ assert(/async function ensurePushInstallation[\s\S]{0,1800}Notification\.permiss
 assert(/async function toggleQuickReminder[\s\S]{0,1200}await ensureWebPushReminder\(ev, timing\)[\s\S]{0,500}await removeWebPushReminder\(ev\)/.test(html), "reminder creation and cancellation must wait for the server");
 assert(/async function backfillWebPushReminders[\s\S]{0,500}Notification\.permission !== "granted"/.test(html), "automatic reminder upgrades must never prompt for permission");
 assert(!html.includes("scheduleBrowserReminders()") && !html.includes("deliverBrowserReminder"), "foreground timers must not duplicate server Web Push");
+assert(/async function playIncomingChatSound[\s\S]{0,500}await prepareChatAudio\(\{ force \}\)/.test(html), "incoming chat sound must await AudioContext resume before checking playback state");
+assert(html.includes('id="testChatSoundBtn"') && html.includes("await playIncomingChatSound({ force: true })"), "notification settings must provide an audible test through the real incoming-chat sound path even when the saved preference is off");
 
 assert.equal(soundtrack.track.id, "skyscraper-samba");
 assert.equal(soundtrack.track.src, "/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3");

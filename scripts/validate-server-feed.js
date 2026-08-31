@@ -325,7 +325,7 @@ async function run(){
   });
 
   assert.equal(feed.schemaVersion, "server-feed.v3");
-  assert.deepEqual(feed.pagination, { cursor: 0, limit: 20, nextCursor: null, total: 4 });
+  assert.deepEqual(feed.pagination, { cursor: 0, limit: 20, nextCursor: null, total: 4 }, "match-day followed cards must remain available through their normal post-match retention window");
   assert.equal(feed.sourcePublishedAt, "2026-07-27T08:00:00.000Z", "server feeds must retain the canonical publication time separately from per-user generation");
   assert.equal(feed.derivedCardCache.buildOrigin, "server");
   assert.equal(feed.retention.archiveDays, 7);

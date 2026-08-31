@@ -31,6 +31,14 @@ async function patchClaimedReminder(id, claimedAt, body){
   });
 }
 
+async function recordDispatchHealth(body){
+  return supabaseServiceRequest("/rest/v1/nothingsports_notification_dispatch_health?on_conflict=health_id", {
+    method:"POST",
+    headers:{ Prefer:"resolution=merge-duplicates,return=minimal" },
+    body:{ health_id:"dispatcher", ...body, updated_at:new Date().toISOString() },
+  });
+}
+
 module.exports = async function notificationDispatchHandler(request, response){
   response.setHeader("Cache-Control", "no-store");
   try{
@@ -50,6 +58,7 @@ module.exports = async function notificationDispatchHandler(request, response){
     webpush.setVapidDetails(String(process.env.VAPID_SUBJECT || "https://nothingsport.vercel.app/"), publicKey, privateKey);
 
     const now = new Date();
+    await recordDispatchHealth({ last_started_at:now.toISOString(), last_error:null }).catch(() => null);
     const oldest = new Date(now.getTime() - 60 * 60 * 1000);
     const staleBefore = new Date(now.getTime() - CLAIM_STALE_MS).toISOString();
     const reminders = await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?dispatched_at=is.null&remind_at=lte.${encodeURIComponent(now.toISOString())}&remind_at=gte.${encodeURIComponent(oldest.toISOString())}&or=(claimed_at.is.null,claimed_at.lt.${encodeURIComponent(staleBefore)})&order=remind_at.asc&limit=100&select=*`);
@@ -76,12 +85,16 @@ module.exports = async function notificationDispatchHandler(request, response){
       }
       try{
         const startLabel = new Intl.DateTimeFormat("en-AU", { hour:"numeric", minute:"2-digit", timeZone:installation.timezone || "Australia/Sydney" }).format(new Date(reminder.starts_at));
+        const sessionStart = reminder.delivery_mode === "session-start";
+        const broadcastStart = reminder.delivery_mode === "broadcast-15";
         await webpush.sendNotification({
           endpoint:installation.endpoint,
           keys:{ p256dh:installation.p256dh, auth:installation.auth_key },
         }, JSON.stringify({
-          title:`Starts in 15 minutes: ${reminder.title}`,
-          body:`Sporting start at ${startLabel}. Tap to open Nothing Sport.`,
+          title:sessionStart ? `Session starts now: ${reminder.title}` : `Starts in 15 minutes: ${reminder.title}`,
+          body:sessionStart
+            ? `The official session starts at ${startLabel}; this match follows. Tap to open Nothing Sport.`
+            : `${broadcastStart ? "Published broadcast" : "Sporting start"} at ${startLabel}. Tap to open Nothing Sport.`,
           tag:`nothingsport-${reminder.event_id}`,
           url:reminder.viewing_url || `/?event=${encodeURIComponent(reminder.event_id)}`,
         }), { TTL:900, urgency:"high", topic:String(reminder.event_id).replace(/[^A-Za-z0-9_-]/g, "").slice(0, 32) || undefined });
@@ -96,11 +109,22 @@ module.exports = async function notificationDispatchHandler(request, response){
         }
       }
     }
+    const completedAt = new Date().toISOString();
+    await recordDispatchHealth({
+      last_completed_at:completedAt,
+      ...(failed === 0 ? { last_success_at:completedAt } : {}),
+      checked_count:(reminders || []).length,
+      claimed_count:claimed.length,
+      sent_count:sent,
+      failed_count:failed,
+      last_error:failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null,
+    }).catch(() => null);
     response.status(200).json({ checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
   }catch(error){
+    await recordDispatchHealth({ last_completed_at:new Date().toISOString(), last_error:String(error?.message || "Notification dispatch failed.").slice(0, 500) }).catch(() => null);
     const outgoing = publicError(error);
     response.status(outgoing.status).json(outgoing.body);
   }
 };
 
-module.exports._test = { CLAIM_STALE_MS, claimFilter };
+module.exports._test = { CLAIM_STALE_MS, claimFilter, recordDispatchHealth };

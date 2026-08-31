@@ -114,7 +114,14 @@ assert.equal(buildServerFeed({
   userState:state(follow("team:nrl:321")),
   now:new Date("2026-08-29T12:00:00.000Z"),
   limit:20,
-}).events.length, 1, "an explicit team follow must outrank the generic minimum-stakes filter");
+}).events.length, 0, "a routine stakes-2 followed fixture must wait until match day");
+assert.equal(buildServerFeed({
+  events:[lowStakesFollow],
+  userId:"00000000-0000-4000-8000-000000000002",
+  userState:state(follow("team:nrl:321")),
+  now:new Date("2026-08-30T02:00:00.000Z"),
+  limit:20,
+}).events.length, 1, "a routine stakes-2 followed fixture must auto-add on match day");
 
 const realMadrid = resolveUserFollowFixtures({ events:[], userState:state(follow("team:football:club:real-madrid")) }).events[0];
 const deduped = resolveUserFollowFixtures({ events:[realMadrid], userState:state(follow("team:football:club:real-madrid")) });

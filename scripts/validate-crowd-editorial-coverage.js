@@ -71,13 +71,12 @@ assert(ticketAlerts.length > 0);
 ticketAlerts.forEach(record => assert.equal(server.eventFor(record.id), null, `${record.id} must remain outside Nothingscore`));
 
 const html = fs.readFileSync("index.html", "utf8");
-assert.match(html, /function buildEventCard\(ev,[\s\S]*registerNothingscoreEvent\(ev\)/, "Feed fixtures must register for crowd snapshots");
-assert.match(html, /function buildMajorEventCard\(record,[\s\S]*registerNothingscoreEvent\(crowdEvent\)/, "Events parents must register for crowd snapshots");
-assert.match(html, /function buildMajorEventSchedule\(record,[\s\S]*majorSubEventNothingscoreEvent\(subEvent, record, fixture\)[\s\S]*registerNothingscoreEvent\(crowdEvent\)/, "Events children must register under stable IDs");
-assert.match(html, /mainDiv\.appendChild\(buildNothingscoreSummary\(ev\)\);[\s\S]{0,700}buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(ev\)/, "Feed compact cards must render the NSC strip before an independent sourced Why it matters box");
-assert.match(html, /row\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\);[\s\S]{0,700}buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\)/, "Events child cards must keep NSC statistics and sourced editorial independent");
+assert.doesNotMatch(html, /mainDiv\.appendChild\(buildNothingscoreSummary\(ev\)\)/, "Feed cards must not surface crowd aggregates");
+assert.doesNotMatch(html, /row\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\)/, "Events child cards must not surface crowd aggregates");
+assert.match(html, /buildEventWhyItMatters\(ev\)[\s\S]{0,220}buildEventNothingscoreAction\(ev\)/, "Feed cards must keep the voluntary contribution action beneath sourced Why it matters copy");
+assert.match(html, /const editorialHook = buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\), editorialConsequenceForDisplay\(editorialRecord\)\);[\s\S]{0,220}buildEventNothingscoreAction\(crowdEvent\)/, "Events child cards must keep the voluntary contribution action beneath sourced Why it matters copy");
 assert.doesNotMatch(html, /if \(crowdHook\)[\s\S]{0,120}else/, "crowd availability must never suppress sourced editorial");
-assert.match(html, /labelText:"Independent context"/);
+assert.doesNotMatch(html, /labelText:"Independent context"/);
 assert.doesNotMatch(html, /statistically significant/i);
 
-console.log(`Crowd/editorial coverage passed: ${records.length}/${records.length} Feed and Events records resolve deterministic public copy; ${ticketAlerts.length} ticket alerts remain excluded.`);
+console.log(`Crowd/editorial coverage passed: ${records.length}/${records.length} Feed and Events records retain deterministic collection data behind hidden card aggregates; ${ticketAlerts.length} ticket alerts remain excluded.`);

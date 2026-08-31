@@ -33,7 +33,7 @@ assert(fs.existsSync("assets/providers/kayo-sports-negative.svg") && fs.existsSy
 assert(worker.includes("/assets/providers/kayo-sports-negative.svg") && worker.includes("/assets/providers/stan-sport.jpg"), "provider marks must be available in the installed offline shell");
 assert(html.includes('function eventMajorEventId('), "all event routing must share one major-event ID resolver");
 assert(html.includes('footer.className = "event-compact-footer"'), "expanded Feed cards must use one compact action footer");
-assert(/buildEventCompactFooter[\s\S]{0,2200}buildSpoilerOverrideButton[\s\S]{0,2200}buildEventFeedbackButtons[\s\S]{0,2200}View in Events/.test(html), "the compact footer must order results, feedback and View in Events together");
+assert(/buildEventCompactFooter[\s\S]{0,2200}buildSpoilerOverrideButton[\s\S]{0,2200}View in Events/.test(html) && !/buildEventCompactFooter[\s\S]{0,2200}buildEventFeedbackButtons/.test(html), "the compact footer must keep result and Events actions concise while feedback stays beside Feed stakes");
 
 assert(html.includes('card.dataset.cardLevel = cardLevelForState(state)'), "Events cards must expose L0, L1 and L2 levels");
 assert(html.includes('level: cardLevelForState(state)') && html.includes('MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST()'), "Events L0/L1/L2 must show the profile-filtered bounded around-Now timeline and complete two-day L2 window");

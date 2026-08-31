@@ -31,6 +31,7 @@ function sourceOf(name){
 assert.match(html, /function mutateWithScrollContinuity\(/, "all expandable lists need the shared anchored-mutation transaction");
 const transaction = sourceOf("mutateWithScrollContinuity");
 assert.match(transaction, /requestAnimationFrame/, "the transaction must measure after one animation frame");
+assert.match(transaction, /requestAnimationFrame\(\(\) => \{[\s\S]*requestAnimationFrame\(\(\) => \{[\s\S]*restoreAnchor\(\)/, "the transaction must recheck the anchor after the browser's post-layout focus frame");
 assert.match(transaction, /scrollBy/, "the transaction must compensate the measured anchor movement");
 assert.match(transaction, /preventScroll:\s*true/, "the transaction must restore focus without scrolling");
 assert.match(transaction, /maxScrollY/, "the transaction must clamp compensation at the document end");

@@ -327,12 +327,22 @@
     return migratePreferences({ ...next, followFirst:{ ...next.followFirst, collectionFollows:[...selected] } });
   }
 
+  function participantFollowIdentityKey(participantId){
+    const id = String(participantId || "");
+    const tennis = id.match(/^(?:athlete:tennis|competitor:tennis:(?:atp|wta)):(.+)$/);
+    return tennis ? `tennis:${tennis[1]}` : id;
+  }
+
   function effectiveParticipantFollow(participantId, preferences, collectionsById = {}){
     const next = migratePreferences(preferences);
-    const explicit = (next.preferenceGraph?.entityFollows || []).find(item => item.participantId === participantId);
-    if (explicit?.followLevel === "mute") return { followed:false, source:"mute", followLevel:"mute", collectionIds:[] };
-    if (["follow", "priority"].includes(explicit?.followLevel)) return { followed:true, source:"explicit", followLevel:explicit.followLevel, collectionIds:[] };
-    const collectionIds = next.followFirst.collectionFollows.filter(collectionId => collectionsById?.[collectionId]?.memberIds?.includes(participantId));
+    const identityKey = participantFollowIdentityKey(participantId);
+    const explicitMatches = (next.preferenceGraph?.entityFollows || []).filter(item => participantFollowIdentityKey(item.participantId) === identityKey);
+    if (explicitMatches.some(item => item.followLevel === "mute")) return { followed:false, source:"mute", followLevel:"mute", collectionIds:[] };
+    const explicit = explicitMatches.find(item => ["follow", "priority"].includes(item.followLevel));
+    if (explicit) return { followed:true, source:"explicit", followLevel:explicit.followLevel, collectionIds:[] };
+    const collectionIds = next.followFirst.collectionFollows.filter(collectionId => (
+      collectionsById?.[collectionId]?.memberIds?.some(memberId => participantFollowIdentityKey(memberId) === identityKey)
+    ));
     return collectionIds.length
       ? { followed:true, source:"collection", followLevel:"follow", collectionIds }
       : { followed:false, source:"none", followLevel:null, collectionIds:[] };

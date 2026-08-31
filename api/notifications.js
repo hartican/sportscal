@@ -1,6 +1,7 @@
 "use strict";
 
 const crypto = require("node:crypto");
+const webpush = require("web-push");
 const {
   authenticatedUser,
   bearerToken,
@@ -66,9 +67,23 @@ function sameInstant(first, second){
   return Number.isFinite(firstTime) && Number.isFinite(secondTime) && firstTime === secondTime;
 }
 
-function reminderDeliveryReset(existing, startsAt){
-  if (existing && sameInstant(existing.starts_at, startsAt)) return {};
+function reminderDeliveryReset(existing, startsAt, deliveryMode){
+  if (existing && sameInstant(existing.starts_at, startsAt) && String(existing.delivery_mode || "match-15") === deliveryMode) return {};
   return { dispatched_at:null, claimed_at:null, attempts:0, last_error:null };
+}
+
+function validDeliveryMode(value){
+  const mode = clean(value, 24) || "match-15";
+  return ["match-15", "broadcast-15", "session-start"].includes(mode) ? mode : "";
+}
+
+function platformLabel(userAgent){
+  const value = String(userAgent || "");
+  if (/iPhone|iPad|iPod/i.test(value)) return "iPhone or iPad";
+  if (/Android/i.test(value)) return "Android";
+  if (/Macintosh|Mac OS X/i.test(value)) return "Mac";
+  if (/Windows/i.test(value)) return "Windows";
+  return "Browser";
 }
 
 function installationPreference(body, requestField, existing, databaseField){
@@ -90,7 +105,7 @@ async function enabledInstallationIds(user, installation){
 
 async function existingReminders(installationIds, eventId){
   if (!installationIds.length) return new Map();
-  const rows = await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?installation_id=in.(${installationIds.map(encodeURIComponent).join(",")})&event_id=eq.${encodeURIComponent(eventId)}&select=installation_id,starts_at,dispatched_at,claimed_at,attempts,last_error`);
+  const rows = await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?installation_id=in.(${installationIds.map(encodeURIComponent).join(",")})&event_id=eq.${encodeURIComponent(eventId)}&select=installation_id,starts_at,delivery_mode,dispatched_at,claimed_at,attempts,last_error`);
   return new Map((rows || []).map(row => [row.installation_id, row]));
 }
 
@@ -172,6 +187,69 @@ async function notificationsHandler(request, response){
     }
 
     const installation = await verifiedInstallation(installationId, secret);
+    if (body.action === "status"){
+      const installationIds = await enabledInstallationIds(user, installation);
+      const encodedIds = installationIds.map(encodeURIComponent).join(",");
+      const [installations, reminders, tests, health] = await Promise.all([
+        installationIds.length ? supabaseServiceRequest(`/rest/v1/nothingsports_push_installations?installation_id=in.(${encodedIds})&select=installation_id,permission,user_agent,last_seen_at,updated_at`) : [],
+        installationIds.length ? supabaseServiceRequest(`/rest/v1/nothingsports_reminders?installation_id=in.(${encodedIds})&dispatched_at=is.null&starts_at=gte.${encodeURIComponent(new Date().toISOString())}&order=remind_at.asc&select=event_id,title,starts_at,remind_at,delivery_mode,attempts,last_error`) : [],
+        supabaseServiceRequest(`/rest/v1/nothingsports_notification_tests?installation_id=eq.${encodeURIComponent(installationId)}&order=requested_at.desc&limit=1&select=test_id,requested_at,dispatched_at,received_at,last_error`),
+        supabaseServiceRequest("/rest/v1/nothingsports_notification_dispatch_health?health_id=eq.dispatcher&limit=1&select=*"),
+      ]);
+      response.status(200).json({
+        configured:true,
+        installations:(installations || []).map(row => ({ installationId:row.installation_id, platform:platformLabel(row.user_agent), permission:row.permission, lastSeenAt:row.last_seen_at || row.updated_at })),
+        reminders:{
+          pending:(reminders || []).length,
+          failed:(reminders || []).filter(row => row.last_error).length,
+          next:(reminders || []).slice(0, 5).map(row => ({ eventId:row.event_id, title:row.title, startsAt:row.starts_at, remindAt:row.remind_at, deliveryMode:row.delivery_mode, attempts:Number(row.attempts || 0), error:row.last_error || null })),
+        },
+        dispatcher:(health || [])[0] || null,
+        latestTest:(tests || [])[0] || null,
+      });
+      return;
+    }
+    if (body.action === "receipt"){
+      const testId = validUuid(body.testId);
+      if (!testId){
+        response.status(400).json({ error:"A valid notification test is required.", code:"invalid_notification_test" });
+        return;
+      }
+      await supabaseServiceRequest(`/rest/v1/nothingsports_notification_tests?test_id=eq.${encodeURIComponent(testId)}&installation_id=eq.${encodeURIComponent(installationId)}`, {
+        method:"PATCH",
+        headers:{ Prefer:"return=minimal" },
+        body:{ received_at:new Date().toISOString() },
+      });
+      response.status(200).json({ received:true, testId });
+      return;
+    }
+    if (body.action === "test"){
+      const created = await supabaseServiceRequest("/rest/v1/nothingsports_notification_tests", {
+        method:"POST",
+        headers:{ Prefer:"return=representation" },
+        body:{ installation_id:installationId },
+      });
+      const testId = validUuid(created?.[0]?.test_id);
+      if (!testId) throw new Error("The notification test could not be recorded.");
+      try{
+        webpush.setVapidDetails(String(process.env.VAPID_SUBJECT || "https://nothingsport.vercel.app/"), String(process.env.VAPID_PUBLIC_KEY), String(process.env.VAPID_PRIVATE_KEY));
+        await webpush.sendNotification({ endpoint:installation.endpoint, keys:{ p256dh:installation.p256dh, auth:installation.auth_key } }, JSON.stringify({
+          kind:"test",
+          testId,
+          title:"Nothing Sport test",
+          body:"System notifications are reaching this device.",
+          tag:`nothingsport-test-${testId}`,
+          url:"/?notificationTest=received",
+        }), { TTL:300, urgency:"high" });
+        const dispatchedAt = new Date().toISOString();
+        await supabaseServiceRequest(`/rest/v1/nothingsports_notification_tests?test_id=eq.${encodeURIComponent(testId)}`, { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{ dispatched_at:dispatchedAt, last_error:null } });
+        response.status(200).json({ sent:true, testId, dispatchedAt });
+      }catch(error){
+        await supabaseServiceRequest(`/rest/v1/nothingsports_notification_tests?test_id=eq.${encodeURIComponent(testId)}`, { method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{ last_error:clean(error?.message || "Push delivery failed.", 500) } }).catch(() => null);
+        response.status(502).json({ error:"The test notification could not be delivered to this device.", code:"notification_test_failed", testId });
+      }
+      return;
+    }
     if (body.action === "unregister"){
       await supabaseServiceRequest(`/rest/v1/nothingsports_push_installations?installation_id=eq.${encodeURIComponent(installationId)}`, { method:"DELETE" });
       response.status(200).json({ unregistered:true });
@@ -185,9 +263,15 @@ async function notificationsHandler(request, response){
         response.status(400).json({ error:"The sporting start must be a future time.", code:"invalid_sporting_start" });
         return;
       }
-      const remindAt = new Date(startsAt.getTime() - 15 * 60 * 1000);
+      const deliveryMode = validDeliveryMode(body.deliveryMode);
+      if (!deliveryMode){
+        response.status(400).json({ error:"That reminder timing mode is not supported.", code:"invalid_delivery_mode" });
+        return;
+      }
+      const leadMinutes = deliveryMode === "session-start" ? 0 : 15;
+      const remindAt = new Date(startsAt.getTime() - leadMinutes * 60 * 1000);
       if (remindAt.getTime() <= Date.now()){
-        response.status(409).json({ error:"It is already less than 15 minutes before this sport starts.", code:"reminder_window_passed" });
+        response.status(409).json({ error:leadMinutes ? "It is already less than 15 minutes before this sport starts." : "That published session has already started.", code:"reminder_window_passed" });
         return;
       }
       const viewingUrl = body.viewingUrl ? validHttps(body.viewingUrl) : null;
@@ -208,14 +292,15 @@ async function notificationsHandler(request, response){
           title,
           starts_at:startsAt.toISOString(),
           remind_at:remindAt.toISOString(),
+          delivery_mode:deliveryMode,
           viewing_url:viewingUrl,
           fallback_to_broadcast:Boolean(body.fallbackToBroadcast),
-          ...reminderDeliveryReset(existingByInstallation.get(targetInstallationId), startsAt.toISOString()),
+          ...reminderDeliveryReset(existingByInstallation.get(targetInstallationId), startsAt.toISOString(), deliveryMode),
           updated_at:new Date().toISOString(),
           },
         })
       )));
-      response.status(200).json({ reminded:true, eventId, startsAt:startsAt.toISOString(), remindAt:remindAt.toISOString(), leadMinutes:15, installations:installationIds.length });
+      response.status(200).json({ reminded:true, eventId, startsAt:startsAt.toISOString(), remindAt:remindAt.toISOString(), leadMinutes, deliveryMode, installations:installationIds.length });
       return;
     }
 
@@ -242,4 +327,4 @@ async function notificationsHandler(request, response){
 }
 
 module.exports = notificationsHandler;
-module.exports._test = { reminderDeliveryReset, sameInstant };
+module.exports._test = { platformLabel, reminderDeliveryReset, sameInstant, validDeliveryMode };
