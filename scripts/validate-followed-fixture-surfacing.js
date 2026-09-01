@@ -144,7 +144,8 @@ assert.equal(alcarazFixture.sessionStartTimeUtc, "2026-08-31T15:30:00.000Z", "th
 const usOpen = majorEventsDocument.events.find(event => event.id === "major-event:us-open-2026");
 const rawAlcarazFixture = usOpen.subEvents.find(event => event.id === ALCARAZ_US_OPEN_ID);
 const alcarazTimeline = majorEventsConfig.phaseTimeline({ ...usOpen, subEvents:[rawAlcarazFixture] }, new Date("2026-08-31T04:00:00.000Z"), { level:"L2" });
-assert.equal(alcarazTimeline.upcoming[0].displayTime, "Follows · session starts 1:30am", "Events must distinguish the official session start from an exact match start");
+const alcarazTimelineItem = alcarazTimeline.items.find(item => item?.subEvent?.id === ALCARAZ_US_OPEN_ID);
+assert.equal(alcarazTimelineItem?.displayTime, "Follows · session starts 1:30am", "Events must distinguish the official session start from an exact match start even after the official source marks it completed");
 assert.equal(majorEventsConfig.fixtureFromSubEvent(rawAlcarazFixture, usOpen).displayTimeLabel, "Follows · session starts 1:30am", "Feed must use the same follows timing copy");
 
 assert.deepEqual(

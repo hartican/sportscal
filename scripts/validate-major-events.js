@@ -23,6 +23,8 @@ const worker = fs.readFileSync("service-worker.js", "utf8");
 assert.equal(schema.properties.schemaVersion.const, majorEvents.SCHEMA_VERSION);
 assert.equal(schema.$defs.event.additionalProperties, false);
 assert.equal(schema.$defs.subEvent.additionalProperties, false);
+assert(schema.$defs.subEvent.properties.editorialNarrative, "Events children must publish the baked editorial projection contract");
+assert(schema.$defs.subEvent.properties.storyline, "Events children must publish the browser-ready storyline projection contract");
 const allowedEventKeys = new Set(Object.keys(schema.$defs.event.properties));
 const allowedSubEventKeys = new Set(Object.keys(schema.$defs.subEvent.properties));
 catalogue.events.forEach(record => {
@@ -205,7 +207,7 @@ assert.equal(fixture.cardKind, "fixture", "a pinned Event child must materialise
 assert.equal(fixture.majorEventMarker, undefined, "a pinned child must not inherit its parent Event marker flags");
 assert(curatedOpener?.editorialNarrative, "the curated World Cup opener must retain its researched projection");
 const resolvedRlwcEditorialChild = majorEvents.editorialRecordForSubEvent(drawnMatch, rlwc, []);
-assert.match(resolvedRlwcEditorialChild.editorialNarrative.hook, /Australia and New Zealand open the month-long, 53-match programme/, "an Events-only World Cup child must retain the researched stakes even before its matching Feed card is loaded");
+assert.equal(resolvedRlwcEditorialChild.editorialNarrative.hook, curatedOpener.editorialNarrative.hook, "an Events-only World Cup child must retain the latest researched fixture stakes even before its matching Feed card is loaded");
 assert.equal(majorEvents.fixtureSemanticKey(fixture), majorEvents.fixtureSemanticKey(curatedOpener), "the pinned child and curated opener must share one semantic fixture identity despite different IDs and ISO precision");
 assert(html.includes("const semanticKey = mainFeedFixtureSemanticKey") && html.includes("canonicalEditorialBySemanticKey") && html.includes("editorialMatch?.editorialNarrative"), "a pinned Events child must inherit the curated projection on the first Feed render without waiting for the lazy Events runtime");
 assert(html.includes(`"${fixture.id}":Object.freeze({`) && html.includes(`projectionId:"${curatedOpener.editorialNarrative.projectionId}"`) && html.includes(`hook:"${curatedOpener.editorialNarrative.hook}"`), "the one pre-canonical device-local pin must retain the exact validated projection without another startup request");
@@ -228,11 +230,11 @@ invalidCopies.forEach(([document, message]) => {
 
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
-assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=206"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
+assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=208"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
-assert(worker.includes('"/config/major-events.js?v=206"') && worker.includes('"/config/follow-feed-policy.js?v=206"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
+assert(worker.includes('"/config/major-events.js?v=208"') && worker.includes('"/config/follow-feed-policy.js?v=208"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
 assert.match(html, /const crowdEvent = majorSubEventNothingscoreEvent\(subEvent, record, fixture\);[\s\S]*const editorialHook = buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\), editorialConsequenceForDisplay\(editorialRecord\)\);[\s\S]*if \(editorialHook\) row\.appendChild\(editorialHook\);[\s\S]*row\.appendChild\(buildEventNothingscoreAction\(crowdEvent\)\);/, "every Events timetable card must keep Why it matters and the contribution action together");
 assert.doesNotMatch(html, /row\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\)/, "Events timetable cards must keep volunteered NSC results invisible");

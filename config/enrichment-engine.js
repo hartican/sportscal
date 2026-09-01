@@ -23,6 +23,14 @@
     IMPACT_LABELS:Object.freeze(["Flat","Solid","Strong","Exceptional","Unforgettable"]),
     HEAT_TAGS:Object.freeze(["Box office","Big stakes","Rivalry","Star power","National interest","Great storyline"]),
     IMPACT_TAGS:Object.freeze(["Thrilling","Eye-popping","Mind-blowing","Emotional","Electric atmosphere","Pure chaos"]),
+    HEAT_LOW_TAGS:Object.freeze(["Rising storyline","Emerging talent","Low expectations","Bog standard","Too one-sided","Hard to care"]),
+    IMPACT_LOW_TAGS:Object.freeze(["Boring","Standard","Mediocre","Underwhelming","One-sided","Disappointing"]),
+    tagsFor(phase,rating){
+      const low=Number(rating)>=1&&Number(rating)<=3;
+      if(phase==="heat") return low?this.HEAT_LOW_TAGS:this.HEAT_TAGS;
+      if(phase==="impact") return low?this.IMPACT_LOW_TAGS:this.IMPACT_TAGS;
+      return Object.freeze([]);
+    },
     blendHeatWithStakes(stakes,heatScore,support){
       const clamp=(value,minimum,maximum)=>Math.max(minimum,Math.min(maximum,Number(value)||0));
       const effectiveSupport=Math.max(0,Number(support)||0);

@@ -1,21 +1,21 @@
 {
   "schemaVersion": "afl-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-08-31T15:58:55.065Z",
+  "generatedAt": "2026-09-01T02:10:32.449Z",
   "sources": [
     {
       "id": "source:afl:teams",
       "provider": "AFL",
       "url": "https://www.afl.com.au/teams",
       "sourceType": "official",
-      "checkedAt": "2026-08-31T15:58:55.065Z"
+      "checkedAt": "2026-09-01T02:10:32.449Z"
     },
     {
       "id": "source:afl:players",
       "provider": "AFL",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-08-31T15:58:55.065Z"
+      "checkedAt": "2026-09-01T02:10:32.449Z"
     }
   ],
   "leagues": [

@@ -157,7 +157,7 @@ assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned
 assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
 assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
 assert(html.includes('src="config/sport-context.js"'), "modular sport context must load before event and standings resolution");
-assert(html.includes('src="config/sport-hubs.js"'), "the complete NRL/AFL hub adapter must load before app rendering");
+assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=208")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
 assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
 assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asset registry must load before app rendering");
 assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
@@ -222,7 +222,7 @@ assert(
     && html.includes("FEED_CONFIG.eventsScriptUrl"),
   "direct-file refresh must re-read the generated event bundle instead of reapplying the tab's captured EVENTS snapshot"
 );
-assert(html.includes("async function toggleQuickReminder") && html.includes("await ensureWebPushReminder(ev, timing)") && html.includes("await removeWebPushReminder(ev)"), "Remind me must confirm Web Push creation and cancellation from the user gesture");
+assert(html.includes("async function toggleQuickReminder") && html.includes("return ensureWebPushReminder(ev, timing)") && html.includes("return removeWebPushReminder(ev)"), "Remind me must optimistically render from the user gesture while still reconciling Web Push creation and cancellation");
 assert(html.includes("Background notifications") && html.includes("even when Nothing Sport is closed"), "reminder UI must describe background delivery");
 assert(html.includes('id="soundtrackToggle"'), "background audio must use an explicit top-bar toggle");
 assert(html.includes('class="soundtrack-toggle-state">OFF</span>'), "the soundtrack toggle must expose an ON/OFF state");
@@ -504,7 +504,7 @@ assert(html.includes("appendTeamIdentityFallback") && html.includes("team-logo-f
 assert(eventCardSource.includes("preferImage: true"), "event cards must use stable image-backed sport glyphs instead of Safari CSS masks");
 assert((eventCardSource.match(/preferImage: true/g) || []).length >= 2, "interactive ticket and expansion glyphs must use the stable image-backed path; the stakes flames are intentionally inline for hollow and filled states");
 assert(eventCardSource.includes('mode !== "premium-rail"'), "horizontally scrolling premium-rail cards must not capture the same gesture for swipe-to-rate");
-assert(eventCardSource.includes('buildFeedStakesRow(ev) : buildStakesMeter(ev)') && html.includes('className = `stakes-flame${value <= score ? " is-filled" : ""}`') && html.includes('label.textContent = `STAKES ${score}/5`'), "cards must use the compact white flame stakes meter and Feed-only side feedback");
+assert(eventCardSource.includes('buildFeedStakesRow(ev) : buildStakesMeter(ev)') && html.includes('className = `stakes-flame${value <= score ? " is-filled" : " is-empty"}`') && html.includes('label.textContent = `STAKES ${score}/5`'), "cards must use the compact hollow-or-filled white flame stakes meter and Feed-only side feedback");
 assert.equal((eventCardSource.match(/buildEventCompactFooter\(ev/g) || []).length, 2, "selected and opened card states must each render one compact results and feedback footer");
 assert(!eventCardSource.includes('label.className = "new-tag"') && !eventCardSource.includes('label.textContent = "New"'), "cards must not expose the temporary New metadata tag");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");

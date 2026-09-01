@@ -11,6 +11,7 @@ const {
   publicError,
   sameUserState,
   supabaseRequest,
+  supabaseServiceRequest,
   userStateFromRow,
 } = require("../lib/supabase-server");
 const userStateSync = require("../config/user-state-sync");
@@ -54,12 +55,57 @@ function nextWriteTime(previousUpdatedAt){
   return new Date(nextTime);
 }
 
+function firstRpcResult(payload){
+  return Array.isArray(payload) ? payload[0] || null : payload || null;
+}
+
+async function activePreferenceRecovery(userId){
+  return firstRpcResult(await supabaseServiceRequest("/rest/v1/rpc/nothingsports_active_preference_reset", {
+    method:"POST",
+    body:{ target_user_id:userId },
+  }));
+}
+
+async function preferenceRecoveryCommand(user, body){
+  if (body.action === "reset-preferences"){
+    const supplied = body.preferences;
+    if (!supplied || typeof supplied !== "object" || Array.isArray(supplied)){
+      throw new SupabaseRequestError("Default preferences are required.", {
+        status:400,
+        payload:{ code:"invalid_reset_preferences" },
+      });
+    }
+    const preferences = normalizeUserState({ preferences:supplied }, user.id, new Date()).preferences;
+    return firstRpcResult(await supabaseServiceRequest("/rest/v1/rpc/nothingsports_reset_preferences", {
+      method:"POST",
+      body:{ target_user_id:user.id, target_preferences:preferences },
+    }));
+  }
+  if (body.action === "undo-preferences-reset"){
+    const resetId = String(body.resetId || "");
+    if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(resetId)){
+      throw new SupabaseRequestError("The preference recovery reference is invalid.", {
+        status:400,
+        payload:{ code:"invalid_preference_recovery" },
+      });
+    }
+    return firstRpcResult(await supabaseServiceRequest("/rest/v1/rpc/nothingsports_undo_preferences_reset", {
+      method:"POST",
+      body:{ target_user_id:user.id, target_reset_id:resetId },
+    }));
+  }
+  throw new SupabaseRequestError("That user-state action is not supported.", {
+    status:400,
+    payload:{ code:"unsupported_user_state_action" },
+  });
+}
+
 module.exports = async function userStateHandler(request, response){
   setPrivateResponseHeaders(response);
   try{
-    if (!["GET", "PUT"].includes(request.method || "GET")){
-      response.setHeader("Allow", "GET, PUT");
-      response.status(405).json({ error: "User state supports GET and PUT requests only.", code: "method_not_allowed" });
+    if (!["GET", "PUT", "POST"].includes(request.method || "GET")){
+      response.setHeader("Allow", "GET, PUT, POST");
+      response.status(405).json({ error: "User state supports GET, PUT and POST requests only.", code: "method_not_allowed" });
       return;
     }
 
@@ -67,10 +113,14 @@ module.exports = async function userStateHandler(request, response){
     const user = await authenticatedUser(accessToken);
 
     if ((request.method || "GET") === "GET"){
-      const state = await loadUserState(user.id, accessToken);
+      const [state, preferenceRecovery] = await Promise.all([
+        loadUserState(user.id, accessToken),
+        activePreferenceRecovery(user.id),
+      ]);
       response.status(200).json({
         user: publicUser(user),
         state,
+        preferenceRecovery,
       });
       return;
     }
@@ -88,6 +138,21 @@ module.exports = async function userStateHandler(request, response){
         status: 413,
         payload: { code: "user_state_too_large" },
       });
+    }
+    if ((request.method || "GET") === "POST"){
+      const result = await preferenceRecoveryCommand(user, body);
+      if (!result?.state){
+        throw new SupabaseRequestError("The preference reset was not confirmed.", {
+          status:502,
+          payload:{ code:"preference_reset_not_confirmed" },
+        });
+      }
+      response.status(200).json({
+        user:publicUser(user),
+        state:result.state,
+        preferenceRecovery:result.recovery || null,
+      });
+      return;
     }
     if (body.state){
       throw new SupabaseRequestError("Update Nothing Sport before syncing this device.", {
@@ -143,6 +208,7 @@ module.exports = async function userStateHandler(request, response){
     response.status(200).json({
       user: publicUser(user),
       state: rows[0],
+      preferenceRecovery:await activePreferenceRecovery(user.id),
     });
   }catch(error){
     const outgoing = publicError(error);

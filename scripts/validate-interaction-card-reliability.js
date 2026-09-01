@@ -9,6 +9,7 @@ const path = require("node:path");
 const html = fs.readFileSync("index.html", "utf8");
 const notificationSource = fs.readFileSync("api/notification-dispatch.js", "utf8");
 const userStateSource = fs.readFileSync("api/user-state.js", "utf8");
+const resetUiSource = fs.readFileSync("config/preference-reset-ui.js", "utf8");
 const updateCardsSource = fs.readFileSync("scripts/update-cards.js", "utf8");
 const failures = [];
 
@@ -40,7 +41,7 @@ check("card expander has fixed More and Less affordances", () => {
 check("stakes flames have a contrast plate", () => {
   assert.match(html, /\.stakes-flames\{[^}]*background:\s*(?:#|var\()/s);
   assert.match(html, /\.stakes-flame\.is-empty/);
-  assert.match(html, /STAKES \$\{stakes\}\/5/);
+  assert.match(html, /STAKES \$\{score\}\/5/);
 });
 
 check("thumbs-down is left and thumbs-up is right", () => {
@@ -56,7 +57,7 @@ check("one rollback-safe optimistic mutation helper is shared", () => {
 check("reminders, chat reactions, attachment Save and NSC use optimistic mutation", () => {
   const reminder = html.slice(html.indexOf("async function toggleQuickReminder"), html.indexOf("function codeIdForEvent"));
   const reaction = html.slice(html.indexOf("async function toggleChatReaction"), html.indexOf("function buildChatReactionSummary"));
-  const attachment = html.slice(html.indexOf("function buildChatAttachment"), html.indexOf("function buildChatMessage"));
+  const attachment = html.slice(html.indexOf("async function saveChatAttachment"), html.indexOf("function chatMessageElement"));
   const nsc = html.slice(html.indexOf("async function submitNothingscoreAction"), html.indexOf("function buildNothingscoreChoices"));
   [reminder, reaction, attachment, nsc].forEach(source => assert.match(source, /runOptimisticMutation\(/));
 });
@@ -81,6 +82,8 @@ check("NSC submission visibly confirms, rolls back and retries", () => {
   assert.match(html, /Retry/);
   assert.match(html, /nsc-submission-receipt/);
   assert.match(html, /replayed/);
+  assert.match(html, /activeNothingscoreContributionError/);
+  assert.match(html, /Your draft has not been changed\./);
 });
 
 check("Why it matters rejects boilerplate and only renders validated editorial", () => {
@@ -93,10 +96,11 @@ check("Why it matters rejects boilerplate and only renders validated editorial",
 
 check("preference reset is protected and recoverable", () => {
   assert.doesNotMatch(html, /id="resetPreferencesBtn"/);
-  assert.match(html, /Data & recovery/);
-  assert.match(html, /Reset all preferences…/);
-  assert.match(html, /type RESET/);
-  assert.match(html, /Undo reset/);
+  assert.match(html, /loadDeferredScript\("config\/preference-reset-ui\.js\?v=208"\)/);
+  assert.match(resetUiSource, /Data & recovery/);
+  assert.match(resetUiSource, /Reset all preferences…/);
+  assert.match(resetUiSource, /type RESET/);
+  assert.match(resetUiSource, /Undo reset/);
   assert.match(userStateSource, /reset-preferences/);
   assert.match(userStateSource, /undo-preferences-reset/);
   assert.match(userStateSource, /preferenceRecovery/);

@@ -367,8 +367,10 @@ async function main(){
 }
 
 main().catch(error => {
-  const transient = /fetch failed|abort|timed?\s*out|econn|enotfound|5\d\d\b/i.test(String(error?.stack || error?.message || error));
-  if (transient && fs.existsSync(NFL_PATH) && fs.existsSync(ICE_HOCKEY_PATH)){
+  const failureText = String(error?.stack || error?.message || error);
+  const transient = /fetch failed|abort|timed?\s*out|econn|enotfound|5\d\d\b/i.test(failureText);
+  const retiredEspnRosterEndpoint = /404\s+Not Found:\s+https:\/\/site\.api\.espn\.com\/apis\/site\/v2\/sports\/football\/nfl\/teams\/[^/]+\/roster/i.test(failureText);
+  if ((transient || retiredEspnRosterEndpoint) && fs.existsSync(NFL_PATH) && fs.existsSync(ICE_HOCKEY_PATH)){
     try{
       const nfl = JSON.parse(fs.readFileSync(NFL_PATH, "utf8"));
       const iceHockey = JSON.parse(fs.readFileSync(ICE_HOCKEY_PATH, "utf8"));

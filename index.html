@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="206">
+<meta name="app-shell-version" content="208">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -5156,16 +5156,20 @@ footer.app-footer{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 34px;
+  gap:4px;
+  min-width: 82px;
   min-height: 34px;
   margin-left: 6px;
-  padding: 6px;
+  padding: 6px 10px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: transparent;
   color: var(--text-dim);
   cursor: pointer;
+  font:800 .67rem/1 'DM Sans',sans-serif;
 }
+
+.card-expand-control .vector-glyph{ width:14px; height:14px; transition:transform 160ms ease; }
 
 .event-card.is-selected .card-expand-control .vector-glyph{ transform: rotate(90deg); }
 .event-card.is-opened .card-expand-control .vector-glyph{ transform: rotate(-90deg); }
@@ -5755,8 +5759,13 @@ body.chat-open{ overflow:hidden; }
 .nsc-wave i:nth-child(2),.nsc-wave i:nth-child(4){ height:10px; }
 .nsc-wave i:nth-child(3){ height:15px; }
 .nsc-tags,.nsc-actions{ display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }
-.nsc-tag{ display:inline-flex; align-items:center; gap:5px; padding:6px 8px; border:1px solid var(--border); border-radius:999px; color:var(--text-dim); font-size:.64rem; }
+.nsc-tag{ display:inline-flex; align-items:center; gap:7px; min-height:44px; padding:8px 11px; border:1px solid var(--border); border-radius:999px; color:var(--text-dim); font-size:.68rem; cursor:pointer; }
 .nsc-tag:has(input:checked){ border-color:var(--accent); color:var(--text); background:color-mix(in srgb, var(--accent) 12%, transparent); }
+.nsc-tag input{ width:20px; height:20px; accent-color:var(--accent); }
+.nsc-submission-receipt{ display:grid; gap:6px; margin-top:12px; padding:14px 16px; border:1px solid var(--accent); border-radius:14px; background:color-mix(in srgb,var(--accent) 14%,var(--panel-bg)); color:var(--text); font-weight:800; }
+.nsc-submission-receipt.is-confirming{ animation:nsc-confirming-pulse 1.1s ease-in-out infinite alternate; }
+.nsc-retry{ margin-top:10px; }
+@keyframes nsc-confirming-pulse{ from{ box-shadow:0 0 0 rgba(0,0,0,0); } to{ box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 14%,transparent); } }
 .nsc-contributors{ display:grid; gap:7px; margin-top:12px; }
 .nsc-contributor{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 10px; border-top:1px solid var(--border); }
 .nsc-contributor-copy{ min-width:0; }
@@ -6644,8 +6653,9 @@ body.header-compact-3 .brand .slogan{ display:none; }
   min-width:112px;
   color:#fff;
 }
-.stakes-flames{ display:flex; align-items:center; justify-content:center; gap:5px; }
+.stakes-flames{ display:flex; align-items:center; justify-content:center; gap:5px; padding:5px 8px; border-radius:999px; background:#17191f; box-shadow:inset 0 0 0 1px rgba(255,255,255,.12); }
 .stakes-flame{ display:grid; place-items:center; width:16px; height:20px; color:#fff; }
+.stakes-flame.is-empty{ color:#fff; opacity:.96; }
 .stakes-flame svg{ width:100%; height:100%; overflow:visible; }
 .stakes-flame path{ fill:transparent; stroke:currentColor; stroke-width:1.65; stroke-linejoin:round; }
 .stakes-flame.is-filled path{ fill:currentColor; }
@@ -6794,7 +6804,6 @@ body.header-compact-3 .brand .slogan{ display:none; }
     </div>
     <div class="onboarding-body" id="settingsBody"></div>
     <div class="onboarding-actions">
-      <button class="btn ghost" id="resetPreferencesBtn">Reset</button>
       <button class="btn primary" id="saveSettingsBtn">Save &amp; close</button>
     </div>
   </div>
@@ -6992,11 +7001,10 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/team-follow-catalogue.js"></script>
 <script src="config/event-taxonomy-compat.js"></script>
 <script src="config/preference-taxonomy.js"></script>
-<script src="config/follow-first.js?v=206"></script>
-<script src="config/follow-feed-policy.js?v=206"></script>
+<script src="config/follow-first.js?v=208"></script>
+<script src="config/follow-feed-policy.js?v=208"></script>
 <script src="config/tennis-coverage.js"></script>
 <script src="config/sport-context.js"></script>
-<script src="config/sport-hubs.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
 <script src="config/loading-progress.js"></script>
 <script src="config/profile-storage.js"></script>
@@ -7028,7 +7036,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 // first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=206")
+  : loadDeferredScript("config/national-team-identities.js?v=208")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7816,8 +7824,44 @@ const SWIPE_CALIBRATION = globalThis.NOTHINGSPORTS_SWIPE_CALIBRATION || null;
 const FINE_TUNING = globalThis.NOTHINGSPORTS_FINE_TUNING || null;
 const RATING_SYSTEM = globalThis.NOTHINGSPORTS_RATING_SYSTEM || null;
 const SPORT_CONTEXT = globalThis.NOTHINGSPORTS_SPORT_CONTEXT || null;
-const SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
+let SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
+let sportHubsLoad = null;
+function loadSportHubs(){
+  if (SPORT_HUBS) return Promise.resolve(SPORT_HUBS);
+  sportHubsLoad ||= loadDeferredScript("config/sport-hubs.js?v=208").then(() => {
+    SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
+    if (!SPORT_HUBS) throw new Error("Standings & Fixtures could not load.");
+    return SPORT_HUBS;
+  });
+  return sportHubsLoad;
+}
 const NOTHINGSCORE = globalThis.NOTHINGSPORTS_NOTHINGSCORE || null;
+function optimisticLostResponse(error){
+  const value = `${error?.code || error?.name || ""} ${error?.message || ""}`.toLowerCase();
+  return /aborterror|timeout|network_error|timed? out|network|failed to fetch|load failed|connection/.test(value);
+}
+async function runOptimisticMutation({ capture, apply, request, commit, rollback, reconcile } = {}){
+  if (typeof request !== "function") throw new TypeError("Optimistic mutations require a request function.");
+  const prior = typeof capture === "function" ? capture() : undefined;
+  if (typeof apply === "function") await apply(prior);
+  try{
+    const result = await request(prior);
+    if (typeof commit === "function") await commit(result, prior);
+    return { ok:true, result, prior, reconciled:false };
+  }catch(error){
+    if (optimisticLostResponse(error) && typeof reconcile === "function"){
+      try{
+        const resolution = await reconcile(error, prior);
+        if (resolution?.confirmed){
+          if (typeof commit === "function") await commit(resolution.result, prior);
+          return { ok:true, result:resolution.result, prior, reconciled:true };
+        }
+      }catch(_error){ /* Roll back exactly below. */ }
+    }
+    if (typeof rollback === "function") await rollback(prior, error);
+    return { ok:false, error, prior, reconciled:false };
+  }
+}
 const ENRICHMENT_ENGINE = globalThis.NOTHINGSPORTS_ENRICHMENT_ENGINE || null;
 const CARD_LIFECYCLE = globalThis.NOTHINGSPORTS_CARD_LIFECYCLE || null;
 const REMINDER_ENGINE = globalThis.NOTHINGSPORTS_REMINDER_ENGINE || null;
@@ -8022,7 +8066,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=206",
+  moduleScriptUrl: "config/major-events.js?v=208",
   url: "data/major-events.v1.json",
 });
 
@@ -8384,6 +8428,7 @@ let todayMoreReveal = false;
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let settingsSection = "main";
 let accountRecoveryRequestOpen = false;
+let preferenceRecovery = null;
 let settingsFirstRun = false;
 let settingsWizardStep = 0;
 let settingsSelectorCategory = "category:sports";
@@ -8452,22 +8497,36 @@ let serverPersistence = {
   lastSyncedAt: null,
   message: "",
 };
-let chatState = {
-  isAdmin:false,
-  isGuest:false,
-  profile:{ displayName:null },
-  capabilities:{ lifetimeNscPoints:0, gifMinimumPoints:25, canUseGifs:false },
-  rooms:[],
-  currentRoom:null,
-  messages:[],
-  olderCursor:null,
-  draftBody:"",
-  pendingAttachments:[],
-  replyToMessageId:null,
-  reactionCursor:"",
-  shareCapability:"",
-  activeSignature:"",
-};
+function createChatState(overrides = {}){
+  return {
+    isAdmin:false,
+    isGuest:false,
+    profile:{ displayName:null },
+    capabilities:{ lifetimeNscPoints:0, gifMinimumPoints:25, canUseGifs:false },
+    rooms:[],
+    currentRoom:null,
+    messages:[],
+    olderCursor:null,
+    draftBody:"",
+    pendingAttachments:[],
+    replyToMessageId:null,
+    reactionCursor:"",
+    shareCapability:"",
+    activeSignature:"",
+    ...overrides,
+    profile:{ displayName:null, ...(overrides.profile || {}) },
+    capabilities:{ lifetimeNscPoints:0, gifMinimumPoints:25, canUseGifs:false, ...(overrides.capabilities || {}) },
+    rooms:Array.isArray(overrides.rooms) ? overrides.rooms : [],
+    messages:Array.isArray(overrides.messages) ? overrides.messages : [],
+    pendingAttachments:Array.isArray(overrides.pendingAttachments) ? overrides.pendingAttachments : [],
+  };
+}
+
+function normalizeChatState(value){
+  return createChatState(value && typeof value === "object" ? value : {});
+}
+
+let chatState = createChatState();
 let chatActiveTimer = null;
 let chatRoomTimer = null;
 let chatPollFailures = 0;
@@ -8488,8 +8547,10 @@ let nothingscoreRenderQueued = false;
 let nothingscorePreviousFocus = null;
 let nothingscoreLeaderboardPeriod = "weekly";
 let activeNothingscoreContributionEvent = null;
+let activeNothingscoreContributionError = "";
 let publicProfileSettingsLoading = null;
 const NOTHINGSCORE_SOUND_KEY = "ns_nothingscore_sound_v1";
+const PREFERENCE_RESET_STORAGE_KEY = "ns_preference_reset_recovery_v1";
 let nothingscoreAudioContext = null;
 let nothingscoreAudioBlocked = false;
 let chatAudioContext = null;
@@ -9778,6 +9839,7 @@ async function reconcileCurrentServerState({ notify = false } = {}){
       baseUpdatedAt: baseline.updatedAt,
     });
     let latest = await serverSyncClient.loadState();
+    setPreferenceRecovery(latest.preferenceRecovery);
     currentState = serverAuthoritativeFixturePins(latest.state, currentState);
     localPatch = USER_STATE_SYNC.createPatch(baseline.state, currentState, {
       baseUpdatedAt: baseline.updatedAt,
@@ -9817,6 +9879,7 @@ async function reconcileCurrentServerState({ notify = false } = {}){
       }catch(error){
         if (error?.status !== 409 || error?.code !== "user_state_conflict" || attempt === 2) throw error;
         latest = await serverSyncClient.loadState();
+        setPreferenceRecovery(latest.preferenceRecovery);
         currentState = serverAuthoritativeFixturePins(latest.state, currentState);
         localPatch = USER_STATE_SYNC.createPatch(latest.state || emptyServerStatePayload(), currentState, {
           baseUpdatedAt: latest.state?.updatedAt || null,
@@ -9824,6 +9887,7 @@ async function reconcileCurrentServerState({ notify = false } = {}){
       }
     }
     if (!result?.state) throw new Error("The server did not return the reconciled profile.");
+    setPreferenceRecovery(result.preferenceRecovery);
     clearAcknowledgedFixturePinCommands(result.state);
     applyServerStatePreservingChanges(result.state, currentState);
     setServerStateBaseline(result.state);
@@ -9992,6 +10056,7 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
       message: "Loading your saved profile…",
     });
     const result = await serverSyncClient.loadState();
+    setPreferenceRecovery(result.preferenceRecovery);
     const user = result.user;
     if (result.state){
       const stateBeforeHydration = currentServerStatePayload();
@@ -11034,6 +11099,11 @@ function setActiveFeedFilter(nextFilter, {
   measurementEntry = null,
 } = {}){
   const normalizedFilter = feedFilterOptions(userPreferences).includes(nextFilter) ? nextFilter : "all";
+  const lazyHubKey = String(normalizedFilter).replace(/^sport:/, "");
+  if (!SPORT_HUBS && ["afl", "nrl"].includes(lazyHubKey)){
+    return loadSportHubs().then(() => setActiveFeedFilter(nextFilter, { refresh, roundNumber, measurementEntry }))
+      .catch(error => { showToast(error.message || "Standings & Fixtures could not load."); });
+  }
   if (activeFilter === normalizedFilter) return feedFilterRefreshInFlight || Promise.resolve();
   const previousHubKey = sportHubKeyForFilter(activeFilter);
   const nextHubKey = sportHubKeyForFilter(normalizedFilter);
@@ -12254,6 +12324,18 @@ function editorialNarrativeHookForDisplay(record){
   return narrative.hook || "";
 }
 
+function isValidatedEditorialCopy(copy){
+  const value = String(copy || "").trim();
+  if (!value) return false;
+  return !/^(?:Pinned from\b|Official (?:AFL )?schedule\b|(?:Venue|Provider|Broadcast|Schedule):)/i.test(value);
+}
+
+function editorialNarrativeSynopsisForDisplay(record){
+  const narrative = record?.editorialNarrative;
+  if (!editorialNarrativeReadyForCard(narrative)) return "";
+  return isValidatedEditorialCopy(narrative.synopsis) ? narrative.synopsis : "";
+}
+
 function editorialConsequenceForDisplay(record){
   const narrative = record?.editorialNarrative;
   const consequence = narrative?.consequence;
@@ -13412,9 +13494,25 @@ function codeInspectorFixtureSportKey(fixture){
   return ({ "rugby-union":"rugby", motorsport:"f1", basketball:"nba", "multi-sport":"cwg" })[slug] || slug;
 }
 
+function canonicalFeedFixtureForInspector(fixture){
+  const normalizedId = value => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+  const fixtureIds = new Set([fixture?.id, fixture?.eventId, fixture?.canonicalEventId].map(normalizedId).filter(Boolean));
+  const candidates = [...EVENTS, ...activeEvents];
+  const exact = candidates.find(event => [event?.id, event?.eventId, event?.canonicalEventId]
+    .map(normalizedId).some(id => id && fixtureIds.has(id)));
+  if (exact) return exact;
+  const semanticKey = MAJOR_EVENTS?.fixtureSemanticKey?.({
+    ...fixture,
+    participantIds:(fixture?.participantSlots || []).map(slot => slot.participantId).filter(Boolean),
+  });
+  return semanticKey ? candidates.find(event => MAJOR_EVENTS.fixtureSemanticKey(event) === semanticKey) || null : null;
+}
+
 function codeInspectorFixtureSnapshot(fixture){
   if (!fixture?.id || !fixture.date || !fixture.time || fixture.scheduleStatus === "provisional" || inspectorFixtureIsResult(fixture)) return null;
   const participantSlots = Array.isArray(fixture.participantSlots) ? fixture.participantSlots : [];
+  const canonicalFixture = canonicalFeedFixtureForInspector(fixture);
+  const editorialNarrative = fixture.editorialNarrative || canonicalFixture?.editorialNarrative || null;
   const snapshot = {
     id:fixture.id,
     eventId:fixture.id,
@@ -13456,8 +13554,17 @@ function codeInspectorFixtureSnapshot(fixture){
     status:"scheduled",
     stakesScore:Number(fixture.expected) >= 9 ? 5 : Number(fixture.expected) >= 7 ? 4 : 3,
     expected:Number(fixture.expected || 7),
-    selectedSentence:`Pinned from Standings & Fixtures. ${fixture.venue || "Venue TBC"}.`,
-    fullSpiel:`Pinned from Standings & Fixtures. ${fixture.broadcaster || "Viewing provider TBC"}.`,
+    ...(editorialNarrative ? {
+      editorialNarrative:{ ...editorialNarrative },
+      storyline:fixture.storyline || canonicalFixture?.storyline || {
+        stakes:Number(fixture.expected) >= 9 ? 5 : Number(fixture.expected) >= 7 ? 4 : 3,
+        hookSpoilerOff:editorialNarrative.hook,
+        hookSpoilerOn:editorialNarrative.hook,
+        synopsisSpoilerOff:editorialNarrative.synopsis,
+        synopsisSpoilerOn:editorialNarrative.synopsis,
+        arcStage:"preview",
+      },
+    } : {}),
   };
   return eventDateTime(snapshot).getTime() > Date.now() ? snapshot : null;
 }
@@ -14376,7 +14483,7 @@ function buildStakesMeter(ev){
   flames.setAttribute("aria-hidden", "true");
   for (let value = 1; value <= 5; value += 1){
     const flame = document.createElement("span");
-    flame.className = `stakes-flame${value <= score ? " is-filled" : ""}`;
+    flame.className = `stakes-flame${value <= score ? " is-filled" : " is-empty"}`;
     flame.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12.2 2.2c.5 3-1.1 4.4-2.4 5.8-1.2 1.3-2.2 2.5-2.2 4.4 0 1.2.5 2.3 1.4 3.1-.1-1.8.8-3.2 2.3-4.6.2 2.2 1.8 3 1.8 5 0 .8-.2 1.6-.7 2.2 2.3-.3 4-2.3 4-4.8 0-2.6-1.4-4.8-4.2-7.1 0 1.8-.5 3-1.4 4.1.1-2.7 2.1-4.5 1.4-8.1Z"/></svg>';
     flames.appendChild(flame);
   }
@@ -14390,7 +14497,7 @@ function buildFeedStakesRow(ev){
   const row = document.createElement("div");
   row.className = "feed-stakes-row";
   const [positive, negative] = buildEventFeedbackButtons(ev);
-  row.append(positive, buildStakesMeter(ev), negative);
+  row.append(negative, buildStakesMeter(ev), positive);
   return row;
 }
 
@@ -15287,7 +15394,6 @@ async function toggleQuickReminder(ev, button){
   const action = getEventAction(ev);
   const enabled = !action.reminderRequested;
   if (enabled && !reminderCanBeScheduled(timing)) return;
-  button.disabled = true;
   const actions = button.closest(".event-quick-actions");
   const showExplanation = message => {
     let explanation = actions?.querySelector(".event-quick-explanation");
@@ -15295,35 +15401,51 @@ async function toggleQuickReminder(ev, button){
     if (!explanation){
       explanation = document.createElement("p");
       explanation.className = "event-quick-explanation";
-      actions?.appendChild(explanation);
+    actions?.appendChild(explanation);
     }
     explanation.textContent = message;
   };
-  try{
-    if (enabled){
-      await ensureWebPushReminder(ev, timing);
-      const next = setBackgroundNotificationPreference(clonePreferences(userPreferences), true);
-      savePreferences(next);
-    } else {
-      await removeWebPushReminder(ev);
-    }
-    updateEventAction(ev, { reminderRequested:enabled });
-    recordEventFeedAction(ev, enabled ? "reminder" : "reminder_removed", { surface:"event_card", recommendationClass:"direct" });
-    if (enabled) recordWatchDecision(ev, "remind", { surface:"event_card" });
-    if (enabled) recordCodeAffinity(codeIdForEvent(ev), "reminder");
-    button.setAttribute("aria-pressed", String(enabled));
-    button.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${enabled ? "Reminder on" : "Remind me"}</span>`;
-    showExplanation("");
+  const renderReminderState = (requested, { pending = false } = {}) => {
+    button.disabled = pending;
+    button.classList.toggle("is-saving", pending);
+    button.setAttribute("aria-busy", String(pending));
+    button.setAttribute("aria-pressed", String(Boolean(requested)));
+    button.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>${requested ? "Reminder on" : "Remind me"}${pending ? " · Saving…" : ""}</span>`;
+  };
+  const outcome = await runOptimisticMutation({
+    capture:() => ({ reminderRequested:Boolean(action.reminderRequested) }),
+    apply:() => {
+      updateEventAction(ev, { reminderRequested:enabled });
+      renderReminderState(enabled, { pending:true });
+      showExplanation("");
+    },
+    request:async () => {
+      if (enabled) return ensureWebPushReminder(ev, timing);
+      return removeWebPushReminder(ev);
+    },
+    commit:() => {
+      if (enabled){
+        const next = setBackgroundNotificationPreference(clonePreferences(userPreferences), true);
+        savePreferences(next);
+      }
+      renderReminderState(enabled);
+      recordEventFeedAction(ev, enabled ? "reminder" : "reminder_removed", { surface:"event_card", recommendationClass:"direct" });
+      if (enabled) recordWatchDecision(ev, "remind", { surface:"event_card" });
+      if (enabled) recordCodeAffinity(codeIdForEvent(ev), "reminder");
+    },
+    rollback:prior => {
+      updateEventAction(ev, { reminderRequested:prior.reminderRequested });
+      renderReminderState(prior.reminderRequested);
+    },
+  });
+  if (outcome.ok){
     showToast(enabled
       ? `Background reminder set ${timing.deliveryMode === "session-start" ? "for the official session start" : `for 15 minutes before ${timing.fallback ? "the published broadcast time" : "kickoff or race start"}`}${serverSyncClient.getSession?.() ? " on every enabled device" : " on this device"}.`
       : "Reminder removed.");
-  }catch(error){
-    const message = error?.message || "Notifications could not be enabled on this device.";
-    button.setAttribute("aria-pressed", String(Boolean(action.reminderRequested)));
-    showExplanation(message);
+  } else {
+    const message = outcome.error?.message || "Notifications could not be enabled on this device.";
+    showExplanation(`${message} Tap the reminder again to retry.`);
     showToast(message);
-  }finally{
-    button.disabled = false;
   }
 }
 
@@ -15598,15 +15720,17 @@ function openNothingscoreLeaderboard(){
 
 function buildNothingscoreReceipt(receipt, phaseName){
   const row = document.createElement("div");
-  row.className = "nsc-receipt";
+  row.className = "nsc-receipt nsc-submission-receipt";
   const points = Number(receipt?.pointsAwarded || 0);
+  const cheer = document.createElement("strong");
+  cheer.textContent = "Nice one — your take is in.";
   const copy = document.createElement("span");
   copy.textContent = `Submitted · ${phaseName} ${Number(receipt?.rating || 0)}/5 · +${points} NSC ${points === 1 ? "point" : "points"} · `;
   const leaderboard = document.createElement("button");
   leaderboard.type = "button";
   leaderboard.textContent = "Leaderboard";
   leaderboard.addEventListener("click", event => { event.stopPropagation(); openNothingscoreLeaderboard(); });
-  row.append(copy, leaderboard);
+  row.append(cheer, copy, leaderboard);
   return row;
 }
 
@@ -15666,41 +15790,83 @@ async function playNothingscoreImpactSound(prepared = prepareNothingscoreAudio()
 
 async function submitNothingscoreAction(command, panel, { success = "Your Nothingscore is in.", preparedAudio = null } = {}){
   if (!serverSyncClient?.nothingscoreRequest) return null;
+  const submittedPhase = command.action === "submit" && ["heat", "impact"].includes(String(command.phase || ""))
+    ? String(command.phase)
+    : null;
+  if (submittedPhase){
+    const form = panel.querySelector(".nsc-contribution-form");
+    if (!form) return null;
+    const pendingReceipt = document.createElement("div");
+    pendingReceipt.className = "nsc-submission-receipt is-confirming";
+    pendingReceipt.setAttribute("role", "status");
+    pendingReceipt.setAttribute("aria-live", "polite");
+    pendingReceipt.textContent = "Submitted — confirming…";
+    const outcome = await runOptimisticMutation({
+      capture:() => ({ form }),
+      apply:prior => {
+        nothingscoreStatus(panel, "");
+        prior.form.replaceWith(pendingReceipt);
+      },
+      request:() => serverSyncClient.nothingscoreRequest({}, command),
+      commit:result => {
+        const eventId = String(command.eventId);
+        const snapshot = nothingscoreSnapshots.get(eventId);
+        const confirmedReceipt = {
+          phase:submittedPhase,
+          rating:Number(result.rating ?? command.rating),
+          tags:Array.isArray(result.tags) ? [...result.tags] : Array.isArray(command.tags) ? [...command.tags] : [],
+          pointsAwarded:Number(result.pointsAwarded || 0),
+          submittedAt:result.submittedAt,
+        };
+        if (snapshot){
+          mergeNothingscoreSnapshot({
+            ...snapshot,
+            currentUser:{
+              ...(snapshot.currentUser || {}),
+              submissions:{
+                ...(snapshot.currentUser?.submissions || {}),
+                [submittedPhase]:confirmedReceipt,
+              },
+            },
+          });
+          nothingscoreQueueRender();
+        }
+        pendingReceipt.replaceWith(buildNothingscoreReceipt(confirmedReceipt, nothingscorePhaseCopy(submittedPhase).submissionLabel || nothingscorePhaseCopy(submittedPhase).name));
+        nothingscoreStatus(panel, `${success}${result.pointsAwarded ? ` +${result.pointsAwarded} points.` : ""}`);
+        if (submittedPhase === "impact" && result.replayed === false){
+          panel.classList.remove("nsc-impact-burst");
+          void panel.offsetWidth;
+          panel.classList.add("nsc-impact-burst");
+          void playNothingscoreImpactSound(preparedAudio);
+        }
+        void serverSyncClient.nothingscoreRequest({ eventId })
+          .then(payload => {
+            if (payload?.viewer) nothingscoreViewer = payload.viewer;
+            if (payload?.detail && mergeNothingscoreSnapshot(payload.detail)) nothingscoreQueueRender();
+          })
+          .catch(error => console.warn("Nothingscore receipt saved; fresh community detail will retry later", error));
+      },
+      rollback:(prior, error) => {
+        pendingReceipt.replaceWith(prior.form);
+        let retry = prior.form.querySelector(".nsc-retry");
+        if (!retry){
+          retry = document.createElement("button");
+          retry.type = "button";
+          retry.className = "btn primary nsc-retry";
+          retry.textContent = "Retry";
+          retry.addEventListener("click", () => { void submitNothingscoreAction(command, panel, { success, preparedAudio }); });
+          prior.form.appendChild(retry);
+        }
+        nothingscoreStatus(panel, `${error?.message || "That did not confirm."} Your rating and tags are still here.`);
+      },
+    });
+    return outcome.ok ? outcome.result : null;
+  }
   nothingscoreStatus(panel, "Saving…");
   panel.querySelectorAll("button, input, select").forEach(control => { control.disabled = true; });
   try{
     const result = await serverSyncClient.nothingscoreRequest({}, command);
-    const submittedPhase = ["heat", "impact"].includes(String(result.phase || "")) ? String(result.phase) : null;
     nothingscoreStatus(panel, `${success}${result.pointsAwarded ? ` +${result.pointsAwarded} points.` : ""}`);
-    if (command.action === "submit" && command.eventId && result.submitted && submittedPhase){
-      const eventId = String(command.eventId);
-      const snapshot = nothingscoreSnapshots.get(eventId);
-      if (snapshot){
-        mergeNothingscoreSnapshot({
-          ...snapshot,
-          currentUser:{
-            ...(snapshot.currentUser || {}),
-            submissions:{
-              ...(snapshot.currentUser?.submissions || {}),
-              [submittedPhase]:{
-                phase:submittedPhase,
-                rating:Number(result.rating ?? command.rating),
-                tags:Array.isArray(result.tags) ? [...result.tags] : Array.isArray(command.tags) ? [...command.tags] : [],
-                pointsAwarded:Number(result.pointsAwarded || 0),
-                submittedAt:result.submittedAt,
-              },
-            },
-          },
-        });
-        nothingscoreQueueRender();
-      }
-    }
-    if (submittedPhase === "impact" && result.replayed === false){
-      panel.classList.remove("nsc-impact-burst");
-      void panel.offsetWidth;
-      panel.classList.add("nsc-impact-burst");
-      void playNothingscoreImpactSound(preparedAudio);
-    }
     if (command.eventId){
       try{
         const payload = await serverSyncClient.nothingscoreRequest({ eventId:String(command.eventId) });
@@ -15727,8 +15893,12 @@ function buildNothingscoreChoices(ev, snapshot, panel){
     panel.appendChild(buildNothingscoreReceipt(receipt, phaseCopy.submissionLabel || phaseCopy.name));
     return;
   }
+  const form = document.createElement("div");
+  form.className = "nsc-contribution-form";
+  panel.appendChild(form);
   const pulsePromptReady = snapshot.phase !== "pulse" || Date.now() >= Date.parse(snapshot.timing?.startTimeUtc || "") + 5 * 60_000 || Boolean(current);
   let draftRating = snapshot.phase === "pulse" ? Number(current?.rating || 0) : 0;
+  let renderTags = null;
   const choices = document.createElement("div");
   choices.className = "nsc-choice-row";
   choices.setAttribute("aria-label", `${phaseCopy.name} rating`);
@@ -15759,50 +15929,50 @@ function buildNothingscoreChoices(ev, snapshot, panel){
       }
       draftRating = value;
       choices.querySelectorAll(".nsc-choice").forEach((choice, index) => choice.setAttribute("aria-pressed", String(index + 1 === draftRating)));
-      panel.querySelectorAll(".nsc-tag input").forEach(input => {
-        input.disabled = draftRating < 4;
-        if (draftRating < 4) input.checked = false;
-      });
+      if (renderTags) renderTags();
       const submit = panel.querySelector(".nsc-submit");
       if (submit) submit.disabled = false;
       nothingscoreStatus(panel, `${phaseCopy.name} ${draftRating}/5 selected. Tap Submit when ready.`);
     });
     choices.appendChild(button);
   }
-  panel.appendChild(choices);
+  form.appendChild(choices);
   if (!pulsePromptReady){
     const note = document.createElement("p");
     note.className = "nsc-note";
     note.textContent = "Pulse opens about five minutes into the live window.";
-    panel.appendChild(note);
+    form.appendChild(note);
   }
   if (["heat", "impact"].includes(snapshot.phase)){
     const tags = document.createElement("div");
     tags.className = "nsc-tags";
-    const allowed = snapshot.phase === "heat" ? NOTHINGSCORE.HEAT_TAGS : NOTHINGSCORE.IMPACT_TAGS;
-    allowed.forEach(tag => {
-      const label = document.createElement("label");
-      label.className = "nsc-tag";
-      const input = document.createElement("input");
-      input.type = "checkbox";
-      input.value = tag;
-      input.checked = false;
-      input.disabled = draftRating < 4;
-      const copy = document.createElement("span");
-      copy.textContent = tag;
-      label.append(input, copy);
-      input.addEventListener("change", () => {
-        if (draftRating < 4) return;
-        const selected = [...tags.querySelectorAll("input:checked")].slice(0, 3);
-        tags.querySelectorAll("input:checked").forEach(item => { if (!selected.includes(item)) item.checked = false; });
+    tags.hidden = true;
+    renderTags = () => {
+      tags.replaceChildren();
+      const allowed = NOTHINGSCORE.tagsFor(snapshot.phase, draftRating);
+      tags.hidden = !allowed.length;
+      allowed.forEach(tag => {
+        const label = document.createElement("label");
+        label.className = "nsc-tag";
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.value = tag;
+        input.checked = false;
+        const copy = document.createElement("span");
+        copy.textContent = tag;
+        label.append(input, copy);
+        input.addEventListener("change", () => {
+          const selected = [...tags.querySelectorAll("input:checked")].slice(0, 3);
+          tags.querySelectorAll("input:checked").forEach(item => { if (!selected.includes(item)) item.checked = false; });
+        });
+        tags.appendChild(label);
       });
-      tags.appendChild(label);
-    });
-    panel.appendChild(tags);
+    };
+    form.appendChild(tags);
     const note = document.createElement("p");
     note.className = "nsc-note";
-    note.textContent = "Ratings of 4 or 5 can carry up to three tags.";
-    panel.appendChild(note);
+    note.textContent = "Choose a rating to add up to three reasons.";
+    form.appendChild(note);
     const submit = document.createElement("button");
     submit.type = "button";
     submit.className = "btn primary nsc-submit";
@@ -15823,14 +15993,14 @@ function buildNothingscoreChoices(ev, snapshot, panel){
         preparedAudio,
       });
     });
-    panel.appendChild(submit);
+    form.appendChild(submit);
   }
 }
 
 let nothingscoreVisualLoad = null;
 function ensureNothingscoreVisual(){
   if (globalThis.NOTHINGSPORTS_NSC_VISUAL) return Promise.resolve(globalThis.NOTHINGSPORTS_NSC_VISUAL);
-  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=206").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
+  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=208").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
   return nothingscoreVisualLoad;
 }
 function buildNothingscoreVisual(snapshot){
@@ -15983,9 +16153,15 @@ function scheduleNothingscoreHeartbeat(delay = 60_000){
 }
 
 function buildEventWhyItMatters(ev){
-  const hook = editorialNarrativeHookForDisplay(ev) || selectedSentenceForDisplay(ev);
-  const supplemental = cardStateForEvent(ev) === "opened" ? eventSpielForDisplay(ev) : "";
-  return buildEditorialL0Hook(hook, editorialConsequenceForDisplay(ev), { labelText:"Why it matters", supplementalCopy:supplemental });
+  const opened = cardStateForEvent(ev) === "opened";
+  const hook = editorialNarrativeHookForDisplay(ev);
+  if (!isValidatedEditorialCopy(hook)) return null;
+  const consequence = opened ? editorialConsequenceForDisplay(ev) : "";
+  const supplemental = opened ? editorialNarrativeSynopsisForDisplay(ev) : "";
+  return buildEditorialL0Hook(hook, isValidatedEditorialCopy(consequence) ? consequence : "", {
+    labelText:"Why it matters",
+    supplementalCopy:isValidatedEditorialCopy(supplemental) ? supplemental : "",
+  });
 }
 
 function nothingscoreActionLabelForEvent(ev){
@@ -16138,7 +16314,11 @@ function buildEventCard(ev, options = {}){
     expandControl.setAttribute("aria-expanded", state === "compact" ? "false" : "true");
     expandControl.setAttribute("aria-controls", `${nameEl.id}-details`);
     expandControl.setAttribute("aria-label", `${state === "compact" ? "Show short context for" : state === "selected" ? "Show full details for" : "Collapse"} ${displayTitle}`);
-    expandControl.innerHTML = glyphMarkup("ui:chevron-right", { preferImage: true });
+    const expandLabel = document.createElement("span");
+    expandLabel.className = "card-expand-label";
+    expandLabel.textContent = state === "opened" ? "Less" : "More…";
+    expandControl.appendChild(expandLabel);
+    expandControl.insertAdjacentHTML("beforeend", glyphMarkup("ui:chevron-right", { preferImage: true }));
     expandControl.addEventListener("click", event => {
       event.stopPropagation();
       advanceCardState();
@@ -21011,6 +21191,64 @@ function appendPublicProfileAccountSettings(body){
   body.querySelector(".preference-stack")?.appendChild(section);
 }
 
+function activeLocalPreferenceRecovery(reference = Date.now()){
+  const stored = readStorage(PREFERENCE_RESET_STORAGE_KEY, null);
+  if (!stored?.resetId || !stored?.preferences || Date.parse(stored.expiresAt || "") <= Number(reference)){
+    try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ /* Storage may be unavailable. */ }
+    return null;
+  }
+  return stored;
+}
+
+function setPreferenceRecovery(value){
+  preferenceRecovery = value?.resetId && Date.parse(value.expiresAt || "") > Date.now()
+    ? { resetId:String(value.resetId), createdAt:value.createdAt || null, expiresAt:value.expiresAt }
+    : null;
+  return preferenceRecovery;
+}
+
+let preferenceResetUiLoad = null;
+function appendPreferenceRecoverySettings(body){
+  const placeholder = document.createElement("section");
+  placeholder.className = "filter-panel preference-data-recovery";
+  placeholder.innerHTML = "<h3>Data & recovery</h3><p class=\"preference-help\">Loading recovery controls…</p>";
+  (body.querySelector(".preference-stack") || body).appendChild(placeholder);
+  preferenceResetUiLoad ||= globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI
+    ? Promise.resolve(globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI)
+    : loadDeferredScript("config/preference-reset-ui.js?v=208").then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
+  void preferenceResetUiLoad.then(ui => {
+    if (!placeholder.isConnected || !ui?.mount) return;
+    placeholder.remove();
+    ui.mount(body, {
+      signedIn:() => Boolean(serverPersistence.user),
+      serverSync:serverSyncClient,
+      recovery:() => preferenceRecovery,
+      localRecovery:activeLocalPreferenceRecovery,
+      setRecovery:setPreferenceRecovery,
+      defaults:() => ({ ...mergePreferences(null), onboardingComplete:true }),
+      currentPreferences:() => clonePreferences(userPreferences),
+      writeLocalRecovery:value => writeStorage(PREFERENCE_RESET_STORAGE_KEY, value),
+      removeLocalRecovery:() => { try{ localStorage.removeItem(PREFERENCE_RESET_STORAGE_KEY); }catch(_error){ /* Ignore unavailable storage. */ } },
+      savePreferences,
+      acceptServerResult(result){
+        setPreferenceRecovery(result.preferenceRecovery);
+        applyServerState(result.state);
+        setServerStateBaseline(result.state);
+        setServerPersistence({ state:"signedIn", lastSyncedAt:result.state.updatedAt, message:"" });
+      },
+      afterApply(message){
+        draftPreferences = clonePreferences(userPreferences);
+        settingsDraftBaseline = clonePreferences(userPreferences);
+        applyThemePreference(userPreferences.theme);
+        renderAll({ preserveViewport:true });
+        renderSettingsScreen();
+        showToast(message);
+      },
+      showToast,
+    });
+  }).catch(error => { placeholder.querySelector("p").textContent = error.message || "Recovery controls could not load."; });
+}
+
 function renderAccountSettings(body){
   if (serverPersistence.state === "checking" && !serverSyncClient?.getSession?.()) void ensureServerSyncStatus();
   const state = serverPersistence.state;
@@ -21100,10 +21338,14 @@ function renderAccountSettings(body){
       showToast("Signed out. Your local copy remains on this device.");
     });
     appendPublicProfileAccountSettings(body);
+    appendPreferenceRecoverySettings(body);
     return;
   }
 
-  if (!serverPersistence.configured || ["checking", "requesting"].includes(state)) return;
+  if (!serverPersistence.configured || ["checking", "requesting"].includes(state)){
+    appendPreferenceRecoverySettings(body);
+    return;
+  }
 
   if (accountRecoveryRequestOpen){
     controls.innerHTML = `<form class="account-sync-form" id="accountRecoveryRequestForm">
@@ -21132,6 +21374,7 @@ function renderAccountSettings(body){
         submit.disabled = false;
       }
     });
+    appendPreferenceRecoverySettings(body);
     return;
   }
 
@@ -21178,6 +21421,7 @@ function renderAccountSettings(body){
       showToast(serverPersistence.message);
     }
   });
+  appendPreferenceRecoverySettings(body);
 }
 
 function renderPilotSettings(body){
@@ -21815,7 +22059,6 @@ function renderSettingsScreen(){
   const calibrationComplete = Boolean(draftPreferences?.preferenceGraph?.learning?.calibrationCompletedAt);
   back.hidden = settingsFirstRun ? settingsWizardStep === 0 : settingsSection === "main";
   brandIcon.hidden = settingsFirstRun ? settingsWizardStep > 0 : settingsSection !== "main";
-  document.getElementById("resetPreferencesBtn").hidden = settingsSection === "calibration";
   document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && ["archive", "hidden"].includes(settingsSection)
     ? "Close"
     : settingsFirstRun && settingsWizardStep < ONBOARDING_SECTIONS.length - 1
@@ -22039,13 +22282,6 @@ document.getElementById("aboutModal").addEventListener("click", evt => {
     document.getElementById("closeAboutBtn").click();
   }
 });
-document.getElementById("resetPreferencesBtn").addEventListener("click", () => {
-  draftPreferences = clonePreferences(DEFAULT_PREFERENCES);
-  applyThemePreference(draftPreferences.theme);
-  renderSettingsScreen();
-  showToast("Settings reset. Save to keep these defaults.");
-});
-
 document.addEventListener("keydown", evt => {
   if (evt.key !== "Escape" || !document.getElementById("settingsModal").classList.contains("show")) return;
   if (settingsSection !== "main"){
@@ -22740,18 +22976,69 @@ function chatMessageById(messageId){
   return chatState.messages.find(message => message.messageId === messageId) || null;
 }
 
+function optimisticReactionRows(reactions, emoji){
+  const next = (Array.isArray(reactions) ? reactions : []).map(reaction => ({ ...reaction }));
+  const match = next.find(reaction => reaction.emoji === emoji);
+  if (match){
+    match.own = !match.own;
+    match.count = Math.max(0, Number(match.count || 0) + (match.own ? 1 : -1));
+    if (!match.count) return next.filter(reaction => reaction !== match);
+    return next;
+  }
+  return [...next, { emoji, count:1, own:true }];
+}
+
 async function toggleChatReaction(messageId, emoji, control){
   const room = chatState.currentRoom;
+  const message = chatMessageById(messageId);
   if (!room?.viewer?.canPost) return;
-  control.disabled = true;
-  try{
-    await serverSyncClient.chatRequest({}, { action:"toggle-reaction", roomId:room.roomId, messageId, emoji });
-    scheduleChatRoomPoll(0);
-  }catch(error){
-    chatConnection(error.message || "That reaction could not be changed.", "retrying");
-  }finally{
-    control.disabled = false;
+  if (!message) return;
+  const outcome = await runOptimisticMutation({
+    capture:() => ({ reactions:(message.reactions || []).map(reaction => ({ ...reaction })) }),
+    apply:() => {
+      message.reactions = optimisticReactionRows(message.reactions, emoji);
+      control.setAttribute("aria-busy", "true");
+      renderOpenChatRoom({ autoScroll:false, preserveScroll:true });
+    },
+    request:() => serverSyncClient.chatRequest({}, { action:"toggle-reaction", roomId:room.roomId, messageId, emoji }),
+    commit:result => {
+      const active = Boolean(result?.reaction?.active);
+      const current = (message.reactions || []).find(reaction => reaction.emoji === emoji);
+      if (current) current.own = active;
+      scheduleChatRoomPoll(0);
+    },
+    rollback:prior => {
+      message.reactions = prior.reactions;
+      renderOpenChatRoom({ autoScroll:false, preserveScroll:true });
+    },
+  });
+  if (!outcome.ok){
+    chatConnection(`${outcome.error?.message || "That reaction could not be changed."} Tap to retry.`, "retrying");
   }
+}
+
+async function saveChatAttachment(message, attachment, save){
+  const outcome = await runOptimisticMutation({
+    capture:() => ({ saved:Boolean(attachment.saved), text:save.textContent }),
+    apply:() => {
+      attachment.saved = true;
+      save.disabled = true;
+      save.setAttribute("aria-busy", "true");
+      save.textContent = "Saved · confirming…";
+    },
+    request:() => serverSyncClient.chatRequest({}, { action:"attachment-save", attachmentId:attachment.attachmentId }),
+    commit:() => {
+      save.removeAttribute("aria-busy");
+      save.textContent = "Saved";
+    },
+    rollback:prior => {
+      attachment.saved = prior.saved;
+      save.disabled = false;
+      save.removeAttribute("aria-busy");
+      save.textContent = "Retry save";
+    },
+  });
+  if (!outcome.ok) chatConnection(outcome.error?.message || "That media could not be saved. Tap Retry save.", "retrying");
 }
 
 function chatMessageElement(message){
@@ -22807,11 +23094,7 @@ function chatMessageElement(message){
       if (message.own && !chatState.isGuest && !attachment.saved){
         const save = document.createElement("button");
         save.type = "button"; save.className = "chat-message-action"; save.textContent = "Save";
-        save.addEventListener("click", async () => {
-          save.disabled = true;
-          try{ await serverSyncClient.chatRequest({}, { action:"attachment-save", attachmentId:attachment.attachmentId }); save.textContent = "Saved"; }
-          catch(error){ save.disabled = false; chatConnection(error.message || "That media could not be saved.", "retrying"); }
-        });
+        save.addEventListener("click", () => { void saveChatAttachment(message, attachment, save); });
         wrap.appendChild(save);
       }
       media.appendChild(wrap);
@@ -23611,17 +23894,18 @@ async function refreshChatActive({ rerenderOpenList = false } = {}){
     const payload = await serverSyncClient.chatRequest({ mode:"active" });
     const outsideRoomUnreadIncreased = Boolean(chatState.activeSignature)
       && chatUnreadIncreasedOutsideOpenRoom(chatState.rooms, payload.rooms, chatState.currentRoom?.roomId || null);
-    const signature = JSON.stringify({ admin:payload.isAdmin, rooms:payload.rooms.map(room => [room.roomId, room.unreadCount, room.lastMessageAt]) });
+    const nextRooms = Array.isArray(payload.rooms) ? payload.rooms : [];
+    const signature = JSON.stringify({ admin:payload.isAdmin, rooms:nextRooms.map(room => [room.roomId, room.unreadCount, room.lastMessageAt]) });
     const changed = signature !== chatState.activeSignature;
-    chatState = {
+    chatState = normalizeChatState({
       ...chatState,
       isAdmin:Boolean(payload.isAdmin),
       isGuest:!serverPersistence.user && Boolean(serverSyncClient.getGuestChatSession?.()),
       profile:payload.profile || { displayName:null },
       capabilities:payload.capabilities || chatState.capabilities,
-      rooms:payload.rooms || [],
+      rooms:nextRooms,
       activeSignature:signature,
-    };
+    });
     updateActiveChatButton();
     if (outsideRoomUnreadIncreased) playIncomingChatSound();
     if (rerenderOpenList && document.getElementById("chatBackdrop").classList.contains("show") && !chatState.currentRoom) renderActiveChats();
@@ -23642,12 +23926,16 @@ function scheduleChatActivePoll(delay = CHAT?.POLLING?.activeMs || 30_000){
 
 function syncChatSessionState(previousOwnerId, nextOwnerId){
   if (!CHAT || !serverSyncClient?.chatRequest) return;
-  if (previousOwnerId !== nextOwnerId) chatState.activeSignature = "";
+  if (previousOwnerId !== nextOwnerId){
+    chatState = createChatState({
+      isGuest:!nextOwnerId && Boolean(serverSyncClient?.getGuestChatSession?.()),
+    });
+  }
   void syncPermittedChatPushInstallation().catch(() => null);
   if (!nextOwnerId && !serverSyncClient?.getGuestChatSession?.()){
     window.clearTimeout(chatActiveTimer);
     window.clearTimeout(chatRoomTimer);
-    chatState = { isAdmin:false, isGuest:false, profile:{ displayName:null }, rooms:[], currentRoom:null, messages:[], olderCursor:null, draftBody:"", replyToMessageId:null, reactionCursor:"", shareCapability:"", activeSignature:"" };
+    chatState = createChatState();
     updateActiveChatButton();
     if (document.getElementById("chatBackdrop")?.classList.contains("show")) setChatDrawerOpen(false);
     return;
@@ -23690,6 +23978,7 @@ function setNothingscoreDrawerOpen(open){
     nothingscorePreviousFocus?.focus?.();
     nothingscorePreviousFocus = null;
     activeNothingscoreContributionEvent = null;
+    activeNothingscoreContributionError = "";
   }
 }
 
@@ -23701,6 +23990,7 @@ function openNothingscoreDrawer(){
 
 async function openNothingscoreContribution(ev){
   activeNothingscoreContributionEvent = ev;
+  activeNothingscoreContributionError = "";
   setNothingscoreDrawerOpen(true);
   try{
     const payload = await serverSyncClient?.nothingscoreRequest?.({ eventId:nothingscoreEventId(ev) });
@@ -23708,6 +23998,7 @@ async function openNothingscoreContribution(ev){
     if (payload?.detail) mergeNothingscoreSnapshot(payload.detail);
   }catch(error){
     console.warn("Nothingscore contribution unavailable", error);
+    activeNothingscoreContributionError = error?.message || "Your contribution form could not be loaded.";
   }
   if (document.getElementById("nothingscoreBackdrop")?.classList.contains("show") && activeNothingscoreContributionEvent === ev){
     renderNothingscoreDrawer();
@@ -23795,7 +24086,19 @@ function renderNothingscoreDrawer(){
     drawerSubtitle.textContent = spoilerSafeDisplayTitle(ev);
     const snapshot = nothingscoreSnapshotFor(ev);
     if (snapshot) body.appendChild(buildNothingscorePanel(ev, snapshot, "selected"));
-    else {
+    else if (activeNothingscoreContributionError) {
+      const unavailable = document.createElement("div");
+      unavailable.className = "chat-empty";
+      const message = document.createElement("p");
+      message.textContent = `${activeNothingscoreContributionError} Your draft has not been changed.`;
+      const retry = document.createElement("button");
+      retry.type = "button";
+      retry.className = "btn primary";
+      retry.textContent = "Retry";
+      retry.addEventListener("click", () => { void openNothingscoreContribution(ev); });
+      unavailable.append(message, retry);
+      body.appendChild(unavailable);
+    } else {
       const loading = document.createElement("p");
       loading.className = "chat-empty";
       loading.textContent = "Loading your contribution form…";

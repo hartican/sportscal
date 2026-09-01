@@ -44,6 +44,7 @@ assert(localSteps.some(step => step[0] === "scripts/enrich-editorial-consequence
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-narratives.js"), "every canonical update must validate persistent editorial depth, provenance and L0 rendering");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-consequences.js"), "every canonical update must validate pre-kickoff consequence snapshots, result-aware copy and structured brackets");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-render-coverage.js"), "every canonical update must prove every validated editorial projection passes the exact browser display gate");
+assert(localSteps.some(step => step[0] === "scripts/validate-fixture-editorial-resolution.js"), "every canonical update must keep manual pins and Events children bound to canonical fixture editorial or the research queue");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-sport-depth.js"), "every canonical update must reject generic football, cricket and AFL hooks and narratives");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-interactions.js"), "every canonical update must keep L1/L2 copy editorial and likes reversible");
 assert(localSteps.some(step => step[0] === "scripts/snapshot-editorial-nothingscore.js" && step.includes("--write")), "every canonical update must snapshot privacy-safe Nothingscore aggregates before composing editorial work");
@@ -76,12 +77,12 @@ assert(
     && localSteps.findIndex(step => step[0] === "scripts/update-sport-editorial-depth.js")
       < localSteps.findIndex(step => step[0] === "scripts/enrich-editorial-consequences.js")
     && localSteps.findIndex(step => step[0] === "scripts/enrich-editorial-consequences.js")
-      < localSteps.findIndex(step => step[0] === "scripts/build-editorial-research-queue.js")
-    && localSteps.findIndex(step => step[0] === "scripts/build-editorial-research-queue.js")
       < localSteps.findIndex(step => step[0] === "scripts/update-editorial-audience-memory.js")
     && localSteps.findIndex(step => step[0] === "scripts/update-editorial-audience-memory.js")
       < localSteps.findIndex(step => step[0] === "scripts/apply-editorial-narratives.js")
     && localSteps.findIndex(step => step[0] === "scripts/apply-editorial-narratives.js")
+      < localSteps.findIndex(step => step[0] === "scripts/build-editorial-research-queue.js")
+    && localSteps.findIndex(step => step[0] === "scripts/build-editorial-research-queue.js")
       < localSteps.findIndex(step => step[0] === "scripts/publish-feed.js"),
   "research, preview composition, storyline enrichment and persistent narratives must complete before the feed is published once"
 );
@@ -172,6 +173,7 @@ assert(localSteps.some(step => step[0] === "scripts/validate-discovery-measureme
 assert(localSteps.some(step => step[0] === "scripts/validate-product-events.js"), "every canonical update must enforce the authenticated pilot event contract");
 assert(localSteps.some(step => step[0] === "scripts/validate-cross-device-sync.js"), "every canonical update must enforce cross-device field-level reconciliation");
 assert(localSteps.some(step => step[0] === "scripts/validate-server-persistence.js"), "every canonical update must enforce durable trusted-device sessions and session-only opt-out");
+assert(localSteps.some(step => step[0] === "scripts/validate-preference-reset-recovery.js"), "every canonical update must enforce double-confirmed, service-only and reversible preference reset semantics");
 assert(localSteps.some(step => step[0] === "scripts/validate-swipe-learning.js"), "every canonical update must enforce bounded thumb learning and complete-fixture isolation");
 assert(localSteps.some(step => step[0] === "scripts/validate-tuning-ratings.js"), "every canonical update must enforce fine-tuning, compatible five-star ratings, and prompt fatigue controls");
 assert(localSteps.some(step => step[0] === "scripts/validate-follow-first.js"), "every canonical update must enforce the follow-first interface and persistence contract");

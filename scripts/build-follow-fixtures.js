@@ -77,6 +77,12 @@ function validatePrivacy(payload){
   return true;
 }
 
+function preservedArtifactForEmptyFixture(snapshot, existingPayload, { preloadedPath = process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH } = {}){
+  if (!preloadedPath || snapshot?.profiles?.length || !existingPayload?.events?.length) return null;
+  validatePrivacy(existingPayload);
+  return existingPayload;
+}
+
 function main(){
   const checkOnly = process.argv.includes("--check");
   if (checkOnly){
@@ -86,6 +92,12 @@ function main(){
     return;
   }
   const snapshot = readSnapshot();
+  const existingPayload = fs.existsSync(OUTPUT_PATH) ? JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf8")) : null;
+  const preserved = preservedArtifactForEmptyFixture(snapshot, existingPayload);
+  if (preserved){
+    console.log(`Compact follow fixture artifact preserved: ${preserved.events.length} previously validated fixtures; the preloaded QA snapshot contains no profiles.`);
+    return;
+  }
   const payload = buildArtifact(snapshot);
   validatePrivacy(payload);
   fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(payload, null, 2)}\n`);
@@ -97,4 +109,4 @@ if (require.main === module){
   catch (error){ console.error(error.message); process.exit(1); }
 }
 
-module.exports = { buildArtifact, eventId, userStateForProfile, validatePrivacy };
+module.exports = { buildArtifact, eventId, preservedArtifactForEmptyFixture, userStateForProfile, validatePrivacy };

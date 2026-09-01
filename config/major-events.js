@@ -275,6 +275,10 @@
     ].map(value => String(value || "").trim()).filter(Boolean)));
   }
 
+  function normalizedFixtureId(value){
+    return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+  }
+
   function childEditorialHook(subEvent, parent){
     const sides = matchupSideLabels(subEvent);
     const displayName = String(subEvent?.name || "This fixture").trim();
@@ -353,18 +357,19 @@
       status:subEvent?.status || "scheduled",
     };
     const aliases = new Set(fixtureAliasIds(subEvent));
+    const normalizedAliases = new Set([...aliases].map(normalizedFixtureId).filter(Boolean));
     const candidates = Array.isArray(feedEvents) ? feedEvents : [];
     const exactMatch = candidates.find(event => {
       if (!event?.editorialNarrative) return false;
       return [event.id, event.eventId, event.canonicalEventId, event.stableMatchId, ...(event.legacyEventIds || [])]
         .map(value => String(value || "").trim())
-        .some(value => value && aliases.has(value));
+        .some(value => value && (aliases.has(value) || normalizedAliases.has(normalizedFixtureId(value))));
     });
     const semanticKey = fixtureSemanticKey(baseRecord);
     const semanticMatch = exactMatch || (semanticKey
       ? candidates.find(event => event?.editorialNarrative && fixtureSemanticKey(event) === semanticKey)
       : null);
-    const editorialNarrative = semanticMatch?.editorialNarrative || inheritedEditorialNarrative(subEvent, parent);
+    const editorialNarrative = semanticMatch?.editorialNarrative || subEvent?.editorialNarrative || inheritedEditorialNarrative(subEvent, parent);
     return editorialNarrative ? { ...baseRecord, editorialNarrative } : baseRecord;
   }
 
@@ -470,8 +475,17 @@
       ticketing: subEvent.ticketing || parent.ticketing || null,
       sourceName: subEvent.sourceName || parent.sources?.[0]?.name,
       sourceUrl: subEvent.sourceUrl || parent.sources?.[0]?.url,
-      selectedSentence: subEvent.summary || "Exact matchup, venue and kickoff will be refreshed when the published schedule is confirmed.",
-      fullSpiel: subEvent.summary || "Exact matchup, venue and kickoff will be refreshed when the published schedule is confirmed.",
+      ...(subEvent.editorialNarrative ? {
+        editorialNarrative:{ ...subEvent.editorialNarrative },
+        storyline:{
+          stakes:Number(subEvent.stakesScore || parent.stakesScore || 5),
+          hookSpoilerOff:subEvent.editorialNarrative.hook,
+          hookSpoilerOn:subEvent.editorialNarrative.hook,
+          synopsisSpoilerOff:subEvent.editorialNarrative.synopsis,
+          synopsisSpoilerOn:subEvent.editorialNarrative.synopsis,
+          arcStage:"preview",
+        },
+      } : {}),
     };
   }
 

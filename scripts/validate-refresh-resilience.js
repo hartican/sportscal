@@ -11,6 +11,7 @@ const teamDirectories = fs.readFileSync("scripts/build-team-player-directories.j
 const officialFollow = fs.readFileSync("scripts/refresh-official-follow-fixtures.js", "utf8");
 assert.match(source, /AbortSignal\.timeout\(20_000\)/, "slow source calls need a bounded timeout");
 assert.match(source, /preserv(?:e|ing) existing/i, "transient source failure must retain validated current snapshots");
+assert.match(source, /retiredEspnRosterEndpoint[^]*404\\s\+Not Found:[^]*site\\\.api\\\.espn\\\.com[^]*roster/i, "the retired ESPN roster capability must preserve the last validated NFL snapshot instead of blocking every canonical refresh");
 assert.match(source, /validate\(nfl,[\s\S]+validate\(iceHockey,/, "preserved snapshots must still pass the canonical contract");
 assert.match(canonicalSports, /preserving \$\{existing\.events\.length\} validated fixtures for immediate canonical checks/, "AFL and NRL refresh must preserve a validated canonical bundle only on transient failure");
 assert.match(premierLeague, /preserving \$\{snapshot\.entries\.length\} validated clubs for the immediate --check pass/, "Premier League refresh must preserve only a validated table after transient failure");

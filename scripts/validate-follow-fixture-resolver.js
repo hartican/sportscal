@@ -13,7 +13,7 @@ const {
   followedCollectionMemberIds,
   resolveUserFollowFixtures,
 } = require("../lib/follow-fixture-resolver");
-const { buildArtifact, validatePrivacy } = require("./build-follow-fixtures");
+const { buildArtifact, preservedArtifactForEmptyFixture, validatePrivacy } = require("./build-follow-fixtures");
 const { activeCollectionFollows, serviceHeaders } = require("./snapshot-active-follows");
 const {
   parseDiamondsArticle,
@@ -208,6 +208,16 @@ assert(validatePrivacy(artifact));
 assert(!JSON.stringify(artifact).includes("anonymous"));
 assert(!JSON.stringify(artifact).includes("entityFollows"));
 assert(!JSON.stringify(artifact).includes("collectionFollows"));
+assert.equal(preservedArtifactForEmptyFixture(
+  { schemaVersion:"follow-snapshot.v1", profiles:[] },
+  artifact,
+  { preloadedPath:"/tmp/privacy-safe-empty-fixture.json" },
+), artifact, "an intentionally empty preloaded QA snapshot must preserve the last validated non-empty production fixture artifact");
+assert.equal(preservedArtifactForEmptyFixture(
+  { schemaVersion:"follow-snapshot.v1", profiles:[{ profileHash:"anonymous", entityFollows:[], collectionFollows:[] }] },
+  artifact,
+  { preloadedPath:"/tmp/privacy-safe-empty-fixture.json" },
+), null, "a real profile snapshot must always rebuild the compact fixture artifact");
 
 const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "follow-fixture-permission-test-"));
 try{

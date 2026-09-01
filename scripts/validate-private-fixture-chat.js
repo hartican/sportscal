@@ -182,8 +182,8 @@ async function run(){
   assert.match(html, /copy\.className = "chat-user-copy"/);
   assert.match(html, /name\.className = "chat-user-name"/);
   assert.match(html, /email\.className = "chat-user-email"/, "member names and email addresses must render as separate rows");
-  assert.match(worker, /nothingsport-shell-v206/);
-  assert.equal(html.match(/name="app-shell-version" content="(\d+)"/)?.[1], "206");
+  assert.match(worker, /nothingsport-shell-v208/);
+  assert.equal(html.match(/name="app-shell-version" content="(\d+)"/)?.[1], "208");
   assert.match(worker, /"\/config\/chat-contract\.js"/);
 
   const ids = {

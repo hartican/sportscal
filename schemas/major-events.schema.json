@@ -114,8 +114,22 @@
         "competitionScope": { "enum": ["domestic", "international"] },
         "isInternational": { "type": "boolean" },
         "representativeCountryCodes": { "type": "array", "items": { "type": "string", "minLength": 2, "maxLength": 3 } },
-        "ticketing": { "$ref": "#/$defs/ticketing" }
-        ,"sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" }
+        "ticketing": { "$ref": "#/$defs/ticketing" },
+        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "editorialNarrative": { "$ref": "event-feed.schema.json#/$defs/editorialNarrative" },
+        "storyline": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["stakes", "hookSpoilerOff", "hookSpoilerOn", "synopsisSpoilerOff", "synopsisSpoilerOn", "arcStage"],
+          "properties": {
+            "stakes": { "type": "integer", "minimum": 1, "maximum": 5 },
+            "hookSpoilerOff": { "type": "string", "minLength": 1 },
+            "hookSpoilerOn": { "type": "string", "minLength": 1 },
+            "synopsisSpoilerOff": { "type": "string", "minLength": 1 },
+            "synopsisSpoilerOn": { "type": "string", "minLength": 1 },
+            "arcStage": { "enum": ["preview", "live", "recap"] }
+          }
+        }
       }
     },
     "event": {

@@ -453,6 +453,7 @@
         return {
           user: payload.user,
           state: stateFromDatabaseRow(payload.state),
+          preferenceRecovery:payload.preferenceRecovery || null,
         };
       },
       async loadMeta(){
@@ -580,6 +581,29 @@
         return {
           user: payload.user,
           state: stateFromDatabaseRow(payload.state),
+          preferenceRecovery:payload.preferenceRecovery || null,
+        };
+      },
+      async resetPreferences(preferences){
+        const payload = await authenticatedRequest("/api/user-state", {
+          method:"POST",
+          body:JSON.stringify({ action:"reset-preferences", preferences }),
+        });
+        return {
+          user:payload.user,
+          state:stateFromDatabaseRow(payload.state),
+          preferenceRecovery:payload.preferenceRecovery || null,
+        };
+      },
+      async undoPreferencesReset(resetId){
+        const payload = await authenticatedRequest("/api/user-state", {
+          method:"POST",
+          body:JSON.stringify({ action:"undo-preferences-reset", resetId }),
+        });
+        return {
+          user:payload.user,
+          state:stateFromDatabaseRow(payload.state),
+          preferenceRecovery:payload.preferenceRecovery || null,
         };
       },
       async signOut(){

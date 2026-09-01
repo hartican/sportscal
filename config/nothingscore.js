@@ -13,6 +13,8 @@
   const IMPACT_LABELS = PULSE_LABELS;
   const HEAT_TAGS = Object.freeze(["Box office", "Big stakes", "Rivalry", "Star power", "National interest", "Great storyline"]);
   const IMPACT_TAGS = Object.freeze(["Thrilling", "Eye-popping", "Mind-blowing", "Emotional", "Electric atmosphere", "Pure chaos"]);
+  const HEAT_LOW_TAGS = Object.freeze(["Rising storyline", "Emerging talent", "Low expectations", "Bog standard", "Too one-sided", "Hard to care"]);
+  const IMPACT_LOW_TAGS = Object.freeze(["Boring", "Standard", "Mediocre", "Underwhelming", "One-sided", "Disappointing"]);
   const POINT_RULES = Object.freeze({ heat:2, first_like:1, watching:1, pulse:1, pulse_15m:1, impact:3, valid_tags:1 });
   const PULSE_BUCKET_MS = 5 * 60 * 1000;
   const PULSE_FRESH_MS = 10 * 60 * 1000;
@@ -122,9 +124,15 @@
     const heat = Number.isFinite(Number(heatScore)) ? clamp(heatScore, 1, 5) : canonical;
     return { score:round1(canonical * (1-weight) + heat * weight), heatWeight:weight, stakesWeight:1-weight };
   }
+  function tagsFor(phase, rating){
+    const score = Number(rating);
+    if (!Number.isFinite(score) || score < 1 || score > 5) return [];
+    if (phase === "heat") return score <= 3 ? [...HEAT_LOW_TAGS] : [...HEAT_TAGS];
+    if (phase === "impact") return score <= 3 ? [...IMPACT_LOW_TAGS] : [...IMPACT_TAGS];
+    return [];
+  }
   function validTags(phase, rating, tags){
-    const allowed = phase === "heat" ? HEAT_TAGS : phase === "impact" ? IMPACT_TAGS : [];
-    if (Number(rating) < 4) return [];
+    const allowed = tagsFor(phase, rating);
     return [...new Set((Array.isArray(tags)?tags:[]).map(String).filter(tag=>allowed.includes(tag)))].slice(0,3);
   }
   function labelFor(phase, score){
@@ -141,10 +149,10 @@
   function normaliseHandle(value){ const handle=String(value||"").trim().toLowerCase().replace(/^@/,""); return /^[a-z0-9_]{3,24}$/.test(handle)?handle:""; }
 
   return Object.freeze({
-    HEAT_LABELS, HEAT_TAGS, IMPACT_LABELS, IMPACT_TAGS, PERSONA_WEIGHTS, PHASES, POINT_RULES,
+    HEAT_LABELS, HEAT_LOW_TAGS, HEAT_TAGS, IMPACT_LABELS, IMPACT_LOW_TAGS, IMPACT_TAGS, PERSONA_WEIGHTS, PHASES, POINT_RULES,
     PRESENCE_TTL_MS, PULSE_BUCKET_MS, PULSE_FRESH_MS, PULSE_LABELS, SCHEMA_VERSION,
     activePresence, aggregateRatings, blendBand, blendHeatWithStakes, capPointAwards, effectiveSupport,
     impactSeed, labelFor, leaderboardSort, likeLift, normaliseHandle, personaWeight, phaseFor,
-    pointValue, pulseAggregate, pulseBucket, validTags, weightedMean,
+    pointValue, pulseAggregate, pulseBucket, tagsFor, validTags, weightedMean,
   });
 });

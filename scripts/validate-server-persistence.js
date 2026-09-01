@@ -121,6 +121,7 @@ async function run(){
       theme: "night",
       viewing: { viewingWindowEnabled: true, startHourLocal: 7 },
     },
+    ratings:{ fixture:8 },
     event_user_state: { old: { watched: true } },
   }, {
     preferences: {
@@ -178,8 +179,10 @@ async function run(){
       theme: "night",
       viewing: { viewingWindowEnabled: true, startHourLocal: 7 },
     },
+    ratings:{ fixture:8 },
     updated_at: "2026-07-27T10:00:00.000Z",
   };
+  const preferenceResetId = "77777777-7777-4777-8777-777777777777";
   const passwordSession = {
     access_token: "access",
     refresh_token: "refresh",
@@ -232,6 +235,17 @@ async function run(){
     if (String(url).includes("/auth/v1/recover?redirect_to=")) return fetchResponse({});
     if (String(url).endsWith("/auth/v1/user") && options.method === "PUT") return fetchResponse(authUser);
     if (String(url).endsWith("/auth/v1/user")) return fetchResponse(authUser);
+    if (String(url).includes("/rest/v1/rpc/nothingsports_active_preference_reset")) return fetchResponse(null);
+    if (String(url).includes("/rest/v1/rpc/nothingsports_reset_preferences")){
+      const body = JSON.parse(options.body);
+      return fetchResponse({
+        recovery:{ resetId:preferenceResetId, createdAt:"2026-07-27T10:05:00.000Z", expiresAt:"2026-08-03T10:05:00.000Z" },
+        state:{ ...databaseRow, preferences:body.target_preferences, updated_at:"2026-07-27T10:05:00.000Z" },
+      });
+    }
+    if (String(url).includes("/rest/v1/rpc/nothingsports_undo_preferences_reset")){
+      return fetchResponse({ recovery:null, state:{ ...databaseRow, updated_at:"2026-07-27T10:06:00.000Z" } });
+    }
     if (String(url).includes("/rest/v1/nothingsports_user_state") && options.method === "PATCH"){
       if (forceConditionalConflict){
         forceConditionalConflict = false;
@@ -406,6 +420,31 @@ async function run(){
     assert.equal(userLookup.options.headers.Authorization, "Bearer access-token", "the Auth API must verify the signed-in user token");
     const stateLookup = requests.find(request => request.url.includes("/rest/v1/nothingsports_user_state"));
     assert.equal(stateLookup.options.headers.Authorization, "Bearer access-token", "RLS requests must run as the signed-in user");
+
+    const resetResponse = responseStub();
+    await userStateHandler({
+      method:"POST",
+      headers:{ authorization:"Bearer access-token" },
+      body:{ action:"reset-preferences", preferences:{ version:16, theme:"system", followedSports:[] } },
+    }, resetResponse);
+    assert.equal(resetResponse.statusCode, 200);
+    assert.equal(resetResponse.body.preferenceRecovery.resetId, preferenceResetId);
+    assert.equal(resetResponse.body.state.event_user_state.event.watchLater, true, "preference reset must retain durable event state");
+    assert.equal(resetResponse.body.state.ratings.fixture, 8, "preference reset must retain ratings unchanged");
+    const resetRequest = requests.find(request => request.url.includes("nothingsports_reset_preferences"));
+    assert.equal(JSON.parse(resetRequest.options.body).target_user_id, authUser.id, "the verified session user must own the reset RPC");
+
+    const undoResponse = responseStub();
+    await userStateHandler({
+      method:"POST",
+      headers:{ authorization:"Bearer access-token" },
+      body:{ action:"undo-preferences-reset", resetId:preferenceResetId },
+    }, undoResponse);
+    assert.equal(undoResponse.statusCode, 200);
+    assert.equal(undoResponse.body.preferenceRecovery, null);
+    assert.equal(undoResponse.body.state.preferences.theme, "night", "undo must replace post-reset changes with the exact saved preferences");
+    const undoRequest = requests.find(request => request.url.includes("nothingsports_undo_preferences_reset"));
+    assert.deepEqual(JSON.parse(undoRequest.options.body), { target_user_id:authUser.id, target_reset_id:preferenceResetId });
 
     const legacyResponse = responseStub();
     await userStateHandler({

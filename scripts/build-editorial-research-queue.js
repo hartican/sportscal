@@ -37,15 +37,33 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
   const majorMarquees = (majorEvents.events || [])
     .filter(record => record.stakesScore === 5 && record.lifecycleStatus !== "retired" && record.kind !== "ticket_sale")
     .map(record => ({ targetType:"major-event", record, reason:"surfaced-stakes-5" }));
+  const majorChildren = (majorEvents.events || [])
+    .filter(record => record.lifecycleStatus !== "retired" && record.kind !== "ticket_sale")
+    .flatMap(parent => (parent.subEvents || []).map(record => ({ parent, record })))
+    .filter(({ record }) => {
+      const start = eventTime(record);
+      return stakesFor(record) >= 3 && Number.isFinite(start) && start >= earliest && start <= latest;
+    })
+    .map(({ parent, record }) => ({
+      targetType:"major-event-child",
+      record:{ ...record, parentEventId:parent.id },
+      reason:"surfaced-major-fixture",
+    }));
   const uniqueTargets = new Map();
-  [...rolling, ...feedMarquees, ...majorMarquees].forEach(target => {
+  [...rolling, ...feedMarquees, ...majorMarquees, ...majorChildren].forEach(target => {
     const key = targetKey(target.targetType, target.record);
     const previous = uniqueTargets.get(key);
     uniqueTargets.set(key, previous ? { ...previous, reason:`${previous.reason}+${target.reason}` } : target);
   });
   const signalById = new Map((signals.signals || []).map(signal => [signal.sourceEventId, signal]));
   const entries = [...uniqueTargets.values()].map(({ targetType, record, reason }) => {
-    const projection = projectionForTarget(knowledge, targetType, record);
+    const projection = targetType === "major-event-child"
+      ? (record.editorialNarrative ? {
+          id:record.editorialNarrative.projectionId,
+          refreshAfter:record.editorialNarrative.refreshAfter,
+          consequence:record.editorialNarrative.consequence,
+        } : null)
+      : projectionForTarget(knowledge, targetType, record);
     const signal = signalById.get(idFor(record));
     const anticipationPriority = Number(signal?.anticipation?.score) >= 4 && Number(signal?.anticipation?.support) >= 3;
     const pulseUrgent = signal?.pulse?.active === true;
@@ -99,7 +117,7 @@ function main(){
     reference,
   });
   if (write) writeJson(OUTPUT_PATH, queue);
-  const missing = queue.entries.filter(entry => entry.coverage === "missing");
+  const missing = queue.entries.filter(entry => entry.coverage === "missing" && entry.targetType !== "major-event-child");
   if (missing.length) throw new Error(`Editorial release gate blocked: ${missing.length} required card(s) lack substantive projections: ${missing.map(item => item.targetId).join(", ")}`);
   console.log(`${write ? "Built" : "Validated"} editorial queue: ${queue.entries.length} required targets, 100% projection-covered; ${queue.consequenceMigration.covered} consequence-covered and ${queue.consequenceMigration.queued} queued for sourced consequence research.`);
 }

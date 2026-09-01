@@ -39,6 +39,18 @@ async function recordDispatchHealth(body){
   });
 }
 
+function notificationPayload(reminder, startLabel){
+  const sessionStart = reminder.delivery_mode === "session-start";
+  return {
+    title:reminder.title,
+    body:sessionStart
+      ? `Broadcast starts at ${startLabel}; this match follows. Tap to open Nothing Sport.`
+      : `Starts at ${startLabel}. Tap to open Nothing Sport.`,
+    tag:`nothingsport-${reminder.event_id}`,
+    url:reminder.viewing_url || `/?event=${encodeURIComponent(reminder.event_id)}`,
+  };
+}
+
 module.exports = async function notificationDispatchHandler(request, response){
   response.setHeader("Cache-Control", "no-store");
   try{
@@ -85,19 +97,10 @@ module.exports = async function notificationDispatchHandler(request, response){
       }
       try{
         const startLabel = new Intl.DateTimeFormat("en-AU", { hour:"numeric", minute:"2-digit", timeZone:installation.timezone || "Australia/Sydney" }).format(new Date(reminder.starts_at));
-        const sessionStart = reminder.delivery_mode === "session-start";
-        const broadcastStart = reminder.delivery_mode === "broadcast-15";
         await webpush.sendNotification({
           endpoint:installation.endpoint,
           keys:{ p256dh:installation.p256dh, auth:installation.auth_key },
-        }, JSON.stringify({
-          title:sessionStart ? `Session starts now: ${reminder.title}` : `Starts in 15 minutes: ${reminder.title}`,
-          body:sessionStart
-            ? `The official session starts at ${startLabel}; this match follows. Tap to open Nothing Sport.`
-            : `${broadcastStart ? "Published broadcast" : "Sporting start"} at ${startLabel}. Tap to open Nothing Sport.`,
-          tag:`nothingsport-${reminder.event_id}`,
-          url:reminder.viewing_url || `/?event=${encodeURIComponent(reminder.event_id)}`,
-        }), { TTL:900, urgency:"high", topic:String(reminder.event_id).replace(/[^A-Za-z0-9_-]/g, "").slice(0, 32) || undefined });
+        }, JSON.stringify(notificationPayload(reminder, startLabel)), { TTL:900, urgency:"high", topic:String(reminder.event_id).replace(/[^A-Za-z0-9_-]/g, "").slice(0, 32) || undefined });
         sent += 1;
         await patchClaimedReminder(reminder.id, claimedAt, { claimed_at:null, dispatched_at:new Date().toISOString(), attempts:Number(reminder.attempts || 0) + 1, last_error:null });
       }catch(error){
@@ -127,4 +130,4 @@ module.exports = async function notificationDispatchHandler(request, response){
   }
 };
 
-module.exports._test = { CLAIM_STALE_MS, claimFilter, recordDispatchHealth };
+module.exports._test = { CLAIM_STALE_MS, claimFilter, notificationPayload, recordDispatchHealth };

@@ -160,6 +160,8 @@ function normalizeFixture(event, codeId, extra = {}){
     viewingOptions:Array.isArray(event.viewingOptions) ? event.viewingOptions : [],
     sourceUrl:event.sourceUrl || null,
     ticketUrl:event.ticketUrl || null,
+    ...(event.editorialNarrative ? { editorialNarrative:event.editorialNarrative } : {}),
+    ...(event.storyline ? { storyline:event.storyline } : {}),
     sourceCoverage: extra.sourceCoverage || "published-feed",
   };
 }

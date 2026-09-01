@@ -69,7 +69,7 @@ if (andreevaMixed.timePrecision === "follows"){
   assert.match(andreevaFeedFixture.displayTimeLabel, /^Follows · /, "a pinned Follows match must retain its honest display label");
 }
 const completeTimeline = majorEvents.phaseTimeline(usOpen, reference, { level:"L2", timeZone:"Australia/Sydney", includeOlder:true });
-assert(completeTimeline.upcoming.some(item => currentOfficialSourceUrls.has(item.subEvent.sourceUrl)), "L2 must expose the current released US Open order of play");
+assert([...completeTimeline.recent, ...completeTimeline.upcoming].some(item => currentOfficialSourceUrls.has(item.subEvent.sourceUrl)), "L2 must expose the current released US Open order of play even when the live source has already completed that court day");
 assert(completeTimeline.upcoming.some(item => !currentOfficialSourceUrls.has(item.subEvent.sourceUrl)), "L2 must retain already released next-day fixtures instead of only the current New York day");
 assert(completeTimeline.recent.some(item => item.subEvent.id === "fixture:us-open-2026:federer-v-roddick" && item.effectiveStatus === "completed"), "completed exhibition history must remain above Now after the main draw begins");
 
@@ -144,7 +144,7 @@ assert.equal(tennisDirectory.collections.find(item => item.id === "collection:te
 
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 const worker = fs.readFileSync(path.join(ROOT, "service-worker.js"), "utf8");
-assert(html.includes('config/follow-first.js?v=206') && worker.includes('"/config/follow-first.js?v=206"'), "the hierarchical follow runtime must use the current app-shell URL so installed updates cannot retain stale collection identity rules");
+assert(html.includes('config/follow-first.js?v=208') && worker.includes('"/config/follow-first.js?v=208"'), "the hierarchical follow runtime must use the current app-shell URL so installed updates cannot retain stale collection identity rules");
 assert(/ensureFollowCollectionDirectories\(userPreferences\)\.then\(\(\) => \{[\s\S]{0,500}renderAll\(\{ preserveViewport:true \}\)/.test(html), "saved collection follows must automatically re-render Feed and Events when their lazy directory becomes available");
 assert(html.includes("activeMajorEventNowId") && html.includes("events-now-marker"), "Events must keep one active card-local Now marker");
 assert(html.includes("Follow Event") && html.includes("Unfollow Event"), "Event cards must expose family follow controls");

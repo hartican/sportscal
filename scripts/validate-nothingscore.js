@@ -42,7 +42,7 @@ assert.equal(nsc.aggregateRatings([], 4).internalScore, 3.1, "likes alone use th
 assert.equal(nsc.aggregateRatings(twoPilotRows, 8).score, 2.7);
 assert.equal(nsc.aggregateRatings(twoPilotRows, 8).support, 7, "support combines role weights with 0.25 per like");
 assert.equal(nsc.aggregateRatings(twoPilotRows, 100).support, 12, "like support must cap at seven while rating weight remains intact");
-assert.deepEqual(nsc.validTags("heat", 3, ["Rivalry"]), []);
+assert.deepEqual(nsc.validTags("heat", 3, ["Rivalry","Bog standard"]), ["Bog standard"]);
 assert.deepEqual(nsc.validTags("heat", 5, ["Rivalry","Rivalry","Big stakes","Star power","Box office"]), ["Rivalry","Big stakes","Star power"]);
 assert.equal(nsc.blendBand(2.99), 0);
 assert.equal(nsc.blendBand(3), .25);
@@ -147,6 +147,10 @@ assert.deepEqual(Array.from(browserNsc.HEAT_LABELS), Array.from(nsc.HEAT_LABELS)
 assert.deepEqual(Array.from(browserNsc.PULSE_LABELS), Array.from(nsc.PULSE_LABELS));
 assert.deepEqual(Array.from(browserNsc.HEAT_TAGS), Array.from(nsc.HEAT_TAGS));
 assert.deepEqual(Array.from(browserNsc.IMPACT_TAGS), Array.from(nsc.IMPACT_TAGS));
+assert.deepEqual(Array.from(browserNsc.HEAT_LOW_TAGS), Array.from(nsc.HEAT_LOW_TAGS));
+assert.deepEqual(Array.from(browserNsc.IMPACT_LOW_TAGS), Array.from(nsc.IMPACT_LOW_TAGS));
+assert.deepEqual(Array.from(browserNsc.tagsFor("heat", 2)), Array.from(nsc.tagsFor("heat", 2)));
+assert.deepEqual(Array.from(browserNsc.tagsFor("impact", 3)), Array.from(nsc.tagsFor("impact", 3)));
 assert.deepEqual({...browserNsc.blendHeatWithStakes(1,5,25)}, nsc.blendHeatWithStakes(1,5,25));
 assert.equal(browserNsc.labelFor("impact",5), nsc.labelFor("impact",5));
 assert.match(html, /summary\.className = "nsc-summary"/);
@@ -166,9 +170,9 @@ assert.match(html, /Report username/);
 assert.doesNotMatch(html, /NSC building/, "cards must not expose aggregate-building metadata");
 assert.match(html, /Submitted · \$\{phaseName\}[^]*NSC[^]*Leaderboard/, "submitted cards must render the compact exact-points receipt");
 assert.match(html, /action:"submit"/, "Heat and Impact must use the explicit submission action");
-assert.match(worker, /nothingsport-shell-v206/);
+assert.match(worker, /nothingsport-shell-v208/);
 assert.doesNotMatch(worker, /"\/config\/nothingscore\.js"/);
-assert.equal(html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1], "206");
+assert.equal(html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1], "208");
 
 const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/)?.[1];
 assert(inlineScript);

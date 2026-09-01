@@ -11,6 +11,7 @@ const {
   projectionForTarget,
   validateKnowledge,
 } = require("./lib/editorial-narrative.js");
+const majorEventContract = require("../config/major-events.js");
 
 const WRITE = process.argv.includes("--write");
 const KNOWLEDGE_PATH = path.resolve("data/editorial-knowledge.v1.json");
@@ -44,11 +45,38 @@ function main(){
 
   const majorEvents = readJson(MAJOR_EVENTS_PATH);
   let majorApplied = 0;
+  let childApplied = 0;
   majorEvents.events = majorEvents.events.map(record => {
     const projection = projectionForTarget(knowledge, "major-event", record);
-    if (!projection) return record;
-    majorApplied += 1;
-    return applyToMajorEvent(record, projection, indexes);
+    const projectedParent = projection ? applyToMajorEvent(record, projection, indexes) : record;
+    if (projection) majorApplied += 1;
+    if (!Array.isArray(projectedParent.subEvents)) return projectedParent;
+    return {
+      ...projectedParent,
+      subEvents:projectedParent.subEvents.map(subEvent => {
+        const resolved = majorEventContract.editorialRecordForSubEvent(
+          subEvent,
+          projectedParent,
+          [...feed.events, ...publishedFeed.events],
+        );
+        const narrative = resolved?.editorialNarrative;
+        if (!narrative) return subEvent;
+        childApplied += 1;
+        return {
+          ...subEvent,
+          editorialNarrative:narrative,
+          storyline:{
+            ...(subEvent.storyline || {}),
+            stakes:Number(subEvent.stakesScore || projectedParent.stakesScore || 5),
+            hookSpoilerOff:narrative.hook,
+            hookSpoilerOn:narrative.hook,
+            synopsisSpoilerOff:narrative.synopsis,
+            synopsisSpoilerOn:narrative.synopsis,
+            arcStage:"preview",
+          },
+        };
+      }),
+    };
   });
 
   const expectedFeed = new Set(knowledge.eventProjections.filter(item => item.targetType === "feed-event").flatMap(item => item.targetIds));
@@ -63,7 +91,7 @@ function main(){
     writeJson(PUBLISHED_FEED_PATH, publishedFeed);
     writeJson(MAJOR_EVENTS_PATH, majorEvents);
   }
-  console.log(`${WRITE ? "Applied" : "Would apply"} ${feedApplied} feed and ${majorApplied} major-event editorial projections.`);
+  console.log(`${WRITE ? "Applied" : "Would apply"} ${feedApplied} feed, ${majorApplied} major-event and ${childApplied} fixture-child editorial projections.`);
 }
 
 if (require.main === module){
