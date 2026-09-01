@@ -193,6 +193,16 @@ const djokovicFixture = resolvedTennis.events.find(event => (
 ));
 assert(djokovicFixture, "the Men's current top 10 collection must resolve Djokovic's released US Open match");
 
+const collectionInheritedMajorEvents = majorEventsConfig.visibleRecords(majorEventsDocument, {
+  followedSports:[],
+  followedEventFamilyIds:[],
+  followedParticipantIds:[DJOKOVIC_ID],
+}, new Date("2026-09-01T05:30:00.000Z"));
+assert(
+  collectionInheritedMajorEvents.events.some(event => event.id === "major-event:us-open-2026"),
+  "an active major event must surface when a followed collection member has a published child fixture",
+);
+
 const djokovicFeed = buildServerFeed({
   events: [...Array.from({ length: 55 }, (_, index) => genericEvent(index)), djokovicFixture],
   userId: "00000000-0000-4000-8000-000000000002",
@@ -208,6 +218,34 @@ assert(
 assert(
   djokovicFeed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === DJOKOVIC_US_OPEN_ID),
   "the inherited Djokovic follow must materialise a first-page server card",
+);
+
+const futureFixtureClutter = Array.from({ length: 55 }, (_, index) => {
+  const start = new Date(Date.UTC(2026, 8, 2 + index, 9, 0));
+  return {
+    ...genericEvent(index),
+    id:`future-${index}`,
+    eventId:`future-${index}`,
+    canonicalEventId:`event:future:${index}`,
+    name:`Future fixture ${index}`,
+    displayTitleCompact:`Future fixture ${index}`,
+    date:start.toISOString().slice(0, 10),
+    startTimeUtc:start.toISOString(),
+    endTimeUtc:new Date(start.getTime() + 3 * 60 * 60 * 1000).toISOString(),
+    storyline:{ stakes:4, intensity:4 },
+  };
+});
+const nextDayDjokovicFeed = buildServerFeed({
+  events:[...futureFixtureClutter, djokovicFixture],
+  userId:"00000000-0000-4000-8000-000000000004",
+  userState:topTenTennisState,
+  participants:resolvedTennis.participants,
+  now:new Date("2026-09-01T05:30:00.000Z"),
+  limit:20,
+});
+assert(
+  nextDayDjokovicFeed.events.some(event => event.id === DJOKOVIC_US_OPEN_ID),
+  "yesterday's completed Djokovic match must remain on the initial Feed page even when future followed fixtures exceed the page limit",
 );
 
 const html = fs.readFileSync("index.html", "utf8");

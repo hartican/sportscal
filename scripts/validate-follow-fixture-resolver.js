@@ -236,7 +236,7 @@ const artifactBuilderSource = fs.readFileSync(path.resolve(__dirname, "build-fol
 assert(artifactBuilderSource.includes("includeCompactArtifact:false"), "the compact artifact must be regenerated from source bundles rather than its previous saved state");
 
 const html = fs.readFileSync(path.resolve(__dirname, "../index.html"), "utf8");
-assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v4"'), "pre-auto-follow-startup personalised pages must be invalidated");
+assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v5"'), "pre-recent-result-order personalised pages must be invalidated");
 assert(html.includes('payload?.schemaVersion !== "server-feed.v3"'), "the client must reject stale personalised schemas");
 assert(html.includes("requestFeedRebuildAfterFollowChange"), "follow changes must request an immediate server rebuild");
 assert.match(html, /await syncCurrentServerState\(\);[^]*await clearCachedPersonalisedFeed[^]*await refreshRemoteFeed/, "the follow rebuild must complete server sync before fetching the new page");

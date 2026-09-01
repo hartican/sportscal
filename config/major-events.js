@@ -83,11 +83,20 @@
   function visibleRecords(document, followedInput, reference = new Date()){
     const followedSports = Array.isArray(followedInput) ? followedInput : followedInput?.followedSports || [];
     const followedEventFamilyIds = new Set(Array.isArray(followedInput?.followedEventFamilyIds) ? followedInput.followedEventFamilyIds : []);
+    const followedParticipantIds = Array.isArray(followedInput?.followedParticipantIds) ? followedInput.followedParticipantIds : [];
+    const followedParticipantNames = Array.isArray(followedInput?.followedParticipantNames) ? followedInput.followedParticipantNames : [];
     const records = Array.isArray(document?.events) ? document.events : [];
     const parents = records.filter(record => record.kind !== "ticket_sale"
       && record.lifecycleStatus !== "retired"
       && record.stakesScore === 5
-      && (followed(record, followedSports) || followedEventFamilyIds.has(eventFamilyId(record)))
+      && (
+        followed(record, followedSports)
+        || followedEventFamilyIds.has(eventFamilyId(record))
+        || (record.subEvents || []).some(subEvent => subEventMatchesFollow(subEvent, {
+          followedParticipantIds,
+          followedParticipantNames,
+        }))
+      )
       && inWindow(record, reference));
     const parentIds = new Set(parents.map(record => record.id));
     const alerts = records.filter(record => record.kind === "ticket_sale" && parentIds.has(record.parentEventId) && activeTicketing(record, reference));
@@ -202,12 +211,17 @@
     return subEvent?.marquee === true || subEvent?.isMarquee === true || subEvent?.cardVariant === "marquee";
   }
 
-  function subEventMeetsDisplayPolicy(subEvent, { followedParticipantIds = [], followedParticipantNames = [] } = {}){
+  function subEventMatchesFollow(subEvent, { followedParticipantIds = [], followedParticipantNames = [] } = {}){
     const identity = subEventParticipantIdentity(subEvent);
     const followedIds = new Set(followedParticipantIds.map(value => String(value || "").trim()).filter(Boolean));
     const followedNames = new Set(followedParticipantNames.map(normalizedParticipantName).filter(Boolean));
-    const followed = identity.ids.some(id => followedIds.has(id)) || identity.names.some(name => followedNames.has(name));
-    return followed || Number(subEvent?.stakesScore || 0) >= 4 || subEventIsMarquee(subEvent);
+    return identity.ids.some(id => followedIds.has(id)) || identity.names.some(name => followedNames.has(name));
+  }
+
+  function subEventMeetsDisplayPolicy(subEvent, followedInput = {}){
+    return subEventMatchesFollow(subEvent, followedInput)
+      || Number(subEvent?.stakesScore || 0) >= 4
+      || subEventIsMarquee(subEvent);
   }
 
   function activeEditionForFamily(document, familyId, reference = new Date()){
@@ -581,5 +595,5 @@
     return errors;
   }
 
-  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, editorialRecordForSubEvent, editorialFixtureFromSubEvent, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMatchesFollow, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, editorialRecordForSubEvent, editorialFixtureFromSubEvent, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
 });
