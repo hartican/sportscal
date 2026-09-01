@@ -1,0 +1,18 @@
+.chat-attachment-previews{display:grid;gap:8px;min-height:0}
+.chat-attachment-preview{display:grid;grid-template-columns:64px minmax(0,1fr) auto;align-items:center;gap:8px;min-height:72px;padding:6px;border:1px solid var(--border);border-radius:12px;color:var(--text-dim);font-size:.66rem}
+.chat-attachment-preview img{display:block;width:64px;height:58px;border-radius:8px;background:#09090d;object-fit:cover}
+.chat-attachment-preview-copy{min-width:0;display:grid;gap:3px}
+.chat-attachment-preview-copy strong{overflow:hidden;color:var(--text);text-overflow:ellipsis;white-space:nowrap}
+.chat-attachment-preview-actions{display:flex;flex-direction:column;gap:4px}
+.chat-attachment-preview button{min-width:44px;min-height:36px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--text);cursor:pointer}
+.chat-gif-picker{position:fixed;inset:0;z-index:280;display:none;flex-direction:column;overflow:hidden;background:var(--panel-bg)}
+.chat-gif-picker.show{display:flex}
+.chat-gif-picker-head{flex:0 0 auto;display:flex;align-items:center;gap:10px;min-height:64px;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;border-bottom:1px solid var(--border)}
+.chat-gif-picker-head h2{flex:1;font-size:1rem}
+.chat-gif-picker-search{flex:0 0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:12px 14px}
+.chat-gif-picker-search input{width:100%;min-height:46px}
+.chat-gif-picker-status{flex:0 0 auto;min-height:24px;padding:0 14px 8px;color:var(--text-dim);font-size:.7rem}
+.chat-gif-results{flex:1 1 auto;min-height:0;display:grid;align-content:start;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;overflow-y:auto;overscroll-behavior:contain;padding:0 14px calc(14px + env(safe-area-inset-bottom))}
+.chat-gif-result{padding:0;border:0;border-radius:7px;overflow:hidden;background:var(--bg-card);cursor:pointer}
+.chat-gif-result img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.chat-gif-attribution{grid-column:1/-1;min-height:36px;color:var(--text-dim);text-align:right;font-size:.65rem}

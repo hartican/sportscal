@@ -14,6 +14,8 @@
   const USER_STATE_SCHEMA_VERSION = "user-state.v2";
   const PRODUCT_EVENTS_SCHEMA_VERSION = "product-events.v1";
   const REFRESH_EARLY_MS = 60 * 1000;
+  const REFRESH_LOCK_KEY = "ns_auth_refresh_lock_v1";
+  const REFRESH_CHANNEL_NAME = "ns_auth_refresh_v1";
 
   function clone(value){
     if (typeof structuredClone === "function") return structuredClone(value);
@@ -169,7 +171,6 @@
       if (session) storage?.setItem?.(key, JSON.stringify(session));
       else storage?.removeItem?.(key);
     }catch(_error){
-      // Blocked browser storage means the user signs in again next visit.
     }
     return session;
   }
@@ -185,6 +186,15 @@
     let refreshInFlight = null;
     let guestChatSession = null;
     let guestRefreshInFlight = null;
+    const refreshOwner = `${Date.now().toString(36)}:${Math.random().toString(36).slice(2)}`;
+    const refreshChannel = typeof BroadcastChannel === "function" ? new BroadcastChannel(REFRESH_CHANNEL_NAME) : null;
+    refreshChannel?.unref?.();
+
+    function terminalRefreshError(error){
+      const status = Number(error?.status || 0), code = String(error?.code || "").toLowerCase();
+      return /^(refresh_session_terminal|refresh_token_(not_found|already_used|revoked)|invalid_refresh_token)$/.test(code)
+        || ([400, 401, 403].includes(status) && code !== "refresh_session_retryable");
+    }
 
     async function jsonRequest(path, options = {}){
       if (typeof fetchImpl !== "function") throw new Error("Server sync is unavailable in this browser.");
@@ -221,7 +231,6 @@
       try{
         persistentStorage?.setItem?.(SESSION_PERSISTENCE_KEY, persist ? "persistent" : "session");
       }catch(_error){
-        // The chosen mode still applies for the current app process.
       }
     }
 
@@ -236,6 +245,13 @@
       }
       return session;
     }
+
+    refreshChannel?.addEventListener?.("message", event => {
+      if (event.data?.type !== "session-refreshed" || !event.data?.session) return;
+      const activeRefreshToken = session?.refreshToken || restoreStoredSession()?.refreshToken || "";
+      if (!activeRefreshToken || activeRefreshToken !== event.data.previousRefreshToken) return;
+      saveSession(event.data.session);
+    });
 
     function clearSession(){
       session = null;
@@ -262,21 +278,58 @@
       return temporary;
     }
 
+    async function performSessionRefresh(){
+      const previousRefreshToken = session.refreshToken;
+      const payload = await jsonRequest("/api/auth", {
+        method: "POST",
+        body: JSON.stringify({ action:"refresh", refreshToken:previousRefreshToken }),
+      });
+      const saved = saveSession(payload.session);
+      refreshChannel?.postMessage?.({ type:"session-refreshed", previousRefreshToken, session:saved });
+      return saved;
+    }
+
+    async function refreshWithStorageLease(){
+      let lease = null;
+      try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
+      while (lease?.owner && Number(lease.expiresAt) > now() && lease.owner !== refreshOwner){
+        await new Promise(resolve => globalThis.setTimeout(resolve, Math.min(220, Math.max(20, Number(lease.expiresAt) - now()))));
+        const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
+        if (stored && stored.refreshToken !== session.refreshToken){
+          session = stored;
+          return session;
+        }
+        try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
+      }
+      try{ persistentStorage?.setItem?.(REFRESH_LOCK_KEY, JSON.stringify({ owner:refreshOwner, expiresAt:now() + 15_000 })); }catch(_error){}
+      try{ return await performSessionRefresh(); }
+      finally{
+        try{ if (JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null")?.owner === refreshOwner) persistentStorage?.removeItem?.(REFRESH_LOCK_KEY); }catch(_error){}
+      }
+    }
+
+    async function coordinatedSessionRefresh(){
+      if (globalThis.navigator?.locks?.request){
+        return navigator.locks.request("nothingsport-auth-refresh", { mode:"exclusive" }, async () => {
+          const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
+          if (stored && stored.refreshToken !== session.refreshToken){
+            session = stored;
+            return session;
+          }
+          return performSessionRefresh();
+        });
+      }
+      return refreshWithStorageLease();
+    }
+
     async function refreshSession(){
       if (!session?.refreshToken) return null;
       if (refreshInFlight) return refreshInFlight;
       refreshInFlight = (async () => {
         try{
-          const payload = await jsonRequest("/api/auth", {
-            method: "POST",
-            body: JSON.stringify({
-              action: "refresh",
-              refreshToken: session.refreshToken,
-            }),
-          });
-          return saveSession(payload.session);
+          return await coordinatedSessionRefresh();
         }catch(error){
-          clearSession();
+          if (terminalRefreshError(error)) clearSession();
           throw error;
         }finally{
           refreshInFlight = null;
@@ -349,7 +402,7 @@
           });
           return saveGuestChatSession(payload.session);
         }catch(error){
-          clearGuestChatSession();
+          if (terminalRefreshError(error)) clearGuestChatSession();
           throw error;
         }finally{
           guestRefreshInFlight = null;
@@ -500,11 +553,12 @@
           body:JSON.stringify({ action:"guest-preview", capability:String(capability || "") }),
         });
       },
-      async chatRequest({ mode = "", roomId = "", after = "", before = "", q = "", reactionAfter = "" } = {}, command = null){
+      async chatRequest({ mode = "", roomId = "", after = "", before = "", q = "", reactionAfter = "" } = {}, command = null, requestOptions = {}){
         if (command){
           return chatAuthenticatedRequest("/api/chat", {
             method:"POST",
             body:JSON.stringify(command),
+            signal:requestOptions.signal,
           });
         }
         const params = new URLSearchParams();
@@ -514,7 +568,7 @@
         if (before) params.set("before", before);
         if (q) params.set("q", q);
         if (reactionAfter) params.set("reactionAfter", reactionAfter);
-        return chatAuthenticatedRequest(`/api/chat?${params.toString()}`);
+        return chatAuthenticatedRequest(`/api/chat?${params.toString()}`, { signal:requestOptions.signal });
       },
       async commsRequest(command = null, query = {}){
         const params = new URLSearchParams();

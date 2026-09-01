@@ -146,6 +146,7 @@ async function clearAnonymousSignupTicketAndRefresh(request,session){
 module.exports = async function authHandler(request, response){
   setPrivateResponseHeaders(response);
   const config = supabaseConfig();
+  let authAction = "";
 
   try{
     if (request.method === "GET" || !request.method){
@@ -169,6 +170,7 @@ module.exports = async function authHandler(request, response){
     }
 
     const body = requestBody(request);
+    authAction = String(body.action || "");
     if (body.action === "anonymous-chat-session"){
       const capability=parseShareCapability(body.capability);
       const guestDisplayName=chatContract.displayName(body.guestDisplayName);
@@ -404,6 +406,15 @@ module.exports = async function authHandler(request, response){
   }catch(error){
     if(error instanceof ChatCapabilityError){response.status(error.status).json({error:error.message,code:error.code});return}
     const outgoing = publicError(error);
+    if (["refresh", "refresh-anonymous-chat-session"].includes(authAction)){
+      const terminal = [400, 401, 403].includes(Number(outgoing.status));
+      response.status(outgoing.status).json({
+        ...outgoing.body,
+        code:terminal ? "refresh_session_terminal" : "refresh_session_retryable",
+        causeCode:outgoing.body?.code || null,
+      });
+      return;
+    }
     response.status(outgoing.status).json(outgoing.body);
   }
 };

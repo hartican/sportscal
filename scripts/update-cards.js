@@ -208,6 +208,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-code-inspector-ui.js"],
   ["scripts/validate-events-fixture-ux.js"],
   ["scripts/validate-interaction-card-reliability.js"],
+  ["scripts/validate-card-chat-viewport-release.js"],
   ["scripts/validate-optimistic-actions.js"],
   ["scripts/validate-event-now-follow-affinity.js"],
   ["scripts/validate-mobile-reliability-pass.js"],

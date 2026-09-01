@@ -540,7 +540,7 @@ async function handleRoomGet(request, user, admin, profile){
   const attachmentRows = messages.length ? await rows(TABLES.attachments, {
     message_id:`in.(${messages.map(item => item.id).join(",")})`,
     status:"in.(ready,saved)",
-    select:"attachment_id,message_id,kind,file_name,content_type,byte_size,object_path,status,created_at",
+    select:"attachment_id,message_id,kind,file_name,content_type,byte_size,object_path,status,source_metadata,created_at",
   }) : [];
   const attachmentsByMessage = new Map();
   await Promise.all(attachmentRows.map(async attachment => {
@@ -553,6 +553,7 @@ async function handleRoomGet(request, user, admin, profile){
       byteSize:Number(attachment.byte_size),
       url:await storageSignedDownload(CHAT_MEDIA_BUCKET, attachment.object_path),
       saved:attachment.status === "saved",
+      sourceMetadata:attachment.source_metadata || {},
     });
     attachmentsByMessage.set(attachment.message_id, list);
   }));
@@ -714,6 +715,108 @@ async function completeAttachment(body, user, admin){
   return { schemaVersion:chatContract.SCHEMA_VERSION, attachmentId, ready:true };
 }
 
+function cleanSourceMetadata(value){
+  const source = value && typeof value === "object" && !Array.isArray(value) ? value : {};
+  return Object.fromEntries(Object.entries(source)
+    .filter(([, item]) => ["string", "number", "boolean"].includes(typeof item))
+    .map(([key, item]) => [String(key).slice(0, 80), typeof item === "string" ? item.slice(0, 2000) : item]));
+}
+
+async function resolveGifProviderMedia(providerValue, gifIdValue){
+  const provider = String(providerValue || "").trim().toLowerCase();
+  const gifId = String(gifIdValue || "").trim().slice(0, 200);
+  if (!gifId || !["giphy", "wikimedia"].includes(provider)){
+    throw new ChatRequestError("That GIF provider reference is invalid.", 400, "invalid_gif_reference");
+  }
+  if (provider === "giphy"){
+    const key = String(process.env.GIPHY_API_KEY || "").trim();
+    if (!key) throw new ChatRequestError("GIPHY is not configured.", 503, "gif_provider_unavailable");
+    const url = new URL(`https://api.giphy.com/v1/gifs/${encodeURIComponent(gifId)}`);
+    url.searchParams.set("api_key", key);
+    const response = await fetch(url, { signal:AbortSignal.timeout(10_000) });
+    if (!response.ok) throw new ChatRequestError("That GIF is no longer available.", 404, "gif_not_found");
+    const item = (await response.json())?.data || {};
+    const originalUrl = item.images?.original?.url;
+    if (!originalUrl) throw new ChatRequestError("That GIF is no longer available.", 404, "gif_not_found");
+    return {
+      provider, gifId:String(item.id || gifId), mediaUrl:originalUrl,
+      title:String(item.title || "GIF").slice(0, 120),
+      sourceMetadata:cleanSourceMetadata({
+        provider, providerId:String(item.id || gifId), sourcePage:item.url || "https://giphy.com/",
+        attribution:"Powered by GIPHY", creator:item.username || "", licence:"GIPHY Terms",
+      }),
+    };
+  }
+  if (!/^\d{1,20}$/.test(gifId)) throw new ChatRequestError("That Wikimedia GIF reference is invalid.", 400, "invalid_gif_reference");
+  const url = new URL("https://commons.wikimedia.org/w/api.php");
+  url.search = new URLSearchParams({
+    action:"query", pageids:gifId, prop:"imageinfo", iiprop:"url|mime|size|extmetadata", format:"json", origin:"*",
+  }).toString();
+  const response = await fetch(url, { signal:AbortSignal.timeout(10_000) });
+  if (!response.ok) throw new ChatRequestError("That GIF is no longer available.", 404, "gif_not_found");
+  const page = (await response.json())?.query?.pages?.[gifId] || null;
+  const info = page?.imageinfo?.[0] || {};
+  if (info.mime !== "image/gif" || !info.url) throw new ChatRequestError("That Wikimedia item is not a GIF.", 415, "gif_type_rejected");
+  const metadata = info.extmetadata || {};
+  return {
+    provider, gifId, mediaUrl:info.url,
+    title:String(page?.title || "GIF").replace(/^File:/, "").slice(0, 120),
+    sourceMetadata:cleanSourceMetadata({
+      provider, providerId:gifId,
+      sourcePage:info.descriptionurl || `https://commons.wikimedia.org/?curid=${gifId}`,
+      attribution:metadata.Credit?.value || metadata.Artist?.value || "Wikimedia Commons",
+      creator:metadata.Artist?.value || "", licence:metadata.LicenseShortName?.value || "See source page",
+      licenceUrl:metadata.LicenseUrl?.value || "",
+    }),
+  };
+}
+
+async function gifImport(body, user, admin){
+  const roomId = requireUuid(body.roomId, "room ID");
+  await requireRoomAccess(roomId, user, admin, { write:true });
+  await requireGifCapability(user);
+  const resolved = await resolveGifProviderMedia(body.provider, body.gifId);
+  const mediaUrl = new URL(resolved.mediaUrl);
+  const allowedHost = resolved.provider === "giphy"
+    ? /(^|\.)giphy\.com$/i.test(mediaUrl.hostname) || /(^|\.)giphy\.net$/i.test(mediaUrl.hostname)
+    : /(^|\.)wikimedia\.org$/i.test(mediaUrl.hostname);
+  if (mediaUrl.protocol !== "https:" || !allowedHost) throw new ChatRequestError("That GIF source is not trusted.", 400, "gif_source_rejected");
+  const download = await fetch(mediaUrl, { redirect:"follow", signal:AbortSignal.timeout(15_000) });
+  if (!download.ok) throw new ChatRequestError("That GIF could not be imported.", 502, "gif_import_failed");
+  const finalUrl = new URL(download.url || mediaUrl.href);
+  const finalHostAllowed = resolved.provider === "giphy"
+    ? /(^|\.)giphy\.com$/i.test(finalUrl.hostname) || /(^|\.)giphy\.net$/i.test(finalUrl.hostname)
+    : /(^|\.)wikimedia\.org$/i.test(finalUrl.hostname);
+  if (finalUrl.protocol !== "https:" || !finalHostAllowed) throw new ChatRequestError("That GIF source redirected outside its trusted provider.", 400, "gif_source_rejected");
+  const declaredSize = Number(download.headers.get("content-length") || 0);
+  if (declaredSize > MAX_ATTACHMENT_BYTES) throw new ChatRequestError("That GIF is larger than 25 MB.", 413, "chat_attachment_too_large");
+  const bytes = Buffer.from(await download.arrayBuffer());
+  if (!bytes.length || bytes.length > MAX_ATTACHMENT_BYTES) throw new ChatRequestError("That GIF is larger than 25 MB.", 413, "chat_attachment_too_large");
+  if (sniffAttachmentContentType(bytes.subarray(0, 16)) !== "image/gif") throw new ChatRequestError("That provider item is not a GIF.", 415, "gif_type_rejected");
+  const attachmentId = crypto.randomUUID();
+  const fileName = cleanAttachmentName(`${resolved.title || resolved.gifId}.gif`);
+  const objectPath = `${user.id}/${roomId}/${attachmentId}/${fileName}`;
+  const uploadUrl = await storageSignedUpload(CHAT_MEDIA_BUCKET, objectPath);
+  const upload = await fetch(uploadUrl, { method:"PUT", headers:{ "Content-Type":"image/gif" }, body:bytes, signal:AbortSignal.timeout(15_000) });
+  if (!upload.ok) throw new ChatRequestError("That GIF could not be stored.", 502, "gif_import_storage_failed");
+  await supabaseServiceRequest(restPath(TABLES.attachments), {
+    method:"POST", headers:{ Prefer:"return=minimal" },
+    body:{
+      attachment_id:attachmentId, room_id:roomId, uploader_id:user.id, kind:"gif", file_name:fileName,
+      content_type:"image/gif", byte_size:bytes.length, storage_bucket:CHAT_MEDIA_BUCKET, object_path:objectPath,
+      status:"ready", ready_at:new Date().toISOString(), source_metadata:resolved.sourceMetadata,
+    },
+  });
+  return {
+    schemaVersion:chatContract.SCHEMA_VERSION,
+    attachment:{
+      attachmentId, kind:"gif", fileName, contentType:"image/gif", byteSize:bytes.length,
+      url:await storageSignedDownload(CHAT_MEDIA_BUCKET, objectPath), saved:false,
+      sourceMetadata:resolved.sourceMetadata,
+    },
+  };
+}
+
 async function gifSearch(query, user){
   const capabilities = await requireGifCapability(user);
   const q = String(query || "").trim().slice(0, 80);
@@ -728,19 +831,20 @@ async function gifSearch(query, user){
     return {
       schemaVersion:chatContract.SCHEMA_VERSION, capabilities,
       attribution:"Powered by GIPHY",
+      attributionUrl:"https://giphy.com/",
       gifs:(payload.data || []).map(item => ({
-        id:item.id, title:item.title || "GIF", contentType:"image/gif",
+        id:item.id, gifId:item.id, provider:"giphy", title:item.title || "GIF", contentType:"image/gif",
         previewUrl:item.images?.fixed_width_small?.url || item.images?.preview_gif?.url,
-        originalUrl:item.images?.original?.url,
         width:Number(item.images?.original?.width || 0), height:Number(item.images?.original?.height || 0),
-      })).filter(item => item.previewUrl && item.originalUrl),
+        sourcePage:item.url || "https://giphy.com/", licence:"GIPHY Terms", attribution:"Powered by GIPHY",
+      })).filter(item => item.previewUrl),
     };
   }
 
   const url = new URL("https://commons.wikimedia.org/w/api.php");
   url.search = new URLSearchParams({
     action:"query", generator:"search", gsrsearch:`${q} filemime:image/gif`,
-    gsrnamespace:"6", gsrlimit:"24", prop:"imageinfo", iiprop:"url|mime|size",
+    gsrnamespace:"6", gsrlimit:"24", prop:"imageinfo", iiprop:"url|mime|size|extmetadata",
     iiurlwidth:"240", format:"json", origin:"*",
   }).toString();
   const result = await fetch(url, { signal:AbortSignal.timeout(10_000) });
@@ -749,15 +853,20 @@ async function gifSearch(query, user){
   return {
     schemaVersion:chatContract.SCHEMA_VERSION, capabilities,
     attribution:"GIFs from Wikimedia Commons",
+    attributionUrl:"https://commons.wikimedia.org/",
     gifs:Object.values(payload.query?.pages || {}).map(page => {
       const info = page.imageinfo?.[0] || {};
+      const metadata = info.extmetadata || {};
       return {
-        id:String(page.pageid || page.title || info.url), title:String(page.title || "GIF").replace(/^File:/, ""),
-        contentType:"image/gif", previewUrl:info.thumburl || info.url, originalUrl:info.url,
+        id:String(page.pageid || ""), gifId:String(page.pageid || ""), provider:"wikimedia",
+        title:String(page.title || "GIF").replace(/^File:/, ""),
+        contentType:"image/gif", previewUrl:info.thumburl || info.url,
         width:Number(info.width || 0), height:Number(info.height || 0),
         sourcePage:info.descriptionurl || `https://commons.wikimedia.org/?curid=${page.pageid}`,
+        licence:metadata.LicenseShortName?.value || "See source page",
+        attribution:metadata.Credit?.value || metadata.Artist?.value || "Wikimedia Commons",
       };
-    }).filter(item => item.previewUrl && item.originalUrl),
+    }).filter(item => item.previewUrl && item.gifId),
   };
 }
 
@@ -964,7 +1073,7 @@ async function sendMessage(body, user, admin, profile){
   if (attachmentIds.length > MAX_ATTACHMENTS_PER_MESSAGE) throw new ChatRequestError("A message can include at most four attachments.", 400, "chat_attachment_limit");
   const messageAttachments = attachmentIds.length ? await rows(TABLES.attachments, {
     attachment_id:`in.(${attachmentIds.join(",")})`, room_id:`eq.${roomId}`, uploader_id:`eq.${user.id}`, status:"eq.ready",
-    select:"attachment_id,kind,file_name,content_type,byte_size",
+    select:"attachment_id,kind,file_name,content_type,byte_size,source_metadata",
   }) : [];
   if (messageAttachments.length !== attachmentIds.length) throw new ChatRequestError("Every attachment must finish uploading before it can be sent.", 409, "chat_attachment_not_ready");
   if (messageAttachments.some(item => item.kind === "gif" || item.content_type === "image/gif")) await requireGifCapability(user);
@@ -1054,6 +1163,7 @@ async function sendMessage(body, user, admin, profile){
         contentType:item.content_type, byteSize:Number(item.byte_size),
         url:null,
         saved:false,
+        sourceMetadata:item.source_metadata || {},
       })),
       replyTo:replyTo ? {
         messageId:replyTo.id,
@@ -1083,7 +1193,8 @@ async function saveAttachment(body, user, admin){
     method:"POST", headers:{ Prefer:"return=minimal" },
     body:{ saved_media_id:savedId, owner_id:user.id, source_attachment_id:attachmentId, room_id:attachment.room_id,
       event_id:(await roomById(attachment.room_id))?.canonical_fixture_id || null, file_name:attachment.file_name,
-      content_type:attachment.content_type, byte_size:attachment.byte_size, storage_bucket:SAVED_MEDIA_BUCKET, object_path:savedPath },
+      content_type:attachment.content_type, byte_size:attachment.byte_size, storage_bucket:SAVED_MEDIA_BUCKET, object_path:savedPath,
+      source_metadata:attachment.source_metadata || {} },
   });
   await supabaseServiceRequest(restPath(TABLES.attachments, { attachment_id:`eq.${attachmentId}` }), {
     method:"PATCH", headers:{ Prefer:"return=minimal" }, body:{ status:"saved", saved_at:new Date().toISOString() },
@@ -1095,7 +1206,7 @@ async function listSavedMedia(user){
   if (isAnonymousUser(user)) throw new ChatRequestError("Sign in to view saved game media.", 401, "chat_sign_in_required");
   const saved = await rows(TABLES.savedMedia, {
     owner_id:`eq.${user.id}`,
-    select:"saved_media_id,event_id,file_name,content_type,byte_size,storage_bucket,object_path,created_at",
+    select:"saved_media_id,event_id,file_name,content_type,byte_size,storage_bucket,object_path,source_metadata,created_at",
     order:"created_at.desc",
     limit:"200",
   });
@@ -1105,6 +1216,7 @@ async function listSavedMedia(user){
       savedMediaId:item.saved_media_id, eventId:item.event_id, fileName:item.file_name,
       contentType:item.content_type, byteSize:Number(item.byte_size), savedAt:item.created_at,
       url:await storageSignedDownload(item.storage_bucket, item.object_path),
+      sourceMetadata:item.source_metadata || {},
     }))),
   };
 }
@@ -1237,6 +1349,7 @@ async function handlePost(request, user, admin, profile){
     case "send-message": return sendMessage(body, user, admin, profile);
     case "attachment-upload-url": return prepareAttachment(body, user, admin);
     case "attachment-complete": return completeAttachment(body, user, admin);
+    case "gif-import": return gifImport(body, user, admin);
     case "attachment-save": return saveAttachment(body, user, admin);
     case "saved-media-delete": return deleteSavedMedia(body, user);
     case "toggle-reaction": return toggleReaction(body, user, admin);

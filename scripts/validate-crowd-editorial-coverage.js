@@ -73,7 +73,7 @@ ticketAlerts.forEach(record => assert.equal(server.eventFor(record.id), null, `$
 const html = fs.readFileSync("index.html", "utf8");
 assert.doesNotMatch(html, /mainDiv\.appendChild\(buildNothingscoreSummary\(ev\)\)/, "Feed cards must not surface crowd aggregates");
 assert.doesNotMatch(html, /row\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\)/, "Events child cards must not surface crowd aggregates");
-assert.match(html, /buildEventWhyItMatters\(ev\)[\s\S]{0,220}buildEventNothingscoreAction\(ev\)/, "Feed cards must keep the voluntary contribution action beneath sourced Why it matters copy");
+assert.match(html, /buildEventWhyItMatters\(ev\)[\s\S]{0,1800}buildEventNothingscoreAction\(ev\)/, "Feed cards must keep the voluntary contribution action beneath sourced Why it matters copy and any in-flow editorial disclosure");
 assert.match(html, /const editorialHook = buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\), editorialConsequenceForDisplay\(editorialRecord\)\);[\s\S]{0,220}buildEventNothingscoreAction\(crowdEvent\)/, "Events child cards must keep the voluntary contribution action beneath sourced Why it matters copy");
 assert.doesNotMatch(html, /if \(crowdHook\)[\s\S]{0,120}else/, "crowd availability must never suppress sourced editorial");
 assert.doesNotMatch(html, /labelText:"Independent context"/);

@@ -663,6 +663,52 @@ async function run(){
   assert(rotatingStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY).includes("rotated-refresh"), "refresh-token rotation must replace the saved device session");
   assert(!rotatingStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY).includes("old-refresh"), "a rotated refresh token must not leave the superseded token behind");
 
+  for (const [status, code] of [[503, "auth_upstream_failed"], [429, "too_many_requests"]]){
+    const retryableStorage = memoryStorage();
+    retryableStorage.setItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY, JSON.stringify({
+      accessToken:`retryable-${status}-access`, refreshToken:`retryable-${status}-refresh`, expiresAt:Date.parse("2026-07-27T09:00:00.000Z"),
+    }));
+    const retryableClient = serverSync.createClient({
+      storage:memoryStorage(), persistentStorage:retryableStorage,
+      now:() => Date.parse("2026-07-27T10:00:00.000Z"),
+      fetchImpl:async () => browserResponse({ error:"Temporary auth outage", code }, status),
+    });
+    await assert.rejects(retryableClient.restoreSession(), error => error.status === status);
+    assert(
+      retryableStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY)?.includes(`retryable-${status}-refresh`),
+      `${status} refresh failures must retain the trusted-device credentials for retry`,
+    );
+  }
+
+  const terminalStorage = memoryStorage();
+  terminalStorage.setItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY, JSON.stringify({
+    accessToken:"terminal-access", refreshToken:"terminal-refresh", expiresAt:Date.parse("2026-07-27T09:00:00.000Z"),
+  }));
+  const terminalClient = serverSync.createClient({
+    storage:memoryStorage(), persistentStorage:terminalStorage,
+    now:() => Date.parse("2026-07-27T10:00:00.000Z"),
+    fetchImpl:async () => browserResponse({ error:"Refresh token revoked", code:"refresh_session_terminal" }, 400),
+  });
+  await assert.rejects(terminalClient.restoreSession(), error => error.code === "refresh_session_terminal");
+  assert.equal(terminalStorage.getItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY), null, "a confirmed terminal refresh failure must clear the revoked credentials");
+
+  const simultaneousStorage = memoryStorage();
+  simultaneousStorage.setItem(serverSync.PERSISTENT_SESSION_STORAGE_KEY, JSON.stringify({
+    accessToken:"shared-expired", refreshToken:"shared-old-refresh", expiresAt:Date.parse("2026-07-27T09:00:00.000Z"),
+  }));
+  let simultaneousRefreshes = 0;
+  const sharedRefreshFetch = async (_url, options = {}) => {
+    simultaneousRefreshes += 1;
+    assert.equal(JSON.parse(options.body || "{}").refreshToken, "shared-old-refresh");
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return browserResponse({ session:{ access_token:"shared-rotated", refresh_token:"shared-new-refresh", expires_in:3600 } });
+  };
+  const simultaneousA = serverSync.createClient({ storage:memoryStorage(), persistentStorage:simultaneousStorage, now:() => Date.parse("2026-07-27T10:00:00.000Z"), fetchImpl:sharedRefreshFetch });
+  const simultaneousB = serverSync.createClient({ storage:memoryStorage(), persistentStorage:simultaneousStorage, now:() => Date.parse("2026-07-27T10:00:00.000Z"), fetchImpl:sharedRefreshFetch });
+  const simultaneousSessions = await Promise.all([simultaneousA.restoreSession(), simultaneousB.restoreSession()]);
+  assert.equal(simultaneousRefreshes, 1, "simultaneous tabs must coordinate refresh-token rotation instead of reusing the old token");
+  assert(simultaneousSessions.every(active => active.accessToken === "shared-rotated"));
+
   const guestStorage=memoryStorage();
   guestStorage.setItem(serverSync.GUEST_CHAT_SESSION_STORAGE_KEY,JSON.stringify({
     accessToken:"expired-guest-access",refreshToken:"expired-guest-refresh",expiresAt:Date.parse("2026-07-27T09:00:00.000Z"),

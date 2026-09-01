@@ -1,10 +1,10 @@
 {
   "schemaVersion": "us-open-official-schedule-snapshot.v1",
   "tournament": "US Open 2026",
-  "capturedAt": "2026-09-01T02:10:18.416Z",
+  "capturedAt": "2026-09-01T05:02:55.235Z",
   "scheduleDaysSourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/scheduleDays.json",
   "scheduleDays": {
-    "lastUpdated": 1788228602,
+    "lastUpdated": 1788238314,
     "eventDays": [
       {
         "message": "Fan Week Day 1: Sunday, August 23",
@@ -136,11 +136,11 @@
         "quals": false,
         "practice": false,
         "epoch": 1788148800,
-        "lastWrite": 1788228601,
+        "lastWrite": 1788238314,
         "matchCount": 56,
-        "winnerCount": 50,
+        "winnerCount": 55,
         "released": true,
-        "currentDay": true
+        "currentDay": false
       },
       {
         "message": "Day 3: Tuesday, September 1",
@@ -157,7 +157,7 @@
         "matchCount": 40,
         "winnerCount": 0,
         "released": true,
-        "currentDay": false
+        "currentDay": true
       },
       {
         "message": "Day 4: Wednesday, September 2",
@@ -36359,9 +36359,9 @@
                 "roundCode": "1",
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
-                "duration": null,
-                "status": null,
-                "statusCode": "B",
+                "duration": "2:02",
+                "status": "Completed",
+                "statusCode": "D",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -36378,7 +36378,7 @@
                     "nationB": null,
                     "idB": null,
                     "seed": 13,
-                    "won": false
+                    "won": true
                   }
                 ],
                 "team2": [
@@ -36400,21 +36400,50 @@
                 "shortScore": null,
                 "scores": {
                   "setsWon": [
-                    0,
-                    0,
-                    0,
+                    1,
+                    1,
+                    1,
                     0,
                     0,
                     0
                   ],
                   "setDurations": [
-                    "0",
-                    "0",
+                    "61",
+                    "61",
                     "0",
                     "0",
                     "0"
                   ],
-                  "sets": [],
+                  "sets": [
+                    [
+                      {
+                        "score": 7,
+                        "scoreDisplay": "7",
+                        "tiebreak": 8,
+                        "tiebreakDisplay": "8"
+                      },
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": 6,
+                        "tiebreakDisplay": "6"
+                      }
+                    ],
+                    [
+                      {
+                        "score": 7,
+                        "scoreDisplay": "7",
+                        "tiebreak": 7,
+                        "tiebreakDisplay": "7"
+                      },
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": 3,
+                        "tiebreakDisplay": "3"
+                      }
+                    ]
+                  ],
                   "gameScore": [
                     null,
                     null
@@ -36887,9 +36916,9 @@
                 "roundCode": "1",
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
-                "duration": null,
-                "status": "In Progress",
-                "statusCode": "A",
+                "duration": "3:48",
+                "status": "Completed",
+                "statusCode": "D",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -36922,15 +36951,102 @@
                     "nationB": null,
                     "idB": null,
                     "seed": 11,
-                    "won": false
+                    "won": true
                   }
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [],
-                  "setDurations": [],
-                  "sets": [],
-                  "gameScore": []
+                  "setsWon": [
+                    2,
+                    2,
+                    1,
+                    1,
+                    2,
+                    2
+                  ],
+                  "setDurations": [
+                    "41",
+                    "37",
+                    "51",
+                    "58",
+                    "41"
+                  ],
+                  "sets": [
+                    [
+                      {
+                        "score": 4,
+                        "scoreDisplay": "4",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 4,
+                        "scoreDisplay": "4",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 3,
+                        "scoreDisplay": "3",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 3,
+                        "scoreDisplay": "3",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 4,
+                        "scoreDisplay": "4",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ]
+                  ],
+                  "gameScore": [
+                    null,
+                    null
+                  ]
                 }
               }
             ]
@@ -37391,9 +37507,9 @@
                 "roundCode": "1",
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
-                "duration": null,
-                "status": "In Progress",
-                "statusCode": "A",
+                "duration": "3:19",
+                "status": "Completed",
+                "statusCode": "D",
                 "conjunction": null,
                 "notBefore": "5:00 PM",
                 "comment": null,
@@ -37410,7 +37526,7 @@
                     "nationB": null,
                     "idB": null,
                     "seed": 3,
-                    "won": false
+                    "won": true
                   }
                 ],
                 "team2": [
@@ -37431,10 +37547,83 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [],
-                  "setDurations": [],
-                  "sets": [],
-                  "gameScore": []
+                  "setsWon": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    0
+                  ],
+                  "setDurations": [
+                    "45",
+                    "52",
+                    "50",
+                    "52",
+                    "0"
+                  ],
+                  "sets": [
+                    [
+                      {
+                        "score": 7,
+                        "scoreDisplay": "7",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 5,
+                        "scoreDisplay": "5",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 4,
+                        "scoreDisplay": "4",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 3,
+                        "scoreDisplay": "3",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 7,
+                        "scoreDisplay": "7",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 5,
+                        "scoreDisplay": "5",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ]
+                  ],
+                  "gameScore": [
+                    null,
+                    null
+                  ]
                 }
               }
             ]
@@ -38385,9 +38574,9 @@
                 "roundCode": "1",
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
-                "duration": null,
-                "status": "In Progress",
-                "statusCode": "A",
+                "duration": "2:03",
+                "status": "Completed",
+                "statusCode": "D",
                 "conjunction": null,
                 "notBefore": null,
                 "comment": null,
@@ -38404,7 +38593,7 @@
                     "nationB": null,
                     "idB": null,
                     "seed": 17,
-                    "won": false
+                    "won": true
                   }
                 ],
                 "team2": [
@@ -38425,10 +38614,69 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [],
-                  "setDurations": [],
-                  "sets": [],
-                  "gameScore": []
+                  "setsWon": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "setDurations": [
+                    "25",
+                    "46",
+                    "52",
+                    "0",
+                    "0"
+                  ],
+                  "sets": [
+                    [
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 1,
+                        "scoreDisplay": "1",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 4,
+                        "scoreDisplay": "4",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 7,
+                        "scoreDisplay": "7",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 5,
+                        "scoreDisplay": "5",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ]
+                  ],
+                  "gameScore": [
+                    null,
+                    null
+                  ]
                 }
               }
             ]
@@ -38584,9 +38832,9 @@
                 "roundCode": "1",
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
-                "duration": null,
-                "status": "In Progress",
-                "statusCode": "A",
+                "duration": "3:11",
+                "status": "Completed",
+                "statusCode": "D",
                 "conjunction": null,
                 "notBefore": "6:00 PM",
                 "comment": null,
@@ -38603,7 +38851,7 @@
                     "nationB": null,
                     "idB": null,
                     "seed": null,
-                    "won": false
+                    "won": true
                   }
                 ],
                 "team2": [
@@ -38624,10 +38872,83 @@
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [],
-                  "setDurations": [],
-                  "sets": [],
-                  "gameScore": []
+                  "setsWon": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    0
+                  ],
+                  "setDurations": [
+                    "37",
+                    "53",
+                    "74",
+                    "27",
+                    "0"
+                  ],
+                  "sets": [
+                    [
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 4,
+                        "scoreDisplay": "4",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 7,
+                        "scoreDisplay": "7",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 5,
+                        "scoreDisplay": "5",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": 7,
+                        "tiebreakDisplay": "7"
+                      },
+                      {
+                        "score": 7,
+                        "scoreDisplay": "7",
+                        "tiebreak": 9,
+                        "tiebreakDisplay": "9"
+                      }
+                    ],
+                    [
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 1,
+                        "scoreDisplay": "1",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ]
+                  ],
+                  "gameScore": [
+                    null,
+                    null
+                  ]
                 }
               }
             ]
@@ -41302,9 +41623,9 @@
                 "roundCode": "1",
                 "roundName": "Round 1",
                 "roundNameShort": "R1",
-                "duration": null,
-                "status": "In Progress",
-                "statusCode": "A",
+                "duration": "2:33",
+                "status": "Completed",
+                "statusCode": "D",
                 "conjunction": null,
                 "notBefore": "5:00 PM",
                 "comment": null,
@@ -41337,15 +41658,87 @@
                     "nationB": null,
                     "idB": null,
                     "seed": null,
-                    "won": false
+                    "won": true
                   }
                 ],
                 "shortScore": null,
                 "scores": {
-                  "setsWon": [],
-                  "setDurations": [],
-                  "sets": [],
-                  "gameScore": []
+                  "setsWon": [
+                    2,
+                    1,
+                    2,
+                    2,
+                    2,
+                    0
+                  ],
+                  "setDurations": [
+                    "35",
+                    "40",
+                    "37",
+                    "41"
+                  ],
+                  "sets": [
+                    [
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 3,
+                        "scoreDisplay": "3",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 3,
+                        "scoreDisplay": "3",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 2,
+                        "scoreDisplay": "2",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ],
+                    [
+                      {
+                        "score": 4,
+                        "scoreDisplay": "4",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      },
+                      {
+                        "score": 6,
+                        "scoreDisplay": "6",
+                        "tiebreak": null,
+                        "tiebreakDisplay": null
+                      }
+                    ]
+                  ],
+                  "gameScore": [
+                    null,
+                    null
+                  ]
                 }
               }
             ]

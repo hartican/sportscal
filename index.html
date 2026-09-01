@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="208">
+<meta name="app-shell-version" content="213">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -165,7 +165,7 @@ body{
     radial-gradient(circle at 20% 0%, rgba(0,229,255,0.06), transparent 40%),
     radial-gradient(circle at 80% 10%, rgba(232,0,45,0.05), transparent 40%),
     var(--bg);
-  padding-bottom: calc(60px + env(safe-area-inset-bottom));
+  padding-bottom: calc(124px + env(safe-area-inset-bottom));
 }
 
 body.modal-open{ overflow:hidden; }
@@ -178,7 +178,6 @@ textarea{ touch-action: manipulation; }
 
 a{color:inherit;}
 
-/* ---------- Header ---------- */
 header.top{
   position: sticky;
   top:0;
@@ -739,7 +738,6 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   background: transparent;
 }
 
-/* ---------- Tabs ---------- */
 .tabs{
   max-width: 1200px;
   margin: 16px auto 0;
@@ -816,7 +814,6 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   vector-effect:non-scaling-stroke;
 }
 
-/* ---------- Controls bar ---------- */
 .feed-filter-dock{
   position:sticky;
   top:var(--sticky-top-bar-height, 0px);
@@ -1050,7 +1047,6 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   background: rgba(255,255,255,0.03);
 }
 
-/* ---------- Curated-to-complete round bridge ---------- */
 .sport-round-summaries{
   display:grid;
   grid-template-columns:repeat(2, minmax(0, 1fr));
@@ -1143,7 +1139,6 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   height:18px;
 }
 
-/* ---------- Complete sport hubs ---------- */
 .sport-hub{
   min-width:0;
   border:1px solid var(--border);
@@ -1440,7 +1435,6 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   margin-top:0;
 }
 
-/* ---------- Main content ---------- */
 main{
   max-width: 1100px;
   margin: 20px auto;
@@ -1680,7 +1674,6 @@ main{
 }
 @keyframes startup-feed-reveal{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
 
-/* ---------- Event card ---------- */
 .event-card{
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1947,7 +1940,7 @@ main{
 }
 
 /* The visible fixture title is split beneath the crests. This retains the
-   complete label and expansion control for assistive technology only. */
+   complete label for assistive technology; disclosure is rendered separately. */
 .event-card.is-logo-led-matchup .matchup-visual-title-hidden{
   position:absolute;
   width:1px;
@@ -2058,8 +2051,8 @@ main{
 .event-card.is-logo-led-event .event-title-stack{ width:100%; }
 .event-card.is-logo-led-event .event-name-line{
   position:relative;
-  min-height:34px;
-  padding-inline:48px;
+  min-height:0;
+  padding-inline:0;
 }
 .event-card.is-logo-led-event .event-name-line .event-name{
   width:100%;
@@ -2067,11 +2060,6 @@ main{
 .event-card.is-logo-led-event .event-name-line .new-tag{
   position:absolute;
   left:10px;
-}
-.event-card.is-logo-led-event .event-name-line .card-expand-control{
-  position:absolute;
-  right:0;
-  margin-left:0;
 }
 .event-card.is-logo-led-event .event-name-line,
 .event-card.is-logo-led-event .event-date-line,
@@ -3083,7 +3071,6 @@ main{
   color: var(--importance-color, var(--sport-color));
 }
 
-/* ---------- Month calendar view ---------- */
 .month-nav{
   display:flex;
   align-items:center;
@@ -3223,7 +3210,6 @@ main{
   padding-left: 4px;
 }
 
-/* ---------- Curated and saved surfaces ---------- */
 .mw-tier{
   margin-bottom: 30px;
 }
@@ -3294,7 +3280,6 @@ main{
   margin-top: 16px;
 }
 
-/* ---------- Onboarding ---------- */
 .modal-backdrop{
   position: fixed;
   inset: 0;
@@ -4804,7 +4789,6 @@ main{
   line-height:1.45;
 }
 
-/* ---------- Toast ---------- */
 .toast{
   position: fixed;
   bottom: calc(24px + env(safe-area-inset-bottom, 0px));
@@ -4955,7 +4939,6 @@ footer.app-footer{
   flex:0 0 17px;
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 980px){
   .header-actions{
     flex: 1 0 100%;
@@ -5113,7 +5096,6 @@ footer.app-footer{
   }
 }
 
-/* ---------- Licensed vectors and access ---------- */
 .vector-glyph{
   width: 1.05em;
   height: 1.05em;
@@ -5157,22 +5139,28 @@ footer.app-footer{
   align-items: center;
   justify-content: center;
   gap:4px;
-  min-width: 82px;
-  min-height: 34px;
-  margin-left: 6px;
-  padding: 6px 10px;
+  min-width: 126px;
+  min-height: 44px;
+  margin: 0;
+  padding: 8px 14px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: transparent;
   color: var(--text-dim);
   cursor: pointer;
-  font:800 .67rem/1 'DM Sans',sans-serif;
+  font:850 .72rem/1 'DM Sans',sans-serif;
+}
+
+.card-disclosure-row{
+  display:flex;
+  justify-content:center;
+  width:100%;
+  margin-top:8px;
 }
 
 .card-expand-control .vector-glyph{ width:14px; height:14px; transition:transform 160ms ease; }
 
-.event-card.is-selected .card-expand-control .vector-glyph{ transform: rotate(90deg); }
-.event-card.is-opened .card-expand-control .vector-glyph{ transform: rotate(-90deg); }
+.card-expand-control[aria-expanded="true"] .vector-glyph{ transform: rotate(-90deg); }
 
 .skip-link{
   position: fixed;
@@ -5298,7 +5286,6 @@ footer.app-footer{
   .sport-hub-fixture-status{ text-align:left; }
 }
 
-/* ---------- Supercharged discovery ---------- */
 .tune-sheet-backdrop{
   position:fixed;
   inset:0;
@@ -5366,7 +5353,6 @@ footer.app-footer{
   padding:16px 20px calc(20px + env(safe-area-inset-bottom));
 }
 
-/* ---------- Private fixture chat ---------- */
 .chat-backdrop{
   position:fixed;
   inset:0;
@@ -5379,7 +5365,7 @@ footer.app-footer{
 .chat-backdrop.show{ display:flex; }
 .chat-drawer{
   width:min(460px, 100%);
-  height:100%;
+  height:var(--chat-viewport-height, 100dvh);
   display:flex;
   flex-direction:column;
   overflow:hidden;
@@ -5612,16 +5598,6 @@ button.chat-room-row{ cursor:pointer; }
 .chat-attachment-tools{ display:flex; flex-wrap:wrap; gap:6px; }
 .chat-attachment-tools .btn{ width:auto; min-width:44px; min-height:38px; }
 .chat-staple{ font-size:1.1rem; }
-.chat-attachment-previews{ display:flex; flex-wrap:wrap; gap:6px; }
-.chat-attachment-previews span{ display:flex; align-items:center; gap:5px; max-width:100%; padding:5px 8px; border:1px solid var(--border); border-radius:999px; color:var(--text-dim); font-size:.66rem; }
-.chat-attachment-previews button{ border:0; background:transparent; color:var(--text); cursor:pointer; }
-.chat-gif-panel{ display:grid; gap:8px; padding:8px; border:1px solid var(--border); border-radius:10px; }
-.chat-gif-panel[hidden]{ display:none; }
-.chat-gif-panel input{ width:100%; }
-.chat-gif-results{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; max-height:220px; overflow:auto; }
-.chat-gif-result{ padding:0; border:0; border-radius:7px; overflow:hidden; background:var(--bg-card); cursor:pointer; }
-.chat-gif-result img{ display:block; width:100%; aspect-ratio:1; object-fit:cover; }
-.chat-gif-results small{ grid-column:1/-1; color:var(--text-dim); text-align:right; }
 .chat-message-media{ display:grid; gap:7px; margin-top:7px; }
 .chat-media-item{ display:grid; gap:5px; }
 .chat-media-item img{ width:min(100%,360px); max-height:420px; border-radius:10px; object-fit:contain; background:#000; }
@@ -5664,7 +5640,6 @@ button.chat-room-row{ cursor:pointer; }
 .active-chat-count{ min-width:20px; text-align:center; font-variant-numeric:tabular-nums; }
 body.chat-open{ overflow:hidden; }
 
-/* ---------- Nothingscore fixture social layer ---------- */
 .nsc-summary{
   margin-top:8px;
   display:flex;
@@ -6662,20 +6637,32 @@ body.header-compact-3 .brand .slogan{ display:none; }
 .stakes-meter small{ color:var(--text-dim); font:850 .56rem/1 'DM Sans',sans-serif; letter-spacing:.08em; }
 .feed-stakes-row{
   display:grid;
-  grid-template-columns:38px minmax(112px,1fr) 38px;
+  grid-template-columns:minmax(72px,84px) minmax(112px,132px) minmax(72px,84px);
   align-items:center;
-  gap:10px;
-  margin-top:10px;
+  justify-content:center;
+  gap:8px;
+  width:min(100%,320px);
+  margin:10px auto 0;
 }
-.feed-stakes-row .event-feedback-button{ width:38px; height:38px; padding:0; border-radius:999px; }
-.feed-stakes-row .event-feedback-button:last-child{ justify-self:end; }
+.feed-stakes-row .event-feedback-button{
+  width:100%;
+  height:auto;
+  min-height:54px;
+  padding:5px 3px;
+  border-radius:12px;
+  flex-direction:column;
+  gap:4px;
+  white-space:normal;
+}
+.feed-stakes-row .event-feedback-button svg{ width:18px; height:18px; }
+.event-feedback-label{ font:800 .55rem/1.05 'DM Sans',sans-serif; letter-spacing:.01em; }
 .event-compact-footer{ grid-template-columns:minmax(100px,1fr) minmax(112px,1fr); }
 .event-compact-footer.without-events-link{ grid-template-columns:minmax(100px,1fr); }
 .major-event-match > .nsc-card-action{ grid-column:1 / -1; width:auto; justify-self:start; margin-top:0; }
 .major-event-identity > .stakes-meter{ margin:10px auto 0; }
 .major-event-identity > .nsc-card-action{ max-width:420px; margin-inline:auto; }
 @media (max-width:430px){
-  .feed-stakes-row{ gap:7px; }
+  .feed-stakes-row{ grid-template-columns:74px minmax(108px,124px) 74px; gap:6px; }
   .major-event-match > .nsc-card-action{ width:100%; }
 }
 </style>
@@ -7001,8 +6988,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/team-follow-catalogue.js"></script>
 <script src="config/event-taxonomy-compat.js"></script>
 <script src="config/preference-taxonomy.js"></script>
-<script src="config/follow-first.js?v=208"></script>
-<script src="config/follow-feed-policy.js?v=208"></script>
+<script src="config/follow-first.js?v=213"></script>
+<script src="config/follow-feed-policy.js?v=213"></script>
 <script src="config/tennis-coverage.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
@@ -7031,12 +7018,9 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/discovery-catalogue.js"></script>
 <script src="config/au-broadcast-weights.js"></script>
 <script>
-/* ============ DATA ============ */
-// Provenance for the complete national-team library is loaded alongside the
-// first feed page, keeping hashes and permission notes out of the app shell.
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=208")
+  : loadDeferredScript("config/national-team-identities.js?v=213")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7061,6 +7045,26 @@ const EVENTS = globalThis.NOTHINGSPORTS_EVENTS || [];
 const VECTOR_ASSETS = globalThis.NOTHINGSPORTS_VECTOR_ASSETS;
 const CARD_RESULTS = globalThis.NOTHINGSPORTS_CARD_RESULTS;
 const TICKETING = globalThis.NOTHINGSPORTS_TICKETING;
+function fxAliases(event){
+  return [...new Set([event?.canonicalEventId,event?.eventId,event?.id,...(event?.identityAliases||[])].map(value=>String(value||"").trim()).filter(Boolean))];
+}
+function fxParticipants(event){
+  return [...new Set([...(event?.participantIds||[]),...(event?.participantSlots||[]).map(slot=>slot?.participantId),event?.homeParticipantId,event?.awayParticipantId].map(value=>String(value||"").trim()).filter(Boolean))].sort();
+}
+function fxKey(event){
+  const participants=fxParticipants(event),start=Date.parse(event?.startTimeUtc||event?.timelineSortTimeUtc||"");
+  if(participants.length<2||!Number.isFinite(start))return "";
+  return `${String(event?.competitionId||event?.competition||event?.sportId||event?.sport||"fixture").trim().toLowerCase()}|${new Date(start).toISOString()}|${participants.join("|")}`;
+}
+function fxFind(event,fixtures){
+  const aliases=new Set(fxAliases(event)),semantic=fxKey(event);
+  return (fixtures||[]).find(candidate=>fxAliases(candidate).some(alias=>aliases.has(alias))||(semantic&&fxKey(candidate)===semantic))||null;
+}
+const FEED_FIXTURE_RECONCILIATION = Object.freeze({
+  semanticFixtureKey:fxKey,
+  repairSavedFixture(saved,fixtures){const fixture=fxFind(saved,fixtures)||saved;return{fixture,aliases:fxAliases(saved).filter(alias=>!fxAliases(fixture).includes(alias))}},
+  reconcileFixtures(canonical,supplemental){const result=[...(canonical||[])];for(const event of supplemental||[]){if(!fxFind(event,result))result.push(event)}return result},
+});
 let MAJOR_EVENTS = globalThis.NOTHINGSPORTS_MAJOR_EVENTS || null;
 const COUNTRY_FLAGS = globalThis.NOTHINGSPORTS_COUNTRY_FLAGS || null;
 const SOURCE_TRUST = globalThis.NOTHINGSPORTS_SOURCE_TRUST || null;
@@ -7828,7 +7832,7 @@ let SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
 let sportHubsLoad = null;
 function loadSportHubs(){
   if (SPORT_HUBS) return Promise.resolve(SPORT_HUBS);
-  sportHubsLoad ||= loadDeferredScript("config/sport-hubs.js?v=208").then(() => {
+  sportHubsLoad ||= loadDeferredScript("config/sport-hubs.js?v=213").then(() => {
     SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
     if (!SPORT_HUBS) throw new Error("Standings & Fixtures could not load.");
     return SPORT_HUBS;
@@ -8066,7 +8070,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=208",
+  moduleScriptUrl: "config/major-events.js?v=213",
   url: "data/major-events.v1.json",
 });
 
@@ -8275,7 +8279,6 @@ function saveActiveProfileSections(sections){
   }
 }
 
-/* ============ STATE ============ */
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
 const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v4";
@@ -8304,6 +8307,7 @@ const feedPerformanceMetrics = {
   cumulativeLayoutShift: 0,
   lastLayoutShiftSources: [],
   interactionDurations: [],
+  interactionDisplacements: [],
   longTasks: [],
   storageFallbacks: [],
 };
@@ -8324,6 +8328,7 @@ function publishFeedPerformanceMetrics(){
   root.dataset.feedCls = feedPerformanceMetrics.cumulativeLayoutShift.toFixed(4);
   root.dataset.feedClsLastSources = feedPerformanceMetrics.lastLayoutShiftSources.join(",");
   root.dataset.feedInteractionMaxMs = maxInteraction.toFixed(1);
+  root.dataset.feedInteractionMaxDisplacementPx = Math.max(0, ...feedPerformanceMetrics.interactionDisplacements.map(item => Math.abs(Number(item.displacementPx) || 0))).toFixed(1);
   root.dataset.feedLongTaskMaxMs = maxLongTask.toFixed(1);
 }
 
@@ -8333,6 +8338,15 @@ function recordFeedInteraction(name, startedAt){
   feedPerformanceMetrics.interactionDurations = feedPerformanceMetrics.interactionDurations.slice(-40);
   publishFeedPerformanceMetrics();
   return durationMs;
+}
+
+function recordInteractionDisplacement(name, beforeTop, afterTop){
+  if (!Number.isFinite(beforeTop) || !Number.isFinite(afterTop)) return 0;
+  const displacementPx = afterTop - beforeTop;
+  feedPerformanceMetrics.interactionDisplacements.push({ name:String(name || "interaction"), displacementPx, at:new Date().toISOString() });
+  feedPerformanceMetrics.interactionDisplacements = feedPerformanceMetrics.interactionDisplacements.slice(-40);
+  publishFeedPerformanceMetrics();
+  return displacementPx;
 }
 
 function observeFeedPerformance(){
@@ -8532,6 +8546,7 @@ let chatRoomTimer = null;
 let chatPollFailures = 0;
 let chatPreviousFocus = null;
 let chatSetupFixture = null;
+let chatViewportLock = null;
 const nothingscoreSnapshots = new Map();
 const nothingscoreLoadedAt = new Map();
 const nothingscorePendingIds = new Set();
@@ -9790,6 +9805,8 @@ function emptyServerStatePayload(){
   return SERVER_SYNC?.buildUserState?.() || {};
 }
 
+function serverErrorEndsSession(error){return /^(refresh_session_terminal|missing_session|invalid_refresh_token|refresh_token_(not_found|already_used|revoked))$/.test(String(error?.code||"").toLowerCase())}
+
 function applyServerStatePreservingChanges(state, stateAtSyncStart){
   const inFlightPatch = USER_STATE_SYNC.createPatch(
     stateAtSyncStart,
@@ -9902,7 +9919,7 @@ async function reconcileCurrentServerState({ notify = false } = {}){
     if (notify) showToast("Your latest changes are synced across devices.");
     return result;
   }catch(error){
-    const signedOut = error?.status === 401;
+    const signedOut = serverErrorEndsSession(error);
     setServerPersistence({
       state: signedOut ? "signedOut" : "error",
       user: signedOut ? null : serverPersistence.user,
@@ -10091,7 +10108,7 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
     }
   }catch(error){
     const unavailablePreview = error?.status === 404;
-    const signedOut = error?.status === 401;
+    const signedOut = serverErrorEndsSession(error);
     setServerPersistence({
       configured: !unavailablePreview,
       state: unavailablePreview ? "local" : signedOut ? "signedOut" : "error",
@@ -10106,7 +10123,6 @@ async function bootstrapServerPersistence({ session: sessionHint = undefined, ch
   return serverPersistence;
 }
 
-/* ============ FEED REFRESH ============ */
 function sydneyPartsFromIso(iso){
   if (!iso) return null;
   const dt = new Date(iso);
@@ -11157,7 +11173,6 @@ function setActiveFeedFilter(nextFilter, {
   return refreshPromise;
 }
 
-/* ============ METADATA NORMALIZATION ============ */
 function inferBroadcasterIds(input){
   const options = Array.isArray(input) ? input : [input];
   const serviceAliases = {
@@ -11367,7 +11382,6 @@ syncLegacyArchiveReferences(activeEvents);
 purgeDerivedCardCache();
 rebuildDerivedCardCache(activeEvents);
 
-/* ============ TIME HELPERS ============ */
 // "Now" is computed from the device clock. User-facing labels are Sydney-time-first.
 function nowAEST(){
   return new Date();
@@ -11408,7 +11422,6 @@ function getEventStatus(ev){
   return "past";
 }
 
-/* ============ RATING LOGIC ============ */
 function getActual(id){
   return ratings[id] !== undefined ? ratings[id] : null;
 }
@@ -11886,6 +11899,33 @@ function refreshAddedFixtureSnapshots(){
       changed = true;
     });
   });
+  const canonicalFixtures = [...EVENTS, ...activeEvents];
+  Object.entries(nextActions).forEach(([key, current]) => {
+    if (!current?.addedToFixtures || !current.addedFixture) return;
+    const repaired = FEED_FIXTURE_RECONCILIATION?.repairSavedFixture?.(current.addedFixture, canonicalFixtures);
+    if (!repaired?.fixture || repaired.fixture === current.addedFixture) return;
+    const aliases = Array.from(new Set([
+      ...(Array.isArray(current.addedFixture.identityAliases) ? current.addedFixture.identityAliases : []),
+      ...(repaired.aliases || []),
+    ]));
+    const replacement = {
+      ...repaired.fixture,
+      cardKind:"fixture",
+      manualPin:true,
+      ...(aliases.length ? { identityAliases:aliases } : {}),
+    };
+    if (JSON.stringify(current.addedFixture) === JSON.stringify(replacement)) return;
+    if (!changed) nextActions = { ...eventActions };
+    nextActions[key] = {
+      ...current,
+      eventId:replacement.eventId || replacement.id,
+      canonicalEventId:replacement.canonicalEventId || current.canonicalEventId,
+      startTime:`${replacement.date || ""}T${replacement.time || ""}`,
+      addedFixture:replacement,
+      lastActionAt:current.lastActionAt || new Date().toISOString(),
+    };
+    changed = true;
+  });
   if (changed){
     queuedCommands.forEach(([key, action]) => queueFixturePinCommand(key, action));
     saveEventActions(nextActions);
@@ -11894,39 +11934,25 @@ function refreshAddedFixtureSnapshots(){
 }
 
 function mainFeedFixtureSemanticKey(event){
-  const participantIds = Array.from(new Set([
-    ...(Array.isArray(event?.participantIds) ? event.participantIds : []),
-    ...(Array.isArray(event?.participantSlots) ? event.participantSlots.map(slot => slot?.participantId) : []),
-    event?.homeParticipantId,
-    event?.awayParticipantId,
-  ].map(value => String(value || "").trim()).filter(Boolean))).sort();
-  const parsedStart = Date.parse(event?.startTimeUtc || event?.timelineSortTimeUtc || "");
-  if (participantIds.length < 2 || !Number.isFinite(parsedStart)) return "";
-  return `${new Date(parsedStart).toISOString()}|${participantIds.join("|")}`;
+  return FEED_FIXTURE_RECONCILIATION?.semanticFixtureKey?.(event) || "";
 }
 
 function mergeMainFeedSpecialEvents(events){
-  const merged = new Map(events
-    .filter(event => event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event")
-    .map(event => [String(event.eventId || event.id), event]));
-  const semanticKey = mainFeedFixtureSemanticKey;
-  const surfacedSemanticKeys = new Set([...merged.values()].map(semanticKey).filter(Boolean));
-  const canonicalEditorialBySemanticKey = new Map([...EVENTS, ...activeEvents].map(event => [semanticKey(event), event])
-    .filter(([key, event]) => key && event?.editorialNarrative));
+  const base = events
+    .filter(event => event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event");
+  const canonicalFixtures = [...EVENTS, ...activeEvents];
   const specialEvents = [...automaticallyFollowedMajorEventFixtures(), ...selectedMajorEventFixtures()]
-    .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event));
-  specialEvents.forEach(event => {
-    const id = String(event.eventId || event.id);
-    const key = semanticKey(event);
-    if (merged.has(id) || (key && surfacedSemanticKeys.has(key))) return;
-    const editorialMatch = key ? canonicalEditorialBySemanticKey.get(key) : null;
-    const editorialNarrative = editorialMatch?.editorialNarrative || PINNED_FIXTURE_EDITORIAL_NARRATIVES[id] || null;
-    merged.set(id, !event.editorialNarrative && editorialNarrative
-      ? { ...event, editorialNarrative }
-      : event);
-    if (key) surfacedSemanticKeys.add(key);
-  });
-  return [...merged.values()];
+    .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event))
+    .map(event => {
+      const repaired = FEED_FIXTURE_RECONCILIATION?.repairSavedFixture?.(event, canonicalFixtures);
+      const current = repaired?.fixture || event;
+      return {
+        ...current,
+        ...(event.manualPin ? { manualPin:true } : {}),
+        ...(event.automaticFollow ? { automaticFollow:true, automaticFollowMode:event.automaticFollowMode } : {}),
+      };
+    });
+  return FEED_FIXTURE_RECONCILIATION?.reconcileFixtures?.(base, specialEvents) || [...base, ...specialEvents];
 }
 
 function surfacePresentationKey(ev){
@@ -12506,7 +12532,6 @@ function buildEventActionPanel(ev, options = {}){
   return panel;
 }
 
-/* ============ RENDER: SPORT FILTERS ============ */
 function syncFeedFilterDockOffset(){
   const stickyHeader = document.querySelector("header.top");
   const headerHeight = stickyHeader ? Math.ceil(stickyHeader.getBoundingClientRect().height) : 0;
@@ -14145,7 +14170,6 @@ function roundMeetsMinimum(eventRound, minimumRound){
   return eventIndex >= minimumIndex;
 }
 
-/* ============ FILTERED EVENTS ============ */
 function eventMeetsGlobalThreshold(ev){
   return Number(ev.stakesScore) >= SCORE_BANDS.minimumStakes;
 }
@@ -14409,7 +14433,6 @@ function observeNewSurfaceItem(element, ev, presentation = surfacePresentationFo
   getSurfaceSeenObserver()?.observe(element);
 }
 
-/* ============ CARD BUILDER ============ */
 function buildStars(ev, interactive, { prompt = false } = {}){
   const actual = getActual(ev.id);
   const actualStars = actualStarValue(ev.id);
@@ -14588,17 +14611,18 @@ function buildSpoilerOverrideButton(ev, refreshCard){
 
 function buildEventFeedbackButtons(ev){
   const directions = [
-    ["positive", "More like", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v10H4V10h3Zm2 10V10l4-6 1 1v4h5.1c.8 0 1.4.7 1.2 1.5l-1.2 7c-.1.9-.9 1.5-1.8 1.5H9Z"/></svg>'],
-    ["negative", "Less like", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v10H4V4h3Zm2 0v10l4 6 1-1v-4h5.1c.8 0 1.4-.7 1.2-1.5l-1.2-7C19 5.6 18.2 5 17.3 5H9Z"/></svg>'],
+    ["positive", "More of this", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v10H4V10h3Zm2 10V10l4-6 1 1v4h5.1c.8 0 1.4.7 1.2 1.5l-1.2 7c-.1.9-.9 1.5-1.8 1.5H9Z"/></svg>'],
+    ["negative", "Less of this", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v10H4V4h3Zm2 0v10l4 6 1-1v-4h5.1c.8 0 1.4-.7 1.2-1.5l-1.2-7C19 5.6 18.2 5 17.3 5H9Z"/></svg>'],
   ];
   const buttons = directions.map(([direction, label, markup]) => {
     const button = document.createElement("button");
     const active = latestEventFeedbackDirection(ev) === direction;
     button.type = "button";
     button.className = `event-feedback-button${active ? " active" : ""}`;
+    button.dataset.feedbackDirection = direction;
     button.setAttribute("aria-label", `${label} ${ev.name}`);
     button.setAttribute("aria-pressed", String(active));
-    button.innerHTML = markup;
+    button.innerHTML = `${markup}<span class="event-feedback-label">${label}</span>`;
     button.addEventListener("click", event => {
       event.stopPropagation();
       const result = applyCuratedEventSwipe(ev, direction, { card:event.currentTarget.closest(".event-card") });
@@ -14710,6 +14734,10 @@ function nextCardState(current){
   return "compact";
 }
 
+function nextFeedCardState(current){
+  return current === "compact" ? "opened" : "compact";
+}
+
 function cardLevelForState(state){
   return state === "opened" ? "L2" : state === "selected" ? "L1" : "L0";
 }
@@ -14741,7 +14769,13 @@ function scrollCorrectionForAnchor(anchorTopBefore, anchorTopAfter, currentScrol
 }
 
 function scrollKeyForElement(element){
-  return element?.dataset?.scrollKey || null;
+  return element?.dataset?.scrollKey || element?.dataset?.viewportAnchorKey || null;
+}
+
+function viewportAnchorForKey(key){
+  if (!key) return null;
+  return Array.from(document.querySelectorAll("[data-scroll-key],[data-viewport-anchor-key]"))
+    .find(element => scrollKeyForElement(element) === key) || null;
 }
 
 function syncElementAttributes(element, replacement){
@@ -14822,7 +14856,7 @@ function scrollContinuityAnchorFor(target, strategy = "auto"){
     || null;
 }
 
-function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focusTarget = null, anchorStrategy = "auto" } = {}){
+function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focusTarget = null, anchorStrategy = "auto", interactionName = "anchored-mutation" } = {}){
   if (typeof mutate !== "function") return false;
   const anchor = scrollContinuityAnchorFor(target, anchorStrategy);
   const anchorKey = scrollKeyForElement(anchor);
@@ -14834,14 +14868,31 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
     const currentAnchor = anchor?.isConnected
       ? anchor
       : anchorKey
-        ? Array.from(document.querySelectorAll("[data-scroll-key]")).find(element => scrollKeyForElement(element) === anchorKey)
+        ? viewportAnchorForKey(anchorKey)
         : null;
     if (currentAnchor && Number.isFinite(anchorTop)){
       const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
       const correction = scrollCorrectionForAnchor(anchorTop, currentAnchor.getBoundingClientRect().top, window.scrollY, maxScrollY);
       if (Math.abs(correction) >= 0.5) window.scrollBy(0, correction);
+      recordInteractionDisplacement(interactionName, anchorTop, currentAnchor.getBoundingClientRect().top);
     }
   };
+  let stabilizing = true;
+  let lateRestoreTimer = null;
+  const stopStabilizing = () => {
+    stabilizing = false;
+    resizeObserver?.disconnect?.();
+    if (lateRestoreTimer !== null) window.clearInterval(lateRestoreTimer);
+    cleanupIntentListeners();
+  };
+  const intentEvents = ["pointerdown", "touchstart", "wheel", "keydown"];
+  const cleanupIntentListeners = () => intentEvents.forEach(type => window.removeEventListener(type, stopStabilizing, true));
+  intentEvents.forEach(type => window.addEventListener(type, stopStabilizing, { capture:true, once:true, passive:true }));
+  const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(() => {
+    if (stabilizing) window.requestAnimationFrame(restoreAnchor);
+  }) : null;
+  const observedMutationElement = target?.closest?.(".event-card") || (target?.nodeType === 1 ? target : null);
+  if (observedMutationElement) resizeObserver?.observe?.(observedMutationElement);
   window.requestAnimationFrame(() => {
     restoreAnchor();
     // Replacing a focused disclosure control can trigger the browser's own
@@ -14857,12 +14908,16 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
           : target?.isConnected
             ? target
             : anchorKey
-              ? Array.from(document.querySelectorAll("[data-scroll-key]")).find(element => scrollKeyForElement(element) === anchorKey)
+              ? viewportAnchorForKey(anchorKey)
               : null;
       requestedFocus?.focus?.({ preventScroll:true });
     }
     });
   });
+  lateRestoreTimer = window.setInterval(() => {
+    if (stabilizing) restoreAnchor();
+  }, 50);
+  window.setTimeout(stopStabilizing, 1250);
   return true;
 }
 
@@ -14955,6 +15010,11 @@ function restoreDismissedEvent(ev, { message = true } = {}){
 
 function dismissEventCard(ev, { previousPreferences, previousAction, card = null, showTunePrompt = false, feedbackCount = 0 } = {}){
   const surface = activeTab === "events" ? "events" : "feed";
+  const dismissedCardKey = scrollKeyForElement(card);
+  const dismissedCardTop = card?.getBoundingClientRect?.().top;
+  const undoViewportAnchor = dismissedCardKey && Number.isFinite(dismissedCardTop)
+    ? { dataset:{ scrollKey:dismissedCardKey }, getBoundingClientRect:() => ({ top:dismissedCardTop }) }
+    : null;
   updateEventAction(ev, {
     dismissed:true,
     dismissedAt:new Date().toISOString(),
@@ -14982,7 +15042,14 @@ function dismissEventCard(ev, { previousPreferences, previousAction, card = null
       restoredPreferences.preferenceGraph.learning = clonePreferences(previousPreferences).preferenceGraph.learning;
       savePreferences(restoredPreferences);
     }
-    renderAll({ preserveViewport:true });
+    if (undoViewportAnchor){
+      mutateWithScrollContinuity(undoViewportAnchor, () => renderAll(), {
+        anchorStrategy:"target",
+        interactionName:"card-dismiss-undo",
+      });
+    } else {
+      renderAll({ preserveViewport:true });
+    }
     showToast(`${spoilerSafeDisplayTitle(ev)} restored.`);
   };
   showToast(`${spoilerSafeDisplayTitle(ev)} dismissed.`, { actionLabel:"Undo", onAction:undo, duration:4200 });
@@ -15065,7 +15132,10 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
   }
   if (card){
     card.querySelectorAll(".event-feedback-button, .thumb-control").forEach(button => {
-      const selected = !togglingOff && String(button.getAttribute("aria-label") || "").startsWith("More like ");
+      const selected = !togglingOff && (
+        button.dataset.feedbackDirection === "positive"
+        || String(button.getAttribute("aria-label") || "").startsWith("More like ")
+      );
       button.classList.toggle("active", selected);
       button.setAttribute("aria-pressed", String(selected));
     });
@@ -15554,16 +15624,17 @@ function eventMajorEventId(ev){
   return eventId || null;
 }
 
-function refreshExpandableCard(card, replacement, { restoreFocus = false, focusTarget = null } = {}){
+function refreshExpandableCard(card, replacement, { restoreFocus = false, focusTarget = null, anchorTarget = null, interactionName = "card-expansion" } = {}){
   const replacementSeenTimer = surfaceSeenTimers.get(replacement);
   if (replacementSeenTimer) window.clearTimeout(replacementSeenTimer);
   surfaceSeenTimers.delete(replacement);
   surfaceSeenObserver?.unobserve(replacement);
   productExposureObserver?.unobserve(replacement);
-  return mutateWithScrollContinuity(card, () => patchElementInPlace(card, replacement), {
+  return mutateWithScrollContinuity(anchorTarget || card, () => patchElementInPlace(card, replacement), {
     restoreFocus,
     focusTarget:focusTarget || card,
     anchorStrategy:"target",
+    interactionName,
   });
 }
 
@@ -16000,7 +16071,7 @@ function buildNothingscoreChoices(ev, snapshot, panel){
 let nothingscoreVisualLoad = null;
 function ensureNothingscoreVisual(){
   if (globalThis.NOTHINGSPORTS_NSC_VISUAL) return Promise.resolve(globalThis.NOTHINGSPORTS_NSC_VISUAL);
-  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=208").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
+  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=213").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
   return nothingscoreVisualLoad;
 }
 function buildNothingscoreVisual(snapshot){
@@ -16164,6 +16235,11 @@ function buildEventWhyItMatters(ev){
   });
 }
 
+function eventHasExpandedEditorial(ev){
+  return [editorialConsequenceForDisplay(ev), editorialNarrativeSynopsisForDisplay(ev)]
+    .some(copy => isValidatedEditorialCopy(copy));
+}
+
 function nothingscoreActionLabelForEvent(ev){
   const status = getEventStatus(ev);
   const snapshot = nothingscoreSnapshotFor(ev);
@@ -16200,8 +16276,9 @@ function buildEventCard(ev, options = {}){
   const matchupIdentity = isTeamMatchup && mode !== "premium-rail" ? buildMatchupIdentity(ev, displayTitle) : null;
   const soloIdentity = !matchupIdentity && mode !== "premium-rail";
   // Interaction stays consistent while derived variants control visual weight.
-  const expandable = true;
-  const state = expandable ? cardStateForEvent(ev) : "compact";
+  const expandable = eventHasExpandedEditorial(ev);
+  const storedState = expandable ? cardStateForEvent(ev) : "compact";
+  const state = storedState === "compact" ? "compact" : "opened";
   const importanceColor = importanceColorForEvent(ev);
   const spoilerVisible = isSpoilerVisible(ev);
   const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;
@@ -16248,15 +16325,8 @@ function buildEventCard(ev, options = {}){
       if (!sessionOpenedEventIds.has(eventId)) recordEventFeedAction(ev, "open", options);
       sessionOpenedEventIds.add(eventId);
     }
-    setCardState(ev, nextCardState(currentState));
-    refreshExpandableCard(interactionCard, buildEventCard(ev, { ...options, interactionCard }), { restoreFocus: document.activeElement === interactionCard });
+    setCardState(ev, nextFeedCardState(currentState));
   };
-  if (expandable){
-    card.addEventListener("click", event => {
-      if (event.target.closest("button, a, input, select, textarea")) return;
-      advanceCardState();
-    });
-  }
   if (!matchupIdentity){
     const icon = document.createElement("div");
     icon.className = soloIdentity ? "event-hero-mark" : "event-icon";
@@ -16307,24 +16377,6 @@ function buildEventCard(ev, options = {}){
   if (matchupIdentity) nameEl.textContent = displayTitle;
   else renderEventTitleIdentity(nameEl, ev, displayTitle);
   nameLine.appendChild(nameEl);
-  if (expandable){
-    const expandControl = document.createElement("button");
-    expandControl.type = "button";
-    expandControl.className = "card-expand-control";
-    expandControl.setAttribute("aria-expanded", state === "compact" ? "false" : "true");
-    expandControl.setAttribute("aria-controls", `${nameEl.id}-details`);
-    expandControl.setAttribute("aria-label", `${state === "compact" ? "Show short context for" : state === "selected" ? "Show full details for" : "Collapse"} ${displayTitle}`);
-    const expandLabel = document.createElement("span");
-    expandLabel.className = "card-expand-label";
-    expandLabel.textContent = state === "opened" ? "Less" : "More…";
-    expandControl.appendChild(expandLabel);
-    expandControl.insertAdjacentHTML("beforeend", glyphMarkup("ui:chevron-right", { preferImage: true }));
-    expandControl.addEventListener("click", event => {
-      event.stopPropagation();
-      advanceCardState();
-    });
-    nameLine.appendChild(expandControl);
-  }
   nameWrap.appendChild(nameLine);
   if (displayedResult) nameWrap.appendChild(displayedResult);
   if (matchupIdentity && dateLine) nameWrap.appendChild(dateLine);
@@ -16333,60 +16385,46 @@ function buildEventCard(ev, options = {}){
   mainDiv.appendChild(topRow);
   const whyItMatters = buildEventWhyItMatters(ev);
   if (whyItMatters) mainDiv.appendChild(whyItMatters);
+  if (expandable){
+    const disclosureRow = document.createElement("div");
+    disclosureRow.className = "card-disclosure-row";
+    const expandControl = document.createElement("button");
+    const disclosureKey = `event-disclosure:${mode}:${ev.eventId || ev.id}`;
+    expandControl.type = "button";
+    expandControl.className = "card-expand-control";
+    expandControl.dataset.viewportAnchorKey = disclosureKey;
+    expandControl.setAttribute("aria-expanded", state === "opened" ? "true" : "false");
+    expandControl.setAttribute("aria-controls", `${nameEl.id}-details`);
+    expandControl.setAttribute("aria-label", `${state === "opened" ? "Show less about" : "Read more about"} ${displayTitle}`);
+    const expandLabel = document.createElement("span");
+    expandLabel.className = "card-expand-label";
+    expandLabel.textContent = state === "opened" ? "Show less" : "Read more";
+    expandControl.appendChild(expandLabel);
+    expandControl.insertAdjacentHTML("beforeend", glyphMarkup("ui:chevron-right", { preferImage: true }));
+    expandControl.addEventListener("click", event => {
+      event.stopPropagation();
+      const activated = event.currentTarget;
+      advanceCardState();
+      refreshExpandableCard(interactionCard, buildEventCard(ev, { ...options, interactionCard }), {
+        restoreFocus:true,
+        focusTarget:`[data-viewport-anchor-key="${CSS.escape(disclosureKey)}"]`,
+        anchorTarget:activated,
+        interactionName:"card-disclosure",
+      });
+    });
+    disclosureRow.appendChild(expandControl);
+    mainDiv.appendChild(disclosureRow);
+  }
   mainDiv.appendChild(buildEventNothingscoreAction(ev));
 
   mainDiv.appendChild(activeTab === "feed" && !options.archived ? buildFeedStakesRow(ev) : buildStakesMeter(ev));
-  const expansionRegion = document.createElement("div");
-  expansionRegion.className = "event-expansion-region";
-  expansionRegion.dataset.scrollDetailRegion = String(ev.eventId || ev.id);
   mainDiv.id = `${nameEl.id}-details`;
-
-  if (state === "selected"){
-    if (spoilerProtected){
-      const spoilerPanel = document.createElement("div");
-      spoilerPanel.className = "spoiler-panel";
-      spoilerPanel.innerHTML = `
-        <strong>Spoiler details hidden</strong>
-        <p>The spoiler-safe recap is shown above. Scores, outcomes, and full result details stay protected.</p>
-      `;
-      expansionRegion.appendChild(spoilerPanel);
-    }
-    if (options.archived){
-      expansionRegion.appendChild(buildEventActionPanel(ev, {
-        archived: true,
-        autoArchived: options.autoArchived,
-      }));
-    } else {
-      expansionRegion.appendChild(buildEventCompactFooter(ev, options, () => {
-        refreshExpandableCard(interactionCard, buildEventCard(ev, { ...options, interactionCard }), { restoreFocus:false });
-      }));
-    }
+  if (options.archived){
+    mainDiv.appendChild(buildEventActionPanel(ev, {
+      archived:true,
+      autoArchived:options.autoArchived,
+    }));
   }
-
-  if (state === "opened"){
-    if (spoilerProtected){
-      const spoilerPanel = document.createElement("div");
-      spoilerPanel.className = "spoiler-panel";
-      spoilerPanel.innerHTML = `
-        <strong>Spoiler details hidden</strong>
-        <p>This ${status} event has a spoiler-safe recap above. Reveal it only when you are ready for the result-aware version.</p>
-      `;
-      expansionRegion.appendChild(spoilerPanel);
-    }
-
-    if (options.archived){
-      expansionRegion.appendChild(buildEventActionPanel(ev, {
-        archived: true,
-        autoArchived: options.autoArchived,
-      }));
-    } else {
-      expansionRegion.appendChild(buildEventCompactFooter(ev, options, () => {
-        refreshExpandableCard(interactionCard, buildEventCard(ev, { ...options, interactionCard }), { restoreFocus:false });
-      }));
-    }
-  }
-
-  if (expansionRegion.childElementCount) mainDiv.appendChild(expansionRegion);
   card.appendChild(mainDiv);
   if (interactionCard === card) observeNewSurfaceItem(card, ev, presentation);
   if (interactionCard === card && !options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
@@ -16907,7 +16945,6 @@ function appendJointTournamentCard(container){
   return true;
 }
 
-/* ============ RENDER: LIST VIEW ============ */
 function appendNewlySurfacedSection(container, events, { mode = "calendar", anchorEventId = null } = {}){
   if (!events.length) return false;
   const section = document.createElement("section");
@@ -17038,7 +17075,7 @@ function appendFeedPageToCurrentList(incomingEvents){
   if (!container || !Array.isArray(incomingEvents)) return false;
   const incomingIds = new Set(incomingEvents.map(event => event?.canonicalEventId || event?.eventId || event?.id).filter(Boolean));
   const todayStr = formatDateKey(nowAEST());
-  const additions = getFilteredEvents().filter(event => {
+  const additions = mergeMainFeedSpecialEvents(getFilteredEvents()).filter(event => {
     const id = event?.canonicalEventId || event?.eventId || event?.id;
     return incomingIds.has(id) && !getEventAction(event).archived && !getEventAction(event).dismissed && !eventIsAutoArchived(event);
   });
@@ -17063,15 +17100,32 @@ function appendFeedPageToCurrentList(incomingEvents){
         .find(group => String(group.dataset.feedDate || "") > dateStr);
       container.insertBefore(groupDiv, laterGroup || container.querySelector(".feed-page-sentinel"));
     }
+    const reconciledDay = orderCuratedDayEvents(mergeMainFeedSpecialEvents(getFilteredEvents()).filter(event => event.date === dateStr));
+    const desiredKeys = new Set(reconciledDay.map(mainFeedFixtureSemanticKey).filter(Boolean));
+    Array.from(grid.querySelectorAll("[data-fixture-semantic-key]")).forEach(existing => {
+      const key = existing.dataset.fixtureSemanticKey;
+      if (key && !desiredKeys.has(key)) existing.remove();
+    });
     orderCuratedDayEvents(groups[dateStr]).forEach(event => {
       const id = event?.canonicalEventId || event?.eventId || event?.id;
+      const semanticKey = mainFeedFixtureSemanticKey(event);
+      const semanticMatch = semanticKey
+        ? grid.querySelector(`[data-fixture-semantic-key="${CSS.escape(semanticKey)}"]`)
+        : null;
+      if (semanticMatch){
+        const replacement = event.majorEventMarker ? buildMajorEventMarker(event) : buildEventCard(event);
+        replacement.dataset.feedEventId = String(id);
+        if (semanticKey) replacement.dataset.fixtureSemanticKey = semanticKey;
+        patchElementInPlace(semanticMatch, replacement);
+        return;
+      }
       if (grid.querySelector(`[data-feed-event-id="${CSS.escape(String(id))}"]`)) return;
       const card = event.majorEventMarker ? buildMajorEventMarker(event) : buildEventCard(event);
       card.dataset.feedEventId = String(id);
+      if (semanticKey) card.dataset.fixtureSemanticKey = semanticKey;
       grid.appendChild(card);
     });
-    const orderedIds = orderCuratedDayEvents(mergeMainFeedSpecialEvents(getFilteredEvents()).filter(event => event.date === dateStr))
-      .map(event => String(event?.canonicalEventId || event?.eventId || event?.id || ""));
+    const orderedIds = reconciledDay.map(event => String(event?.canonicalEventId || event?.eventId || event?.id || ""));
     const cardsById = new Map(Array.from(grid.querySelectorAll("[data-feed-event-id]"))
       .map(card => [card.dataset.feedEventId, card]));
     orderedIds.forEach(id => {
@@ -17265,7 +17319,6 @@ function scheduleInitialCalendarJump(){
   });
 }
 
-/* ============ RENDER: MONTH VIEW ============ */
 function renderMonthView(){
   const container = document.getElementById("monthView");
   container.innerHTML = "";
@@ -17372,7 +17425,6 @@ function renderMonthView(){
   container.appendChild(grid);
 }
 
-/* ============ RENDER: SPORT HUBS ============ */
 function sportHubCanonicalFixtures(sportKey = activeSportHubKey()){
   return SPORT_HUBS?.canonicalFixturesForSport(canonicalSportsData, sportKey) || [];
 }
@@ -17925,7 +17977,6 @@ function renderSportHub(){
   else renderSportHubWorthWatching(panel, fixtures, sportKey);
 }
 
-/* ============ RENDER: STANDINGS ============ */
 function standingsSportKey(competition){
   if (
     competition?.standingsType === "leagueTable"
@@ -19379,7 +19430,6 @@ function buildFeedbackSmsUrl(category, message, date = new Date()){
   return `sms:${FEEDBACK_RECIPIENT}?&body=${encodeURIComponent(buildFeedbackMessage(category, message, date))}`;
 }
 
-/* ============ TOAST ============ */
 let toastTimer;
 function showToast(msg, { actionLabel = "", onAction = null, duration = 3200 } = {}){
   const toast = document.getElementById("toast");
@@ -19401,7 +19451,6 @@ function showToast(msg, { actionLabel = "", onAction = null, duration = 3200 } =
   toastTimer = setTimeout(() => toast.classList.remove("show"), duration);
 }
 
-/* ============ LIVE CLOCK ============ */
 // The clock itself is intentionally absent; this stable boundary keeps the
 // calendar/date test harness separate from DOM-only viewport behaviour.
 window.addEventListener("scroll", syncContextualJumpButton, { passive: true });
@@ -20366,7 +20415,6 @@ function activateTopLevelTab(nextTab, { resetViewport = true } = {}){
   }
 }
 
-/* ============ TABS / VIEW SWITCHING ============ */
 document.querySelectorAll(".tab-btn[data-tab]").forEach(btn => {
   btn.addEventListener("click", () => {
     activateTopLevelTab(btn.dataset.tab);
@@ -20599,7 +20647,6 @@ function scheduleFirstCardViewportFit(){
   });
 }
 
-/* ============ SETTINGS ============ */
 function clonePreferences(prefs){
   return typeof structuredClone === "function" ? structuredClone(prefs) : JSON.parse(JSON.stringify(prefs));
 }
@@ -21215,7 +21262,7 @@ function appendPreferenceRecoverySettings(body){
   (body.querySelector(".preference-stack") || body).appendChild(placeholder);
   preferenceResetUiLoad ||= globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI)
-    : loadDeferredScript("config/preference-reset-ui.js?v=208").then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
+    : loadDeferredScript("config/preference-reset-ui.js?v=213").then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
   void preferenceResetUiLoad.then(ui => {
     if (!placeholder.isConnected || !ui?.mount) return;
     placeholder.remove();
@@ -22422,7 +22469,6 @@ document.getElementById("standingsSpoilerModal").addEventListener("click", event
   setStandingsSpoilerModalOpen(false);
 });
 
-/* ============ PRIVATE FIXTURE CHAT ============ */
 function chatFixtureId(event){
   return String(event?.canonicalEventId || event?.eventId || event?.id || "").trim();
 }
@@ -22499,28 +22545,91 @@ function chatConnection(message, state = "idle"){
   status.dataset.state = state;
 }
 
+function lockChatViewport(){
+  if (chatViewportLock) return;
+  const scrollY = window.scrollY;
+  const body = document.body;
+  chatViewportLock = {
+    scrollY,
+    position:body.style.position,
+    top:body.style.top,
+    width:body.style.width,
+    overflow:body.style.overflow,
+  };
+  body.style.position = "fixed";
+  body.style.top = `${-scrollY}px`;
+  body.style.width = "100%";
+  body.style.overflow = "hidden";
+  const syncHeight = () => document.documentElement.style.setProperty(
+    "--chat-viewport-height",
+    `${Math.round(window.visualViewport?.height || window.innerHeight)}px`
+  );
+  chatViewportLock.syncHeight = syncHeight;
+  syncHeight();
+  window.visualViewport?.addEventListener("resize", syncHeight);
+}
+
+function unlockChatViewport(){
+  if (!chatViewportLock) return;
+  const lock = chatViewportLock;
+  chatViewportLock = null;
+  window.visualViewport?.removeEventListener("resize", lock.syncHeight);
+  document.documentElement.style.removeProperty("--chat-viewport-height");
+  document.body.style.position = lock.position;
+  document.body.style.top = lock.top;
+  document.body.style.width = lock.width;
+  document.body.style.overflow = lock.overflow;
+  window.scrollTo({ top:lock.scrollY, left:0, behavior:"instant" });
+}
+
+function chatDraftStorageKey(roomId = chatState.currentRoom?.roomId){
+  return roomId ? `ns_chat_draft_v2:${roomId}` : "";
+}
+
+function persistCurrentChatDraft(){
+  const key = chatDraftStorageKey();
+  if (!key) return;
+  try{
+    sessionStorage.setItem(key, JSON.stringify({
+      body:chatState.draftBody || "",
+      replyToMessageId:chatState.replyToMessageId || null,
+    }));
+  }catch(_error){}
+}
+
+function restoreChatDraft(roomId){
+  try{
+    const draft = JSON.parse(sessionStorage.getItem(chatDraftStorageKey(roomId)) || "null");
+    if (!draft || typeof draft !== "object") return;
+    chatState.draftBody = String(draft.body || "").slice(0, 500);
+    chatState.replyToMessageId = draft.replyToMessageId || null;
+  }catch(_error){}
+}
+
 function setChatDrawerOpen(open){
   const backdrop = document.getElementById("chatBackdrop");
   backdrop.classList.toggle("show", open);
   backdrop.setAttribute("aria-hidden", open ? "false" : "true");
   document.body.classList.toggle("chat-open", open);
   if (open){
+    lockChatViewport();
     chatPreviousFocus = document.activeElement;
     window.requestAnimationFrame(() => document.getElementById("closeChatBtn").focus());
   } else {
+    closeChatGifPicker();
+    persistCurrentChatDraft();
     window.clearTimeout(chatRoomTimer);
     chatRoomTimer = null;
     chatState.currentRoom = null;
     chatState.messages = [];
     chatState.olderCursor = null;
-    chatState.draftBody = "";
-    chatState.replyToMessageId = null;
     chatState.reactionCursor = "";
     chatState.shareCapability = "";
     document.getElementById("shareRoomHeaderBtn").hidden = true;
     document.getElementById("chatNewMessagesBtn").classList.remove("show");
     chatPreviousFocus?.focus?.();
     chatPreviousFocus = null;
+    unlockChatViewport();
   }
 }
 
@@ -23400,85 +23509,45 @@ function sizeChatComposerInput(input){
   input.style.height = `${Math.min(180, Math.max(52, input.scrollHeight))}px`;
 }
 
-async function sanitiseGameSelfie(file){
-  const bitmap = await createImageBitmap(file);
-  const maximum = 2048;
-  const scale = Math.min(1, maximum / Math.max(bitmap.width, bitmap.height));
-  const canvas = document.createElement("canvas");
-  canvas.width = Math.max(1, Math.round(bitmap.width * scale));
-  canvas.height = Math.max(1, Math.round(bitmap.height * scale));
-  canvas.getContext("2d", { alpha:false }).drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-  bitmap.close?.();
-  const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", .9));
-  if (!blob) throw new Error("That selfie could not be prepared.");
-  return new File([blob], `game-selfie-${Date.now()}.jpg`, { type:"image/jpeg" });
+let chatMediaUi = null;
+let chatMediaUiLoading = null;
+
+async function ensureChatMediaUi(){
+  if (chatMediaUi) return chatMediaUi;
+  if (chatMediaUiLoading) return chatMediaUiLoading;
+  chatMediaUiLoading = (async () => {
+    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA) await loadDeferredScript("config/chat-media.js?v=213");
+    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=213");
+    chatMediaUi = globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI.install({
+      media:globalThis.NOTHINGSPORTS_CHAT_MEDIA,
+      state:() => chatState,
+      request:(query, command, options) => serverSyncClient.chatRequest(query, command, options),
+      connection:chatConnection,
+    });
+    await chatMediaUi.stylesReady;
+    return chatMediaUi;
+  })().finally(() => { chatMediaUiLoading = null; });
+  return chatMediaUiLoading;
 }
 
-async function uploadChatAttachment(file, { selfie = false } = {}){
-  const room = chatState.currentRoom;
-  if (!room?.viewer?.canPost || chatState.pendingAttachments.length >= 4) return;
-  let upload = selfie ? await sanitiseGameSelfie(file) : file;
-  if (upload.type === "image/gif" && !chatState.capabilities.canUseGifs){
-    throw new Error(`Earn 25 NSC points to upload and send GIFs. You have ${chatState.capabilities.lifetimeNscPoints || 0}.`);
-  }
-  const prepared = await serverSyncClient.chatRequest({}, {
-    action:"attachment-upload-url", roomId:room.roomId, fileName:upload.name,
-    contentType:upload.type || "application/octet-stream", byteSize:upload.size,
-  });
-  const response = await fetch(prepared.attachment.uploadUrl, {
-    method:"PUT", headers:{ "Content-Type":upload.type }, body:upload,
-  });
-  if (!response.ok) throw new Error("The attachment upload did not complete.");
-  await serverSyncClient.chatRequest({}, {
-    action:"attachment-complete", attachmentId:prepared.attachment.attachmentId,
-    detectedContentType:upload.type,
-  });
-  chatState.pendingAttachments.push({
-    attachmentId:prepared.attachment.attachmentId,
-    kind:prepared.attachment.kind, fileName:upload.name, contentType:upload.type,
-    byteSize:upload.size, url:URL.createObjectURL(upload), own:true,
-  });
-  renderOpenChatRoom({ autoScroll:true, focusComposer:true });
+function pendingAttachmentPreview(item){
+  return chatMediaUi.preview(item);
+}
+
+function refreshChatAttachmentPreviews(){
+  chatMediaUi?.refreshPreviews();
 }
 
 async function chooseChatFiles(input, options = {}){
-  for (const file of [...(input.files || [])].slice(0, 4 - chatState.pendingAttachments.length)){
-    await uploadChatAttachment(file, options);
-  }
-  input.value = "";
+  return (await ensureChatMediaUi()).choose(input, options);
 }
 
-async function searchChatGifs(query, results){
-  if (!chatState.capabilities.canUseGifs){
-    results.textContent = `Earn 25 NSC points to use GIFs. You have ${chatState.capabilities.lifetimeNscPoints || 0}.`;
-    return;
-  }
-  results.textContent = "Searching GIFs…";
-  try{
-    const payload = await serverSyncClient.chatRequest({ mode:"gif-search", q:query });
-    results.replaceChildren();
-    payload.gifs.forEach(gif => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "chat-gif-result";
-      const image = document.createElement("img");
-      image.src = gif.previewUrl;
-      image.alt = gif.title;
-      button.appendChild(image);
-      button.addEventListener("click", async () => {
-        button.disabled = true;
-        try{
-          const response = await fetch(gif.originalUrl);
-          const blob = await response.blob();
-          await uploadChatAttachment(new File([blob], `${gif.id}.gif`, { type:"image/gif" }));
-        }catch(error){ chatConnection(error.message || "That GIF could not be added.", "retrying"); }
-      });
-      results.appendChild(button);
-    });
-    const attribution = document.createElement("small");
-    attribution.textContent = payload.attribution || "GIF library";
-    results.appendChild(attribution);
-  }catch(error){ results.textContent = error.message || "GIF search is unavailable."; }
+function closeChatGifPicker(){
+  chatMediaUi?.closePicker();
+}
+
+async function openChatGifPicker(){
+  return (await ensureChatMediaUi()).openPicker();
 }
 
 async function sendChatMessage(form){
@@ -23487,12 +23556,19 @@ async function sendChatMessage(form){
   if (!room?.viewer?.canPost) return;
   const body = CHAT.messageBody(input.value);
   const pendingAttachments = [...chatState.pendingAttachments];
+  const unfinished = pendingAttachments.find(item => item.status !== "ready");
+  if (unfinished){
+    chatConnection(unfinished.status === "failed" ? "Retry or remove the failed attachment before sending." : "Your attachment is still being prepared.", "retrying");
+    return;
+  }
   if (!body && !pendingAttachments.length){
     chatConnection("Add a message or attachment before sending.", "retrying");
     return;
   }
   const submit = form.querySelector('[type="submit"]');
   submit.disabled = true;
+  pendingAttachments.forEach(item => { item.status = "sending"; });
+  refreshChatAttachmentPreviews();
   const clientId = globalThis.crypto?.randomUUID?.() || `message_${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`;
   const replyToMessageId = chatState.replyToMessageId;
   const replyToMessage = chatMessageById(replyToMessageId);
@@ -23539,6 +23615,8 @@ async function sendChatMessage(form){
       }));
     }
     mergeChatMessages([payload.message]);
+    pendingAttachments.forEach(item => { item.status = "sent"; });
+    try{ sessionStorage.removeItem(chatDraftStorageKey(room.roomId)); }catch(_error){}
     refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
     submit.disabled = false;
     input.focus({ preventScroll:true });
@@ -23547,6 +23625,7 @@ async function sendChatMessage(form){
     chatState.messages = chatState.messages.filter(message => message.messageId !== optimisticMessage.messageId);
     chatState.draftBody = body;
     chatState.pendingAttachments = pendingAttachments;
+    pendingAttachments.forEach(item => { item.status = "ready"; });
     chatState.replyToMessageId = replyToMessageId;
     chatConnection(error.message || "The message could not be sent.", "retrying");
     renderOpenChatRoom({ autoScroll:true, focusComposer:true });
@@ -23567,7 +23646,11 @@ function buildChatComposer({ focus = false } = {}){
   input.rows = 2;
   input.placeholder = "Write a message or emoji";
   input.value = chatState.draftBody || "";
-  input.addEventListener("input", () => { chatState.draftBody = input.value; sizeChatComposerInput(input); });
+  input.addEventListener("input", () => {
+    chatState.draftBody = input.value;
+    persistCurrentChatDraft();
+    sizeChatComposerInput(input);
+  });
   input.addEventListener("keydown", event => {
     if (event.key !== "Enter" || event.shiftKey || event.isComposing) return;
     event.preventDefault();
@@ -23603,36 +23686,19 @@ function buildChatComposer({ focus = false } = {}){
   gif.type = "button";
   gif.className = "btn ghost";
   gif.textContent = "GIF";
+  gif.dataset.chatGifTrigger = "true";
   gif.title = chatState.capabilities.canUseGifs ? "Search GIFs" : "Requires 25 NSC points";
-  const gifPanel = document.createElement("div");
-  gifPanel.className = "chat-gif-panel";
-  gifPanel.hidden = true;
-  const gifSearch = document.createElement("input");
-  gifSearch.type = "search";
-  gifSearch.placeholder = "Search GIFs";
-  const gifResults = document.createElement("div");
-  gifResults.className = "chat-gif-results";
-  gif.addEventListener("click", () => { gifPanel.hidden = !gifPanel.hidden; if (!gifPanel.hidden) gifSearch.focus(); });
-  gifSearch.addEventListener("keydown", event => {
-    if (event.key === "Enter") { event.preventDefault(); void searchChatGifs(gifSearch.value, gifResults); }
-  });
-  gifPanel.append(gifSearch, gifResults);
+  gif.addEventListener("click", openChatGifPicker);
   tools.append(attach, fileInput, selfie, selfieInput, gif);
   const previews = document.createElement("div");
   previews.className = "chat-attachment-previews";
-  chatState.pendingAttachments.forEach(item => {
-    const preview = document.createElement("span");
-    preview.textContent = item.fileName;
-    const remove = document.createElement("button");
-    remove.type = "button"; remove.textContent = "×"; remove.setAttribute("aria-label", `Remove ${item.fileName}`);
-    remove.addEventListener("click", () => { chatState.pendingAttachments = chatState.pendingAttachments.filter(entry => entry.attachmentId !== item.attachmentId); renderOpenChatRoom({ autoScroll:true, focusComposer:true }); });
-    preview.appendChild(remove); previews.appendChild(preview);
-  });
+  chatState.pendingAttachments.forEach(item => previews.appendChild(pendingAttachmentPreview(item)));
   const send = document.createElement("button");
   send.type = "submit";
   send.className = "btn primary";
   send.textContent = "Send";
-  form.append(label, tools, previews, gifPanel, input, send);
+  send.disabled = chatState.pendingAttachments.some(item => item.status !== "ready");
+  form.append(label, tools, previews, input, send);
   form.addEventListener("submit", event => { event.preventDefault(); void sendChatMessage(form); });
   window.requestAnimationFrame(() => {
     sizeChatComposerInput(input);
@@ -23783,6 +23849,16 @@ function laterChatReactionCursor(first, second){
 async function openChatRoom(roomId){
   window.clearTimeout(chatRoomTimer);
   chatRoomTimer = null;
+  const previousRoomId = chatState.currentRoom?.roomId || null;
+  if (previousRoomId && previousRoomId !== roomId){
+    persistCurrentChatDraft();
+    chatState.pendingAttachments.forEach(item => {
+      if (item.url?.startsWith?.("blob:")) URL.revokeObjectURL(item.url);
+    });
+    chatState.pendingAttachments = [];
+    chatState.draftBody = "";
+    chatState.replyToMessageId = null;
+  }
   chatConnection("Connecting…");
   try{
     const payload = await serverSyncClient.chatRequest({ roomId });
@@ -23793,6 +23869,8 @@ async function openChatRoom(roomId){
     mergeChatReactionChanges(payload.reactionChanges);
     chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
     chatState.olderCursor = payload.olderCursor || null;
+    restoreChatDraft(roomId);
+    if (payload.room?.viewer?.canPost) await ensureChatMediaUi();
     renderOpenChatRoom({ autoScroll:true });
     if (!payload.room.readOnly){
       void serverSyncClient.chatRequest({}, { action:"mark-read", roomId, readAt:new Date().toISOString() })
@@ -24342,6 +24420,11 @@ document.getElementById("chatBody").addEventListener("scroll", () => {
   if (document.getElementById("chatNewMessagesBtn").classList.contains("show") && chatBodyAtBottom()) void markCurrentChatRead();
 }, { passive:true });
 document.addEventListener("keydown", event => {
+  if (document.getElementById("chatGifPicker")?.classList.contains("show") && event.key === "Escape"){
+    event.preventDefault();
+    closeChatGifPicker();
+    return;
+  }
   const backdrop = document.getElementById("chatBackdrop");
   if (!backdrop.classList.contains("show")) return;
   if (event.key === "Escape"){
@@ -24369,7 +24452,6 @@ window.addEventListener("online", () => {
 });
 window.addEventListener("offline", () => chatConnection("Offline — polling paused", "retrying"));
 
-/* ============ FEEDBACK ============ */
 function setUtilityModalOpen(id, open){
   const modal = document.getElementById(id);
   modal.classList.toggle("show", open);
@@ -24487,7 +24569,6 @@ function runStartupFeedBarrier(){
   });
 }
 
-/* ============ INIT ============ */
 applyThemePreference(userPreferences.theme);
 observeFeedPerformance();
 runStartupLogoLaunch();

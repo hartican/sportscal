@@ -30212,9 +30212,12 @@
           "sequenceInSession": 4,
           "timePrecision": "follows",
           "scheduleStatus": "confirmed",
-          "status": "live",
-          "statusUpdatedAt": "2026-09-01T02:10:18.416Z",
-          "previewPriority": 5,
+          "status": "completed",
+          "statusUpdatedAt": "2026-09-01T04:37:11.726Z",
+          "resultPublishedAt": "2026-09-01T04:37:11.726Z",
+          "scoreDisplay": "Grigor Dimitrov 6-3 3-6 2-6 4-6 Alexei Popyrin",
+          "result": "Grigor Dimitrov 6-3 3-6 2-6 4-6 Alexei Popyrin",
+          "previewPriority": 2,
           "matchupSides": [
             {
               "id": "side:tennis:grigor-dimitrov",
@@ -30497,9 +30500,12 @@
           "sequenceInSession": 4,
           "timePrecision": "follows",
           "scheduleStatus": "confirmed",
-          "status": "live",
-          "statusUpdatedAt": "2026-09-01T02:10:18.416Z",
-          "previewPriority": 5,
+          "status": "completed",
+          "statusUpdatedAt": "2026-09-01T04:37:11.726Z",
+          "resultPublishedAt": "2026-09-01T04:37:11.726Z",
+          "scoreDisplay": "Jakub Mensik 6-1 6-4 7-5 Shintaro Mochizuki",
+          "result": "Jakub Mensik 6-1 6-4 7-5 Shintaro Mochizuki",
+          "previewPriority": 2,
           "matchupSides": [
             {
               "id": "side:tennis:jakub-mensik",
@@ -31070,9 +31076,12 @@
           "sequenceInSession": 5,
           "timePrecision": "follows",
           "scheduleStatus": "confirmed",
-          "status": "live",
-          "statusUpdatedAt": "2026-09-01T02:10:18.416Z",
-          "previewPriority": 5,
+          "status": "completed",
+          "statusUpdatedAt": "2026-09-01T04:37:11.726Z",
+          "resultPublishedAt": "2026-09-01T04:37:11.726Z",
+          "scoreDisplay": "Felix Auger-Aliassime 7-5 4-6 6-3 7-5 Rinky Hijikata",
+          "result": "Felix Auger-Aliassime 7-5 4-6 6-3 7-5 Rinky Hijikata",
+          "previewPriority": 2,
           "matchupSides": [
             {
               "id": "side:tennis:felix-auger-aliassime",
@@ -31837,9 +31846,12 @@
           "sequenceInSession": 2,
           "timePrecision": "follows",
           "scheduleStatus": "confirmed",
-          "status": "live",
-          "statusUpdatedAt": "2026-09-01T02:10:18.416Z",
-          "previewPriority": 5,
+          "status": "completed",
+          "statusUpdatedAt": "2026-09-01T04:37:11.726Z",
+          "resultPublishedAt": "2026-09-01T04:37:11.726Z",
+          "scoreDisplay": "Quentin Halys 6-4 7-5 6(7)-7(9) 6-1 Facundo Diaz Acosta",
+          "result": "Quentin Halys 6-4 7-5 6(7)-7(9) 6-1 Facundo Diaz Acosta",
+          "previewPriority": 2,
           "matchupSides": [
             {
               "id": "side:tennis:quentin-halys",
@@ -32123,9 +32135,12 @@
           "sequenceInSession": 2,
           "timePrecision": "follows",
           "scheduleStatus": "confirmed",
-          "status": "live",
-          "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
-          "previewPriority": 5,
+          "status": "completed",
+          "statusUpdatedAt": "2026-09-01T05:02:55.235Z",
+          "resultPublishedAt": "2026-09-01T05:02:55.235Z",
+          "scoreDisplay": "Martin Damm 4-6 6-4 6-3 3-6 4-6 Frances Tiafoe",
+          "result": "Martin Damm 4-6 6-4 6-3 3-6 4-6 Frances Tiafoe",
+          "previewPriority": 2,
           "matchupSides": [
             {
               "id": "side:tennis:martin-damm",
@@ -32216,8 +32231,11 @@
           "sequenceInSession": 2,
           "timePrecision": "follows",
           "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+          "status": "completed",
+          "statusUpdatedAt": "2026-09-01T04:37:11.726Z",
+          "resultPublishedAt": "2026-09-01T04:37:11.726Z",
+          "scoreDisplay": "Naomi Osaka 7(8)-6(6) 7(7)-6(3) Anastasia Zakharova",
+          "result": "Naomi Osaka 7(8)-6(6) 7(7)-6(3) Anastasia Zakharova",
           "previewPriority": 4,
           "matchupSides": [
             {
@@ -36030,7 +36048,7 @@
         {
           "name": "US Open official released order of play",
           "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/scheduleDays.json",
-          "checkedAt": "2026-09-01T02:10:18.416Z"
+          "checkedAt": "2026-09-01T05:02:55.235Z"
         },
         {
           "name": "US Open — 2026 tournament schedule",
@@ -36216,7 +36234,7 @@
               "form",
               "history"
             ],
-            "researchedAt": "2026-09-01T02:11:11.490Z",
+            "researchedAt": "2026-09-01T05:03:42.280Z",
             "refreshAfter": null,
             "generationMode": "researched"
           },
@@ -36323,7 +36341,7 @@
               "form",
               "history"
             ],
-            "researchedAt": "2026-09-01T02:11:11.490Z",
+            "researchedAt": "2026-09-01T05:03:42.280Z",
             "refreshAfter": null,
             "generationMode": "researched"
           },
@@ -36428,7 +36446,7 @@
               "form",
               "path"
             ],
-            "researchedAt": "2026-09-01T02:11:11.490Z",
+            "researchedAt": "2026-09-01T05:03:42.280Z",
             "refreshAfter": "2026-09-03T10:10:00.000Z",
             "generationMode": "researched"
           },
@@ -36533,7 +36551,7 @@
               "form",
               "path"
             ],
-            "researchedAt": "2026-09-01T02:11:11.490Z",
+            "researchedAt": "2026-09-01T05:03:42.280Z",
             "refreshAfter": "2026-09-05T05:15:00.000Z",
             "generationMode": "researched"
           },
@@ -36638,7 +36656,7 @@
               "form",
               "path"
             ],
-            "researchedAt": "2026-09-01T02:11:11.490Z",
+            "researchedAt": "2026-09-01T05:03:42.280Z",
             "refreshAfter": "2026-09-04T09:40:00.000Z",
             "generationMode": "researched"
           },
@@ -36743,7 +36761,7 @@
               "form",
               "consequence"
             ],
-            "researchedAt": "2026-09-01T02:11:11.490Z",
+            "researchedAt": "2026-09-01T05:03:42.280Z",
             "refreshAfter": "2026-09-05T09:35:00.000Z",
             "generationMode": "researched"
           },
@@ -37280,7 +37298,7 @@
               "history",
               "path"
             ],
-            "researchedAt": "2026-09-01T02:11:11.490Z",
+            "researchedAt": "2026-09-01T05:03:42.280Z",
             "refreshAfter": "2026-09-26T04:30:00.000Z",
             "generationMode": "researched"
           },

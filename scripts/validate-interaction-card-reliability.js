@@ -32,9 +32,9 @@ check("chat state is normalised at every ownership boundary", () => {
   ["pendingAttachments", "messages", "rooms", "capabilities"].forEach(key => assert.match(factory, new RegExp(`${key}:`)));
 });
 
-check("card expander has fixed More and Less affordances", () => {
+check("card expander has fixed Read more and Show less affordances", () => {
   assert.match(html, /className\s*=\s*"card-expand-label"/);
-  assert.match(html, /textContent\s*=\s*state\s*===\s*"opened"\s*\?\s*"Less"\s*:\s*"More…"/);
+  assert.match(html, /textContent\s*=\s*state\s*===\s*"opened"\s*\?\s*"Show less"\s*:\s*"Read more"/);
   assert.match(html, /\.card-expand-control\{[^}]*min-width:/s);
 });
 
@@ -96,7 +96,7 @@ check("Why it matters rejects boilerplate and only renders validated editorial",
 
 check("preference reset is protected and recoverable", () => {
   assert.doesNotMatch(html, /id="resetPreferencesBtn"/);
-  assert.match(html, /loadDeferredScript\("config\/preference-reset-ui\.js\?v=208"\)/);
+  assert.match(html, /loadDeferredScript\("config\/preference-reset-ui\.js\?v=213"\)/);
   assert.match(resetUiSource, /Data & recovery/);
   assert.match(resetUiSource, /Reset all preferences…/);
   assert.match(resetUiSource, /type RESET/);
