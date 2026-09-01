@@ -43,10 +43,32 @@
     return source.toISOString().slice(0, 10);
   }
 
-  function followed(record, followedSports){
-    const selected = new Set(Array.isArray(followedSports) ? followedSports : []);
+  function followedSportKeys(followedInput){
+    const values = Array.isArray(followedInput)
+      ? followedInput
+      : [
+        ...(Array.isArray(followedInput?.followedSports) ? followedInput.followedSports : []),
+        ...(Array.isArray(followedInput?.selectedSelectorEntityIds) ? followedInput.selectedSelectorEntityIds : []),
+        ...(Array.isArray(followedInput?.preferenceGraph?.domainPreferences)
+          ? followedInput.preferenceGraph.domainPreferences
+            .filter(preference => preference?.enabled !== false)
+            .map(preference => preference?.sportDomainId)
+          : []),
+      ];
+    return new Set(values.map(value => String(value || "").trim().toLowerCase())
+      .filter(Boolean)
+      .flatMap(value => {
+        if (value === "category:sports") return ["*"];
+        if (!value.startsWith("sport:")) return [value];
+        const canonical = value.slice("sport:".length);
+        return canonical === "rugby-union" ? [canonical, "rugby"] : [canonical];
+      }));
+  }
+
+  function followed(record, followedInput){
+    const selected = followedSportKeys(followedInput);
     const keys = Array.isArray(record?.sportKeys) && record.sportKeys.length ? record.sportKeys : [record?.sportKey];
-    return keys.some(key => selected.has(key));
+    return selected.has("*") || keys.some(key => selected.has(String(key || "").toLowerCase()));
   }
 
   function eventFamilyId(record){
@@ -81,7 +103,6 @@
   }
 
   function visibleRecords(document, followedInput, reference = new Date()){
-    const followedSports = Array.isArray(followedInput) ? followedInput : followedInput?.followedSports || [];
     const followedEventFamilyIds = new Set(Array.isArray(followedInput?.followedEventFamilyIds) ? followedInput.followedEventFamilyIds : []);
     const followedParticipantIds = Array.isArray(followedInput?.followedParticipantIds) ? followedInput.followedParticipantIds : [];
     const followedParticipantNames = Array.isArray(followedInput?.followedParticipantNames) ? followedInput.followedParticipantNames : [];
@@ -90,7 +111,7 @@
       && record.lifecycleStatus !== "retired"
       && record.stakesScore === 5
       && (
-        followed(record, followedSports)
+        followed(record, followedInput)
         || followedEventFamilyIds.has(eventFamilyId(record))
         || (record.subEvents || []).some(subEvent => subEventMatchesFollow(subEvent, {
           followedParticipantIds,
@@ -595,5 +616,5 @@
     return errors;
   }
 
-  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMatchesFollow, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, editorialRecordForSubEvent, editorialFixtureFromSubEvent, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followedSportKeys, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMatchesFollow, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, editorialRecordForSubEvent, editorialFixtureFromSubEvent, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
 });

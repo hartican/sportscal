@@ -117,6 +117,62 @@ assert(tennis.events.some(record => record.id === "major-event:australian-open-2
 assert(tennis.alerts.some(record => record.id === "ticket-sale:australian-open-2027-general-sale"));
 assert(!tennis.events.some(record => record.sportKey === "nrl"), "Events must respect followed sports");
 
+const followedSportVisibilityCases = [
+  ["tennis", "major-event:us-open-2026"],
+  ["afl", "major-event:afl-finals-series-2026"],
+  ["nrl", "major-event:nrl-finals-series-2026"],
+  ["rugby", "major-event:nations-championship-finals-2026"],
+  ["football", "major-event:uefa-champions-league-2026-27:league-phase"],
+  ["motorsport", "major-event:australian-grand-prix-2027"],
+];
+followedSportVisibilityCases.forEach(([sportKey, eventId]) => {
+  const equivalentPreferenceShapes = [
+    { label:"canonical followedSports", value:{ followedSports:[sportKey] } },
+    { label:"domain followedSports", value:{ followedSports:[`sport:${sportKey}`] } },
+    { label:"selector-only follow", value:{ selectedSelectorEntityIds:[`sport:${sportKey}`] } },
+    { label:"preference-graph follow", value:{ preferenceGraph:{ domainPreferences:[{ sportDomainId:`sport:${sportKey}`, enabled:true }] } } },
+  ];
+  equivalentPreferenceShapes.forEach(({ label, value }) => {
+    assert(
+      majorEvents.visibleRecords(catalogue, value, REFERENCE).events.some(record => record.id === eventId),
+      `${eventId} must surface from its ${sportKey} ${label}`,
+    );
+  });
+});
+assert.equal(
+  majorEvents.visibleRecords(catalogue, { preferenceGraph:{ domainPreferences:[{ sportDomainId:"sport:tennis", enabled:false }] } }, REFERENCE).events.length,
+  0,
+  "a disabled domain preference must not surface its major events",
+);
+assert(
+  followedSportVisibilityCases.every(([, eventId]) => majorEvents.visibleRecords(catalogue, { selectedSelectorEntityIds:["category:sports"] }, REFERENCE).events.some(record => record.id === eventId)),
+  "the explicit all-sports selector must surface every in-window major-event family",
+);
+assert.match(
+  html,
+  /function majorEventVisibilityPreferences\(\)[^]*selectedSelectorEntityIds:userPreferences\.selectedSelectorEntityIds[^]*preferenceGraph:userPreferences\.preferenceGraph/,
+  "Events must pass canonical, selector and preference-graph sport follows through the shared visibility contract",
+);
+const everyInWindowEdition = catalogue.events.filter(record => (
+  record.kind !== "ticket_sale"
+  && record.lifecycleStatus !== "retired"
+  && record.stakesScore === 5
+  && majorEvents.inWindow(record, REFERENCE)
+));
+everyInWindowEdition.forEach(record => {
+  const sportKey = record.sportKey;
+  [
+    { followedSports:[sportKey] },
+    { followedSports:[`sport:${sportKey}`] },
+    { selectedSelectorEntityIds:[`sport:${sportKey}`] },
+    { preferenceGraph:{ domainPreferences:[{ sportDomainId:`sport:${sportKey}`, enabled:true }] } },
+  ].forEach(preferences => assert(
+    majorEvents.visibleRecords(catalogue, preferences, REFERENCE).events.some(candidate => candidate.id === record.id),
+    `${record.id} must surface from every equivalent ${sportKey} follow representation`,
+  ));
+});
+assert(everyInWindowEdition.length >= 10, "the sport-follow visibility audit must cover every current major-event edition");
+
 const usOpen = catalogue.events.find(record => record.id === "major-event:us-open-2026");
 const expectedOfficialUsOpenFixtures = fixturesFromSnapshot(usOpenScheduleSnapshot);
 const officialUsOpenFixtures = usOpen.subEvents.filter(event => event.id.startsWith(AUTO_ID_PREFIX));
@@ -230,11 +286,11 @@ invalidCopies.forEach(([document, message]) => {
 
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
-assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=215"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
+assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=216"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
-assert(worker.includes('"/config/major-events.js?v=215"') && worker.includes('"/config/follow-feed-policy.js?v=215"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
+assert(worker.includes('"/config/major-events.js?v=216"') && worker.includes('"/config/follow-feed-policy.js?v=216"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
 assert.match(html, /const crowdEvent = majorSubEventNothingscoreEvent\(subEvent, record, fixture\);[\s\S]*const editorialHook = buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\), editorialConsequenceForDisplay\(editorialRecord\)\);[\s\S]*if \(editorialHook\) row\.appendChild\(editorialHook\);[\s\S]*row\.appendChild\(buildEventNothingscoreAction\(crowdEvent\)\);/, "every Events timetable card must keep Why it matters and the contribution action together");
 assert.doesNotMatch(html, /row\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\)/, "Events timetable cards must keep volunteered NSC results invisible");

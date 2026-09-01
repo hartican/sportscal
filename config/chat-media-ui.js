@@ -14,7 +14,7 @@
       return new Promise(resolve => {
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = "config/chat-media-ui.css?v=215";
+        link.href = "config/chat-media-ui.css?v=216";
         link.dataset.chatMediaStyles = "true";
         link.addEventListener("load", resolve, { once:true });
         link.addEventListener("error", resolve, { once:true });

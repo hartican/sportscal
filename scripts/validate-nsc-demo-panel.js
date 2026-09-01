@@ -137,7 +137,7 @@ assert.match(serverSource,/Early panel · includes modelled responses\./);
 assert.doesNotMatch(html,/Independent context/);
 assert.doesNotMatch(html,/nsc-demo-badge|>Demo</,"modelled personas must never appear as named public contributors");
 assert.match(html,/dataset\.modelledExposure/);
-assert.match(html,/loadDeferredScript\("config\/nsc-visual\.js\?v=215"\)/,"the graph renderer must stay off the critical startup path");
+assert.match(html,/loadDeferredScript\("config\/nsc-visual\.js\?v=216"\)/,"the graph renderer must stay off the critical startup path");
 assert.match(visualSource,/createElementNS\("http:\/\/www\.w3\.org\/2000\/svg"/);
 assert.match(visualSource,/Accessible data for/);
 assert.match(visualSource,/Community responses/);
