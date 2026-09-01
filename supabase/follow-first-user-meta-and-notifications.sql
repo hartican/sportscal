@@ -116,6 +116,8 @@ alter table public.nothingsports_reminders enable row level security;
 alter table public.nothingsports_reminders force row level security;
 revoke all on table public.nothingsports_push_installations from anon, authenticated;
 revoke all on table public.nothingsports_reminders from anon, authenticated;
+grant select, insert, update, delete on table public.nothingsports_push_installations to service_role;
+grant select, insert, update, delete on table public.nothingsports_reminders to service_role;
 
 drop policy if exists "deny direct notification installation access" on public.nothingsports_push_installations;
 create policy "deny direct notification installation access" on public.nothingsports_push_installations

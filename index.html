@@ -11377,6 +11377,50 @@ function isSpoilerPolicySpiel(copy){
   return /^(?:This .+ match is retained with|The Sydney-local start is taken|Wimbledon publishes the court session)/i.test(String(copy || ""));
 }
 
+function finalsRoundProgressionForEvent(ev){
+  if (ev?.status === "completed" || getEventStatus(ev) === "past") return "";
+  const round = [ev?.roundLabel, ev?.stage, ev?.round, ev?.name, ev?.displayTitleCompact]
+    .filter(value => typeof value === "string" && value.trim())
+    .join(" · ");
+  const sport = String(ev?.key || ev?.sport || "").toLowerCase();
+
+  if (/qualifying\s*&\s*elimination\s+finals?/i.test(round)){
+    return "This is the opening week of the finals: qualifying-final winners go straight to a preliminary final, while elimination-final losers are out.";
+  }
+  if (/qualifying\s+final/i.test(round)){
+    return "The winner goes straight to a preliminary final; the loser gets a second chance in a semi-final.";
+  }
+  if (/wild ?card\s+final/i.test(round)){
+    return sport === "afl" || /\bafl\b/i.test(round)
+      ? "The winner advances to an elimination final; the loser is out of the finals."
+      : "The winner advances to the next knockout round; the loser is out of the finals.";
+  }
+  if (/elimination\s+final/i.test(round)){
+    return "The winner advances to a semi-final; the loser is out of the finals.";
+  }
+  if (/preliminary\s+final/i.test(round)){
+    return "The winner earns a place in the grand final; the loser is out of the finals.";
+  }
+  if (/\bsemi[ -]?finals?\b/i.test(round)){
+    return sport === "afl" || sport === "nrl" || /\b(?:afl|nrl)\b/i.test(round)
+      ? "The winner advances to a preliminary final; the loser is out of the finals."
+      : "The winner advances to the final; the loser is out of the competition.";
+  }
+  if (/\b(?:quarter[ -]?finals?|last\s*8|round of 8)\b/i.test(round)){
+    return "The winner advances to a semi-final; the loser is out of the competition.";
+  }
+  if (/\b(?:round of 16|last\s*16)\b/i.test(round)){
+    return "The winner advances to the quarter-finals; the loser is out of the competition.";
+  }
+  if (/\b(?:grand\s+final|championship\s+final)\b/i.test(round)){
+    return "The winner claims the title; the loser finishes runner-up.";
+  }
+  if (/\bfinal\b/i.test(round) && !/\bfinals\b/i.test(round)){
+    return "The winner claims the title; the loser finishes runner-up.";
+  }
+  return "";
+}
+
 function storylineCopyForDisplay(ev){
   const storyline = ev.storyline || {};
   const status = getEventStatus(ev);
@@ -11408,13 +11452,17 @@ function selectedSentenceForDisplay(ev){
 
 function eventSpielForDisplay(ev){
   const storylineCopy = storylineCopyForDisplay(ev);
-  if (storylineCopy.synopsis) return storylineCopy.synopsis;
+  const progression = finalsRoundProgressionForEvent(ev);
+  const appendProgression = copy => progression && !String(copy || "").includes(progression)
+    ? `${String(copy || "").trim()} ${progression}`.trim()
+    : String(copy || "").trim();
+  if (storylineCopy.synopsis) return appendProgression(storylineCopy.synopsis);
   const fullSpiel = ev.fullSpiel || "";
   const recap = spoilerFactsForEvent(ev).recap;
   if (isSpoilerVisible(ev) && ["past", "live"].includes(getEventStatus(ev)) && recap && (!fullSpiel || isSpoilerPolicySpiel(fullSpiel))){
-    return String(recap);
+    return appendProgression(recap);
   }
-  return fullSpiel || (recap ? String(recap) : "") || ev.selectedSentence || "";
+  return appendProgression(fullSpiel || (recap ? String(recap) : "") || ev.selectedSentence || "");
 }
 
 function setEventRating(ev, value, { revealSpoilers = true } = {}){

@@ -1,21 +1,21 @@
 {
   "schemaVersion": "afl-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-08-26T04:39:53.270Z",
+  "generatedAt": "2026-08-28T06:56:22.915Z",
   "sources": [
     {
       "id": "source:afl:teams",
       "provider": "AFL",
       "url": "https://www.afl.com.au/teams",
       "sourceType": "official",
-      "checkedAt": "2026-08-26T04:39:53.270Z"
+      "checkedAt": "2026-08-28T06:56:22.915Z"
     },
     {
       "id": "source:afl:players",
       "provider": "AFL",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-08-26T04:39:53.270Z"
+      "checkedAt": "2026-08-28T06:56:22.915Z"
     }
   ],
   "leagues": [
@@ -321,7 +321,7 @@
       "sortName": "Adam Cerra",
       "currentTeamId": "team:afl:cd_t30",
       "leagueId": "competition:afl-premiership-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/players/1562/adam-cerra",
       "sourceRefs": [
         "source:afl:players",
@@ -1609,7 +1609,7 @@
       "sortName": "Caleb Windsor",
       "currentTeamId": "team:afl:cd_t90",
       "leagueId": "competition:afl-premiership-2026",
-      "position": "Midfielder",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/players/6443/caleb-windsor",
       "sourceRefs": [
         "source:afl:players",

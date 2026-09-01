@@ -1,28 +1,28 @@
 {
   "schemaVersion": "nrl-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-08-26T04:39:53.270Z",
+  "generatedAt": "2026-08-28T06:56:22.915Z",
   "sources": [
     {
       "id": "source:nrl:clubs",
       "provider": "NRL",
       "url": "https://www.nrl.com/clubs/",
       "sourceType": "official",
-      "checkedAt": "2026-08-26T04:39:53.270Z"
+      "checkedAt": "2026-08-28T06:56:22.915Z"
     },
     {
       "id": "source:nrl:players",
       "provider": "NRL",
       "url": "https://www.nrl.com/players/?competition=111",
       "sourceType": "official",
-      "checkedAt": "2026-08-26T04:39:53.270Z"
+      "checkedAt": "2026-08-28T06:56:22.915Z"
     },
     {
       "id": "source:nrl:signings-2026",
       "provider": "NRL",
       "url": "https://www.nrl.com/news/2026/01/01/2026-nrl-signings-tracker-the-latest-from-all-17-clubs/",
       "sourceType": "official",
-      "checkedAt": "2026-08-26T04:39:53.270Z"
+      "checkedAt": "2026-08-28T06:56:22.915Z"
     }
   ],
   "leagues": [
@@ -530,6 +530,20 @@
       "active": true
     },
     {
+      "id": "competitor:nrl:angus-hinchey",
+      "displayName": "Angus Hinchey",
+      "sortName": "Angus Hinchey",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "2nd Row",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/storm/angus-hinchey/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
       "id": "competitor:nrl:antonio-verhoeven",
       "displayName": "Antonio Verhoeven",
       "sortName": "Antonio Verhoeven",
@@ -789,6 +803,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "2nd Row",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/sharks/billy-burns/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:billy-phillips",
+      "displayName": "Billy Phillips",
+      "sortName": "Billy Phillips",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Player",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/panthers/billy-phillips/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -1524,6 +1552,20 @@
       "active": true
     },
     {
+      "id": "competitor:nrl:cooper-bai",
+      "displayName": "Cooper Bai",
+      "sortName": "Cooper Bai",
+      "currentTeamId": "team:nrl:337",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Lock",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/titans/cooper-bai/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
       "id": "competitor:nrl:cooper-clarke",
       "displayName": "Cooper Clarke",
       "sortName": "Cooper Clarke",
@@ -1531,6 +1573,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "Prop",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/storm/cooper-clarke/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:cooper-toy",
+      "displayName": "Cooper Toy",
+      "sortName": "Cooper Toy",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Centre",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/bulldogs/cooper-toy/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -2203,6 +2259,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "Lock",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/bulldogs/finau-latu/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:fletcher-baker",
+      "displayName": "Fletcher Baker",
+      "sortName": "Fletcher Baker",
+      "currentTeamId": "team:nrl:336",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "2nd Row",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/sea-eagles/fletcher-baker/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -2910,6 +2980,20 @@
       "active": true
     },
     {
+      "id": "competitor:nrl:jack-underhill",
+      "displayName": "Jack Underhill",
+      "sortName": "Jack Underhill",
+      "currentTeamId": "team:nrl:332",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Lock",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/bulldogs/jack-underhill/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
       "id": "competitor:nrl:jack-wighton",
       "displayName": "Jack Wighton",
       "sortName": "Jack Wighton",
@@ -3491,6 +3575,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "Five-Eighth",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/wests-tigers/javon-andrews/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:jaxen-edgar",
+      "displayName": "Jaxen Edgar",
+      "sortName": "Jaxen Edgar",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Fullback",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/panthers/jaxen-edgar/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -6443,7 +6541,7 @@
       "sortName": "Ryda Talagi",
       "currentTeamId": "team:nrl:328",
       "leagueId": "competition:nrl-premiership-2026",
-      "position": "Player",
+      "position": "Prop",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/eels/ryda-talagi/",
       "sourceRefs": [
         "source:nrl:players",
@@ -6949,6 +7047,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "2nd Row",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/roosters/siua-wong/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:siulagi-pio",
+      "displayName": "Siulagi Tuimalatu-Brown",
+      "sortName": "Siulagi Tuimalatu-Brown",
+      "currentTeamId": "team:nrl:324",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Winger",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/storm/siulagi-pio/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -7712,20 +7824,6 @@
       "active": true
     },
     {
-      "id": "competitor:nrl:tyran-wishart",
-      "displayName": "Tyran Wishart",
-      "sortName": "Tyran Wishart",
-      "currentTeamId": "team:nrl:324",
-      "leagueId": "competition:nrl-premiership-2026",
-      "position": "Halfback",
-      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/storm/tyran-wishart/",
-      "sourceRefs": [
-        "source:nrl:players",
-        "source:nrl:signings-2026"
-      ],
-      "active": true
-    },
-    {
       "id": "competitor:nrl:tyrell-sloan",
       "displayName": "Tyrell Sloan",
       "sortName": "Tyrell Sloan",
@@ -7824,20 +7922,6 @@
       "active": true
     },
     {
-      "id": "competitor:nrl:viliame-kikau",
-      "displayName": "Viliame Kikau",
-      "sortName": "Viliame Kikau",
-      "currentTeamId": "team:nrl:332",
-      "leagueId": "competition:nrl-premiership-2026",
-      "position": "2nd Row",
-      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/bulldogs/viliame-kikau/",
-      "sourceRefs": [
-        "source:nrl:players",
-        "source:nrl:signings-2026"
-      ],
-      "active": true
-    },
-    {
       "id": "competitor:nrl:viliami-fifita",
       "displayName": "Viliami Fifita",
       "sortName": "Viliami Fifita",
@@ -7873,20 +7957,6 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "Hooker",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/warriors/wayde-egan/",
-      "sourceRefs": [
-        "source:nrl:players",
-        "source:nrl:signings-2026"
-      ],
-      "active": true
-    },
-    {
-      "id": "competitor:nrl:will-warbrick",
-      "displayName": "Will Warbrick",
-      "sortName": "Will Warbrick",
-      "currentTeamId": "team:nrl:324",
-      "leagueId": "competition:nrl-premiership-2026",
-      "position": "Winger",
-      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/storm/will-warbrick/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -8041,34 +8111,6 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "2nd Row",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/panthers/zakauri-clarke/",
-      "sourceRefs": [
-        "source:nrl:players",
-        "source:nrl:signings-2026"
-      ],
-      "active": true
-    },
-    {
-      "id": "competitor:nrl:zane-harrison",
-      "displayName": "Zane Harrison",
-      "sortName": "Zane Harrison",
-      "currentTeamId": "team:nrl:337",
-      "leagueId": "competition:nrl-premiership-2026",
-      "position": "Halfback",
-      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/titans/zane-harrison/",
-      "sourceRefs": [
-        "source:nrl:players",
-        "source:nrl:signings-2026"
-      ],
-      "active": true
-    },
-    {
-      "id": "competitor:nrl:zyon-maiuu",
-      "displayName": "Zyon Maiu'u",
-      "sortName": "Zyon Maiu'u",
-      "currentTeamId": "team:nrl:332",
-      "leagueId": "competition:nrl-premiership-2026",
-      "position": "2nd Row",
-      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/bulldogs/zyon-maiuu/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"

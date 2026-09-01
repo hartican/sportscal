@@ -103,6 +103,22 @@ const results = {
       },
     }
   ),
+  "cricket-australia-bangladesh-second-test-2026": releaseOfficial(
+    "Cricket Australia Mackay second Test match report",
+    "https://www.cricket.com.au/news/4565090/match-report-australia-beat-bangladesh-innings-victory-day-two-second-test-mackay-highlights-scores-mitchell-starc-ten-wickets-pat-cummins-cameron-green-fifty",
+    {
+      score: "Australia beat Bangladesh by an innings and 51 runs",
+      outcomeText: "Australia defeated Bangladesh by an innings and 51 runs in the second Test in Mackay.",
+      recapText: "Australia dismissed Bangladesh for 64 and 95 around a first-innings 210 to complete the Test inside two days. Mitchell Starc finished with 10-51 for the match as Australia levelled the series 1-1.",
+      resultLabels: ["Australia by an innings and 51 runs", "Second Test", "Official result"],
+      consensusResult: {
+        winner: "Australia",
+        loser: "Bangladesh",
+        summary: "Australia defeated Bangladesh by an innings and 51 runs in Mackay.",
+        marginText: "Australia by an innings and 51 runs",
+      },
+    }
+  ),
   "rugby-australia-japan-2026-08-15": refreshedOfficial(
     "Official Wallabies match report",
     "https://wallabies.rugby/news/wallabies-crack-fifty-over-brave-blossoms-after-dominant-second-half-in-townsville-2026815",
