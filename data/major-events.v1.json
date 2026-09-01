@@ -53,10 +53,10 @@
       "id": "major-event:us-open-2026",
       "eventFamilyId": "us-open",
       "editionId": "us-open-2026",
-      "phaseId": "qualifying",
-      "phaseLabel": "Qualifying",
-      "phaseStartDate": "2026-08-23",
-      "phaseEndDate": "2026-08-28",
+      "phaseId": "mixed-doubles-and-exhibitions",
+      "phaseLabel": "Mixed doubles and exhibitions",
+      "phaseStartDate": "2026-08-25",
+      "phaseEndDate": "2026-08-26",
       "kind": "tournament",
       "name": "US Open 2026",
       "sportKey": "tennis",
@@ -359,1230 +359,137 @@
           "sourceUrl": "https://www.usopen.org/amp/en_US/news/articles/2026-08-24/roger_federers_us_open_reflection_relationships_not_wins_stand_out.html"
         },
         {
-          "id": "fixture:us-open-2026:official:mq:11301",
-          "stableMatchId": "usopen-2026-mq-11301",
+          "id": "fixture:us-open-2026:bencic-cobolli-v-svitolina-monfils",
+          "stableMatchId": "usopen-2026-xd-bencic-cobolli-svitolina-monfils",
+          "legacyEventIds": [
+            "major-session:us-open-2026:mixed-doubles-finals"
+          ],
           "cardKind": "fixture",
-          "name": "Arthur Gea v Nishesh Basavareddy",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Court 12",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-am:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
+          "name": "Elina Svitolina / Gael Monfils v Belinda Bencic / Flavio Cobolli",
+          "stage": "Mixed doubles",
+          "roundLabel": "Semifinal",
+          "matchType": "mixed-doubles",
+          "court": "Arthur Ashe Stadium",
+          "date": "2026-08-26",
+          "time": "19:00",
+          "startTimeUtc": "2026-08-26T23:00:00.000Z",
+          "sessionId": "us-open-2026-mixed-doubles-finals",
+          "sessionStartTimeUtc": "2026-08-26T23:00:00.000Z",
           "sequenceInSession": 1,
           "timePrecision": "session-start",
           "scheduleStatus": "confirmed",
           "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 3,
+          "statusUpdatedAt": "2026-08-26T01:00:00.000Z",
           "matchupSides": [
             {
-              "id": "side:tennis:arthur-gea",
-              "name": "Arthur Gea",
+              "id": "pair:tennis:elina-svitolina-gael-monfils",
+              "name": "Svitolina / Monfils",
               "players": [
                 {
-                  "id": "athlete:tennis:arthur-gea",
-                  "name": "Arthur Gea",
-                  "seed": 1,
+                  "id": "athlete:tennis:elina-svitolina",
+                  "name": "Elina Svitolina",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "UA"
+                },
+                {
+                  "id": "athlete:tennis:gael-monfils",
+                  "name": "Gael Monfils",
+                  "seed": null,
                   "rank": null,
                   "nationalityCode": "FR"
                 }
               ]
             },
             {
-              "id": "side:tennis:nishesh-basavareddy",
-              "name": "Nishesh Basavareddy",
+              "id": "pair:tennis:belinda-bencic-flavio-cobolli",
+              "name": "Bencic / Cobolli",
               "players": [
                 {
-                  "id": "athlete:tennis:nishesh-basavareddy",
-                  "name": "Nishesh Basavareddy",
-                  "seed": 32,
-                  "rank": null,
-                  "nationalityCode": "US"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 12",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Court 12.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:mq:11304",
-          "stableMatchId": "usopen-2026-mq-11304",
-          "cardKind": "fixture",
-          "name": "Jacob Fearnley v Jurij Rodionov",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Court 5",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-ae:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "postponed",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "scoreDisplay": "Jacob Fearnley 6-4 4-6 2-3 Jurij Rodionov",
-          "previewPriority": 4,
-          "matchupSides": [
-            {
-              "id": "side:tennis:jacob-fearnley",
-              "name": "Jacob Fearnley",
-              "players": [
-                {
-                  "id": "athlete:tennis:jacob-fearnley",
-                  "name": "Jacob Fearnley",
+                  "id": "athlete:tennis:belinda-bencic",
+                  "name": "Belinda Bencic",
                   "seed": 4,
-                  "rank": null,
-                  "nationalityCode": "GB"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:jurij-rodionov",
-              "name": "Jurij Rodionov",
-              "players": [
-                {
-                  "id": "athlete:tennis:jurij-rodionov",
-                  "name": "Jurij Rodionov",
-                  "seed": 21,
-                  "rank": null,
-                  "nationalityCode": "AT"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 5",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Court 5.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:mq:11306",
-          "stableMatchId": "usopen-2026-mq-11306",
-          "cardKind": "fixture",
-          "name": "Shintaro Mochizuki v Francesco Passaro",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Court 13",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-an:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 3,
-          "matchupSides": [
-            {
-              "id": "side:tennis:shintaro-mochizuki",
-              "name": "Shintaro Mochizuki",
-              "players": [
-                {
-                  "id": "athlete:tennis:shintaro-mochizuki",
-                  "name": "Shintaro Mochizuki",
-                  "seed": 6,
-                  "rank": null,
-                  "nationalityCode": "JP"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:francesco-passaro",
-              "name": "Francesco Passaro",
-              "players": [
-                {
-                  "id": "athlete:tennis:francesco-passaro",
-                  "name": "Francesco Passaro",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "IT"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 13",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Court 13.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:mq:11308",
-          "stableMatchId": "usopen-2026-mq-11308",
-          "cardKind": "fixture",
-          "name": "Dalibor Svrcina v Mackenzie McDonald",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Court 11",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-al:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 3,
-          "matchupSides": [
-            {
-              "id": "side:tennis:dalibor-svrcina",
-              "name": "Dalibor Svrcina",
-              "players": [
-                {
-                  "id": "athlete:tennis:dalibor-svrcina",
-                  "name": "Dalibor Svrcina",
-                  "seed": 8,
-                  "rank": null,
-                  "nationalityCode": "CZ"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:mackenzie-mcdonald",
-              "name": "Mackenzie McDonald",
-              "players": [
-                {
-                  "id": "athlete:tennis:mackenzie-mcdonald",
-                  "name": "Mackenzie McDonald",
-                  "seed": 28,
-                  "rank": null,
-                  "nationalityCode": "US"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 11",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Court 11.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:mq:11312",
-          "stableMatchId": "usopen-2026-mq-11312",
-          "cardKind": "fixture",
-          "name": "Zsombor Piros v Christopher O'Connell",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Court 10",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-ak:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 3,
-          "matchupSides": [
-            {
-              "id": "side:tennis:zsombor-piros",
-              "name": "Zsombor Piros",
-              "players": [
-                {
-                  "id": "athlete:tennis:zsombor-piros",
-                  "name": "Zsombor Piros",
-                  "seed": 12,
-                  "rank": null,
-                  "nationalityCode": "HU"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:christopher-o-connell",
-              "name": "Christopher O'Connell",
-              "players": [
-                {
-                  "id": "athlete:tennis:christopher-o-connell",
-                  "name": "Christopher O'Connell",
-                  "seed": 17,
-                  "rank": null,
-                  "nationalityCode": "AU"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 10",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Court 10.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:mq:11314",
-          "stableMatchId": "usopen-2026-mq-11314",
-          "cardKind": "fixture",
-          "name": "Vilius Gaubas v Harry Wendelken",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Court 6",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-ag:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "postponed",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "scoreDisplay": "Vilius Gaubas 7(7)-6(3) 4-5 Harry Wendelken",
-          "previewPriority": 4,
-          "matchupSides": [
-            {
-              "id": "side:tennis:vilius-gaubas",
-              "name": "Vilius Gaubas",
-              "players": [
-                {
-                  "id": "athlete:tennis:vilius-gaubas",
-                  "name": "Vilius Gaubas",
-                  "seed": 14,
-                  "rank": null,
-                  "nationalityCode": "LTU"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:harry-wendelken",
-              "name": "Harry Wendelken",
-              "players": [
-                {
-                  "id": "athlete:tennis:harry-wendelken",
-                  "name": "Harry Wendelken",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "GB"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 6",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Court 6.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:mq:11315",
-          "stableMatchId": "usopen-2026-mq-11315",
-          "cardKind": "fixture",
-          "name": "Lloyd Harris v Pablo Llamas Ruiz",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Court 14",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-ao:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 3,
-          "matchupSides": [
-            {
-              "id": "side:tennis:lloyd-harris",
-              "name": "Lloyd Harris",
-              "players": [
-                {
-                  "id": "athlete:tennis:lloyd-harris",
-                  "name": "Lloyd Harris",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "RSA"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:pablo-llamas-ruiz",
-              "name": "Pablo Llamas Ruiz",
-              "players": [
-                {
-                  "id": "athlete:tennis:pablo-llamas-ruiz",
-                  "name": "Pablo Llamas Ruiz",
-                  "seed": 18,
-                  "rank": null,
-                  "nationalityCode": "ES"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 14",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Court 14.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12302",
-          "stableMatchId": "usopen-2026-wq-12302",
-          "cardKind": "fixture",
-          "name": "Lucie Havlickova v Nao Hibino",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 16",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-aq:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "postponed",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "scoreDisplay": "Lucie Havlickova 6-0 0-1 Nao Hibino",
-          "previewPriority": 4,
-          "matchupSides": [
-            {
-              "id": "side:tennis:lucie-havlickova",
-              "name": "Lucie Havlickova",
-              "players": [
-                {
-                  "id": "athlete:tennis:lucie-havlickova",
-                  "name": "Lucie Havlickova",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "CZ"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:nao-hibino",
-              "name": "Nao Hibino",
-              "players": [
-                {
-                  "id": "athlete:tennis:nao-hibino",
-                  "name": "Nao Hibino",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "JP"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 16",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 16.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12304",
-          "stableMatchId": "usopen-2026-wq-12304",
-          "cardKind": "fixture",
-          "name": "Darja Semenistaja v Storm Hunter",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 4",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-af:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 3,
-          "matchupSides": [
-            {
-              "id": "side:tennis:darja-semenistaja",
-              "name": "Darja Semenistaja",
-              "players": [
-                {
-                  "id": "athlete:tennis:darja-semenistaja",
-                  "name": "Darja Semenistaja",
-                  "seed": 4,
-                  "rank": null,
-                  "nationalityCode": "LV"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:storm-hunter",
-              "name": "Storm Hunter",
-              "players": [
-                {
-                  "id": "athlete:tennis:storm-hunter",
-                  "name": "Storm Hunter",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "AU"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 4",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 4.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12305",
-          "stableMatchId": "usopen-2026-wq-12305",
-          "cardKind": "fixture",
-          "name": "Susan Bandecchi v Arantxa Rus",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 15",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-ap:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "postponed",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "scoreDisplay": "Susan Bandecchi 4-1 Arantxa Rus",
-          "previewPriority": 4,
-          "matchupSides": [
-            {
-              "id": "side:tennis:susan-bandecchi",
-              "name": "Susan Bandecchi",
-              "players": [
-                {
-                  "id": "athlete:tennis:susan-bandecchi",
-                  "name": "Susan Bandecchi",
-                  "seed": 0,
                   "rank": null,
                   "nationalityCode": "CH"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:arantxa-rus",
-              "name": "Arantxa Rus",
-              "players": [
+                },
                 {
-                  "id": "athlete:tennis:arantxa-rus",
-                  "name": "Arantxa Rus",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "NL"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 15",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 15.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12310",
-          "stableMatchId": "usopen-2026-wq-12310",
-          "cardKind": "fixture",
-          "name": "Tamara Zidansek v Bianca Andreescu",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 7",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-ah:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "postponed",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "scoreDisplay": "Tamara Zidansek 0-2 Bianca Andreescu",
-          "previewPriority": 4,
-          "matchupSides": [
-            {
-              "id": "side:tennis:tamara-zidansek",
-              "name": "Tamara Zidansek",
-              "players": [
-                {
-                  "id": "athlete:tennis:tamara-zidansek",
-                  "name": "Tamara Zidansek",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "SI"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:bianca-andreescu",
-              "name": "Bianca Andreescu",
-              "players": [
-                {
-                  "id": "athlete:tennis:bianca-andreescu",
-                  "name": "Bianca Andreescu",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "CA"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 7",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 7.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12314",
-          "stableMatchId": "usopen-2026-wq-12314",
-          "cardKind": "fixture",
-          "name": "Qinwen Zheng v Elena Pridankina",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Stadium 17",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-ad:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "postponed",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "scoreDisplay": "Qinwen Zheng 6-4 2-5 Elena Pridankina",
-          "previewPriority": 4,
-          "matchupSides": [
-            {
-              "id": "side:tennis:qinwen-zheng",
-              "name": "Qinwen Zheng",
-              "players": [
-                {
-                  "id": "athlete:tennis:qinwen-zheng",
-                  "name": "Qinwen Zheng",
-                  "seed": 14,
-                  "rank": null,
-                  "nationalityCode": "CN"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:elena-pridankina",
-              "name": "Elena Pridankina",
-              "players": [
-                {
-                  "id": "athlete:tennis:elena-pridankina",
-                  "name": "Elena Pridankina",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "RU"
-                }
-              ]
-            }
-          ],
-          "venue": "Stadium 17",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Stadium 17.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12315",
-          "stableMatchId": "usopen-2026-wq-12315",
-          "cardKind": "fixture",
-          "name": "Mariam Bolkvadze v Anouk Koevermans",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 8",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-ai:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "postponed",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "scoreDisplay": "Mariam Bolkvadze 3-6 6(3)-6(3) Anouk Koevermans",
-          "previewPriority": 4,
-          "matchupSides": [
-            {
-              "id": "side:tennis:mariam-bolkvadze",
-              "name": "Mariam Bolkvadze",
-              "players": [
-                {
-                  "id": "athlete:tennis:mariam-bolkvadze",
-                  "name": "Mariam Bolkvadze",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "GE"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:anouk-koevermans",
-              "name": "Anouk Koevermans",
-              "players": [
-                {
-                  "id": "athlete:tennis:anouk-koevermans",
-                  "name": "Anouk Koevermans",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "NL"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 8",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 8.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12316",
-          "stableMatchId": "usopen-2026-wq-12316",
-          "cardKind": "fixture",
-          "name": "Kristina Liutova v Martyna Kubka",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 9",
-          "date": "2026-08-28",
-          "time": "11:00",
-          "startTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sessionId": "us-open-2026:day-6:court-aj:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 1,
-          "timePrecision": "session-start",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 3,
-          "matchupSides": [
-            {
-              "id": "side:tennis:kristina-liutova",
-              "name": "Kristina Liutova",
-              "players": [
-                {
-                  "id": "athlete:tennis:kristina-liutova",
-                  "name": "Kristina Liutova",
-                  "seed": 16,
-                  "rank": null,
-                  "nationalityCode": "RU"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:martyna-kubka",
-              "name": "Martyna Kubka",
-              "players": [
-                {
-                  "id": "athlete:tennis:martyna-kubka",
-                  "name": "Martyna Kubka",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "PL"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 9",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 9.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:mq:11303",
-          "stableMatchId": "usopen-2026-mq-11303",
-          "cardKind": "fixture",
-          "name": "Hugo Gaston v Colton Smith",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Court 12",
-          "date": "2026-08-28",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-6:court-am:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 2,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:hugo-gaston",
-              "name": "Hugo Gaston",
-              "players": [
-                {
-                  "id": "athlete:tennis:hugo-gaston",
-                  "name": "Hugo Gaston",
-                  "seed": 3,
-                  "rank": null,
-                  "nationalityCode": "FR"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:colton-smith",
-              "name": "Colton Smith",
-              "players": [
-                {
-                  "id": "athlete:tennis:colton-smith",
-                  "name": "Colton Smith",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "US"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 12",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Court 12.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:mq:11311",
-          "stableMatchId": "usopen-2026-mq-11311",
-          "cardKind": "fixture",
-          "name": "Yunchaokete Bu v Federico Cina",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Court 6",
-          "date": "2026-08-28",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-6:court-ag:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 2,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:yunchaokete-bu",
-              "name": "Yunchaokete Bu",
-              "players": [
-                {
-                  "id": "athlete:tennis:yunchaokete-bu",
-                  "name": "Yunchaokete Bu",
-                  "seed": 11,
-                  "rank": null,
-                  "nationalityCode": "CN"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:federico-cina",
-              "name": "Federico Cina",
-              "players": [
-                {
-                  "id": "athlete:tennis:federico-cina",
-                  "name": "Federico Cina",
-                  "seed": 0,
+                  "id": "athlete:tennis:flavio-cobolli",
+                  "name": "Flavio Cobolli",
+                  "seed": 4,
                   "rank": null,
                   "nationalityCode": "IT"
                 }
               ]
             }
           ],
-          "venue": "Court 6",
+          "venue": "Arthur Ashe Stadium",
           "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Court 6.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
+          "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/bencic-cobolli_defeat_superstars_williams-alcaraz_in_2026_us_open_mixed_doubles.html"
         },
         {
-          "id": "fixture:us-open-2026:official:mq:11313",
-          "stableMatchId": "usopen-2026-mq-11313",
+          "id": "fixture:us-open-2026:andreeva-rublev-v-muchova-mensik",
+          "stableMatchId": "usopen-2026-xd-andreeva-rublev-muchova-mensik",
           "cardKind": "fixture",
-          "name": "Liam Draxl v Tristan Schoolkate",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Court 16",
-          "date": "2026-08-28",
+          "name": "Karolina Muchova / Jakub Mensik v Mirra Andreeva / Andrey Rublev",
+          "stage": "Mixed doubles",
+          "roundLabel": "Semifinal",
+          "matchType": "mixed-doubles",
+          "court": "Arthur Ashe Stadium",
+          "date": "2026-08-26",
           "time": null,
           "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-6:court-aq:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
+          "sessionId": "us-open-2026-mixed-doubles-finals",
+          "sessionStartTimeUtc": "2026-08-26T23:00:00.000Z",
           "sequenceInSession": 2,
           "timePrecision": "follows",
           "scheduleStatus": "confirmed",
           "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 2,
+          "statusUpdatedAt": "2026-08-26T01:00:00.000Z",
           "matchupSides": [
             {
-              "id": "side:tennis:liam-draxl",
-              "name": "Liam Draxl",
+              "id": "pair:tennis:karolina-muchova-jakub-mensik",
+              "name": "Muchova / Mensik",
               "players": [
                 {
-                  "id": "athlete:tennis:liam-draxl",
-                  "name": "Liam Draxl",
-                  "seed": 0,
+                  "id": "athlete:tennis:karolina-muchova",
+                  "name": "Karolina Muchova",
+                  "seed": null,
                   "rank": null,
-                  "nationalityCode": "CA"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:tristan-schoolkate",
-              "name": "Tristan Schoolkate",
-              "players": [
+                  "nationalityCode": "CZ"
+                },
                 {
-                  "id": "athlete:tennis:tristan-schoolkate",
-                  "name": "Tristan Schoolkate",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "AU"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 16",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Court 16.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:mq:11316",
-          "stableMatchId": "usopen-2026-mq-11316",
-          "cardKind": "fixture",
-          "name": "Kei Nishikori v Rei Sakamoto",
-          "stage": "Men's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "mens-qualifying-singles",
-          "court": "Stadium 17",
-          "date": "2026-08-28",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-6:court-ad:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 2,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:kei-nishikori",
-              "name": "Kei Nishikori",
-              "players": [
-                {
-                  "id": "athlete:tennis:kei-nishikori",
-                  "name": "Kei Nishikori",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "JP"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:rei-sakamoto",
-              "name": "Rei Sakamoto",
-              "players": [
-                {
-                  "id": "athlete:tennis:rei-sakamoto",
-                  "name": "Rei Sakamoto",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "JP"
-                }
-              ]
-            }
-          ],
-          "venue": "Stadium 17",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Men's qualifying singles · Round 3 · Stadium 17.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12303",
-          "stableMatchId": "usopen-2026-wq-12303",
-          "cardKind": "fixture",
-          "name": "Francesca Jones v Joanna Garland",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 15",
-          "date": "2026-08-28",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-6:court-ap:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 2,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:francesca-jones",
-              "name": "Francesca Jones",
-              "players": [
-                {
-                  "id": "athlete:tennis:francesca-jones",
-                  "name": "Francesca Jones",
-                  "seed": 3,
-                  "rank": null,
-                  "nationalityCode": "GB"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:joanna-garland",
-              "name": "Joanna Garland",
-              "players": [
-                {
-                  "id": "athlete:tennis:joanna-garland",
-                  "name": "Joanna Garland",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "TPE"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 15",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 15.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12306",
-          "stableMatchId": "usopen-2026-wq-12306",
-          "cardKind": "fixture",
-          "name": "Heather Watson v Harriet Dart",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 8",
-          "date": "2026-08-28",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-6:court-ai:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 2,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:heather-watson",
-              "name": "Heather Watson",
-              "players": [
-                {
-                  "id": "athlete:tennis:heather-watson",
-                  "name": "Heather Watson",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "GB"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:harriet-dart",
-              "name": "Harriet Dart",
-              "players": [
-                {
-                  "id": "athlete:tennis:harriet-dart",
-                  "name": "Harriet Dart",
-                  "seed": 29,
-                  "rank": null,
-                  "nationalityCode": "GB"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 8",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 8.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12308",
-          "stableMatchId": "usopen-2026-wq-12308",
-          "cardKind": "fixture",
-          "name": "Elvina Kalieva v Vendula Valdmannova",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 11",
-          "date": "2026-08-28",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-6:court-al:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 2,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:elvina-kalieva",
-              "name": "Elvina Kalieva",
-              "players": [
-                {
-                  "id": "athlete:tennis:elvina-kalieva",
-                  "name": "Elvina Kalieva",
-                  "seed": 8,
-                  "rank": null,
-                  "nationalityCode": "US"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:vendula-valdmannova",
-              "name": "Vendula Valdmannova",
-              "players": [
-                {
-                  "id": "athlete:tennis:vendula-valdmannova",
-                  "name": "Vendula Valdmannova",
-                  "seed": 0,
+                  "id": "athlete:tennis:jakub-mensik",
+                  "name": "Jakub Mensik",
+                  "seed": null,
                   "rank": null,
                   "nationalityCode": "CZ"
                 }
               ]
-            }
-          ],
-          "venue": "Court 11",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 11.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12312",
-          "stableMatchId": "usopen-2026-wq-12312",
-          "cardKind": "fixture",
-          "name": "Mia Ristic v Himeno Sakatsume",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 5",
-          "date": "2026-08-28",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-6:court-ae:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 2,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:mia-ristic",
-              "name": "Mia Ristic",
-              "players": [
-                {
-                  "id": "athlete:tennis:mia-ristic",
-                  "name": "Mia Ristic",
-                  "seed": 0,
-                  "rank": null,
-                  "nationalityCode": "RS"
-                }
-              ]
             },
             {
-              "id": "side:tennis:himeno-sakatsume",
-              "name": "Himeno Sakatsume",
+              "id": "pair:tennis:mirra-andreeva-andrey-rublev",
+              "name": "Andreeva / Rublev",
               "players": [
                 {
-                  "id": "athlete:tennis:himeno-sakatsume",
-                  "name": "Himeno Sakatsume",
-                  "seed": 23,
+                  "id": "athlete:tennis:mirra-andreeva",
+                  "name": "Mirra Andreeva",
+                  "seed": null,
                   "rank": null,
-                  "nationalityCode": "JP"
+                  "nationalityCode": "RU"
+                },
+                {
+                  "id": "athlete:tennis:andrey-rublev",
+                  "name": "Andrey Rublev",
+                  "seed": null,
+                  "rank": null,
+                  "nationalityCode": "RU"
                 }
               ]
             }
           ],
-          "venue": "Court 5",
+          "venue": "Arthur Ashe Stadium",
           "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 5.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
-        },
-        {
-          "id": "fixture:us-open-2026:official:wq:12313",
-          "stableMatchId": "usopen-2026-wq-12313",
-          "cardKind": "fixture",
-          "name": "Yue Yuan v Mary Stoiana",
-          "stage": "Women's qualifying singles",
-          "roundLabel": "Round 3",
-          "matchType": "womens-qualifying-singles",
-          "court": "Court 7",
-          "date": "2026-08-28",
-          "time": null,
-          "startTimeUtc": null,
-          "sessionId": "us-open-2026:day-6:court-ah:session-1",
-          "sessionStartTimeUtc": "2026-08-28T15:00:00.000Z",
-          "sequenceInSession": 2,
-          "timePrecision": "follows",
-          "scheduleStatus": "confirmed",
-          "status": "scheduled",
-          "statusUpdatedAt": "2026-08-28T06:56:11.905Z",
-          "previewPriority": 2,
-          "matchupSides": [
-            {
-              "id": "side:tennis:yue-yuan",
-              "name": "Yue Yuan",
-              "players": [
-                {
-                  "id": "athlete:tennis:yue-yuan",
-                  "name": "Yue Yuan",
-                  "seed": 13,
-                  "rank": null,
-                  "nationalityCode": "CN"
-                }
-              ]
-            },
-            {
-              "id": "side:tennis:mary-stoiana",
-              "name": "Mary Stoiana",
-              "players": [
-                {
-                  "id": "athlete:tennis:mary-stoiana",
-                  "name": "Mary Stoiana",
-                  "seed": 17,
-                  "rank": null,
-                  "nationalityCode": "US"
-                }
-              ]
-            }
-          ],
-          "venue": "Court 7",
-          "stakesScore": 5,
-          "summary": "US Open 2026 · Women's qualifying singles · Round 3 · Court 7.",
-          "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json"
+          "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/andreeva-rublev_defeat_shnaider-ruud_in_2026_us_open_mixed_doubles.html"
         }
       ],
       "ticketing": {
@@ -1595,11 +502,6 @@
       },
       "sources": [
         {
-          "name": "US Open official released order of play",
-          "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/scheduleDays.json",
-          "checkedAt": "2026-08-28T06:56:11.905Z"
-        },
-        {
           "name": "US Open 2026 schedule",
           "url": "https://www.usopen.org/en_US/about/eventschedule.html",
           "checkedAt": "2026-08-23T06:00:00.000Z"
@@ -1609,8 +511,7 @@
           "url": "https://www.usopen.org/en_US/tickets/tickets_faq.html",
           "checkedAt": "2026-08-23T06:00:00.000Z"
         }
-      ],
-      "phaseIdentity": "qualification"
+      ]
     },
     {
       "id": "major-event:afl-finals-series-2026",

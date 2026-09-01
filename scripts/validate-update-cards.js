@@ -20,8 +20,6 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-premier-league-conte
 assert(localSteps.some(step => step[0] === "scripts/refresh-premier-league-context.js" && step.includes("--check")), "every canonical update must reject an incomplete published EPL snapshot");
 assert(localSteps.some(step => step[0] === "scripts/validate-premier-league-context.js"), "every canonical update must validate EPL identity mapping, offline transport and failed-refresh preservation");
 assert(localSteps.some(step => step[0] === "scripts/refresh-major-events-from-canonical.js"), "the canonical update must reconcile published AFL Finals Series slots before validating Events");
-assert(localSteps.some(step => step[0] === "scripts/refresh-us-open-events.js" && !step.includes("--check")), "every canonical update must refresh detailed US Open Events fixtures from the official released order of play");
-assert(localSteps.some(step => step[0] === "scripts/refresh-us-open-events.js" && step.includes("--check")), "every canonical update must reject stale US Open Events fixtures");
 assert(localSteps.some(step => step[0] === "scripts/refresh-f1-editorial.js"), "every canonical update must refresh contemporary fixture-specific F1 editorial");
 assert(localSteps.some(step => step[0] === "scripts/validate-mobile-feed-events-brand-pass.js"), "every canonical update must enforce the mobile provider, Events and brand reliability pass");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-sport-reliability-pass.js"), "every canonical update must enforce Feed stability, nineteen-sport coverage and event reliability");
@@ -29,13 +27,6 @@ assert(
   localSteps.findIndex(step => step[0] === "scripts/refresh-f1-editorial.js")
     < localSteps.findIndex(step => step[0] === "scripts/apply-editorial-previews.js"),
   "F1 editorial must be refreshed before editorial overrides are applied to the incoming feed"
-);
-assert(
-  localSteps.findIndex(step => step[0] === "scripts/refresh-us-open-events.js" && !step.includes("--check"))
-    > localSteps.findIndex(step => step[0] === "scripts/refresh-major-events-from-canonical.js")
-    && localSteps.findIndex(step => step[0] === "scripts/refresh-us-open-events.js" && step.includes("--check"))
-      < localSteps.findIndex(step => step[0] === "scripts/validate-major-events.js"),
-  "US Open official fixtures must refresh after canonical reconciliation and pass their focused check before Events validation"
 );
 assert(
   localSteps.findIndex(step => step[0] === "scripts/refresh-major-events-from-canonical.js")

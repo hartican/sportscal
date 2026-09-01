@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-08-28T06:56:45.519Z",
+  "generatedAt": "2026-08-26T04:40:20.432Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -13,8 +13,8 @@
   },
   "summary": {
     "totalMajorCards": 163,
-    "completed": 122,
-    "upcoming": 41,
+    "completed": 121,
+    "upcoming": 42,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -1930,7 +1930,7 @@
       "name": "Australia v Bangladesh — Second Test",
       "sport": "Cricket",
       "date": "2026-08-22",
-      "status": "completed",
+      "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,

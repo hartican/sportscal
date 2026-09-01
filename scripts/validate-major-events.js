@@ -5,13 +5,10 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const majorEvents = require("../config/major-events.js");
-const countryFlags = require("../config/country-flags.js");
-const { AUTO_ID_PREFIX, fixturesFromSnapshot } = require("./refresh-us-open-events.js");
 const ticketing = require("../config/ticketing.js");
 const aflNrlCanonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
-const usOpenScheduleSnapshot = JSON.parse(fs.readFileSync("feeds/provider-exports/tennis/us-open-2026-official-schedule.json", "utf8"));
 
-const REFERENCE = new Date("2026-08-29T00:00:00.000Z");
+const REFERENCE = new Date("2026-08-25T12:00:00.000Z");
 const catalogue = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
 const schema = JSON.parse(fs.readFileSync("schemas/major-events.schema.json", "utf8"));
 const html = fs.readFileSync("index.html", "utf8");
@@ -105,23 +102,46 @@ assert(tennis.alerts.some(record => record.id === "ticket-sale:australian-open-2
 assert(!tennis.events.some(record => record.sportKey === "nrl"), "Events must respect followed sports");
 
 const usOpen = catalogue.events.find(record => record.id === "major-event:us-open-2026");
-const expectedOfficialUsOpenFixtures = fixturesFromSnapshot(usOpenScheduleSnapshot);
-const officialUsOpenFixtures = usOpen.subEvents.filter(event => event.id.startsWith(AUTO_ID_PREFIX));
-assert.equal(officialUsOpenFixtures.length, expectedOfficialUsOpenFixtures.length, "US Open Events must include every fixture from the latest released official day");
-assert.deepEqual(officialUsOpenFixtures.map(event => event.id), expectedOfficialUsOpenFixtures.map(event => event.id), "US Open Events IDs must remain stable against official match IDs");
-assert.equal(usOpen.competitionId, "competition:tennis:us-open:2026", "US Open parent and child fixtures must inherit the tournament graphic identity");
-assert.equal(usOpen.phaseIdentity, "qualification", "the current US Open card must identify the released qualifying phase without pretending the main draw is published");
-assert(officialUsOpenFixtures.every(event => event.name.includes(" v ") && !/\b(?:TBC|Qualifier)\b/i.test(event.name)), "released US Open fixtures must use full published player-v-player names");
-assert(officialUsOpenFixtures.every(event => event.stage && event.roundLabel && event.court), "released US Open fixtures must retain event, round and court naming");
-assert(officialUsOpenFixtures.every(event => event.matchupSides.length === 2), "released US Open fixtures must retain exactly two matchup sides");
-assert(officialUsOpenFixtures.flatMap(event => event.matchupSides).flatMap(side => side.players).every(player => player.nationalityCode), "every released US Open player must retain the official country identity when available");
-assert(officialUsOpenFixtures.filter(event => event.sequenceInSession === 1).every(event => event.startTimeUtc && event.timePrecision === "session-start"), "first matches on each US Open court must use the published session start");
-assert(officialUsOpenFixtures.filter(event => event.sequenceInSession > 1).every(event => !event.startTimeUtc && event.timePrecision === "follows"), "later US Open court matches must say follows rather than inventing a start time");
-officialUsOpenFixtures.filter(event => event.startTimeUtc).forEach(event => {
-  const fixture = majorEvents.fixtureFromSubEvent(event, usOpen);
-  assert.equal(fixture.name, majorEvents.matchupSideLabels(event).join(" v "), `${event.id} must materialise as a fully named Feed fixture`);
-  assert.equal(fixture.competitionId, usOpen.competitionId, `${event.id} must inherit the US Open logo identity`);
+const usOpenMixedSemifinals = usOpen.subEvents.filter(event => event.matchType === "mixed-doubles" && event.roundLabel === "Semifinal");
+assert.equal(usOpenMixedSemifinals.length, 2, "the published US Open mixed-doubles semifinal draw must contain both named matchups");
+assert.deepEqual(
+  usOpenMixedSemifinals.map(event => majorEvents.matchupSideLabels(event)),
+  [
+    ["Elina Svitolina / Gael Monfils", "Belinda Bencic / Flavio Cobolli"],
+    ["Karolina Muchova / Jakub Mensik", "Mirra Andreeva / Andrey Rublev"],
+  ],
+  "US Open semifinal children must retain the announced two-player sides"
+);
+usOpenMixedSemifinals.forEach((event, index) => {
+  const pinned = majorEvents.fixtureFromSubEvent(event, usOpen);
+  if (index === 1){
+    assert.equal(event.timePrecision, "follows", `${event.id} must retain official session order without an invented start`);
+    assert.equal(pinned, null, `${event.id} cannot be pinned until its exact sporting start is published`);
+    return;
+  }
+  assert.equal(pinned.name, majorEvents.matchupSideLabels(event).join(" v "), `${event.id} must become a named Feed fixture`);
+  assert.equal(pinned.displayTitleCompact, pinned.name, `${event.id} must not fall back to a generic round/session title`);
+  assert.equal(pinned.participants.length, 4, `${event.id} must persist all four contestants in the pin snapshot`);
+  assert(pinned.participants.every(participant => participant.nationalityCode), `${event.id} must retain every announced player's country flag identity`);
+  assert.equal(pinned.matchupSides.length, 2, `${event.id} must persist the two grouped doubles sides`);
 });
+const legacyMixedSessionId = "major-session:us-open-2026:mixed-doubles-finals";
+const legacyPinPlan = majorEvents.fixturePinReconciliationPlan(catalogue, {
+  [legacyMixedSessionId]: {
+    eventId: legacyMixedSessionId,
+    addedToFixtures: true,
+    addedFixture: {
+      eventId: legacyMixedSessionId,
+      actionKey: legacyMixedSessionId,
+      name: "Mixed doubles · Semifinals and final",
+      cardKind: "fixture",
+      manualPin: true,
+    },
+  },
+});
+assert.equal(legacyPinPlan.length, 1, "the old generic US Open session pin must reconcile exactly once");
+assert.equal(legacyPinPlan[0].sourceKey, legacyMixedSessionId);
+assert.equal(legacyPinPlan[0].fixture.name, "Elina Svitolina / Gael Monfils v Belinda Bencic / Flavio Cobolli", "legacy generic pins must be repopulated with the first published concrete semifinal");
 
 catalogue.events.forEach(parent => (parent.subEvents || []).forEach(subEvent => {
   const sideLabels = majorEvents.matchupSideLabels(subEvent);
@@ -154,8 +174,8 @@ const invalidCopies = [
   [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, stakesScore: 4 }) }, /stakes/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, ticketing: { ...record.ticketing, url: "https://www.usopen.org/" } } : record) }, /ticket URL/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, startDate: "2028-01-01", endDate: "2028-01-14" } : record) }, /retention horizon/],
-  [{ ...catalogue, publishedAt: "2026-08-30T00:00:00.000Z" }, /non-future/],
-  [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: record.sources.map(source => ({ ...source, checkedAt: "2026-08-30T00:00:00.000Z" })) }) }, /future-dated source/],
+  [{ ...catalogue, publishedAt: "2026-08-26T00:00:00.000Z" }, /non-future/],
+  [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: record.sources.map(source => ({ ...source, checkedAt: "2026-08-26T00:00:00.000Z" })) }) }, /future-dated source/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:australian-grand-prix-2027" ? { ...record, season: 2028 } : record) }, /TBC records/],
 ];
 invalidCopies.forEach(([document, message]) => {

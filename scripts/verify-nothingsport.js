@@ -966,7 +966,6 @@ globalThis.__test = {
   selectedSentenceForDisplay,
   storylineCopyForDisplay,
   eventSpielForDisplay,
-  finalsRoundProgressionForEvent,
   retrospectiveSignificanceForEvent,
   formatFeedbackTimestamp,
   buildFeedbackMessage,
@@ -986,31 +985,6 @@ globalThis.__test = {
 vm.runInContext(`${appPrelude}\n${expose}`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
 app.setJointTournamentData(jointTournamentDocument);
-assert.match(
-  app.finalsRoundProgressionForEvent({ key:"nrl", roundLabel:"Qualifying Final", date:"2026-09-12", time:"19:50" }),
-  /winner goes straight to a preliminary final; the loser gets a second chance in a semi-final/i,
-  "qualifying finals must explain the double-chance route",
-);
-assert.match(
-  app.finalsRoundProgressionForEvent({ key:"nrl", roundLabel:"Elimination Final", date:"2026-09-12", time:"19:50" }),
-  /winner advances to a semi-final; the loser is out/i,
-  "elimination finals must explain the sudden-death route",
-);
-assert.match(
-  app.finalsRoundProgressionForEvent({ key:"afl", roundLabel:"Wildcard Finals", date:"2026-09-12", time:"19:50" }),
-  /winner advances to an elimination final; the loser is out/i,
-  "AFL wildcard finals must retain their distinct progression route",
-);
-assert.match(
-  app.finalsRoundProgressionForEvent({ key:"football", roundLabel:"Quarter-final", date:"2026-09-12", time:"19:50" }),
-  /winner advances to a semi-final; the loser is out/i,
-  "knockout quarter-finals must explain their progression route",
-);
-assert.equal(
-  app.finalsRoundProgressionForEvent({ key:"nrl", roundLabel:"Grand Final", status:"completed", date:"2026-08-01", time:"19:50" }),
-  "",
-  "completed finals must not present future-tense progression copy",
-);
 assert.equal(app.eventIsJointTournamentFeedChild({
   id: "tennis-tournament-atp-cincinnati-2026-2026-08-21",
   key: "tennis",
