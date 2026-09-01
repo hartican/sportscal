@@ -157,7 +157,7 @@ assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned
 assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
 assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
 assert(html.includes('src="config/sport-context.js"'), "modular sport context must load before event and standings resolution");
-assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=213")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
+assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=214")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
 assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
 assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asset registry must load before app rendering");
 assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
@@ -505,7 +505,7 @@ assert(eventCardSource.includes("preferImage: true"), "event cards must use stab
 assert((eventCardSource.match(/preferImage: true/g) || []).length >= 2, "interactive ticket and expansion glyphs must use the stable image-backed path; the stakes flames are intentionally inline for hollow and filled states");
 assert(eventCardSource.includes('mode !== "premium-rail"'), "horizontally scrolling premium-rail cards must not capture the same gesture for swipe-to-rate");
 assert(eventCardSource.includes('buildFeedStakesRow(ev) : buildStakesMeter(ev)') && html.includes('className = `stakes-flame${value <= score ? " is-filled" : " is-empty"}`') && html.includes('label.textContent = `STAKES ${score}/5`'), "cards must use the compact hollow-or-filled white flame stakes meter and Feed-only side feedback");
-assert.equal((eventCardSource.match(/buildEventCompactFooter\(ev/g) || []).length, 2, "selected and opened card states must each render one compact results and feedback footer");
+assert(!eventCardSource.includes("buildEventCompactFooter(ev"), "card expansion must not duplicate the one centred stakes and feedback unit");
 assert(!eventCardSource.includes('label.className = "new-tag"') && !eventCardSource.includes('label.textContent = "New"'), "cards must not expose the temporary New metadata tag");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
 assert(!html.includes('id="calendarSyncBtn"') && !html.includes('id="calendarSyncModal"') && !html.includes('id="calendarSyncUrl"'), "calendar sync must remain removed from the header and app");
@@ -823,7 +823,7 @@ assert(melbourneCards.every(event => event.horizonException && event.ticketUrl),
 assert(melbourneCards.every(event => event.ticketSaleStatus === "waitlist-open-date-not-announced"), "Melbourne cards must not invent an unconfirmed ticket-sale week");
 assert.equal(melbourneCards.find(event => event.timeTbc)?.calendarExportEligible, false, "the date-TBC Melbourne card must not create a false calendar appointment");
 
-const appPrelude = scriptMatch[1].split("/* ============ LIVE CLOCK ============ */")[0];
+const appPrelude = scriptMatch[1].split('window.addEventListener("scroll", syncContextualJumpButton')[0];
 const storage = new Map();
 storage.set("ns_feed_cache_v1", JSON.stringify({
   events: [{ id: "stale-cache-card", eventId: "stale-cache-card", key: "nrl", sport: "NRL", name: "Stale cached fixture", date: "2026-07-24", time: "19:00", broadcaster: "Kayo Sports", expected: 5 }],

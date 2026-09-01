@@ -18,7 +18,8 @@ assert(/function focusMajorEventCard[\s\S]{0,900}requestAnimationFrame\(restoreT
 
 assert(html.includes('card.dataset.cardState = state') && html.includes('state === "selected" ? "is-selected"') && html.includes('state === "opened" ? "is-opened"'), "both Events card types must expose compact, selected and opened states");
 assert(html.includes("refreshExpandableCard(eventCard, buildMajorEventCard(record") && html.includes("refreshExpandableCard(eventCard, buildTicketSaleCard(record"), "Events expansion must patch the stable keyed card");
-assert(/function mutateWithScrollContinuity[\s\S]{0,2600}getBoundingClientRect\(\)\.top[\s\S]{0,900}window\.scrollBy/.test(html), "the shared transaction must restore the selected anchor with one measured correction");
+const anchoredMutationSource = html.slice(html.indexOf("function mutateWithScrollContinuity"), html.indexOf("let scrollMomentumActive"));
+assert(anchoredMutationSource.includes("getBoundingClientRect().top") && anchoredMutationSource.includes("lastCorrectionAt < 40") && anchoredMutationSource.includes("window.scrollTo"), "the shared transaction must restore the selected anchor with one coalesced measured correction");
 assert(/function refreshExpandableCard[\s\S]{0,700}anchorStrategy:"target"/.test(html), "user-driven expansion must anchor the card being expanded even when it becomes taller than the viewport");
 assert(html.includes('card.dataset.scrollKey = `major-event:${record.id}`') && html.includes('card.dataset.scrollKey = `ticket-alert:${record.id}`'), "both Events collections must expose stable scroll identities");
 assert(html.includes('.major-event-logo{ display:grid; place-items:center; width:88px; height:90px;') && html.includes('.major-event-logo{ width:74px; height:70px;'), "Events identities must share the compact desktop and mobile fixture frames");

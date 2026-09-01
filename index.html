@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="213">
+<meta name="app-shell-version" content="214">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6988,8 +6988,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/team-follow-catalogue.js"></script>
 <script src="config/event-taxonomy-compat.js"></script>
 <script src="config/preference-taxonomy.js"></script>
-<script src="config/follow-first.js?v=213"></script>
-<script src="config/follow-feed-policy.js?v=213"></script>
+<script src="config/follow-first.js?v=214"></script>
+<script src="config/follow-feed-policy.js?v=214"></script>
 <script src="config/tennis-coverage.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
@@ -7020,7 +7020,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=213")
+  : loadDeferredScript("config/national-team-identities.js?v=214")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7832,7 +7832,7 @@ let SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
 let sportHubsLoad = null;
 function loadSportHubs(){
   if (SPORT_HUBS) return Promise.resolve(SPORT_HUBS);
-  sportHubsLoad ||= loadDeferredScript("config/sport-hubs.js?v=213").then(() => {
+  sportHubsLoad ||= loadDeferredScript("config/sport-hubs.js?v=214").then(() => {
     SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
     if (!SPORT_HUBS) throw new Error("Standings & Fixtures could not load.");
     return SPORT_HUBS;
@@ -8070,7 +8070,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=213",
+  moduleScriptUrl: "config/major-events.js?v=214",
   url: "data/major-events.v1.json",
 });
 
@@ -14864,6 +14864,7 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
   const previousNodes = captureKeyedScrollNodes();
   mutate();
   reconcileKeyedScrollNodes(previousNodes);
+  let lastCorrectionAt = -Infinity;
   const restoreAnchor = () => {
     const currentAnchor = anchor?.isConnected
       ? anchor
@@ -14871,35 +14872,46 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
         ? viewportAnchorForKey(anchorKey)
         : null;
     if (currentAnchor && Number.isFinite(anchorTop)){
+      const measuredAt = globalThis.performance?.now?.() || Date.now();
+      if (measuredAt - lastCorrectionAt < 40) return;
       const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
       const correction = scrollCorrectionForAnchor(anchorTop, currentAnchor.getBoundingClientRect().top, window.scrollY, maxScrollY);
-      if (Math.abs(correction) >= 0.5) window.scrollBy(0, correction);
+      if (Math.abs(correction) >= 0.5){
+        lastCorrectionAt = measuredAt;
+        window.scrollTo({ top:window.scrollY + correction, behavior:"instant" });
+      }
       recordInteractionDisplacement(interactionName, anchorTop, currentAnchor.getBoundingClientRect().top);
     }
   };
   let stabilizing = true;
   let lateRestoreTimer = null;
+  let restoreFrame = null;
+  const scheduleRestore = () => {
+    if (!stabilizing || restoreFrame !== null) return;
+    restoreFrame = window.requestAnimationFrame(() => {
+      restoreFrame = null;
+      if (stabilizing) restoreAnchor();
+    });
+  };
   const stopStabilizing = () => {
     stabilizing = false;
     resizeObserver?.disconnect?.();
     if (lateRestoreTimer !== null) window.clearInterval(lateRestoreTimer);
+    if (restoreFrame !== null) window.cancelAnimationFrame(restoreFrame);
     cleanupIntentListeners();
   };
   const intentEvents = ["pointerdown", "touchstart", "wheel", "keydown"];
   const cleanupIntentListeners = () => intentEvents.forEach(type => window.removeEventListener(type, stopStabilizing, true));
   intentEvents.forEach(type => window.addEventListener(type, stopStabilizing, { capture:true, once:true, passive:true }));
-  const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(() => {
-    if (stabilizing) window.requestAnimationFrame(restoreAnchor);
-  }) : null;
+  const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(scheduleRestore) : null;
   const observedMutationElement = target?.closest?.(".event-card") || (target?.nodeType === 1 ? target : null);
   if (observedMutationElement) resizeObserver?.observe?.(observedMutationElement);
+  scheduleRestore();
   window.requestAnimationFrame(() => {
-    restoreAnchor();
     // Replacing a focused disclosure control can trigger the browser's own
     // post-layout anchoring after the first frame. Measure once more so the
     // tapped card, rather than the removed child control, remains stationary.
-    window.requestAnimationFrame(() => {
-      restoreAnchor();
+    scheduleRestore();
     if (restoreFocus){
       const requestedFocus = typeof focusTarget === "string"
         ? document.querySelector(focusTarget)
@@ -14912,10 +14924,9 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
               : null;
       requestedFocus?.focus?.({ preventScroll:true });
     }
-    });
   });
   lateRestoreTimer = window.setInterval(() => {
-    if (stabilizing) restoreAnchor();
+    scheduleRestore();
   }, 50);
   window.setTimeout(stopStabilizing, 1250);
   return true;
@@ -16071,7 +16082,7 @@ function buildNothingscoreChoices(ev, snapshot, panel){
 let nothingscoreVisualLoad = null;
 function ensureNothingscoreVisual(){
   if (globalThis.NOTHINGSPORTS_NSC_VISUAL) return Promise.resolve(globalThis.NOTHINGSPORTS_NSC_VISUAL);
-  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=213").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
+  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=214").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
   return nothingscoreVisualLoad;
 }
 function buildNothingscoreVisual(snapshot){
@@ -21262,7 +21273,7 @@ function appendPreferenceRecoverySettings(body){
   (body.querySelector(".preference-stack") || body).appendChild(placeholder);
   preferenceResetUiLoad ||= globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI)
-    : loadDeferredScript("config/preference-reset-ui.js?v=213").then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
+    : loadDeferredScript("config/preference-reset-ui.js?v=214").then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
   void preferenceResetUiLoad.then(ui => {
     if (!placeholder.isConnected || !ui?.mount) return;
     placeholder.remove();
@@ -23516,8 +23527,8 @@ async function ensureChatMediaUi(){
   if (chatMediaUi) return chatMediaUi;
   if (chatMediaUiLoading) return chatMediaUiLoading;
   chatMediaUiLoading = (async () => {
-    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA) await loadDeferredScript("config/chat-media.js?v=213");
-    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=213");
+    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA) await loadDeferredScript("config/chat-media.js?v=214");
+    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=214");
     chatMediaUi = globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI.install({
       media:globalThis.NOTHINGSPORTS_CHAT_MEDIA,
       state:() => chatState,
