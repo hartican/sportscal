@@ -5,6 +5,128 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function(){
   "use strict";
 
+  const GIPHY_API_ORIGIN = "https://api.giphy.com";
+  const GIPHY_SEARCH_PATH = "/v1/gifs/search";
+  const GIPHY_TRENDING_PATH = "/v1/gifs/trending";
+  const GIPHY_REQUEST_TIMEOUT_MS = 10_000;
+  const GIPHY_QUERY_MAX_CODE_POINTS = 100;
+  const GIPHY_OFFSET_MAX = 4_800;
+
+  function trustedGiphyUrl(value){
+    try{
+      const url = new URL(String(value || ""));
+      return url.href.length <= 4096
+        && url.protocol === "https:"
+        && /(^|\.)giphy\.(?:com|net)$/i.test(url.hostname)
+        ? url.href
+        : "";
+    }catch(_error){
+      return "";
+    }
+  }
+
+  function normalizedGifAnalytics(value){
+    const analytics = {};
+    for (const action of ["onload", "onclick", "onsent"]){
+      const url = trustedGiphyUrl(value?.[action]?.url);
+      if (url) analytics[action] = { url };
+    }
+    return Object.keys(analytics).length ? analytics : null;
+  }
+
+  function normalizedGiphyItem(item){
+    const images = item?.images || {};
+    const preview = images.fixed_width_small || images.fixed_width || images.fixed_height_small || images.fixed_height;
+    const content = images.original || images.downsized || images.fixed_width || images.fixed_height;
+    const gifId = String(item?.id || "").trim().slice(0, 200);
+    const previewUrl = trustedGiphyUrl(preview?.url);
+    const contentUrl = trustedGiphyUrl(content?.url);
+    if (!/^[A-Za-z0-9_-]{1,200}$/.test(gifId) || !previewUrl || !contentUrl) return null;
+    return {
+      provider:"giphy",
+      gifId,
+      title:String(item?.title || "GIF").replace(/[\u0000-\u001f\u007f]+/g, " ").trim().slice(0, 120) || "GIF",
+      previewUrl,
+      contentUrl,
+      width:Math.max(1, Math.min(4096, Number(preview?.width) || 240)),
+      height:Math.max(1, Math.min(4096, Number(preview?.height) || 240)),
+      sourcePage:trustedGiphyUrl(item?.url) || "https://giphy.com/",
+      analytics:normalizedGifAnalytics(item?.analytics),
+    };
+  }
+
+  function giphyRequestUrl(config, query = "", offset = 0){
+    const q = String(query || "").normalize("NFC").trim();
+    if (Array.from(q).length > GIPHY_QUERY_MAX_CODE_POINTS) throw new Error("GIF searches may contain at most 100 characters.");
+    const requestedOffset = Number(offset);
+    if (!Number.isSafeInteger(requestedOffset) || requestedOffset < 0 || requestedOffset > GIPHY_OFFSET_MAX){
+      throw new Error("That GIF result page is unavailable.");
+    }
+    let endpoint;
+    try{
+      endpoint = new URL(q ? config?.searchEndpoint : config?.trendingEndpoint);
+    }catch(_error){
+      throw new Error("GIFs are unavailable right now.");
+    }
+    const expectedPath = q ? GIPHY_SEARCH_PATH : GIPHY_TRENDING_PATH;
+    if (endpoint.origin !== GIPHY_API_ORIGIN || endpoint.pathname !== expectedPath){
+      throw new Error("GIFs are unavailable right now.");
+    }
+    const apiKey = String(config?.apiKey || "").trim();
+    if (!apiKey) throw new Error("GIFs are unavailable right now.");
+    endpoint.search = new URLSearchParams({
+      api_key:apiKey,
+      limit:String(Math.max(1, Math.min(50, Number(config?.limit) || 24))),
+      offset:String(requestedOffset),
+      rating:String(config?.rating || "pg-13"),
+      country_code:String(config?.countryCode || "AU"),
+      bundle:String(config?.bundle || "messaging_non_clips"),
+      remove_low_contrast:String(config?.removeLowContrast !== false),
+      ...(q ? { q, lang:String(config?.language || "en") } : {}),
+    }).toString();
+    return endpoint;
+  }
+
+  async function searchGiphyClient(config, {
+    query = "", offset = 0, signal, fetchImpl = fetch, timeoutMs = GIPHY_REQUEST_TIMEOUT_MS,
+  } = {}){
+    const url = giphyRequestUrl(config, query, offset);
+    const timeoutController = new AbortController();
+    let timedOut = false;
+    const boundedTimeoutMs = Math.max(1, Math.min(GIPHY_REQUEST_TIMEOUT_MS, Number(timeoutMs) || GIPHY_REQUEST_TIMEOUT_MS));
+    const timer = setTimeout(() => {
+      timedOut = true;
+      timeoutController.abort();
+    }, boundedTimeoutMs);
+    const forwardAbort = () => timeoutController.abort();
+    signal?.addEventListener?.("abort", forwardAbort, { once:true });
+    try{
+      const response = await fetchImpl(url, {
+        method:"GET",
+        credentials:"omit",
+        referrerPolicy:"strict-origin-when-cross-origin",
+        signal:timeoutController.signal,
+      });
+      if (!response.ok) throw new Error("GIFs are unavailable right now.");
+      const payload = await response.json();
+      const items = Array.isArray(payload?.data) ? payload.data.map(normalizedGiphyItem).filter(Boolean) : [];
+      const count = Math.max(0, Number(payload?.pagination?.count) || items.length);
+      const total = Math.max(0, Number(payload?.pagination?.total_count) || 0);
+      const nextOffset = Number(offset) + count;
+      return {
+        items,
+        pagination:{ nextOffset, hasMore:total ? nextOffset < total : count >= Math.max(1, Number(config?.limit) || 24) },
+      };
+    }catch(error){
+      if (signal?.aborted) throw error;
+      if (timedOut) throw new Error("GIFs are taking too long. Try again.");
+      throw error?.message ? error : new Error("GIFs are unavailable right now.");
+    }finally{
+      clearTimeout(timer);
+      signal?.removeEventListener?.("abort", forwardAbort);
+    }
+  }
+
   function install(context){
     const media = context.media;
     const state = () => context.state();
@@ -14,7 +136,7 @@
       return new Promise(resolve => {
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = "config/chat-media-ui.css?v=217";
+        link.href = "config/chat-media-ui.css?v=223";
         link.dataset.chatMediaStyles = "true";
         link.addEventListener("load", resolve, { once:true });
         link.addEventListener("error", resolve, { once:true });
@@ -26,6 +148,7 @@
     let searchSequence = 0;
     let gifOffset = 0;
     let gifQuery = "";
+    let gifProviderConfig = null;
 
     async function prepareStaticImage(file){
       if (!media.shouldCompress(file.type)) return file;
@@ -199,8 +322,8 @@
     }
 
     async function retry(item){
-      if (item.sourceProvider && item.sourceGifId){
-        return importGif(item, { provider:item.sourceProvider, gifId:item.sourceGifId, previewUrl:item.url, title:item.fileName });
+      if (item.sourceGif){
+        return referenceGif(item, item.sourceGif);
       }
       return prepareAndUpload(item);
     }
@@ -243,20 +366,41 @@
       void fetch(url, { mode:"no-cors", keepalive:true }).catch(() => {});
     }
 
-    async function importGif(item, gif){
+    async function loadGifProviderConfig(){
+      if (gifProviderConfig) return gifProviderConfig;
+      const payload = await context.request({ mode:"gif-config" });
+      if (payload?.provider !== "giphy" || !payload?.clientConfig){
+        throw new Error("GIFs are unavailable right now.");
+      }
+      gifProviderConfig = payload.clientConfig;
+      return gifProviderConfig;
+    }
+
+    async function referenceGif(item, gif){
       const room = state().currentRoom;
       if (!room?.viewer?.canPost) return;
       Object.assign(item, { status:"preparing", error:"" });
       refreshPreviews();
       try{
         const payload = await context.request({}, {
-          action:"gif-import", roomId:room.roomId, provider:gif.provider, gifId:gif.gifId,
+          action:"gif-reference",
+          roomId:room.roomId,
+          gif:{
+            gifId:gif.gifId,
+            title:gif.title,
+            contentUrl:gif.contentUrl,
+            previewUrl:gif.previewUrl,
+            width:gif.width,
+            height:gif.height,
+            sourcePage:gif.sourcePage,
+            analytics:gif.analytics,
+          },
         });
         Object.assign(item, payload.attachment, {
           clientAttachmentId:item.clientAttachmentId,
-          url:payload.attachment.url || gif.previewUrl,
+          url:payload.attachment.url || gif.contentUrl,
           status:"ready", progress:100,
-          sourceProvider:gif.provider, sourceGifId:gif.gifId, sourceFile:null,
+          sourceProvider:"giphy", sourceGifId:gif.gifId, sourceGif:gif, sourceFile:null,
         });
       }catch(error){
         Object.assign(item, { status:"failed", error:error.message || "That GIF could not be added." });
@@ -271,14 +415,14 @@
         clientAttachmentId:crypto.randomUUID?.() || `gif_${Date.now()}_${Math.random()}`,
         attachmentId:null, kind:"gif", fileName:gif.title || "GIF", contentType:"image/gif",
         byteSize:0, url:gif.previewUrl, own:true, status:"preparing",
-        sourceProvider:gif.provider, sourceGifId:gif.gifId,
+        sourceProvider:"giphy", sourceGifId:gif.gifId, sourceGif:gif,
       };
       current.pendingAttachments.push(item);
       item.providerAnalytics = gif.analytics || null;
       registerGifAction(gif, "onclick");
       closePicker();
       refreshPreviews();
-      void importGif(item, gif);
+      void referenceGif(item, gif);
     }
 
     async function search(query, { append = false } = {}){
@@ -298,12 +442,12 @@
       if (!append) results.replaceChildren();
       try{
         if (!append){ gifOffset = 0; gifQuery = q; }
-        const providerPayload = await context.request(
-          { mode:"gifs", q, offset:String(gifOffset) },
-          null,
-          { signal:controller.signal }
-        );
-        const gifs = (providerPayload.items || []).filter(item => item.gifId && item.previewUrl);
+        const providerPayload = await searchGiphyClient(await loadGifProviderConfig(), {
+          query:q,
+          offset:gifOffset,
+          signal:controller.signal,
+        });
+        const gifs = providerPayload.items || [];
         if (controller.signal.aborted || sequence !== searchSequence) return;
         if (!gifs.length){
           status.textContent = append ? "That’s everything." : "No GIFs found. Try another search.";
@@ -389,5 +533,12 @@
     });
   }
 
-  return Object.freeze({ install });
+  return Object.freeze({
+    GIPHY_REQUEST_TIMEOUT_MS,
+    giphyRequestUrl,
+    install,
+    normalizedGiphyItem,
+    searchGiphyClient,
+    trustedGiphyUrl,
+  });
 });

@@ -102,9 +102,12 @@ create table if not exists public.nothingsports_chat_attachments (
   kind text not null check (kind in ('image','gif','audio','pdf','file')),
   file_name text not null check (char_length(file_name) between 1 and 120),
   content_type text not null check (char_length(content_type) between 3 and 120),
-  byte_size bigint not null check (byte_size between 1 and 26214400),
-  storage_bucket text not null default 'nothingsports-chat-transient',
-  object_path text not null unique,
+  byte_size bigint not null,
+  storage_bucket text default 'nothingsports-chat-transient',
+  object_path text unique,
+  external_url text,
+  external_preview_url text,
+  source_metadata jsonb not null default '{}'::jsonb,
   status text not null default 'pending' check (status in ('pending','ready','saved')),
   ready_at timestamptz,
   saved_at timestamptz,
@@ -122,8 +125,51 @@ create table if not exists public.nothingsports_saved_game_media (
   byte_size bigint not null check (byte_size between 1 and 26214400),
   storage_bucket text not null default 'nothingsports-saved-game-media',
   object_path text not null unique,
+  source_metadata jsonb not null default '{}'::jsonb,
   created_at timestamptz not null default now()
 );
+
+alter table public.nothingsports_chat_attachments
+  add column if not exists source_metadata jsonb not null default '{}'::jsonb,
+  add column if not exists external_url text,
+  add column if not exists external_preview_url text,
+  alter column storage_bucket drop not null,
+  alter column object_path drop not null;
+
+alter table public.nothingsports_saved_game_media
+  add column if not exists source_metadata jsonb not null default '{}'::jsonb;
+
+alter table public.nothingsports_chat_attachments
+  drop constraint if exists nothingsports_chat_attachments_location_check;
+alter table public.nothingsports_chat_attachments
+  drop constraint if exists nothingsports_chat_attachments_byte_size_check;
+alter table public.nothingsports_chat_attachments
+  add constraint nothingsports_chat_attachments_byte_size_check check (
+    (external_url is null and byte_size between 1 and 26214400)
+    or (external_url is not null and byte_size = 0)
+  );
+alter table public.nothingsports_chat_attachments
+  add constraint nothingsports_chat_attachments_location_check check (
+    (
+      external_url is null
+      and external_preview_url is null
+      and storage_bucket is not null
+      and object_path is not null
+    )
+    or
+    (
+      kind = 'gif'
+      and status = 'ready'
+      and storage_bucket is null
+      and object_path is null
+      and char_length(external_url) between 1 and 4096
+      and char_length(external_preview_url) between 1 and 4096
+      and external_url ~* '^https://([a-z0-9-]+\.)*giphy\.(com|net)/[^[:space:]]*$'
+      and external_preview_url ~* '^https://([a-z0-9-]+\.)*giphy\.(com|net)/[^[:space:]]*$'
+      and source_metadata ->> 'provider' = 'giphy'
+      and nullif(source_metadata ->> 'providerId', '') is not null
+    )
+  );
 
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values

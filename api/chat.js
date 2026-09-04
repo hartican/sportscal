@@ -22,9 +22,9 @@ const {
 } = require("../lib/supabase-server");
 const { dispatchChatMessageNotifications } = require("../lib/chat-notifications");
 const {
-  normalizedGiphyItem,
-  requireGiphyApiKey,
-  searchGiphyProvider,
+  giphyClientConfig,
+  normalizedGiphyReference,
+  trustedGiphyUrl,
 } = require("../lib/giphy-provider");
 
 const TABLES = Object.freeze({
@@ -42,8 +42,6 @@ const CHAT_MEDIA_BUCKET = "nothingsports-chat-transient";
 const SAVED_MEDIA_BUCKET = "nothingsports-saved-game-media";
 const MAX_ATTACHMENT_BYTES = 25 * 1024 * 1024;
 const MAX_ATTACHMENTS_PER_MESSAGE = 4;
-const GIF_SEARCH_MAX_OFFSET = 4_800;
-const GIF_QUERY_MAX_CODE_POINTS = 100;
 const GIF_PROMPT_CHIPS = Object.freeze(["Big win", "No way", "Banter", "Disaster", "Clutch", "Celebration"]);
 const ALLOWED_MEDIA_TYPES = new Set([
   "image/jpeg", "image/png", "image/webp", "image/gif",
@@ -548,7 +546,7 @@ async function handleRoomGet(request, user, admin, profile){
   const attachmentRows = messages.length ? await rows(TABLES.attachments, {
     message_id:`in.(${messages.map(item => item.id).join(",")})`,
     status:"in.(ready,saved)",
-    select:"attachment_id,message_id,kind,file_name,content_type,byte_size,object_path,status,source_metadata,created_at",
+    select:"attachment_id,message_id,kind,file_name,content_type,byte_size,storage_bucket,object_path,external_url,external_preview_url,status,source_metadata,created_at",
   }) : [];
   const attachmentsByMessage = new Map();
   await Promise.all(attachmentRows.map(async attachment => {
@@ -559,7 +557,9 @@ async function handleRoomGet(request, user, admin, profile){
       fileName:attachment.file_name,
       contentType:attachment.content_type,
       byteSize:Number(attachment.byte_size),
-      url:await storageSignedDownload(CHAT_MEDIA_BUCKET, attachment.object_path),
+      url:attachment.external_url || await storageSignedDownload(attachment.storage_bucket || CHAT_MEDIA_BUCKET, attachment.object_path),
+      previewUrl:attachment.external_preview_url || attachment.external_url || null,
+      external:Boolean(attachment.external_url),
       saved:attachment.status === "saved",
       sourceMetadata:attachment.source_metadata || {},
     });
@@ -734,49 +734,74 @@ function gifProviderRequestError(message, status, code){
   return new ChatRequestError(message, status, code);
 }
 
-async function gifSearch(request, user){
+async function gifConfig(user){
   const capabilities = await requireGifCapability(user);
-  const query = String(queryValue(request, "q") || "").normalize("NFC").trim();
-  const queryLength = Array.from(query).length;
-  if (queryLength === 1) throw new ChatRequestError("Enter at least two characters.", 400, "gif_query_too_short");
-  if (queryLength > GIF_QUERY_MAX_CODE_POINTS) throw new ChatRequestError("GIF searches may contain at most 100 characters.", 400, "gif_query_too_long");
-  const offsetValue = String(queryValue(request, "offset") || "0").trim();
-  if (!/^\d+$/.test(offsetValue)) throw new ChatRequestError("That GIF result offset is invalid.", 400, "invalid_gif_offset");
-  const offset = Number(offsetValue);
-  if (!Number.isSafeInteger(offset) || offset > GIF_SEARCH_MAX_OFFSET){
-    throw new ChatRequestError("That GIF result offset is invalid.", 400, "invalid_gif_offset");
-  }
   return {
     schemaVersion:chatContract.SCHEMA_VERSION,
     capabilities,
-    ...(await searchGiphyProvider({ query, offset }, { errorFactory:gifProviderRequestError })),
+    provider:"giphy",
+    clientConfig:giphyClientConfig(process.env, gifProviderRequestError),
     promptChips:GIF_PROMPT_CHIPS,
+  };
+}
+
+async function createGiphyReference(body, user, admin){
+  const roomId = requireUuid(body.roomId, "room ID");
+  await requireRoomAccess(roomId, user, admin, { write:true });
+  await requireGifCapability(user);
+  const gif = normalizedGiphyReference(body.gif, gifProviderRequestError);
+  const attachmentId = crypto.randomUUID();
+  const fileName = cleanAttachmentName(`${gif.title}.gif`);
+  const sourceMetadata = cleanSourceMetadata({
+    provider:"giphy",
+    providerId:gif.gifId,
+    sourcePage:gif.sourcePage,
+    attribution:gif.attribution,
+    licence:"GIPHY Terms",
+    width:gif.width,
+    height:gif.height,
+  });
+  await supabaseServiceRequest(restPath(TABLES.attachments), {
+    method:"POST", headers:{ Prefer:"return=minimal" },
+    body:{
+      attachment_id:attachmentId,
+      room_id:roomId,
+      uploader_id:user.id,
+      kind:"gif",
+      file_name:fileName,
+      content_type:"image/gif",
+      byte_size:0,
+      storage_bucket:null,
+      object_path:null,
+      external_url:gif.contentUrl,
+      external_preview_url:gif.previewUrl,
+      status:"ready",
+      ready_at:new Date().toISOString(),
+      source_metadata:sourceMetadata,
+    },
+  });
+  return {
+    schemaVersion:chatContract.SCHEMA_VERSION,
+    attachment:{
+      attachmentId,
+      kind:"gif",
+      fileName,
+      contentType:"image/gif",
+      byteSize:0,
+      url:gif.contentUrl,
+      previewUrl:gif.previewUrl,
+      external:true,
+      saved:false,
+      sourceMetadata,
+    },
   };
 }
 
 async function resolveGifProviderMedia(providerValue, gifIdValue){
   const provider = String(providerValue || "").trim().toLowerCase();
   const gifId = String(gifIdValue || "").trim().slice(0, 200);
-  if (!gifId || !["giphy", "wikimedia"].includes(provider)){
+  if (!gifId || provider !== "wikimedia"){
     throw new ChatRequestError("That GIF provider reference is invalid.", 400, "invalid_gif_reference");
-  }
-  if (provider === "giphy"){
-    const key = requireGiphyApiKey(process.env, gifProviderRequestError);
-    const url = new URL(`https://api.giphy.com/v1/gifs/${encodeURIComponent(gifId)}`);
-    url.searchParams.set("api_key", key);
-    const response = await fetch(url, { signal:AbortSignal.timeout(10_000) });
-    if (!response.ok) throw new ChatRequestError("That GIF is no longer available.", 404, "gif_not_found");
-    const item = (await response.json())?.data || {};
-    const originalUrl = item.images?.original?.url;
-    if (!originalUrl) throw new ChatRequestError("That GIF is no longer available.", 404, "gif_not_found");
-    return {
-      provider, gifId:String(item.id || gifId), mediaUrl:originalUrl,
-      title:String(item.title || "GIF").slice(0, 120),
-      sourceMetadata:cleanSourceMetadata({
-        provider, providerId:String(item.id || gifId), sourcePage:item.url || "https://giphy.com/",
-        attribution:"Powered by GIPHY", creator:item.username || "", licence:"GIPHY Terms",
-      }),
-    };
   }
   if (!/^\d{1,20}$/.test(gifId)) throw new ChatRequestError("That Wikimedia GIF reference is invalid.", 400, "invalid_gif_reference");
   const url = new URL("https://commons.wikimedia.org/w/api.php");
@@ -808,16 +833,12 @@ async function gifImport(body, user, admin){
   await requireGifCapability(user);
   const resolved = await resolveGifProviderMedia(body.provider, body.gifId);
   const mediaUrl = new URL(resolved.mediaUrl);
-  const allowedHost = resolved.provider === "giphy"
-    ? /(^|\.)giphy\.com$/i.test(mediaUrl.hostname) || /(^|\.)giphy\.net$/i.test(mediaUrl.hostname)
-    : /(^|\.)wikimedia\.org$/i.test(mediaUrl.hostname);
+  const allowedHost = /(^|\.)wikimedia\.org$/i.test(mediaUrl.hostname);
   if (mediaUrl.protocol !== "https:" || !allowedHost) throw new ChatRequestError("That GIF source is not trusted.", 400, "gif_source_rejected");
   const download = await fetch(mediaUrl, { redirect:"follow", signal:AbortSignal.timeout(15_000) });
   if (!download.ok) throw new ChatRequestError("That GIF could not be imported.", 502, "gif_import_failed");
   const finalUrl = new URL(download.url || mediaUrl.href);
-  const finalHostAllowed = resolved.provider === "giphy"
-    ? /(^|\.)giphy\.com$/i.test(finalUrl.hostname) || /(^|\.)giphy\.net$/i.test(finalUrl.hostname)
-    : /(^|\.)wikimedia\.org$/i.test(finalUrl.hostname);
+  const finalHostAllowed = /(^|\.)wikimedia\.org$/i.test(finalUrl.hostname);
   if (finalUrl.protocol !== "https:" || !finalHostAllowed) throw new ChatRequestError("That GIF source redirected outside its trusted provider.", 400, "gif_source_rejected");
   const declaredSize = Number(download.headers.get("content-length") || 0);
   if (declaredSize > MAX_ATTACHMENT_BYTES) throw new ChatRequestError("That GIF is larger than 25 MB.", 413, "chat_attachment_too_large");
@@ -853,11 +874,16 @@ async function attachmentDownload(request, user, admin){
   const attachment = (await rows(TABLES.attachments, {
     attachment_id:`eq.${attachmentId}`,
     status:"in.(ready,saved)",
-    select:"attachment_id,room_id,storage_bucket,object_path",
+    select:"attachment_id,room_id,storage_bucket,object_path,external_url,source_metadata",
     limit:"1",
   }))[0] || null;
   if (!attachment) throw new ChatRequestError("That attachment is unavailable.", 404, "chat_attachment_not_found");
   await requireRoomAccess(attachment.room_id, user, admin);
+  if (attachment.external_url){
+    const externalUrl = attachment.source_metadata?.provider === "giphy" ? trustedGiphyUrl(attachment.external_url) : "";
+    if (!externalUrl) throw new ChatRequestError("That attachment is unavailable.", 404, "chat_attachment_not_found");
+    return externalUrl;
+  }
   return storageSignedDownload(attachment.storage_bucket, attachment.object_path);
 }
 
@@ -1051,7 +1077,7 @@ async function sendMessage(body, user, admin, profile){
   if (attachmentIds.length > MAX_ATTACHMENTS_PER_MESSAGE) throw new ChatRequestError("A message can include at most four attachments.", 400, "chat_attachment_limit");
   const messageAttachments = attachmentIds.length ? await rows(TABLES.attachments, {
     attachment_id:`in.(${attachmentIds.join(",")})`, room_id:`eq.${roomId}`, uploader_id:`eq.${user.id}`, status:"eq.ready",
-    select:"attachment_id,kind,file_name,content_type,byte_size,source_metadata",
+    select:"attachment_id,kind,file_name,content_type,byte_size,external_url,external_preview_url,source_metadata",
   }) : [];
   if (messageAttachments.length !== attachmentIds.length) throw new ChatRequestError("Every attachment must finish uploading before it can be sent.", 409, "chat_attachment_not_ready");
   if (messageAttachments.some(item => item.kind === "gif" || item.content_type === "image/gif")) await requireGifCapability(user);
@@ -1139,7 +1165,9 @@ async function sendMessage(body, user, admin, profile){
       attachments:messageAttachments.map(item => ({
         attachmentId:item.attachment_id, kind:item.kind, fileName:item.file_name,
         contentType:item.content_type, byteSize:Number(item.byte_size),
-        url:null,
+        url:item.external_url || null,
+        previewUrl:item.external_preview_url || item.external_url || null,
+        external:Boolean(item.external_url),
         saved:false,
         sourceMetadata:item.source_metadata || {},
       })),
@@ -1161,6 +1189,9 @@ async function saveAttachment(body, user, admin){
   }))[0] || null;
   if (!attachment) throw new ChatRequestError("Only the person who posted this media can save it.", 403, "chat_attachment_save_forbidden");
   await requireRoomAccess(attachment.room_id, user, admin);
+  if (attachment.external_url){
+    throw new ChatRequestError("Provider GIFs stay linked to GIPHY and cannot be copied into saved media.", 409, "external_media_save_unsupported");
+  }
   const savedId = crypto.randomUUID();
   const savedPath = `${user.id}/${savedId}/${attachment.file_name}`;
   await supabaseServiceRequest(`/storage/v1/object/copy`, {
@@ -1299,10 +1330,13 @@ async function closeRoom(body, user, admin){
     room_id:`eq.${roomId}`, status:"in.(pending,ready)",
     select:"attachment_id,object_path",
   });
-  if (transient.length){
+  const storedObjectPaths = transient.map(item => item.object_path).filter(Boolean);
+  if (storedObjectPaths.length){
     await supabaseServiceRequest(`/storage/v1/object/${CHAT_MEDIA_BUCKET}`, {
-      method:"DELETE", body:{ prefixes:transient.map(item => item.object_path) },
+      method:"DELETE", body:{ prefixes:storedObjectPaths },
     });
+  }
+  if (transient.length){
     await supabaseServiceRequest(restPath(TABLES.attachments, { room_id:`eq.${roomId}`, status:"in.(pending,ready)" }), {
       method:"DELETE", headers:{ Prefer:"return=minimal" },
     });
@@ -1327,6 +1361,7 @@ async function handlePost(request, user, admin, profile){
     case "send-message": return sendMessage(body, user, admin, profile);
     case "attachment-upload-url": return prepareAttachment(body, user, admin);
     case "attachment-complete": return completeAttachment(body, user, admin);
+    case "gif-reference": return createGiphyReference(body, user, admin);
     case "gif-import": return gifImport(body, user, admin);
     case "attachment-save": return saveAttachment(body, user, admin);
     case "saved-media-delete": return deleteSavedMedia(body, user);
@@ -1358,7 +1393,7 @@ async function chatHandler(request, response){
       const mode = String(queryValue(request, "mode") || "").trim();
       if (mode === "active") payload = await handleActive(user, admin, profile);
       else if (mode === "users") payload = await handleUserSearch(queryValue(request, "q"), admin);
-      else if (mode === "gifs") payload = await gifSearch(request, user);
+      else if (mode === "gif-config") payload = await gifConfig(user);
       else if (mode === "saved-media") payload = await listSavedMedia(user);
       else if (mode === "attachment"){
         response.redirect(302, await attachmentDownload(request, user, admin));
@@ -1389,9 +1424,9 @@ chatHandler._test = Object.freeze({
   adminEmails,
   canonicalFixtureSnapshot,
   fixtureIsUpcomingOrLive,
-  normalizedGiphyItem,
-  requireGiphyApiKey,
-  searchGiphyProvider,
+  createGiphyReference,
+  gifConfig,
+  normalizedGiphyReference,
   isAdmin,
   isAnonymousUser,
   loadFixtureMap,

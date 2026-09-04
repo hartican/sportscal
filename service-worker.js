@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v222";
+const CACHE_NAME = "nothingsport-shell-v223";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -11,7 +11,7 @@ const APP_SHELL = [
   "/config/marquee-live-renderer.js?v=218",
   "/config/brand-copy.js",
   "/config/vector-assets.js",
-  "/config/national-team-identities.js?v=218",
+  "/config/national-team-identities.js?v=223",
   "/config/nsc-visual.js?v=218",
   "/config/card-identities.js",
   "/config/card-results.js",
