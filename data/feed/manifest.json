@@ -1,186 +1,214 @@
 {
   "schemaVersion": "public-feed.v2",
   "sourceVersion": "nothingsport-marquee-visibility-2026-08-03-v1",
-  "sourcePublishedAt": "2026-09-04T13:16:45.898Z",
+  "sourcePublishedAt": "2026-09-04T19:39:32.594Z",
   "pageSize": 20,
   "retentionDays": 14,
-  "inputEventCount": 690,
-  "eventCount": 485,
+  "inputEventCount": 780,
+  "eventCount": 572,
   "pages": [
     {
       "index": 0,
       "path": "data/feed/page-001.json",
       "eventCount": 20,
-      "firstEventId": "tennis-tournament-grand-slam-us-open-2026-2026-09-04",
-      "lastEventId": "event:nrl:129992707"
+      "firstEventId": "event:premier-league:128949",
+      "lastEventId": "rugby-argentina-australia-mendoza-2026-09-06"
     },
     {
       "index": 1,
       "path": "data/feed/page-002.json",
       "eventCount": 20,
-      "firstEventId": "event:nrl:129992708",
-      "lastEventId": "event:premier-league:128972"
+      "firstEventId": "event:aflw:cd_m20262640405",
+      "lastEventId": "event:premier-league:128959"
     },
     {
       "index": 2,
       "path": "data/feed/page-003.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128965",
-      "lastEventId": "event:premier-league:128975"
+      "firstEventId": "evt_28",
+      "lastEventId": "event:premier-league:128972"
     },
     {
       "index": 3,
       "path": "data/feed/page-004.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128979",
-      "lastEventId": "event:premier-league:128988"
+      "firstEventId": "event:premier-league:128965",
+      "lastEventId": "evt_83"
     },
     {
       "index": 4,
       "path": "data/feed/page-005.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128991",
-      "lastEventId": "event:premier-league:129005"
+      "firstEventId": "evt_31",
+      "lastEventId": "event:aflw:cd_m20262640902"
     },
     {
       "index": 5,
       "path": "data/feed/page-006.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129007",
-      "lastEventId": "event:premier-league:129022"
+      "firstEventId": "rugby-new-zealand-australia-2026-10-10",
+      "lastEventId": "event:premier-league:128976"
     },
     {
       "index": 6,
       "path": "data/feed/page-007.json",
       "eventCount": 20,
-      "firstEventId": "evt_38",
-      "lastEventId": "rugby-wales-australia-2026-11-22"
+      "firstEventId": "rlwc-australia-new-zealand-2026",
+      "lastEventId": "event:premier-league:128988"
     },
     {
       "index": 7,
       "path": "data/feed/page-008.json",
       "eventCount": 20,
-      "firstEventId": "evt_41",
-      "lastEventId": "event:premier-league:129044"
+      "firstEventId": "event:premier-league:128991",
+      "lastEventId": "event:premier-league:128998"
     },
     {
       "index": 8,
       "path": "data/feed/page-009.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129045",
-      "lastEventId": "evt_45"
+      "firstEventId": "event:premier-league:129000",
+      "lastEventId": "evt_36"
     },
     {
       "index": 9,
       "path": "data/feed/page-010.json",
       "eventCount": 20,
-      "firstEventId": "cricket-australia-new-zealand-test-2026",
-      "lastEventId": "event:premier-league:129081"
+      "firstEventId": "event:aflw:cd_m20262641206",
+      "lastEventId": "rugby-england-australia-2026-11-09"
     },
     {
       "index": 10,
       "path": "data/feed/page-011.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129082",
-      "lastEventId": "event:premier-league:129099"
+      "firstEventId": "evt_39",
+      "lastEventId": "cricket-australia-england-second-t20-2026"
     },
     {
       "index": 11,
       "path": "data/feed/page-012.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129100",
-      "lastEventId": "event:premier-league:129118"
+      "firstEventId": "cricket-australia-england-third-t20-2026",
+      "lastEventId": "event:premier-league:129046"
     },
     {
       "index": 12,
       "path": "data/feed/page-013.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129119",
-      "lastEventId": "event:premier-league:129137"
+      "firstEventId": "event:premier-league:129047",
+      "lastEventId": "event:premier-league:129063"
     },
     {
       "index": 13,
       "path": "data/feed/page-014.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129138",
-      "lastEventId": "event:premier-league:129156"
+      "firstEventId": "event:premier-league:129064",
+      "lastEventId": "calendar-nothingsport-manual-seed-rally-paris-dakar-stage-11-2026"
     },
     {
       "index": 14,
       "path": "data/feed/page-015.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129157",
-      "lastEventId": "event:premier-league:129176"
+      "firstEventId": "evt_90",
+      "lastEventId": "event:premier-league:129101"
     },
     {
       "index": 15,
       "path": "data/feed/page-016.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129177",
-      "lastEventId": "event:premier-league:129196"
+      "firstEventId": "event:premier-league:129102",
+      "lastEventId": "event:premier-league:129120"
     },
     {
       "index": 16,
       "path": "data/feed/page-017.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129197",
-      "lastEventId": "event:premier-league:129212"
+      "firstEventId": "event:premier-league:129121",
+      "lastEventId": "event:premier-league:129139"
     },
     {
       "index": 17,
       "path": "data/feed/page-018.json",
       "eventCount": 20,
-      "firstEventId": "evt_103",
-      "lastEventId": "event:premier-league:129231"
+      "firstEventId": "event:premier-league:129140",
+      "lastEventId": "event:premier-league:129158"
     },
     {
       "index": 18,
       "path": "data/feed/page-019.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129232",
-      "lastEventId": "event:premier-league:129251"
+      "firstEventId": "event:premier-league:129159",
+      "lastEventId": "event:premier-league:129178"
     },
     {
       "index": 19,
       "path": "data/feed/page-020.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129252",
-      "lastEventId": "event:premier-league:129271"
+      "firstEventId": "event:premier-league:129179",
+      "lastEventId": "event:premier-league:129198"
     },
     {
       "index": 20,
       "path": "data/feed/page-021.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129272",
-      "lastEventId": "event:premier-league:129291"
+      "firstEventId": "event:premier-league:129199",
+      "lastEventId": "event:premier-league:129213"
     },
     {
       "index": 21,
       "path": "data/feed/page-022.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129292",
-      "lastEventId": "event:premier-league:128942"
+      "firstEventId": "event:premier-league:129214",
+      "lastEventId": "event:premier-league:129233"
     },
     {
       "index": 22,
       "path": "data/feed/page-023.json",
       "eventCount": 20,
-      "firstEventId": "rugby-argentina-australia-jujuy-2026-08-30",
-      "lastEventId": "event:premier-league:128925"
+      "firstEventId": "event:premier-league:129234",
+      "lastEventId": "event:premier-league:129253"
     },
     {
       "index": 23,
       "path": "data/feed/page-024.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128927",
-      "lastEventId": "event:afl:cd_m20260142401"
+      "firstEventId": "event:premier-league:129254",
+      "lastEventId": "event:premier-league:129273"
     },
     {
       "index": 24,
       "path": "data/feed/page-025.json",
-      "eventCount": 5,
-      "firstEventId": "event:premier-league:128926",
-      "lastEventId": "event:nrl:129992503"
+      "eventCount": 20,
+      "firstEventId": "event:premier-league:129274",
+      "lastEventId": "event:premier-league:129293"
+    },
+    {
+      "index": 25,
+      "path": "data/feed/page-026.json",
+      "eventCount": 20,
+      "firstEventId": "event:premier-league:129294",
+      "lastEventId": "event:premier-league:128936"
+    },
+    {
+      "index": 26,
+      "path": "data/feed/page-027.json",
+      "eventCount": 20,
+      "firstEventId": "event:premier-league:128942",
+      "lastEventId": "event:nrl:129992606"
+    },
+    {
+      "index": 27,
+      "path": "data/feed/page-028.json",
+      "eventCount": 20,
+      "firstEventId": "event:afl:cd_m20260142501",
+      "lastEventId": "event:premier-league:128929"
+    },
+    {
+      "index": 28,
+      "path": "data/feed/page-029.json",
+      "eventCount": 12,
+      "firstEventId": "event:premier-league:128930",
+      "lastEventId": "rugby-south-africa-all-blacks-2026-08-22"
     }
   ]
 }

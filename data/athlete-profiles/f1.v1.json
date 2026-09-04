@@ -1,0 +1,1437 @@
+{
+  "schemaVersion": "athlete-profile-chunk.v1",
+  "sportKey": "f1",
+  "generatedAt": "2026-09-04T19:39:01.162Z",
+  "profiles": [
+    {
+      "schemaVersion": "athlete-profile.v1",
+      "id": "profile:f1:pierre-gasly",
+      "participantId": "competitor:f1:pierre-gasly",
+      "sportKey": "f1",
+      "displayName": "Pierre Gasly",
+      "currentTeamId": "team:f1:alpine",
+      "teamName": "Alpine",
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/alpine/piegas01/2026alpinepiegas01right.webp",
+      "competitionNumber": 10,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "biography": "Pierre Gasly races for Alpine in the 2026 Formula 1 World Championship. Born 07/02/1996 in Rouen, France, the official record lists 12 Grand Prix starts, 502 career points, a best finish of 1 (x1). The profile below separates the current-season championship record from career achievements and recent results.",
+      "keyFacts": [
+        {
+          "label": "Date of Birth",
+          "value": "07/02/1996"
+        },
+        {
+          "label": "Place of Birth",
+          "value": "Rouen, France"
+        }
+      ],
+      "seasonStats": [
+        {
+          "label": "Season Position",
+          "value": "10th"
+        },
+        {
+          "label": "Season Points",
+          "value": "44"
+        }
+      ],
+      "careerStats": [
+        {
+          "label": "Grand Prix Races",
+          "value": "12"
+        },
+        {
+          "label": "Grand Prix Points",
+          "value": "42"
+        },
+        {
+          "label": "Grand Prix Wins",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Podiums",
+          "value": "1"
+        },
+        {
+          "label": "Grand Prix Poles",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Top 10s",
+          "value": "8"
+        },
+        {
+          "label": "Sprint Podiums",
+          "value": "0"
+        },
+        {
+          "label": "Career Points",
+          "value": "502"
+        }
+      ],
+      "recentFive": [
+        {
+          "label": "Netherlands · 23 Aug",
+          "opponent": null,
+          "result": "Position 10",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "label": "Hungary · 26 Jul",
+          "opponent": null,
+          "result": "Position 12",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "label": "Belgium · 19 Jul",
+          "opponent": null,
+          "result": "Position 11",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "label": "Britain · 05 Jul",
+          "opponent": null,
+          "result": "Position 10",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "label": "Austria · 28 Jun",
+          "opponent": null,
+          "result": "Position 13",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "0"
+            }
+          ]
+        }
+      ],
+      "selection": {
+        "topTen": true,
+        "rank": 10,
+        "basis": "Official 2026 Drivers' Standings",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "value": 44
+      },
+      "sourceLinks": [
+        {
+          "label": "Official F1 driver profile",
+          "url": "https://www.formula1.com/en/drivers/pierre-gasly"
+        },
+        {
+          "label": "Official F1 standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ],
+      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+    },
+    {
+      "schemaVersion": "athlete-profile.v1",
+      "id": "profile:f1:charles-leclerc",
+      "participantId": "competitor:f1:charles-leclerc",
+      "sportKey": "f1",
+      "displayName": "Charles Leclerc",
+      "currentTeamId": "team:f1:ferrari",
+      "teamName": "Ferrari",
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
+      "competitionNumber": 16,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "biography": "Charles Leclerc races for Ferrari in the 2026 Formula 1 World Championship. Born 16/10/1997 in Monte Carlo, Monaco, the official record lists 12 Grand Prix starts, 1827 career points, a best finish of 1 (x9). The profile below separates the current-season championship record from career achievements and recent results.",
+      "keyFacts": [
+        {
+          "label": "Date of Birth",
+          "value": "16/10/1997"
+        },
+        {
+          "label": "Place of Birth",
+          "value": "Monte Carlo, Monaco"
+        }
+      ],
+      "seasonStats": [
+        {
+          "label": "Season Position",
+          "value": "5th"
+        },
+        {
+          "label": "Season Points",
+          "value": "155"
+        }
+      ],
+      "careerStats": [
+        {
+          "label": "Grand Prix Races",
+          "value": "12"
+        },
+        {
+          "label": "Grand Prix Points",
+          "value": "127"
+        },
+        {
+          "label": "Grand Prix Wins",
+          "value": "1"
+        },
+        {
+          "label": "Grand Prix Podiums",
+          "value": "4"
+        },
+        {
+          "label": "Grand Prix Poles",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Top 10s",
+          "value": "10"
+        },
+        {
+          "label": "Sprint Podiums",
+          "value": "3"
+        },
+        {
+          "label": "Career Points",
+          "value": "1827"
+        }
+      ],
+      "recentFive": [
+        {
+          "label": "Netherlands · 23 Aug",
+          "opponent": null,
+          "result": "Position 5",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "17"
+            }
+          ]
+        },
+        {
+          "label": "Hungary · 26 Jul",
+          "opponent": null,
+          "result": "Position 4",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "12"
+            }
+          ]
+        },
+        {
+          "label": "Belgium · 19 Jul",
+          "opponent": null,
+          "result": "Position 2",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "18"
+            }
+          ]
+        },
+        {
+          "label": "Britain · 05 Jul",
+          "opponent": null,
+          "result": "Position 1",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "29"
+            }
+          ]
+        },
+        {
+          "label": "Austria · 28 Jun",
+          "opponent": null,
+          "result": "Position 8",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "4"
+            }
+          ]
+        }
+      ],
+      "selection": {
+        "topTen": true,
+        "rank": 5,
+        "basis": "Official 2026 Drivers' Standings",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "value": 155
+      },
+      "sourceLinks": [
+        {
+          "label": "Official F1 driver profile",
+          "url": "https://www.formula1.com/en/drivers/charles-leclerc"
+        },
+        {
+          "label": "Official F1 standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ],
+      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+    },
+    {
+      "schemaVersion": "athlete-profile.v1",
+      "id": "profile:f1:lewis-hamilton",
+      "participantId": "competitor:f1:lewis-hamilton",
+      "sportKey": "f1",
+      "displayName": "Lewis Hamilton",
+      "currentTeamId": "team:f1:ferrari",
+      "teamName": "Ferrari",
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp",
+      "competitionNumber": 44,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "biography": "Lewis Hamilton races for Ferrari in the 2026 Formula 1 World Championship. Born 07/01/1985 in Stevenage, England, the official record lists 12 Grand Prix starts, 5201.5 career points, a best finish of 1 (x106). The profile below separates the current-season championship record from career achievements and recent results.",
+      "keyFacts": [
+        {
+          "label": "Date of Birth",
+          "value": "07/01/1985"
+        },
+        {
+          "label": "Place of Birth",
+          "value": "Stevenage, England"
+        }
+      ],
+      "seasonStats": [
+        {
+          "label": "Season Position",
+          "value": "3rd"
+        },
+        {
+          "label": "Season Points",
+          "value": "183"
+        }
+      ],
+      "careerStats": [
+        {
+          "label": "Grand Prix Races",
+          "value": "12"
+        },
+        {
+          "label": "Grand Prix Points",
+          "value": "163"
+        },
+        {
+          "label": "Grand Prix Wins",
+          "value": "1"
+        },
+        {
+          "label": "Grand Prix Podiums",
+          "value": "5"
+        },
+        {
+          "label": "Grand Prix Poles",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Top 10s",
+          "value": "12"
+        },
+        {
+          "label": "Sprint Podiums",
+          "value": "2"
+        },
+        {
+          "label": "Career Points",
+          "value": "5201.5"
+        }
+      ],
+      "recentFive": [
+        {
+          "label": "Netherlands · 23 Aug",
+          "opponent": null,
+          "result": "Position 4",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "14"
+            }
+          ]
+        },
+        {
+          "label": "Hungary · 26 Jul",
+          "opponent": null,
+          "result": "Position 5",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "10"
+            }
+          ]
+        },
+        {
+          "label": "Belgium · 19 Jul",
+          "opponent": null,
+          "result": "Position 4",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "12"
+            }
+          ]
+        },
+        {
+          "label": "Britain · 05 Jul",
+          "opponent": null,
+          "result": "Position 3",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "22"
+            }
+          ]
+        },
+        {
+          "label": "Austria · 28 Jun",
+          "opponent": null,
+          "result": "Position 5",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "10"
+            }
+          ]
+        }
+      ],
+      "selection": {
+        "topTen": true,
+        "rank": 3,
+        "basis": "Official 2026 Drivers' Standings",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "value": 183
+      },
+      "sourceLinks": [
+        {
+          "label": "Official F1 driver profile",
+          "url": "https://www.formula1.com/en/drivers/lewis-hamilton"
+        },
+        {
+          "label": "Official F1 standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ],
+      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+    },
+    {
+      "schemaVersion": "athlete-profile.v1",
+      "id": "profile:f1:lando-norris",
+      "participantId": "competitor:f1:lando-norris",
+      "sportKey": "f1",
+      "displayName": "Lando Norris",
+      "currentTeamId": "team:f1:mclaren",
+      "teamName": "McLaren",
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp",
+      "competitionNumber": 1,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "biography": "Lando Norris races for McLaren in the 2026 Formula 1 World Championship. Born 13/11/1999 in Bristol, England, the official record lists 12 Grand Prix starts, 1589 career points, a best finish of 1 (x13). The profile below separates the current-season championship record from career achievements and recent results.",
+      "keyFacts": [
+        {
+          "label": "Date of Birth",
+          "value": "13/11/1999"
+        },
+        {
+          "label": "Place of Birth",
+          "value": "Bristol, England"
+        }
+      ],
+      "seasonStats": [
+        {
+          "label": "Season Position",
+          "value": "4th"
+        },
+        {
+          "label": "Season Points",
+          "value": "159"
+        }
+      ],
+      "careerStats": [
+        {
+          "label": "Grand Prix Races",
+          "value": "12"
+        },
+        {
+          "label": "Grand Prix Points",
+          "value": "127"
+        },
+        {
+          "label": "Grand Prix Wins",
+          "value": "2"
+        },
+        {
+          "label": "Grand Prix Podiums",
+          "value": "4"
+        },
+        {
+          "label": "Grand Prix Poles",
+          "value": "2"
+        },
+        {
+          "label": "Grand Prix Top 10s",
+          "value": "9"
+        },
+        {
+          "label": "Sprint Podiums",
+          "value": "4"
+        },
+        {
+          "label": "Career Points",
+          "value": "1589"
+        }
+      ],
+      "recentFive": [
+        {
+          "label": "Netherlands · 23 Aug",
+          "opponent": null,
+          "result": "Position 1",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "31"
+            }
+          ]
+        },
+        {
+          "label": "Hungary · 26 Jul",
+          "opponent": null,
+          "result": "Position 1",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "25"
+            }
+          ]
+        },
+        {
+          "label": "Belgium · 19 Jul",
+          "opponent": null,
+          "result": "Position 7",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "label": "Britain · 05 Jul",
+          "opponent": null,
+          "result": "Position 4",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "18"
+            }
+          ]
+        },
+        {
+          "label": "Austria · 28 Jun",
+          "opponent": null,
+          "result": "Position 7",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "6"
+            }
+          ]
+        }
+      ],
+      "selection": {
+        "topTen": true,
+        "rank": 4,
+        "basis": "Official 2026 Drivers' Standings",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "value": 159
+      },
+      "sourceLinks": [
+        {
+          "label": "Official F1 driver profile",
+          "url": "https://www.formula1.com/en/drivers/lando-norris"
+        },
+        {
+          "label": "Official F1 standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ],
+      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+    },
+    {
+      "schemaVersion": "athlete-profile.v1",
+      "id": "profile:f1:oscar-piastri",
+      "participantId": "competitor:f1:oscar-piastri",
+      "sportKey": "f1",
+      "displayName": "Oscar Piastri",
+      "currentTeamId": "team:f1:mclaren",
+      "teamName": "McLaren",
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp",
+      "competitionNumber": 81,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "biography": "Oscar Piastri races for McLaren in the 2026 Formula 1 World Championship. Born 06/04/2001 in Melbourne, Victoria, the official record lists 12 Grand Prix starts, 903 career points, a best finish of 1 (x9). The profile below separates the current-season championship record from career achievements and recent results.",
+      "keyFacts": [
+        {
+          "label": "Date of Birth",
+          "value": "06/04/2001"
+        },
+        {
+          "label": "Place of Birth",
+          "value": "Melbourne, Victoria"
+        }
+      ],
+      "seasonStats": [
+        {
+          "label": "Season Position",
+          "value": "7th"
+        },
+        {
+          "label": "Season Points",
+          "value": "104"
+        }
+      ],
+      "careerStats": [
+        {
+          "label": "Grand Prix Races",
+          "value": "12"
+        },
+        {
+          "label": "Grand Prix Points",
+          "value": "83"
+        },
+        {
+          "label": "Grand Prix Wins",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Podiums",
+          "value": "2"
+        },
+        {
+          "label": "Grand Prix Poles",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Top 10s",
+          "value": "7"
+        },
+        {
+          "label": "Sprint Podiums",
+          "value": "1"
+        },
+        {
+          "label": "Career Points",
+          "value": "903"
+        }
+      ],
+      "recentFive": [
+        {
+          "label": "Netherlands · 23 Aug",
+          "opponent": null,
+          "result": "Position 6",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "12"
+            }
+          ]
+        },
+        {
+          "label": "Hungary · 26 Jul",
+          "opponent": null,
+          "result": "Position DNF",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "label": "Belgium · 19 Jul",
+          "opponent": null,
+          "result": "Position 5",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "10"
+            }
+          ]
+        },
+        {
+          "label": "Britain · 05 Jul",
+          "opponent": null,
+          "result": "Position 11",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "label": "Austria · 28 Jun",
+          "opponent": null,
+          "result": "Position 4",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "12"
+            }
+          ]
+        }
+      ],
+      "selection": {
+        "topTen": true,
+        "rank": 7,
+        "basis": "Official 2026 Drivers' Standings",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "value": 104
+      },
+      "sourceLinks": [
+        {
+          "label": "Official F1 driver profile",
+          "url": "https://www.formula1.com/en/drivers/oscar-piastri"
+        },
+        {
+          "label": "Official F1 standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ],
+      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+    },
+    {
+      "schemaVersion": "athlete-profile.v1",
+      "id": "profile:f1:kimi-antonelli",
+      "participantId": "competitor:f1:kimi-antonelli",
+      "sportKey": "f1",
+      "displayName": "Kimi Antonelli",
+      "currentTeamId": "team:f1:mercedes",
+      "teamName": "Mercedes",
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
+      "competitionNumber": 12,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "biography": "Kimi Antonelli races for Mercedes in the 2026 Formula 1 World Championship. Born 25/08/2006 in Bologna, Italy, the official record lists 12 Grand Prix starts, 392 career points, a best finish of 1 (x6). The profile below separates the current-season championship record from career achievements and recent results.",
+      "keyFacts": [
+        {
+          "label": "Date of Birth",
+          "value": "25/08/2006"
+        },
+        {
+          "label": "Place of Birth",
+          "value": "Bologna, Italy"
+        }
+      ],
+      "seasonStats": [
+        {
+          "label": "Season Position",
+          "value": "1st"
+        },
+        {
+          "label": "Season Points",
+          "value": "242"
+        }
+      ],
+      "careerStats": [
+        {
+          "label": "Grand Prix Races",
+          "value": "12"
+        },
+        {
+          "label": "Grand Prix Points",
+          "value": "216"
+        },
+        {
+          "label": "Grand Prix Wins",
+          "value": "6"
+        },
+        {
+          "label": "Grand Prix Podiums",
+          "value": "10"
+        },
+        {
+          "label": "Grand Prix Poles",
+          "value": "6"
+        },
+        {
+          "label": "Grand Prix Top 10s",
+          "value": "10"
+        },
+        {
+          "label": "Sprint Podiums",
+          "value": "2"
+        },
+        {
+          "label": "Career Points",
+          "value": "392"
+        }
+      ],
+      "recentFive": [
+        {
+          "label": "Netherlands · 23 Aug",
+          "opponent": null,
+          "result": "Position 2",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "23"
+            }
+          ]
+        },
+        {
+          "label": "Hungary · 26 Jul",
+          "opponent": null,
+          "result": "Position 3",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "15"
+            }
+          ]
+        },
+        {
+          "label": "Belgium · 19 Jul",
+          "opponent": null,
+          "result": "Position 1",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "25"
+            }
+          ]
+        },
+        {
+          "label": "Britain · 05 Jul",
+          "opponent": null,
+          "result": "Position 15",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "label": "Austria · 28 Jun",
+          "opponent": null,
+          "result": "Position 3",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "15"
+            }
+          ]
+        }
+      ],
+      "selection": {
+        "topTen": true,
+        "rank": 1,
+        "basis": "Official 2026 Drivers' Standings",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "value": 242
+      },
+      "sourceLinks": [
+        {
+          "label": "Official F1 driver profile",
+          "url": "https://www.formula1.com/en/drivers/kimi-antonelli"
+        },
+        {
+          "label": "Official F1 standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ],
+      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+    },
+    {
+      "schemaVersion": "athlete-profile.v1",
+      "id": "profile:f1:george-russell",
+      "participantId": "competitor:f1:george-russell",
+      "sportKey": "f1",
+      "displayName": "George Russell",
+      "currentTeamId": "team:f1:mercedes",
+      "teamName": "Mercedes",
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp",
+      "competitionNumber": 63,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "biography": "George Russell races for Mercedes in the 2026 Formula 1 World Championship. Born 15/02/1998 in King's Lynn, England, the official record lists 12 Grand Prix starts, 1216 career points, a best finish of 1 (x7). The profile below separates the current-season championship record from career achievements and recent results.",
+      "keyFacts": [
+        {
+          "label": "Date of Birth",
+          "value": "15/02/1998"
+        },
+        {
+          "label": "Place of Birth",
+          "value": "King's Lynn, England"
+        }
+      ],
+      "seasonStats": [
+        {
+          "label": "Season Position",
+          "value": "2nd"
+        },
+        {
+          "label": "Season Points",
+          "value": "183"
+        }
+      ],
+      "careerStats": [
+        {
+          "label": "Grand Prix Races",
+          "value": "12"
+        },
+        {
+          "label": "Grand Prix Points",
+          "value": "149"
+        },
+        {
+          "label": "Grand Prix Wins",
+          "value": "2"
+        },
+        {
+          "label": "Grand Prix Podiums",
+          "value": "6"
+        },
+        {
+          "label": "Grand Prix Poles",
+          "value": "4"
+        },
+        {
+          "label": "Grand Prix Top 10s",
+          "value": "9"
+        },
+        {
+          "label": "Sprint Podiums",
+          "value": "3"
+        },
+        {
+          "label": "Career Points",
+          "value": "1216"
+        }
+      ],
+      "recentFive": [
+        {
+          "label": "Netherlands · 23 Aug",
+          "opponent": null,
+          "result": "Position 3",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "23"
+            }
+          ]
+        },
+        {
+          "label": "Hungary · 26 Jul",
+          "opponent": null,
+          "result": "Position 7",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "label": "Belgium · 19 Jul",
+          "opponent": null,
+          "result": "Position DNF",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "label": "Britain · 05 Jul",
+          "opponent": null,
+          "result": "Position 2",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "23"
+            }
+          ]
+        },
+        {
+          "label": "Austria · 28 Jun",
+          "opponent": null,
+          "result": "Position 1",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "25"
+            }
+          ]
+        }
+      ],
+      "selection": {
+        "topTen": true,
+        "rank": 2,
+        "basis": "Official 2026 Drivers' Standings",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "value": 183
+      },
+      "sourceLinks": [
+        {
+          "label": "Official F1 driver profile",
+          "url": "https://www.formula1.com/en/drivers/george-russell"
+        },
+        {
+          "label": "Official F1 standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ],
+      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+    },
+    {
+      "schemaVersion": "athlete-profile.v1",
+      "id": "profile:f1:liam-lawson",
+      "participantId": "competitor:f1:liam-lawson",
+      "sportKey": "f1",
+      "displayName": "Liam Lawson",
+      "currentTeamId": "team:f1:racing-bulls",
+      "teamName": "Racing Bulls",
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/racingbulls/lialaw01/2026racingbullslialaw01right.webp",
+      "competitionNumber": 30,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "biography": "Liam Lawson races for Racing Bulls in the 2026 Formula 1 World Championship. Born 11/02/2002 in Hastings, New Zealand, the official record lists 12 Grand Prix starts, 93 career points, a best finish of 5 (x1). The profile below separates the current-season championship record from career achievements and recent results.",
+      "keyFacts": [
+        {
+          "label": "Date of Birth",
+          "value": "11/02/2002"
+        },
+        {
+          "label": "Place of Birth",
+          "value": "Hastings, New Zealand"
+        }
+      ],
+      "seasonStats": [
+        {
+          "label": "Season Position",
+          "value": "9th"
+        },
+        {
+          "label": "Season Points",
+          "value": "49"
+        }
+      ],
+      "careerStats": [
+        {
+          "label": "Grand Prix Races",
+          "value": "12"
+        },
+        {
+          "label": "Grand Prix Points",
+          "value": "46"
+        },
+        {
+          "label": "Grand Prix Wins",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Podiums",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Poles",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Top 10s",
+          "value": "9"
+        },
+        {
+          "label": "Sprint Podiums",
+          "value": "0"
+        },
+        {
+          "label": "Career Points",
+          "value": "93"
+        }
+      ],
+      "recentFive": [
+        {
+          "label": "Netherlands · 23 Aug",
+          "opponent": null,
+          "result": "Position 7",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "label": "Hungary · 26 Jul",
+          "opponent": null,
+          "result": "Position 8",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "label": "Belgium · 19 Jul",
+          "opponent": null,
+          "result": "Position 12",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "label": "Britain · 05 Jul",
+          "opponent": null,
+          "result": "Position 6",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "9"
+            }
+          ]
+        },
+        {
+          "label": "Austria · 28 Jun",
+          "opponent": null,
+          "result": "Position 9",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "2"
+            }
+          ]
+        }
+      ],
+      "selection": {
+        "topTen": true,
+        "rank": 9,
+        "basis": "Official 2026 Drivers' Standings",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "value": 49
+      },
+      "sourceLinks": [
+        {
+          "label": "Official F1 driver profile",
+          "url": "https://www.formula1.com/en/drivers/liam-lawson"
+        },
+        {
+          "label": "Official F1 standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ],
+      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+    },
+    {
+      "schemaVersion": "athlete-profile.v1",
+      "id": "profile:f1:max-verstappen",
+      "participantId": "competitor:f1:max-verstappen",
+      "sportKey": "f1",
+      "displayName": "Max Verstappen",
+      "currentTeamId": "team:f1:red-bull-racing",
+      "teamName": "Red Bull Racing",
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp",
+      "competitionNumber": 3,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "biography": "Max Verstappen races for Red Bull Racing in the 2026 Formula 1 World Championship. Born 30/09/1997 in Hasselt, Belgium, the official record lists 12 Grand Prix starts, 3556.5 career points, a best finish of 1 (x71). The profile below separates the current-season championship record from career achievements and recent results.",
+      "keyFacts": [
+        {
+          "label": "Date of Birth",
+          "value": "30/09/1997"
+        },
+        {
+          "label": "Place of Birth",
+          "value": "Hasselt, Belgium"
+        }
+      ],
+      "seasonStats": [
+        {
+          "label": "Season Position",
+          "value": "6th"
+        },
+        {
+          "label": "Season Points",
+          "value": "112"
+        }
+      ],
+      "careerStats": [
+        {
+          "label": "Grand Prix Races",
+          "value": "12"
+        },
+        {
+          "label": "Grand Prix Points",
+          "value": "100"
+        },
+        {
+          "label": "Grand Prix Wins",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Podiums",
+          "value": "4"
+        },
+        {
+          "label": "Grand Prix Poles",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Top 10s",
+          "value": "8"
+        },
+        {
+          "label": "Sprint Podiums",
+          "value": "0"
+        },
+        {
+          "label": "Career Points",
+          "value": "3556.5"
+        }
+      ],
+      "recentFive": [
+        {
+          "label": "Netherlands · 23 Aug",
+          "opponent": null,
+          "result": "Position DNF",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "label": "Hungary · 26 Jul",
+          "opponent": null,
+          "result": "Position 2",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "18"
+            }
+          ]
+        },
+        {
+          "label": "Belgium · 19 Jul",
+          "opponent": null,
+          "result": "Position 3",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "15"
+            }
+          ]
+        },
+        {
+          "label": "Britain · 05 Jul",
+          "opponent": null,
+          "result": "Position DNF",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "label": "Austria · 28 Jun",
+          "opponent": null,
+          "result": "Position 2",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "18"
+            }
+          ]
+        }
+      ],
+      "selection": {
+        "topTen": true,
+        "rank": 6,
+        "basis": "Official 2026 Drivers' Standings",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "value": 112
+      },
+      "sourceLinks": [
+        {
+          "label": "Official F1 driver profile",
+          "url": "https://www.formula1.com/en/drivers/max-verstappen"
+        },
+        {
+          "label": "Official F1 standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ],
+      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+    },
+    {
+      "schemaVersion": "athlete-profile.v1",
+      "id": "profile:f1:isack-hadjar",
+      "participantId": "competitor:f1:isack-hadjar",
+      "sportKey": "f1",
+      "displayName": "Isack Hadjar",
+      "currentTeamId": "team:f1:red-bull-racing",
+      "teamName": "Red Bull Racing",
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/redbullracing/isahad01/2026redbullracingisahad01right.webp",
+      "competitionNumber": 6,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "biography": "Isack Hadjar races for Red Bull Racing in the 2026 Formula 1 World Championship. Born 28/09/2004 in Paris, France, the official record lists 11 Grand Prix starts, 119 career points, a best finish of 3 (x1). The profile below separates the current-season championship record from career achievements and recent results.",
+      "keyFacts": [
+        {
+          "label": "Date of Birth",
+          "value": "28/09/2004"
+        },
+        {
+          "label": "Place of Birth",
+          "value": "Paris, France"
+        }
+      ],
+      "seasonStats": [
+        {
+          "label": "Season Position",
+          "value": "8th"
+        },
+        {
+          "label": "Season Points",
+          "value": "68"
+        }
+      ],
+      "careerStats": [
+        {
+          "label": "Grand Prix Races",
+          "value": "11"
+        },
+        {
+          "label": "Grand Prix Points",
+          "value": "68"
+        },
+        {
+          "label": "Grand Prix Wins",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Podiums",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Poles",
+          "value": "0"
+        },
+        {
+          "label": "Grand Prix Top 10s",
+          "value": "8"
+        },
+        {
+          "label": "Sprint Podiums",
+          "value": "0"
+        },
+        {
+          "label": "Career Points",
+          "value": "119"
+        }
+      ],
+      "recentFive": [
+        {
+          "label": "Hungary · 26 Jul",
+          "opponent": null,
+          "result": "Position 6",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "label": "Belgium · 19 Jul",
+          "opponent": null,
+          "result": "Position 6",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "label": "Britain · 05 Jul",
+          "opponent": null,
+          "result": "Position 5",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "10"
+            }
+          ]
+        },
+        {
+          "label": "Austria · 28 Jun",
+          "opponent": null,
+          "result": "Position 6",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "label": "Barcelona-Catalunya · 14 Jun",
+          "opponent": null,
+          "result": "Position 6",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "8"
+            }
+          ]
+        }
+      ],
+      "selection": {
+        "topTen": true,
+        "rank": 8,
+        "basis": "Official 2026 Drivers' Standings",
+        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+        "value": 68
+      },
+      "sourceLinks": [
+        {
+          "label": "Official F1 driver profile",
+          "url": "https://www.formula1.com/en/drivers/isack-hadjar"
+        },
+        {
+          "label": "Official F1 standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ],
+      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+    }
+  ]
+}

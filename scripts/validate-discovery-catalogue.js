@@ -184,7 +184,11 @@ assert.deepEqual(visibility.moreIds, ["sport:nrl", "sport:tennis"], "followed sp
 
 assert.equal(catalogue.sydneyDateKey("2026-08-13T14:30:00Z"), "2026-08-14", "UTC timestamps must use the Sydney calendar date");
 assert.equal(catalogue.addCalendarDays("2026-10-04", 1), "2026-10-05", "calendar windows must remain stable over Sydney daylight-saving changes");
-assert.equal(catalogue.eventNodeId({ taxonomySportId: "sport:australian-football" }), "sport:afl");
+assert.equal(catalogue.eventNodeId({ taxonomySportId: "sport:australian-football" }), "sport:afl-premiership");
+assert.equal(catalogue.eventNodeId({ competitionId: "competition:aflw-2026", taxonomySportId: "sport:australian-football" }), "sport:aflw");
+const legacyAfl = catalogue.migratePreferences({ version:17, selectedSelectorEntityIds:["sport:afl"], followedSports:["afl"] });
+assert.deepEqual(legacyAfl.selectedSelectorEntityIds, ["sport:afl-premiership"], "legacy AFL follows must remain men's Premiership-only until the user chooses");
+assert.equal(legacyAfl.aflFamilyMigration?.status, "pending", "legacy AFL follows must receive the one-time AFL family choice");
 assert.equal(catalogue.eventNodeId({ key: "cwg", discipline: "Rugby Sevens" }), "sport:rugby");
 assert.deepEqual(
   catalogue.oneOffMotorsportFrothIds({ key: "lemans", name: "24 Hours of Le Mans" }),

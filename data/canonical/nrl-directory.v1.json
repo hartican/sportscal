@@ -1,28 +1,28 @@
 {
   "schemaVersion": "nrl-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-09-04T13:16:26.681Z",
+  "generatedAt": "2026-09-04T19:38:59.201Z",
   "sources": [
     {
       "id": "source:nrl:clubs",
       "provider": "NRL",
       "url": "https://www.nrl.com/clubs/",
       "sourceType": "official",
-      "checkedAt": "2026-09-04T13:16:26.681Z"
+      "checkedAt": "2026-09-04T19:38:59.201Z"
     },
     {
       "id": "source:nrl:players",
       "provider": "NRL",
       "url": "https://www.nrl.com/players/?competition=111",
       "sourceType": "official",
-      "checkedAt": "2026-09-04T13:16:26.681Z"
+      "checkedAt": "2026-09-04T19:38:59.201Z"
     },
     {
       "id": "source:nrl:signings-2026",
       "provider": "NRL",
       "url": "https://www.nrl.com/news/2026/01/01/2026-nrl-signings-tracker-the-latest-from-all-17-clubs/",
       "sourceType": "official",
-      "checkedAt": "2026-09-04T13:16:26.681Z"
+      "checkedAt": "2026-09-04T19:38:59.201Z"
     }
   ],
   "leagues": [
@@ -3881,7 +3881,7 @@
       "sortName": "Jesse Milin",
       "currentTeamId": "team:nrl:323",
       "leagueId": "competition:nrl-premiership-2026",
-      "position": "Player",
+      "position": "Prop",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/raiders/jesse-milin/",
       "sourceRefs": [
         "source:nrl:players",
@@ -6443,7 +6443,7 @@
       "sortName": "Riley Jones",
       "currentTeamId": "team:nrl:333",
       "leagueId": "competition:nrl-premiership-2026",
-      "position": "Hooker",
+      "position": "Centre",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/sharks/riley-jones/",
       "sourceRefs": [
         "source:nrl:players",

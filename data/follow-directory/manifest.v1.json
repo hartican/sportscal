@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-04T13:16:26.681Z",
+  "generatedAt": "2026-09-04T19:39:01.162Z",
   "sports": [
     {
       "key": "afl",
@@ -9,6 +9,14 @@
       "recordCount": 839,
       "jsonUrl": "data/follow-directory/afl.v1.json",
       "scriptUrl": "data/follow-directory/afl.v1.js"
+    },
+    {
+      "key": "aflw",
+      "label": "AFLW",
+      "status": "available",
+      "recordCount": 595,
+      "jsonUrl": "data/follow-directory/aflw.v1.json",
+      "scriptUrl": "data/follow-directory/aflw.v1.js"
     },
     {
       "key": "nrl",

@@ -9,6 +9,7 @@
     ["sport:australian-football", "Australian football", "sport", null, ["AFL", "Aussie rules"]],
     ["discipline:australian-football:elite", "Elite Australian football", "discipline", "sport:australian-football"],
     ["competition:afl-premiership", "AFL Premiership", "competition", "discipline:australian-football:elite"],
+    ["competition:aflw", "AFLW", "competition", "discipline:australian-football:elite"],
 
     ["sport:rugby-league", "Rugby league", "sport", null, ["League"]],
     ["discipline:rugby-league:domestic", "Domestic rugby league", "discipline", "sport:rugby-league"],
@@ -190,6 +191,7 @@
     "special:super-bowl": "event-series:super-bowl",
     "special:commonwealth-games": "event-series:commonwealth-games",
     "competition:afl-premiership-2026": "competition:afl-premiership",
+    "competition:aflw-2026": "competition:aflw",
     "competition:nrl-premiership-2026": "competition:nrl-premiership",
     "competition:uefa-champions-league:2026-27": "competition:uefa-champions-league",
     "competition:f1-drivers-2026": "competition:formula-one",
@@ -229,6 +231,7 @@
     tdf: "event-series:tour-de-france",
     nrl: "competition:nrl-premiership",
     afl: "competition:afl-premiership",
+    aflw: "competition:aflw",
     cricket: "competition:cricket-international",
     nba: "competition:nba",
     masters: "event-series:masters-tournament",

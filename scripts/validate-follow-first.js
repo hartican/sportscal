@@ -145,6 +145,7 @@ assert(!fs.existsSync("api/calendar.js") && !fs.existsSync("lib/calendar-sync.js
 
 assert(html.includes('className = "matchup-stage-badge"') && html.includes("FOLLOW_FIRST?.stageLabel"));
 assert(followFirstSource.includes("Because you follow") && html.includes("function automaticEventFollowReason"), "follow context must remain available to eligibility without becoming card metadata");
+assert(html.includes('ev.key === "aflw"') && html.includes('includes("sport:aflw")'), "following the AFLW child code must make AFLW fixtures Feed-eligible");
 assert(!eventCardSource.includes("follow-reason-tag"), "Feed cards must not render follow-reason labels");
 assert(html.includes("stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(ev))"), "raw feed cards must derive their 5/5 sporting stakes before follow eligibility is evaluated");
 assert(html.includes("toggleAustraliaInternationals") && html.includes("australiaInternationalsEnabled"), "Follow must expose one global Australia-in-internationals switch");
@@ -152,7 +153,7 @@ assert(!html.includes("toggleAussiesOnly") && !html.includes("australiansOnlySpo
 assert(!html.includes("<span>AU interest</span>"), "Australia eligibility must stay hidden on Feed cards");
 assert(
   html.includes("appendEventQuickActions")
-    && html.includes('<span>Remind</span>')
+    && html.includes('const label = active ? "Reminder ON" : "Remind"')
     && html.includes('chat.textContent = "Chat"')
     && html.includes("buildViewingProviderMark")
     && html.includes('prefix.textContent = `${viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;')

@@ -132,6 +132,7 @@
     "nrl-finals": Object.freeze({ ...nrlCompetitionMark, id:"event:nrl-finals", label:"NRL Finals" }),
     nrl: nrlCompetitionMark,
     afl: officialMark("competition:afl", "AFL", "https://resources.afl.com.au/photo-resources/2019/12/05/9afccce2-87db-4a20-abcc-0c62c6516b3d/afl-logo.png?width=256&height=128", "https://www.afl.com.au/teams"),
+    aflw: officialMark("competition:aflw", "AFLW", "https://resources.afl.com.au/photo-resources/2019/12/05/9afccce2-87db-4a20-abcc-0c62c6516b3d/afl-logo.png?width=256&height=128", "https://www.afl.com.au/aflw"),
     wimbledon: officialMark("brand:wimbledon", "Wimbledon", "https://www.wimbledon.com/_next/static/media/Logo-Wimbledon.2wyelfplbl7j4.svg", "https://www.wimbledon.com/"),
     "roland-garros": officialMark("brand:roland-garros", "Roland Garros", "https://www.rolandgarros.com/img/logo-rg-mobile.svg", "https://www.rolandgarros.com/"),
     "cincinnati-open": officialMark("brand:cincinnati-open", "Cincinnati Open", "https://cincinnatiopen.com/wp-content/uploads/2024/01/Cincinnati-Open_Logo_01-Primary-RGB-1.png", "https://cincinnatiopen.com/our-brand/"),
@@ -342,6 +343,15 @@
     "team:afl:cd_t110": ["Port Adelaide", "port"], "team:afl:cd_t120": ["Richmond", "rich"],
     "team:afl:cd_t130": ["St Kilda", "stk"], "team:afl:cd_t160": ["Sydney Swans", "syd"],
     "team:afl:cd_t150": ["West Coast Eagles", "wce"], "team:afl:cd_t140": ["Western Bulldogs", "wb"],
+    "team:aflw:cd_t8098": ["Adelaide Crows", "adel"], "team:aflw:cd_t7887": ["Brisbane Lions", "bl"],
+    "team:aflw:cd_t8096": ["Carlton", "carl"], "team:aflw:cd_t8097": ["Collingwood", "coll"],
+    "team:aflw:cd_t9406": ["Essendon", "ess"], "team:aflw:cd_t8467": ["Geelong Cats", "geel"],
+    "team:aflw:cd_t8786": ["Gold Coast SUNS", "gcfc"], "team:aflw:cd_t7889": ["GWS GIANTS", "gws"],
+    "team:aflw:cd_t9407": ["Hawthorn", "haw"], "team:aflw:cd_t7386": ["Melbourne", "melb"],
+    "team:aflw:cd_t8466": ["North Melbourne", "nmfc"], "team:aflw:cd_t9409": ["Port Adelaide", "port"],
+    "team:aflw:cd_t8788": ["Richmond", "rich"], "team:aflw:cd_t8796": ["St Kilda", "stk"],
+    "team:aflw:cd_t9408": ["Sydney Swans", "syd"], "team:aflw:cd_t7886": ["Fremantle", "fre"],
+    "team:aflw:cd_t8787": ["West Coast Eagles", "wce"], "team:aflw:cd_t7387": ["Western Bulldogs", "wb"],
   });
   const AFL_CREST_SOURCE = "https://www.afl.com.au/resources/v5.52.26/i/svg-output/icons.svg";
   const aflCrestAsset = (slug, variant = "") => `/assets/teams/afl/${slug}${variant}.svg`;
@@ -427,6 +437,7 @@
   });
   const participantIdPrefixesByEventKey = Object.freeze({
     afl: Object.freeze(["team:afl:"]),
+    aflw: Object.freeze(["team:aflw:"]),
     nrl: Object.freeze(["team:nrl:"]),
     rugby: Object.freeze(["team:rugby:"]),
     cricket: Object.freeze(["team:cricket:"]),

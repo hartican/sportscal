@@ -19,6 +19,7 @@ const LEGACY_SPORT_KEYS = new Set([
   "big-wave",
   "nrl",
   "afl",
+  "aflw",
   "cricket",
   "nba",
   "masters",

@@ -33,7 +33,8 @@ assert.equal(constructors.entries.length, 11);
 assert.deepEqual(drivers.entries.map(entry => entry.rank), Array.from({ length: 22 }, (_, index) => index + 1));
 assert.deepEqual(constructors.entries.map(entry => entry.rank), Array.from({ length: 11 }, (_, index) => index + 1));
 assert.equal(drivers.entries[0].participantId, "competitor:f1:kimi-antonelli");
-assert.equal(drivers.entries[0].points, 219);
+assert.equal(drivers.entries[0].points, 242);
+assert.ok(context.participants.filter(participant => participant.type === "competitor").every(driver => driver.headshotUrl && Number(driver.competitionNumber) > 0 && driver.profileRef), "current F1 drivers require official portraits, racing numbers and profile references");
 assert.equal(constructors.entries[0].participantId, "team:f1:mercedes");
 assert.equal(constructors.entries[0].points, 379);
 

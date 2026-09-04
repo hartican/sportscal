@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-09-04T13:16:57.742Z",
+  "generatedAt": "2026-09-04T19:39:45.254Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -2022,22 +2022,6 @@
       "issues": []
     },
     {
-      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-04",
-      "name": "US Open — Grand Slam",
-      "sport": "Tennis",
-      "date": "2026-09-04",
-      "status": "upcoming",
-      "stakes": 4,
-      "isMajorCard": true,
-      "hasSpoilerOffCopy": true,
-      "hasSpoilerOnCopy": true,
-      "needsPreviewRefresh": false,
-      "needsRecap": false,
-      "needsEditorialRefresh": false,
-      "isStale": false,
-      "issues": []
-    },
-    {
       "id": "event-nrl-129992702",
       "name": "Titans v Dolphins",
       "sport": "NRL",
@@ -2075,6 +2059,22 @@
       "sport": "NRL",
       "date": "2026-09-04",
       "status": "completed",
+      "stakes": 4,
+      "isMajorCard": true,
+      "hasSpoilerOffCopy": true,
+      "hasSpoilerOnCopy": true,
+      "needsPreviewRefresh": false,
+      "needsRecap": false,
+      "needsEditorialRefresh": false,
+      "isStale": false,
+      "issues": []
+    },
+    {
+      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-05",
+      "name": "US Open — Grand Slam",
+      "sport": "Tennis",
+      "date": "2026-09-05",
+      "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,

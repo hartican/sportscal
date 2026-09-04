@@ -31,7 +31,7 @@ assert(html.includes('prefix.textContent = `${viewingLink.liveOrReplay === "repl
 const providerMarkSource = html.match(/function buildViewingProviderMark\(viewing\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(providerMarkSource.includes('className = "provider-action-logo"') && providerMarkSource.includes("mark.appendChild(image)"), "providers with bundled marks must render the logo only");
 assert(providerMarkSource.includes('fallback.textContent = viewing.actionLabel || viewing.label') && providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider text must appear only when a logo is unavailable or fails");
-assert(html.includes("flex-wrap:nowrap") && html.includes('<span>Remind</span>') && html.includes('chat.textContent = "Chat"'), "fixture quick actions must remain on one compact row with approved labels");
+assert(html.includes("flex-wrap:nowrap") && html.includes('const label = active ? "Reminder ON" : "Remind"') && html.includes('chat.textContent = "Chat"'), "fixture quick actions must remain on one compact row with approved labels");
 assert(html.includes('return "Submitted ✓"') && html.includes("button.disabled = submitted"), "submitted prediction controls must remain visibly sealed on mobile");
 assert(fs.existsSync("assets/providers/kayo-sports-negative.svg") && fs.existsSync("assets/providers/stan-sport.jpg"), "Kayo and Stan Sport provider marks must be committed locally");
 assert(worker.includes("/assets/providers/kayo-sports-negative.svg") && worker.includes("/assets/providers/stan-sport.jpg"), "provider marks must be available in the installed offline shell");
@@ -39,7 +39,7 @@ assert(html.includes('function eventMajorEventId('), "all event routing must sha
 assert(html.includes('footer.className = "event-compact-footer"'), "expanded Feed cards must use one compact action footer");
 assert(/buildEventCompactFooter[\s\S]{0,2200}buildSpoilerOverrideButton[\s\S]{0,2200}View in Events/.test(html) && !/buildEventCompactFooter[\s\S]{0,2200}buildEventFeedbackButtons/.test(html), "the compact footer must keep result and Events actions concise while feedback stays beside Feed stakes");
 
-assert(html.includes('card.dataset.cardLevel = cardLevelForState(state)'), "Events cards must expose L0, L1 and L2 levels");
+assert(html.includes('card.dataset.cardLevel = isMinimised ? "L0" : cardLevelForState(state)'), "Events cards must expose L0, L1 and L2 levels while respecting Minimise");
 assert(html.includes('level: cardLevelForState(state)') && html.includes('MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST()'), "Events L0/L1/L2 must show the profile-filtered bounded around-Now timeline and complete two-day L2 window");
 assert(/inspect\.addEventListener\("click"[\s\S]{0,500}setCardState\(record, "opened"\)[\s\S]{0,500}focusMajorEventTimetable/.test(html), "Timetable must open the corresponding Event at L2 instead of routing by sport");
 assert(html.includes('className = "code-inspector-status-stamp"'), "Finished and Time TBC must render as inline status stamps");

@@ -156,17 +156,17 @@ function selectFreshestLadderSnapshot(candidate, stored){
   return candidate;
 }
 
-function aflParticipantId(team){
-  return `team:afl:${String(team.providerId || team.id).toLowerCase()}`;
+function aflParticipantId(team, code = "afl"){
+  return `team:${code}:${String(team.providerId || team.id).toLowerCase()}`;
 }
 
 function nrlParticipantId(squadId){
   return `team:nrl:${squadId}`;
 }
 
-function aflParticipant(team){
+function aflParticipant(team, code = "afl"){
   return {
-    id: aflParticipantId(team),
+    id: aflParticipantId(team, code),
     type: "team",
     sportDomainId: "sport:afl",
     displayName: team.name,
@@ -177,6 +177,7 @@ function aflParticipant(team){
     metadata: {
       providerId: team.providerId,
       sourceTeamId: team.id,
+      competitionCode: code,
     },
   };
 }
@@ -497,15 +498,15 @@ function eventSource(provider, sourceUrl, sourceType, checkedAt){
   return { provider, sourceUrl, sourceType, checkedAt };
 }
 
-function buildAflEvent(match, checkedAt, createdAtById){
-  const home = aflParticipant(match.home.team);
-  const away = aflParticipant(match.away.team);
-  const id = `event:afl:${String(match.providerId || match.id).toLowerCase()}`;
+function buildAflEvent(match, checkedAt, createdAtById, { code = "afl", competitionId = "competition:afl-premiership-2026", discoverySportId = "sport:afl-premiership" } = {}){
+  const home = aflParticipant(match.home.team, code);
+  const away = aflParticipant(match.away.team, code);
+  const id = `event:${code}:${String(match.providerId || match.id).toLowerCase()}`;
   const placeholder = String(match.status || "").toUpperCase() === "PLACEHOLDER";
   const status = aflStatus(match.status);
   const source = eventSource(
-    "AFL",
-    `https://www.afl.com.au/afl/matches/${match.id}`,
+    code === "aflw" ? "AFLW" : "AFL",
+    `https://www.afl.com.au/${code === "aflw" ? "aflw" : "afl"}/matches/${match.id}`,
     "official",
     checkedAt
   );
@@ -513,7 +514,8 @@ function buildAflEvent(match, checkedAt, createdAtById){
     id,
     sourceId: String(match.providerId || match.id),
     sportDomainId: "sport:afl",
-    competitionId: "competition:afl-premiership-2026",
+    discoverySportId,
+    competitionId,
     seasonLabel: String(SEASON),
     roundLabel: match.round?.name || `Round ${match.round?.roundNumber}`,
     roundNumber: Number(match.round?.roundNumber || 0),
@@ -532,7 +534,7 @@ function buildAflEvent(match, checkedAt, createdAtById){
     broadcasters: AU_BROADCASTERS.afl,
     hasLadderImplications: true,
     hasFinalsImplications: true,
-    tags: ["afl", "all-fixtures", placeholder ? "time-tbc" : "time-confirmed"],
+    tags: [code, "all-fixtures", placeholder ? "time-tbc" : "time-confirmed"],
     createdAt: createdAtById.get(id) || checkedAt,
     updatedAt: checkedAt,
     source,
@@ -606,17 +608,17 @@ function buildNrlEvent(match, checkedAt, createdAtById){
   return { event, participants: [home, away] };
 }
 
-function buildAflLadder(raw, checkedAt){
+function buildAflLadder(raw, checkedAt, { code = "afl", competitionId = "competition:afl-premiership-2026" } = {}){
   const entries = raw.ladders?.[0]?.entries || [];
   const completedRound = Math.max(0, Number(raw.compSeason?.currentRoundNumber || 1) - 1);
   return {
-    id: `ladder:afl-premiership-2026:round-${completedRound}`,
-    competitionId: "competition:afl-premiership-2026",
+    id: `ladder:${code === "aflw" ? "aflw" : "afl-premiership"}-2026:round-${completedRound}`,
+    competitionId,
     seasonLabel: String(SEASON),
     roundLabel: `After Round ${completedRound}`,
     snapshotTimeUtc: normalizeIso(raw.lastUpdated) || checkedAt,
     entries: entries.map(entry => ({
-      participantId: aflParticipantId(entry.team),
+      participantId: aflParticipantId(entry.team, code),
       rank: Number(entry.position),
       played: Number(entry.played),
       won: Number(entry.thisSeasonRecord?.winLossRecord?.wins || 0),
@@ -631,13 +633,63 @@ function buildAflLadder(raw, checkedAt){
       movement: entry.positionChange === "UP" ? "up" : entry.positionChange === "DOWN" ? "down" : "same",
     })),
     source: eventSource(
-      "AFL",
-      "https://www.afl.com.au/ladder",
+      code === "aflw" ? "AFLW" : "AFL",
+      `https://www.afl.com.au/${code === "aflw" ? "aflw/ladder" : "ladder"}`,
       "official",
       normalizeIso(raw.lastUpdated) || checkedAt
     ),
     metadata: { finalsCutOff: Number(raw.ladders?.[0]?.finalsCutOff || 10) },
   };
+}
+
+function applyGwsAflwEditorial(records, ladder, checkedAt){
+  const gwsId = "team:aflw:cd_t7889";
+  const fixtureOverviewUrl = "https://www.gwsgiants.com.au/news/2027671/a-giant-double-header-to-kick-start-to-aflw-in-2026";
+  const roundAngles = new Map([
+    [3, { fact:"GWS entered after recording sub-30 per cent inside-50 efficiency in round two, while Alyce Parker led its clearance and contested-possession work.", url:"https://www.gwsgiants.com.au/news/2113529/aflw-match-preview-round-3-v-yartapuulti" }],
+    [4, { fact:"Poppy Boltz faces her former club Brisbane after a four-point round-three contest featuring ten lead changes.", url:"https://www.gwsgiants.com.au/news/2119048/aflw-match-preview-round-4-v-brisbane-lions" }],
+    [5, { fact:"Sydney Derby V follows a 2025 meeting that ended seven points apart.", url:fixtureOverviewUrl }],
+    [6, { fact:"This is GWS's final Canberra appearance of the 2026 home-and-away season.", url:fixtureOverviewUrl }],
+    [7, { fact:"The Victoria Park trip revisits a 2025 meeting that ended narrowly.", url:fixtureOverviewUrl }],
+    [8, { fact:"This is GWS's first Henson Park home match of the 2026 season.", url:fixtureOverviewUrl }],
+    [9, { fact:"The Geelong trip opens GWS's two-game Pride Round stretch.", url:fixtureOverviewUrl }],
+    [10, { fact:"Tilly Lucas-Rodd meets former club Hawthorn in the second of GWS's Pride Round fixtures.", url:fixtureOverviewUrl }],
+    [11, { fact:"IKON Park is GWS's final away match of the published 2026 home-and-away fixture.", url:fixtureOverviewUrl }],
+    [12, { fact:"GWS closes the published home-and-away fixture with the Expansion Cup against Gold Coast at Henson Park.", url:fixtureOverviewUrl }],
+  ]);
+  const ladderById = new Map((ladder?.entries || []).map(entry => [entry.participantId, entry]));
+  const cutoff = Date.parse("2026-08-27T14:00:00.000Z");
+  records.forEach(record => {
+    const fixture = record.event;
+    if (!fixture.participantIds.includes(gwsId) || Date.parse(fixture.startTimeUtc || "") < cutoff) return;
+    const opponentId = fixture.participantIds.find(id => id !== gwsId);
+    const opponent = record.participants.find(item => item.id === opponentId);
+    const gws = ladderById.get(gwsId);
+    const opponentRow = ladderById.get(opponentId);
+    const story = roundAngles.get(Number(fixture.roundNumber));
+    if (!story) return;
+    const venue = [fixture.venueName, fixture.venueCity].filter(Boolean).join(", ") || "the listed venue";
+    const resultFact = `The official fixture lists ${fixture.roundLabel} at ${venue}.`;
+    const tableFact = gws && opponentRow
+      ? `At this refresh, GWS sit ${gws.rank}${gws.rank === 1 ? "st" : gws.rank === 2 ? "nd" : gws.rank === 3 ? "rd" : "th"} and ${opponent?.displayName || "their opponent"} sit ${opponentRow.rank}${opponentRow.rank === 1 ? "st" : opponentRow.rank === 2 ? "nd" : opponentRow.rank === 3 ? "rd" : "th"} on the official AFLW ladder.`
+      : `Both clubs are part of the published 2026 AFLW competition.`;
+    fixture.selectedSentence = `${fixture.displayName}: ${story.fact}`;
+    fixture.fullSpiel = `${story.fact} ${resultFact} ${tableFact} That combination of opponent history, venue or player connection gives this ${fixture.roundLabel} match its own stakes within the published 12-round season.`;
+    fixture.editorialPreview = {
+      status:"journalistic",
+      angle:story.fact,
+      contextSignals:["fixture-specific", "gws-aflw", fixture.status === "completed" ? "official-result" : "official-schedule", "current-ladder"],
+      evidenceReferences:[
+        { title:`AFLW ${fixture.roundLabel} fixture`, url:fixture.source.sourceUrl, sourceType:"official" },
+        { title:`GWS ${fixture.roundLabel} editorial source`, url:story.url, sourceType:"official" },
+        { title:"Official 2026 AFLW ladder", url:"https://www.afl.com.au/aflw/ladder", sourceType:"official" },
+      ],
+      sourceName:"AFLW official fixture and ladder",
+      sourceUrl:fixture.source.sourceUrl,
+      sourceCheckedAt:checkedAt,
+      needsPreviewRefresh:false,
+    };
+  });
 }
 
 function buildNrlLadder(events, participants, checkedAt){
@@ -824,6 +876,20 @@ async function main(){
     `${AFL_API}/compseasons/${aflSeason.id}/ladders?roundNumber=${aflSeason.currentRoundNumber}`,
     aflHeaders
   );
+  const aflwCompSeasons = await fetchJson(`${AFL_API}/competitions/3/compseasons?pageSize=20`, aflHeaders);
+  const aflwSeason = (aflwCompSeasons.compSeasons || []).find(item => item.name.startsWith(String(SEASON)));
+  if (!aflwSeason) throw new Error(`AFLW ${SEASON} competition season was not found`);
+  const aflwSeasonDetail = await fetchJson(`${AFL_API}/compseasons/${aflwSeason.id}`, aflHeaders);
+  const aflwRounds = aflwSeasonDetail.compSeasons?.[0]?.rounds || [];
+  if (!aflwRounds.length) throw new Error(`AFLW ${SEASON} rounds were not found`);
+  const aflwRoundPayloads = await mapWithConcurrency(aflwRounds, 6, round =>
+    fetchJson(`${AFL_API}/matches?compSeasonId=${aflwSeason.id}&roundNumber=${round.roundNumber}&pageSize=50`, aflHeaders)
+  );
+  const aflwMatches = aflwRoundPayloads.flatMap(payload => payload.matches || []);
+  const aflwLadderRaw = await fetchJson(
+    `${AFL_API}/compseasons/${aflwSeason.id}/ladders?roundNumber=${aflwSeason.currentRoundNumber}`,
+    aflHeaders
+  );
   const nrlFixture = await fetchJson(NRL_FIXTURE_URL);
   const officialNrlMatches = nrlFixture.fixture?.match || [];
   const officialNrlCorrections = applyOfficialNrlResultCorrections(officialNrlMatches, checkedAt);
@@ -841,15 +907,18 @@ async function main(){
   }
 
   const aflRecords = aflMatches.map(match => buildAflEvent(match, checkedAt, createdAtById));
+  const aflwRecords = aflwMatches.map(match => buildAflEvent(match, checkedAt, createdAtById, {
+    code:"aflw", competitionId:"competition:aflw-2026", discoverySportId:"sport:aflw",
+  }));
   const nrlRecords = nrlMatches.map(match => buildNrlEvent(match, checkedAt, createdAtById));
   const preservedParticipants = (existingBundle?.participants || []).filter(participant => (
     !["sport:afl", "sport:nrl"].includes(participant.sportDomainId)
   ));
   const participants = uniqueParticipants([
-    ...[...aflRecords, ...nrlRecords].map(record => record.participants),
+    ...[...aflRecords, ...aflwRecords, ...nrlRecords].map(record => record.participants),
     preservedParticipants,
   ]);
-  const events = sortedEvents([...aflRecords, ...nrlRecords].map(record => record.event));
+  const events = sortedEvents([...aflRecords, ...aflwRecords, ...nrlRecords].map(record => record.event));
   const nrlLadder = buildNrlLadder(nrlRecords.map(record => record.event), participants, checkedAt);
   const independentNrlStandings = parseEspnNrlStandings(
     await fetchJson(ESPN_NRL_STANDINGS_URL),
@@ -861,14 +930,18 @@ async function main(){
     independentNrlStandings
   );
   const fetchedAflLadder = buildAflLadder(aflLadderRaw, checkedAt);
+  const fetchedAflwLadder = buildAflLadder(aflwLadderRaw, checkedAt, { code:"aflw", competitionId:"competition:aflw-2026" });
   const storedAflLadder = existingBundle?.ladderSnapshots?.find(snapshot =>
     snapshot.competitionId === fetchedAflLadder.competitionId
   );
   const aflLadder = selectFreshestLadderSnapshot(fetchedAflLadder, storedAflLadder);
+  const storedAflwLadder = existingBundle?.ladderSnapshots?.find(snapshot => snapshot.competitionId === fetchedAflwLadder.competitionId);
+  const aflwLadder = selectFreshestLadderSnapshot(fetchedAflwLadder, storedAflwLadder);
+  applyGwsAflwEditorial(aflwRecords, aflwLadder, checkedAt);
   const preservedLadderSnapshots = (existingBundle?.ladderSnapshots || []).filter(snapshot => (
-    ![aflLadder.competitionId, nrlLadder.competitionId].includes(snapshot.competitionId)
+    ![aflLadder.competitionId, aflwLadder.competitionId, nrlLadder.competitionId].includes(snapshot.competitionId)
   ));
-  const ladderSnapshots = [aflLadder, nrlLadder, ...preservedLadderSnapshots];
+  const ladderSnapshots = [aflLadder, aflwLadder, nrlLadder, ...preservedLadderSnapshots];
   const preservedSources = (existingBundle?.sources || []).filter(source => (
     source.provider === "Premier League"
   ));
@@ -879,6 +952,7 @@ async function main(){
     generatedAt: checkedAt,
     sources: [
       eventSource("AFL", "https://www.afl.com.au/fixture", "official", checkedAt),
+      eventSource("AFLW", "https://www.afl.com.au/aflw/fixture", "official", checkedAt),
       eventSource("NRL Match Centre / Champion Data", "https://www.nrl.com/draw", "official-provider", checkedAt),
       independentNrlStandings.source,
       ...preservedSources,
@@ -893,7 +967,7 @@ async function main(){
 
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(bundle, null, 2)}\n`);
-  console.log(`Canonical sports refreshed: ${aflMatches.length} AFL fixtures, ${nrlMatches.length} NRL fixtures, ${participants.length} preserved/current teams.`);
+  console.log(`Canonical sports refreshed: ${aflMatches.length} AFL fixtures, ${aflwMatches.length} AFLW fixtures, ${nrlMatches.length} NRL fixtures, ${participants.length} preserved/current teams.`);
   console.log(`NRL result reconciliation: ${officialNrlCorrections.correctedMatchIds.length} direct-official corrections, ${nrlReconciliation.verifiedMatchIds.length} independently verified, ${nrlReconciliation.promotedMatchIds.length} supplemented, ${supplementalNrl.failedDates.length} scoreboard fetch failures.`);
   console.log(`NRL independent standings check: ${nrlLadder.metadata.independentValidation.status}.`);
   if (aflLadder === storedAflLadder){

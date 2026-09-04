@@ -8,7 +8,7 @@
   "use strict";
 
   const SCHEMA_VERSION = "sports-discovery-catalogue.v1";
-  const PREFERENCE_VERSION = 17;
+  const PREFERENCE_VERSION = 18;
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const DEFAULT_WINDOW_DAYS = 30;
   const DEFAULT_VISIBILITY_THRESHOLD = 5;
@@ -40,7 +40,7 @@
   const legacyFollowAliases = Object.freeze({
     "category:sports": sportNodes.map(node => node.id),
     "category:special-events": internalEventTags.flatMap(node => node.underlyingSportIds || []),
-    "sport:australian-football": ["sport:afl"],
+    "sport:australian-football": ["sport:afl-premiership"],
     "sport:rugby-league": ["sport:nrl"],
     "sport:extreme-sports": ["sport:extreme"],
     "sport:surfing": ["sport:surf"],
@@ -69,9 +69,9 @@
     "competition:uefa-champions-league": ["sport:champions-league"],
     "competition:uefa-champions-league:2026-27": ["sport:champions-league"],
     "uefa-champions-league": ["sport:champions-league"],
-    "afl-finals": ["sport:afl"],
-    "special:afl-finals": ["sport:afl"],
-    "major-event:afl-finals-series-2026": ["sport:afl"],
+    "afl-finals": ["sport:afl-premiership"],
+    "special:afl-finals": ["sport:afl-premiership"],
+    "major-event:afl-finals-series-2026": ["sport:afl-premiership"],
     "nrl-finals": ["sport:nrl"],
     "special:nrl-finals": ["sport:nrl"],
     "major-event:nrl-finals-series-2026": ["sport:nrl"],
@@ -249,8 +249,13 @@
     const saved = savedPreferences && typeof savedPreferences === "object" && !Array.isArray(savedPreferences)
       ? savedPreferences
       : {};
-    const selectedSelectorEntityIds = Array.isArray(saved.selectedSelectorEntityIds) ? saved.selectedSelectorEntityIds : [];
-    const followedSports = Array.isArray(saved.followedSports) ? saved.followedSports : [];
+    const legacyAflFollow = Number(saved.version || 0) < PREFERENCE_VERSION && (
+      (saved.selectedSelectorEntityIds || []).includes("sport:afl") || (saved.followedSports || []).includes("afl")
+    );
+    const selectedSelectorEntityIds = (Array.isArray(saved.selectedSelectorEntityIds) ? saved.selectedSelectorEntityIds : [])
+      .flatMap(id => legacyAflFollow && id === "sport:afl" ? ["sport:afl-premiership"] : [id]);
+    const followedSports = (Array.isArray(saved.followedSports) ? saved.followedSports : [])
+      .flatMap(id => legacyAflFollow && id === "afl" ? ["afl-premiership"] : [id]);
     const commonwealthDisciplineIds = uniqueStrings([
       ...(Array.isArray(saved.commonwealthDisciplineIds) ? saved.commonwealthDisciplineIds : []),
       ...selectedSelectorEntityIds.filter(id => String(id).startsWith("cwg:")),
@@ -269,6 +274,9 @@
       discoveryCatalogueVersion: SCHEMA_VERSION,
       selectedSelectorEntityIds: migration.sportIds.slice(),
       followedSports: migration.followedSportKeys.slice(),
+      aflFamilyMigration: legacyAflFollow && !saved.aflFamilyMigration
+        ? { status:"pending" }
+        : saved.aflFamilyMigration || null,
     };
     if (saved.preferenceGraph && typeof saved.preferenceGraph === "object"){
       next.preferenceGraph = {
@@ -387,7 +395,12 @@
       if (sportById.has(explicit)) return explicit;
     }
     const commonwealthKey = String(event?.key || event?.sportKey || event?.sportId || "").trim().toLowerCase();
-    const eventTagIds = uniqueStrings([event?.internalEventTagId, event?.eventTagId, ...(Array.isArray(event?.internalEventTagIds) ? event.internalEventTagIds : [])]);
+    const eventTagIds = uniqueStrings([
+      event?.internalEventTagId,
+      event?.eventTagId,
+      String(event?.sportDomainId || "").startsWith("special:") ? event.sportDomainId : null,
+      ...(Array.isArray(event?.internalEventTagIds) ? event.internalEventTagIds : []),
+    ]);
     const isCommonwealth = commonwealthKey === "cwg" || eventTagIds.includes("special:commonwealth-games");
     if (isCommonwealth){
       const discipline = normalizeCommonwealthDiscipline(event?.commonwealthDiscipline || event?.discipline || event?.sportDiscipline || event?.sport);
@@ -397,6 +410,8 @@
       const mapped = internalTagById.get(tagId)?.underlyingSportIds?.[0];
       if (mapped) return mapped;
     }
+    if (String(event?.competitionId || "").startsWith("competition:aflw")) return "sport:aflw";
+    if (String(event?.competitionId || "").startsWith("competition:afl-premiership")) return "sport:afl-premiership";
     const candidates = [event?.key, event?.sportKey, event?.sportId, event?.sportDomainId, event?.taxonomySportId]
       .map(value => String(value || "").trim().toLowerCase())
       .filter(Boolean);

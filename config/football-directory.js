@@ -13,6 +13,7 @@
     PLAYER_ID_PREFIX,
     "competitor:nrl:",
     "competitor:afl:",
+    "competitor:aflw:",
   ]);
 
   function unique(values){

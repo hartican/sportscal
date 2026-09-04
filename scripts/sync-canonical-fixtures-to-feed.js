@@ -65,6 +65,7 @@ function buildSportDetails(canonicalBundle) {
 }
 
 function getSportDetailsForFixture(fixture, sportDetailsByDomainId) {
+  if (fixture.discoverySportId === "sport:aflw" || fixture.competitionId === "competition:aflw-2026") return { key:"aflw", label:"AFLW" };
   return sportDetailsByDomainId.get(fixture.sportDomainId)
     || {
       key: sanitizeSportKey(fixture.sportDomainId),
@@ -375,7 +376,11 @@ function applyCompletedCanonicalResult(card, fixture, participantsById){
     ...result,
     ...canonicalMetadata(fixture),
   };
-  delete next.editorialPreview;
+  if (fixture.editorialPreview){
+    next.selectedSentence = fixture.selectedSentence;
+    next.fullSpiel = fixture.fullSpiel;
+    next.editorialPreview = fixture.editorialPreview;
+  } else delete next.editorialPreview;
   return normalizeCompletedStoryline(next);
 }
 
@@ -385,8 +390,8 @@ function fixtureToCard(fixture, participantsById, sportDetailsByDomainId){
   const broadcastOptions = fixture.broadcasters.map(item => item.broadcasterName);
   const venue = [fixture.venueName, fixture.venueCity].filter(Boolean).join(", ") || null;
   const sourceCheckedAt = fixture.source?.checkedAt || fixture.updatedAt;
-  const selectedSentence = `${fixture.displayName} is scheduled for ${fixture.roundLabel} of the 2026 ${sport.label} season.`;
-  const fullSpiel = `${fixture.displayName} is an upcoming ${sport.label} fixture${venue ? ` at ${venue}` : ""}. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.`;
+  const selectedSentence = fixture.selectedSentence || `${fixture.displayName} is scheduled for ${fixture.roundLabel} of the 2026 ${sport.label} season.`;
+  const fullSpiel = fixture.fullSpiel || `${fixture.displayName} is an upcoming ${sport.label} fixture${venue ? ` at ${venue}` : ""}. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.`;
   const id = fixture.id.replace(/[^a-z0-9._-]+/gi, "-").toLowerCase();
 
   return applyCanonicalStakes({
@@ -410,6 +415,7 @@ function fixtureToCard(fixture, participantsById, sportDetailsByDomainId){
     participants: participantRefs(fixture, participantsById),
     selectedSentence,
     fullSpiel,
+    ...(fixture.editorialPreview ? { editorialPreview:fixture.editorialPreview } : {}),
     sourceName: fixture.source?.provider || sport.label,
     sourceUrl: fixture.source?.sourceUrl,
     sourceCheckedAt,

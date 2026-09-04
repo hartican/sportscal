@@ -1,8 +1,8 @@
 # nothingSport weekly coverage discovery
 
-Reference date: 2026-09-04
+Reference date: 2026-09-05
 
-Compared 81 live/delayed listings with 690 canonical events. Found 81 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 79 high-priority recommendations.
+Compared 81 live/delayed listings with 780 canonical events. Found 81 catalogue gaps, 0 ambiguous listings, 0 possible AU availability changes and 79 high-priority recommendations.
 
 ## Australian source health
 
@@ -10,7 +10,7 @@ Compared 81 live/delayed listings with 690 canonical events. Found 81 catalogue 
 |---|---|---|
 | Kayo Sports | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | Foxtel | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
-| Stan Sport | loaded | reviewed_export; 81 listings; 0d old |
+| Stan Sport | loaded | reviewed_export; 81 listings; 1d old |
 | ESPN Australia | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | SBS | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
 | 9Now | no_approved_input | No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates. |
@@ -31,7 +31,7 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 | 2026-09-05 | New Zealand Tour of South Africa | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-05 | Premier League | new | 0.60 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-09-05 | Shute Shield | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-05 | US Open | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-09-05 | US Open | new | 0.08 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-05 | WSL | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-09-06 | Currie Cup | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-06 | Men's International | new | 0.15 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |

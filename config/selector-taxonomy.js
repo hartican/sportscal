@@ -54,7 +54,9 @@
   }
 
   const sportNodes = [
-    ["sport:afl", "AFL", "sport", null, ["afl"], "sport:australian-football", "sport:australian-football", 10],
+    ["sport:afl", "AFL", "parent", null, ["afl"], "sport:australian-football", "sport:australian-football", 10, ["sport:afl-premiership", "sport:aflw"]],
+    ["sport:afl-premiership", "AFL Premiership", "child", "sport:afl", ["afl"], "competition:afl-premiership", "sport:australian-football", 11],
+    ["sport:aflw", "AFLW", "child", "sport:afl", ["aflw"], "competition:aflw", "sport:australian-football", 12],
     ["sport:nrl", "NRL", "sport", null, ["nrl"], "sport:rugby-league", "sport:rugby", 20],
     ["sport:motorsport", "Motorsport", "parent", null, ["motorsport"], "sport:motorsport", "sport:motorsport", 30, ["sport:f1", "sport:rally"]],
     ["sport:f1", "F1", "child", "sport:motorsport", ["f1"], "competition:formula-one", "sport:motorsport", 31],
@@ -110,6 +112,7 @@
       "sport:surf": "Surfing",
       "sport:skiing": "Snow",
       "sport:football": "Football",
+      "sport:afl": "AFL",
     })[parentId] || parentId;
   }
 

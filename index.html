@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="226">
+<meta name="app-shell-version" content="228">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7282,7 +7282,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=224")
+  : loadDeferredScript("config/national-team-identities.js?v=228")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -8160,9 +8160,9 @@ const LEGACY_SELECTOR_ID_ALIASES = Object.freeze({
   "competition:uefa-champions-league": "sport:champions-league",
   "competition:uefa-champions-league:2026-27": "sport:champions-league",
   "uefa-champions-league": "sport:champions-league",
-  "afl-finals": "sport:afl",
-  "special:afl-finals": "sport:afl",
-  "major-event:afl-finals-series-2026": "sport:afl",
+  "afl-finals": "sport:afl-premiership",
+  "special:afl-finals": "sport:afl-premiership",
+  "major-event:afl-finals-series-2026": "sport:afl-premiership",
   "nrl-finals": "sport:nrl",
   "special:nrl-finals": "sport:nrl",
   "major-event:nrl-finals-series-2026": "sport:nrl",
@@ -8269,12 +8269,12 @@ const SPOILER_FIELDS = {
   labels: ["spoilerLabels", "resultLabels"],
 };
 
-const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"];
+const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl-premiership"];
 const DEFAULT_FIRST_RUN_SPORT_KEYS = ["nrl", "afl"];
 const LEGACY_SEEDED_DEFAULTS_VERSION = 10;
 
 const DEFAULT_PREFERENCES = {
-  version: 17,
+  version: 18,
   discoveryCatalogueVersion: DISCOVERY_CATALOGUE?.SCHEMA_VERSION || "sports-discovery-catalogue.v1",
   onboardingComplete: false,
   theme: "system",
@@ -8400,26 +8400,17 @@ const FOOTBALL_DIRECTORY_CONFIG = Object.freeze({
   fixtureBaseUrl: "data/football/fixtures",
 });
 
-const NRL_DIRECTORY_CONFIG = Object.freeze({
-  directoryUrl: "data/canonical/nrl-directory.v1.json",
-  directoryScriptUrl: "data/canonical/nrl-directory.v1.js",
-  indexUrl: "data/canonical/nrl-follow-index.v1.json",
-  indexScriptUrl: "data/canonical/nrl-follow-index.v1.js",
-});
-
-const AFL_DIRECTORY_CONFIG = Object.freeze({
-  directoryUrl: "data/canonical/afl-directory.v1.json",
-  directoryScriptUrl: "data/canonical/afl-directory.v1.js",
-  indexUrl: "data/canonical/afl-follow-index.v1.json",
-  indexScriptUrl: "data/canonical/afl-follow-index.v1.js",
-});
+const LEAGUE_DIRECTORY_CONFIG = Object.freeze(Object.fromEntries(["nrl", "afl", "aflw"].map(key => [key, Object.freeze({
+  directoryUrl:`data/canonical/${key}-directory.v1.json`, directoryScriptUrl:`data/canonical/${key}-directory.v1.js`,
+  indexUrl:`data/canonical/${key}-follow-index.v1.json`, indexScriptUrl:`data/canonical/${key}-follow-index.v1.js`,
+  directoryGlobal:`NOTHINGSPORTS_${key.toUpperCase()}_DIRECTORY_DATA`, indexGlobal:`NOTHINGSPORTS_${key.toUpperCase()}_FOLLOW_INDEX`,
+})])));
 
 const FOLLOW_DIRECTORY_CONFIG = Object.freeze({
   manifestUrl:"data/follow-directory/manifest.v1.json",
   manifestScriptUrl:"data/follow-directory/manifest.v1.js",
   chunkBaseUrl:"data/follow-directory",
 });
-
 const AU_BROADCAST_CONFIG = globalThis.NOTHINGSPORTS_AU_BROADCAST_CONFIG || {
   defaultWeight: 0,
   profiles: [],
@@ -8746,21 +8737,14 @@ let footballDirectoryLoading = false;
 let footballDirectoryError = null;
 let footballFollowIndex = null;
 let footballFollowIndexLoading = null;
-let nrlDirectoryData = null;
-let nrlDirectoryLoading = false;
-let nrlDirectoryError = null;
-let nrlFollowIndex = null;
-let nrlFollowIndexLoading = null;
-let aflDirectoryData = null;
-let aflDirectoryLoading = false;
-let aflDirectoryError = null;
-let aflFollowIndex = null;
-let aflFollowIndexLoading = null;
+const leagueDirectoryState = Object.fromEntries(["nrl", "afl", "aflw"].map(key => [key, { data:null, loading:false, error:null, index:null, indexLoading:null }]));
 let followDirectoryManifest = null;
 let followDirectoryManifestLoading = null;
 const followDirectoryChunks = new Map();
 const followDirectoryChunkLoading = new Map();
 const followDirectoryChunkErrors = new Map();
+let athleteProfileUiLoading = null;
+let aflFamilyUiLoading = null;
 let footballCoreLoading = null;
 const footballFixtureEventsByBundle = new Map();
 let footballDirectorySearchTimer = null;
@@ -10597,6 +10581,11 @@ async function loadFollowDirectoryChunk(sportKey){
   return loading;
 }
 
+function ensureAthleteProfileUi(){
+  return globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI
+    ? Promise.resolve(globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI)
+    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI);
+}
 function pruneUnavailableFootballFollows(directory){
   const graph = userPreferences?.preferenceGraph;
   if (!graph || !Array.isArray(graph.entityFollows)) return false;
@@ -10624,8 +10613,9 @@ async function loadFootballDirectoryData(){
   footballDirectoryLoading = true;
   footballDirectoryError = null;
   try{
-    const [api, data] = await Promise.all([
+    const [api, , data] = await Promise.all([
       loadFootballDirectoryModule(),
+      ensureAthleteProfileUi(),
       loadFootballAsset({
         url: FOOTBALL_DIRECTORY_CONFIG.directoryUrl,
         scriptUrl: FOOTBALL_DIRECTORY_CONFIG.directoryScriptUrl,
@@ -10649,63 +10639,29 @@ async function loadFootballDirectoryData(){
   }
 }
 
-async function loadNrlDirectoryData(){
-  if (nrlDirectoryData) return nrlDirectoryData;
-  if (nrlDirectoryLoading) return null;
-  nrlDirectoryLoading = true;
-  nrlDirectoryError = null;
+async function loadLeagueDirectoryData(key){
+  const state = leagueDirectoryState[key], config = LEAGUE_DIRECTORY_CONFIG[key];
+  if (state.data) return state.data;
+  if (state.loading) return null;
+  state.loading = true; state.error = null;
   try{
-    const [api, data] = await Promise.all([
+    const [, , data] = await Promise.all([
       loadFootballDirectoryModule(),
-      loadFootballAsset({
-        url: NRL_DIRECTORY_CONFIG.directoryUrl,
-        scriptUrl: NRL_DIRECTORY_CONFIG.directoryScriptUrl,
-        globalName: "NOTHINGSPORTS_NRL_DIRECTORY_DATA",
-      }),
+      ensureAthleteProfileUi(),
+      loadFootballAsset({ url:config.directoryUrl, scriptUrl:config.directoryScriptUrl, globalName:config.directoryGlobal }),
     ]);
-    if (data?.schemaVersion !== "nrl-directory.v1" || !Array.isArray(data?.teams) || !Array.isArray(data?.players)){
-      throw new Error("NRL directory schema is unsupported");
-    }
-    nrlDirectoryData = data;
-    return nrlDirectoryData;
+    if (data?.schemaVersion !== `${key}-directory.v1` || !Array.isArray(data?.teams) || !Array.isArray(data?.players)) throw Error(key);
+    return state.data = data;
   }catch(error){
-    nrlDirectoryError = error;
-    console.warn("NRL directory unavailable", error);
+    state.error = error;
     return null;
   }finally{
-    nrlDirectoryLoading = false;
-    renderStandingsContext();
+    state.loading = false; renderStandingsContext();
   }
 }
-
-async function loadAflDirectoryData(){
-  if (aflDirectoryData) return aflDirectoryData;
-  if (aflDirectoryLoading) return null;
-  aflDirectoryLoading = true;
-  aflDirectoryError = null;
-  try{
-    const [, data] = await Promise.all([
-      loadFootballDirectoryModule(),
-      loadFootballAsset({
-        url: AFL_DIRECTORY_CONFIG.directoryUrl,
-        scriptUrl: AFL_DIRECTORY_CONFIG.directoryScriptUrl,
-        globalName: "NOTHINGSPORTS_AFL_DIRECTORY_DATA",
-      }),
-    ]);
-    if (data?.schemaVersion !== "afl-directory.v1" || !Array.isArray(data?.teams) || !Array.isArray(data?.players)){
-      throw new Error("AFL directory schema is unsupported");
-    }
-    aflDirectoryData = data;
-    return aflDirectoryData;
-  }catch(error){
-    aflDirectoryError = error;
-    console.warn("AFL directory unavailable", error);
-    return null;
-  }finally{
-    aflDirectoryLoading = false;
-    renderStandingsContext();
-  }
-}
+function loadNrlDirectoryData(){ return loadLeagueDirectoryData("nrl"); }
+function loadAflDirectoryData(){ return loadLeagueDirectoryData("afl"); }
+function loadAflwDirectoryData(){ return loadLeagueDirectoryData("aflw"); }
 
 async function loadFootballFollowIndex(){
   if (footballFollowIndex) return footballFollowIndex;
@@ -10725,43 +10681,27 @@ async function loadFootballFollowIndex(){
   return footballFollowIndexLoading;
 }
 
-async function loadNrlFollowIndex(){
-  if (nrlFollowIndex) return nrlFollowIndex;
-  if (nrlFollowIndexLoading) return nrlFollowIndexLoading;
-  nrlFollowIndexLoading = Promise.all([
-    loadFootballDirectoryModule(),
-    loadFootballAsset({
-      url: NRL_DIRECTORY_CONFIG.indexUrl,
-      scriptUrl: NRL_DIRECTORY_CONFIG.indexScriptUrl,
-      globalName: "NOTHINGSPORTS_NRL_FOLLOW_INDEX",
-    }),
-  ]).then(([, index]) => {
-    if (index?.schemaVersion !== "nrl-follow-index.v1") throw new Error("NRL follow index schema is unsupported");
-    nrlFollowIndex = index;
-    return index;
-  }).finally(() => { nrlFollowIndexLoading = null; });
-  return nrlFollowIndexLoading;
-}
-
-async function loadAflFollowIndex(){
-  if (aflFollowIndex) return aflFollowIndex;
-  if (aflFollowIndexLoading) return aflFollowIndexLoading;
-  aflFollowIndexLoading = loadFootballAsset({
-    url: AFL_DIRECTORY_CONFIG.indexUrl,
-    scriptUrl: AFL_DIRECTORY_CONFIG.indexScriptUrl,
-    globalName: "NOTHINGSPORTS_AFL_FOLLOW_INDEX",
+async function loadLeagueFollowIndex(key){
+  const state = leagueDirectoryState[key], config = LEAGUE_DIRECTORY_CONFIG[key];
+  if (state.index) return state.index;
+  if (state.indexLoading) return state.indexLoading;
+  state.indexLoading = loadFootballAsset({
+    url:config.indexUrl, scriptUrl:config.indexScriptUrl, globalName:config.indexGlobal,
   }).then(index => {
-    if (index?.schemaVersion !== "afl-follow-index.v1") throw new Error("AFL follow index schema is unsupported");
-    aflFollowIndex = index;
-    return index;
-  }).finally(() => { aflFollowIndexLoading = null; });
-  return aflFollowIndexLoading;
+    if (index?.schemaVersion !== `${key}-follow-index.v1`) throw Error(key);
+    return state.index = index;
+  }).finally(() => { state.indexLoading = null; });
+  return state.indexLoading;
 }
+function loadNrlFollowIndex(){ return loadLeagueFollowIndex("nrl"); }
+function loadAflFollowIndex(){ return loadLeagueFollowIndex("afl"); }
+function loadAflwFollowIndex(){ return loadLeagueFollowIndex("aflw"); }
 
 function directoryFollowIndex(){
+  const indexes = Object.values(leagueDirectoryState).map(state => state.index);
   return {
-    players: [...(footballFollowIndex?.players || []), ...(nrlFollowIndex?.players || []), ...(aflFollowIndex?.players || [])],
-    teams: [...(footballFollowIndex?.teams || []), ...(nrlFollowIndex?.teams || []), ...(aflFollowIndex?.teams || [])],
+    players: [...(footballFollowIndex?.players || []), ...indexes.flatMap(index => index?.players || [])],
+    teams: [...(footballFollowIndex?.teams || []), ...indexes.flatMap(index => index?.teams || [])],
   };
 }
 
@@ -14372,21 +14312,18 @@ function buildFocusedDiscoveryBanner(nodeId){
   return banner;
 }
 
-function eventMatchesSportPreferences(ev){
-  return (userPreferences.selectedSelectorEntityIds || []).some(entityId => selectorEntityMatchesEvent(entityId, ev));
-}
-
 function followedParticipantLabel(participantId){
   return canonicalSportsData?.participants?.find(item => item.id === participantId)?.displayName
     || (directoryFollowIndex().players || []).find(item => item.id === participantId)?.displayName
-    || [...(footballDirectoryData?.players || []), ...(nrlDirectoryData?.players || []), ...(aflDirectoryData?.players || [])].find(item => item.id === participantId)?.displayName
-    || [...(footballDirectoryData?.teams || []), ...(nrlDirectoryData?.teams || []), ...(aflDirectoryData?.teams || [])].find(item => item.id === participantId)?.displayName
+    || [footballDirectoryData, ...Object.values(leagueDirectoryState).map(state => state.data)].flatMap(directory => directory?.players || []).find(item => item.id === participantId)?.displayName
+    || [footballDirectoryData, ...Object.values(leagueDirectoryState).map(state => state.data)].flatMap(directory => directory?.teams || []).find(item => item.id === participantId)?.displayName
     || TEAM_FOLLOW_CATALOGUE?.teamsById?.[participantId]?.displayName
     || CARD_IDENTITIES?.participantMarks?.[participantId]?.label
     || String(participantId || "").split(":").at(-1).replace(/-/g, " ");
 }
 
 function automaticEventFollowReason(ev){
+  if (ev.key === "aflw" && userPreferences.selectedSelectorEntityIds?.includes("sport:aflw")) return{type:"sport"};
   const eventParticipantIds = Array.from(new Set([
     ...(Array.isArray(ev?.participantIds) ? ev.participantIds : []),
     ...(Array.isArray(ev?.matchupSides) ? ev.matchupSides.flatMap(side => (side.players || []).map(player => player.id)) : []),
@@ -14398,8 +14335,7 @@ function automaticEventFollowReason(ev){
   const playerTeams = new Map([
     ...(directoryFollowIndex().players || []),
     ...(footballDirectoryData?.players || []),
-    ...(nrlDirectoryData?.players || []),
-    ...(aflDirectoryData?.players || []),
+    ...Object.values(leagueDirectoryState).flatMap(state => state.data?.players || []),
   ].map(player => [player.id, player.currentTeamId]));
   const directlyFollowedPlayer = (userPreferences.preferenceGraph?.entityFollows || []).find(follow => (
     !String(follow.participantId || "").startsWith("team:")
@@ -18999,8 +18935,8 @@ function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "foot
       else renderTabCounts();
     });
   }
-  if (sportKey === "nrl" || sportKey === "afl"){
-    const loadIndex = sportKey === "nrl" ? loadNrlFollowIndex : loadAflFollowIndex;
+  if (sportKey === "nrl" || sportKey === "afl" || sportKey === "aflw"){
+    const loadIndex = sportKey === "nrl" ? loadNrlFollowIndex : sportKey === "aflw" ? loadAflwFollowIndex : loadAflFollowIndex;
     void loadIndex().then(() => {
       rebuildDerivedCardCache(activeEvents);
       if (activeTab !== "follow") queueScrollIdleMutation(() => renderAll({ preserveViewport:true }));
@@ -19089,7 +19025,8 @@ function buildFootballPlayerRow(player, sportKey = "football"){
   const row = document.createElement("div");
   row.className = "football-player-row";
   row.dataset.scrollKey = `directory-player:${sportKey}:${player.id}`;
-  const identity = document.createElement("div");
+  const identity = document.createElement(player.profileRef ? "button" : "div");
+  if (player.profileRef) identity.type = "button";
   identity.className = "football-player-name";
   if (player.birthCountryCode){
     const countryName = COUNTRY_FLAGS.countryName(player.birthCountryCode);
@@ -19099,6 +19036,7 @@ function buildFootballPlayerRow(player, sportKey = "football"){
   const name = document.createElement("span");
   name.textContent = player.displayName;
   identity.appendChild(name);
+  globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI?.decorateIdentity(identity, player, sportKey);
   const position = document.createElement("span");
   position.className = "football-player-position";
   position.textContent = player.position;
@@ -19265,6 +19203,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
     }
     return;
   }
+  if ((chunk.records || []).some(record => record.entityType === "athlete")) void ensureAthleteProfileUi();
   const filters = directoryFilters(sportKey);
   const allRecords = chunk.records.map(record => ({
     ...record,
@@ -19387,7 +19326,9 @@ function renderLegacyParticipantDirectory(container, sportKey){
     }
     const detail = document.createElement("span");
     const rankLabel = record.rank !== null ? ` · #${record.rank}` : "";
-    detail.textContent = `${record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${rankLabel}`;
+    const competitionNumber = Number(record.competitionNumber || 0);
+    const numberLabel = athlete ? ` · ${competitionNumber > 0 ? `No. ${competitionNumber}` : "No. TBC"}` : "";
+    detail.textContent = `${record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${numberLabel}${rankLabel}`;
     copy.append(name, detail);
     if (Array.isArray(record.collectionIds) && record.collectionIds.length){
       const chips = document.createElement("span");
@@ -19402,6 +19343,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
       if (chips.childElementCount) copy.appendChild(chips);
     }
     const follow = buildDirectoryFollowButton(record.id, { sportKey, label: record.displayName });
+    if (athlete && record.profileRef) void ensureAthleteProfileUi().then(ui => [icon, copy].forEach(target => ui.makeTrigger(target, record, sportKey === "motorsport" ? "f1" : sportKey)));
     row.append(icon, copy, follow);
     list.appendChild(row);
   });
@@ -19422,6 +19364,8 @@ function renderTeamsAndPlayersDirectory(container){
   const directorySportOptions = BASE_SPORT_SELECTOR_ENTITIES
     .filter(entity => Number(entity.level) === 2)
     .map(entity => [entity.id.replace(/^sport:/, ""), entity.label]);
+  const aflIndex = directorySportOptions.findIndex(([key]) => key === "afl");
+  if (aflIndex >= 0) directorySportOptions.splice(aflIndex + 1, 0, ["aflw", "AFLW"]);
   const chooser = buildDirectorySelect("Sport", session.directorySportKey, directorySportOptions, sportKey => {
     updateStandingsDirectorySession({ directorySportKey: sportKey });
     renderStandingsContext();
@@ -19433,17 +19377,24 @@ function renderTeamsAndPlayersDirectory(container){
   if (session.directorySportKey === "football") renderFootballDirectory(container);
   else if (session.directorySportKey === "nrl") renderFootballDirectory(container, {
     sportKey: "nrl",
-    directoryData: nrlDirectoryData,
-    loading: nrlDirectoryLoading,
-    error: nrlDirectoryError,
+    directoryData:leagueDirectoryState.nrl.data,
+    loading:leagueDirectoryState.nrl.loading,
+    error:leagueDirectoryState.nrl.error,
     loadDirectory: loadNrlDirectoryData,
   });
   else if (session.directorySportKey === "afl") renderFootballDirectory(container, {
     sportKey: "afl",
-    directoryData: aflDirectoryData,
-    loading: aflDirectoryLoading,
-    error: aflDirectoryError,
+    directoryData:leagueDirectoryState.afl.data,
+    loading:leagueDirectoryState.afl.loading,
+    error:leagueDirectoryState.afl.error,
     loadDirectory: loadAflDirectoryData,
+  });
+  else if (session.directorySportKey === "aflw") renderFootballDirectory(container, {
+    sportKey:"aflw",
+    directoryData:leagueDirectoryState.aflw.data,
+    loading:leagueDirectoryState.aflw.loading,
+    error:leagueDirectoryState.aflw.error,
+    loadDirectory:loadAflwDirectoryData,
   });
   else renderLegacyParticipantDirectory(container, session.directorySportKey);
 }
@@ -19623,6 +19574,18 @@ function renderFollowView(){
   australiaToggle.innerHTML = `<span><strong>Australia in internationals</strong><small>Show explicit Australian representative fixtures for sports you follow.</small></span><b>${australiaOn ? "On" : "Off"}</b>`;
   australiaToggle.addEventListener("click", toggleAustraliaInternationals);
   sportSection.appendChild(australiaToggle);
+  if (userPreferences.aflFamilyMigration?.status === "pending"){
+    const migrationUi = globalThis.NOTHINGSPORTS_AFL_FAMILY_MIGRATION_UI;
+    if (!migrationUi){
+      aflFamilyUiLoading ||= loadDeferredScript("config/afl-family-migration-ui.js").then(() => renderAll({ preserveViewport:true }));
+    } else {
+      sportSection.appendChild(migrationUi.build(ids => {
+        const next = clonePreferences(userPreferences);
+        if (ids){ const selected = new Set(next.selectedSelectorEntityIds || []); selected.delete("sport:afl"); selected.delete("sport:afl-premiership"); selected.delete("sport:aflw"); ids.forEach(id => selected.add(id)); next.selectedSelectorEntityIds = Array.from(selected); next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds); }
+        next.aflFamilyMigration = { status:ids ? "completed" : "dismissed" }; savePreferences(next); renderAll({ preserveViewport:true });
+      }));
+    }
+  }
   const sportGrid = document.createElement("div");
   sportGrid.className = "follow-sport-grid";
   sportGrid.dataset.scrollList = "follow-sports";
@@ -19640,6 +19603,15 @@ function renderFollowView(){
     follow.textContent = followed ? `Following ${sport.label}` : `Follow ${sport.label}`;
     follow.addEventListener("click", () => saveFollowSport(sport, !followed));
     card.appendChild(follow);
+    if (entity.id === "sport:afl"){
+      follow.remove();
+      const ui = globalThis.NOTHINGSPORTS_AFL_FAMILY_MIGRATION_UI;
+      if (!ui) aflFamilyUiLoading ||= loadDeferredScript("config/afl-family-migration-ui.js").then(() => renderAll({ preserveViewport:true }));
+      else card.appendChild(ui.buildOptions(
+        id => selectorEntityIsEffectivelySelected(id, userPreferences),
+        (id, label, active) => saveFollowSport({ id:id.replace(/^sport:/, ""), selectorId:id, label }, !active)
+      ));
+    }
     if (sport.id === "tennis"){
       const expand = document.createElement("button");
       const expanded = expandedFollowSportIds.has("tennis");

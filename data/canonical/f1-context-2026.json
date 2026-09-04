@@ -2,7 +2,7 @@
   "schemaVersion": "sport-context.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-07-27T00:30:00.000Z",
+  "generatedAt": "2026-09-04T19:39:01.162Z",
   "sources": [
     {
       "provider": "Formula 1",
@@ -104,7 +104,9 @@
       "canonicalName": "Mercedes",
       "teamCode": "MER",
       "countryCode": "DE",
-      "metadata": { "active": true }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "team:f1:ferrari",
@@ -115,7 +117,9 @@
       "canonicalName": "Ferrari",
       "teamCode": "FER",
       "countryCode": "IT",
-      "metadata": { "active": true }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "team:f1:mclaren",
@@ -126,7 +130,9 @@
       "canonicalName": "McLaren",
       "teamCode": "MCL",
       "countryCode": "GB",
-      "metadata": { "active": true }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "team:f1:red-bull-racing",
@@ -137,7 +143,9 @@
       "canonicalName": "Red Bull Racing",
       "teamCode": "RBR",
       "countryCode": "AT",
-      "metadata": { "active": true }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "team:f1:racing-bulls",
@@ -148,7 +156,9 @@
       "canonicalName": "Racing Bulls",
       "teamCode": "RCB",
       "countryCode": "IT",
-      "metadata": { "active": true }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "team:f1:alpine",
@@ -159,7 +169,9 @@
       "canonicalName": "Alpine",
       "teamCode": "ALP",
       "countryCode": "FR",
-      "metadata": { "active": true }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "team:f1:haas",
@@ -170,7 +182,9 @@
       "canonicalName": "Haas F1 Team",
       "teamCode": "HAS",
       "countryCode": "US",
-      "metadata": { "active": true }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "team:f1:audi",
@@ -181,7 +195,9 @@
       "canonicalName": "Audi",
       "teamCode": "AUD",
       "countryCode": "DE",
-      "metadata": { "active": true }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "team:f1:williams",
@@ -192,7 +208,9 @@
       "canonicalName": "Williams",
       "teamCode": "WIL",
       "countryCode": "GB",
-      "metadata": { "active": true }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "team:f1:aston-martin",
@@ -203,7 +221,9 @@
       "canonicalName": "Aston Martin",
       "teamCode": "AMR",
       "countryCode": "GB",
-      "metadata": { "active": true }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "team:f1:cadillac",
@@ -214,97 +234,9 @@
       "canonicalName": "Cadillac",
       "teamCode": "CAD",
       "countryCode": "US",
-      "metadata": { "active": true }
-    },
-    {
-      "id": "competitor:f1:kimi-antonelli",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Kimi Antonelli",
-      "shortName": "Antonelli",
-      "canonicalName": "Kimi Antonelli",
-      "countryCode": "IT",
-      "metadata": { "active": true, "abbreviation": "ANT", "teamParticipantId": "team:f1:mercedes" }
-    },
-    {
-      "id": "competitor:f1:lewis-hamilton",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Lewis Hamilton",
-      "shortName": "Hamilton",
-      "canonicalName": "Lewis Hamilton",
-      "countryCode": "GB",
-      "metadata": { "active": true, "abbreviation": "HAM", "teamParticipantId": "team:f1:ferrari" }
-    },
-    {
-      "id": "competitor:f1:george-russell",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "George Russell",
-      "shortName": "Russell",
-      "canonicalName": "George Russell",
-      "countryCode": "GB",
-      "metadata": { "active": true, "abbreviation": "RUS", "teamParticipantId": "team:f1:mercedes" }
-    },
-    {
-      "id": "competitor:f1:charles-leclerc",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Charles Leclerc",
-      "shortName": "Leclerc",
-      "canonicalName": "Charles Leclerc",
-      "countryCode": "MC",
-      "metadata": { "active": true, "abbreviation": "LEC", "teamParticipantId": "team:f1:ferrari" }
-    },
-    {
-      "id": "competitor:f1:lando-norris",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Lando Norris",
-      "shortName": "Norris",
-      "canonicalName": "Lando Norris",
-      "countryCode": "GB",
-      "metadata": { "active": true, "abbreviation": "NOR", "teamParticipantId": "team:f1:mclaren" }
-    },
-    {
-      "id": "competitor:f1:max-verstappen",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Max Verstappen",
-      "shortName": "Verstappen",
-      "canonicalName": "Max Verstappen",
-      "countryCode": "NL",
-      "metadata": { "active": true, "abbreviation": "VER", "teamParticipantId": "team:f1:red-bull-racing" }
-    },
-    {
-      "id": "competitor:f1:oscar-piastri",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Oscar Piastri",
-      "shortName": "Piastri",
-      "canonicalName": "Oscar Piastri",
-      "countryCode": "AU",
-      "metadata": { "active": true, "abbreviation": "PIA", "teamParticipantId": "team:f1:mclaren" }
-    },
-    {
-      "id": "competitor:f1:isack-hadjar",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Isack Hadjar",
-      "shortName": "Hadjar",
-      "canonicalName": "Isack Hadjar",
-      "countryCode": "FR",
-      "metadata": { "active": true, "abbreviation": "HAD", "teamParticipantId": "team:f1:red-bull-racing" }
-    },
-    {
-      "id": "competitor:f1:liam-lawson",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Liam Lawson",
-      "shortName": "Lawson",
-      "canonicalName": "Liam Lawson",
-      "countryCode": "NZ",
-      "metadata": { "active": true, "abbreviation": "LAW", "teamParticipantId": "team:f1:racing-bulls" }
+      "metadata": {
+        "active": true
+      }
     },
     {
       "id": "competitor:f1:pierre-gasly",
@@ -314,17 +246,17 @@
       "shortName": "Gasly",
       "canonicalName": "Pierre Gasly",
       "countryCode": "FR",
-      "metadata": { "active": true, "abbreviation": "GAS", "teamParticipantId": "team:f1:alpine" }
-    },
-    {
-      "id": "competitor:f1:arvid-lindblad",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Arvid Lindblad",
-      "shortName": "Lindblad",
-      "canonicalName": "Arvid Lindblad",
-      "countryCode": "GB",
-      "metadata": { "active": true, "abbreviation": "LIN", "teamParticipantId": "team:f1:racing-bulls" }
+      "metadata": {
+        "active": true,
+        "abbreviation": "GAS",
+        "teamParticipantId": "team:f1:alpine"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/alpine/piegas01/2026alpinepiegas01right.webp",
+      "competitionNumber": 10,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:pierre-gasly",
+      "currentTeamId": "team:f1:alpine"
     },
     {
       "id": "competitor:f1:franco-colapinto",
@@ -334,67 +266,17 @@
       "shortName": "Colapinto",
       "canonicalName": "Franco Colapinto",
       "countryCode": "AR",
-      "metadata": { "active": true, "abbreviation": "COL", "teamParticipantId": "team:f1:alpine" }
-    },
-    {
-      "id": "competitor:f1:oliver-bearman",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Oliver Bearman",
-      "shortName": "Bearman",
-      "canonicalName": "Oliver Bearman",
-      "countryCode": "GB",
-      "metadata": { "active": true, "abbreviation": "BEA", "teamParticipantId": "team:f1:haas" }
-    },
-    {
-      "id": "competitor:f1:gabriel-bortoleto",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Gabriel Bortoleto",
-      "shortName": "Bortoleto",
-      "canonicalName": "Gabriel Bortoleto",
-      "countryCode": "BR",
-      "metadata": { "active": true, "abbreviation": "BOR", "teamParticipantId": "team:f1:audi" }
-    },
-    {
-      "id": "competitor:f1:carlos-sainz",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Carlos Sainz",
-      "shortName": "Sainz",
-      "canonicalName": "Carlos Sainz",
-      "countryCode": "ES",
-      "metadata": { "active": true, "abbreviation": "SAI", "teamParticipantId": "team:f1:williams" }
-    },
-    {
-      "id": "competitor:f1:alexander-albon",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Alexander Albon",
-      "shortName": "Albon",
-      "canonicalName": "Alexander Albon",
-      "countryCode": "TH",
-      "metadata": { "active": true, "abbreviation": "ALB", "teamParticipantId": "team:f1:williams" }
-    },
-    {
-      "id": "competitor:f1:esteban-ocon",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Esteban Ocon",
-      "shortName": "Ocon",
-      "canonicalName": "Esteban Ocon",
-      "countryCode": "FR",
-      "metadata": { "active": true, "abbreviation": "OCO", "teamParticipantId": "team:f1:haas" }
-    },
-    {
-      "id": "competitor:f1:nico-hulkenberg",
-      "type": "competitor",
-      "sportDomainId": "sport:motorsport",
-      "displayName": "Nico Hulkenberg",
-      "shortName": "Hulkenberg",
-      "canonicalName": "Nico Hulkenberg",
-      "countryCode": "DE",
-      "metadata": { "active": true, "abbreviation": "HUL", "teamParticipantId": "team:f1:audi" }
+      "metadata": {
+        "active": true,
+        "abbreviation": "COL",
+        "teamParticipantId": "team:f1:alpine"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/alpine/fracol01/2026alpinefracol01right.webp",
+      "competitionNumber": 43,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:franco-colapinto",
+      "currentTeamId": "team:f1:alpine"
     },
     {
       "id": "competitor:f1:fernando-alonso",
@@ -404,7 +286,17 @@
       "shortName": "Alonso",
       "canonicalName": "Fernando Alonso",
       "countryCode": "ES",
-      "metadata": { "active": true, "abbreviation": "ALO", "teamParticipantId": "team:f1:aston-martin" }
+      "metadata": {
+        "active": true,
+        "abbreviation": "ALO",
+        "teamParticipantId": "team:f1:aston-martin"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/astonmartin/feralo01/2026astonmartinferalo01right.webp",
+      "competitionNumber": 14,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:fernando-alonso",
+      "currentTeamId": "team:f1:aston-martin"
     },
     {
       "id": "competitor:f1:lance-stroll",
@@ -414,17 +306,57 @@
       "shortName": "Stroll",
       "canonicalName": "Lance Stroll",
       "countryCode": "CA",
-      "metadata": { "active": true, "abbreviation": "STR", "teamParticipantId": "team:f1:aston-martin" }
+      "metadata": {
+        "active": true,
+        "abbreviation": "STR",
+        "teamParticipantId": "team:f1:aston-martin"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/astonmartin/lanstr01/2026astonmartinlanstr01right.webp",
+      "competitionNumber": 18,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:lance-stroll",
+      "currentTeamId": "team:f1:aston-martin"
     },
     {
-      "id": "competitor:f1:valtteri-bottas",
+      "id": "competitor:f1:gabriel-bortoleto",
       "type": "competitor",
       "sportDomainId": "sport:motorsport",
-      "displayName": "Valtteri Bottas",
-      "shortName": "Bottas",
-      "canonicalName": "Valtteri Bottas",
-      "countryCode": "FI",
-      "metadata": { "active": true, "abbreviation": "BOT", "teamParticipantId": "team:f1:cadillac" }
+      "displayName": "Gabriel Bortoleto",
+      "shortName": "Bortoleto",
+      "canonicalName": "Gabriel Bortoleto",
+      "countryCode": "BR",
+      "metadata": {
+        "active": true,
+        "abbreviation": "BOR",
+        "teamParticipantId": "team:f1:audi"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/audi/gabbor01/2026audigabbor01right.webp",
+      "competitionNumber": 5,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:gabriel-bortoleto",
+      "currentTeamId": "team:f1:audi"
+    },
+    {
+      "id": "competitor:f1:nico-hulkenberg",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Nico Hulkenberg",
+      "shortName": "Hulkenberg",
+      "canonicalName": "Nico Hulkenberg",
+      "countryCode": "DE",
+      "metadata": {
+        "active": true,
+        "abbreviation": "HUL",
+        "teamParticipantId": "team:f1:audi"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/audi/nichul01/2026audinichul01right.webp",
+      "competitionNumber": 27,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:nico-hulkenberg",
+      "currentTeamId": "team:f1:audi"
     },
     {
       "id": "competitor:f1:sergio-perez",
@@ -434,7 +366,317 @@
       "shortName": "Perez",
       "canonicalName": "Sergio Perez",
       "countryCode": "MX",
-      "metadata": { "active": true, "abbreviation": "PER", "teamParticipantId": "team:f1:cadillac" }
+      "metadata": {
+        "active": true,
+        "abbreviation": "PER",
+        "teamParticipantId": "team:f1:cadillac"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp",
+      "competitionNumber": 11,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:sergio-perez",
+      "currentTeamId": "team:f1:cadillac"
+    },
+    {
+      "id": "competitor:f1:valtteri-bottas",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Valtteri Bottas",
+      "shortName": "Bottas",
+      "canonicalName": "Valtteri Bottas",
+      "countryCode": "FI",
+      "metadata": {
+        "active": true,
+        "abbreviation": "BOT",
+        "teamParticipantId": "team:f1:cadillac"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/cadillac/valbot01/2026cadillacvalbot01right.webp",
+      "competitionNumber": 77,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:valtteri-bottas",
+      "currentTeamId": "team:f1:cadillac"
+    },
+    {
+      "id": "competitor:f1:charles-leclerc",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Charles Leclerc",
+      "shortName": "Leclerc",
+      "canonicalName": "Charles Leclerc",
+      "countryCode": "MC",
+      "metadata": {
+        "active": true,
+        "abbreviation": "LEC",
+        "teamParticipantId": "team:f1:ferrari"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
+      "competitionNumber": 16,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:charles-leclerc",
+      "currentTeamId": "team:f1:ferrari"
+    },
+    {
+      "id": "competitor:f1:lewis-hamilton",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Lewis Hamilton",
+      "shortName": "Hamilton",
+      "canonicalName": "Lewis Hamilton",
+      "countryCode": "GB",
+      "metadata": {
+        "active": true,
+        "abbreviation": "HAM",
+        "teamParticipantId": "team:f1:ferrari"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp",
+      "competitionNumber": 44,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:lewis-hamilton",
+      "currentTeamId": "team:f1:ferrari"
+    },
+    {
+      "id": "competitor:f1:esteban-ocon",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Esteban Ocon",
+      "shortName": "Ocon",
+      "canonicalName": "Esteban Ocon",
+      "countryCode": "FR",
+      "metadata": {
+        "active": true,
+        "abbreviation": "OCO",
+        "teamParticipantId": "team:f1:haas"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/haas/estoco01/2026haasestoco01right.webp",
+      "competitionNumber": 31,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:esteban-ocon",
+      "currentTeamId": "team:f1:haas"
+    },
+    {
+      "id": "competitor:f1:oliver-bearman",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Oliver Bearman",
+      "shortName": "Bearman",
+      "canonicalName": "Oliver Bearman",
+      "countryCode": "GB",
+      "metadata": {
+        "active": true,
+        "abbreviation": "BEA",
+        "teamParticipantId": "team:f1:haas"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/haas/olibea01/2026haasolibea01right.webp",
+      "competitionNumber": 87,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:oliver-bearman",
+      "currentTeamId": "team:f1:haas"
+    },
+    {
+      "id": "competitor:f1:lando-norris",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Lando Norris",
+      "shortName": "Norris",
+      "canonicalName": "Lando Norris",
+      "countryCode": "GB",
+      "metadata": {
+        "active": true,
+        "abbreviation": "NOR",
+        "teamParticipantId": "team:f1:mclaren"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp",
+      "competitionNumber": 1,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:lando-norris",
+      "currentTeamId": "team:f1:mclaren"
+    },
+    {
+      "id": "competitor:f1:oscar-piastri",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Oscar Piastri",
+      "shortName": "Piastri",
+      "canonicalName": "Oscar Piastri",
+      "countryCode": "AU",
+      "metadata": {
+        "active": true,
+        "abbreviation": "PIA",
+        "teamParticipantId": "team:f1:mclaren"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp",
+      "competitionNumber": 81,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:oscar-piastri",
+      "currentTeamId": "team:f1:mclaren"
+    },
+    {
+      "id": "competitor:f1:kimi-antonelli",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Kimi Antonelli",
+      "shortName": "Antonelli",
+      "canonicalName": "Kimi Antonelli",
+      "countryCode": "IT",
+      "metadata": {
+        "active": true,
+        "abbreviation": "ANT",
+        "teamParticipantId": "team:f1:mercedes"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
+      "competitionNumber": 12,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:kimi-antonelli",
+      "currentTeamId": "team:f1:mercedes"
+    },
+    {
+      "id": "competitor:f1:george-russell",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "George Russell",
+      "shortName": "Russell",
+      "canonicalName": "George Russell",
+      "countryCode": "GB",
+      "metadata": {
+        "active": true,
+        "abbreviation": "RUS",
+        "teamParticipantId": "team:f1:mercedes"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp",
+      "competitionNumber": 63,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:george-russell",
+      "currentTeamId": "team:f1:mercedes"
+    },
+    {
+      "id": "competitor:f1:liam-lawson",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Liam Lawson",
+      "shortName": "Lawson",
+      "canonicalName": "Liam Lawson",
+      "countryCode": "NZ",
+      "metadata": {
+        "active": true,
+        "abbreviation": "LAW",
+        "teamParticipantId": "team:f1:racing-bulls"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/racingbulls/lialaw01/2026racingbullslialaw01right.webp",
+      "competitionNumber": 30,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:liam-lawson",
+      "currentTeamId": "team:f1:racing-bulls"
+    },
+    {
+      "id": "competitor:f1:arvid-lindblad",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Arvid Lindblad",
+      "shortName": "Lindblad",
+      "canonicalName": "Arvid Lindblad",
+      "countryCode": "GB",
+      "metadata": {
+        "active": true,
+        "abbreviation": "LIN",
+        "teamParticipantId": "team:f1:racing-bulls"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/racingbulls/arvlin01/2026racingbullsarvlin01right.webp",
+      "competitionNumber": 41,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:arvid-lindblad",
+      "currentTeamId": "team:f1:racing-bulls"
+    },
+    {
+      "id": "competitor:f1:max-verstappen",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Max Verstappen",
+      "shortName": "Verstappen",
+      "canonicalName": "Max Verstappen",
+      "countryCode": "NL",
+      "metadata": {
+        "active": true,
+        "abbreviation": "VER",
+        "teamParticipantId": "team:f1:red-bull-racing"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp",
+      "competitionNumber": 3,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:max-verstappen",
+      "currentTeamId": "team:f1:red-bull-racing"
+    },
+    {
+      "id": "competitor:f1:isack-hadjar",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Isack Hadjar",
+      "shortName": "Hadjar",
+      "canonicalName": "Isack Hadjar",
+      "countryCode": "FR",
+      "metadata": {
+        "active": true,
+        "abbreviation": "HAD",
+        "teamParticipantId": "team:f1:red-bull-racing"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/redbullracing/isahad01/2026redbullracingisahad01right.webp",
+      "competitionNumber": 6,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:isack-hadjar",
+      "currentTeamId": "team:f1:red-bull-racing"
+    },
+    {
+      "id": "competitor:f1:alexander-albon",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Alexander Albon",
+      "shortName": "Albon",
+      "canonicalName": "Alexander Albon",
+      "countryCode": "TH",
+      "metadata": {
+        "active": true,
+        "abbreviation": "ALB",
+        "teamParticipantId": "team:f1:williams"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp",
+      "competitionNumber": 23,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:alexander-albon",
+      "currentTeamId": "team:f1:williams"
+    },
+    {
+      "id": "competitor:f1:carlos-sainz",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Carlos Sainz",
+      "shortName": "Sainz",
+      "canonicalName": "Carlos Sainz",
+      "countryCode": "ES",
+      "metadata": {
+        "active": true,
+        "abbreviation": "SAI",
+        "teamParticipantId": "team:f1:williams"
+      },
+      "headshotUrl": "https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/williams/carsai01/2026williamscarsai01right.webp",
+      "competitionNumber": 55,
+      "competitionNumberKind": "racing",
+      "competitionNumberSeason": "2026",
+      "profileRef": "profile:f1:carlos-sainz",
+      "currentTeamId": "team:f1:williams"
     }
   ],
   "ladderSnapshots": [
@@ -443,30 +685,140 @@
       "competitionId": "competition:f1-drivers-2026",
       "seasonLabel": "2026",
       "roundLabel": "After Hungarian Grand Prix",
-      "snapshotTimeUtc": "2026-07-26T23:59:00.000Z",
+      "snapshotTimeUtc": "2026-09-04T19:39:01.162Z",
       "entries": [
-        { "participantId": "competitor:f1:kimi-antonelli", "teamParticipantId": "team:f1:mercedes", "rank": 1, "points": 219 },
-        { "participantId": "competitor:f1:lewis-hamilton", "teamParticipantId": "team:f1:ferrari", "rank": 2, "points": 169 },
-        { "participantId": "competitor:f1:george-russell", "teamParticipantId": "team:f1:mercedes", "rank": 3, "points": 160 },
-        { "participantId": "competitor:f1:charles-leclerc", "teamParticipantId": "team:f1:ferrari", "rank": 4, "points": 138 },
-        { "participantId": "competitor:f1:lando-norris", "teamParticipantId": "team:f1:mclaren", "rank": 5, "points": 128 },
-        { "participantId": "competitor:f1:max-verstappen", "teamParticipantId": "team:f1:red-bull-racing", "rank": 6, "points": 109 },
-        { "participantId": "competitor:f1:oscar-piastri", "teamParticipantId": "team:f1:mclaren", "rank": 7, "points": 92 },
-        { "participantId": "competitor:f1:isack-hadjar", "teamParticipantId": "team:f1:red-bull-racing", "rank": 8, "points": 68 },
-        { "participantId": "competitor:f1:liam-lawson", "teamParticipantId": "team:f1:racing-bulls", "rank": 9, "points": 43 },
-        { "participantId": "competitor:f1:pierre-gasly", "teamParticipantId": "team:f1:alpine", "rank": 10, "points": 42 },
-        { "participantId": "competitor:f1:arvid-lindblad", "teamParticipantId": "team:f1:racing-bulls", "rank": 11, "points": 23 },
-        { "participantId": "competitor:f1:franco-colapinto", "teamParticipantId": "team:f1:alpine", "rank": 12, "points": 19 },
-        { "participantId": "competitor:f1:oliver-bearman", "teamParticipantId": "team:f1:haas", "rank": 13, "points": 18 },
-        { "participantId": "competitor:f1:gabriel-bortoleto", "teamParticipantId": "team:f1:audi", "rank": 14, "points": 10 },
-        { "participantId": "competitor:f1:carlos-sainz", "teamParticipantId": "team:f1:williams", "rank": 15, "points": 6 },
-        { "participantId": "competitor:f1:alexander-albon", "teamParticipantId": "team:f1:williams", "rank": 16, "points": 5 },
-        { "participantId": "competitor:f1:esteban-ocon", "teamParticipantId": "team:f1:haas", "rank": 17, "points": 3 },
-        { "participantId": "competitor:f1:nico-hulkenberg", "teamParticipantId": "team:f1:audi", "rank": 18, "points": 2 },
-        { "participantId": "competitor:f1:fernando-alonso", "teamParticipantId": "team:f1:aston-martin", "rank": 19, "points": 1 },
-        { "participantId": "competitor:f1:lance-stroll", "teamParticipantId": "team:f1:aston-martin", "rank": 20, "points": 0 },
-        { "participantId": "competitor:f1:valtteri-bottas", "teamParticipantId": "team:f1:cadillac", "rank": 21, "points": 0 },
-        { "participantId": "competitor:f1:sergio-perez", "teamParticipantId": "team:f1:cadillac", "rank": 22, "points": 0 }
+        {
+          "participantId": "competitor:f1:kimi-antonelli",
+          "teamParticipantId": "team:f1:mercedes",
+          "rank": 1,
+          "points": 242
+        },
+        {
+          "participantId": "competitor:f1:george-russell",
+          "teamParticipantId": "team:f1:mercedes",
+          "rank": 2,
+          "points": 183
+        },
+        {
+          "participantId": "competitor:f1:lewis-hamilton",
+          "teamParticipantId": "team:f1:ferrari",
+          "rank": 3,
+          "points": 183
+        },
+        {
+          "participantId": "competitor:f1:lando-norris",
+          "teamParticipantId": "team:f1:mclaren",
+          "rank": 4,
+          "points": 159
+        },
+        {
+          "participantId": "competitor:f1:charles-leclerc",
+          "teamParticipantId": "team:f1:ferrari",
+          "rank": 5,
+          "points": 155
+        },
+        {
+          "participantId": "competitor:f1:max-verstappen",
+          "teamParticipantId": "team:f1:red-bull-racing",
+          "rank": 6,
+          "points": 112
+        },
+        {
+          "participantId": "competitor:f1:oscar-piastri",
+          "teamParticipantId": "team:f1:mclaren",
+          "rank": 7,
+          "points": 104
+        },
+        {
+          "participantId": "competitor:f1:isack-hadjar",
+          "teamParticipantId": "team:f1:red-bull-racing",
+          "rank": 8,
+          "points": 68
+        },
+        {
+          "participantId": "competitor:f1:liam-lawson",
+          "teamParticipantId": "team:f1:racing-bulls",
+          "rank": 9,
+          "points": 49
+        },
+        {
+          "participantId": "competitor:f1:pierre-gasly",
+          "teamParticipantId": "team:f1:alpine",
+          "rank": 10,
+          "points": 44
+        },
+        {
+          "participantId": "competitor:f1:arvid-lindblad",
+          "teamParticipantId": "team:f1:racing-bulls",
+          "rank": 11,
+          "points": 23
+        },
+        {
+          "participantId": "competitor:f1:franco-colapinto",
+          "teamParticipantId": "team:f1:alpine",
+          "rank": 12,
+          "points": 19
+        },
+        {
+          "participantId": "competitor:f1:oliver-bearman",
+          "teamParticipantId": "team:f1:haas",
+          "rank": 13,
+          "points": 18
+        },
+        {
+          "participantId": "competitor:f1:gabriel-bortoleto",
+          "teamParticipantId": "team:f1:audi",
+          "rank": 14,
+          "points": 10
+        },
+        {
+          "participantId": "competitor:f1:carlos-sainz",
+          "teamParticipantId": "team:f1:williams",
+          "rank": 15,
+          "points": 6
+        },
+        {
+          "participantId": "competitor:f1:alexander-albon",
+          "teamParticipantId": "team:f1:williams",
+          "rank": 16,
+          "points": 5
+        },
+        {
+          "participantId": "competitor:f1:esteban-ocon",
+          "teamParticipantId": "team:f1:haas",
+          "rank": 17,
+          "points": 3
+        },
+        {
+          "participantId": "competitor:f1:nico-hulkenberg",
+          "teamParticipantId": "team:f1:audi",
+          "rank": 18,
+          "points": 2
+        },
+        {
+          "participantId": "competitor:f1:fernando-alonso",
+          "teamParticipantId": "team:f1:aston-martin",
+          "rank": 19,
+          "points": 1
+        },
+        {
+          "participantId": "competitor:f1:lance-stroll",
+          "teamParticipantId": "team:f1:aston-martin",
+          "rank": 20,
+          "points": 0
+        },
+        {
+          "participantId": "competitor:f1:valtteri-bottas",
+          "teamParticipantId": "team:f1:cadillac",
+          "rank": 21,
+          "points": 0
+        },
+        {
+          "participantId": "competitor:f1:sergio-perez",
+          "teamParticipantId": "team:f1:cadillac",
+          "rank": 22,
+          "points": 0
+        }
       ],
       "source": {
         "provider": "Formula 1",
@@ -474,7 +826,11 @@
         "sourceType": "official",
         "checkedAt": "2026-07-27T00:30:00.000Z"
       },
-      "metadata": { "standingsType": "drivers", "completedRounds": 11 }
+      "metadata": {
+        "standingsType": "drivers",
+        "completedRounds": 11
+      },
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers"
     },
     {
       "id": "standings:f1-constructors-2026:hungary",
@@ -483,17 +839,61 @@
       "roundLabel": "After Hungarian Grand Prix",
       "snapshotTimeUtc": "2026-07-26T23:59:00.000Z",
       "entries": [
-        { "participantId": "team:f1:mercedes", "rank": 1, "points": 379 },
-        { "participantId": "team:f1:ferrari", "rank": 2, "points": 307 },
-        { "participantId": "team:f1:mclaren", "rank": 3, "points": 220 },
-        { "participantId": "team:f1:red-bull-racing", "rank": 4, "points": 177 },
-        { "participantId": "team:f1:racing-bulls", "rank": 5, "points": 66 },
-        { "participantId": "team:f1:alpine", "rank": 6, "points": 61 },
-        { "participantId": "team:f1:haas", "rank": 7, "points": 21 },
-        { "participantId": "team:f1:audi", "rank": 8, "points": 12 },
-        { "participantId": "team:f1:williams", "rank": 9, "points": 11 },
-        { "participantId": "team:f1:aston-martin", "rank": 10, "points": 1 },
-        { "participantId": "team:f1:cadillac", "rank": 11, "points": 0 }
+        {
+          "participantId": "team:f1:mercedes",
+          "rank": 1,
+          "points": 379
+        },
+        {
+          "participantId": "team:f1:ferrari",
+          "rank": 2,
+          "points": 307
+        },
+        {
+          "participantId": "team:f1:mclaren",
+          "rank": 3,
+          "points": 220
+        },
+        {
+          "participantId": "team:f1:red-bull-racing",
+          "rank": 4,
+          "points": 177
+        },
+        {
+          "participantId": "team:f1:racing-bulls",
+          "rank": 5,
+          "points": 66
+        },
+        {
+          "participantId": "team:f1:alpine",
+          "rank": 6,
+          "points": 61
+        },
+        {
+          "participantId": "team:f1:haas",
+          "rank": 7,
+          "points": 21
+        },
+        {
+          "participantId": "team:f1:audi",
+          "rank": 8,
+          "points": 12
+        },
+        {
+          "participantId": "team:f1:williams",
+          "rank": 9,
+          "points": 11
+        },
+        {
+          "participantId": "team:f1:aston-martin",
+          "rank": 10,
+          "points": 1
+        },
+        {
+          "participantId": "team:f1:cadillac",
+          "rank": 11,
+          "points": 0
+        }
       ],
       "source": {
         "provider": "Formula 1",
@@ -501,7 +901,10 @@
         "sourceType": "official",
         "checkedAt": "2026-07-27T00:30:00.000Z"
       },
-      "metadata": { "standingsType": "constructors", "completedRounds": 11 }
+      "metadata": {
+        "standingsType": "constructors",
+        "completedRounds": 11
+      }
     }
   ],
   "eventParticipantScopes": [

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nothingsport.app/schemas/athlete-profile.schema.json",
+  "title": "Nothing Sport athlete profile",
+  "type": "object",
+  "required": ["schemaVersion", "id", "participantId", "sportKey", "displayName", "biography", "sourceLinks", "sourceCheckedAt"],
+  "properties": {
+    "schemaVersion": { "const": "athlete-profile.v1" },
+    "id": { "type": "string", "pattern": "^profile:" },
+    "participantId": { "type": "string" },
+    "sportKey": { "enum": ["afl", "aflw", "f1"] },
+    "displayName": { "type": "string", "minLength": 1 },
+    "headshotUrl": { "type": ["string", "null"], "format": "uri" },
+    "competitionNumber": { "type": ["integer", "null"], "minimum": 1 },
+    "competitionNumberKind": { "enum": ["guernsey", "racing"] },
+    "competitionNumberSeason": { "type": "string" },
+    "biography": { "type": "string", "minLength": 80 },
+    "keyFacts": { "type": "array" },
+    "seasonStats": { "type": "array" },
+    "careerStats": { "type": "array" },
+    "recentFive": { "type": "array", "maxItems": 5 },
+    "sourceLinks": { "type": "array", "minItems": 1 },
+    "sourceCheckedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": true
+}

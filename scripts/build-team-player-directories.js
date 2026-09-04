@@ -7,7 +7,6 @@ const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
 const CHECKED_AT = "2026-08-23T12:00:00.000Z";
-const AFL_COMPETITION_SEASONS_URL = "https://aflapi.afl.com.au/afl/v2/competitions/1/compseasons?pageSize=20";
 const AFL_SQUADS_URL = "https://aflapi.afl.com.au/afl/v2/squads";
 const NRL_PLAYERS_DATA_URL = "https://www.nrl.com/players/data";
 
@@ -155,10 +154,11 @@ async function refreshNrlPlayerRows(canonical){
   return [...unique.values()].sort((a, b) => a[1].localeCompare(b[1]));
 }
 
-async function refreshAflPlayerRows(canonical){
+async function refreshAflPlayerRows(canonical, { code = "afl", competitionId = 1 } = {}){
+  const retiredAflwProviderIds = new Set(["CD_I997733", "CD_I1019849"]); // Katherine Smith, Claire Ransom: official 2026 retirements.
   const teams = canonical.participants
-    .filter(participant => participant.type === "team" && participant.sportDomainId === "sport:afl" && participant.teamCode !== "TBD");
-  const seasons = await officialJson(AFL_COMPETITION_SEASONS_URL, { Origin:"https://www.afl.com.au", Referer:"https://www.afl.com.au/" });
+    .filter(participant => participant.type === "team" && participant.sportDomainId === "sport:afl" && participant.metadata?.competitionCode === code && participant.teamCode !== "TBD");
+  const seasons = await officialJson(`https://aflapi.afl.com.au/afl/v2/competitions/${competitionId}/compseasons?pageSize=20`, { Origin:"https://www.afl.com.au", Referer:"https://www.afl.com.au/" });
   const season = (seasons.compSeasons || []).find(item => /^2026\b/.test(item.name));
   if (!season?.id) throw new Error("The current AFL competition season is unavailable");
   const squads = await Promise.all(teams.map(team => {
@@ -173,11 +173,15 @@ async function refreshAflPlayerRows(canonical){
       const displayName = `${player.firstName || ""} ${player.surname || ""}`.trim();
       const slug = slugify(displayName);
       const position = String(slot.position || "Player").toLowerCase().replace(/(^|_)([a-z])/g, (_match, prefix, letter) => `${prefix ? " " : ""}${letter.toUpperCase()}`);
-      return [canonicalTeam?.id || "", displayName, slug, position, player.id];
+      const providerNumericId = String(player.providerId || "").replace(/^CD_I/, "");
+      const seasonImageKey = String(season.providerId || "").replace(/^CD_S/, "");
+      return [canonicalTeam?.id || "", displayName, slug, position, player.id, slot.jumperNumber, player.providerId, seasonImageKey, player];
     });
-  }).filter(row => row[0] && row[1] && row[2] && Number(row[4]) > 0);
-  const unique = new Map(rows.map(row => [`competitor:afl:${row[2]}`, row]));
-  if (unique.size < 650) throw new Error(`Expected a complete AFL player directory, received ${unique.size} players`);
+  }).filter(row => row[0] && row[1] && row[2] && Number(row[4]) > 0)
+    .filter(row => code !== "aflw" || !retiredAflwProviderIds.has(row[6]));
+  const unique = new Map(rows.map(row => [`competitor:${code}:${row[2]}`, row]));
+  const minimum = code === "aflw" ? 500 : 650;
+  if (unique.size < minimum) throw new Error(`Expected a complete ${code.toUpperCase()} player directory, received ${unique.size} players`);
   return [...unique.values()].sort((a, b) => a[1].localeCompare(b[1]));
 }
 
@@ -225,44 +229,61 @@ function buildNrlDirectory(canonical, playerRows = NRL_PLAYERS, checkedAt = CHEC
   };
 }
 
-function buildAflDirectory(canonical, playerRows = AFL_PLAYERS, checkedAt = CHECKED_AT){
-  const leagueId = "competition:afl-premiership-2026";
+function buildAflDirectory(canonical, playerRows = AFL_PLAYERS, checkedAt = CHECKED_AT, { code = "afl" } = {}){
+  const isAflw = code === "aflw";
+  const leagueId = isAflw ? "competition:aflw-2026" : "competition:afl-premiership-2026";
   const teams = canonical.participants
-    .filter(participant => participant.type === "team" && participant.sportDomainId === "sport:afl" && participant.teamCode !== "TBD")
+    .filter(participant => participant.type === "team" && participant.sportDomainId === "sport:afl" && participant.metadata?.competitionCode === code && participant.teamCode !== "TBD")
     .map(participant => ({
       id: participant.id,
       leagueId,
       displayName: participant.canonicalName || participant.displayName,
       shortName: participant.displayName,
       aliases: Array.from(new Set([participant.displayName, participant.canonicalName, participant.shortName].filter(Boolean))),
-      sourceRefs: ["source:afl:teams"],
+      sourceRefs: [`source:${code}:teams`],
       active: true,
     }))
     .sort((a, b) => a.displayName.localeCompare(b.displayName));
   const teamIds = new Set(teams.map(team => team.id));
-  const players = playerRows.map(([currentTeamId, displayName, slug, position, profileId]) => ({
-    id: `competitor:afl:${slug}`,
+  const players = playerRows.map(([currentTeamId, displayName, slug, position, profileId, jumperNumber, providerId, seasonImageKey, player = {}]) => ({
+    id: `competitor:${code}:${slug}`,
     displayName,
     sortName: displayName,
     currentTeamId,
     leagueId,
     position,
-    sourceUrl: `https://www.afl.com.au/players/${profileId || AFL_PLAYER_PROFILE_IDS[slug]}/${slug}`,
-    sourceRefs: ["source:afl:players", "source:afl:teams"],
+    sourceUrl: `https://www.afl.com.au/${isAflw ? "aflw/" : ""}players/${profileId || AFL_PLAYER_PROFILE_IDS[slug]}/${slug}`,
+    sourceRefs: [`source:${code}:players`, `source:${code}:teams`],
+    providerId: providerId || null,
+    jumperNumber: Number.isInteger(Number(jumperNumber)) && Number(jumperNumber) > 0 ? Number(jumperNumber) : null,
+    competitionNumber: Number.isInteger(Number(jumperNumber)) && Number(jumperNumber) > 0 ? Number(jumperNumber) : null,
+    competitionNumberKind: "guernsey",
+    competitionNumberSeason: "2026",
+    photoURL: providerId && seasonImageKey
+      ? `https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/${isAflw ? "AFLW" : "AFL"}/${seasonImageKey}/${String(providerId).replace(/^CD_I/, "")}.png?im=Scale,width=0.6,height=0.6`
+      : null,
+    headshotUrl: providerId && seasonImageKey
+      ? `https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/${isAflw ? "AFLW" : "AFL"}/${seasonImageKey}/${String(providerId).replace(/^CD_I/, "")}.png?im=Scale,width=0.6,height=0.6`
+      : null,
+    profileRef: `profile:${code}:${slug}`,
+    dateOfBirth: player.dateOfBirth || null,
+    heightInCm: Number(player.heightInCm || 0) || null,
+    recruitedFrom: player.recruitedFrom || null,
+    debutYear: player.debutYear || null,
     active: true,
   }));
-  if (teams.length !== 18 || players.some(player => !teamIds.has(player.currentTeamId)) || players.some(player => !/^https:\/\/www\.afl\.com\.au\/players\/\d+\//.test(player.sourceUrl))){
-    throw new Error("AFL directory inputs no longer match the canonical club set");
+  if (teams.length !== 18 || players.some(player => !teamIds.has(player.currentTeamId)) || players.some(player => !/^https:\/\/www\.afl\.com\.au\/(?:aflw\/)?players\/\d+\//.test(player.sourceUrl))){
+    throw new Error(`${code.toUpperCase()} directory inputs no longer match the canonical club set`);
   }
   return {
-    schemaVersion: "afl-directory.v1",
+    schemaVersion: `${code}-directory.v1`,
     seasonLabel: "2026",
     generatedAt: checkedAt,
     sources: [
-      { id: "source:afl:teams", provider: "AFL", url: "https://www.afl.com.au/teams", sourceType: "official", checkedAt },
-      { id: "source:afl:players", provider: "AFL", url: "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000", sourceType: "official", checkedAt },
+      { id: `source:${code}:teams`, provider: isAflw ? "AFLW" : "AFL", url: `https://www.afl.com.au/${isAflw ? "aflw/" : ""}teams`, sourceType: "official", checkedAt },
+      { id: `source:${code}:players`, provider: isAflw ? "AFLW" : "AFL", url: "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000", sourceType: "official", checkedAt },
     ],
-    leagues: [{ id: leagueId, key: "afl", displayName: "AFL Premiership", countryCode: "AU", seasonLabel: "2026", teamCount: teams.length, sourceRefs: ["source:afl:teams", "source:afl:players"] }],
+    leagues: [{ id: leagueId, key: code, displayName: isAflw ? "AFLW" : "AFL Premiership", countryCode: "AU", seasonLabel: "2026", teamCount: teams.length, sourceRefs: [`source:${code}:teams`, `source:${code}:players`] }],
     teams,
     players,
   };
@@ -301,6 +322,9 @@ async function main(){
   const aflDirectory = check
     ? readPublishedDirectory("afl-directory.v1.json")
     : buildAflDirectory(canonical, await refreshAflPlayerRows(canonical), checkedAt);
+  const aflwDirectory = check
+    ? readPublishedDirectory("aflw-directory.v1.json")
+    : buildAflDirectory(canonical, await refreshAflPlayerRows(canonical, { code:"aflw", competitionId:3 }), checkedAt, { code:"aflw" });
   publishDirectory({
     filename: "nrl-directory.v1.json",
     scriptGlobal: "NOTHINGSPORTS_NRL_DIRECTORY_DATA",
@@ -308,6 +332,15 @@ async function main(){
     indexFilename: "nrl-follow-index.v1.json",
     indexScriptGlobal: "NOTHINGSPORTS_NRL_FOLLOW_INDEX",
     indexSchemaVersion: "nrl-follow-index.v1",
+    check,
+  });
+  publishDirectory({
+    filename: "aflw-directory.v1.json",
+    scriptGlobal: "NOTHINGSPORTS_AFLW_DIRECTORY_DATA",
+    directory: aflwDirectory,
+    indexFilename: "aflw-follow-index.v1.json",
+    indexScriptGlobal: "NOTHINGSPORTS_AFLW_FOLLOW_INDEX",
+    indexSchemaVersion: "aflw-follow-index.v1",
     check,
   });
   publishDirectory({
@@ -324,7 +357,7 @@ async function main(){
 
 if (require.main === module) main().catch(error => {
   const transient = /fetch failed|abort|timed?\s*out|econn|enotfound|5\d\d\b/i.test(String(error?.stack || error?.message || error));
-  const published = ["nrl-directory.v1.json", "afl-directory.v1.json"].every(filename => fs.existsSync(path.join(ROOT, "data/canonical", filename)));
+  const published = ["nrl-directory.v1.json", "afl-directory.v1.json", "aflw-directory.v1.json"].every(filename => fs.existsSync(path.join(ROOT, "data/canonical", filename)));
   if (transient && published){
     console.warn(`Team-player source unavailable; preserving existing directories for the immediate --check validation: ${error.message}`);
     return;

@@ -26,6 +26,7 @@ function writeIfChanged(filePath, content, checkOnly){
 function sportKeyForParticipant(participant){
   const domain = String(participant?.sportDomainId || "");
   const discipline = String(participant?.metadata?.discipline || "").toLowerCase();
+  if (participant?.metadata?.competitionCode === "aflw" || String(participant?.leagueId || "").startsWith("competition:aflw")) return "aflw";
   if (domain.includes(":cwg:competitors")){
     if (discipline.includes("swimming")) return "swimming";
     if (discipline.includes("athletics")) return "athletics";
@@ -76,7 +77,7 @@ function tennisGenderForParticipant(participant){
 
 function normalizeRecord(record, additions = {}){
   const metadata = record?.metadata || {};
-  return {
+  const normalized = {
     id:String(record.id),
     displayName:String(record.displayName || record.canonicalName || record.shortName || record.id),
     shortName:record.shortName || null,
@@ -96,7 +97,7 @@ function normalizeRecord(record, additions = {}){
     identityId:String(record.identityId || record.id),
     logoUrl:record.logoUrl || null,
     logoDarkUrl:record.logoDarkUrl || null,
-    headshotUrl:record.headshotUrl || null,
+    headshotUrl:record.headshotUrl || record.photoURL || null,
     eventRanks:Array.isArray(record.eventRanks) ? record.eventRanks : [],
     rankingBasis:record.rankingBasis || null,
     sourceRefs:Array.from(new Set([...(record.sourceRefs || []), ...(additions.sourceRefs || [])].filter(Boolean))),
@@ -106,6 +107,12 @@ function normalizeRecord(record, additions = {}){
     sourceCheckedAt:additions.sourceCheckedAt || record.sourceCheckedAt || null,
     sourceReviewAfter:additions.sourceReviewAfter || record.sourceReviewAfter || null,
   };
+  const number = Number(record.competitionNumber ?? record.jumperNumber);
+  if (number > 0) normalized.competitionNumber = number;
+  if (record.competitionNumberKind) normalized.competitionNumberKind = record.competitionNumberKind;
+  if (record.competitionNumberSeason) normalized.competitionNumberSeason = record.competitionNumberSeason;
+  if (record.profileRef) normalized.profileRef = record.profileRef;
+  return normalized;
 }
 
 function main(){
@@ -116,6 +123,7 @@ function main(){
   const nationalTeamIdentities = require(path.join(ROOT, "config/national-team-identities.js"));
   const exposedSports = taxonomy.exposedSportNodes.filter(entity => Number(entity.level) === 2)
     .map(entity => ({ key:entity.id.replace(/^sport:/, ""), label:entity.label }));
+  if (!exposedSports.some(sport => sport.key === "aflw")) exposedSports.splice(exposedSports.findIndex(sport => sport.key === "afl") + 1, 0, { key:"aflw", label:"AFLW" });
   const sportsByKey = new Map(exposedSports.map(sport => [sport.key, sport]));
   const nationalSportLabels = { hockey:"Hockey", "multi-sport":"Multi-sport" };
   nationalTeamIdentities.allTeams.forEach(team => {
@@ -175,6 +183,7 @@ function main(){
   });
   [
     ["afl", "data/canonical/afl-directory.v1.json"],
+    ["aflw", "data/canonical/aflw-directory.v1.json"],
     ["nrl", "data/canonical/nrl-directory.v1.json"],
     ["football", "data/canonical/football-directory.v1.json"],
     ["american-football", "data/canonical/american-football-directory.v1.json"],
@@ -184,8 +193,9 @@ function main(){
     const directory = readJson(relativePath);
     if (["american-football", "ice-hockey", "swimming"].includes(key)) chunks.get(key)?.clear();
     if (directory.generatedAt) sourceGeneratedAt.push(directory.generatedAt);
-    (directory.teams || []).forEach(team => chunks.get(key)?.set(team.id, normalizeRecord({ ...team, type:"team" }, { genderCategory:team.genderCategory || "male", sourceRefs:team.sourceRefs })));
-    (directory.players || []).filter(player => player.active !== false).forEach(player => chunks.get(key)?.set(player.id, normalizeRecord({ ...player, type:"competitor" }, { genderCategory:player.genderCategory || "male", sourceRefs:player.sourceRefs })));
+    const directoryGender = key === "aflw" ? "female" : "male";
+    (directory.teams || []).forEach(team => chunks.get(key)?.set(team.id, normalizeRecord({ ...team, type:"team" }, { genderCategory:team.genderCategory || directoryGender, sourceRefs:team.sourceRefs })));
+    (directory.players || []).filter(player => player.active !== false).forEach(player => chunks.get(key)?.set(player.id, normalizeRecord({ ...player, type:"competitor" }, { genderCategory:player.genderCategory || directoryGender, sourceRefs:player.sourceRefs })));
     (directory.athletes || []).filter(athlete => athlete.active !== false).forEach(athlete => chunks.get(key)?.set(athlete.id, normalizeRecord({ ...athlete, type:"competitor" }, { genderCategory:athlete.genderCategory, ranking:athlete.ranking, sourceRefs:athlete.sourceRefs })));
   });
   (championsLeague.participants || []).forEach(team => {

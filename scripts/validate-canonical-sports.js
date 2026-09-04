@@ -47,20 +47,26 @@ bundle.events.forEach(event => {
 });
 
 const aflCompetitionId = "competition:afl-premiership-2026";
+const aflwCompetitionId = "competition:aflw-2026";
 const nrlCompetitionId = "competition:nrl-premiership-2026";
 const aflFixtures = index.getFixtures({ competitionId: aflCompetitionId });
+const aflwFixtures = index.getFixtures({ competitionId: aflwCompetitionId });
 const nrlFixtures = index.getFixtures({ competitionId: nrlCompetitionId });
 assert(aflFixtures.length >= 207, "the full AFL home-and-away fixture plus any published finals must ingest");
+assert.equal(aflwFixtures.length, 108, "all currently published 12 rounds and 108 AFLW fixtures must ingest");
 assert(nrlFixtures.length >= 204, "the full NRL premiership fixture plus any published finals must ingest");
 assert(bundle.participants.filter(item => item.sportDomainId === "sport:afl").length >= 18, "all 18 AFL ladder teams plus any additional published participants must ingest");
 assert(bundle.participants.filter(item => item.sportDomainId === "sport:nrl").length >= 17, "all 17 NRL ladder teams plus any additional published participants must ingest");
 assert(aflFixtures.filter(event => event.scheduleStatus === "tbc").every(event => event.startTimeUtc === null), "AFL floating-round placeholders must not become fake start times");
 
 const aflLadder = index.getLatestLadder(aflCompetitionId);
+const aflwLadder = index.getLatestLadder(aflwCompetitionId);
 const nrlLadder = index.getLatestLadder(nrlCompetitionId);
 assert(aflLadder, "AFL ladder must be queryable by competition");
+assert(aflwLadder, "AFLW ladder must be queryable by competition");
 assert(nrlLadder, "NRL ladder must be queryable by competition");
 assert.equal(aflLadder.entries.length, 18, "AFL ladder must include every team");
+assert.equal(aflwLadder.entries.length, 18, "AFLW ladder must include every team");
 assert.equal(nrlLadder.entries.length, 17, "NRL ladder must include every team");
 assert.deepEqual(aflLadder.entries.map(entry => entry.rank), Array.from({ length: 18 }, (_, index) => index + 1), "AFL ladder ranks must be contiguous");
 assert.deepEqual(nrlLadder.entries.map(entry => entry.rank), Array.from({ length: 17 }, (_, index) => index + 1), "NRL ladder ranks must be contiguous");
@@ -200,5 +206,5 @@ assert.strictEqual(
   "a genuinely newer completed round must be accepted even when the provider timestamp is unusual"
 );
 
-console.log(`Canonical sports valid: ${aflFixtures.length} AFL fixtures, ${nrlFixtures.length} NRL fixtures.`);
-console.log(`Queryable ladders: AFL ${aflLadder.entries.length} teams; NRL ${nrlLadder.entries.length} teams.`);
+console.log(`Canonical sports valid: ${aflFixtures.length} AFL fixtures, ${aflwFixtures.length} AFLW fixtures, ${nrlFixtures.length} NRL fixtures.`);
+console.log(`Queryable ladders: AFL ${aflLadder.entries.length} teams; AFLW ${aflwLadder.entries.length} teams; NRL ${nrlLadder.entries.length} teams.`);

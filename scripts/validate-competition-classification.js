@@ -79,7 +79,7 @@ const legacyPreferences = {
 const migrated = discovery.migratePreferences(followFirst.migratePreferences(legacyPreferences));
 const migratedAgain = discovery.migratePreferences(followFirst.migratePreferences(migrated));
 assert.deepEqual(migratedAgain, migrated, "legacy event-follow migration must be idempotent");
-assert.deepEqual(new Set(migrated.selectedSelectorEntityIds), new Set(["sport:afl", "sport:nrl", "sport:football", "sport:champions-league"]));
+assert.deepEqual(new Set(migrated.selectedSelectorEntityIds), new Set(["sport:afl-premiership", "sport:nrl", "sport:football", "sport:champions-league"]));
 assert.deepEqual(migrated.followFirst.followedMajorEventIds, ["state-of-origin"]);
 for (const key of ["savedFixtureIds", "reminders", "dismissals", "eventUserState"]){
   assert.deepEqual(migrated[key], legacyPreferences[key], `${key} must survive Code migration unchanged`);

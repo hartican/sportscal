@@ -20,8 +20,10 @@ const activeNrlTeams = canonical.participants.filter(participant => (
 const activeAflTeams = canonical.participants.filter(participant => (
   participant.type === "team"
   && participant.sportDomainId === "sport:afl"
+  && participant.metadata?.competitionCode === "afl"
   && participant.teamCode !== "TBD"
 ));
+const activeAflwTeams = canonical.participants.filter(participant => participant.type === "team" && participant.metadata?.competitionCode === "aflw");
 
 function pngMetadata(path){
   const source = fs.readFileSync(path);
@@ -67,6 +69,8 @@ activeAflTeams.forEach(team => {
     assert.doesNotMatch(source, /<rect\b/i, `${team.id} ${asset} must not contain a rectangular logo background`);
   });
 });
+assert.equal(activeAflwTeams.length, 18, "the current AFLW competition must expose 18 active clubs");
+activeAflwTeams.forEach(team => assert(identities.participantMarks[team.id], `missing AFLW team identity for ${team.id}`));
 
 assert.equal(identities.markForEvent({ key: "nrl", name: "Broncos v Storm" })?.label, "NRL", "NRL cards must use the competition logo");
 assert.equal(identities.markForEvent({ key: "wimbledon", name: "Roland Garros — Men's Final" })?.label, "Roland Garros", "named marquee branding must override the generic tennis identity");
