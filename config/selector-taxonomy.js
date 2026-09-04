@@ -48,6 +48,7 @@
       "sport:american-football": "sport:american-football",
       "sport:ice-hockey": "sport:ice-hockey",
       "sport:multi-sport": "sport:multi-sport",
+      "sport:football": "sport:football",
     };
     return domainGlyphs[domainId] || `sport:${canonicalSportKeys[0]}`;
   }
@@ -67,7 +68,8 @@
     ["sport:freestyle", "Freestyle", "child", "sport:skiing", ["freestyle"], "competition:fis-freestyle", "sport:skiing", 62],
     ["sport:rugby", "Rugby Union", "sport", null, ["rugby"], "sport:rugby-union", "sport:rugby", 70],
     ["sport:tennis", "Tennis", "sport", null, ["tennis", "wimbledon"], "sport:tennis", "sport:tennis", 80],
-    ["sport:football", "Football", "sport", null, ["football", "fifa", "premier-league"], "sport:football", "sport:football", 90],
+    ["sport:football", "Football", "parent", null, ["football", "fifa", "premier-league"], "sport:football", "sport:football", 90, ["sport:champions-league"]],
+    ["sport:champions-league", "Champions League", "child", "sport:football", ["champions-league", "uefa-champions-league"], "competition:uefa-champions-league", "sport:football", 91],
     ["sport:cycling", "Cycling", "sport", null, ["cycling", "tdf"], "sport:cycling", "sport:cycling", 100],
     ["sport:cricket", "Cricket", "sport", null, ["cricket"], "sport:cricket", "sport:cricket", 110],
     ["sport:nba", "Basketball", "sport", null, ["nba", "basketball"], "sport:basketball", "sport:basketball", 120],
@@ -96,7 +98,7 @@
     exposed,
     selectable: exposed,
     glyph: sportNodeGlyph(id, domainId, canonicalSportKeys),
-    isNew: exposed && (relationship === "parent" || relationship === "child" || id === "sport:ice-hockey"),
+    isNew: exposed && ((relationship === "parent" && id !== "sport:football") || relationship === "child" || id === "sport:ice-hockey"),
     introducedAt,
     editorialOrder,
   }));
@@ -107,6 +109,7 @@
       "sport:extreme": "Extreme",
       "sport:surf": "Surfing",
       "sport:skiing": "Snow",
+      "sport:football": "Football",
     })[parentId] || parentId;
   }
 

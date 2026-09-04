@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="221">
+<meta name="app-shell-version" content="222">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7228,10 +7228,11 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/sport-domain-registry.js"></script>
 <script src="config/canonical-sports-taxonomy.js"></script>
 <script src="config/sport-hierarchy.js"></script>
+<script src="config/competition-classification.js?v=222"></script>
 <script src="config/team-follow-catalogue.js"></script>
 <script src="config/event-taxonomy-compat.js"></script>
 <script src="config/preference-taxonomy.js"></script>
-<script src="config/follow-first.js?v=218"></script>
+<script src="config/follow-first.js?v=222"></script>
 <script src="config/follow-feed-policy.js?v=218"></script>
 <script src="config/tennis-coverage.js"></script>
 <script src="config/sport-context.js"></script>
@@ -7308,6 +7309,7 @@ const FEED_FIXTURE_RECONCILIATION = Object.freeze({
   repairSavedFixture(saved,fixtures){const fixture=fxFind(saved,fixtures)||saved;return{fixture,aliases:fxAliases(saved).filter(alias=>!fxAliases(fixture).includes(alias))}},
   reconcileFixtures(canonical,supplemental){const result=[...(canonical||[])];for(const event of supplemental||[]){if(!fxFind(event,result))result.push(event)}return result},
 });
+const COMPETITION_CLASSIFICATION = globalThis.NOTHINGSPORTS_COMPETITION_CLASSIFICATION || null;
 let MAJOR_EVENTS = globalThis.NOTHINGSPORTS_MAJOR_EVENTS || null;
 const COUNTRY_FLAGS = globalThis.NOTHINGSPORTS_COUNTRY_FLAGS || null;
 const SOURCE_TRUST = globalThis.NOTHINGSPORTS_SOURCE_TRUST || null;
@@ -8132,6 +8134,20 @@ const LEGACY_SELECTOR_ID_ALIASES = Object.freeze({
   "special:goodwood-festival-of-speed": "sport:motorsport",
   "sport:nfl": "sport:american-football",
   "special:super-bowl": "sport:american-football",
+  "special:uefa-champions-league": "sport:champions-league",
+  "major-event:uefa-champions-league-2026-27": "sport:champions-league",
+  "major-event:uefa-champions-league-2026-27:qualification": "sport:champions-league",
+  "major-event:uefa-champions-league-2026-27:league-phase": "sport:champions-league",
+  "major-event:uefa-champions-league-2026-27:knockout": "sport:champions-league",
+  "competition:uefa-champions-league": "sport:champions-league",
+  "competition:uefa-champions-league:2026-27": "sport:champions-league",
+  "uefa-champions-league": "sport:champions-league",
+  "afl-finals": "sport:afl",
+  "special:afl-finals": "sport:afl",
+  "major-event:afl-finals-series-2026": "sport:afl",
+  "nrl-finals": "sport:nrl",
+  "special:nrl-finals": "sport:nrl",
+  "major-event:nrl-finals-series-2026": "sport:nrl",
 });
 const BASE_SPORT_SELECTOR_OVERRIDES = Object.freeze({
   nba: {
@@ -8240,7 +8256,7 @@ const DEFAULT_FIRST_RUN_SPORT_KEYS = ["nrl", "afl"];
 const LEGACY_SEEDED_DEFAULTS_VERSION = 10;
 
 const DEFAULT_PREFERENCES = {
-  version: 16,
+  version: 17,
   discoveryCatalogueVersion: DISCOVERY_CATALOGUE?.SCHEMA_VERSION || "sports-discovery-catalogue.v1",
   onboardingComplete: false,
   theme: "system",
@@ -8313,7 +8329,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=218",
+  moduleScriptUrl: "config/major-events.js?v=222",
   url: "data/major-events.v1.json",
 });
 
@@ -13714,6 +13730,14 @@ async function syncAppRouteFromLocation(){
   }
   const eventsRoute = eventsDeepLinkFromLocation();
   if (eventsRoute){
+    const codeTarget = eventsRoute.type === "major"
+      ? COMPETITION_CLASSIFICATION?.legacyNavigationTarget?.(eventsRoute.id)
+      : null;
+    if (codeTarget?.codeId){
+      history.replaceState({ codeInspector: codeTarget.codeId, legacyEventRedirect:eventsRoute.id }, "", codeInspectorHash(codeTarget.codeId));
+      await openCodeInspector(codeTarget.codeId, { pushHistory:false });
+      return;
+    }
     if (eventsRoute.type === "alert") openTicketAlertInEvents(eventsRoute.id, { pushHistory: false });
     else openMajorEventInEvents(eventsRoute.id, { pushHistory: false });
     return;
@@ -20465,6 +20489,11 @@ function resolveMajorEventId(eventId){
 }
 
 function openMajorEventInEvents(eventId, { pushHistory = true } = {}){
+  const codeTarget = COMPETITION_CLASSIFICATION?.legacyNavigationTarget?.(eventId);
+  if (codeTarget?.codeId){
+    void openCodeInspector(codeTarget.codeId, { pushHistory });
+    return;
+  }
   if (!eventsDeepLinkReturnState){
     eventsDeepLinkReturnState = { activeTab, activeView, activeFilter, scrollY: window.scrollY };
   }
@@ -22372,6 +22401,7 @@ const PREFERENCE_TO_CANONICAL_DOMAIN = Object.freeze({
   "sport:nba": "sport:basketball",
   "sport:nfl": "sport:american-football",
   "sport:skiing": "sport:skiing",
+  "sport:champions-league": "competition:uefa-champions-league",
   "special:wimbledon": "sport:tennis",
   "special:fifa-world-cup": "sport:football",
   "special:tour-de-france": "sport:cycling",
@@ -22386,6 +22416,9 @@ function canonicalDomainIdForPreferenceDomain(domainId){
 
 function competitionsForPreferenceDomain(domainId){
   const canonicalDomainId = canonicalDomainIdForPreferenceDomain(domainId);
+  if (canonicalDomainId.startsWith("competition:")){
+    return (CANONICAL_TAXONOMY.competitions || []).filter(competition => competition.id === canonicalDomainId);
+  }
   return (CANONICAL_TAXONOMY.competitions || []).filter(competition => (
     competition.sportDomainId === canonicalDomainId
     && (!competition.preferenceDomainId || competition.preferenceDomainId === domainId)

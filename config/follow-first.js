@@ -1,11 +1,13 @@
 (function attachNothingSportsFollowFirst(root, factory){
-  const api = factory();
+  const competitionClassification = root.NOTHINGSPORTS_COMPETITION_CLASSIFICATION
+    || (typeof require === "function" ? require("./competition-classification.js") : null);
+  const api = factory(competitionClassification);
   root.NOTHINGSPORTS_FOLLOW_FIRST = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(competitionClassification){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v5";
+  const SCHEMA_VERSION = "follow-first.v6";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -29,8 +31,6 @@
   ]);
 
   const MAJOR_EVENT_FAMILIES = Object.freeze([
-    { id:"afl-finals", label:"AFL Finals", sportIds:["afl"] },
-    { id:"nrl-finals", label:"NRL Finals", sportIds:["nrl"] },
     { id:"state-of-origin", label:"State of Origin", sportIds:["nrl"] },
     { id:"australian-open", label:"Australian Open", sportIds:["tennis"] },
     { id:"australian-grand-prix", label:"Australian Grand Prix", sportIds:["f1"] },
@@ -41,7 +41,6 @@
     { id:"us-open", label:"US Open", sportIds:["tennis"] },
     { id:"rugby-league-world-cup", label:"Rugby League World Cup", sportIds:["nrl"] },
     { id:"nations-championship", label:"Nations Championship", sportIds:["rugby"] },
-    { id:"uefa-champions-league", label:"UEFA Champions League", sportIds:["football"] },
   ]);
 
   const INTERNATIONAL_AUSTRALIA_SPORT_IDS = Object.freeze([
@@ -265,7 +264,8 @@
     const source = input && typeof input === "object" && !Array.isArray(input) ? input : {};
     const prior = source.followFirst && typeof source.followFirst === "object" ? source.followFirst : {};
     const defaults = defaultFollowFirst();
-    const startupMeta = normalizeMeta(prior.startupMeta || source.startupMeta || {});
+    const rawStartupMeta = prior.startupMeta || source.startupMeta || {};
+    const startupMeta = normalizeMeta(rawStartupMeta);
     const { australiansOnlySportIds:_retiredAustraliansOnlySportIds, ...priorWithoutRetiredAustralia } = prior;
     const retiredSportIds = new Set(["hockey", "gymnastics", "multi-sport", "sport:hockey", "sport:gymnastics", "sport:multi-sport"]);
     const previousSportIds = [
@@ -273,15 +273,31 @@
       ...(Array.isArray(source.selectedSelectorEntityIds) ? source.selectedSelectorEntityIds : []),
     ].map(String);
     const followedCommonwealthGames = previousSportIds.some(id => ["multi-sport", "sport:multi-sport"].includes(id));
+    const legacySelectorCodeFollows = (Array.isArray(source.selectedSelectorEntityIds) ? source.selectedSelectorEntityIds : [])
+      .filter(id => competitionClassification?.codeDefinition?.(id));
+    const legacyCodeFollows = competitionClassification?.migrateLegacyEventFollows?.([
+      ...(Array.isArray(prior.followedMajorEventIds) ? prior.followedMajorEventIds : []),
+      ...(Array.isArray(rawStartupMeta?.majorEvents) ? rawStartupMeta.majorEvents : []),
+      ...legacySelectorCodeFollows,
+    ]) || { codeSelectorIds:[], retainedEventFamilyIds:[] };
     const followedMajorEventIds = uniqueAllowed([
-      ...(prior.followedMajorEventIds || startupMeta.majorEvents || []),
+      ...legacyCodeFollows.retainedEventFamilyIds,
+      ...startupMeta.majorEvents,
       ...(followedCommonwealthGames ? ["commonwealth-games"] : []),
     ], MAJOR_EVENT_FAMILIES);
+    const selectedSelectorEntityIds = Array.from(new Set([
+      ...(Array.isArray(source.selectedSelectorEntityIds) ? source.selectedSelectorEntityIds : []),
+      ...legacyCodeFollows.codeSelectorIds,
+    ].map(String).filter(id => !retiredSportIds.has(id))));
+    const followedSports = Array.from(new Set([
+      ...(Array.isArray(source.followedSports) ? source.followedSports : []),
+      ...legacyCodeFollows.codeSelectorIds.map(id => id.replace(/^sport:/, "")),
+    ].map(String).filter(id => !retiredSportIds.has(id))));
     return {
       ...source,
-      version:Math.max(16, Number(source.version) || 0),
-      followedSports:(Array.isArray(source.followedSports) ? source.followedSports : []).map(String).filter(id => !retiredSportIds.has(id)),
-      selectedSelectorEntityIds:(Array.isArray(source.selectedSelectorEntityIds) ? source.selectedSelectorEntityIds : []).map(String).filter(id => !retiredSportIds.has(id)),
+      version:Math.max(17, Number(source.version) || 0),
+      followedSports,
+      selectedSelectorEntityIds,
       followFirst:{
         ...defaults,
         ...priorWithoutRetiredAustralia,

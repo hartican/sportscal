@@ -5,11 +5,14 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const majorEvents = require("../config/major-events.js");
+const competitionClassification = require("../config/competition-classification.js");
 const countryFlags = require("../config/country-flags.js");
 const { AUTO_ID_PREFIX, fixturesFromSnapshot } = require("./refresh-us-open-events.js");
 const { fixtureIdentityKey } = require("./lib/major-event-fixture-identity.js");
 const ticketing = require("../config/ticketing.js");
 const aflNrlCanonical = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
+const finalsCodePhases = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-finals-2026.json", "utf8"));
+const championsLeague = JSON.parse(fs.readFileSync("data/canonical/uefa-champions-league-2026-27.json", "utf8"));
 const usOpenScheduleSnapshot = JSON.parse(fs.readFileSync("feeds/provider-exports/tennis/us-open-2026-official-schedule.json", "utf8"));
 
 const REFERENCE = new Date(usOpenScheduleSnapshot.capturedAt);
@@ -57,39 +60,32 @@ assert(publishedParents.some(record => record.id === "major-event:australian-gra
 const retiredCincinnati = publishedParents.find(record => record.id === "major-event:cincinnati-open-2026");
 assert(retiredCincinnati?.lifecycleStatus === "retired" && retiredCincinnati.retiredDeepLinkBehaviour === "safe-tombstone", "Cincinnati must remain only as a safe historical deep-link tombstone");
 assert(!majorEvents.visibleRecords(catalogue, ["tennis"], REFERENCE).events.some(record => record.id === retiredCincinnati.id), "retired Cincinnati must not surface in Events");
-const aflFinals = catalogue.events.find(record => record.id === "major-event:afl-finals-series-2026");
-assert(aflFinals, "the complete AFL Finals Series must replace the lone Grand Final event");
-assert.equal(aflFinals.subEvents.length, 11, "AFL must retain both Wildcard Finals, four first-week finals, two Semis, two Prelims and the Grand Final");
-assert(aflFinals.subEvents.every(event => event.roundLabel && event.stage), "every AFL finals card must retain explicit round and stage metadata");
-assert.equal(aflFinals.startDate, "2026-08-28");
-assert.equal(aflFinals.endDate, "2026-09-26");
+const forbiddenEventIds = [
+  "major-event:afl-finals-series-2026",
+  "major-event:nrl-finals-series-2026",
+  "major-event:uefa-champions-league-2026-27:qualification",
+  "major-event:uefa-champions-league-2026-27:league-phase",
+  "major-event:uefa-champions-league-2026-27:knockout",
+];
+assert(forbiddenEventIds.every(id => !catalogue.events.some(record => record.id === id)), "single-code competitions and domestic finals must never be stored under Events");
+assert(catalogue.events.every(record => competitionClassification.belongsInEvents(record)), "the Events catalogue must contain Event-classified records only");
 const canonicalAflFinals = aflNrlCanonical.events.filter(event => event.sportDomainId === "sport:afl" && /final/i.test(event.roundLabel || ""));
-assert.deepEqual(aflFinals.subEvents.map(event => event.id).sort(), canonicalAflFinals.map(event => event.id).sort(), "AFL Events must preserve every canonical finals placeholder");
-const firstUntimedAflFinal = aflFinals.subEvents.find(event => !event.startTimeUtc);
-assert(firstUntimedAflFinal, "at least one unresolved later-round AFL placeholder must remain available for TBC rendering");
-assert.equal(majorEvents.fixtureFromSubEvent(firstUntimedAflFinal, aflFinals), null, "genuinely un-timed AFL finals must not materialise as selectable Fixtures");
-const newlyConfirmedFirstWeek = canonicalAflFinals.find(event => event.id === "event:afl:cd_m20260142601");
-assert.equal(majorEvents.fixtureFromSubEvent(aflFinals.subEvents.find(event => event.id === newlyConfirmedFirstWeek.id), aflFinals)?.startTimeUtc, newlyConfirmedFirstWeek.startTimeUtc, "a newly confirmed first-week AFL final must materialise with the official start time");
-const confirmedWildcard = canonicalAflFinals.find(event => /wildcard/i.test(event.roundLabel || "") && event.startTimeUtc);
-if (confirmedWildcard){
-  const materialisedWildcard = majorEvents.fixtureFromSubEvent(aflFinals.subEvents.find(event => event.id === confirmedWildcard.id), aflFinals);
-  assert.equal(materialisedWildcard?.startTimeUtc, confirmedWildcard.startTimeUtc, "a confirmed AFL Wildcard Final must become selectable as soon as the source publishes it");
-}
-assert.equal(majorEvents.fixtureFromSubEvent(aflFinals.subEvents.find(event => event.id === "event:afl:cd_m20260142901"), aflFinals).date, "2026-09-26", "the confirmed AFL Grand Final must remain selectable");
-
-const nrlFinals = catalogue.events.find(record => record.id === "major-event:nrl-finals-series-2026");
-assert(nrlFinals, "the NRL Finals Series must replace the lone Grand Final event");
-assert.equal(nrlFinals.subEvents.length, 9, "NRL must retain four first-week finals, two Semis, two Prelims and the Grand Final");
-assert(nrlFinals.subEvents.every(event => event.startTimeUtc === null), "unpublished NRL slots must not receive invented start times");
-assert.equal(majorEvents.fixtureFromSubEvent(nrlFinals.subEvents[0], nrlFinals), null, "un-timed NRL finals must not materialise in Fixtures");
-assert.equal(nrlFinals.bracketProgression?.schemaVersion, "bracket-progression.v1", "NRL progression must be structured instead of parsed from slot labels");
-const nrlFinalIds = new Set(nrlFinals.subEvents.map(event => event.id));
-assert.deepEqual(new Set(nrlFinals.bracketProgression.matches.map(match => match.matchId)), nrlFinalIds, "every NRL finals slot must publish winner and loser progression");
-nrlFinals.bracketProgression.matches.forEach(match => [match.winner, match.loser].forEach(destination => {
+assert.equal(canonicalAflFinals.length, 11, "AFL must retain both Wildcard Finals, four first-week finals, two Semis, two Prelims and the Grand Final under its Code");
+const aflPhase = finalsCodePhases.phases.find(phase => phase.codeId === "sport:afl");
+const nrlPhase = finalsCodePhases.phases.find(phase => phase.codeId === "sport:nrl");
+assert.deepEqual(aflPhase.fixtures.map(event => event.id).sort(), canonicalAflFinals.map(event => event.id).sort(), "AFL Code phase data must preserve every canonical finals fixture");
+assert.equal(nrlPhase.fixtures.length, 9, "NRL Code phase data must retain four first-week finals, two Semis, two Prelims and the Grand Final");
+assert(nrlPhase.fixtures.every(event => event.startTimeUtc === null), "unpublished NRL slots must not receive invented start times");
+assert.equal(nrlPhase.bracketProgression?.schemaVersion, "bracket-progression.v1", "NRL Code progression must remain structured instead of parsed from slot labels");
+const nrlFinalIds = new Set(nrlPhase.fixtures.map(event => event.id));
+assert.deepEqual(new Set(nrlPhase.bracketProgression.matches.map(match => match.matchId)), nrlFinalIds, "every NRL finals slot must publish winner and loser progression");
+nrlPhase.bracketProgression.matches.forEach(match => [match.winner, match.loser].forEach(destination => {
   if (destination.status === "advances") assert(nrlFinalIds.has(destination.nextMatchId), `${match.matchId} must advance to a canonical finals slot`);
   else assert.equal(destination.nextMatchId, undefined, `${match.matchId} terminal outcomes must not have a destination slot`);
 }));
-assert(nrlFinals.sources.some(source => source.url === nrlFinals.bracketProgression.sourceUrl), "NRL bracket progression must retain official source evidence");
+assert(nrlPhase.sources.some(source => source.url === nrlPhase.bracketProgression.sourceUrl), "NRL bracket progression must retain official source evidence");
+assert(feed.events.some(event => event.key === "afl" && /final/i.test(event.roundLabel || event.name || "")), "AFL finals must remain ordinary Feed fixtures");
+assert(feed.events.some(event => event.key === "nrl" && /final/i.test(event.name || "")), "NRL finals must remain ordinary Feed cards");
 
 const rugbyFinals = catalogue.events.find(record => record.id === "major-event:nations-championship-finals-2026");
 assert(rugbyFinals && rugbyFinals.subEvents.length === 6, "Rugby must retain all six Nations Championship Finals Weekend placements");
@@ -97,17 +93,17 @@ assert.equal(rugbyFinals.competitionScope, "international");
 assert(rugbyFinals.representativeCountryCodes.includes("AU"), "Australian national representation must be explicit metadata, not a title heuristic");
 assert(rugbyFinals.subEvents.every(event => event.dateLabel && event.startTimeUtc === null), "Rugby placement sessions require a published label but no invented drawn fixture");
 
-const championsLeaguePhases = catalogue.events.filter(record => record.id.startsWith("major-event:uefa-champions-league-2026-27:"));
-assert.deepEqual(championsLeaguePhases.map(record => record.phaseIdentity), ["qualification", "league", "knockout"], "long-running Champions League coverage must be split into chronological phase cards");
-assert.equal(championsLeaguePhases.flatMap(record => record.subEvents).length, 13, "Football must retain seven published qualification deciders plus the complete league and knockout pathway");
-assert.equal(championsLeaguePhases.at(-1).endDate, "2027-06-05");
-assert(championsLeaguePhases[0].subEvents.every(event => event.startTimeUtc && event.participants?.length === 2), "published Champions League qualification deciders must expose concrete times and teams");
-assert(championsLeaguePhases.slice(1).flatMap(record => record.subEvents).every(event => event.dateLabel && event.startTimeUtc === null), "future undrawn Football stages require source-published phase dates without fictional fixtures");
+assert.equal(championsLeague.id, "competition:uefa-champions-league");
+assert.deepEqual(championsLeague.phases.map(record => record.phaseIdentity), ["qualification", "league", "knockout"], "Champions League Code coverage must retain chronological phases");
+assert.equal(championsLeague.phases.flatMap(record => record.fixtures).length, 13, "Champions League must retain seven qualification deciders plus its league and knockout pathway under the Code");
+assert.equal(championsLeague.phases.at(-1).endDate, "2027-06-05");
+assert(championsLeague.phases[0].fixtures.every(event => event.startTimeUtc && event.participantSlots?.length === 2), "published Champions League qualification deciders must expose concrete times and clubs");
+assert(championsLeague.phases.slice(1).flatMap(record => record.fixtures).every(event => event.dateLabel && event.startTimeUtc === null), "future undrawn Champions League stages require source-published phase dates without fictional fixtures");
 
 const markerIds = majorEvents.markerEvents(["afl", "nrl", "rugby", "football"], REFERENCE).map(event => event.id);
-assert(markerIds.includes(aflFinals.id) && markerIds.includes(nrlFinals.id) && markerIds.includes(rugbyFinals.id), "upcoming verified series require compact Fixtures markers");
-assert(!markerIds.some(id => id.startsWith("major-event:uefa-champions-league-2026-27:")), "long-running tournament phases must remain in Events instead of becoming Feed parents");
-assert.deepEqual(new Set(majorEvents.markerReplacementFixtureIds()), new Set(["event-afl-cd_m20260142901", "evt_81", "evt_82", "evt_83", "evt_84"]), "legacy weekly or lone-final placeholders must be replaced by their series marker");
+assert(markerIds.includes(rugbyFinals.id), "genuine special Events may retain compact Fixtures markers");
+assert(forbiddenEventIds.every(id => !markerIds.includes(id)), "Code competitions and domestic finals must not create Event markers");
+assert.deepEqual(majorEvents.markerReplacementFixtureIds(), [], "ordinary AFL/NRL finals cards must never be replaced by Event parents");
 assert(catalogue.events.some(record => record.id === "ticket-sale:australian-open-2027-general-sale"));
 assert(catalogue.events.some(record => record.id === "ticket-sale:australian-grand-prix-2027-waitlist"));
 
@@ -119,10 +115,7 @@ assert(!tennis.events.some(record => record.sportKey === "nrl"), "Events must re
 
 const followedSportVisibilityCases = [
   ["tennis", "major-event:us-open-2026"],
-  ["afl", "major-event:afl-finals-series-2026"],
-  ["nrl", "major-event:nrl-finals-series-2026"],
   ["rugby", "major-event:nations-championship-finals-2026"],
-  ["football", "major-event:uefa-champions-league-2026-27:league-phase"],
   ["motorsport", "major-event:australian-grand-prix-2027"],
 ];
 followedSportVisibilityCases.forEach(([sportKey, eventId]) => {
@@ -171,7 +164,7 @@ everyInWindowEdition.forEach(record => {
     `${record.id} must surface from every equivalent ${sportKey} follow representation`,
   ));
 });
-assert(everyInWindowEdition.length >= 9, "the sport-follow visibility audit must cover every current major-event edition");
+assert(everyInWindowEdition.length >= 5, "the sport-follow visibility audit must cover every current major-event edition");
 
 const usOpen = catalogue.events.find(record => record.id === "major-event:us-open-2026");
 const expectedOfficialUsOpenFixtures = fixturesFromSnapshot(usOpenScheduleSnapshot);
@@ -218,10 +211,10 @@ surfacedEventFixtureAudit.forEach(({ parent, subEvent }) => {
   }
   assert(resolvedEditorial.dimensions?.some(dimension => ["path", "form", "matchup", "history", "consequence"].includes(dimension)), `${subEvent.id} editorial must retain a substantive dimension`);
 });
-assert(surfacedEventFixtureAudit.length >= 60, "the Events editorial gate must cover the comprehensive surfaced fixture catalogue");
+assert(surfacedEventFixtureAudit.length >= 40, "the Events editorial gate must cover the comprehensive surfaced fixture catalogue without counting Code fixtures");
 const unsupportedFutureChild = majorEvents.editorialRecordForSubEvent(
   { id:"major-match:future-family:unknown", name:"Team A v Team B", stakesScore:5, status:"scheduled" },
-  { id:"major-event:future-family", name:"Future family", sportKey:"football", sportLabel:"Football", editorialNarrative:aflFinals.editorialNarrative },
+  { id:"major-event:future-family", name:"Future family", sportKey:"football", sportLabel:"Football", editorialNarrative:rugbyFinals.editorialNarrative },
   []
 );
 assert.equal(unsupportedFutureChild.editorialNarrative, undefined, "an unrecognised future Event family must fail the editorial gate instead of receiving generic filler");
@@ -244,10 +237,8 @@ const drawnMatch = rlwc.subEvents[0];
 const fixture = majorEvents.fixtureFromSubEvent(drawnMatch, rlwc);
 const curatedOpener = feed.events.find(event => event.id === "rlwc-australia-new-zealand-2026");
 assert.equal(typeof majorEvents.editorialRecordForSubEvent, "function", "every rendered Events child card needs a shared editorial resolver");
-const aflEditorialChild = aflFinals.subEvents.find(event => event.id === "event:afl:cd_m20260142601");
-const aflEditorialFeedCard = feed.events.find(event => event.canonicalEventId === aflEditorialChild.id);
-const resolvedAflEditorialChild = majorEvents.editorialRecordForSubEvent(aflEditorialChild, aflFinals, feed.events);
-assert.equal(resolvedAflEditorialChild?.editorialNarrative?.projectionId, aflEditorialFeedCard?.editorialNarrative?.projectionId, "an Events fixture card must use its own researched Feed projection when one exists");
+const aflEditorialFeedCard = feed.events.find(event => event.canonicalEventId === "event:afl:cd_m20260142601");
+assert(aflEditorialFeedCard?.editorialNarrative?.projectionId, "an AFL final must retain its researched projection as an ordinary Feed card");
 const unresolvedUsOpenChild = catalogue.events.find(record => record.id === "major-event:us-open-2026").subEvents[0];
 const resolvedUsOpenEditorialChild = majorEvents.editorialRecordForSubEvent(unresolvedUsOpenChild, catalogue.events.find(record => record.id === "major-event:us-open-2026"), feed.events);
 assert.match(resolvedUsOpenEditorialChild?.editorialNarrative?.projectionId, /projection:major:us-open-2026:child:/, "an Events fixture without its own projection must receive a traceable child projection from validated parent research");
@@ -286,11 +277,11 @@ invalidCopies.forEach(([document, message]) => {
 
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
-assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=218"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
+assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=222"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
-assert(worker.includes('"/config/major-events.js?v=218"') && worker.includes('"/config/follow-feed-policy.js?v=218"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
+assert(worker.includes('"/config/major-events.js?v=222"') && worker.includes('"/config/follow-feed-policy.js?v=218"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
 assert.match(html, /const crowdEvent = majorSubEventNothingscoreEvent\(subEvent, record, fixture\);[\s\S]*const editorialHook = buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\), editorialConsequenceForDisplay\(editorialRecord\)\);[\s\S]*if \(editorialHook\) row\.appendChild\(editorialHook\);[\s\S]*row\.appendChild\(buildEventNothingscoreAction\(crowdEvent\)\);/, "every Events timetable card must keep Why it matters and the contribution action together");
 assert.doesNotMatch(html, /row\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\)/, "Events timetable cards must keep volunteered NSC results invisible");

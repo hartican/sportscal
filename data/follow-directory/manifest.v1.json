@@ -70,7 +70,7 @@
       "key": "football",
       "label": "Football",
       "status": "available",
-      "recordCount": 1562,
+      "recordCount": 1575,
       "jsonUrl": "data/follow-directory/football.v1.json",
       "scriptUrl": "data/follow-directory/football.v1.js"
     },

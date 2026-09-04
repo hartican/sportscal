@@ -1452,7 +1452,7 @@ assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a va
 assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
-assert.equal(app.mergePreferences(null).version, 16, "the seeded defaults must use the follow-first preference migration");
+assert.equal(app.mergePreferences(null).version, 17, "the seeded defaults must use the competition-classification preference migration");
 assert.deepEqual(Array.from(app.mergePreferences(null).standings.selectedSportKeys), [], "fresh profiles must deselect every Standings sport");
 assert.deepEqual(Array.from(app.mergePreferences({ version: 14, standings: { selectedSportKeys: null } }).standings.selectedSportKeys), [], "legacy null Standings selections must migrate to an explicit empty array");
 assert.deepEqual(Array.from(app.mergePreferences({ version: 15, standings: { selectedSportKeys: [] } }).standings.selectedSportKeys), [], "a durable explicit empty Standings selection must remain authoritative");

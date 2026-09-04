@@ -15,17 +15,17 @@ const chatUi = fs.readFileSync("config/chat-media-ui.js", "utf8");
 
 const future = new Date("2026-09-04T00:00:00.000Z");
 const staleCatalogue = JSON.parse(JSON.stringify(catalogue));
-const staleQualification = staleCatalogue.events.find(item => item.id === "major-event:uefa-champions-league-2026-27:qualification");
-delete staleQualification.lifecycleStatus;
-delete staleQualification.retiredReason;
-delete staleQualification.retiredAt;
-delete staleQualification.retiredDeepLinkBehaviour;
+const staleCincinnati = staleCatalogue.events.find(item => item.id === "major-event:cincinnati-open-2026");
+delete staleCincinnati.lifecycleStatus;
+delete staleCincinnati.retiredReason;
+delete staleCincinnati.retiredAt;
+delete staleCincinnati.retiredDeepLinkBehaviour;
 const detailed = majorEvents.validateDocumentDetailed(staleCatalogue, { reference:future });
 assert.deepEqual(detailed.fatalErrors, [], "an expired event phase must not become a fatal catalogue error");
-assert(detailed.recordErrors.some(item => item.recordId === "major-event:uefa-champions-league-2026-27:qualification" && item.code === "outside_retention_horizon"));
+assert(detailed.recordErrors.some(item => item.recordId === "major-event:cincinnati-open-2026" && item.code === "outside_retention_horizon"));
 const usable = majorEvents.usableDocument(staleCatalogue, { reference:future });
 assert(usable.document.events.some(item => item.id === "major-event:us-open-2026"), "valid Events must survive a stale sibling record");
-assert(!usable.document.events.some(item => item.id === "major-event:uefa-champions-league-2026-27:qualification"), "the stale record must be quarantined");
+assert(!usable.document.events.some(item => item.id === "major-event:cincinnati-open-2026"), "the stale record must be quarantined");
 
 const cases = [
   ["sport:afl", "Wildcard Finals", 4],

@@ -1,0 +1,1694 @@
+{
+  "schemaVersion": "competition-code.v1",
+  "id": "competition:uefa-champions-league",
+  "seasonId": "competition:uefa-champions-league:2026-27",
+  "seasonLabel": "2026/27",
+  "name": "UEFA Champions League",
+  "surfaceClassification": "code",
+  "classificationReason": "recurring-single-code-competition",
+  "parentSportId": "sport:football",
+  "parentDisciplineId": "discipline:football:club",
+  "generatedAt": "2026-08-29T23:56:41.761Z",
+  "sources": [
+    {
+      "name": "UEFA — 2026/27 Champions League overview",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+      "checkedAt": "2026-08-29T23:56:41.761Z"
+    },
+    {
+      "name": "UEFA Champions League qualifying fixtures and results",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+      "checkedAt": "2026-08-25T00:00:00.000Z"
+    },
+    {
+      "name": "UEFA — 2026/27 Champions League qualifying results and format",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "name": "UEFA — 2026/27 Champions League league-phase teams",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "name": "UEFA — all 36 clubs learn their 2026/27 league-phase opponents",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "name": "UEFA — 2026/27 Champions League league-phase draw",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "name": "UEFA — 2026/27 Champions League league-phase fixtures",
+      "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+      "checkedAt": "2026-08-29T19:30:00.000Z"
+    },
+    {
+      "name": "UEFA — Paris retain the Champions League",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+      "checkedAt": "2026-08-29T23:56:41.761Z"
+    },
+    {
+      "name": "UEFA — league-to-knockout format",
+      "url": "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/",
+      "checkedAt": "2026-08-29T23:56:41.761Z"
+    }
+  ],
+  "participants": [
+    {
+      "id": "team:football:club:aek-athens",
+      "displayName": "AEK Athens",
+      "shortName": "AEK Athens",
+      "aliases": [
+        "AEK Athens"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:bod-glimt",
+      "displayName": "Bodø/Glimt",
+      "shortName": "Bodø/Glimt",
+      "aliases": [
+        "Bodø/Glimt"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:celje",
+      "displayName": "Celje",
+      "shortName": "Celje",
+      "aliases": [
+        "Celje"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:celtic",
+      "displayName": "Celtic",
+      "shortName": "Celtic",
+      "aliases": [
+        "Celtic"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:fenerbahce",
+      "displayName": "Fenerbahçe",
+      "shortName": "Fenerbahçe",
+      "aliases": [
+        "Fenerbahçe"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:gnk-dinamo",
+      "displayName": "GNK Dinamo",
+      "shortName": "GNK Dinamo",
+      "aliases": [
+        "GNK Dinamo"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:hapoel-beer-sheva",
+      "displayName": "Hapoel Beer-Sheva",
+      "shortName": "Hapoel Beer-Sheva",
+      "aliases": [
+        "Hapoel Beer-Sheva"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:lask",
+      "displayName": "LASK",
+      "shortName": "LASK",
+      "aliases": [
+        "LASK"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:levski-sofia",
+      "displayName": "Levski Sofia",
+      "shortName": "Levski Sofia",
+      "aliases": [
+        "Levski Sofia"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:lyon",
+      "displayName": "Lyon",
+      "shortName": "Lyon",
+      "aliases": [
+        "Lyon"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:n-e-c",
+      "displayName": "N.E.C.",
+      "shortName": "N.E.C.",
+      "aliases": [
+        "N.E.C."
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:sabah",
+      "displayName": "Sabah",
+      "shortName": "Sabah",
+      "aliases": [
+        "Sabah"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:slovan-bratislava",
+      "displayName": "Slovan Bratislava",
+      "shortName": "Slovan Bratislava",
+      "aliases": [
+        "Slovan Bratislava"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    },
+    {
+      "id": "team:football:club:viking",
+      "displayName": "Viking",
+      "shortName": "Viking",
+      "aliases": [
+        "Viking"
+      ],
+      "type": "team",
+      "entityType": "team",
+      "active": true,
+      "current": true,
+      "sportDomainId": "sport:football",
+      "leagueId": "competition:uefa-champions-league",
+      "sourceRefs": [
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+        "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+        "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+        "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+        "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase:uefa-champions-league:2026-27:qualification",
+      "legacyEventId": "major-event:uefa-champions-league-2026-27:qualification",
+      "phaseId": "qualification",
+      "phaseLabel": "Qualification",
+      "phaseIdentity": "qualification",
+      "startDate": "2026-07-07",
+      "endDate": "2026-08-26",
+      "dateStatus": "confirmed",
+      "timezone": "Europe/Madrid",
+      "summary": "The qualification phase determines the remaining clubs entering the league phase.",
+      "details": [
+        "Drawn ties and individual kick-off times are added only when published by UEFA."
+      ],
+      "sources": [
+        {
+          "name": "UEFA 2026/27 Champions League dates and final",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "checkedAt": "2026-08-25T00:00:00.000Z"
+        },
+        {
+          "name": "UEFA Champions League qualifying fixtures and results",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-fixtures-results-dates-how-it-/",
+          "checkedAt": "2026-08-25T00:00:00.000Z"
+        },
+        {
+          "name": "UEFA — 2026/27 Champions League qualifying results and format",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20e5a8be4e63-ae971c582f8c-1000--champions-league-qualifying-results-how-it-worked/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — 2026/27 Champions League league-phase teams",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — all 36 clubs learn their 2026/27 league-phase opponents",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        }
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:ucl-qualification-2026-27",
+        "researchTier": "marquee",
+        "hook": "LASK's five-goal comeback from a 3–0 first-leg deficit supplied the defining route into a seven-club qualifying class.",
+        "synopsis": "Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+        "threadIds": [
+          "thread:football:ucl-2026-27:qualification-road"
+        ],
+        "factIds": [
+          "fact:ucl-qualifying-2026-27:window",
+          "fact:ucl-qualifying-2026-27:seven-places",
+          "fact:ucl-qualifying-2026-27:survivors",
+          "fact:ucl-qualifying-2026-27:lask-comeback",
+          "fact:ucl-qualifying-2026-27:extra-time-survival"
+        ],
+        "sourceIds": [
+          "source:uefa:ucl-2026-27-qualifying",
+          "source:uefa:ucl-2026-27-teams",
+          "source:uefa:ucl-2026-27-opponents"
+        ],
+        "dimensions": [
+          "format",
+          "consequence",
+          "matchup",
+          "history",
+          "form"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": null,
+        "generationMode": "researched"
+      },
+      "fixtures": [
+        {
+          "id": "major-match:ucl-2026-27:sabah-hapoel-second-leg",
+          "name": "Sabah v Hapoel Beer-Sheva",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-25T16:45:00.000Z",
+          "venue": "Bank Respublika Arena",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "id": "team:football:club:sabah",
+              "participantId": "team:football:club:sabah",
+              "name": "Sabah"
+            },
+            {
+              "id": "team:football:club:hapoel-beer-sheva",
+              "participantId": "team:football:club:hapoel-beer-sheva",
+              "name": "Hapoel Beer-Sheva"
+            }
+          ],
+          "summary": "Hapoel Beer-Sheva lead 2-1 after the first leg.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:sabah-hapoel-second-leg",
+            "researchTier": "marquee",
+            "hook": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsis": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:qualification-road"
+            ],
+            "factIds": [
+              "fact:ucl-qualifying-2026-27:window",
+              "fact:ucl-qualifying-2026-27:seven-places",
+              "fact:ucl-qualifying-2026-27:survivors",
+              "fact:ucl-qualifying-2026-27:lask-comeback",
+              "fact:ucl-qualifying-2026-27:extra-time-survival"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-qualifying",
+              "source:uefa:ucl-2026-27-teams",
+              "source:uefa:ucl-2026-27-opponents"
+            ],
+            "dimensions": [
+              "format",
+              "consequence",
+              "matchup",
+              "history",
+              "form",
+              "path"
+            ],
+            "researchedAt": "2026-08-29T19:30:00.000Z",
+            "refreshAfter": null,
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "hookSpoilerOn": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsisSpoilerOff": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "synopsisSpoilerOn": "Sabah and Hapoel Beer-Sheva have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "qualification",
+          "phaseLabel": "Qualification",
+          "surfaceClassification": "code",
+          "participantIds": [
+            "team:football:club:sabah",
+            "team:football:club:hapoel-beer-sheva"
+          ],
+          "participantSlots": [
+            {
+              "slot": 1,
+              "participantId": "team:football:club:sabah",
+              "label": "Sabah"
+            },
+            {
+              "slot": 2,
+              "participantId": "team:football:club:hapoel-beer-sheva",
+              "label": "Hapoel Beer-Sheva"
+            }
+          ],
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA 2026/27 Champions League dates and final",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+        },
+        {
+          "id": "major-match:ucl-2026-27:lask-celtic-second-leg",
+          "name": "LASK v Celtic",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-25T19:00:00.000Z",
+          "venue": "Raiffeisen Arena",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "id": "team:football:club:lask",
+              "participantId": "team:football:club:lask",
+              "name": "LASK"
+            },
+            {
+              "id": "team:football:club:celtic",
+              "participantId": "team:football:club:celtic",
+              "name": "Celtic"
+            }
+          ],
+          "summary": "Celtic lead 3-0 after the first leg.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:lask-celtic-second-leg",
+            "researchTier": "marquee",
+            "hook": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsis": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:qualification-road"
+            ],
+            "factIds": [
+              "fact:ucl-qualifying-2026-27:window",
+              "fact:ucl-qualifying-2026-27:seven-places",
+              "fact:ucl-qualifying-2026-27:survivors",
+              "fact:ucl-qualifying-2026-27:lask-comeback",
+              "fact:ucl-qualifying-2026-27:extra-time-survival"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-qualifying",
+              "source:uefa:ucl-2026-27-teams",
+              "source:uefa:ucl-2026-27-opponents"
+            ],
+            "dimensions": [
+              "format",
+              "consequence",
+              "matchup",
+              "history",
+              "form",
+              "path"
+            ],
+            "researchedAt": "2026-08-29T19:30:00.000Z",
+            "refreshAfter": null,
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "hookSpoilerOn": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsisSpoilerOff": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "synopsisSpoilerOn": "LASK and Celtic have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "qualification",
+          "phaseLabel": "Qualification",
+          "surfaceClassification": "code",
+          "participantIds": [
+            "team:football:club:lask",
+            "team:football:club:celtic"
+          ],
+          "participantSlots": [
+            {
+              "slot": 1,
+              "participantId": "team:football:club:lask",
+              "label": "LASK"
+            },
+            {
+              "slot": 2,
+              "participantId": "team:football:club:celtic",
+              "label": "Celtic"
+            }
+          ],
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA 2026/27 Champions League dates and final",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+        },
+        {
+          "id": "major-match:ucl-2026-27:bodo-nec-second-leg",
+          "name": "Bodø/Glimt v N.E.C.",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-25T19:00:00.000Z",
+          "venue": "Aspmyra Stadion",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "id": "team:football:club:bod-glimt",
+              "participantId": "team:football:club:bod-glimt",
+              "name": "Bodø/Glimt"
+            },
+            {
+              "id": "team:football:club:n-e-c",
+              "participantId": "team:football:club:n-e-c",
+              "name": "N.E.C."
+            }
+          ],
+          "summary": "Bodø/Glimt lead 3-1 after the first leg.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:bodo-nec-second-leg",
+            "researchTier": "marquee",
+            "hook": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsis": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:qualification-road"
+            ],
+            "factIds": [
+              "fact:ucl-qualifying-2026-27:window",
+              "fact:ucl-qualifying-2026-27:seven-places",
+              "fact:ucl-qualifying-2026-27:survivors",
+              "fact:ucl-qualifying-2026-27:lask-comeback",
+              "fact:ucl-qualifying-2026-27:extra-time-survival"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-qualifying",
+              "source:uefa:ucl-2026-27-teams",
+              "source:uefa:ucl-2026-27-opponents"
+            ],
+            "dimensions": [
+              "format",
+              "consequence",
+              "matchup",
+              "history",
+              "form",
+              "path"
+            ],
+            "researchedAt": "2026-08-29T19:30:00.000Z",
+            "refreshAfter": null,
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "hookSpoilerOn": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsisSpoilerOff": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "synopsisSpoilerOn": "Bodø/Glimt and N.E.C. have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "qualification",
+          "phaseLabel": "Qualification",
+          "surfaceClassification": "code",
+          "participantIds": [
+            "team:football:club:bod-glimt",
+            "team:football:club:n-e-c"
+          ],
+          "participantSlots": [
+            {
+              "slot": 1,
+              "participantId": "team:football:club:bod-glimt",
+              "label": "Bodø/Glimt"
+            },
+            {
+              "slot": 2,
+              "participantId": "team:football:club:n-e-c",
+              "label": "N.E.C."
+            }
+          ],
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA 2026/27 Champions League dates and final",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+        },
+        {
+          "id": "major-match:ucl-2026-27:aek-levski-second-leg",
+          "name": "AEK Athens v Levski Sofia",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-26T19:00:00.000Z",
+          "venue": "OPAP Arena",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "id": "team:football:club:aek-athens",
+              "participantId": "team:football:club:aek-athens",
+              "name": "AEK Athens"
+            },
+            {
+              "id": "team:football:club:levski-sofia",
+              "participantId": "team:football:club:levski-sofia",
+              "name": "Levski Sofia"
+            }
+          ],
+          "summary": "The tie is level at 0-0 after the first leg.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:aek-levski-second-leg",
+            "researchTier": "marquee",
+            "hook": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsis": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:qualification-road"
+            ],
+            "factIds": [
+              "fact:ucl-qualifying-2026-27:window",
+              "fact:ucl-qualifying-2026-27:seven-places",
+              "fact:ucl-qualifying-2026-27:survivors",
+              "fact:ucl-qualifying-2026-27:lask-comeback",
+              "fact:ucl-qualifying-2026-27:extra-time-survival"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-qualifying",
+              "source:uefa:ucl-2026-27-teams",
+              "source:uefa:ucl-2026-27-opponents"
+            ],
+            "dimensions": [
+              "format",
+              "consequence",
+              "matchup",
+              "history",
+              "form",
+              "path"
+            ],
+            "researchedAt": "2026-08-29T19:30:00.000Z",
+            "refreshAfter": null,
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "hookSpoilerOn": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsisSpoilerOff": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "synopsisSpoilerOn": "AEK Athens and Levski Sofia have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "qualification",
+          "phaseLabel": "Qualification",
+          "surfaceClassification": "code",
+          "participantIds": [
+            "team:football:club:aek-athens",
+            "team:football:club:levski-sofia"
+          ],
+          "participantSlots": [
+            {
+              "slot": 1,
+              "participantId": "team:football:club:aek-athens",
+              "label": "AEK Athens"
+            },
+            {
+              "slot": 2,
+              "participantId": "team:football:club:levski-sofia",
+              "label": "Levski Sofia"
+            }
+          ],
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA 2026/27 Champions League dates and final",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+        },
+        {
+          "id": "major-match:ucl-2026-27:viking-dinamo-second-leg",
+          "name": "Viking v GNK Dinamo",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-26T19:00:00.000Z",
+          "venue": "Lyse Arena",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "id": "team:football:club:viking",
+              "participantId": "team:football:club:viking",
+              "name": "Viking"
+            },
+            {
+              "id": "team:football:club:gnk-dinamo",
+              "participantId": "team:football:club:gnk-dinamo",
+              "name": "GNK Dinamo"
+            }
+          ],
+          "summary": "The tie is level at 2-2 after the first leg.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:viking-dinamo-second-leg",
+            "researchTier": "marquee",
+            "hook": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsis": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:qualification-road"
+            ],
+            "factIds": [
+              "fact:ucl-qualifying-2026-27:window",
+              "fact:ucl-qualifying-2026-27:seven-places",
+              "fact:ucl-qualifying-2026-27:survivors",
+              "fact:ucl-qualifying-2026-27:lask-comeback",
+              "fact:ucl-qualifying-2026-27:extra-time-survival"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-qualifying",
+              "source:uefa:ucl-2026-27-teams",
+              "source:uefa:ucl-2026-27-opponents"
+            ],
+            "dimensions": [
+              "format",
+              "consequence",
+              "matchup",
+              "history",
+              "form",
+              "path"
+            ],
+            "researchedAt": "2026-08-29T19:30:00.000Z",
+            "refreshAfter": null,
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "hookSpoilerOn": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsisSpoilerOff": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "synopsisSpoilerOn": "Viking and GNK Dinamo have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "qualification",
+          "phaseLabel": "Qualification",
+          "surfaceClassification": "code",
+          "participantIds": [
+            "team:football:club:viking",
+            "team:football:club:gnk-dinamo"
+          ],
+          "participantSlots": [
+            {
+              "slot": 1,
+              "participantId": "team:football:club:viking",
+              "label": "Viking"
+            },
+            {
+              "slot": 2,
+              "participantId": "team:football:club:gnk-dinamo",
+              "label": "GNK Dinamo"
+            }
+          ],
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA 2026/27 Champions League dates and final",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+        },
+        {
+          "id": "major-match:ucl-2026-27:celje-slovan-second-leg",
+          "name": "Celje v Slovan Bratislava",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-26T19:00:00.000Z",
+          "venue": "Stadion Z'dežele",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "id": "team:football:club:celje",
+              "participantId": "team:football:club:celje",
+              "name": "Celje"
+            },
+            {
+              "id": "team:football:club:slovan-bratislava",
+              "participantId": "team:football:club:slovan-bratislava",
+              "name": "Slovan Bratislava"
+            }
+          ],
+          "summary": "The tie is level at 1-1 after the first leg.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:celje-slovan-second-leg",
+            "researchTier": "marquee",
+            "hook": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsis": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:qualification-road"
+            ],
+            "factIds": [
+              "fact:ucl-qualifying-2026-27:window",
+              "fact:ucl-qualifying-2026-27:seven-places",
+              "fact:ucl-qualifying-2026-27:survivors",
+              "fact:ucl-qualifying-2026-27:lask-comeback",
+              "fact:ucl-qualifying-2026-27:extra-time-survival"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-qualifying",
+              "source:uefa:ucl-2026-27-teams",
+              "source:uefa:ucl-2026-27-opponents"
+            ],
+            "dimensions": [
+              "format",
+              "consequence",
+              "matchup",
+              "history",
+              "form",
+              "path"
+            ],
+            "researchedAt": "2026-08-29T19:30:00.000Z",
+            "refreshAfter": null,
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "hookSpoilerOn": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsisSpoilerOff": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "synopsisSpoilerOn": "Celje and Slovan Bratislava have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "qualification",
+          "phaseLabel": "Qualification",
+          "surfaceClassification": "code",
+          "participantIds": [
+            "team:football:club:celje",
+            "team:football:club:slovan-bratislava"
+          ],
+          "participantSlots": [
+            {
+              "slot": 1,
+              "participantId": "team:football:club:celje",
+              "label": "Celje"
+            },
+            {
+              "slot": 2,
+              "participantId": "team:football:club:slovan-bratislava",
+              "label": "Slovan Bratislava"
+            }
+          ],
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA 2026/27 Champions League dates and final",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+        },
+        {
+          "id": "major-match:ucl-2026-27:lyon-fenerbahce-second-leg",
+          "name": "Lyon v Fenerbahçe",
+          "stage": "Qualifying play-off",
+          "roundLabel": "Second leg",
+          "startTimeUtc": "2026-08-26T19:00:00.000Z",
+          "venue": "Groupama Stadium",
+          "stakesScore": 5,
+          "participants": [
+            {
+              "id": "team:football:club:lyon",
+              "participantId": "team:football:club:lyon",
+              "name": "Lyon"
+            },
+            {
+              "id": "team:football:club:fenerbahce",
+              "participantId": "team:football:club:fenerbahce",
+              "name": "Fenerbahçe"
+            }
+          ],
+          "summary": "The tie is level at 1-1 after the first leg.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-qualification-2026-27:child:major-match:ucl-2026-27:lyon-fenerbahce-second-leg",
+            "researchTier": "marquee",
+            "hook": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsis": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:qualification-road"
+            ],
+            "factIds": [
+              "fact:ucl-qualifying-2026-27:window",
+              "fact:ucl-qualifying-2026-27:seven-places",
+              "fact:ucl-qualifying-2026-27:survivors",
+              "fact:ucl-qualifying-2026-27:lask-comeback",
+              "fact:ucl-qualifying-2026-27:extra-time-survival"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-qualifying",
+              "source:uefa:ucl-2026-27-teams",
+              "source:uefa:ucl-2026-27-opponents"
+            ],
+            "dimensions": [
+              "format",
+              "consequence",
+              "matchup",
+              "history",
+              "form",
+              "path"
+            ],
+            "researchedAt": "2026-08-29T19:30:00.000Z",
+            "refreshAfter": null,
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "hookSpoilerOn": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie.",
+            "synopsisSpoilerOff": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "synopsisSpoilerOn": "Lyon and Fenerbahçe have reached the decisive second leg, with one of the remaining league-phase places attached to the tie. Qualification filled the final seven places in the 36-team league phase, with LASK producing the stage's lasting recovery: a 5–1 extra-time return-leg win after losing 3–0 at Celtic. Sabah and Slovan Bratislava also survived extra time, and all seven winners now persist as named entrants in the next phase rather than disappearing with the completed bracket.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "qualification",
+          "phaseLabel": "Qualification",
+          "surfaceClassification": "code",
+          "participantIds": [
+            "team:football:club:lyon",
+            "team:football:club:fenerbahce"
+          ],
+          "participantSlots": [
+            {
+              "slot": 1,
+              "participantId": "team:football:club:lyon",
+              "label": "Lyon"
+            },
+            {
+              "slot": 2,
+              "participantId": "team:football:club:fenerbahce",
+              "label": "Fenerbahçe"
+            }
+          ],
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA 2026/27 Champions League dates and final",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-25T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "phase:uefa-champions-league:2026-27:league-phase",
+      "legacyEventId": "major-event:uefa-champions-league-2026-27:league-phase",
+      "phaseId": "league-phase",
+      "phaseLabel": "League phase",
+      "phaseIdentity": "league",
+      "startDate": "2026-09-08",
+      "endDate": "2027-01-27",
+      "dateStatus": "confirmed",
+      "timezone": "Europe/Madrid",
+      "summary": "Eight matchdays determine the league table and knockout qualification.",
+      "details": [
+        "Concrete matchups are surfaced chronologically as UEFA publishes the draw and kick-off times."
+      ],
+      "sources": [
+        {
+          "name": "UEFA — 2026/27 Champions League dates, format and final",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — 2026/27 Champions League league-phase draw",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-215821715a96-9a3b43fad585-1000--uefa-champions-league-league-phase-draw/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — all 36 clubs learn their 2026/27 league-phase opponents",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-216cd740d41f-fd3b45ac4a0f-1000--champions-league-league-phase-draw-all-36-teams-learn-their/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — 2026/27 Champions League league-phase fixtures",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — Paris join the back-to-back Champions League winners",
+          "url": "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        },
+        {
+          "name": "UEFA — 2026/27 Champions League league-phase teams",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a8-2171a88881a0-c70193b972c6-1000--meet-the-2026-27-champions-league-league-phase-teams/",
+          "checkedAt": "2026-08-29T19:30:00.000Z"
+        }
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:ucl-league-phase-2026-27",
+        "researchTier": "marquee",
+        "hook": "AEK and LASK carry qualification straight into opening night, as Paris begins a rare chase for a third consecutive title.",
+        "synopsis": "The league phase asks each of 36 clubs to face eight different opponents across 144 matches. AEK Athens v LASK opens a direct line from qualification, while first-time Champions League entrant LASK and first-time European participant Como enter the same table as back-to-back champion Paris Saint-Germain. The opening story is continuity, not a blank group-stage reset.",
+        "threadIds": [
+          "thread:football:ucl-2026-27:qualification-road",
+          "thread:football:ucl-2026-27:league-phase"
+        ],
+        "factIds": [
+          "fact:ucl-league-2026-27:scale",
+          "fact:ucl-league-2026-27:draw-logic",
+          "fact:ucl-league-2026-27:calendar",
+          "fact:ucl-league-2026-27:opening-bridge",
+          "fact:ucl-league-2026-27:holders",
+          "fact:ucl-league-2026-27:new-ground",
+          "fact:ucl-league-2026-27:destination"
+        ],
+        "sourceIds": [
+          "source:uefa:ucl-2026-27-draw",
+          "source:uefa:ucl-2026-27-opponents",
+          "source:uefa:ucl-2026-27-fixtures",
+          "source:uefa:ucl-2026-27-holders",
+          "source:uefa:ucl-2026-27-teams",
+          "source:uefa:ucl-2026-27-season"
+        ],
+        "dimensions": [
+          "format",
+          "path",
+          "schedule",
+          "matchup",
+          "history",
+          "venue"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-09-09T00:00:00.000Z",
+        "generationMode": "researched"
+      },
+      "fixtures": [
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:league-phase",
+          "name": "League phase · matchdays 1 to 8",
+          "startTimeUtc": null,
+          "venue": "Multiple venues",
+          "stakesScore": 5,
+          "dateLabel": "8 September 2026 to 27 January 2027",
+          "summary": "Eight league-phase matchdays. Individual fixtures remain in the football fixture bundles.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-league-phase-2026-27:child:major-stage:uefa-champions-league-2026-27:league-phase",
+            "researchTier": "marquee",
+            "hook": "Eight matchdays determine which clubs skip February and which must take the knockout play-off route.",
+            "synopsis": "Eight matchdays determine which clubs skip February and which must take the knockout play-off route. The league phase asks each of 36 clubs to face eight different opponents across 144 matches. AEK Athens v LASK opens a direct line from qualification, while first-time Champions League entrant LASK and first-time European participant Como enter the same table as back-to-back champion Paris Saint-Germain. The opening story is continuity, not a blank group-stage reset.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:qualification-road",
+              "thread:football:ucl-2026-27:league-phase"
+            ],
+            "factIds": [
+              "fact:ucl-league-2026-27:scale",
+              "fact:ucl-league-2026-27:draw-logic",
+              "fact:ucl-league-2026-27:calendar",
+              "fact:ucl-league-2026-27:opening-bridge",
+              "fact:ucl-league-2026-27:holders",
+              "fact:ucl-league-2026-27:new-ground",
+              "fact:ucl-league-2026-27:destination"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-draw",
+              "source:uefa:ucl-2026-27-opponents",
+              "source:uefa:ucl-2026-27-fixtures",
+              "source:uefa:ucl-2026-27-holders",
+              "source:uefa:ucl-2026-27-teams",
+              "source:uefa:ucl-2026-27-season"
+            ],
+            "dimensions": [
+              "format",
+              "path",
+              "schedule",
+              "matchup",
+              "history",
+              "venue"
+            ],
+            "researchedAt": "2026-08-29T19:30:00.000Z",
+            "refreshAfter": "2026-09-09T00:00:00.000Z",
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "Eight matchdays determine which clubs skip February and which must take the knockout play-off route.",
+            "hookSpoilerOn": "Eight matchdays determine which clubs skip February and which must take the knockout play-off route.",
+            "synopsisSpoilerOff": "Eight matchdays determine which clubs skip February and which must take the knockout play-off route. The league phase asks each of 36 clubs to face eight different opponents across 144 matches. AEK Athens v LASK opens a direct line from qualification, while first-time Champions League entrant LASK and first-time European participant Como enter the same table as back-to-back champion Paris Saint-Germain. The opening story is continuity, not a blank group-stage reset.",
+            "synopsisSpoilerOn": "Eight matchdays determine which clubs skip February and which must take the knockout play-off route. The league phase asks each of 36 clubs to face eight different opponents across 144 matches. AEK Athens v LASK opens a direct line from qualification, while first-time Champions League entrant LASK and first-time European participant Como enter the same table as back-to-back champion Paris Saint-Germain. The opening story is continuity, not a blank group-stage reset.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "league-phase",
+          "phaseLabel": "League phase",
+          "surfaceClassification": "code",
+          "participantIds": [],
+          "participantSlots": [],
+          "participants": [],
+          "schedulingWindow": {
+            "startsOn": "2026-09-08",
+            "endsOn": "2027-01-27",
+            "timeZone": "Europe/Madrid"
+          },
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA — 2026/27 Champions League dates, format and final",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-29T19:30:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "phase:uefa-champions-league:2026-27:knockout",
+      "legacyEventId": "major-event:uefa-champions-league-2026-27:knockout",
+      "phaseId": "knockout",
+      "phaseLabel": "Knockout phase",
+      "phaseIdentity": "knockout",
+      "startDate": "2027-02-16",
+      "endDate": "2027-06-05",
+      "dateStatus": "confirmed",
+      "timezone": "Europe/Madrid",
+      "summary": "The knockout phase progresses from play-offs to the final in Madrid.",
+      "details": [
+        "The source-backed draw appears here as teams and ties are confirmed."
+      ],
+      "sources": [
+        {
+          "name": "UEFA — 2026/27 Champions League overview",
+          "url": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "checkedAt": "2026-08-29T23:56:41.761Z"
+        },
+        {
+          "name": "UEFA — league-to-knockout format",
+          "url": "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-format-for-champions-league-post-2024-everything-you-need-to-/",
+          "checkedAt": "2026-08-29T23:56:41.761Z"
+        },
+        {
+          "name": "UEFA — Paris retain the Champions League",
+          "url": "https://www.uefa.com/uefachampionsleague/news/0239-0e96d80bc2f6-d4e7f311245e-1000--champions-league-holders-real-madrid-still-only-back-to-ba/",
+          "checkedAt": "2026-08-29T23:56:41.761Z"
+        }
+      ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:ucl-knockout-2027",
+        "researchTier": "marquee",
+        "hook": "Eight clubs skip February; sixteen must survive it; twelve leave Europe before the road to Madrid narrows.",
+        "synopsis": "The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+        "threadIds": [
+          "thread:football:ucl-2026-27:league-phase",
+          "thread:football:ucl-2026-27:league-to-knockout"
+        ],
+        "factIds": [
+          "fact:ucl-knockout-2027:league-path",
+          "fact:ucl-knockout-2027:seeding",
+          "fact:ucl-knockout-2027:calendar",
+          "fact:ucl-knockout-2027:madrid-final",
+          "fact:ucl-knockout-2027:holders"
+        ],
+        "sourceIds": [
+          "source:uefa:ucl-2026-27-overview",
+          "source:uefa:ucl-new-format",
+          "source:uefa:ucl-paris-back-to-back"
+        ],
+        "dimensions": [
+          "path",
+          "consequence",
+          "schedule",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T23:56:41.761Z",
+        "refreshAfter": "2027-01-28T00:00:00.000Z",
+        "generationMode": "researched"
+      },
+      "fixtures": [
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:knockout-play-offs",
+          "name": "Knockout phase play-offs",
+          "startTimeUtc": null,
+          "venue": "Multiple venues",
+          "stakesScore": 5,
+          "dateLabel": "16/17 and 23/24 February 2027",
+          "summary": "The play-off stage of the knockout phase.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-knockout-2027:child:major-stage:uefa-champions-league-2026-27:knockout-play-offs",
+            "researchTier": "marquee",
+            "hook": "Sixteen clubs enter the knockout play-offs and only eight can join the directly qualified sides in the last 16.",
+            "synopsis": "Sixteen clubs enter the knockout play-offs and only eight can join the directly qualified sides in the last 16. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:league-phase",
+              "thread:football:ucl-2026-27:league-to-knockout"
+            ],
+            "factIds": [
+              "fact:ucl-knockout-2027:league-path",
+              "fact:ucl-knockout-2027:seeding",
+              "fact:ucl-knockout-2027:calendar",
+              "fact:ucl-knockout-2027:madrid-final",
+              "fact:ucl-knockout-2027:holders"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-overview",
+              "source:uefa:ucl-new-format",
+              "source:uefa:ucl-paris-back-to-back"
+            ],
+            "dimensions": [
+              "path",
+              "consequence",
+              "schedule",
+              "history"
+            ],
+            "researchedAt": "2026-08-29T23:56:41.761Z",
+            "refreshAfter": "2027-01-28T00:00:00.000Z",
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "Sixteen clubs enter the knockout play-offs and only eight can join the directly qualified sides in the last 16.",
+            "hookSpoilerOn": "Sixteen clubs enter the knockout play-offs and only eight can join the directly qualified sides in the last 16.",
+            "synopsisSpoilerOff": "Sixteen clubs enter the knockout play-offs and only eight can join the directly qualified sides in the last 16. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "synopsisSpoilerOn": "Sixteen clubs enter the knockout play-offs and only eight can join the directly qualified sides in the last 16. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "knockout",
+          "phaseLabel": "Knockout phase",
+          "surfaceClassification": "code",
+          "participantIds": [],
+          "participantSlots": [],
+          "participants": [],
+          "schedulingWindow": {
+            "startsOn": "2027-02-16",
+            "endsOn": "2027-06-05",
+            "timeZone": "Europe/Madrid"
+          },
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA — 2026/27 Champions League overview",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+        },
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:round-of-16",
+          "name": "Round of 16",
+          "startTimeUtc": null,
+          "venue": "Multiple venues",
+          "stakesScore": 5,
+          "dateLabel": "9/10 and 16/17 March 2027",
+          "summary": "Round of 16 ties.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-knockout-2027:child:major-stage:uefa-champions-league-2026-27:round-of-16",
+            "researchTier": "marquee",
+            "hook": "The Round of 16 turns sixteen surviving clubs into the eight-team quarter-final field.",
+            "synopsis": "The Round of 16 turns sixteen surviving clubs into the eight-team quarter-final field. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:league-phase",
+              "thread:football:ucl-2026-27:league-to-knockout"
+            ],
+            "factIds": [
+              "fact:ucl-knockout-2027:league-path",
+              "fact:ucl-knockout-2027:seeding",
+              "fact:ucl-knockout-2027:calendar",
+              "fact:ucl-knockout-2027:madrid-final",
+              "fact:ucl-knockout-2027:holders"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-overview",
+              "source:uefa:ucl-new-format",
+              "source:uefa:ucl-paris-back-to-back"
+            ],
+            "dimensions": [
+              "path",
+              "consequence",
+              "schedule",
+              "history"
+            ],
+            "researchedAt": "2026-08-29T23:56:41.761Z",
+            "refreshAfter": "2027-01-28T00:00:00.000Z",
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "The Round of 16 turns sixteen surviving clubs into the eight-team quarter-final field.",
+            "hookSpoilerOn": "The Round of 16 turns sixteen surviving clubs into the eight-team quarter-final field.",
+            "synopsisSpoilerOff": "The Round of 16 turns sixteen surviving clubs into the eight-team quarter-final field. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "synopsisSpoilerOn": "The Round of 16 turns sixteen surviving clubs into the eight-team quarter-final field. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "knockout",
+          "phaseLabel": "Knockout phase",
+          "surfaceClassification": "code",
+          "participantIds": [],
+          "participantSlots": [],
+          "participants": [],
+          "schedulingWindow": {
+            "startsOn": "2027-02-16",
+            "endsOn": "2027-06-05",
+            "timeZone": "Europe/Madrid"
+          },
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA — 2026/27 Champions League overview",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+        },
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:quarter-finals",
+          "name": "Quarter-finals",
+          "startTimeUtc": null,
+          "venue": "Multiple venues",
+          "stakesScore": 5,
+          "dateLabel": "6/7 and 13/14 April 2027",
+          "summary": "Quarter-final ties.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-knockout-2027:child:major-stage:uefa-champions-league-2026-27:quarter-finals",
+            "researchTier": "marquee",
+            "hook": "The quarter-finals cut the title race to four clubs and settle the pairings for the final step before Madrid.",
+            "synopsis": "The quarter-finals cut the title race to four clubs and settle the pairings for the final step before Madrid. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:league-phase",
+              "thread:football:ucl-2026-27:league-to-knockout"
+            ],
+            "factIds": [
+              "fact:ucl-knockout-2027:league-path",
+              "fact:ucl-knockout-2027:seeding",
+              "fact:ucl-knockout-2027:calendar",
+              "fact:ucl-knockout-2027:madrid-final",
+              "fact:ucl-knockout-2027:holders"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-overview",
+              "source:uefa:ucl-new-format",
+              "source:uefa:ucl-paris-back-to-back"
+            ],
+            "dimensions": [
+              "path",
+              "consequence",
+              "schedule",
+              "history"
+            ],
+            "researchedAt": "2026-08-29T23:56:41.761Z",
+            "refreshAfter": "2027-01-28T00:00:00.000Z",
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "The quarter-finals cut the title race to four clubs and settle the pairings for the final step before Madrid.",
+            "hookSpoilerOn": "The quarter-finals cut the title race to four clubs and settle the pairings for the final step before Madrid.",
+            "synopsisSpoilerOff": "The quarter-finals cut the title race to four clubs and settle the pairings for the final step before Madrid. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "synopsisSpoilerOn": "The quarter-finals cut the title race to four clubs and settle the pairings for the final step before Madrid. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "knockout",
+          "phaseLabel": "Knockout phase",
+          "surfaceClassification": "code",
+          "participantIds": [],
+          "participantSlots": [],
+          "participants": [],
+          "schedulingWindow": {
+            "startsOn": "2027-02-16",
+            "endsOn": "2027-06-05",
+            "timeZone": "Europe/Madrid"
+          },
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA — 2026/27 Champions League overview",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+        },
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:semi-finals",
+          "name": "Semi-finals",
+          "startTimeUtc": null,
+          "venue": "Multiple venues",
+          "stakesScore": 5,
+          "dateLabel": "27/28 April and 4/5 May 2027",
+          "summary": "Semi-final ties.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-knockout-2027:child:major-stage:uefa-champions-league-2026-27:semi-finals",
+            "researchTier": "marquee",
+            "hook": "The semi-finals decide the two clubs that reach Madrid with the European title still available.",
+            "synopsis": "The semi-finals decide the two clubs that reach Madrid with the European title still available. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:league-phase",
+              "thread:football:ucl-2026-27:league-to-knockout"
+            ],
+            "factIds": [
+              "fact:ucl-knockout-2027:league-path",
+              "fact:ucl-knockout-2027:seeding",
+              "fact:ucl-knockout-2027:calendar",
+              "fact:ucl-knockout-2027:madrid-final",
+              "fact:ucl-knockout-2027:holders"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-overview",
+              "source:uefa:ucl-new-format",
+              "source:uefa:ucl-paris-back-to-back"
+            ],
+            "dimensions": [
+              "path",
+              "consequence",
+              "schedule",
+              "history"
+            ],
+            "researchedAt": "2026-08-29T23:56:41.761Z",
+            "refreshAfter": "2027-01-28T00:00:00.000Z",
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "The semi-finals decide the two clubs that reach Madrid with the European title still available.",
+            "hookSpoilerOn": "The semi-finals decide the two clubs that reach Madrid with the European title still available.",
+            "synopsisSpoilerOff": "The semi-finals decide the two clubs that reach Madrid with the European title still available. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "synopsisSpoilerOn": "The semi-finals decide the two clubs that reach Madrid with the European title still available. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "knockout",
+          "phaseLabel": "Knockout phase",
+          "surfaceClassification": "code",
+          "participantIds": [],
+          "participantSlots": [],
+          "participants": [],
+          "schedulingWindow": {
+            "startsOn": "2027-02-16",
+            "endsOn": "2027-06-05",
+            "timeZone": "Europe/Madrid"
+          },
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA — 2026/27 Champions League overview",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+        },
+        {
+          "id": "major-stage:uefa-champions-league-2026-27:final",
+          "name": "UEFA Champions League Final",
+          "startTimeUtc": null,
+          "venue": "Estadio Metropolitano",
+          "stakesScore": 5,
+          "dateLabel": "Saturday 5 June 2027",
+          "summary": "The 2026/27 Champions League final in Madrid. Finalists and kick-off time are not yet published.",
+          "editorialNarrative": {
+            "schemaVersion": "editorial-narrative.v2",
+            "projectionId": "projection:major:ucl-knockout-2027:child:major-stage:uefa-champions-league-2026-27:final",
+            "researchTier": "marquee",
+            "hook": "One match in Madrid decides the European champion after every qualifying and knockout route converges.",
+            "synopsis": "One match in Madrid decides the European champion after every qualifying and knockout route converges. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "threadIds": [
+              "thread:football:ucl-2026-27:league-phase",
+              "thread:football:ucl-2026-27:league-to-knockout"
+            ],
+            "factIds": [
+              "fact:ucl-knockout-2027:league-path",
+              "fact:ucl-knockout-2027:seeding",
+              "fact:ucl-knockout-2027:calendar",
+              "fact:ucl-knockout-2027:madrid-final",
+              "fact:ucl-knockout-2027:holders"
+            ],
+            "sourceIds": [
+              "source:uefa:ucl-2026-27-overview",
+              "source:uefa:ucl-new-format",
+              "source:uefa:ucl-paris-back-to-back"
+            ],
+            "dimensions": [
+              "path",
+              "consequence",
+              "schedule",
+              "history"
+            ],
+            "researchedAt": "2026-08-29T23:56:41.761Z",
+            "refreshAfter": "2027-01-28T00:00:00.000Z",
+            "generationMode": "verified-parent-child-projection"
+          },
+          "storyline": {
+            "stakes": 5,
+            "hookSpoilerOff": "One match in Madrid decides the European champion after every qualifying and knockout route converges.",
+            "hookSpoilerOn": "One match in Madrid decides the European champion after every qualifying and knockout route converges.",
+            "synopsisSpoilerOff": "One match in Madrid decides the European champion after every qualifying and knockout route converges. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "synopsisSpoilerOn": "One match in Madrid decides the European champion after every qualifying and knockout route converges. The 36-team league table determines three distinct fates and also shapes play-off seeding. The knockout path begins in February and ends at Estadio Metropolitano, while Paris's pursuit of a third consecutive title remains a live thread rather than an assumed participant outcome.",
+            "arcStage": "preview"
+          },
+          "codeId": "competition:uefa-champions-league",
+          "sportDomainId": "sport:football",
+          "competitionId": "competition:uefa-champions-league",
+          "phaseId": "knockout",
+          "phaseLabel": "Knockout phase",
+          "surfaceClassification": "code",
+          "participantIds": [],
+          "participantSlots": [],
+          "participants": [],
+          "schedulingWindow": {
+            "startsOn": "2027-02-16",
+            "endsOn": "2027-06-05",
+            "timeZone": "Europe/Madrid"
+          },
+          "competitionScope": "international",
+          "isInternational": true,
+          "sourceName": "UEFA — 2026/27 Champions League overview",
+          "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a6-20d57cfcd03e-407c22a7f465-1000--2026-27-champions-league-teams-dates-draws-format-final/",
+          "sourceCheckedAt": "2026-08-29T23:56:41.761Z"
+        }
+      ]
+    }
+  ],
+  "standings": [],
+  "standingsStatus": "not-yet-published",
+  "standingsSource": {
+    "name": "UEFA Champions League table",
+    "url": "https://www.uefa.com/uefachampionsleague/standings/"
+  }
+}

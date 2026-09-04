@@ -1,8 +1,10 @@
 (function attachNothingSportsMajorEvents(root, factory){
-  const api = factory();
+  const competitionClassification = root.NOTHINGSPORTS_COMPETITION_CLASSIFICATION
+    || (typeof require === "function" ? require("./competition-classification.js") : null);
+  const api = factory(competitionClassification);
   root.NOTHINGSPORTS_MAJOR_EVENTS = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsMajorEvents(){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsMajorEvents(competitionClassification){
   "use strict";
 
   const SCHEMA_VERSION = "major-events.v1";
@@ -10,11 +12,8 @@
   const FORWARD_WINDOW_MONTHS = 12;
   const MARKERS = Object.freeze([
     { id: "major-event:us-open-2026", name: "US Open 2026", sportKey: "tennis", sportKeys: ["tennis", "wimbledon"], startDate: "2026-08-23", endDate: "2026-09-13", stakesScore: 5 },
-    { id: "major-event:afl-finals-series-2026", name: "2026 Toyota AFL Finals Series", sportKey: "afl", sportKeys: ["afl"], startDate: "2026-08-28", endDate: "2026-09-26", stakesScore: 5, replacesFixtureIds: ["event-afl-cd_m20260142901"] },
-    { id: "major-event:nrl-finals-series-2026", name: "2026 NRL Finals Series", sportKey: "nrl", sportKeys: ["nrl"], startDate: "2026-09-12", endDate: "2026-10-04", stakesScore: 5, replacesFixtureIds: ["evt_81", "evt_82", "evt_83", "evt_84"] },
     { id: "major-event:rlwc-2026", name: "Rugby League World Cup 2026", sportKey: "nrl", sportKeys: ["nrl"], startDate: "2026-10-15", endDate: "2026-11-15", stakesScore: 5 },
     { id: "major-event:nations-championship-finals-2026", name: "2026 Nations Championship Finals Weekend", sportKey: "rugby", sportKeys: ["rugby"], startDate: "2026-11-27", endDate: "2026-11-29", stakesScore: 5 },
-    { id: "major-event:uefa-champions-league-2026-27", name: "UEFA Champions League 2026/27", sportKey: "football", sportKeys: ["football"], startDate: "2026-07-07", endDate: "2027-06-05", stakesScore: 5 },
     { id: "major-event:australian-open-2027", name: "Australian Open 2027", sportKey: "tennis", sportKeys: ["tennis", "wimbledon"], startDate: "2027-01-11", endDate: "2027-01-31", stakesScore: 5 },
   ].map(marker => Object.freeze({ ...marker, sportKeys: Object.freeze(marker.sportKeys) })));
 
@@ -107,7 +106,8 @@
     const followedParticipantIds = Array.isArray(followedInput?.followedParticipantIds) ? followedInput.followedParticipantIds : [];
     const followedParticipantNames = Array.isArray(followedInput?.followedParticipantNames) ? followedInput.followedParticipantNames : [];
     const records = Array.isArray(document?.events) ? document.events : [];
-    const parents = records.filter(record => record.kind !== "ticket_sale"
+    const parents = records.filter(record => competitionClassification?.belongsInEvents?.(record) !== false
+      && record.kind !== "ticket_sale"
       && record.lifecycleStatus !== "retired"
       && record.stakesScore === 5
       && (
@@ -529,7 +529,8 @@
     const earliest = addDays(today, -PAST_WINDOW_DAYS);
     const latest = addMonths(today, FORWARD_WINDOW_MONTHS);
     return MARKERS
-      .filter(marker => marker.stakesScore === 5 && followed(marker, followedSports) && marker.startDate >= earliest && marker.startDate <= latest)
+      .filter(marker => competitionClassification?.belongsInEvents?.(marker) !== false
+        && marker.stakesScore === 5 && followed(marker, followedSports) && marker.startDate >= earliest && marker.startDate <= latest)
       .map(marker => ({
         ...marker,
         eventId: marker.id,
@@ -561,6 +562,7 @@
     document.events.forEach(record => {
       if (!record?.id || eventIds.has(record.id)) errors.push(`duplicate or missing event id: ${record?.id || "(missing)"}`);
       eventIds.add(record?.id);
+      if (competitionClassification?.belongsInEvents?.(record) === false) errors.push(`${record?.id}: code-classified competitions are forbidden in Events`);
       if (!["tournament", "major_event", "ticket_sale"].includes(record?.kind)) errors.push(`${record?.id}: unsupported kind`);
       if (record?.kind !== "ticket_sale" && (!record.eventFamilyId || !record.editionId || !record.phaseId)) errors.push(`${record?.id}: event family, edition and phase identities are required`);
       if (record?.stakesScore !== 5) errors.push(`${record?.id}: stakes must be 5/5`);

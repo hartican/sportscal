@@ -146,10 +146,11 @@ function nrlBracketProgression(){
 
 function applyBracketProgression(majorEvents){
   const record = majorEvents.events.find(event => event.id === NRL_FINALS_ID);
-  if (!record) throw new Error(`${NRL_FINALS_ID} is missing.`);
+  if (!record) return false;
   record.bracketProgression = nrlBracketProgression();
   const byUrl = new Map([...(record.sources || []), NRL_FINALS_SOURCE].map(source => [source.url, source]));
   record.sources = Array.from(byUrl.values());
+  return true;
 }
 
 function validateSnapshotRecord(record, { knowledge, event }){

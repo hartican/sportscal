@@ -8,6 +8,7 @@ const OUTPUT_DIR = path.join(ROOT, "data/follow-directory");
 const MANIFEST_PATH = path.join(OUTPUT_DIR, "manifest.v1.json");
 const SUPPLEMENT_PATH = "data/canonical/follow-directory-supplement.v1.json";
 const TENNIS_WATCH_POOL_PATH = "data/canonical/tennis-watch-pool-2026.json";
+const CHAMPIONS_LEAGUE_PATH = "data/canonical/uefa-champions-league-2026-27.json";
 
 function readJson(relativePath){
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -135,8 +136,10 @@ function main(){
   const sourceGeneratedAt = contexts.map(context => context.generatedAt).filter(Boolean);
   const supplement = readJson(SUPPLEMENT_PATH);
   const tennisWatchPool = readJson(TENNIS_WATCH_POOL_PATH);
+  const championsLeague = readJson(CHAMPIONS_LEAGUE_PATH);
   if (supplement.generatedAt) sourceGeneratedAt.push(supplement.generatedAt);
   if (tennisWatchPool.generatedAt) sourceGeneratedAt.push(tennisWatchPool.generatedAt);
+  if (championsLeague.generatedAt) sourceGeneratedAt.push(championsLeague.generatedAt);
   const rankByParticipant = new Map();
   contexts.forEach(context => (context.ladderSnapshots || []).forEach(snapshot => (snapshot.entries || []).forEach(entry => {
     const rank = Number(entry.rank ?? entry.position);
@@ -184,6 +187,12 @@ function main(){
     (directory.teams || []).forEach(team => chunks.get(key)?.set(team.id, normalizeRecord({ ...team, type:"team" }, { genderCategory:team.genderCategory || "male", sourceRefs:team.sourceRefs })));
     (directory.players || []).filter(player => player.active !== false).forEach(player => chunks.get(key)?.set(player.id, normalizeRecord({ ...player, type:"competitor" }, { genderCategory:player.genderCategory || "male", sourceRefs:player.sourceRefs })));
     (directory.athletes || []).filter(athlete => athlete.active !== false).forEach(athlete => chunks.get(key)?.set(athlete.id, normalizeRecord({ ...athlete, type:"competitor" }, { genderCategory:athlete.genderCategory, ranking:athlete.ranking, sourceRefs:athlete.sourceRefs })));
+  });
+  (championsLeague.participants || []).forEach(team => {
+    chunks.get("football")?.set(team.id, normalizeRecord({ ...team, type:"team" }, {
+      genderCategory:"male",
+      sourceRefs:team.sourceRefs || (championsLeague.sources || []).map(source => source.url).filter(Boolean),
+    }));
   });
 
   const tennisChunk = chunks.get("tennis");

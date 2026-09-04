@@ -33,7 +33,9 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-canonical-sports.js"
 assert(localSteps.some(step => step[0] === "scripts/refresh-premier-league-context.js" && !step.includes("--check")), "every canonical update must refresh the official EPL league table");
 assert(localSteps.some(step => step[0] === "scripts/refresh-premier-league-context.js" && step.includes("--check")), "every canonical update must reject an incomplete published EPL snapshot");
 assert(localSteps.some(step => step[0] === "scripts/validate-premier-league-context.js"), "every canonical update must validate EPL identity mapping, offline transport and failed-refresh preservation");
-assert(localSteps.some(step => step[0] === "scripts/refresh-major-events-from-canonical.js"), "the canonical update must reconcile published AFL Finals Series slots before validating Events");
+assert(localSteps.some(step => step[0] === "scripts/migrate-competition-codes.js" && !step.includes("--check")), "the canonical update must move Code competitions out of Events before validation");
+assert(localSteps.some(step => step[0] === "scripts/migrate-competition-codes.js" && step.includes("--check")), "the canonical update must reject stale Code/Event classification");
+assert(localSteps.some(step => step[0] === "scripts/refresh-major-events-from-canonical.js"), "the canonical update must reconcile Event-only lifecycle state before validating Events");
 assert(localSteps.some(step => step[0] === "scripts/refresh-us-open-events.js" && !step.includes("--check")), "every canonical update must refresh detailed US Open Events fixtures from the official released order of play");
 assert(localSteps.some(step => step[0] === "scripts/refresh-us-open-events.js" && step.includes("--check")), "every canonical update must reject stale US Open Events fixtures");
 assert(localSteps.some(step => step[0] === "scripts/refresh-f1-editorial.js"), "every canonical update must refresh contemporary fixture-specific F1 editorial");
@@ -135,6 +137,7 @@ assert(localSteps.some(step => step[0] === "scripts/validate-discovery-catalogue
 assert(!localSteps.some(step => step[0] === "scripts/refresh-cincinnati-tournament.js"), "the retired Cincinnati source must not re-enter the canonical update");
 assert(localSteps.some(step => step[0] === "scripts/validate-joint-tennis-tournament.js"), "every canonical update must reject joint-tournament schema, ID, date or spoiler failures");
 assert(localSteps.some(step => step[0] === "scripts/validate-major-events.js"), "every canonical update must fail closed on major-event evidence, dates, IDs and ticket endpoints");
+assert(localSteps.some(step => step[0] === "scripts/validate-competition-classification.js"), "every canonical update must keep Champions League and AFL/NRL finals out of Events while preserving their Codes");
 assert(localSteps.some(step => step[0] === "scripts/validate-card-polish.js"), "every canonical update must retain card, venue, score and local-ticket regressions");
 assert(localSteps.some(step => step[0] === "scripts/validate-preference-taxonomy.js"), "every canonical update must validate exact idempotent preference translation into the hierarchy");
 assert(localSteps.some(step => step[0] === "scripts/validate-preference-system.js"), "every canonical update must validate legacy Must Watch preference removal");

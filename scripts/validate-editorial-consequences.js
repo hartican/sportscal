@@ -25,6 +25,7 @@ const {
   editorialConsequenceReadyForCard,
   editorialNarrativeReadyForCard,
 } = require("../config/enrichment-engine.js");
+const finalsCodePhases = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-finals-2026.json", "utf8"));
 
 function readJson(filePath){ return JSON.parse(fs.readFileSync(filePath, "utf8")); }
 
@@ -174,12 +175,12 @@ assert.equal(warriorsQueue?.consequenceCoverage, "covered", "Warriors v Knights 
 assert(queue.entries.some(entry => entry.consequenceResearchRequired), "unresearched consequences must remain visibly queued instead of receiving filler");
 assert.equal(queue.consequenceMigration.covered + queue.consequenceMigration.queued, queue.entries.length, "the consequence migration summary must account for every researched target");
 
-const nrlFinals = majorEvents.events.find(event => event.id === "major-event:nrl-finals-series-2026");
+const nrlFinals = finalsCodePhases.phases.find(phase => phase.codeId === "sport:nrl");
 const bracket = nrlFinals?.bracketProgression;
 assert.equal(bracket?.schemaVersion, "bracket-progression.v1", "the NRL finals need structured progression");
 assert.equal(majorSchema.$defs.event.properties.bracketProgression.$ref, "#/$defs/bracketProgression", "the major-event schema must publish bracket progression");
 assert(nrlFinals.sources.some(source => source.url === bracket.sourceUrl), "bracket progression must retain its official source in the parent audit data");
-const subEventIds = new Set(nrlFinals.subEvents.map(event => event.id));
+const subEventIds = new Set(nrlFinals.fixtures.map(event => event.id));
 assert.deepEqual(new Set(bracket.matches.map(match => match.matchId)), subEventIds, "every NRL finals match must have one structured progression record");
 bracket.matches.forEach(match => {
   [match.winner, match.loser].forEach(destination => {

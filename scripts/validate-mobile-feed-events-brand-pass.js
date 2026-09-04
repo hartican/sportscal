@@ -13,6 +13,7 @@ const html = fs.readFileSync("index.html", "utf8");
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const updateSource = fs.readFileSync("scripts/refresh-f1-editorial.js", "utf8");
 const majorEventDocument = JSON.parse(fs.readFileSync("data/major-events.v1.json", "utf8"));
+const championsLeagueCode = JSON.parse(fs.readFileSync("data/canonical/uefa-champions-league-2026-27.json", "utf8"));
 const published = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 
 assert.equal(brand.name, "Nothing Sport");
@@ -58,7 +59,7 @@ assert.deepEqual(aflViewing.slice(0, 4).map(option => option.providerId), ["kayo
 const aflGrandFinal = followFirst.viewingOptions({ key:"afl", competitionId:"competition:afl", stage:"Grand Final" });
 assert.equal(aflGrandFinal[0]?.providerId, "seven", "AFL Grand Final must apply its event-specific Australian rights exception");
 
-assert(html.includes('prefix.textContent = `${viewing.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;'), "watch actions must put the provider mark after Watch on / Replay on");
+assert(html.includes('prefix.textContent = `${verb} on`;') && html.includes('prefix.textContent = `${viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;'), "watch actions must put the provider mark after Watch on / Replay on");
 const providerMarkSource = html.match(/function buildViewingProviderMark\(viewing\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(providerMarkSource.includes("mark.appendChild(image)") && providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider logos and provider-name fallbacks must be mutually exclusive");
 assert(html.includes('rel = "noopener noreferrer external"'), "web fallbacks must leave the standalone PWA in a separate external window");
@@ -105,11 +106,11 @@ const eplEvents = (published.events || []).filter(event => (
 assert(eplEvents.length > 0, "published feed must contain current Premier League fixtures");
 eplEvents.forEach(event => assert.equal(followFirst.viewingLink(event)?.providerId, "stan", `${event.eventId || event.id} must resolve Stan Sport`));
 
-const championsLeaguePhases = majorEventDocument.events.filter(event => String(event.id).startsWith("major-event:uefa-champions-league-2026-27:"));
+const championsLeaguePhases = championsLeagueCode.phases;
 assert.deepEqual(championsLeaguePhases.map(event => event.phaseIdentity), ["qualification", "league", "knockout"]);
-assert.equal(championsLeaguePhases[0].subEvents.length, 7, "the live qualification phase must expose its seven concrete second legs");
-assert.equal(championsLeaguePhases.reduce((total, event) => total + event.subEvents.length, 0), 13, "the split phases must preserve the complete published schedule");
-assert(championsLeaguePhases.slice(1).every(event => event.subEvents.length > 0), "league and knockout phases must remain distinct populated Event cards");
+assert.equal(championsLeaguePhases[0].fixtures.length, 7, "the Champions League Code must expose its seven concrete qualification second legs");
+assert.equal(championsLeaguePhases.reduce((total, event) => total + event.fixtures.length, 0), 13, "the Code phases must preserve the complete published schedule");
+assert(championsLeaguePhases.slice(1).every(event => event.fixtures.length > 0), "league and knockout phases must remain distinct populated Code groups");
 
 assert(html.includes("index += 5") && html.includes("entries.slice(index, index + 5)"), "L2 event draws must paginate after five mobile rows");
 assert(

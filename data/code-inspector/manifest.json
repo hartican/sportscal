@@ -76,7 +76,7 @@
       "id": "sport:football",
       "slug": "football",
       "label": "Football",
-      "fixtureCount": 414,
+      "fixtureCount": 401,
       "groupingMode": "round",
       "coverageStatus": "partial",
       "freshAt": "2026-09-04T07:51:34.669Z",
@@ -191,6 +191,17 @@
       "coverageStatus": "unavailable",
       "freshAt": "2026-09-04T07:51:34.669Z",
       "chunkPath": "data/code-inspector/boxing.json"
+    },
+    {
+      "id": "competition:uefa-champions-league",
+      "slug": "champions-league",
+      "label": "UEFA Champions League",
+      "fixtureCount": 13,
+      "groupingMode": "round",
+      "coverageStatus": "partial",
+      "freshAt": "2026-08-29T23:56:41.761Z",
+      "parentSportId": "sport:football",
+      "chunkPath": "data/code-inspector/champions-league.json"
     }
   ]
 }

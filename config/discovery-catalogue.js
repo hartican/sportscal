@@ -8,7 +8,7 @@
   "use strict";
 
   const SCHEMA_VERSION = "sports-discovery-catalogue.v1";
-  const PREFERENCE_VERSION = 13;
+  const PREFERENCE_VERSION = 17;
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const DEFAULT_WINDOW_DAYS = 30;
   const DEFAULT_VISIBILITY_THRESHOLD = 5;
@@ -60,6 +60,21 @@
     "sport:lemans": ["sport:motorsport"],
     "sport:nfl": ["sport:american-football"],
     "sport:cwg": ["sport:multi-sport"],
+    "sport:champions-league": ["sport:champions-league"],
+    "special:uefa-champions-league": ["sport:champions-league"],
+    "major-event:uefa-champions-league-2026-27": ["sport:champions-league"],
+    "major-event:uefa-champions-league-2026-27:qualification": ["sport:champions-league"],
+    "major-event:uefa-champions-league-2026-27:league-phase": ["sport:champions-league"],
+    "major-event:uefa-champions-league-2026-27:knockout": ["sport:champions-league"],
+    "competition:uefa-champions-league": ["sport:champions-league"],
+    "competition:uefa-champions-league:2026-27": ["sport:champions-league"],
+    "uefa-champions-league": ["sport:champions-league"],
+    "afl-finals": ["sport:afl"],
+    "special:afl-finals": ["sport:afl"],
+    "major-event:afl-finals-series-2026": ["sport:afl"],
+    "nrl-finals": ["sport:nrl"],
+    "special:nrl-finals": ["sport:nrl"],
+    "major-event:nrl-finals-series-2026": ["sport:nrl"],
     wsl: ["sport:surf"],
     surf: ["sport:surf"],
     ski: ["sport:alpine"],

@@ -14,6 +14,8 @@ const feed = require("../data/events.json");
 const canonicalAflNrl = require("../data/canonical/afl-nrl-2026.json");
 const canonicalAmericanFootball = require("../data/canonical/american-football-directory.v1.json");
 const canonicalIceHockey = require("../data/canonical/ice-hockey-directory.v1.json");
+const canonicalChampionsLeague = require("../data/canonical/uefa-champions-league-2026-27.json");
+const canonicalFinals = require("../data/canonical/afl-nrl-finals-2026.json");
 const majorEvents = require("../data/major-events.v1.json");
 const canonicalParticipantNames = new Map((canonicalAflNrl.participants || []).map(participant => [
   participant.id,
@@ -23,6 +25,9 @@ for (const participant of [...(canonicalAmericanFootball.teams || []), ...(canon
   canonicalParticipantNames.set(participant.id, participant.displayName || participant.shortName || null);
 }
 for (const participant of nationalTeamIdentities.participants){
+  canonicalParticipantNames.set(participant.id, participant.displayName);
+}
+for (const participant of canonicalChampionsLeague.participants || []){
   canonicalParticipantNames.set(participant.id, participant.displayName);
 }
 
@@ -35,6 +40,7 @@ const CODE_KEYS = Object.freeze({
   "sport:rugby-union": ["rugby", "rugby-union"],
   "sport:tennis": ["tennis", "wimbledon"],
   "sport:football": ["football", "soccer", "fifa", "premier-league"],
+  "competition:uefa-champions-league": ["champions-league", "uefa-champions-league"],
   "sport:cycling": ["cycling", "tour-de-france"],
   "sport:cricket": ["cricket"],
   "sport:basketball": ["basketball", "nba"],
@@ -46,28 +52,16 @@ const CODE_KEYS = Object.freeze({
 });
 
 const FINALS_EXPECTED_AT = Object.freeze({
-  "major-event:afl-finals-series-2026": [
-    "2026-08-24T09:00:00+10:00",
-    "2026-08-31T09:00:00+10:00",
-    "2026-08-31T09:00:00+10:00",
-    "2026-08-31T09:00:00+10:00",
-    "2026-08-31T09:00:00+10:00",
-    "2026-09-07T09:00:00+10:00",
-    "2026-09-07T09:00:00+10:00",
-    "2026-09-14T09:00:00+10:00",
-    "2026-09-14T09:00:00+10:00",
+  "major-event:afl-finals-series-2026":[
+    "2026-08-24T09:00:00+10:00", "2026-08-31T09:00:00+10:00", "2026-08-31T09:00:00+10:00",
+    "2026-08-31T09:00:00+10:00", "2026-08-31T09:00:00+10:00", "2026-09-07T09:00:00+10:00",
+    "2026-09-07T09:00:00+10:00", "2026-09-14T09:00:00+10:00", "2026-09-14T09:00:00+10:00",
     "2026-09-21T09:00:00+10:00",
   ],
-  "major-event:nrl-finals-series-2026": [
-    "2026-09-07T09:00:00+10:00",
-    "2026-09-07T09:00:00+10:00",
-    "2026-09-07T09:00:00+10:00",
-    "2026-09-07T09:00:00+10:00",
-    "2026-09-14T09:00:00+10:00",
-    "2026-09-14T09:00:00+10:00",
-    "2026-09-21T09:00:00+10:00",
-    "2026-09-21T09:00:00+10:00",
-    "2026-09-28T09:00:00+10:00",
+  "major-event:nrl-finals-series-2026":[
+    "2026-09-07T09:00:00+10:00", "2026-09-07T09:00:00+10:00", "2026-09-07T09:00:00+10:00",
+    "2026-09-07T09:00:00+10:00", "2026-09-14T09:00:00+10:00", "2026-09-14T09:00:00+10:00",
+    "2026-09-21T09:00:00+10:00", "2026-09-21T09:00:00+10:00", "2026-09-28T09:00:00+10:00",
   ],
 });
 
@@ -76,7 +70,7 @@ function stableId(event){
 }
 
 function eventMatchesCode(event, code){
-  if (event?.sportDomainId === code.id) return true;
+  if (event?.sportDomainId === code.id || event?.competitionId === code.id || event?.codeId === code.id) return true;
   const values = [event?.key, event?.sportId, event?.sportKey, event?.sport]
     .filter(Boolean)
     .map(value => String(value).toLowerCase());
@@ -133,7 +127,7 @@ function normalizeFixture(event, codeId, extra = {}){
   const sydney = sydneyPartsFromUtc(event.startTimeUtc);
   const confirmedParticipants = slots.length > 0 && slots.every(slot => slot.participantId || (slot.label && !/\b(?:winner|loser|\d+(?:st|nd|rd|th)|tbc)\b/i.test(slot.label)));
   const roundLabel = event.roundLabel || event.round || extra.roundLabel || null;
-  const stage = event.stage || extra.stage || null;
+  const stage = event.stage || event.phaseLabel || extra.stage || null;
   return {
     id: stableId(event),
     codeId,
@@ -166,18 +160,29 @@ function normalizeFixture(event, codeId, extra = {}){
   };
 }
 
-function finalsPlaceholders(code){
+function eventPhasePlaceholders(code){
   const matching = (majorEvents.events || []).filter(event => (
     event.sportKeys?.some(key => (CODE_KEYS[code.id] || []).includes(key))
     && Array.isArray(event.subEvents)
   ));
   return matching.flatMap(event => event.subEvents.map((subEvent, index) => normalizeFixture(subEvent, code.id, {
-    competitionId: event.competitionId,
-    detailsExpectedAt: FINALS_EXPECTED_AT[event.id]?.[index] || null,
-    schedulingWindow: { startsOn: event.startDate, endsOn: event.endDate, timeZone: "Australia/Sydney" },
-    roundLabel: subEvent.name?.split(" - ")[0] || `Finals fixture ${index + 1}`,
-    stage: "finals",
-    sourceCoverage: "official-milestone-placeholder",
+    competitionId:event.competitionId,
+    schedulingWindow:{ startsOn:event.startDate, endsOn:event.endDate, timeZone:"Australia/Sydney" },
+    roundLabel:subEvent.name?.split(" - ")[0] || `${event.phaseLabel || "Event"} fixture ${index + 1}`,
+    stage:"finals",
+    sourceCoverage:"official-milestone-placeholder",
+  })));
+}
+
+function codePhasePlaceholders(code){
+  const phases = (canonicalFinals.phases || []).filter(phase => phase.codeId === code.id);
+  return phases.flatMap(phase => (phase.fixtures || []).map((fixture, index) => normalizeFixture(fixture, code.id, {
+    competitionId:phase.competitionId,
+    detailsExpectedAt:FINALS_EXPECTED_AT[phase.legacyEventId]?.[index] || null,
+    schedulingWindow:{ startsOn:phase.startDate, endsOn:phase.endDate, timeZone:"Australia/Sydney" },
+    roundLabel:fixture.name?.split(" - ")[0] || `Finals fixture ${index + 1}`,
+    stage:"finals",
+    sourceCoverage:"official-milestone-placeholder",
   })));
 }
 
@@ -209,10 +214,12 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
 }
 
 function codeFixtures(code){
-  const placeholders = finalsPlaceholders(code);
+  const placeholders = [...eventPhasePlaceholders(code), ...codePhasePlaceholders(code)];
   const published = feed.events.filter(event => eventMatchesCode(event, code));
   const canonical = ["sport:afl", "sport:nrl"].includes(code.id)
     ? canonicalAflNrl.events.filter(event => event.sportDomainId === code.id)
+    : code.id === "competition:uefa-champions-league"
+      ? canonicalChampionsLeague.phases.flatMap(phase => phase.fixtures || [])
     : code.id === "sport:american-football"
       ? canonicalAmericanFootball.fixtures || []
       : code.id === "sport:ice-hockey"
@@ -232,6 +239,8 @@ function codeStandings(code){
     ? canonicalAmericanFootball.standings || []
     : code.id === "sport:ice-hockey"
       ? canonicalIceHockey.standings || []
+      : code.id === "competition:uefa-champions-league"
+        ? canonicalChampionsLeague.standings || []
       : [];
   return source.map((entry, index) => ({
     ...entry,
@@ -243,18 +252,23 @@ function codeStandings(code){
 
 function build(){
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  const codes = taxonomy.sportDomains.filter(code => code.isActive !== false).map(code => {
+  const championsLeagueCode = taxonomy.competitions.find(competition => competition.id === "competition:uefa-champions-league");
+  if (!championsLeagueCode) throw new Error("The canonical Champions League Code is missing from the taxonomy.");
+  const codeDefinitions = [...taxonomy.sportDomains.filter(code => code.isActive !== false), championsLeagueCode];
+  const codes = codeDefinitions.map(code => {
     const fixtures = codeFixtures(code);
     const fileName = `${code.slug}.json`;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
       : ["sport:afl", "sport:nrl", "sport:american-football", "sport:ice-hockey"].includes(code.id) ? "complete" : "partial";
+    const freshAt = code.id === "competition:uefa-champions-league" ? canonicalChampionsLeague.generatedAt : feed.publishedAt || null;
+    const parentSportId = code.id === "competition:uefa-champions-league" ? code.sportDomainId : null;
     fs.writeFileSync(path.join(OUTPUT_DIR, fileName), `${JSON.stringify({
       schemaVersion: "code-inspector-chunk.v1",
-      code: { id: code.id, slug: code.slug, name: code.name },
+      code: { id: code.id, slug: code.slug, name: code.name, ...(parentSportId ? { parentSportId } : {}) },
       coverageStatus,
       groupingMode: groupingMode(fixtures),
-      freshAt: feed.publishedAt || null,
+      freshAt,
       fixtures,
       standings:codeStandings(code),
     })}\n`);
@@ -265,7 +279,8 @@ function build(){
       fixtureCount: fixtures.length,
       groupingMode: groupingMode(fixtures),
       coverageStatus,
-      freshAt: feed.publishedAt || null,
+      freshAt,
+      ...(parentSportId ? { parentSportId } : {}),
       chunkPath: `data/code-inspector/${fileName}`,
     };
   });

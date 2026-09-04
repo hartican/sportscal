@@ -51,7 +51,10 @@ assert(manifest.codes.every(code => (
 
 const taxonomy = require("../config/canonical-sports-taxonomy");
 const { mergeFixtureRecords } = require("./build-code-inspector");
-const canonicalCodes = taxonomy.sportDomains.filter(code => code.isActive !== false);
+const canonicalCodes = [
+  ...taxonomy.sportDomains.filter(code => code.isActive !== false),
+  taxonomy.competitions.find(code => code.id === "competition:uefa-champions-league"),
+].filter(Boolean);
 assert.deepEqual(
   new Set(manifest.codes.map(code => code.id)),
   new Set(canonicalCodes.map(code => code.id)),

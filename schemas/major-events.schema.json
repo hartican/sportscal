@@ -4,9 +4,10 @@
   "title": "nothingsport major events catalogue",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "publishedAt", "events"],
+  "required": ["schemaVersion", "classificationVersion", "publishedAt", "events"],
   "properties": {
     "schemaVersion": { "const": "major-events.v1" },
+    "classificationVersion": { "const": "competition-classification.v1" },
     "publishedAt": { "type": "string", "format": "date-time" },
     "events": {
       "type": "array",
