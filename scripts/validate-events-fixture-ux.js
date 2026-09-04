@@ -35,6 +35,7 @@ assert(html.includes('navigationRow.className = "major-event-navigation-row"') &
 assert(html.includes('.matchup-team-logo-slot{ width:74px; height:70px;') && html.includes('width:min(100%, 88px);') && html.includes('height:90px;'), "fixture matchups must use the approximately 35 percent smaller logo frames");
 assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
 const eventCardSource = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
+assert(eventCardSource.includes('displayLabel:displayTitle'), "regular fixture traffic controls must receive the renderer's spoiler-safe display title");
 assert(!eventCardSource.includes("buildNothingscoreSummary") && !eventCardSource.includes("buildNothingscorePanel"), "Feed cards must not fetch or render public Nothingscore aggregates");
 assert(!eventCardSource.includes("follow-reason-tag") && !eventCardSource.includes("new-tag") && !eventCardSource.includes("event-meta-row") && !eventCardSource.includes("Independent context"), "Feed cards must omit meta labels and duplicate metadata rails");
 assert(eventCardSource.includes("buildEventNothingscoreAction(ev)") && eventCardSource.indexOf("buildEventWhyItMatters(ev)") < eventCardSource.indexOf("buildEventNothingscoreAction(ev)"), "the lifecycle-specific contribution button must sit immediately below Why it matters");
