@@ -87,7 +87,7 @@ function teamNarrative(event, context, reference){
   const spoilerSynopsis = result
     ? `${result} The current table now has ${home.name} ${ordinal(home.rank)} on ${home.ladderPoints} points and ${away.name} ${ordinal(away.rank)} on ${away.ladderPoints}, keeping the result connected to the wider ${competitionName} path.`
     : undefined;
-  return { ladder, source, sourceId, competitionName, teams, teamFacts, safeHook:fit(safeHook, 180), safeSynopsis:fit(safeSynopsis, 700), spoilerSynopsis:spoilerSynopsis ? fit(spoilerSynopsis, 700) : undefined, reference };
+  return { ladder, source, sourceId, competitionName, teams, teamFacts, consequence, safeHook:fit(safeHook, 180), safeSynopsis:fit(safeSynopsis, 700), spoilerSynopsis:spoilerSynopsis ? fit(spoilerSynopsis, 700) : undefined, reference };
 }
 function f1Narrative(event, context, reference){
   if (event.key !== "f1") return null;
@@ -150,13 +150,27 @@ function build({ knowledge, feed, context, f1, reference }){
   ));
   const targets = feed.events.filter(event => {
     const start = eventTime(event);
-    return stakesFor(event) >= 2 && Number.isFinite(start) && start >= earliest && start <= latest;
+    const unresolvedUnverified = event?.editorialPreview?.status === "research-required" && event?.sourceTrust !== "verified";
+    return !unresolvedUnverified && stakesFor(event) >= 2 && Number.isFinite(start) && start >= earliest && start <= latest;
   });
   const unsupported = [];
   let generated = 0;
   targets.forEach(event => {
     const existing = projectionForTarget(knowledge, "feed-event", event);
     if (existing && !existing.id.startsWith("projection:rolling:")) return;
+    if (existing && existing.id.startsWith("projection:rolling:")){
+      const requirement = { 2:[1, 1, 1], 3:[2, 1, 1], 4:[3, 2, 2], 5:[4, 3, 3] }[stakesFor(event)];
+      const factIndex = new Map((knowledge.narrativeFacts || []).map(fact => [fact.id, fact]));
+      const dimensions = new Set((existing.factIds || []).map(id => factIndex.get(id)?.dimension).filter(Boolean));
+      if (requirement
+        && Number(existing.stakes) >= stakesFor(event)
+        && (existing.factIds || []).length >= requirement[0]
+        && (existing.sourceIds || []).length >= requirement[1]
+        && dimensions.size >= requirement[2]){
+        delete existing.consequence;
+        return;
+      }
+    }
     const team = teamNarrative(event, context, reference);
     const motor = team ? null : f1Narrative(event, f1, reference);
     const bracket = team || motor ? null : bracketNarrative(event, reference);
@@ -178,6 +192,8 @@ function build({ knowledge, feed, context, f1, reference }){
     let synopsisSpoilerOn;
     if (team){
       upsert(knowledge.sources, { id:team.sourceId, name:`${team.source.provider} current ${team.competitionName} table`, url:team.source.sourceUrl, sourceType:team.source.sourceType === "reputable" ? "reputable" : "official", checkedAt:team.source.checkedAt });
+      const eventSourceId = `source:rolling:${slug(idFor(event))}:fixture`;
+      upsert(knowledge.sources, { id:eventSourceId, name:`${team.competitionName} fixture record for ${event.name}`, url:event.canonicalSourceUrl || event.sourceUrl, sourceType:"official", checkedAt:event.canonicalSourceCheckedAt || event.sourceCheckedAt || reference.toISOString() });
       team.teams.forEach((entry, index) => {
         const subjectId = `subject:rolling:${slug(entry.id)}`;
         const threadId = `thread:rolling:${slug(entry.id)}`;
@@ -185,9 +201,40 @@ function build({ knowledge, feed, context, f1, reference }){
         upsert(knowledge.narrativeFacts, team.teamFacts[index]);
         upsert(knowledge.narrativeThreads, { id:threadId, subjectIds:[subjectId], title:`${entry.name} — current ${team.competitionName} path`, summary:`${entry.name}'s position is carried from fixture to fixture so each card can explain how the next opponent changes the club's current ${team.competitionName} path, instead of repeating schedule or venue information.`, factIds:[team.teamFacts[index].id], status:"active", updatedAt:team.ladder.snapshotTimeUtc });
       });
+      const consequenceFact = {
+        id:`fact:rolling:${slug(idFor(event))}:consequence`,
+        subjectIds:team.teams.map(entry => `subject:rolling:${slug(entry.id)}`),
+        statement:`${event.name} is ${team.consequence}, according to the official ${team.competitionName} fixture and finals path.`,
+        dimension:"consequence",
+        sourceIds:[eventSourceId],
+        observedAt:event.canonicalSourceCheckedAt || event.sourceCheckedAt || reference.toISOString(),
+        expiresAt:null,
+      };
+      upsert(knowledge.narrativeFacts, consequenceFact);
       threadIds = team.teams.map(entry => `thread:rolling:${slug(entry.id)}`);
-      factIds = team.teamFacts.map(fact => fact.id);
-      sourceIds = [team.sourceId];
+      factIds = [...team.teamFacts.map(fact => fact.id), consequenceFact.id];
+      sourceIds = [team.sourceId, eventSourceId];
+      if (stakesFor(event) >= 5){
+        const rulesSourceId = `source:rolling:${slug(event.competitionId)}:finals-format`;
+        const rulesUrl = event.competitionId?.includes("nrl")
+          ? "https://www.nrl.com/operations/the-game/structure-of-the-nrl/"
+          : "https://www.afl.com.au/news/1597385/finals-fixture-ticket-details-schedule-confirmed-for-week-two-of-the-2026-finals-series/";
+        upsert(knowledge.sources, { id:rulesSourceId, name:`${team.competitionName} finals format`, url:rulesUrl, sourceType:"official", checkedAt:event.canonicalSourceCheckedAt || event.sourceCheckedAt || reference.toISOString() });
+        const pathFact = {
+          id:`fact:rolling:${slug(idFor(event))}:finals-path`,
+          subjectIds:team.teams.map(entry => `subject:rolling:${slug(entry.id)}`),
+          statement:/grand final/i.test(event.roundLabel || event.name || "")
+            ? `${event.name} is the single championship decider at the end of the ${team.competitionName} finals path.`
+            : `${event.name} sits on the last elimination path into the ${team.competitionName} championship decider.`,
+          dimension:"path",
+          sourceIds:[rulesSourceId],
+          observedAt:event.canonicalSourceCheckedAt || event.sourceCheckedAt || reference.toISOString(),
+          expiresAt:null,
+        };
+        upsert(knowledge.narrativeFacts, pathFact);
+        factIds.push(pathFact.id);
+        sourceIds.push(rulesSourceId);
+      }
       hook = team.safeHook;
       synopsis = team.safeSynopsis;
       synopsisSpoilerOn = team.spoilerSynopsis;

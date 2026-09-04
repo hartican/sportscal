@@ -1,19 +1,19 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-01T05:03:48.797Z",
+  "generatedAt": "2026-09-04T07:51:46.199Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 2,
-    "passed": 2,
+    "due": 13,
+    "passed": 13,
     "failed": 0
   },
   "cards": [
     {
-      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-01",
+      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-04",
       "name": "US Open — Grand Slam",
       "sport": "Tennis",
-      "date": "2026-09-01",
+      "date": "2026-09-04",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
@@ -24,6 +24,159 @@
         "narrative:history"
       ],
       "sourceUrl": "https://www.usopen.org/en_US/about/eventschedule.html",
+      "issues": []
+    },
+    {
+      "id": "event-nrl-129992702",
+      "name": "Titans v Dolphins",
+      "sport": "NRL",
+      "date": "2026-09-04",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.nrl.com/ladder",
+      "issues": []
+    },
+    {
+      "id": "event-afl-cd_m20260142603",
+      "name": "Geelong Cats v Carlton",
+      "sport": "AFL",
+      "date": "2026-09-04",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:path",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.afl.com.au/ladder",
+      "issues": []
+    },
+    {
+      "id": "event-nrl-129992703",
+      "name": "Rabbitohs v Roosters",
+      "sport": "NRL",
+      "date": "2026-09-04",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.nrl.com/ladder",
+      "issues": []
+    },
+    {
+      "id": "event-nrl-129992704",
+      "name": "Warriors v Sea Eagles",
+      "sport": "NRL",
+      "date": "2026-09-05",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.nrl.com/ladder",
+      "issues": []
+    },
+    {
+      "id": "event-afl-cd_m20260142602",
+      "name": "Sydney Swans v Brisbane Lions",
+      "sport": "AFL",
+      "date": "2026-09-05",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:path",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.afl.com.au/ladder",
+      "issues": []
+    },
+    {
+      "id": "event-nrl-129992705",
+      "name": "Cowboys v Raiders",
+      "sport": "NRL",
+      "date": "2026-09-05",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.nrl.com/ladder",
+      "issues": []
+    },
+    {
+      "id": "event-nrl-129992706",
+      "name": "Sharks v Storm",
+      "sport": "NRL",
+      "date": "2026-09-05",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.nrl.com/ladder",
+      "issues": []
+    },
+    {
+      "id": "event-afl-cd_m20260142604",
+      "name": "Adelaide Crows v Western Bulldogs",
+      "sport": "AFL",
+      "date": "2026-09-05",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:path",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.afl.com.au/ladder",
+      "issues": []
+    },
+    {
+      "id": "event-nrl-129992707",
+      "name": "Dragons v Eels",
+      "sport": "NRL",
+      "date": "2026-09-06",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.nrl.com/ladder",
+      "issues": []
+    },
+    {
+      "id": "event-nrl-129992708",
+      "name": "Panthers v Wests Tigers",
+      "sport": "NRL",
+      "date": "2026-09-06",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.nrl.com/ladder",
       "issues": []
     },
     {
@@ -40,6 +193,22 @@
         "narrative:path"
       ],
       "sourceUrl": "https://www.formula1.com/en/racing/2026/italy",
+      "issues": []
+    },
+    {
+      "id": "evt_81",
+      "name": "NRL Finals Week 1",
+      "sport": "NRL",
+      "date": "2026-09-12",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:history"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
       "issues": []
     }
   ]

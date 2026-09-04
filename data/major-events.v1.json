@@ -36212,7 +36212,7 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142501",
-            "researchTier": "standard",
+            "researchTier": "featured",
             "hook": "Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season; the advancing side remains concealed here.",
             "synopsis": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
             "hookSpoilerOn": "Carlton defeated Melbourne 74-55. Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season.",
@@ -36222,7 +36222,8 @@
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142501:1",
-              "fact:depth:afl:event-afl-cd-m20260142501:2"
+              "fact:depth:afl:event-afl-cd-m20260142501:2",
+              "fact:depth:afl:event-afl-cd-m20260142501:3"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
@@ -36232,9 +36233,10 @@
             ],
             "dimensions": [
               "form",
-              "history"
+              "history",
+              "consequence"
             ],
-            "researchedAt": "2026-09-01T05:03:42.280Z",
+            "researchedAt": "2026-09-04T07:51:40.028Z",
             "refreshAfter": null,
             "generationMode": "researched"
           },
@@ -36245,7 +36247,10 @@
             "synopsisSpoilerOff": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
             "synopsisSpoilerOn": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "wildcard-final",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 4
         },
         {
           "id": "event:afl:cd_m20260142502",
@@ -36319,7 +36324,7 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142502",
-            "researchTier": "standard",
+            "researchTier": "featured",
             "hook": "The first AFL wildcard final came down to one kick after the siren; the survivor is hidden until spoilers are enabled.",
             "synopsis": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
             "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. The first AFL wildcard final came down to one kick after the siren.",
@@ -36329,7 +36334,8 @@
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142502:1",
-              "fact:depth:afl:event-afl-cd-m20260142502:2"
+              "fact:depth:afl:event-afl-cd-m20260142502:2",
+              "fact:depth:afl:event-afl-cd-m20260142502:3"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
@@ -36339,9 +36345,10 @@
             ],
             "dimensions": [
               "form",
-              "history"
+              "history",
+              "consequence"
             ],
-            "researchedAt": "2026-09-01T05:03:42.280Z",
+            "researchedAt": "2026-09-04T07:51:40.028Z",
             "refreshAfter": null,
             "generationMode": "researched"
           },
@@ -36352,7 +36359,10 @@
             "synopsisSpoilerOff": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
             "synopsisSpoilerOn": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "wildcard-final",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 4
         },
         {
           "id": "event:afl:cd_m20260142601",
@@ -36426,15 +36436,18 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142601",
-            "researchTier": "standard",
+            "researchTier": "featured",
             "hook": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
-            "synopsis": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrives after its final-round result secured the last top-four place, so this is a contest between season-long control and a late seeding surge, with the winner advancing directly to a home preliminary final.",
+            "synopsis": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
+            "hookSpoilerOn": "Hawthorn defeated Fremantle 72-40. Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day.",
+            "synopsisSpoilerOn": "Hawthorn defeated Fremantle 72-40. Fremantle v Hawthorn finished 40-72 in Qualifying & Elimination Finals, with Hawthorn winning by 32 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142601:1",
-              "fact:depth:afl:event-afl-cd-m20260142601:2"
+              "fact:depth:afl:event-afl-cd-m20260142601:2",
+              "fact:depth:afl:event-afl-cd-m20260142601:3"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
@@ -36444,20 +36457,24 @@
             ],
             "dimensions": [
               "form",
-              "path"
+              "path",
+              "consequence"
             ],
-            "researchedAt": "2026-09-01T05:03:42.280Z",
-            "refreshAfter": "2026-09-03T10:10:00.000Z",
+            "researchedAt": "2026-09-04T07:51:40.028Z",
+            "refreshAfter": null,
             "generationMode": "researched"
           },
           "storyline": {
             "stakes": 5,
             "hookSpoilerOff": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
             "hookSpoilerOn": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
-            "synopsisSpoilerOff": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrives after its final-round result secured the last top-four place, so this is a contest between season-long control and a late seeding surge, with the winner advancing directly to a home preliminary final.",
-            "synopsisSpoilerOn": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrives after its final-round result secured the last top-four place, so this is a contest between season-long control and a late seeding surge, with the winner advancing directly to a home preliminary final.",
+            "synopsisSpoilerOff": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
+            "synopsisSpoilerOn": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "finals-week-1",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 4
         },
         {
           "id": "event:afl:cd_m20260142602",
@@ -36531,7 +36548,7 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142602",
-            "researchTier": "standard",
+            "researchTier": "featured",
             "hook": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
             "synopsis": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
             "threadIds": [
@@ -36539,7 +36556,8 @@
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142602:1",
-              "fact:depth:afl:event-afl-cd-m20260142602:2"
+              "fact:depth:afl:event-afl-cd-m20260142602:2",
+              "fact:depth:afl:event-afl-cd-m20260142602:3"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
@@ -36549,9 +36567,10 @@
             ],
             "dimensions": [
               "form",
-              "path"
+              "path",
+              "consequence"
             ],
-            "researchedAt": "2026-09-01T05:03:42.280Z",
+            "researchedAt": "2026-09-04T07:51:40.028Z",
             "refreshAfter": "2026-09-05T05:15:00.000Z",
             "generationMode": "researched"
           },
@@ -36562,7 +36581,10 @@
             "synopsisSpoilerOff": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
             "synopsisSpoilerOn": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "finals-week-1",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 4
         },
         {
           "id": "event:afl:cd_m20260142603",
@@ -36636,7 +36658,7 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142603",
-            "researchTier": "standard",
+            "researchTier": "featured",
             "hook": "Carlton's 1–8 rescue has one life left against a Geelong side that closed the season with six straight wins.",
             "synopsis": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
             "threadIds": [
@@ -36644,7 +36666,8 @@
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142603:1",
-              "fact:depth:afl:event-afl-cd-m20260142603:2"
+              "fact:depth:afl:event-afl-cd-m20260142603:2",
+              "fact:depth:afl:event-afl-cd-m20260142603:3"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
@@ -36654,9 +36677,10 @@
             ],
             "dimensions": [
               "form",
-              "path"
+              "path",
+              "consequence"
             ],
-            "researchedAt": "2026-09-01T05:03:42.280Z",
+            "researchedAt": "2026-09-04T07:51:40.028Z",
             "refreshAfter": "2026-09-04T09:40:00.000Z",
             "generationMode": "researched"
           },
@@ -36667,7 +36691,10 @@
             "synopsisSpoilerOff": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
             "synopsisSpoilerOn": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "finals-week-1",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 4
         },
         {
           "id": "event:afl:cd_m20260142604",
@@ -36741,7 +36768,7 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142604",
-            "researchTier": "standard",
+            "researchTier": "featured",
             "hook": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
             "synopsis": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
             "threadIds": [
@@ -36749,7 +36776,8 @@
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142604:1",
-              "fact:depth:afl:event-afl-cd-m20260142604:2"
+              "fact:depth:afl:event-afl-cd-m20260142604:2",
+              "fact:depth:afl:event-afl-cd-m20260142604:3"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
@@ -36759,9 +36787,10 @@
             ],
             "dimensions": [
               "form",
+              "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-01T05:03:42.280Z",
+            "researchedAt": "2026-09-04T07:51:40.028Z",
             "refreshAfter": "2026-09-05T09:35:00.000Z",
             "generationMode": "researched"
           },
@@ -36772,7 +36801,10 @@
             "synopsisSpoilerOff": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
             "synopsisSpoilerOn": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "finals-week-1",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 4
         },
         {
           "id": "event:afl:cd_m20260142701",
@@ -36784,14 +36816,14 @@
           "stakesScore": 5,
           "summary": "First Semi Final. Teams, venue and time are pending first-week results.",
           "participantIds": [
-            "team:afl:cd_t3014",
+            "team:afl:cd_t60",
             "team:afl:cd_t3016"
           ],
           "participants": [
             {
-              "id": "team:afl:cd_t3014",
-              "participantId": "team:afl:cd_t3014",
-              "name": "Loser of QF1"
+              "id": "team:afl:cd_t60",
+              "participantId": "team:afl:cd_t60",
+              "name": "Fremantle"
             },
             {
               "id": "team:afl:cd_t3016",
@@ -36886,7 +36918,10 @@
             "synopsisSpoilerOff": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
             "synopsisSpoilerOn": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "semi-final",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 4
         },
         {
           "id": "event:afl:cd_m20260142702",
@@ -37000,7 +37035,10 @@
             "synopsisSpoilerOff": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
             "synopsisSpoilerOn": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "semi-final",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 4
         },
         {
           "id": "event:afl:cd_m20260142801",
@@ -37012,14 +37050,14 @@
           "stakesScore": 5,
           "summary": "First Preliminary Final. Teams, venue and time are pending the Semi Finals.",
           "participantIds": [
-            "team:afl:cd_t3012",
+            "team:afl:cd_t80",
             "team:afl:cd_t3019"
           ],
           "participants": [
             {
-              "id": "team:afl:cd_t3012",
-              "participantId": "team:afl:cd_t3012",
-              "name": "Winner of QF1"
+              "id": "team:afl:cd_t80",
+              "participantId": "team:afl:cd_t80",
+              "name": "Hawthorn"
             },
             {
               "id": "team:afl:cd_t3019",
@@ -37114,7 +37152,10 @@
             "synopsisSpoilerOff": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
             "synopsisSpoilerOn": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "preliminary-final",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 5
         },
         {
           "id": "event:afl:cd_m20260142802",
@@ -37228,7 +37269,10 @@
             "synopsisSpoilerOff": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
             "synopsisSpoilerOn": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "preliminary-final",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 5
         },
         {
           "id": "event:afl:cd_m20260142901",
@@ -37278,7 +37322,7 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142901",
-            "researchTier": "standard",
+            "researchTier": "marquee",
             "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
             "synopsis": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
             "threadIds": [
@@ -37286,7 +37330,9 @@
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142901:1",
-              "fact:depth:afl:event-afl-cd-m20260142901:2"
+              "fact:depth:afl:event-afl-cd-m20260142901:2",
+              "fact:depth:afl:event-afl-cd-m20260142901:3",
+              "fact:depth:afl:event-afl-cd-m20260142901:4"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
@@ -37296,9 +37342,11 @@
             ],
             "dimensions": [
               "history",
-              "path"
+              "path",
+              "consequence",
+              "venue"
             ],
-            "researchedAt": "2026-09-01T05:03:42.280Z",
+            "researchedAt": "2026-09-04T07:51:40.028Z",
             "refreshAfter": "2026-09-26T04:30:00.000Z",
             "generationMode": "researched"
           },
@@ -37309,7 +37357,10 @@
             "synopsisSpoilerOff": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
             "synopsisSpoilerOn": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
             "arcStage": "preview"
-          }
+          },
+          "competitionPhase": "grand-final",
+          "isFinalRegularSeasonRound": false,
+          "stakesFloor": 5
         }
       ],
       "sources": [
@@ -39140,7 +39191,11 @@
         "researchedAt": "2026-08-29T19:30:00.000Z",
         "refreshAfter": null,
         "generationMode": "researched"
-      }
+      },
+      "lifecycleStatus": "retired",
+      "retiredReason": "Outside the Major Events retention window.",
+      "retiredAt": "2026-09-04T07:23:58.635Z",
+      "retiredDeepLinkBehaviour": "safe-tombstone"
     },
     {
       "id": "major-event:uefa-champions-league-2026-27:league-phase",

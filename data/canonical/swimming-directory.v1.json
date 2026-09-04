@@ -1,7 +1,7 @@
 {
   "schemaVersion": "individual-sport-directory.v1",
   "sportKey": "swimming",
-  "generatedAt": "2026-09-01T02:10:53.8654359Z",
+  "generatedAt": "2026-09-04T07:16:03.606603Z",
   "source": {
     "publisher": "World Aquatics",
     "url": "https://www.worldaquatics.com/swimming/rankings",
@@ -113,7 +113,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 2,
+          "rank": 3,
           "aquaPoints": 1001,
           "time": "51.69",
           "resultDate": "2026-08-14T00:00:00",
@@ -158,6 +158,41 @@
       ],
       "bestAquaPoints": 1055,
       "ranking": 1,
+      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
+    },
+    {
+      "id": "athlete:swimming:7ad0ac30-e60f-4a78-a5c8-ceb1dddab0e9",
+      "displayName": "Valentina Bianchi",
+      "aliases": [
+        "BIANCHI Valentina"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "genderCategory": "female",
+      "countryCode": "CLB",
+      "countryBasis": "official-world-aquatics-ranking",
+      "identityId": "athlete:swimming:7ad0ac30-e60f-4a78-a5c8-ceb1dddab0e9",
+      "leagueId": "competition:world-aquatics-swimming",
+      "sourceRefs": [
+        "https://www.worldaquatics.com/swimming/rankings",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
+      ],
+      "eventRanks": [
+        {
+          "disciplineId": "873a81be-6b94-4cfc-85c4-ab7ddb0898cf",
+          "disciplineName": "Women's 100m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 100,
+          "poolConfiguration": "LCM",
+          "rank": 1,
+          "aquaPoints": 1031,
+          "time": "51.18",
+          "resultDate": "2026-04-26T00:00:00",
+          "eventName": "2026 Campeonato Apertura Juveniles 3 De Febrero (50m)"
+        }
+      ],
+      "bestAquaPoints": 1031,
+      "ranking": 2,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -211,7 +246,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 7,
+          "rank": 8,
           "aquaPoints": 951,
           "time": "52.57",
           "resultDate": "2026-08-13T00:00:00",
@@ -231,7 +266,7 @@
         }
       ],
       "bestAquaPoints": 1014,
-      "ranking": 2,
+      "ranking": 3,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -338,7 +373,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 117,
+          "rank": 118,
           "aquaPoints": 835,
           "time": "54.91",
           "resultDate": "2026-01-17T00:00:00",
@@ -362,7 +397,7 @@
           "stroke": "BREASTSTROKE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 119,
+          "rank": 121,
           "aquaPoints": 772,
           "time": "2:29.92",
           "resultDate": "2026-05-02T00:00:00",
@@ -370,7 +405,7 @@
         }
       ],
       "bestAquaPoints": 1003,
-      "ranking": 3,
+      "ranking": 4,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -401,7 +436,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 1,
+          "rank": 2,
           "aquaPoints": 1001,
           "time": "51.68",
           "resultDate": "2026-06-27T00:00:00",
@@ -457,7 +492,7 @@
         }
       ],
       "bestAquaPoints": 1001,
-      "ranking": 4,
+      "ranking": 5,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -531,7 +566,7 @@
         }
       ],
       "bestAquaPoints": 991,
-      "ranking": 5,
+      "ranking": 6,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -562,7 +597,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 3,
+          "rank": 4,
           "aquaPoints": 990,
           "time": "51.88",
           "resultDate": "2026-07-28T00:00:00",
@@ -598,7 +633,7 @@
           "stroke": "MEDLEY",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 108,
+          "rank": 109,
           "aquaPoints": 807,
           "time": "2:14.97",
           "resultDate": "2026-06-17T00:00:00",
@@ -618,7 +653,7 @@
         }
       ],
       "bestAquaPoints": 990,
-      "ranking": 6,
+      "ranking": 7,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -697,7 +732,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 72,
+          "rank": 73,
           "aquaPoints": 856,
           "time": "54.44",
           "resultDate": "2026-06-12T00:00:00",
@@ -705,7 +740,7 @@
         }
       ],
       "bestAquaPoints": 987,
-      "ranking": 7,
+      "ranking": 8,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -747,7 +782,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 4,
+          "rank": 5,
           "aquaPoints": 964,
           "time": "52.33",
           "resultDate": "2026-06-12T00:00:00",
@@ -779,7 +814,7 @@
         }
       ],
       "bestAquaPoints": 983,
-      "ranking": 8,
+      "ranking": 9,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -892,7 +927,7 @@
         }
       ],
       "bestAquaPoints": 981,
-      "ranking": 9,
+      "ranking": 10,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -953,7 +988,7 @@
         }
       ],
       "bestAquaPoints": 979,
-      "ranking": 10,
+      "ranking": 11,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1001,7 +1036,7 @@
         }
       ],
       "bestAquaPoints": 978,
-      "ranking": 11,
+      "ranking": 12,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1045,7 +1080,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 21,
+          "rank": 22,
           "aquaPoints": 906,
           "time": "53.43",
           "resultDate": "2026-06-18T00:00:00",
@@ -1101,7 +1136,7 @@
         }
       ],
       "bestAquaPoints": 973,
-      "ranking": 12,
+      "ranking": 13,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1136,7 +1171,7 @@
         }
       ],
       "bestAquaPoints": 972,
-      "ranking": 13,
+      "ranking": 14,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1171,7 +1206,7 @@
         }
       ],
       "bestAquaPoints": 971,
-      "ranking": 14,
+      "ranking": 15,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1219,7 +1254,7 @@
         }
       ],
       "bestAquaPoints": 966,
-      "ranking": 15,
+      "ranking": 16,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1260,7 +1295,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 6,
+          "rank": 7,
           "aquaPoints": 954,
           "time": "52.51",
           "resultDate": "2026-08-14T00:00:00",
@@ -1280,7 +1315,7 @@
         }
       ],
       "bestAquaPoints": 965,
-      "ranking": 16,
+      "ranking": 17,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1310,7 +1345,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 5,
+          "rank": 6,
           "aquaPoints": 963,
           "time": "52.36",
           "resultDate": "2026-05-27T00:00:00",
@@ -1346,7 +1381,7 @@
           "stroke": "BREASTSTROKE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 58,
+          "rank": 59,
           "aquaPoints": 834,
           "time": "1:08.12",
           "resultDate": "2026-03-21T00:00:00",
@@ -1354,7 +1389,7 @@
         }
       ],
       "bestAquaPoints": 963,
-      "ranking": 17,
+      "ranking": 18,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1415,7 +1450,7 @@
         }
       ],
       "bestAquaPoints": 962,
-      "ranking": 18,
+      "ranking": 19,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1469,7 +1504,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 190,
+          "rank": 193,
           "aquaPoints": 811,
           "time": "55.44",
           "resultDate": "2026-03-04T00:00:00",
@@ -1481,7 +1516,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 145,
+          "rank": 146,
           "aquaPoints": 806,
           "time": "25.36",
           "resultDate": "2026-08-01T00:00:00",
@@ -1489,7 +1524,7 @@
         }
       ],
       "bestAquaPoints": 959,
-      "ranking": 19,
+      "ranking": 20,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1542,7 +1577,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 49,
+          "rank": 50,
           "aquaPoints": 870,
           "time": "54.15",
           "resultDate": "2026-06-27T00:00:00",
@@ -1550,7 +1585,7 @@
         }
       ],
       "bestAquaPoints": 958,
-      "ranking": 20,
+      "ranking": 21,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1655,7 +1690,7 @@
           "stroke": "BREASTSTROKE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 112,
+          "rank": 115,
           "aquaPoints": 798,
           "time": "1:09.12",
           "resultDate": "2026-03-21T00:00:00",
@@ -1663,7 +1698,7 @@
         }
       ],
       "bestAquaPoints": 954,
-      "ranking": 21,
+      "ranking": 22,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1704,7 +1739,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 8,
+          "rank": 9,
           "aquaPoints": 945,
           "time": "52.69",
           "resultDate": "2026-06-27T00:00:00",
@@ -1724,7 +1759,7 @@
         }
       ],
       "bestAquaPoints": 953,
-      "ranking": 22,
+      "ranking": 23,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1764,7 +1799,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 28,
+          "rank": 29,
           "aquaPoints": 897,
           "time": "53.61",
           "resultDate": "2026-06-18T00:00:00",
@@ -1772,7 +1807,7 @@
         }
       ],
       "bestAquaPoints": 949,
-      "ranking": 23,
+      "ranking": 24,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1807,7 +1842,7 @@
         }
       ],
       "bestAquaPoints": 946,
-      "ranking": 24,
+      "ranking": 25,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1874,7 +1909,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 67,
+          "rank": 68,
           "aquaPoints": 858,
           "time": "54.40",
           "resultDate": "2026-04-30T00:00:00",
@@ -1894,7 +1929,7 @@
         }
       ],
       "bestAquaPoints": 945,
-      "ranking": 25,
+      "ranking": 26,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -1952,7 +1987,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 43,
+          "rank": 44,
           "aquaPoints": 877,
           "time": "54.02",
           "resultDate": "2026-04-14T00:00:00",
@@ -1988,7 +2023,7 @@
           "stroke": "BACKSTROKE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 105,
+          "rank": 106,
           "aquaPoints": 816,
           "time": "1:01.12",
           "resultDate": "2026-07-29T00:00:00",
@@ -2012,7 +2047,7 @@
           "stroke": "BUTTERFLY",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 168,
+          "rank": 170,
           "aquaPoints": 754,
           "time": "2:13.81",
           "resultDate": "2026-01-30T00:00:00",
@@ -2020,7 +2055,7 @@
         }
       ],
       "bestAquaPoints": 945,
-      "ranking": 26,
+      "ranking": 27,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2062,7 +2097,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 24,
+          "rank": 25,
           "aquaPoints": 901,
           "time": "53.52",
           "resultDate": "2026-08-10T00:00:00",
@@ -2094,7 +2129,7 @@
         }
       ],
       "bestAquaPoints": 944,
-      "ranking": 27,
+      "ranking": 28,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2122,7 +2157,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 9,
+          "rank": 10,
           "aquaPoints": 944,
           "time": "52.71",
           "resultDate": "2026-08-11T00:00:00",
@@ -2142,7 +2177,7 @@
         }
       ],
       "bestAquaPoints": 944,
-      "ranking": 28,
+      "ranking": 29,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2209,7 +2244,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 88,
+          "rank": 89,
           "aquaPoints": 848,
           "time": "54.61",
           "resultDate": "2026-04-14T00:00:00",
@@ -2221,7 +2256,7 @@
           "stroke": "BREASTSTROKE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 108,
+          "rank": 110,
           "aquaPoints": 801,
           "time": "1:09.05",
           "resultDate": "2026-04-16T00:00:00",
@@ -2229,55 +2264,94 @@
         }
       ],
       "bestAquaPoints": 943,
-      "ranking": 29,
+      "ranking": 30,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
-      "id": "athlete:swimming:8118ab1c-27d8-4776-9ada-7c205aa7e4d7",
-      "displayName": "Mona Mc Sharry",
+      "id": "athlete:swimming:7aa29b85-3a54-49cb-9241-31d9ad57bc86",
+      "displayName": "Mikhail Shcherbakov",
       "aliases": [
-        "MC SHARRY Mona"
+        "SHCHERBAKOV Mikhail"
       ],
       "active": true,
       "entityType": "athlete",
-      "genderCategory": "female",
-      "countryCode": "IRL",
+      "genderCategory": "male",
+      "countryCode": "RUS",
       "countryBasis": "official-world-aquatics-ranking",
-      "identityId": "athlete:swimming:8118ab1c-27d8-4776-9ada-7c205aa7e4d7",
+      "identityId": "athlete:swimming:7aa29b85-3a54-49cb-9241-31d9ad57bc86",
       "leagueId": "competition:world-aquatics-swimming",
       "sourceRefs": [
         "https://www.worldaquatics.com/swimming/rankings",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=F&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BREASTSTROKE&timesMode=BEST_TIMES&year=2026"
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=BACKSTROKE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=200&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=MEDLEY&timesMode=BEST_TIMES&year=2026"
       ],
       "eventRanks": [
         {
-          "disciplineId": "74a4e236-13d1-47a8-b538-541dc8792ae4",
-          "disciplineName": "Women's 100m Breaststroke",
-          "stroke": "BREASTSTROKE",
-          "distance": 100,
+          "disciplineId": "c8fe66f2-af1f-4f7c-82fd-96cb8d89ba53",
+          "disciplineName": "Men's 200m Medley",
+          "stroke": "MEDLEY",
+          "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 3,
-          "aquaPoints": 942,
-          "time": "1:05.41",
-          "resultDate": "2026-08-12T00:00:00",
+          "rank": 5,
+          "aquaPoints": 1027,
+          "time": "1:56.16",
+          "resultDate": "2026-08-16T00:00:00",
           "eventName": "2026 European Aquatics Championships (50m)"
         },
         {
-          "disciplineId": "7e030701-5157-47d1-b25a-ca32c41deaec",
-          "disciplineName": "Women's 200m Breaststroke",
-          "stroke": "BREASTSTROKE",
+          "disciplineId": "ade37726-a680-4ae5-9790-c749220cbc90",
+          "disciplineName": "Men's 100m Backstroke",
+          "stroke": "BACKSTROKE",
+          "distance": 100,
+          "poolConfiguration": "LCM",
+          "rank": 29,
+          "aquaPoints": 895,
+          "time": "53.54",
+          "resultDate": "2026-04-17T00:00:00",
+          "eventName": "2026 Russian National Swimming Cup (50m)"
+        },
+        {
+          "disciplineId": "f05c3f19-4db5-4462-a239-a901608212ff",
+          "disciplineName": "Men's 200m Freestyle",
+          "stroke": "FREESTYLE",
           "distance": 200,
           "poolConfiguration": "LCM",
-          "rank": 6,
-          "aquaPoints": 904,
-          "time": "2:22.22",
-          "resultDate": "2026-04-10T00:00:00",
-          "eventName": "2026 Irish Open Championships & Commonwealth Games Trials (50m)"
+          "rank": 48,
+          "aquaPoints": 881,
+          "time": "1:46.36",
+          "resultDate": "2026-08-10T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
+        },
+        {
+          "disciplineId": "de200594-8c53-4008-94af-ee7c14641fb4",
+          "disciplineName": "Men's 200m Backstroke",
+          "stroke": "BACKSTROKE",
+          "distance": 200,
+          "poolConfiguration": "LCM",
+          "rank": 64,
+          "aquaPoints": 844,
+          "time": "1:58.41",
+          "resultDate": "2026-04-19T00:00:00",
+          "eventName": "2026 Russian National Swimming Cup (50m)"
+        },
+        {
+          "disciplineId": "e6838448-4683-448c-8788-742362dca33c",
+          "disciplineName": "Men's 100m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 100,
+          "poolConfiguration": "LCM",
+          "rank": 151,
+          "aquaPoints": 840,
+          "time": "49.16",
+          "resultDate": "2026-08-13T00:00:00",
+          "eventName": "2026 European Aquatics Championships (50m)"
         }
       ],
-      "bestAquaPoints": 942,
-      "ranking": 30,
+      "bestAquaPoints": 1027,
+      "ranking": 1,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2351,7 +2425,7 @@
         }
       ],
       "bestAquaPoints": 1013,
-      "ranking": 1,
+      "ranking": 2,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2386,7 +2460,7 @@
         }
       ],
       "bestAquaPoints": 1004,
-      "ranking": 2,
+      "ranking": 3,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2440,7 +2514,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 13,
+          "rank": 11,
           "aquaPoints": 925,
           "time": "21.46",
           "resultDate": "2026-08-16T00:00:00",
@@ -2460,7 +2534,7 @@
         }
       ],
       "bestAquaPoints": 998,
-      "ranking": 3,
+      "ranking": 4,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2526,7 +2600,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 60,
+          "rank": 59,
           "aquaPoints": 853,
           "time": "22.04",
           "resultDate": "2026-04-17T00:00:00",
@@ -2534,7 +2608,7 @@
         }
       ],
       "bestAquaPoints": 993,
-      "ranking": 4,
+      "ranking": 5,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2608,7 +2682,7 @@
         }
       ],
       "bestAquaPoints": 992,
-      "ranking": 5,
+      "ranking": 6,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2661,7 +2735,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 35,
+          "rank": 33,
           "aquaPoints": 880,
           "time": "21.82",
           "resultDate": "2026-06-26T00:00:00",
@@ -2669,7 +2743,7 @@
         }
       ],
       "bestAquaPoints": 989,
-      "ranking": 6,
+      "ranking": 7,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2782,7 +2856,7 @@
         }
       ],
       "bestAquaPoints": 989,
-      "ranking": 7,
+      "ranking": 8,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2823,7 +2897,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 21,
+          "rank": 19,
           "aquaPoints": 904,
           "time": "21.62",
           "resultDate": "2026-01-14T00:00:00",
@@ -2843,7 +2917,7 @@
         }
       ],
       "bestAquaPoints": 984,
-      "ranking": 8,
+      "ranking": 9,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2891,7 +2965,7 @@
         }
       ],
       "bestAquaPoints": 978,
-      "ranking": 9,
+      "ranking": 10,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -2978,41 +3052,6 @@
         }
       ],
       "bestAquaPoints": 978,
-      "ranking": 10,
-      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
-    },
-    {
-      "id": "athlete:swimming:c0e6fcb4-ed0f-4ca4-b80c-d573d74da798",
-      "displayName": "Andrew Ruiz",
-      "aliases": [
-        "RUIZ Andrew"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "genderCategory": "male",
-      "countryCode": "CLB",
-      "countryBasis": "official-world-aquatics-ranking",
-      "identityId": "athlete:swimming:c0e6fcb4-ed0f-4ca4-b80c-d573d74da798",
-      "leagueId": "competition:world-aquatics-swimming",
-      "sourceRefs": [
-        "https://www.worldaquatics.com/swimming/rankings",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ],
-      "eventRanks": [
-        {
-          "disciplineId": "54f8e2e1-0506-47f3-bc16-14648cee1369",
-          "disciplineName": "Men's 50m Freestyle",
-          "stroke": "FREESTYLE",
-          "distance": 50,
-          "poolConfiguration": "LCM",
-          "rank": 3,
-          "aquaPoints": 977,
-          "time": "21.07",
-          "resultDate": "2026-04-10T00:00:00",
-          "eventName": "2026 Puerto Rico International Swimming Open (50m)"
-        }
-      ],
-      "bestAquaPoints": 977,
       "ranking": 11,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
@@ -3384,7 +3423,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 4,
+          "rank": 3,
           "aquaPoints": 969,
           "time": "21.13",
           "resultDate": "2026-08-16T00:00:00",
@@ -3446,7 +3485,7 @@
           "stroke": "FREESTYLE",
           "distance": 800,
           "poolConfiguration": "LCM",
-          "rank": 15,
+          "rank": 16,
           "aquaPoints": 915,
           "time": "7:45.66",
           "resultDate": "2026-04-12T00:00:00",
@@ -3811,7 +3850,7 @@
           "stroke": "FREESTYLE",
           "distance": 50,
           "poolConfiguration": "LCM",
-          "rank": 11,
+          "rank": 9,
           "aquaPoints": 927,
           "time": "21.44",
           "resultDate": "2026-07-26T00:00:00",
@@ -3820,41 +3859,6 @@
       ],
       "bestAquaPoints": 956,
       "ranking": 24,
-      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
-    },
-    {
-      "id": "athlete:swimming:31164f9e-df1a-43e7-a5f3-4ac3883d8b50",
-      "displayName": "Ian A Cordero Gracia",
-      "aliases": [
-        "CORDERO GRACIA Ian A"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "genderCategory": "male",
-      "countryCode": "PUR",
-      "countryBasis": "official-world-aquatics-ranking",
-      "identityId": "athlete:swimming:31164f9e-df1a-43e7-a5f3-4ac3883d8b50",
-      "leagueId": "competition:world-aquatics-swimming",
-      "sourceRefs": [
-        "https://www.worldaquatics.com/swimming/rankings",
-        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
-      ],
-      "eventRanks": [
-        {
-          "disciplineId": "54f8e2e1-0506-47f3-bc16-14648cee1369",
-          "disciplineName": "Men's 50m Freestyle",
-          "stroke": "FREESTYLE",
-          "distance": 50,
-          "poolConfiguration": "LCM",
-          "rank": 5,
-          "aquaPoints": 956,
-          "time": "21.22",
-          "resultDate": "2026-04-10T00:00:00",
-          "eventName": "2026 Puerto Rico International Swimming Open (50m)"
-        }
-      ],
-      "bestAquaPoints": 956,
-      "ranking": 25,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -3941,7 +3945,7 @@
         }
       ],
       "bestAquaPoints": 954,
-      "ranking": 26,
+      "ranking": 25,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -4007,7 +4011,7 @@
           "stroke": "BREASTSTROKE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 111,
+          "rank": 113,
           "aquaPoints": 817,
           "time": "1:00.82",
           "resultDate": "2026-06-28T00:00:00",
@@ -4015,7 +4019,7 @@
         }
       ],
       "bestAquaPoints": 954,
-      "ranking": 27,
+      "ranking": 26,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -4063,7 +4067,7 @@
         }
       ],
       "bestAquaPoints": 954,
-      "ranking": 28,
+      "ranking": 27,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -4111,7 +4115,7 @@
         }
       ],
       "bestAquaPoints": 953,
-      "ranking": 29,
+      "ranking": 28,
       "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
     },
     {
@@ -4169,6 +4173,54 @@
           "time": "3:47.01",
           "resultDate": "2026-07-25T00:00:00",
           "eventName": "23rd Commonwealth Games 2026 (50m)"
+        }
+      ],
+      "bestAquaPoints": 953,
+      "ranking": 29,
+      "rankingBasis": "deduplicated-maximum-AQUA-points-across-selected-Olympic-LCM-events"
+    },
+    {
+      "id": "athlete:swimming:de31bcae-096d-4c13-96b4-9b8e1e7919d7",
+      "displayName": "Jack Alexy",
+      "aliases": [
+        "ALEXY Jack"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "genderCategory": "male",
+      "countryCode": "USA",
+      "countryBasis": "official-world-aquatics-ranking",
+      "identityId": "athlete:swimming:de31bcae-096d-4c13-96b4-9b8e1e7919d7",
+      "leagueId": "competition:world-aquatics-swimming",
+      "sourceRefs": [
+        "https://www.worldaquatics.com/swimming/rankings",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=50&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026",
+        "https://api.worldaquatics.com/fina/rankings/swimming?countryId=&distance=100&endDate=&gender=M&pageSize=200&poolConfiguration=LCM&regionId=&startDate=&stroke=FREESTYLE&timesMode=BEST_TIMES&year=2026"
+      ],
+      "eventRanks": [
+        {
+          "disciplineId": "e6838448-4683-448c-8788-742362dca33c",
+          "disciplineName": "Men's 100m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 100,
+          "poolConfiguration": "LCM",
+          "rank": 5,
+          "aquaPoints": 953,
+          "time": "47.14",
+          "resultDate": "2026-08-13T00:00:00",
+          "eventName": "2026 Pan Pacific Swimming Championships (50m)"
+        },
+        {
+          "disciplineId": "54f8e2e1-0506-47f3-bc16-14648cee1369",
+          "disciplineName": "Men's 50m Freestyle",
+          "stroke": "FREESTYLE",
+          "distance": 50,
+          "poolConfiguration": "LCM",
+          "rank": 7,
+          "aquaPoints": 930,
+          "time": "21.42",
+          "resultDate": "2026-08-15T00:00:00",
+          "eventName": "2026 Pan Pacific Swimming Championships (50m)"
         }
       ],
       "bestAquaPoints": 953,

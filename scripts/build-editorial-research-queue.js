@@ -64,6 +64,9 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
           consequence:record.editorialNarrative.consequence,
         } : null)
       : projectionForTarget(knowledge, targetType, record);
+    const queuedUnverified = !projection
+      && record?.editorialPreview?.status === "research-required"
+      && record?.sourceTrust !== "verified";
     const signal = signalById.get(idFor(record));
     const anticipationPriority = Number(signal?.anticipation?.score) >= 4 && Number(signal?.anticipation?.support) >= 3;
     const pulseUrgent = signal?.pulse?.active === true;
@@ -82,7 +85,7 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
       startsAt:Number.isFinite(start) ? new Date(start).toISOString() : null,
       reason,
       projectionId:projection?.id || null,
-      coverage:projection ? "covered" : "missing",
+      coverage:projection ? "covered" : queuedUnverified ? "queued-unverified" : "missing",
       consequenceCoverage:projection?.consequence ? "covered" : "missing",
       consequenceResearchRequired:Boolean(projection && !projection.consequence),
       priority:pulseUrgent ? "urgent-post-event" : anticipationPriority ? "audience-accelerated" : stakesFor(record) === 5 ? "marquee" : "rolling",
@@ -119,7 +122,8 @@ function main(){
   if (write) writeJson(OUTPUT_PATH, queue);
   const missing = queue.entries.filter(entry => entry.coverage === "missing" && entry.targetType !== "major-event-child");
   if (missing.length) throw new Error(`Editorial release gate blocked: ${missing.length} required card(s) lack substantive projections: ${missing.map(item => item.targetId).join(", ")}`);
-  console.log(`${write ? "Built" : "Validated"} editorial queue: ${queue.entries.length} required targets, 100% projection-covered; ${queue.consequenceMigration.covered} consequence-covered and ${queue.consequenceMigration.queued} queued for sourced consequence research.`);
+  const queuedUnverified = queue.entries.filter(entry => entry.coverage === "queued-unverified").length;
+  console.log(`${write ? "Built" : "Validated"} editorial queue: ${queue.entries.length} required targets, ${queuedUnverified} unverified target(s) fail closed in research; ${queue.consequenceMigration.covered} consequence-covered and ${queue.consequenceMigration.queued} queued for sourced consequence research.`);
 }
 
 if (require.main === module){ try { main(); } catch (error){ console.error(error.message); process.exitCode = 1; } }

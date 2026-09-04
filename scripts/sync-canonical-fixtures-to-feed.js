@@ -433,7 +433,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
     sportDetailsByDomainId.has(event.sportDomainId)
     && event.status === "scheduled"
     && event.startTimeUtc
-    && Date.parse(event.startTimeUtc) + COMPLETED_RETENTION_MS >= basisTime
+    && Date.parse(event.startTimeUtc) + DEFAULT_LIVE_WINDOW_MS >= basisTime
   );
   const completedFixtures = canonicalBundle.events.filter(event =>
     sportDetailsByDomainId.has(event.sportDomainId)

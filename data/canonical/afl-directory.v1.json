@@ -1,21 +1,21 @@
 {
   "schemaVersion": "afl-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-09-01T05:03:09.741Z",
+  "generatedAt": "2026-09-04T07:51:16.186Z",
   "sources": [
     {
       "id": "source:afl:teams",
       "provider": "AFL",
       "url": "https://www.afl.com.au/teams",
       "sourceType": "official",
-      "checkedAt": "2026-09-01T05:03:09.741Z"
+      "checkedAt": "2026-09-04T07:51:16.186Z"
     },
     {
       "id": "source:afl:players",
       "provider": "AFL",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-09-01T05:03:09.741Z"
+      "checkedAt": "2026-09-04T07:51:16.186Z"
     }
   ],
   "leagues": [
@@ -895,7 +895,7 @@
       "sortName": "Bailey Williams",
       "currentTeamId": "team:afl:cd_t140",
       "leagueId": "competition:afl-premiership-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/players/969/bailey-williams",
       "sourceRefs": [
         "source:afl:players",
@@ -4773,7 +4773,7 @@
       "sortName": "Jake Lloyd",
       "currentTeamId": "team:afl:cd_t160",
       "leagueId": "competition:afl-premiership-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/players/844/jake-lloyd",
       "sourceRefs": [
         "source:afl:players",
@@ -9477,7 +9477,7 @@
       "sortName": "Rory Lobb",
       "currentTeamId": "team:afl:cd_t140",
       "leagueId": "competition:afl-premiership-2026",
-      "position": "Key Defender",
+      "position": "Ruck",
       "sourceUrl": "https://www.afl.com.au/players/604/rory-lobb",
       "sourceRefs": [
         "source:afl:players",
@@ -10653,7 +10653,7 @@
       "sortName": "Tom Doedee",
       "currentTeamId": "team:afl:cd_t20",
       "leagueId": "competition:afl-premiership-2026",
-      "position": "Medium Defender",
+      "position": "Key Defender",
       "sourceUrl": "https://www.afl.com.au/players/813/tom-doedee",
       "sourceRefs": [
         "source:afl:players",

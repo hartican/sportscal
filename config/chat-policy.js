@@ -33,7 +33,10 @@
     const effectiveStart = Date.parse(timing.effectiveStartTimeUtc || "");
     const now = nowValue instanceof Date ? nowValue.getTime() : Date.parse(nowValue || "");
     const status = String(event?.status || event?.scheduleStatus || "").toLowerCase();
-    if (CLOSED_STATUSES.has(status)) return { eligible:false, reason:"closed", timing };
+    const statusObservedAt = Date.parse(event?.statusUpdatedAt || event?.resultPublishedAt || "");
+    const closedAtReference = CLOSED_STATUSES.has(status)
+      && (!Number.isFinite(statusObservedAt) || !Number.isFinite(now) || statusObservedAt <= now);
+    if (closedAtReference) return { eligible:false, reason:"closed", timing };
     if (!Number.isFinite(effectiveStart) || !Number.isFinite(now)) return { eligible:false, reason:"timing-unavailable", timing };
     const exactWindow = Math.max(.25, Math.min(24, Number(event?.liveWindow || 3))) * 60 * 60 * 1000;
     const end = effectiveStart + (timing.timingPrecision === "follows" ? FOLLOWS_SESSION_WINDOW_MS : exactWindow);

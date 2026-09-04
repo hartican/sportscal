@@ -1,28 +1,28 @@
 {
   "schemaVersion": "nrl-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-09-01T05:03:09.741Z",
+  "generatedAt": "2026-09-04T07:51:16.186Z",
   "sources": [
     {
       "id": "source:nrl:clubs",
       "provider": "NRL",
       "url": "https://www.nrl.com/clubs/",
       "sourceType": "official",
-      "checkedAt": "2026-09-01T05:03:09.741Z"
+      "checkedAt": "2026-09-04T07:51:16.186Z"
     },
     {
       "id": "source:nrl:players",
       "provider": "NRL",
       "url": "https://www.nrl.com/players/?competition=111",
       "sourceType": "official",
-      "checkedAt": "2026-09-01T05:03:09.741Z"
+      "checkedAt": "2026-09-04T07:51:16.186Z"
     },
     {
       "id": "source:nrl:signings-2026",
       "provider": "NRL",
       "url": "https://www.nrl.com/news/2026/01/01/2026-nrl-signings-tracker-the-latest-from-all-17-clubs/",
       "sourceType": "official",
-      "checkedAt": "2026-09-01T05:03:09.741Z"
+      "checkedAt": "2026-09-04T07:51:16.186Z"
     }
   ],
   "leagues": [
@@ -621,6 +621,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "Halfback",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/ashton-ward/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:aston-warwick",
+      "displayName": "Aston Warwick",
+      "sortName": "Aston Warwick",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "2nd Row",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/roosters/aston-warwick/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -1503,6 +1517,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "2nd Row",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/dolphins/connelly-lemuelu/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:connor-muhleisen",
+      "displayName": "Connor Muhleisen",
+      "sortName": "Connor Muhleisen",
+      "currentTeamId": "team:nrl:330",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Hooker",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/dragons/connor-muhleisen/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -2567,6 +2595,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "2nd Row",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/sea-eagles/haumole-olakauatu2/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:hayden-barton",
+      "displayName": "Hayden Barton",
+      "sortName": "Hayden Barton",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "2nd Row",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/roosters/hayden-barton/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -3834,6 +3876,20 @@
       "active": true
     },
     {
+      "id": "competitor:nrl:jesse-milin",
+      "displayName": "Jesse Milin",
+      "sortName": "Jesse Milin",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Player",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/raiders/jesse-milin/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
       "id": "competitor:nrl:jesse-ramien2",
       "displayName": "Jesse Ramien",
       "sortName": "Jesse Ramien",
@@ -3967,6 +4023,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "2nd Row",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/cowboys/john-bateman/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:john-farragher",
+      "displayName": "John Farragher",
+      "sortName": "John Farragher",
+      "currentTeamId": "team:nrl:329",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Prop",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/panthers/john-farragher/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -5052,6 +5122,20 @@
       "active": true
     },
     {
+      "id": "competitor:nrl:lui-lee",
+      "displayName": "Lui Lee",
+      "sortName": "Lui Lee",
+      "currentTeamId": "team:nrl:331",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Centre",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/roosters/lui-lee/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
       "id": "competitor:nrl:luke-brooks",
       "displayName": "Luke Brooks",
       "sortName": "Luke Brooks",
@@ -5157,6 +5241,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "Hooker",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/warriors/makaia-tafua/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:malachi-smith",
+      "displayName": "Malachi Smith",
+      "sortName": "Malachi Smith",
+      "currentTeamId": "team:nrl:323",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Hooker",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/raiders/malachi-smith/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"
@@ -5507,6 +5605,20 @@
       "leagueId": "competition:nrl-premiership-2026",
       "position": "Winger",
       "sourceUrl": "https://www.nrl.com/players/nrl-premiership/raiders/michael-asomua/",
+      "sourceRefs": [
+        "source:nrl:players",
+        "source:nrl:signings-2026"
+      ],
+      "active": true
+    },
+    {
+      "id": "competitor:nrl:michael-gabrael",
+      "displayName": "Michael Gabrael",
+      "sortName": "Michael Gabrael",
+      "currentTeamId": "team:nrl:333",
+      "leagueId": "competition:nrl-premiership-2026",
+      "position": "Centre",
+      "sourceUrl": "https://www.nrl.com/players/nrl-premiership/sharks/michael-gabrael/",
       "sourceRefs": [
         "source:nrl:players",
         "source:nrl:signings-2026"

@@ -25,7 +25,7 @@ const TARGETS = [
     code:"nrl",
     canonicalId:"event:nrl:129992703",
     label:"Rabbitohs v Roosters",
-    expectedHook:"Rabbitohs enter 6th and Roosters 4th; a direct finals-position contest.",
+    expectedHookFromLadder:true,
     expectMajorChild:false,
   },
 ];
@@ -63,25 +63,39 @@ function walkRecords(value, visit){
 const feed = readJson("feeds/incoming/events.json").events || [];
 const major = readJson("data/major-events.v1.json").events || [];
 const queue = readJson("data/editorial-research-queue.v1.json").entries || [];
+const canonical = readJson("data/canonical/afl-nrl-2026.json");
+function ordinal(value){
+  const number = Number(value);
+  const suffix = number % 100 >= 11 && number % 100 <= 13 ? "th" : ({ 1:"st", 2:"nd", 3:"rd" }[number % 10] || "th");
+  return `${number}${suffix}`;
+}
+function expectedHookFor(target, record){
+  if (!target.expectedHookFromLadder) return target.expectedHook;
+  const ladder = canonical.ladderSnapshots.find(item => item.competitionId === record.competitionId);
+  const ranks = new Map((ladder?.entries || []).map(entry => [entry.participantId, entry.rank]));
+  const [homeName, awayName] = String(record.name || "").split(/\s+v\s+/i);
+  return `${homeName} enter ${ordinal(ranks.get(record.homeParticipantId))} and ${awayName} ${ordinal(ranks.get(record.awayParticipantId))}; a direct finals-position contest.`;
+}
 const codeFixtures = new Map();
 for (const target of TARGETS){
   if (!codeFixtures.has(target.code)) codeFixtures.set(target.code, readJson(`data/code-inspector/${target.code}.json`).fixtures || []);
   const feedHits = feed.filter(record => matchesId(record, target.canonicalId));
   assert.equal(feedHits.length, 1, `${target.label} must resolve to one canonical Feed fixture`);
   assertEditorial(feedHits[0], `Feed ${target.label}`);
-  assert.equal(feedHits[0].editorialNarrative.hook, target.expectedHook, `${target.label} must retain its fixture-specific researched hook`);
+  const expectedHook = expectedHookFor(target, feedHits[0]);
+  assert.equal(feedHits[0].editorialNarrative.hook, expectedHook, `${target.label} must retain its fixture-specific researched hook`);
 
   const inspectorHits = codeFixtures.get(target.code).filter(record => matchesId(record, target.canonicalId));
   assert.equal(inspectorHits.length, 1, `${target.label} must resolve to one Inspector fixture after stable-id normalization`);
   assertEditorial(inspectorHits[0], `Inspector ${target.label}`);
-  assert.equal(inspectorHits[0].editorialNarrative.hook, target.expectedHook, `${target.label} Inspector fixture must inherit the canonical Feed editorial`);
+  assert.equal(inspectorHits[0].editorialNarrative.hook, expectedHook, `${target.label} Inspector fixture must inherit the canonical Feed editorial`);
 
   const majorHits = major.flatMap(parent => (parent.subEvents || []).map(record => ({ parent, record })))
     .filter(({ record }) => matchesId(record, target.canonicalId));
   assert.equal(majorHits.length, target.expectMajorChild ? 1 : 0, `${target.label} must have the expected Events child identity`);
   majorHits.forEach(({ record }) => {
     assertEditorial(record, `Events ${target.label}`);
-    assert.equal(record.editorialNarrative.hook, target.expectedHook, `${target.label} Events child must inherit the canonical Feed editorial`);
+    assert.equal(record.editorialNarrative.hook, expectedHook, `${target.label} Events child must inherit the canonical Feed editorial`);
   });
 }
 

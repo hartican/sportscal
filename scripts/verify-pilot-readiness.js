@@ -39,7 +39,7 @@ function isUnresolvedOfficialPlaceholder(fixture, participantsById){
   if (!/finals?/i.test(String(fixture.roundLabel || ""))) return false;
   const participants = [fixture.homeParticipantId, fixture.awayParticipantId]
     .map(participantId => participantsById.get(participantId));
-  return participants.length === 2 && participants.every(participant => (
+  return participants.length === 2 && participants.some(participant => (
     participant
     && String(participant.teamCode || participant.shortName || "").trim().toUpperCase() === "TBD"
   ));

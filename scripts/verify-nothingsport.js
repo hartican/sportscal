@@ -418,7 +418,7 @@ assert(serviceWorkerSource.includes('"/config/sport-context.js"'), "the shared s
 assert(serviceWorkerSource.includes('"/config/server-sync.js"'), "the server-sync client must be available in the offline app shell");
 assert(serviceWorkerSource.includes('requestUrl.pathname.startsWith("/api/")'), "authenticated API responses must bypass the service-worker cache");
 assert(html.includes('"Account & sync"'), "Settings must expose password identity and sync status");
-assert(html.includes("Promise.allSettled([accountTask])") && html.includes("Promise.allSettled([cachedFeedTask])") && html.includes("return feedTask"), "account, cache and feed must start concurrently without account reconciliation gating the usable page");
+assert(html.includes("const accountTask = storedSession") && html.includes("restoreCachedPersonalisedFeed") && html.includes("return initialFeed"), "account restoration and cache hydration must produce a usable page before background personalised reconciliation");
 assert(html.includes("queueServerStateSync()"), "durable local changes must queue a server-state write");
 assert(html.includes("latest = await serverSyncClient.loadState()"), "every sync must pull the latest cloud state before writing");
 assert(html.includes("USER_STATE_SYNC.createPatch(baseline.state, currentState"), "a session must upload only changes since its last synced baseline");

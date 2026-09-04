@@ -1,13 +1,13 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-01T05:03:36.823Z",
+  "sourceRevision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-04T07:51:34.669Z",
   "generatedAt": "2026-08-29T00:00:00.000Z",
   "shadowMode": true,
   "summary": {
-    "stakesFiveFuture": 5,
-    "shown": 5,
+    "stakesFiveFuture": 6,
+    "shown": 6,
     "eligible": 2,
-    "watching": 3,
+    "watching": 4,
     "actionable": 0,
     "late": 0
   },
@@ -61,7 +61,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-01T05:03:36.823Z"
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-04T07:51:34.669Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -343,7 +343,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-01T05:03:36.823Z"
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-04T07:51:34.669Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -628,7 +628,7 @@
         "name": "NRL — finals progression explainer",
         "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-01T05:03:36.823Z"
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-04T07:51:34.669Z"
       },
       "material": {
         "title": "NRL Preliminary Finals",
@@ -833,6 +833,266 @@
       }
     },
     {
+      "campaignId": "marquee_cd38998faf633e9e",
+      "campaignRevision": 1,
+      "contentHash": "a8397c7700f3cb688007be03ec70f84c05087ddfabb372e96edc4d0d778401dc",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:afl:cd_m20260142901",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": "2026-09-26T04:30:00.000Z",
+        "fixtureDate": "2026-09-26"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": true,
+        "finish": "derived_from_live_window",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-04T07:50:55.373Z"
+      },
+      "timing": {
+        "startTimeUtc": "2026-09-26T04:30:00.000Z",
+        "endTimeUtc": "2026-09-26T07:30:00.000Z",
+        "liveWindowHours": 3,
+        "endDerived": true,
+        "sydneyStart": {
+          "day": "Sat",
+          "weekday": "Saturday",
+          "date": "Sat 26 Sept 2026",
+          "time": "2:30 pm",
+          "timezone": "AEST"
+        },
+        "sydneyFinish": {
+          "day": "Sat",
+          "weekday": "Saturday",
+          "date": "Sat 26 Sept 2026",
+          "time": "5:30 pm",
+          "timezone": "AEST"
+        }
+      },
+      "source": {
+        "name": "AFL",
+        "url": "https://www.afl.com.au/afl/matches/9028",
+        "checkedAt": "2026-09-04T07:50:55.373Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-04T07:51:34.669Z"
+      },
+      "material": {
+        "title": "Winner of PF1 v Winner of PF2",
+        "participants": [
+          "Winner of PF1",
+          "Winner of PF2"
+        ],
+        "sport": "AFL",
+        "competition": "all",
+        "startTimeUtc": "2026-09-26T04:30:00.000Z",
+        "endTimeUtc": "2026-09-26T07:30:00.000Z",
+        "venue": "MCG, Melbourne",
+        "broadcaster": "Kayo Sports / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "AFL",
+          "url": "https://www.afl.com.au/afl/matches/9028",
+          "checkedAt": "2026-09-04T07:50:55.373Z"
+        },
+        "recognisableTitle": "Winner of PF1 v Winner of PF2",
+        "matchupLabel": "Winner of PF1 v Winner of PF2",
+        "displayDate": "2026-09-26"
+      },
+      "identities": {
+        "code": {
+          "label": "AFL",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Saturday watch party: Winner of PF1 v Winner of PF2",
+        "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
+        "kicker": "5/5 stakes · AFL",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Winner of PF1 v Winner of PF2, starting Sat 26 Sept 2026 at 2:30 pm AEST."
+        }
+      },
+      "drafts": {
+        "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE AFL: Winner of PF1 v Winner of PF2. Sat 26 Sept 2026 at 2:30 pm AEST. 5/5 stakes. The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Winner of PF1 v Winner of PF2, starting Sat 26 Sept 2026 at 2:30 pm AEST.",
+          "image": {
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Winner of PF1 v Winner of PF2, starting Sat 26 Sept 2026 at 2:30 pm AEST."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Winner of PF1 v Winner of PF2 — Sat 2:30 pm",
+          "preheader": "Join the Winner of PF1 v Winner of PF2 watch party, then rate it after the finish.",
+          "headline": "Saturday watch party: Winner of PF1 v Winner of PF2",
+          "bodyParagraphs": [
+            "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
+            "Join us for the Winner of PF1 v Winner of PF2, on Sat at 2:30 pm AEST. Open the fixture for the watch party, live context and post-match rating."
+          ],
+          "timingLine": "Winner of PF1 v Winner of PF2 starts Sat 26 Sept 2026 at 2:30 pm AEST at MCG, Melbourne. Expected finish: 5:30 pm AEST.",
+          "broadcastLine": "Watch in Australia on Kayo Sports / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Aafl%3Acd_m20260142901?source=marquee&campaign=marquee_cd38998faf633e9e"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Aafl%3Acd_m20260142901?source=marquee&campaign=marquee_cd38998faf633e9e&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Aafl%3Acd_m20260142901?source=marquee&campaign=marquee_cd38998faf633e9e",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Aafl%3Acd_m20260142901?source=marquee&campaign=marquee_cd38998faf633e9e&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Winner of PF1 v Winner of PF2, starting Sat 26 Sept 2026 at 2:30 pm AEST."
+          }
+        },
+        "when": {
+          "day": "Sat",
+          "weekday": "Saturday",
+          "date": "Sat 26 Sept 2026",
+          "time": "2:30 pm",
+          "timezone": "AEST"
+        },
+        "finish": {
+          "day": "Sat",
+          "weekday": "Saturday",
+          "date": "Sat 26 Sept 2026",
+          "time": "5:30 pm",
+          "timezone": "AEST"
+        },
+        "live": {
+          "headline": "Saturday watch party: Winner of PF1 v Winner of PF2",
+          "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
+          "kicker": "5/5 stakes · AFL",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Winner of PF1 v Winner of PF2, starting Sat 26 Sept 2026 at 2:30 pm AEST."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_cd38998faf633e9e",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Aafl%3Acd_m20260142901?source=marquee&campaign=marquee_cd38998faf633e9e",
+        "ratingWindow": {
+          "opensAt": "2026-09-26T07:30:00.000Z",
+          "closesAt": "2026-10-03T07:30:00.000Z"
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Winner of PF1 v Winner of PF2, starting Sat 26 Sept 2026 at 2:30 pm AEST."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-a8397c7700f3.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Winner of PF1 v Winner of PF2, starting Sat 26 Sept 2026 at 2:30 pm AEST."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
       "campaignId": "marquee_0e5f2dcbd82ba9be",
       "campaignRevision": 1,
       "contentHash": "a8a460d58f6c06665f88b5fbb8c40cf8cbc2e7bfc87d686c83507fe529282539",
@@ -884,7 +1144,7 @@
         "name": "NRL — 2026 top eight locked after Round 26",
         "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
         "checkedAt": "2026-08-29T19:30:00.000Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-01T05:03:36.823Z"
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-04T07:51:34.669Z"
       },
       "material": {
         "title": "NRL Grand Final",
@@ -1140,7 +1400,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-01T05:03:36.823Z"
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-04T07:51:34.669Z"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",

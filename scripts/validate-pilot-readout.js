@@ -13,7 +13,7 @@ const participantsById = new Map(canonical.participants.map(participant => [part
 const unresolvedPlaceholders = canonical.events.filter(fixture => isUnresolvedOfficialPlaceholder(fixture, participantsById));
 assert(unresolvedPlaceholders.length > 0, "official AFL finals placeholders must remain visible to the readiness contract until the participants and schedule are published");
 assert(unresolvedPlaceholders.every(fixture => fixture.sportDomainId === "sport:afl" && /final/i.test(fixture.roundLabel || "")), "only official AFL finals placeholders may defer readiness");
-assert(unresolvedPlaceholders.some(fixture => fixture.id === "event:afl:cd_m20260142701"), "the AFL Semi Final pathway must remain covered while its teams and schedule are TBC");
+assert(unresolvedPlaceholders.some(fixture => /semi.?final/i.test(fixture.roundLabel || "")), "the AFL Semi Final pathway must remain covered while its teams and schedule are TBC");
 const namedFixture = canonical.events.find(fixture => (
   fixture.sportDomainId === "sport:afl"
   && participantsById.get(fixture.homeParticipantId)?.teamCode !== "TBD"

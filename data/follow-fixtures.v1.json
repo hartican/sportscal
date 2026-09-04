@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-fixtures.v1",
-  "generatedAt": "2026-08-31T15:59:50.390Z",
+  "generatedAt": "2026-09-04T07:51:42.460Z",
   "sources": [
     {
       "sourceName": "NFL schedule",
@@ -192,7 +192,7 @@
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
       "sourceType": "official",
-      "checkedAt": "2026-08-31T15:44:56.941Z"
+      "checkedAt": "2026-09-04T07:51:24.353Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -1093,6 +1093,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5102",
+        "researchTier": "marquee",
+        "hook": "Elina Svitolina / Gael Monfils and Alexandra Eala / Felix Auger-Aliassime meet at the first elimination point of the Mixed doubles path.",
+        "synopsis": "Elina Svitolina / Gael Monfils and Alexandra Eala / Felix Auger-Aliassime meet at the first elimination point of the Mixed doubles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5102",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5102",
       "key": "tennis",
@@ -1138,13 +1177,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -1219,6 +1251,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Mixed doubles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5101",
+        "researchTier": "marquee",
+        "hook": "Aryna Sabalenka / Novak Djokovic and Katerina Siniakova / Henry Patten meet at the first elimination point of the Mixed doubles path.",
+        "synopsis": "Aryna Sabalenka / Novak Djokovic and Katerina Siniakova / Henry Patten meet at the first elimination point of the Mixed doubles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5101",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5101",
       "key": "tennis",
@@ -1264,13 +1335,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -1345,6 +1409,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Mixed doubles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:serena-alcaraz-v-routliffe-glasspool",
+        "researchTier": "marquee",
+        "hook": "Serena Williams / Carlos Alcaraz and Erin Routliffe / Lloyd Glasspool meet at the first elimination point of the Mixed doubles path.",
+        "synopsis": "Serena Williams / Carlos Alcaraz and Erin Routliffe / Lloyd Glasspool meet at the first elimination point of the Mixed doubles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 5,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:serena-alcaraz-v-routliffe-glasspool",
       "canonicalEventId": "fixture:us-open-2026:serena-alcaraz-v-routliffe-glasspool",
       "key": "tennis",
@@ -1390,13 +1493,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 5,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -1470,6 +1566,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5105",
+        "researchTier": "marquee",
+        "hook": "Karolina Muchova / Jakub Mensik and Kristina Mladenovic / Marcelo Arevalo meet at the first elimination point of the Mixed doubles path.",
+        "synopsis": "Karolina Muchova / Jakub Mensik and Kristina Mladenovic / Marcelo Arevalo meet at the first elimination point of the Mixed doubles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5105",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5105",
       "key": "tennis",
@@ -1515,13 +1650,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -1595,6 +1723,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5106",
+        "researchTier": "marquee",
+        "hook": "Emma Navarro / Tommy Paul and Amanda Anisimova / Learner Tien meet at the first elimination point of the Mixed doubles path.",
+        "synopsis": "Emma Navarro / Tommy Paul and Amanda Anisimova / Learner Tien meet at the first elimination point of the Mixed doubles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5106",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5106",
       "key": "tennis",
@@ -1640,13 +1807,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -1720,6 +1880,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5107",
+        "researchTier": "marquee",
+        "hook": "Mirra Andreeva / Andrey Rublev and Sara Errani / Andrea Vavassori meet at the first elimination point of the Mixed doubles path.",
+        "synopsis": "Mirra Andreeva / Andrey Rublev and Sara Errani / Andrea Vavassori meet at the first elimination point of the Mixed doubles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5107",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5107",
       "key": "tennis",
@@ -1765,13 +1964,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -1845,6 +2037,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Mixed doubles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5108",
+        "researchTier": "marquee",
+        "hook": "Diana Shnaider / Casper Ruud and Jessica Pegula / Taylor Fritz meet at the first elimination point of the Mixed doubles path.",
+        "synopsis": "Diana Shnaider / Casper Ruud and Jessica Pegula / Taylor Fritz meet at the first elimination point of the Mixed doubles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5108",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5108",
       "key": "tennis",
@@ -1890,13 +2121,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -1970,6 +2194,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Mixed doubles · Round 2 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5203",
+        "researchTier": "marquee",
+        "hook": "Karolina Muchova / Jakub Mensik and Emma Navarro / Tommy Paul have already survived once; this match decides who reaches the next mixed-doubles cut.",
+        "synopsis": "Karolina Muchova / Jakub Mensik and Emma Navarro / Tommy Paul have already survived once; this match decides who reaches the next mixed-doubles cut. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5203",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5203",
       "key": "tennis",
@@ -2015,13 +2278,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -2095,6 +2351,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Mixed doubles · Round 2 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5204",
+        "researchTier": "marquee",
+        "hook": "Mirra Andreeva / Andrey Rublev and Diana Shnaider / Casper Ruud have already survived once; this match decides who reaches the next mixed-doubles cut.",
+        "synopsis": "Mirra Andreeva / Andrey Rublev and Diana Shnaider / Casper Ruud have already survived once; this match decides who reaches the next mixed-doubles cut. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5204",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5204",
       "key": "tennis",
@@ -2140,13 +2435,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -2216,6 +2504,45 @@
           "verifiedAt": "2026-08-26T00:00:00.000Z"
         }
       ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:federer-v-roddick",
+        "researchTier": "marquee",
+        "hook": "Roger Federer and Andy Roddick turn the legends exhibition into a live reprise rather than a ceremonial appearance.",
+        "synopsis": "Roger Federer and Andy Roddick turn the legends exhibition into a live reprise rather than a ceremonial appearance. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 5,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:federer-v-roddick",
       "canonicalEventId": "fixture:us-open-2026:federer-v-roddick",
       "key": "tennis",
@@ -2251,13 +2578,6 @@
       ],
       "expected": 5,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 5,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -2317,6 +2637,45 @@
       "stakesScore": 3,
       "summary": "US Open 2026 · Men's qualifying singles · Round 1 · Court 7.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:mq:11158",
+        "researchTier": "marquee",
+        "hook": "Bernard Tomic and Lloyd Harris meet at the first elimination point of the Men's qualifying singles path.",
+        "synopsis": "Bernard Tomic and Lloyd Harris meet at the first elimination point of the Men's qualifying singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 3,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:mq:11158",
       "canonicalEventId": "fixture:us-open-2026:official:mq:11158",
       "key": "tennis",
@@ -2352,13 +2711,6 @@
       ],
       "expected": 3,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 3,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -2418,6 +2770,45 @@
       "stakesScore": 3,
       "summary": "US Open 2026 · Women's qualifying singles · Round 1 · Court 7.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:wq:12111",
+        "researchTier": "marquee",
+        "hook": "Alice Tubello and Priscilla Hon meet at the first elimination point of the Women's qualifying singles path.",
+        "synopsis": "Alice Tubello and Priscilla Hon meet at the first elimination point of the Women's qualifying singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 3,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:wq:12111",
       "canonicalEventId": "fixture:us-open-2026:official:wq:12111",
       "key": "tennis",
@@ -2453,13 +2844,6 @@
       ],
       "expected": 3,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 3,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -2519,6 +2903,45 @@
       "stakesScore": 3,
       "summary": "US Open 2026 · Women's qualifying singles · Round 1 · Court 7.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:wq:12116",
+        "researchTier": "marquee",
+        "hook": "Storm Hunter and Maddison Inglis meet at the first elimination point of the Women's qualifying singles path.",
+        "synopsis": "Storm Hunter and Maddison Inglis meet at the first elimination point of the Women's qualifying singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 3,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:wq:12116",
       "canonicalEventId": "fixture:us-open-2026:official:wq:12116",
       "key": "tennis",
@@ -2554,13 +2977,6 @@
       ],
       "expected": 3,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 3,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -2620,6 +3036,45 @@
       "stakesScore": 3,
       "summary": "US Open 2026 · Women's qualifying singles · Round 1 · Court 12.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:wq:12120",
+        "researchTier": "marquee",
+        "hook": "Suzan Lamens and Emerson Jones meet at the first elimination point of the Women's qualifying singles path.",
+        "synopsis": "Suzan Lamens and Emerson Jones meet at the first elimination point of the Women's qualifying singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 3,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:wq:12120",
       "canonicalEventId": "fixture:us-open-2026:official:wq:12120",
       "key": "tennis",
@@ -2655,13 +3110,6 @@
       ],
       "expected": 3,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 3,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -2736,6 +3184,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Mixed doubles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5103",
+        "researchTier": "marquee",
+        "hook": "Belinda Bencic / Flavio Cobolli and Taylor Townsend / Alexander Zverev meet at the first elimination point of the Mixed doubles path.",
+        "synopsis": "Belinda Bencic / Flavio Cobolli and Taylor Townsend / Alexander Zverev meet at the first elimination point of the Mixed doubles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5103",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5103",
       "key": "tennis",
@@ -2781,13 +3268,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -2862,6 +3342,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Mixed doubles · Round 2 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5201",
+        "researchTier": "marquee",
+        "hook": "Katerina Siniakova / Henry Patten and Elina Svitolina / Gael Monfils have already survived once; this match decides who reaches the next mixed-doubles cut.",
+        "synopsis": "Katerina Siniakova / Henry Patten and Elina Svitolina / Gael Monfils have already survived once; this match decides who reaches the next mixed-doubles cut. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5201",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5201",
       "key": "tennis",
@@ -2907,13 +3426,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -2988,6 +3500,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Mixed doubles · Round 2 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-08-25/bencic-cobolli_defeat_superstars_williams-alcaraz_in_2026_us_open_mixed_doubles.html",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
+        "researchTier": "marquee",
+        "hook": "Serena Williams / Carlos Alcaraz and Belinda Bencic / Flavio Cobolli are two wins from the Mixed doubles title, with a semifinal place decided here.",
+        "synopsis": "Serena Williams / Carlos Alcaraz and Belinda Bencic / Flavio Cobolli are two wins from the Mixed doubles title, with a semifinal place decided here. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 5,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
       "canonicalEventId": "fixture:us-open-2026:serena-alcaraz-v-bencic-cobolli",
       "key": "tennis",
@@ -3033,13 +3584,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 5,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -3123,6 +3667,45 @@
           "verifiedAt": "2026-08-26T00:00:00.000Z"
         }
       ],
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
+        "researchTier": "marquee",
+        "hook": "Roger Federer / John McEnroe and Andy Roddick / Andre Agassi turn the legends exhibition into a live reprise rather than a ceremonial appearance.",
+        "synopsis": "Roger Federer / John McEnroe and Andy Roddick / Andre Agassi turn the legends exhibition into a live reprise rather than a ceremonial appearance. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 5,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
       "canonicalEventId": "fixture:us-open-2026:federer-mcenroe-v-roddick-agassi",
       "key": "tennis",
@@ -3168,13 +3751,6 @@
       ],
       "expected": 5,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 5,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -3309,6 +3885,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Mixed doubles · Semifinals · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5301",
+        "researchTier": "marquee",
+        "hook": "Elina Svitolina / Gael Monfils and Belinda Bencic / Flavio Cobolli are one win from the Mixed doubles final.",
+        "synopsis": "Elina Svitolina / Gael Monfils and Belinda Bencic / Flavio Cobolli are one win from the Mixed doubles final. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 5,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5301",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5301",
       "key": "tennis",
@@ -3354,13 +3969,6 @@
       ],
       "expected": 5,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 5,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -3420,6 +4028,45 @@
       "stakesScore": 3,
       "summary": "US Open 2026 · Women's qualifying singles · Round 2 · Court 8.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:wq:12206",
+        "researchTier": "marquee",
+        "hook": "Priscilla Hon and Joanna Garland have already survived once; this match decides who reaches the next mixed-doubles cut.",
+        "synopsis": "Priscilla Hon and Joanna Garland have already survived once; this match decides who reaches the next mixed-doubles cut. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 3,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:wq:12206",
       "canonicalEventId": "fixture:us-open-2026:official:wq:12206",
       "key": "tennis",
@@ -3455,13 +4102,6 @@
       ],
       "expected": 3,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 3,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -3521,6 +4161,45 @@
       "stakesScore": 3,
       "summary": "US Open 2026 · Women's qualifying singles · Round 2 · Court 12.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:wq:12208",
+        "researchTier": "marquee",
+        "hook": "Yeonwoo Ku and Storm Hunter have already survived once; this match decides who reaches the next mixed-doubles cut.",
+        "synopsis": "Yeonwoo Ku and Storm Hunter have already survived once; this match decides who reaches the next mixed-doubles cut. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 3,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:wq:12208",
       "canonicalEventId": "fixture:us-open-2026:official:wq:12208",
       "key": "tennis",
@@ -3556,13 +4235,6 @@
       ],
       "expected": 3,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 3,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -3637,6 +4309,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Mixed doubles · Semifinals · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5302",
+        "researchTier": "marquee",
+        "hook": "Karolina Muchova / Jakub Mensik and Mirra Andreeva / Andrey Rublev are one win from the Mixed doubles final.",
+        "synopsis": "Karolina Muchova / Jakub Mensik and Mirra Andreeva / Andrey Rublev are one win from the Mixed doubles final. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 5,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5302",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5302",
       "key": "tennis",
@@ -3682,13 +4393,6 @@
       ],
       "expected": 5,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 5,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -3763,6 +4467,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Mixed doubles · Final · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:xd:5401",
+        "researchTier": "marquee",
+        "hook": "Belinda Bencic / Flavio Cobolli and Karolina Muchova / Jakub Mensik decide the Mixed doubles title after surviving the tournament's short knockout path.",
+        "synopsis": "Belinda Bencic / Flavio Cobolli and Karolina Muchova / Jakub Mensik decide the Mixed doubles title after surviving the tournament's short knockout path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 5,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:xd:5401",
       "canonicalEventId": "fixture:us-open-2026:official:xd:5401",
       "key": "tennis",
@@ -3808,13 +4551,6 @@
       ],
       "expected": 5,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 5,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -3935,6 +4671,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Stars of the Open · Final · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule5.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ss:56101",
+        "researchTier": "marquee",
+        "hook": "Marta Kostyuk and Amanda Anisimova carry the Stars of the Open programme into its standalone closing match.",
+        "synopsis": "Marta Kostyuk and Amanda Anisimova carry the Stars of the Open programme into its standalone closing match. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 5,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ss:56101",
       "canonicalEventId": "fixture:us-open-2026:official:ss:56101",
       "key": "tennis",
@@ -3970,13 +4745,6 @@
       ],
       "expected": 5,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 5,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -4037,6 +4805,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Stars of the Open · Final · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule5.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ss:56102",
+        "researchTier": "marquee",
+        "hook": "Learner Tien and Flavio Cobolli carry the Stars of the Open programme into its standalone closing match.",
+        "synopsis": "Learner Tien and Flavio Cobolli carry the Stars of the Open programme into its standalone closing match. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 5,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ss:56102",
       "canonicalEventId": "fixture:us-open-2026:official:ss:56102",
       "key": "tennis",
@@ -4072,13 +4879,6 @@
       ],
       "expected": 5,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 5,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -4483,6 +5283,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Men's singles · Round 1 · Court 11.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1162",
+        "researchTier": "marquee",
+        "hook": "Yibing Wu and Adam Walton meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Yibing Wu and Adam Walton meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1162",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1162",
       "key": "tennis",
@@ -4518,13 +5357,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -4584,6 +5416,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Women's singles · Round 1 · Court 5.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2114",
+        "researchTier": "marquee",
+        "hook": "Talia Gibson and Donna Vekic meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Talia Gibson and Donna Vekic meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2114",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2114",
       "key": "tennis",
@@ -4619,13 +5490,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -4686,6 +5550,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Women's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2117",
+        "researchTier": "marquee",
+        "hook": "Jessica Pegula and Elena-Gabriela Ruse meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Jessica Pegula and Elena-Gabriela Ruse meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2117",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2117",
       "key": "tennis",
@@ -4721,13 +5624,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -4848,6 +5744,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1148",
+        "researchTier": "marquee",
+        "hook": "Mariano Navone and Novak Djokovic meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Mariano Navone and Novak Djokovic meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1148",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1148",
       "key": "tennis",
@@ -4883,13 +5818,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -4949,6 +5877,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Women's singles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2125",
+        "researchTier": "marquee",
+        "hook": "Elina Svitolina and Solana Sierra meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Elina Svitolina and Solana Sierra meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2125",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2125",
       "key": "tennis",
@@ -4984,13 +5951,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -5050,6 +6010,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Women's singles · Round 1 · Grandstand.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2109",
+        "researchTier": "marquee",
+        "hook": "Marta Kostyuk and Storm Hunter meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Marta Kostyuk and Storm Hunter meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2109",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2109",
       "key": "tennis",
@@ -5085,13 +6084,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -5152,6 +6144,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1133",
+        "researchTier": "marquee",
+        "hook": "Daniil Medvedev and Hugo Gaston meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Daniil Medvedev and Hugo Gaston meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1133",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1133",
       "key": "tennis",
@@ -5187,13 +6218,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -5254,6 +6278,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Women's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2118",
+        "researchTier": "marquee",
+        "hook": "Venus Williams and Sofia Kenin meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Venus Williams and Sofia Kenin meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2118",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2118",
       "key": "tennis",
@@ -5289,13 +6352,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -5317,9 +6373,12 @@
       "sequenceInSession": 1,
       "timePrecision": "session-start",
       "scheduleStatus": "confirmed",
-      "status": "live",
-      "statusUpdatedAt": "2026-08-31T15:20:50.106Z",
-      "previewPriority": 5,
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
+      "resultPublishedAt": "2026-09-01T01:01:24.756Z",
+      "scoreDisplay": "Sinja Kraus 3-6 0-6 Karolina Muchova",
+      "result": "Sinja Kraus 3-6 0-6 Karolina Muchova",
+      "previewPriority": 2,
       "matchupSides": [
         {
           "id": "side:tennis:sinja-kraus",
@@ -5352,6 +6411,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Women's singles · Round 1 · Grandstand.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2132",
+        "researchTier": "marquee",
+        "hook": "Sinja Kraus and Karolina Muchova meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Sinja Kraus and Karolina Muchova meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2132",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2132",
       "key": "tennis",
@@ -5385,15 +6483,8 @@
       "broadcastOptions": [
         "Stan Sport"
       ],
-      "expected": 5,
+      "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -5415,9 +6506,12 @@
       "sequenceInSession": 1,
       "timePrecision": "session-start",
       "scheduleStatus": "confirmed",
-      "status": "live",
-      "statusUpdatedAt": "2026-08-31T15:34:58.465Z",
-      "previewPriority": 5,
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
+      "resultPublishedAt": "2026-09-01T01:01:24.756Z",
+      "scoreDisplay": "Aryna Sabalenka 6-2 6-4 Camila Osorio",
+      "result": "Aryna Sabalenka 6-2 6-4 Camila Osorio",
+      "previewPriority": 4,
       "matchupSides": [
         {
           "id": "side:tennis:aryna-sabalenka",
@@ -5451,6 +6545,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Women's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2101",
+        "researchTier": "marquee",
+        "hook": "Aryna Sabalenka and Camila Osorio meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Aryna Sabalenka and Camila Osorio meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2101",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2101",
       "key": "tennis",
@@ -5484,15 +6617,8 @@
       "broadcastOptions": [
         "Stan Sport"
       ],
-      "expected": 5,
+      "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -5574,8 +6700,11 @@
       "sequenceInSession": 1,
       "timePrecision": "session-start",
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T02:10:18.416Z",
+      "resultPublishedAt": "2026-09-01T02:10:18.416Z",
+      "scoreDisplay": "Ben Shelton 1-6 6-1 7(7)-6(3) 6-2 Tallon Griekspoor",
+      "result": "Ben Shelton 1-6 6-1 7(7)-6(3) 6-2 Tallon Griekspoor",
       "previewPriority": 4,
       "matchupSides": [
         {
@@ -5610,6 +6739,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1149",
+        "researchTier": "marquee",
+        "hook": "Ben Shelton and Tallon Griekspoor meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Ben Shelton and Tallon Griekspoor meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1149",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1149",
       "key": "tennis",
@@ -5645,13 +6813,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -5673,8 +6834,11 @@
       "sequenceInSession": 1,
       "timePrecision": "session-start",
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
+      "resultPublishedAt": "2026-09-01T01:01:24.756Z",
+      "scoreDisplay": "Iga Swiatek 6-2 6-3 Xiyu Wang",
+      "result": "Iga Swiatek 6-2 6-3 Xiyu Wang",
       "previewPriority": 2,
       "matchupSides": [
         {
@@ -5708,6 +6872,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Women's singles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2149",
+        "researchTier": "marquee",
+        "hook": "Iga Swiatek and Xiyu Wang meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Iga Swiatek and Xiyu Wang meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2149",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2149",
       "key": "tennis",
@@ -5743,13 +6946,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -5771,8 +6967,11 @@
       "sequenceInSession": 4,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T04:37:11.726Z",
+      "resultPublishedAt": "2026-09-01T04:37:11.726Z",
+      "scoreDisplay": "Grigor Dimitrov 6-3 3-6 2-6 4-6 Alexei Popyrin",
+      "result": "Grigor Dimitrov 6-3 3-6 2-6 4-6 Alexei Popyrin",
       "previewPriority": 2,
       "matchupSides": [
         {
@@ -5806,6 +7005,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Men's singles · Round 1 · Court 12.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1103",
+        "researchTier": "marquee",
+        "hook": "Grigor Dimitrov and Alexei Popyrin meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Grigor Dimitrov and Alexei Popyrin meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1103",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1103",
       "key": "tennis",
@@ -5841,13 +7079,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -5869,8 +7100,11 @@
       "sequenceInSession": 5,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T04:37:11.726Z",
+      "resultPublishedAt": "2026-09-01T04:37:11.726Z",
+      "scoreDisplay": "Felix Auger-Aliassime 7-5 4-6 6-3 7-5 Rinky Hijikata",
+      "result": "Felix Auger-Aliassime 7-5 4-6 6-3 7-5 Rinky Hijikata",
       "previewPriority": 2,
       "matchupSides": [
         {
@@ -5904,6 +7138,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Men's singles · Round 1 · Grandstand.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1117",
+        "researchTier": "marquee",
+        "hook": "Felix Auger-Aliassime and Rinky Hijikata meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Felix Auger-Aliassime and Rinky Hijikata meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1117",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1117",
       "key": "tennis",
@@ -5939,13 +7212,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -5967,10 +7233,12 @@
       "sequenceInSession": 2,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "postponed",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "scoreDisplay": "Aleksandar Vukic 4-6 7(7)-6(5) 4-6 6-3 3-4 Rei Sakamoto",
-      "previewPriority": 4,
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
+      "resultPublishedAt": "2026-09-01T01:01:24.756Z",
+      "scoreDisplay": "Aleksandar Vukic 4-6 7(7)-6(5) 4-6 6-3 4-6 Rei Sakamoto",
+      "result": "Aleksandar Vukic 4-6 7(7)-6(5) 4-6 6-3 4-6 Rei Sakamoto",
+      "previewPriority": 2,
       "matchupSides": [
         {
           "id": "side:tennis:aleksandar-vukic",
@@ -6003,6 +7271,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Men's singles · Round 1 · Court 7.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1139",
+        "researchTier": "marquee",
+        "hook": "Aleksandar Vukic and Rei Sakamoto meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Aleksandar Vukic and Rei Sakamoto meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1139",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1139",
       "key": "tennis",
@@ -6036,15 +7343,8 @@
       "broadcastOptions": [
         "Stan Sport"
       ],
-      "expected": 4,
+      "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -6066,8 +7366,11 @@
       "sequenceInSession": 2,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
+      "resultPublishedAt": "2026-09-01T01:01:24.756Z",
+      "scoreDisplay": "Matteo Arnaldi 7-5 3-6 2-6 6(8)-7(10) James Duckworth",
+      "result": "Matteo Arnaldi 7-5 3-6 2-6 6(8)-7(10) James Duckworth",
       "previewPriority": 2,
       "matchupSides": [
         {
@@ -6101,6 +7404,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Men's singles · Round 1 · Court 10.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1161",
+        "researchTier": "marquee",
+        "hook": "Matteo Arnaldi and James Duckworth meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Matteo Arnaldi and James Duckworth meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1161",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1161",
       "key": "tennis",
@@ -6136,13 +7478,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -6164,10 +7499,12 @@
       "sequenceInSession": 2,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "postponed",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "scoreDisplay": "Kimberly Birrell 3-6 6(3)-6(3) Petra Marcinko",
-      "previewPriority": 4,
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
+      "resultPublishedAt": "2026-09-01T01:01:24.756Z",
+      "scoreDisplay": "Kimberly Birrell 3-6 7(7)-6(4) 6-3 Petra Marcinko",
+      "result": "Kimberly Birrell 3-6 7(7)-6(4) 6-3 Petra Marcinko",
+      "previewPriority": 2,
       "matchupSides": [
         {
           "id": "side:tennis:kimberly-birrell",
@@ -6200,6 +7537,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Women's singles · Round 1 · Court 13.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2111",
+        "researchTier": "marquee",
+        "hook": "Kimberly Birrell and Petra Marcinko meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Kimberly Birrell and Petra Marcinko meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2111",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2111",
       "key": "tennis",
@@ -6233,15 +7609,8 @@
       "broadcastOptions": [
         "Stan Sport"
       ],
-      "expected": 4,
+      "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -6254,17 +7623,20 @@
       "stage": "Women's singles",
       "roundLabel": "Round 1",
       "matchType": "womens-singles",
-      "court": "Court 11",
+      "court": "Louis Armstrong Stadium",
       "date": "2026-09-01",
       "time": "01:00",
       "startTimeUtc": null,
-      "sessionId": "us-open-2026:day-9:court-al:session-1",
+      "sessionId": "us-open-2026:day-9:court-ab:session-1",
       "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sequenceInSession": 4,
+      "sequenceInSession": 3,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
+      "resultPublishedAt": "2026-09-01T01:01:24.756Z",
+      "scoreDisplay": "Katie Volynets 5-7 1-6 Linda Noskova",
+      "result": "Katie Volynets 5-7 1-6 Linda Noskova",
       "previewPriority": 2,
       "matchupSides": [
         {
@@ -6294,10 +7666,49 @@
           ]
         }
       ],
-      "venue": "Court 11",
+      "venue": "Louis Armstrong Stadium",
       "stakesScore": 2,
-      "summary": "US Open 2026 · Women's singles · Round 1 · Court 11.",
+      "summary": "US Open 2026 · Women's singles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2116",
+        "researchTier": "marquee",
+        "hook": "Katie Volynets and Linda Noskova meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Katie Volynets and Linda Noskova meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2116",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2116",
       "key": "tennis",
@@ -6333,111 +7744,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified"
-    },
-    {
-      "id": "fixture:us-open-2026:official:ws:2126",
-      "stableMatchId": "usopen-2026-ws-2126",
-      "cardKind": "fixture",
-      "name": "Maya Joint v Liudmila Samsonova",
-      "stage": "Women's singles",
-      "roundLabel": "Round 1",
-      "matchType": "womens-singles",
-      "court": "Court 10",
-      "date": "2026-09-01",
-      "time": "01:00",
-      "startTimeUtc": null,
-      "sessionId": "us-open-2026:day-9:court-ak:session-1",
-      "sessionStartTimeUtc": "2026-08-31T15:00:00.000Z",
-      "sequenceInSession": 4,
-      "timePrecision": "follows",
-      "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
-      "previewPriority": 2,
-      "matchupSides": [
-        {
-          "id": "side:tennis:maya-joint",
-          "name": "Maya Joint",
-          "players": [
-            {
-              "id": "athlete:tennis:maya-joint",
-              "name": "Maya Joint",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "AU"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:liudmila-samsonova",
-          "name": "Liudmila Samsonova",
-          "players": [
-            {
-              "id": "athlete:tennis:liudmila-samsonova",
-              "name": "Liudmila Samsonova",
-              "seed": 0,
-              "rank": null,
-              "nationalityCode": "RU"
-            }
-          ]
-        }
-      ],
-      "venue": "Court 10",
-      "stakesScore": 2,
-      "summary": "US Open 2026 · Women's singles · Round 1 · Court 10.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-      "eventId": "fixture:us-open-2026:official:ws:2126",
-      "canonicalEventId": "fixture:us-open-2026:official:ws:2126",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "competitionId": "competition:us-open-2026",
-      "displayTitleCompact": "Maya Joint v Liudmila Samsonova",
-      "timelineSortTimeUtc": "2026-08-31T15:00:00.000Z",
-      "endTimeUtc": "2026-08-31T18:00:00.000Z",
-      "timeTbc": true,
-      "participantIds": [
-        "athlete:tennis:maya-joint",
-        "athlete:tennis:liudmila-samsonova"
-      ],
-      "homeParticipantId": "side:tennis:maya-joint",
-      "awayParticipantId": "side:tennis:liudmila-samsonova",
-      "participants": [
-        {
-          "name": "Maya Joint",
-          "role": "home"
-        },
-        {
-          "name": "Liudmila Samsonova",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 2,
-      "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -6459,8 +7765,11 @@
       "sequenceInSession": 2,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
+      "resultPublishedAt": "2026-09-01T01:01:24.756Z",
+      "scoreDisplay": "Ashlyn Krueger 1-6 3-6 Amanda Anisimova",
+      "result": "Ashlyn Krueger 1-6 3-6 Amanda Anisimova",
       "previewPriority": 2,
       "matchupSides": [
         {
@@ -6494,6 +7803,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Women's singles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2140",
+        "researchTier": "marquee",
+        "hook": "Ashlyn Krueger and Amanda Anisimova meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Ashlyn Krueger and Amanda Anisimova meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2140",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2140",
       "key": "tennis",
@@ -6529,13 +7877,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -6557,8 +7898,11 @@
       "sequenceInSession": 2,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
+      "resultPublishedAt": "2026-09-01T01:01:24.756Z",
+      "scoreDisplay": "Roman Safiullin 4-6 4-6 4-6 Carlos Alcaraz",
+      "result": "Roman Safiullin 4-6 4-6 4-6 Carlos Alcaraz",
       "previewPriority": 4,
       "matchupSides": [
         {
@@ -6593,6 +7937,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1164",
+        "researchTier": "marquee",
+        "hook": "Roman Safiullin and Carlos Alcaraz meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Roman Safiullin and Carlos Alcaraz meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1164",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1164",
       "key": "tennis",
@@ -6628,13 +8011,139 @@
       ],
       "expected": 4,
       "liveWindow": 3,
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2126",
+      "stableMatchId": "usopen-2026-ws-2126",
+      "cardKind": "fixture",
+      "name": "Maya Joint v Liudmila Samsonova",
+      "stage": "Women's singles",
+      "roundLabel": "Round 1",
+      "matchType": "womens-singles",
+      "court": "Court 9",
+      "date": "2026-09-01",
+      "time": "03:00",
+      "startTimeUtc": null,
+      "sessionId": "us-open-2026:day-9:court-aj:session-1",
+      "sessionStartTimeUtc": "2026-08-31T17:00:00.000Z",
+      "sequenceInSession": 3,
+      "timePrecision": "follows",
+      "scheduleStatus": "confirmed",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T01:01:24.756Z",
+      "resultPublishedAt": "2026-09-01T01:01:24.756Z",
+      "scoreDisplay": "Maya Joint 3-6 6-2 6-2 Liudmila Samsonova",
+      "result": "Maya Joint 3-6 6-2 6-2 Liudmila Samsonova",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:maya-joint",
+          "name": "Maya Joint",
+          "players": [
+            {
+              "id": "athlete:tennis:maya-joint",
+              "name": "Maya Joint",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "AU"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:liudmila-samsonova",
+          "name": "Liudmila Samsonova",
+          "players": [
+            {
+              "id": "athlete:tennis:liudmila-samsonova",
+              "name": "Liudmila Samsonova",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "RU"
+            }
+          ]
+        }
+      ],
+      "venue": "Court 9",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Women's singles · Round 1 · Court 9.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2126",
+        "researchTier": "marquee",
+        "hook": "Maya Joint and Liudmila Samsonova meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Maya Joint and Liudmila Samsonova meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
       "storyline": {
-        "stakes": 4,
+        "stakes": 2,
         "intensity": 4,
         "scoreReasons": [
           "Followed US Open player fixture"
         ]
       },
+      "eventId": "fixture:us-open-2026:official:ws:2126",
+      "canonicalEventId": "fixture:us-open-2026:official:ws:2126",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:us-open-2026",
+      "displayTitleCompact": "Maya Joint v Liudmila Samsonova",
+      "timelineSortTimeUtc": "2026-08-31T17:00:00.000Z",
+      "endTimeUtc": "2026-08-31T20:00:00.000Z",
+      "timeTbc": true,
+      "participantIds": [
+        "athlete:tennis:maya-joint",
+        "athlete:tennis:liudmila-samsonova"
+      ],
+      "homeParticipantId": "side:tennis:maya-joint",
+      "awayParticipantId": "side:tennis:liudmila-samsonova",
+      "participants": [
+        {
+          "name": "Maya Joint",
+          "role": "home"
+        },
+        {
+          "name": "Liudmila Samsonova",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -6656,8 +8165,11 @@
       "sequenceInSession": 2,
       "timePrecision": "follows",
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-08-31T05:45:14.374Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-01T04:37:11.726Z",
+      "resultPublishedAt": "2026-09-01T04:37:11.726Z",
+      "scoreDisplay": "Naomi Osaka 7(8)-6(6) 7(7)-6(3) Anastasia Zakharova",
+      "result": "Naomi Osaka 7(8)-6(6) 7(7)-6(3) Anastasia Zakharova",
       "previewPriority": 4,
       "matchupSides": [
         {
@@ -6692,6 +8204,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Women's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2157",
+        "researchTier": "marquee",
+        "hook": "Naomi Osaka and Anastasia Zakharova meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Naomi Osaka and Anastasia Zakharova meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2157",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2157",
       "key": "tennis",
@@ -6727,13 +8278,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -6790,6 +8334,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Men's singles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1132",
+        "researchTier": "marquee",
+        "hook": "Francisco Comesana and Flavio Cobolli meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Francisco Comesana and Flavio Cobolli meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1132",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1132",
       "key": "tennis",
@@ -6825,13 +8408,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -6888,6 +8464,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Women's singles · Round 1 · Grandstand.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2164",
+        "researchTier": "marquee",
+        "hook": "Thea Frodin and Elena Rybakina meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Thea Frodin and Elena Rybakina meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2164",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2164",
       "key": "tennis",
@@ -6923,13 +8538,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -6987,6 +8595,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Women's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2148",
+        "researchTier": "marquee",
+        "hook": "Zeynep Sonmez and Coco Gauff meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Zeynep Sonmez and Coco Gauff meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2148",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2148",
       "key": "tennis",
@@ -7022,13 +8669,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -7085,6 +8725,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Men's singles · Round 1 · Stadium 17.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1109",
+        "researchTier": "marquee",
+        "hook": "Rafael Jodar and Thanasi Kokkinakis meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Rafael Jodar and Thanasi Kokkinakis meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1109",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1109",
       "key": "tennis",
@@ -7120,13 +8799,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -7183,6 +8855,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Men's singles · Round 1 · Grandstand.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1116",
+        "researchTier": "marquee",
+        "hook": "Andrea Guerrieri and Alex de Minaur meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Andrea Guerrieri and Alex de Minaur meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1116",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1116",
       "key": "tennis",
@@ -7218,13 +8929,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -7281,6 +8985,45 @@
       "stakesScore": 2,
       "summary": "US Open 2026 · Women's singles · Round 1 · Louis Armstrong Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2133",
+        "researchTier": "marquee",
+        "hook": "Mirra Andreeva and Janice Tjen meet at the first elimination point of the Women's singles path.",
+        "synopsis": "Mirra Andreeva and Janice Tjen meet at the first elimination point of the Women's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ws:2133",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2133",
       "key": "tennis",
@@ -7316,13 +9059,6 @@
       ],
       "expected": 2,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 2,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -7380,6 +9116,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1125",
+        "researchTier": "marquee",
+        "hook": "Taylor Fritz and Darwin Blanch meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Taylor Fritz and Darwin Blanch meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1125",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1125",
       "key": "tennis",
@@ -7415,13 +9190,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -7479,6 +9247,45 @@
       "marquee": true,
       "summary": "US Open 2026 · Men's singles · Round 1 · Arthur Ashe Stadium.",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1101",
+        "researchTier": "marquee",
+        "hook": "Alexander Zverev and Lorenzo Sonego meet at the first elimination point of the Men's singles path.",
+        "synopsis": "Alexander Zverev and Lorenzo Sonego meet at the first elimination point of the Men's singles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
+        "threadIds": [
+          "thread:tennis:us-open-2026:defenders-open-draw"
+        ],
+        "factIds": [
+          "fact:us-open-2026:stage",
+          "fact:us-open-2026:mens-draw-reset",
+          "fact:us-open-2026:mens-bottom-half",
+          "fact:us-open-2026:sabalenka-threepeat",
+          "fact:us-open-2026:american-drought"
+        ],
+        "sourceIds": [
+          "source:us-open:2026-schedule",
+          "source:us-open:2026-mens-draw",
+          "source:us-open:2026-sabalenka",
+          "source:us-open:2026-american-men"
+        ],
+        "dimensions": [
+          "schedule",
+          "matchup",
+          "path",
+          "history"
+        ],
+        "researchedAt": "2026-08-29T19:30:00.000Z",
+        "refreshAfter": "2026-08-31T12:00:00.000Z",
+        "generationMode": "verified-parent-child-projection"
+      },
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
       "eventId": "fixture:us-open-2026:official:ms:1101",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1101",
       "key": "tennis",
@@ -7514,13 +9321,6 @@
       ],
       "expected": 4,
       "liveWindow": 3,
-      "storyline": {
-        "stakes": 4,
-        "intensity": 4,
-        "scoreReasons": [
-          "Followed US Open player fixture"
-        ]
-      },
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified"
@@ -9986,7 +11786,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-08-31T15:44:56.941Z",
+      "sourceCheckedAt": "2026-09-04T07:51:24.353Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10475,7 +12275,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-08-31T15:44:56.941Z",
+      "sourceCheckedAt": "2026-09-04T07:51:24.353Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10664,9 +12464,69 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-08-31T15:44:56.941Z",
+      "sourceCheckedAt": "2026-09-04T07:51:24.353Z",
       "sourceType": "official",
       "sourceTrust": "verified"
+    },
+    {
+      "id": "football-premier-league-2026-27-401878765",
+      "eventId": "football-premier-league-2026-27-401878765",
+      "canonicalEventId": "event:football:premier-league:401878765",
+      "canonicalSourceId": "401878765",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "premier-league",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:premier-league-2026-27",
+      "name": "Liverpool v Brighton & Hove Albion",
+      "displayTitleCompact": "Liverpool v Brighton & Hove Albion",
+      "participants": [
+        {
+          "name": "Liverpool",
+          "role": "home"
+        },
+        {
+          "name": "Brighton & Hove Albion",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:epl:10",
+        "team:football:epl:131"
+      ],
+      "homeParticipantId": "team:football:epl:10",
+      "awayParticipantId": "team:football:epl:131",
+      "date": "2026-10-25",
+      "time": "01:00",
+      "startTimeUtc": "2026-10-24T14:00:00.000Z",
+      "endTimeUtc": "2026-10-24T16:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Anfield",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "Premier League fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Liverpool v Brighton & Hove Albion is listed in the current Premier League schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "Scheduled"
+      ]
     },
     {
       "id": "football-bundesliga-2026-27-401884759",
@@ -11093,7 +12953,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-08-31T15:44:56.941Z",
+      "sourceCheckedAt": "2026-09-04T07:51:24.353Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },

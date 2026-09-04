@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>nothingSport coverage discovery · 2026-09-01</title>
+  <title>nothingSport coverage discovery · 2026-09-04</title>
   <style>
     :root { color-scheme: dark; --ink:#f5f4ef; --muted:#a9a9a3; --line:#30302d; --panel:#171715; --lime:#d8ff56; --amber:#ffc857; --rose:#ff7a90; }
     * { box-sizing:border-box; } body { margin:0; font:15px/1.45 ui-sans-serif,system-ui,-apple-system,sans-serif; color:var(--ink); background:#0c0c0b; }
@@ -22,12 +22,12 @@
   </style>
 </head>
 <body><main>
-  <header><span class="eyebrow">Weekly source reconciliation · 2026-09-01</span><h1>Coverage gaps, without false certainty.</h1><p>6 broadcaster listings were compared with 690 canonical events. Missing source inputs remain visible and fail closed.</p></header>
-  <div class="metrics"><div class="metric"><strong>2</strong><span>new catalogue gaps</span></div><div class="metric"><strong>0</strong><span>ambiguous matches</span></div><div class="metric"><strong>0</strong><span>AU option changes</span></div><div class="metric"><strong>1</strong><span>high-priority recommendations</span></div></div>
+  <header><span class="eyebrow">Weekly source reconciliation · 2026-09-04</span><h1>Coverage gaps, without false certainty.</h1><p>81 broadcaster listings were compared with 690 canonical events. Missing source inputs remain visible and fail closed.</p></header>
+  <div class="metrics"><div class="metric"><strong>81</strong><span>new catalogue gaps</span></div><div class="metric"><strong>0</strong><span>ambiguous matches</span></div><div class="metric"><strong>0</strong><span>AU option changes</span></div><div class="metric"><strong>79</strong><span>high-priority recommendations</span></div></div>
   <section><h2>Australian source health</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Status</th><th>Mode and freshness</th></tr></thead><tbody>
           <tr><td><strong>Kayo Sports</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr>
           <tr><td><strong>Foxtel</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr>
-          <tr><td><strong>Stan Sport</strong></td><td><span class="status loaded">loaded</span></td><td>reviewed_export; 6 listings; 9d old</td></tr>
+          <tr><td><strong>Stan Sport</strong></td><td><span class="status loaded">loaded</span></td><td>reviewed_export; 81 listings; 0d old</td></tr>
           <tr><td><strong>ESPN Australia</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr>
           <tr><td><strong>SBS</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr>
           <tr><td><strong>9Now</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr>
@@ -35,58 +35,733 @@
           <tr><td><strong>Paramount+ Australia</strong></td><td><span class="status no_approved_input">no approved input</span></td><td>No licensed API, reviewed export or manual fixture is present; the adapter emitted no candidates.</td></tr></tbody></table></div></section>
   <section><h2>Editorial queue</h2><div class="table-wrap"><table><thead><tr><th>Date</th><th>Candidate</th><th>Match</th><th>Confidence</th><th>Priority</th><th>Action</th><th>AU option</th><th>Blockers</th></tr></thead><tbody>
           <tr>
-            <td>2026-08-23</td>
-            <td><strong>Brighton &amp; Hove Albion v Aston Villa</strong><small>coverage:1qeo7uq</small></td>
-            <td><span class="status matched">matched</span><small>epl-2026-27-128929</small></td>
-            <td class="number">0.90</td>
-            <td>normal</td><td><span class="action review">review</span></td>
-            <td>Stan Sport · included</td>
-            <td>confidence_below_publish_threshold</td>
-          </tr>
-          <tr>
-            <td>2026-08-23</td>
-            <td><strong>Manchester City v Bournemouth</strong><small>coverage:2f5c9v</small></td>
-            <td><span class="status matched">matched</span><small>epl-2026-27-128930</small></td>
-            <td class="number">0.90</td>
-            <td>normal</td><td><span class="action review">review</span></td>
-            <td>Stan Sport · included</td>
-            <td>confidence_below_publish_threshold</td>
-          </tr>
-          <tr>
-            <td>2026-08-24</td>
-            <td><strong>Newcastle United v Liverpool</strong><small>coverage:5gl8bf</small></td>
-            <td><span class="status matched">matched</span><small>epl-2026-27-128931</small></td>
-            <td class="number">0.90</td>
-            <td>normal</td><td><span class="action review">review</span></td>
-            <td>Stan Sport · included</td>
-            <td>confidence_below_publish_threshold</td>
-          </tr>
-          <tr>
-            <td>2026-08-25</td>
-            <td><strong>Fulham v Chelsea</strong><small>coverage:e3od05</small></td>
-            <td><span class="status matched">matched</span><small>epl-2026-27-128932</small></td>
-            <td class="number">0.90</td>
-            <td>normal</td><td><span class="action review">review</span></td>
-            <td>Stan Sport · included</td>
-            <td>confidence_below_publish_threshold</td>
-          </tr>
-          <tr>
-            <td>2026-08-26</td>
-            <td><strong>US Open</strong><small>coverage:1vbwb02</small></td>
-            <td><span class="status new">new</span></td>
-            <td class="number">0.00</td>
-            <td>normal</td><td><span class="action review">review</span></td>
-            <td>Stan Sport · included</td>
-            <td>competition_needs_review, new_catalogue_identity</td>
-          </tr>
-          <tr>
-            <td>2026-08-28</td>
-            <td><strong>UCI Mountain Bike World Championship</strong><small>coverage:2a783t</small></td>
+            <td>2026-09-04</td>
+            <td><strong>NPC</strong><small>coverage:1c1ybg6</small></td>
             <td><span class="status new">new</span></td>
             <td class="number">0.00</td>
             <td>high</td><td><span class="action review">review</span></td>
             <td>Stan Sport · included</td>
             <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-05</td>
+            <td><strong>Farah Palmer Cup</strong><small>coverage:oua8m5</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-05</td>
+            <td><strong>INDYCAR</strong><small>coverage:1hw8xdp</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-05</td>
+            <td><strong>J.League</strong><small>coverage:11qnunm</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.08</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-05</td>
+            <td><strong>K League</strong><small>coverage:1txltbm</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.08</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-05</td>
+            <td><strong>New Zealand Tour of South Africa</strong><small>coverage:1rwkgxl</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-05</td>
+            <td><strong>Premier League</strong><small>coverage:1w71m58</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.60</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-05</td>
+            <td><strong>Shute Shield</strong><small>coverage:susus</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-05</td>
+            <td><strong>US Open</strong><small>coverage:3eeqav</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-05</td>
+            <td><strong>WSL</strong><small>coverage:1iukop3</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-06</td>
+            <td><strong>Currie Cup</strong><small>coverage:12gztou</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-06</td>
+            <td><strong>Men&#039;s International</strong><small>coverage:18awc45</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.15</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-06</td>
+            <td><strong>MXGP</strong><small>coverage:11zy8h8</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.08</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-06</td>
+            <td><strong>NWSL</strong><small>coverage:1bq281r</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-06</td>
+            <td><strong>PL Saturday Wrap</strong><small>coverage:4fk0ba</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-06</td>
+            <td><strong>WEC</strong><small>coverage:1ies8ub</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.08</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-07</td>
+            <td><strong>PL Weekend Wrap</strong><small>coverage:1wgb0jd</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-09</td>
+            <td><strong>UEFA Champions League</strong><small>coverage:158p3n5</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-12</td>
+            <td><strong>Pacific Nations Cup</strong><small>coverage:iwcdi7</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-12</td>
+            <td><strong>Super Rugby AUS</strong><small>coverage:u1lsjr</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-12</td>
+            <td><strong>WXV</strong><small>coverage:w395d6</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-13</td>
+            <td><strong>WRC</strong><small>coverage:7liczu</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.08</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-14</td>
+            <td><strong>WTA 500</strong><small>coverage:10xhmdb</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-17</td>
+            <td><strong>UEFA Europa League</strong><small>coverage:j65bn4</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-19</td>
+            <td><strong>WTA 250</strong><small>coverage:10a95e7</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-20</td>
+            <td><strong>UCI Mountain Bike World Series</strong><small>coverage:m9sbku</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-20</td>
+            <td><strong>UCI Road World Championships</strong><small>coverage:1e3a45f</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-25</td>
+            <td><strong>Laver Cup</strong><small>coverage:1qtw0zh</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-26</td>
+            <td><strong>Premiership Rugby</strong><small>coverage:78r7wn</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-09-27</td>
+            <td><strong>Flight Centre Series</strong><small>coverage:14ou1d7</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.15</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-01</td>
+            <td><strong>NPC</strong><small>coverage:181c0b9</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-02</td>
+            <td><strong>WRC</strong><small>coverage:ceixgl</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-02</td>
+            <td><strong>WTA 1000</strong><small>coverage:svoxf6</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-03</td>
+            <td><strong>NWSL</strong><small>coverage:1lv9tql</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-03</td>
+            <td><strong>Premiership Rugby</strong><small>coverage:w6cceu</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-03</td>
+            <td><strong>UCI Mountain Bike World Series</strong><small>coverage:1x41gxl</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-03</td>
+            <td><strong>WSL</strong><small>coverage:1kniyw2</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.45</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-04</td>
+            <td><strong>Motocross Of Nations</strong><small>coverage:flkbxz</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-09</td>
+            <td><strong>K League</strong><small>coverage:4w2yg3</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-10</td>
+            <td><strong>Bledisloe Cup</strong><small>coverage:1j28gwi</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-10</td>
+            <td><strong>Premier League</strong><small>coverage:ccfkzd</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.60</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-11</td>
+            <td><strong>PFL Africa</strong><small>coverage:gmu0ct</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.08</td>
+            <td>normal</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>unresolved_sport, competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-14</td>
+            <td><strong>UEFA Champions League</strong><small>coverage:1sv3vl9</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-16</td>
+            <td><strong>UEFA Conference League</strong><small>coverage:1saio08</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-16</td>
+            <td><strong>UEFA Europa League</strong><small>coverage:pdqkyl</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-17</td>
+            <td><strong>PFL</strong><small>coverage:4bygzw</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-17</td>
+            <td><strong>WEC</strong><small>coverage:1q0uq1h</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-17</td>
+            <td><strong>WXV</strong><small>coverage:1qcocj4</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-19</td>
+            <td><strong>WTA 500</strong><small>coverage:o8pfn9</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-10-23</td>
+            <td><strong>WTA 250</strong><small>coverage:1g0wbyt</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-01</td>
+            <td><strong>Premiership Rugby</strong><small>coverage:175stzh</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-01</td>
+            <td><strong>WSL</strong><small>coverage:1ji54r8</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-01</td>
+            <td><strong>WTA 250</strong><small>coverage:1sonqw3</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-01</td>
+            <td><strong>WTA 500</strong><small>coverage:1as1sbc</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-02</td>
+            <td><strong>NWSL</strong><small>coverage:1l24pug</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-04</td>
+            <td><strong>UEFA Champions League</strong><small>coverage:1cnud2z</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-06</td>
+            <td><strong>Nations Championship</strong><small>coverage:6ux0vu</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-06</td>
+            <td><strong>UEFA Conference League</strong><small>coverage:wyz0pc</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-06</td>
+            <td><strong>UEFA Europa League</strong><small>coverage:193ckbv</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-07</td>
+            <td><strong>Nations Cup</strong><small>coverage:1q7xbdb</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-07</td>
+            <td><strong>WEC</strong><small>coverage:v356sa</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-11</td>
+            <td><strong>WRC</strong><small>coverage:1wqs7a0</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-11-15</td>
+            <td><strong>Australian Superbike Championship</strong><small>coverage:1fbu7bo</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-12-05</td>
+            <td><strong>Premiership Rugby</strong><small>coverage:1ae4kbg</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-12-06</td>
+            <td><strong>Australian Superbike Championship</strong><small>coverage:w59pdc</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.08</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-12-09</td>
+            <td><strong>UEFA Champions League</strong><small>coverage:g4w1bm</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-12-11</td>
+            <td><strong>UEFA Conference League</strong><small>coverage:8bc5s3</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-12-11</td>
+            <td><strong>UEFA Europa League</strong><small>coverage:1b6ndh0</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-12-12</td>
+            <td><strong>WSL</strong><small>coverage:kfyg93</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2026-12-13</td>
+            <td><strong>PFL Africa</strong><small>coverage:rpafcq</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.15</td>
+            <td>normal</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>unresolved_sport, competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-01-02</td>
+            <td><strong>Premiership Rugby</strong><small>coverage:hmt83q</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-01-10</td>
+            <td><strong>WSL</strong><small>coverage:1vusdnd</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-01-17</td>
+            <td><strong>Australian Superbike Championship</strong><small>coverage:18e7n3z</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-01-20</td>
+            <td><strong>UEFA Champions League</strong><small>coverage:1u695sj</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-01-22</td>
+            <td><strong>UEFA Europa League</strong><small>coverage:1xhyuk</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-02-07</td>
+            <td><strong>WSL</strong><small>coverage:mzn4zj</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.08</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-02-21</td>
+            <td><strong>Australian Superbike Championship</strong><small>coverage:1up4dhr</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-03-13</td>
+            <td><strong>WSL</strong><small>coverage:xvm9ml</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-03-20</td>
+            <td><strong>Australian Superbike Championship</strong><small>coverage:131b5q1</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>competition_needs_review, new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-04-04</td>
+            <td><strong>WSL</strong><small>coverage:l52g76</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
+          </tr>
+          <tr>
+            <td>2027-05-02</td>
+            <td><strong>WSL</strong><small>coverage:1e3trv5</small></td>
+            <td><span class="status new">new</span></td>
+            <td class="number">0.00</td>
+            <td>high</td><td><span class="action review">review</span></td>
+            <td>Stan Sport · included</td>
+            <td>new_catalogue_identity</td>
           </tr></tbody></table></div></section>
   <section class="note"><h2>Decision boundary</h2><p>New and ambiguous events always remain under review. Publish requires an existing canonical match at 0.92 or higher, a named Australian service, known access type and no blockers. Approved decisions are exported separately; this queue never mutates the event feed.</p></section>
   <section><h2>Paid and licensed possibilities</h2><p>The adapter contract accepts licensed API snapshots without changing the editorial model. Global claims are not treated as proof of Australian inventory.</p><div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Supplier</th><th>Possible role</th><th>AU evidence</th><th>Evaluation</th><th>Recommendation</th></tr></thead><tbody>

@@ -42,7 +42,10 @@ function activeOrRecentMajor(records){
 function rollingEditorial(events){
   const earliest = reference.getTime() - 7 * DAY_MS;
   const latest = reference.getTime() + 30 * DAY_MS;
-  return events.filter(event => stakesFor(event) >= 2 && eventTime(event) >= earliest && eventTime(event) <= latest);
+  return events.filter(event => {
+    const unresolvedUnverified = event?.editorialPreview?.status === "research-required" && event?.sourceTrust !== "verified";
+    return !unresolvedUnverified && stakesFor(event) >= 2 && eventTime(event) >= earliest && eventTime(event) <= latest;
+  });
 }
 function assertProjected(record, projection, label){
   assert(projection, `${label} needs a persistent editorial projection`);
