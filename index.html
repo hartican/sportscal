@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="219">
+<meta name="app-shell-version" content="220">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -3457,6 +3457,78 @@ main{
   color:var(--text);
   font-size:0.95rem;
   line-height:1.68;
+}
+
+.legal-settings-links,
+.legal-inline-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+}
+
+.legal-settings-link{
+  min-height:44px;
+  border:0;
+  padding:8px 0;
+  background:transparent;
+  color:var(--accent);
+  font:inherit;
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  cursor:pointer;
+}
+
+.legal-settings-link:focus-visible{
+  outline:3px solid var(--focus-ring);
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+.legal-inline-shell{
+  width:min(760px, 100%);
+  margin:0 auto;
+}
+
+.legal-inline{
+  color:var(--text);
+  line-height:1.65;
+}
+
+.legal-inline .eyebrow{
+  margin:0 0 10px;
+  color:var(--accent);
+  font-size:0.75rem;
+  font-weight:800;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+}
+
+.legal-inline h1{
+  margin:0 0 8px;
+  font-size:clamp(1.7rem, 5vw, 2.7rem);
+  line-height:1.1;
+}
+
+.legal-inline h2{
+  margin:28px 0 8px;
+  font-size:1.08rem;
+}
+
+.legal-inline p,
+.legal-inline li{
+  color:var(--text-dim);
+}
+
+.legal-inline .meta{
+  color:var(--text-faint);
+}
+
+.legal-inline-nav{
+  margin-top:24px;
+  padding-top:16px;
+  border-top:1px solid var(--border);
 }
 
 .choice-grid{
@@ -8617,6 +8689,8 @@ let standingsCompetitionExpansion = {};
 let todayMoreReveal = false;
 let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let settingsSection = "main";
+let settingsNavigationStack = [];
+let legalDocumentRenderToken = 0;
 let accountRecoveryRequestOpen = false;
 let preferenceRecovery = null;
 let settingsFirstRun = false;
@@ -21368,6 +21442,7 @@ function openSettings({ firstRun = false, section = "main" } = {}){
   sportsFollowedTab = "sports";
   if (!firstRun && section === "tune") tuneSectionIndex = 0;
   settingsSection = firstRun ? ONBOARDING_SECTIONS[settingsWizardStep] : section;
+  settingsNavigationStack = !firstRun && settingsSection !== "main" ? ["main"] : [];
   draftPreferences = clonePreferences(userPreferences);
   settingsDraftBaseline = clonePreferences(userPreferences);
   if (firstRun){
@@ -21395,6 +21470,8 @@ function closeSettings({ restoreTheme = true, restoreViewport = true } = {}){
     applyThemePreference(userPreferences.theme);
   }
   settingsSection = "main";
+  settingsNavigationStack = [];
+  legalDocumentRenderToken += 1;
   settingsFirstRun = false;
   settingsWizardStep = 0;
   settingsFocusedDomainId = null;
@@ -21460,14 +21537,34 @@ function bindSelectionActions(body, group, selectAll, deselectAll){
 function bindSettingsMenuNavigation(root){
   root.querySelectorAll("[data-settings-section]").forEach(button => {
     button.addEventListener("click", () => {
-      const openSection = () => {
-        settingsFocusedDomainId = null;
-        settingsSection = button.dataset.settingsSection;
-        renderSettingsScreen();
-      };
-      openSection();
+      navigateSettingsSection(button.dataset.settingsSection);
     });
   });
+}
+
+function navigateSettingsSection(section, { replace = false } = {}){
+  const nextSection = String(section || "main");
+  if (nextSection === settingsSection) return;
+  if (!replace) settingsNavigationStack.push(settingsSection);
+  settingsFocusedDomainId = null;
+  settingsSection = nextSection;
+  renderSettingsScreen();
+}
+
+function navigateBackInSettings(){
+  settingsFocusedDomainId = null;
+  settingsSection = settingsNavigationStack.pop() || "main";
+  renderSettingsScreen();
+}
+
+function openLegalDocument(documentKey){
+  const section = documentKey === "terms" ? "terms" : "privacy";
+  const modalOpen = document.getElementById("settingsModal")?.classList.contains("show");
+  if (modalOpen){
+    navigateSettingsSection(section);
+    return;
+  }
+  openSettings({ section });
 }
 
 function accountSettingsSummary(){
@@ -22404,12 +22501,69 @@ function renderAppearanceSettings(body){
 
 function renderAboutSettings(body){
   body.innerHTML = `<article class="about-body settings-about"><img class="settings-about-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="settings-about-copy"><p data-brand-copy="about">Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. A dislike removes that exact card and softly tunes future suggestions; a like gently lifts related suggestions without changing complete fixture lists. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.</p><details class="asset-attribution"><summary>Editorial standards</summary><p>Why it matters is independently written from researched facts, with official sources preferred and reputable reporting used when official material cannot establish form or context. Source wording is not copied into cards. Citations, fact records and uncertainty notes are retained in the editorial audit trail rather than shown in the reading flow.</p><p>Future draws, participants and dates can change. Nothing Sport keeps the last verified narrative during a temporary source failure and withholds new structural filler when substantive context cannot be verified.</p></details><p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a text fallback otherwise.</p><p class="country-acknowledgement" data-brand-copy="countryAcknowledgement">Nothing Sport acknowledges the Yuin Nation, the Traditional Custodians of the land on which this app was built. Always was, always will be Aboriginal land. Voice. Treaty. Truth.</p></div></article>`;
-  syncBrandCopy();
   const about = body.querySelector(".settings-about-copy");
   const socials = document.querySelector("footer.app-footer .footer-socials")?.cloneNode(true);
-  const legal = document.querySelector("footer.app-footer .footer-legal-links")?.cloneNode(true);
   if (socials) about.appendChild(socials);
-  if (legal) about.appendChild(legal);
+  const legal = document.createElement("nav");
+  legal.className = "legal-settings-links";
+  legal.setAttribute("aria-label", "Legal");
+  legal.innerHTML = '<button class="legal-settings-link" type="button" data-legal-document="privacy">Privacy Policy</button><button class="legal-settings-link" type="button" data-legal-document="terms">Terms &amp; Conditions</button>';
+  legal.querySelectorAll("[data-legal-document]").forEach(button => {
+    button.addEventListener("click", () => openLegalDocument(button.dataset.legalDocument));
+  });
+  about.appendChild(legal);
+}
+
+function renderLegalSettings(body, documentKey){
+  const legalDocuments = {
+    privacy:{ path:"/privacy.html", other:"terms", otherLabel:"Terms & Conditions" },
+    terms:{ path:"/terms.html", other:"privacy", otherLabel:"Privacy Policy" },
+  };
+  const selected = legalDocuments[documentKey] || legalDocuments.privacy;
+  const renderToken = ++legalDocumentRenderToken;
+  body.innerHTML = '<div class="legal-inline-shell"><p class="preference-help" role="status">Loading legal document…</p></div>';
+  void (async () => {
+    try{
+      const response = await fetch(selected.path, { headers:{ Accept:"text/html" } });
+      if (!response.ok) throw new Error(`Legal document request failed (${response.status}).`);
+      const source = new DOMParser().parseFromString(await response.text(), "text/html");
+      const sourceMain = source.querySelector("main#legalDocument");
+      if (!sourceMain) throw new Error("The legal document could not be read.");
+      sourceMain.querySelector(".legal-document-nav")?.remove();
+      if (renderToken !== legalDocumentRenderToken || settingsSection !== documentKey) return;
+      const shell = document.createElement("div");
+      shell.className = "legal-inline-shell";
+      const article = document.createElement("article");
+      article.className = "legal-inline";
+      Array.from(sourceMain.children).forEach(child => article.appendChild(document.importNode(child, true)));
+      const nav = document.createElement("nav");
+      nav.className = "legal-inline-nav";
+      nav.setAttribute("aria-label", "Other legal documents");
+      const other = document.createElement("button");
+      other.type = "button";
+      other.className = "legal-settings-link";
+      other.textContent = `Read ${selected.otherLabel}`;
+      other.addEventListener("click", () => openLegalDocument(selected.other));
+      nav.appendChild(other);
+      shell.append(article, nav);
+      body.replaceChildren(shell);
+    }catch(error){
+      if (renderToken !== legalDocumentRenderToken || settingsSection !== documentKey) return;
+      const shell = document.createElement("div");
+      shell.className = "legal-inline-shell filter-panel";
+      const message = document.createElement("p");
+      message.className = "preference-help";
+      message.setAttribute("role", "alert");
+      message.textContent = "That legal document could not be loaded inside the app.";
+      const retry = document.createElement("button");
+      retry.type = "button";
+      retry.className = "btn ghost";
+      retry.textContent = "Retry";
+      retry.addEventListener("click", () => renderLegalSettings(body, documentKey));
+      shell.append(message, retry);
+      body.replaceChildren(shell);
+    }
+  })();
 }
 
 function startupMetaDraft(){
@@ -22523,8 +22677,9 @@ function renderSettingsScreen(){
   const brandIcon = document.getElementById("settingsBrandIcon");
   const calibrationComplete = Boolean(draftPreferences?.preferenceGraph?.learning?.calibrationCompletedAt);
   back.hidden = settingsFirstRun ? settingsWizardStep === 0 : settingsSection === "main";
+  back.setAttribute("aria-label", settingsNavigationStack.length ? "Back to previous Settings screen" : "Back to Settings");
   brandIcon.hidden = settingsFirstRun ? settingsWizardStep > 0 : settingsSection !== "main";
-  document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && ["archive", "hidden", "about"].includes(settingsSection)
+  document.getElementById("saveSettingsBtn").textContent = !settingsFirstRun && ["archive", "hidden", "about", "privacy", "terms"].includes(settingsSection)
     ? "Close"
     : settingsFirstRun && settingsWizardStep < ONBOARDING_SECTIONS.length - 1
     ? "Next"
@@ -22536,6 +22691,8 @@ function renderSettingsScreen(){
     main: ["Settings", "Choose an area. Every submenu can return here or close at any time."],
     account: ["Account & sync", "Sign in with an approved email and password to keep durable choices connected across devices."],
     about: ["About", "Nothing Sport, how it is made, and the terms that govern it."],
+    privacy: ["Privacy Policy", "How Nothing Sport handles information and the choices available to you."],
+    terms: ["Terms & Conditions", "The terms that govern use of Nothing Sport."],
     appearance: ["Appearance", "Choose how Nothing Sport looks on this device."],
     subscriptions: ["Subscriptions", "Choose services to prioritise in View links."],
     notifications: ["Notifications", "System reminders for the sporting start, defaulting to 15 minutes before."],
@@ -22549,6 +22706,7 @@ function renderSettingsScreen(){
   if (settingsSection === "startup") renderStartupMetadataSettings(body);
   else if (settingsSection === "account") renderAccountSettings(body);
   else if (settingsSection === "about") renderAboutSettings(body);
+  else if (settingsSection === "privacy" || settingsSection === "terms") renderLegalSettings(body, settingsSection);
   else if (settingsSection === "appearance") renderAppearanceSettings(body);
   else if (settingsSection === "subscriptions") renderSubscriptionSettings(body);
   else if (settingsSection === "notifications") renderNotificationSettings(body);
@@ -22684,10 +22842,16 @@ document.getElementById("settingsBackBtn").addEventListener("click", () => {
     settingsWizardStep -= 1;
     settingsSection = ONBOARDING_SECTIONS[settingsWizardStep];
   } else {
-    settingsFocusedDomainId = null;
-    settingsSection = "main";
+    navigateBackInSettings();
+    return;
   }
   renderSettingsScreen();
+});
+document.addEventListener("click", event => {
+  const link = event.target.closest('a[href="/privacy.html"], a[href="/terms.html"]');
+  if (!link) return;
+  event.preventDefault();
+  openLegalDocument(link.getAttribute("href") === "/terms.html" ? "terms" : "privacy");
 });
 document.getElementById("closeSettingsBtn").addEventListener("click", () => closeSettings());
 document.getElementById("settingsModal").addEventListener("click", evt => {
@@ -22739,8 +22903,7 @@ document.addEventListener("keydown", event => {
 document.addEventListener("keydown", evt => {
   if (evt.key !== "Escape" || !document.getElementById("settingsModal").classList.contains("show")) return;
   if (settingsSection !== "main"){
-    settingsSection = "main";
-    renderSettingsScreen();
+    navigateBackInSettings();
   } else {
     closeSettings();
   }
@@ -23915,7 +24078,7 @@ async function ensureChatMediaUi(){
   if (chatMediaUiLoading) return chatMediaUiLoading;
   chatMediaUiLoading = (async () => {
     if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA) await loadDeferredScript("config/chat-media.js?v=218");
-    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=218");
+    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=220");
     chatMediaUi = globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI.install({
       media:globalThis.NOTHINGSPORTS_CHAT_MEDIA,
       state:() => chatState,

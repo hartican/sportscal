@@ -41,7 +41,11 @@ assert.match(html, /\.footer-social-link,[\s\S]{0,120}\.footer-social-placeholde
 assert.match(html, /\.footer-socials\{[\s\S]{0,180}flex-wrap:wrap/);
 assert.match(html, /\.footer-social-link:focus-visible,[\s\S]{0,100}\.footer-social-placeholder:focus-visible/);
 assert.match(html, /<nav class="footer-legal-links"[^>]*>[\s\S]*href="\/privacy\.html"[\s\S]*href="\/terms\.html"/);
-assert.match(html, /function renderAboutSettings[\s\S]*cloneNode\(true\)[\s\S]*footer-legal-links/);
+assert.match(html, /function renderAboutSettings[\s\S]*data-legal-document="privacy"[\s\S]*data-legal-document="terms"/);
+assert.match(html, /function renderLegalSettings[\s\S]*\/privacy\.html[\s\S]*\/terms\.html/);
+assert.match(html, /closest\('a\[href="\/privacy\.html"\], a\[href="\/terms\.html"\]'\)[\s\S]*preventDefault\(\)[\s\S]*openLegalDocument/);
+assert.match(html, /settingsNavigationStack\.push\(settingsSection\)/, "nested Settings screens must have a real in-app return path");
+assert.doesNotMatch(html, /window\.location\.href\s*=\s*["'`]\/privacy\.html|window\.location\.href\s*=\s*["'`]\/terms\.html/);
 assert.match(html, /body\.settings-open \.app-footer\{[\s\S]{0,80}visibility:hidden/);
 assert(fs.existsSync("privacy.html") && fs.existsSync("terms.html"));
 
