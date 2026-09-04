@@ -85,8 +85,11 @@
         "saved": { "type": "boolean" },
         "archived": { "type": "boolean" },
         "dismissed": { "type": "boolean" },
+        "isDismissed": { "type": "boolean" },
+        "isMinimised": { "type": "boolean" },
         "dismissedAt": { "type": ["string", "null"], "format": "date-time" },
-        "dismissalSource": { "enum": ["feed", "events", "hidden_restore", null] },
+        "eventsDismissedAt": { "type": ["string", "null"], "format": "date-time" },
+        "dismissalSource": { "enum": ["feed", "events", "events_restore", "hidden_restore", null] },
         "lastActionAt": { "type": ["string", "null"], "format": "date-time" }
       }
     }

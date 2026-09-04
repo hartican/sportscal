@@ -29,10 +29,12 @@ assert(html.includes('level: cardLevelForState(state)') && html.includes('headin
 assert(html.includes("majorEventMatchupLineup") && html.includes('"Match-up TBC"'), "Events cards must use grouped published matchups with flags or an explicit TBC state");
 assert(!html.includes('aboutHeading.textContent = "Event detail"'), "the generic Event detail preamble must be removed");
 assert(html.includes('className = "major-event-ticket-link event-quick-action"'), "Buy tickets must share the Remind me and provider viewing-action pill geometry");
+assert(html.includes('primaryActions.className = "event-card-primary-actions"') && html.includes('tickets.innerHTML = `${glyphMarkup("ui:ticket", { preferImage: true })}<span>Buy tickets</span>`'), "regular cards must group Buy tickets with Remind and Chat");
+assert(html.includes('navigationRow.className = "major-event-navigation-row"') && html.includes('major-event-timetable'), "major cards must group Follow Event, viewing and Timetable");
 
 assert(html.includes('.matchup-team-logo-slot{ width:74px; height:70px;') && html.includes('width:min(100%, 88px);') && html.includes('height:90px;'), "fixture matchups must use the approximately 35 percent smaller logo frames");
 assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
-const eventCardSource = html.slice(html.indexOf("function buildEventCard"), html.indexOf("function jointTournamentIsActive"));
+const eventCardSource = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
 assert(!eventCardSource.includes("buildNothingscoreSummary") && !eventCardSource.includes("buildNothingscorePanel"), "Feed cards must not fetch or render public Nothingscore aggregates");
 assert(!eventCardSource.includes("follow-reason-tag") && !eventCardSource.includes("new-tag") && !eventCardSource.includes("event-meta-row") && !eventCardSource.includes("Independent context"), "Feed cards must omit meta labels and duplicate metadata rails");
 assert(eventCardSource.includes("buildEventNothingscoreAction(ev)") && eventCardSource.indexOf("buildEventWhyItMatters(ev)") < eventCardSource.indexOf("buildEventNothingscoreAction(ev)"), "the lifecycle-specific contribution button must sit immediately below Why it matters");
@@ -40,8 +42,11 @@ assert(!eventCardSource.includes("buildPostEventRatingPrompt"), "Feed cards must
 assert(/function buildFeedStakesRow[\s\S]{0,1200}negative[\s\S]{0,600}buildStakesMeter[\s\S]{0,600}positive/.test(html), "Feed must place thumbs down left and thumbs up right of Stakes");
 assert(/function buildStakesMeter[\s\S]{0,1200}stakes-flame[\s\S]{0,800}STAKES/.test(html), "Stakes must use five filled or hollow white flame glyphs with the numeric label below");
 const majorCardSource = html.slice(html.indexOf("function buildMajorEventCard"), html.indexOf("function buildTicketSaleCard"));
+assert(!majorCardSource.includes('expand.className = "major-event-expand-control"'), "major cards must not duplicate Timetable with a chevron control");
 assert(!majorCardSource.includes("buildEventFeedbackButtons"), "Events cards must not show thumbs controls");
 assert(!majorCardSource.includes("buildNothingscoreSummary") && !majorCardSource.includes("buildNothingscorePanel") && !majorCardSource.includes("buildIndependentContext"), "Events cards must keep public Nothingscore results and redundant context panels hidden");
+assert(majorCardSource.indexOf("buildStakesMeter(record)") < majorCardSource.indexOf("buildEventNothingscoreAction(crowdEvent)"), "Add live Pulse must render directly below Stakes");
+assert(majorCardSource.includes("buildEventCardControls(actionEvent") && html.includes("buildDismissedEventStub") && html.includes("compareDismissedEventRecords"), "Events cards must expose Minimise and Dismiss with bottom-sorted Restore stubs");
 assert(!html.includes("while (badges.firstChild) metaRow.appendChild(badges.firstChild)") && !html.includes("sessionDismissedEventIds"), "card tags must be removed while dismissal remains durable");
 assert(html.includes('cardRetained: direction === "positive"') && html.includes("dismissEventCard") && html.includes("}, 1400);"), "likes must retain cards with feedback while dislikes dismiss exact editions");
 assert(html.includes('"Liked — future feed suggestions will adapt."') && html.includes('"Like removed — future feed suggestions will no longer use it."') && html.includes('actionLabel:"Undo"'), "feedback must explain reversible learning and keep dismissal recoverable");

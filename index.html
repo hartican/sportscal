@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="218">
+<meta name="app-shell-version" content="219">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6759,6 +6759,106 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .feed-stakes-row{ grid-template-columns:74px minmax(108px,124px) 74px; gap:6px; }
   .major-event-match > .nsc-card-action{ width:100%; }
 }
+
+/* Events cards: compact controls, deliberate action groupings and reversible dismissal. */
+.event-card-controls{
+  grid-column:1 / -1;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+  width:100%;
+  margin:0;
+  padding:0;
+}
+.event-card-control{
+  min-width:88px;
+  min-height:44px;
+  padding:8px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:var(--soft-fill);
+  color:var(--text-dim);
+  font:800 .68rem/1 'DM Sans',sans-serif;
+  cursor:pointer;
+}
+.event-card-control:hover,.event-card-control:focus-visible{ border-color:var(--accent); color:var(--text); }
+.event-card-control.danger:hover,.event-card-control.danger:focus-visible{ border-color:#ff6b7a; color:#ff9aa5; }
+.event-card-control.restore{ border-color:color-mix(in srgb,var(--accent) 55%,var(--border)); color:var(--accent); }
+.event-card-primary-actions,
+.major-event-navigation-row{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:stretch;
+  gap:6px;
+  width:100%;
+}
+.event-card-primary-actions > .event-quick-actions,
+.major-event-navigation-row > .event-quick-actions{ display:contents; }
+.event-card-primary-actions .event-quick-action,
+.major-event-navigation-row .event-quick-action{
+  min-width:0;
+  width:100%;
+  min-height:44px;
+  justify-content:center;
+  padding-inline:8px;
+}
+.event-card-viewing-actions{ width:100%; }
+.event-card-viewing-actions > .event-quick-actions{ margin:0; }
+.event-card-viewing-actions .event-quick-action{ flex:0 1 210px; }
+.events-feed-card .event-card-controls{ padding:8px 10px 0; }
+.events-feed-card .major-event-identity{ padding:8px 14px; }
+.events-feed-card .major-event-logo{ margin-bottom:4px; }
+.events-feed-card .major-event-facts{ margin-top:4px; }
+.events-feed-card .major-event-identity > .stakes-meter{ margin-top:7px; }
+.events-feed-card .major-event-identity > .nsc-card-action{ margin-top:6px; }
+.events-feed-card .major-event-ticket-row,
+.events-feed-card .major-event-navigation-row{
+  min-height:0;
+  padding:6px 10px;
+  border-top:1px solid var(--border);
+  background:var(--soft-fill);
+}
+.events-feed-card .major-event-ticket-row{ border-bottom:0; }
+.events-feed-card .major-event-navigation-row{ border-bottom:1px solid var(--border); }
+.events-feed-card .major-event-schedule{ padding:10px 14px 12px; }
+.events-feed-card.is-event-minimised .major-event-logo{ width:56px; height:46px; }
+.events-feed-card.is-event-minimised .major-event-identity{ padding-block:6px; }
+.event-card.is-event-minimised .event-main > * + *{ margin-top:6px; }
+.events-dismissed-title{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--border);
+  color:var(--text-dim);
+  font:900 .67rem/1 'DM Sans',sans-serif;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.event-dismissed-stub{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  min-height:62px;
+  padding:8px 10px 8px 14px;
+  border:1px dashed var(--border);
+  border-radius:14px;
+  background:color-mix(in srgb,var(--soft-fill) 72%,transparent);
+}
+.event-dismissed-copy{ min-width:0; display:grid; gap:3px; }
+.event-dismissed-copy strong{ overflow:hidden; color:var(--text); font-size:.76rem; text-overflow:ellipsis; white-space:nowrap; }
+.event-dismissed-copy time{ color:var(--text-dim); font-size:.64rem; }
+@media (max-width:430px){
+  .event-card-controls{ justify-content:stretch; }
+  .event-card-control{ flex:1 1 0; min-width:0; }
+  .event-card-primary-actions,
+  .major-event-navigation-row{ gap:5px; }
+  .event-card-primary-actions .event-quick-action,
+  .major-event-navigation-row .event-quick-action{ padding-inline:5px; font-size:.58rem; }
+  .major-event-navigation-row .provider-action-mark{ flex-basis:48px; width:48px; padding-inline:3px; }
+  .events-feed-card .major-event-ticket-row,
+  .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
+}
 </style>
 </head>
 <body>
@@ -9228,6 +9328,14 @@ function migrateEventActionRecords(records){
   const normalized = Object.fromEntries(Object.entries(records || {}).map(([key, action]) => {
     if (!action || typeof action !== "object") return [key, action];
     const { mustWatch:_legacyMustWatch, mustWatchAddedAt:_legacyMustWatchAddedAt, mustWatchSeenAt:_legacyMustWatchSeenAt, ...cleanAction } = action;
+    const legacyEventsDismissed = !Object.hasOwn(action, "isDismissed") && action.dismissed && action.dismissalSource === "events";
+    const eventsDismissed = Boolean(action.isDismissed || legacyEventsDismissed);
+    const feedDismissedAt = action.dismissed && !legacyEventsDismissed && !Number.isNaN(Date.parse(action.dismissedAt || action.lastActionAt || ""))
+      ? new Date(action.dismissedAt || action.lastActionAt).toISOString()
+      : null;
+    const eventsDismissedAt = eventsDismissed && !Number.isNaN(Date.parse(action.eventsDismissedAt || action.dismissedAt || action.lastActionAt || ""))
+      ? new Date(action.eventsDismissedAt || action.dismissedAt || action.lastActionAt).toISOString()
+      : null;
     const wasSavedForLater = Boolean(
       action.watchLater
       || action.savedForCatchup
@@ -9238,10 +9346,11 @@ function migrateEventActionRecords(records){
       watchLater: false,
       saved: Boolean(action.saved || wasSavedForLater),
       archived: Boolean(action.archived || wasSavedForLater),
-      dismissed: Boolean(action.dismissed),
-      dismissedAt: action.dismissed && !Number.isNaN(Date.parse(action.dismissedAt || action.lastActionAt || ""))
-        ? new Date(action.dismissedAt || action.lastActionAt).toISOString()
-        : null,
+      dismissed: Boolean(action.dismissed && !legacyEventsDismissed),
+      isDismissed: eventsDismissed,
+      isMinimised: Boolean(action.isMinimised),
+      dismissedAt: feedDismissedAt,
+      eventsDismissedAt,
       lastActionAt: action.lastActionAt || null,
     }];
   }));
@@ -11676,7 +11785,10 @@ function defaultEventAction(ev){
     saved: false,
     archived: false,
     dismissed: false,
+    isDismissed: false,
+    isMinimised: false,
     dismissedAt: null,
+    eventsDismissedAt: null,
     dismissalSource: null,
     nothingscoreSubmittedPhases: [],
     lastActionAt: null,
@@ -15144,8 +15256,13 @@ function recordTunePromptAction(action){
   });
 }
 
-function restoreDismissedEvent(ev, { message = true } = {}){
-  updateEventAction(ev, {
+function restoreDismissedEvent(ev, { message = true, eventsOnly = false, displayLabel = null } = {}){
+  const currentAction = getEventAction(ev);
+  updateEventAction(ev, eventsOnly ? {
+    isDismissed:false,
+    eventsDismissedAt:null,
+    dismissalSource:currentAction.dismissed ? currentAction.dismissalSource : "events_restore",
+  } : {
     dismissed:false,
     dismissedAt:null,
     dismissalSource:"hidden_restore",
@@ -15154,19 +15271,26 @@ function restoreDismissedEvent(ev, { message = true } = {}){
   if (settingsSection === "hidden" && document.getElementById("settingsModal")?.classList.contains("show")){
     renderSettingsScreen();
   }
-  if (message) showToast(`${spoilerSafeDisplayTitle(ev)} is back in your feed.`);
+  if (message) showToast(`${displayLabel || spoilerSafeDisplayTitle(ev)} is back in ${eventsOnly ? "Events" : "your feed"}.`);
 }
 
-function dismissEventCard(ev, { previousPreferences, previousAction, card = null, showTunePrompt = false, feedbackCount = 0 } = {}){
-  const surface = activeTab === "events" ? "events" : "feed";
+function dismissEventCard(ev, { previousPreferences, previousAction, card = null, showTunePrompt = false, feedbackCount = 0, eventsOnly = false, displayLabel = null } = {}){
+  const surface = eventsOnly ? "events" : activeTab === "events" ? "events" : "feed";
   const dismissedCardKey = scrollKeyForElement(card);
   const dismissedCardTop = card?.getBoundingClientRect?.().top;
   const undoViewportAnchor = dismissedCardKey && Number.isFinite(dismissedCardTop)
     ? { dataset:{ scrollKey:dismissedCardKey }, getBoundingClientRect:() => ({ top:dismissedCardTop }) }
     : null;
-  updateEventAction(ev, {
+  const currentAction = getEventAction(ev);
+  const dismissedAt = new Date().toISOString();
+  updateEventAction(ev, eventsOnly ? {
+    isDismissed:true,
+    eventsDismissedAt:dismissedAt,
+    dismissalSource:currentAction.dismissed ? currentAction.dismissalSource : surface,
+  } : {
     dismissed:true,
-    dismissedAt:new Date().toISOString(),
+    isDismissed:Boolean(currentAction.isDismissed),
+    dismissedAt,
     dismissalSource:surface,
   });
   card?.classList.add("is-dismissing");
@@ -15199,9 +15323,13 @@ function dismissEventCard(ev, { previousPreferences, previousAction, card = null
     } else {
       renderAll({ preserveViewport:true });
     }
-    showToast(`${spoilerSafeDisplayTitle(ev)} restored.`);
+    showToast(`${displayLabel || spoilerSafeDisplayTitle(ev)} restored.`);
   };
-  showToast(`${spoilerSafeDisplayTitle(ev)} dismissed.`, { actionLabel:"Undo", onAction:undo, duration:4200 });
+  const dismissedLabel = displayLabel || spoilerSafeDisplayTitle(ev);
+  const dismissMessage = eventsOnly
+    ? `${dismissedLabel} moved to the bottom of Events.`
+    : `${dismissedLabel} dismissed.`;
+  showToast(dismissMessage, { actionLabel:"Undo", onAction:undo, duration:4200 });
   window.setTimeout(() => {
     if (undone) return;
     renderAll({ preserveViewport:true });
@@ -15707,44 +15835,46 @@ function configureProviderLaunch(link, viewing){
   link.rel = "noopener noreferrer external";
 }
 
-function appendEventQuickActions(container, ev){
+function appendEventQuickActions(container, ev, { reminder = true, chat = true, viewing = true } = {}){
   const actions = document.createElement("div");
   actions.className = "event-quick-actions";
-  const timing = eventReminderTiming(ev);
-  const reminder = document.createElement("button");
-  reminder.type = "button";
-  reminder.className = "event-quick-action primary";
-  const reminderRequested = Boolean(getEventAction(ev).reminderRequested);
-  reminder.disabled = !reminderRequested && !reminderCanBeScheduled(timing);
-  reminder.setAttribute("aria-pressed", String(reminderRequested));
-  reminder.title = timing?.fallback
-    ? "Background notification 15 minutes before the published broadcast time because a kickoff or race start is not available."
-    : "Background notification 15 minutes before kickoff or race start.";
-  reminder.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>Remind</span>`;
-  reminder.addEventListener("click", event => {
-    event.stopPropagation();
-    void toggleQuickReminder(ev, reminder);
-  });
-  actions.appendChild(reminder);
-  appendFixtureChatActions(actions, ev);
-  const viewing = FOLLOW_FIRST?.viewingLink?.(ev, userPreferences.followFirst?.subscriptions || []);
-  if (viewing){
+  if (reminder){
+    const timing = eventReminderTiming(ev);
+    const reminderButton = document.createElement("button");
+    reminderButton.type = "button";
+    reminderButton.className = "event-quick-action primary";
+    const reminderRequested = Boolean(getEventAction(ev).reminderRequested);
+    reminderButton.disabled = !reminderRequested && !reminderCanBeScheduled(timing);
+    reminderButton.setAttribute("aria-pressed", String(reminderRequested));
+    reminderButton.title = timing?.fallback
+      ? "Background notification 15 minutes before the published broadcast time because a kickoff or race start is not available."
+      : "Background notification 15 minutes before kickoff or race start.";
+    reminderButton.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>Remind</span>`;
+    reminderButton.addEventListener("click", event => {
+      event.stopPropagation();
+      void toggleQuickReminder(ev, reminderButton);
+    });
+    actions.appendChild(reminderButton);
+  }
+  if (chat) appendFixtureChatActions(actions, ev);
+  const viewingLink = viewing ? FOLLOW_FIRST?.viewingLink?.(ev, userPreferences.followFirst?.subscriptions || []) : null;
+  if (viewingLink){
     const link = document.createElement("a");
     link.className = "event-quick-action";
-    configureProviderLaunch(link, viewing);
-    const verb = viewing.liveOrReplay === "replay" ? "Replay" : "Watch";
-    link.title = `${verb} on ${viewing.label}. Installed apps may open natively; otherwise use the browser fallback.`;
-    link.setAttribute("aria-label", `${verb} on ${viewing.label}`);
+    configureProviderLaunch(link, viewingLink);
+    const verb = viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch";
+    link.title = `${verb} on ${viewingLink.label}. Installed apps may open natively; otherwise use the browser fallback.`;
+    link.setAttribute("aria-label", `${verb} on ${viewingLink.label}`);
     const prefix = document.createElement("span");
     prefix.className = "viewing-action-prefix";
-    prefix.textContent = `${viewing.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;
-    link.append(prefix, buildViewingProviderMark(viewing));
+    prefix.textContent = `${viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;
+    link.append(prefix, buildViewingProviderMark(viewingLink));
     link.addEventListener("click", event => {
       event.stopPropagation();
-      recordCodeAffinity(codeIdForEvent(ev), viewing.liveOrReplay === "replay" ? "replay" : "watch");
+      recordCodeAffinity(codeIdForEvent(ev), viewingLink.liveOrReplay === "replay" ? "replay" : "watch");
     });
     actions.appendChild(link);
-  } else {
+  } else if (viewing) {
     const unavailable = document.createElement("span");
     unavailable.className = "event-quick-action viewing-tbc";
     unavailable.setAttribute("aria-label", "Viewing provider to be confirmed");
@@ -15752,6 +15882,38 @@ function appendEventQuickActions(container, ev){
     actions.appendChild(unavailable);
   }
   container.appendChild(actions);
+}
+
+function buildEventCardControls(ev, { card = null, eventsOnly = activeTab === "events", displayLabel = null } = {}){
+  const action = getEventAction(ev);
+  const controls = document.createElement("div");
+  controls.className = "event-card-controls";
+  const minimise = document.createElement("button");
+  minimise.type = "button";
+  minimise.className = "event-card-control";
+  minimise.setAttribute("aria-pressed", String(Boolean(action.isMinimised)));
+  minimise.textContent = action.isMinimised ? "Expand" : "Minimise";
+  minimise.addEventListener("click", event => {
+    event.stopPropagation();
+    updateEventAction(ev, { isMinimised:!action.isMinimised });
+    renderAll({ preserveViewport:true });
+  });
+  const dismiss = document.createElement("button");
+  dismiss.type = "button";
+  dismiss.className = "event-card-control danger";
+  dismiss.textContent = "Dismiss";
+  dismiss.addEventListener("click", event => {
+    event.stopPropagation();
+    const previousAction = storedEventAction(ev);
+    dismissEventCard(ev, {
+      previousAction:previousAction ? { ...previousAction } : null,
+      card,
+      eventsOnly,
+      displayLabel,
+    });
+  });
+  controls.append(minimise, dismiss);
+  return controls;
 }
 
 function eventMajorEventId(ev){
@@ -16450,6 +16612,8 @@ function buildEventCard(ev, options = {}){
   const spoilerProtected = !spoilerVisible && hasSpoilerFacts;
   const localGame = isLocalGame(ev);
   const recommendationProfile = eventRecommendationProfile(ev);
+  const action = getEventAction(ev);
+  const isMinimised = Boolean(action.isMinimised);
   const card = document.createElement("article");
   const interactionCard = options.interactionCard || card;
   card.className = [
@@ -16467,6 +16631,7 @@ function buildEventCard(ev, options = {}){
     presentation.isNew ? "is-new" : "",
     status === "past" ? "is-past" : "",
     ["adjacent", "discovery"].includes(recommendationProfile.classification) ? "is-discovery" : "",
+    isMinimised ? "is-event-minimised" : "",
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
   card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`;
@@ -16482,6 +16647,7 @@ function buildEventCard(ev, options = {}){
   card.style.setProperty("--importance-color", importanceColor);
   card.style.setProperty("--importance-strength", `${Math.min(34, 8 + enrichment.intensity * 4)}%`);
   const advanceCardState = () => {
+    if (isMinimised) return;
     const currentState = cardStateForEvent(ev);
     if (currentState === "compact"){
       const eventId = String(ev.eventId || ev.id);
@@ -16490,6 +16656,12 @@ function buildEventCard(ev, options = {}){
     }
     setCardState(ev, nextFeedCardState(currentState));
   };
+  if (!options.archived && mode !== "premium-rail"){
+    card.appendChild(buildEventCardControls(ev, {
+      card:interactionCard,
+      eventsOnly:activeTab === "events" || mode === "events",
+    }));
+  }
   if (!matchupIdentity){
     const icon = document.createElement("div");
     icon.className = soloIdentity ? "event-hero-mark" : "event-icon";
@@ -16506,31 +16678,37 @@ function buildEventCard(ev, options = {}){
   const nameWrap = document.createElement("div");
   nameWrap.className = "event-title-stack";
   if (matchupIdentity) mainDiv.appendChild(matchupIdentity);
-  let dateLine = null;
-  if (expandable){
-    dateLine = document.createElement("div");
-    dateLine.className = "event-date-line";
-    const dateChip = document.createElement("div");
-    dateChip.className = "event-date-chip";
-    dateChip.textContent = `${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
-    dateLine.appendChild(dateChip);
-    const timingChip = buildEventTimingStateChip(ev, timingState);
-    if (timingChip) dateLine.appendChild(timingChip);
-    const ticketOffer = preferredTicketOfferForEvent(ev, { surface: "fixture", localVenueMatched: localGame });
-    if (ticketOffer){
-      const tickets = document.createElement("a");
-      tickets.className = "ticket-link";
-      tickets.href = ticketOffer.url;
-      tickets.target = "_blank";
-      tickets.rel = "noopener noreferrer";
-      tickets.innerHTML = `${glyphMarkup("ui:ticket", { preferImage: true })}<span>${ticketOffer.label}</span>`;
-      tickets.setAttribute("aria-label", `${ticketOffer.label} for ${displayTitle} from ${ticketOffer.provider}`);
-      tickets.addEventListener("click", evt => evt.stopPropagation());
-      dateLine.appendChild(tickets);
-    }
-    appendEventQuickActions(dateLine, ev);
-    if (!matchupIdentity) nameWrap.appendChild(dateLine);
+  const dateLine = document.createElement("div");
+  dateLine.className = "event-date-line";
+  const dateChip = document.createElement("div");
+  dateChip.className = "event-date-chip";
+  dateChip.textContent = `${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
+  dateLine.appendChild(dateChip);
+  const timingChip = buildEventTimingStateChip(ev, timingState);
+  if (timingChip) dateLine.appendChild(timingChip);
+  if (!matchupIdentity) nameWrap.appendChild(dateLine);
+
+  const primaryActions = document.createElement("div");
+  primaryActions.className = "event-card-primary-actions";
+  const ticketOffer = preferredTicketOfferForEvent(ev, { surface: "fixture", localVenueMatched: localGame });
+  if (ticketOffer){
+    const tickets = document.createElement("a");
+    tickets.className = "ticket-link event-quick-action";
+    tickets.href = ticketOffer.url;
+    tickets.target = "_blank";
+    tickets.rel = "noopener noreferrer";
+    tickets.innerHTML = `${glyphMarkup("ui:ticket", { preferImage: true })}<span>Buy tickets</span>`;
+    tickets.setAttribute("aria-label", `Buy tickets for ${displayTitle} from ${ticketOffer.provider}`);
+    tickets.addEventListener("click", evt => evt.stopPropagation());
+    primaryActions.appendChild(tickets);
   }
+  appendEventQuickActions(primaryActions, ev, { viewing:false });
+  nameWrap.appendChild(primaryActions);
+
+  const viewingActions = document.createElement("div");
+  viewingActions.className = "event-card-viewing-actions";
+  appendEventQuickActions(viewingActions, ev, { reminder:false, chat:false });
+  nameWrap.appendChild(viewingActions);
   const nameLine = document.createElement("div");
   nameLine.className = "event-name-line";
   if (matchupIdentity) nameLine.classList.add("matchup-visual-title-hidden");
@@ -16546,9 +16724,9 @@ function buildEventCard(ev, options = {}){
   topRow.appendChild(nameWrap);
 
   mainDiv.appendChild(topRow);
-  const whyItMatters = buildEventWhyItMatters(ev);
+  const whyItMatters = isMinimised ? null : buildEventWhyItMatters(ev);
   if (whyItMatters) mainDiv.appendChild(whyItMatters);
-  if (expandable){
+  if (expandable && !isMinimised){
     const disclosureRow = document.createElement("div");
     disclosureRow.className = "card-disclosure-row";
     const expandControl = document.createElement("button");
@@ -16578,9 +16756,9 @@ function buildEventCard(ev, options = {}){
     disclosureRow.appendChild(buildEventNothingscoreAction(ev));
     mainDiv.appendChild(disclosureRow);
   }
-  if (!expandable) mainDiv.appendChild(buildEventNothingscoreAction(ev));
+  if (!expandable && !isMinimised) mainDiv.appendChild(buildEventNothingscoreAction(ev));
 
-  mainDiv.appendChild(activeTab === "feed" && !options.archived ? buildFeedStakesRow(ev) : buildStakesMeter(ev));
+  if (!isMinimised) mainDiv.appendChild(activeTab === "feed" && !options.archived ? buildFeedStakesRow(ev) : buildStakesMeter(ev));
   mainDiv.id = `${nameEl.id}-details`;
   if (options.archived){
     mainDiv.appendChild(buildEventActionPanel(ev, {
@@ -19725,9 +19903,9 @@ function buildMajorEventTicketLink(record, className = "major-event-ticket-link 
   link.rel = "noopener noreferrer external";
   link.innerHTML = glyphMarkup("ui:ticket", { preferImage: true });
   const label = document.createElement("span");
-  label.textContent = offer.label;
+  label.textContent = "Buy tickets";
   link.appendChild(label);
-  link.setAttribute("aria-label", `${offer.label} for ${record.name} from ${offer.provider}`);
+  link.setAttribute("aria-label", `Buy tickets for ${record.name} from ${offer.provider}`);
   link.title = `${offer.provider} - verified ${new Date(offer.verifiedAt).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}`;
   return link;
 }
@@ -20005,6 +20183,8 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
   const actionEvent = majorEventActionEvent(record);
   const crowdEvent = majorEventNothingscoreEvent(record);
+  const eventAction = getEventAction(actionEvent);
+  const isMinimised = Boolean(eventAction.isMinimised);
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
   const eventCard = interactionCard || card;
@@ -20015,24 +20195,26 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
     "events-feed-card",
     state === "selected" ? "is-selected" : "",
     state === "opened" ? "is-opened" : "",
+    isMinimised ? "is-event-minimised" : "",
   ].filter(Boolean).join(" ");
   card.id = `major-event-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.majorEventId = record.id;
   card.dataset.eventId = actionEvent.eventId || actionEvent.id;
   card.dataset.scrollKey = `major-event:${record.id}`;
-  card.dataset.cardState = state;
-  card.dataset.cardLevel = cardLevelForState(state);
+  card.dataset.cardState = isMinimised ? "minimised" : state;
+  card.dataset.cardLevel = isMinimised ? "L0" : cardLevelForState(state);
   card.tabIndex = 0;
-  card.setAttribute("aria-expanded", String(state !== "compact"));
-  card.setAttribute("aria-label", `${record.name}. ${state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
+  card.setAttribute("aria-expanded", String(!isMinimised && state !== "compact"));
+  card.setAttribute("aria-label", `${record.name}. ${isMinimised ? "Minimised view" : state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
   card.style.setProperty("--sport-color", meta.color);
 
   const advanceState = ({ restoreFocus = false } = {}) => {
+    if (isMinimised) return;
     activeMajorEventNowId = record.id;
     setCardState(record, nextCardState(cardStateForEvent(record)));
     refreshExpandableCard(eventCard, buildMajorEventCard(record, { interactionCard:eventCard }), {
       restoreFocus,
-      focusTarget:`[data-scroll-key="major-event:${CSS.escape(record.id)}"] .major-event-expand-control`,
+      focusTarget:`[data-scroll-key="major-event:${CSS.escape(record.id)}"] .major-event-timetable`,
     });
   };
   card.addEventListener("click", event => {
@@ -20048,13 +20230,16 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   card.setAttribute("aria-keyshortcuts", "Enter Space");
 
   const ticketRow = document.createElement("div");
-  ticketRow.className = "major-event-ticket-row";
+  ticketRow.className = "major-event-ticket-row event-card-primary-actions";
   const ticketLink = buildMajorEventTicketLink(record);
   if (ticketLink) ticketRow.appendChild(ticketLink);
   const primaryTimeline = MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST(), { level:"L0", timeZone:"Australia/Sydney" });
   const primaryItem = primaryTimeline.upcoming[0] || primaryTimeline.recent.at(-1) || null;
   const primaryFixture = (primaryItem ? majorEventFixtureSnapshot(primaryItem.subEvent, record) : null) || majorEventActionEvent(record);
-  appendEventQuickActions(ticketRow, primaryFixture);
+  appendEventQuickActions(ticketRow, primaryFixture, { viewing:false });
+
+  const navigationRow = document.createElement("div");
+  navigationRow.className = "major-event-navigation-row";
   const familyId = MAJOR_EVENTS.eventFamilyId(record);
   const familyFollowed = userPreferences.followFirst.followedMajorEventIds.includes(familyId);
   const familyFollow = document.createElement("button");
@@ -20066,28 +20251,21 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
     event.stopPropagation();
     toggleMajorEventFollow(familyId);
   });
-  ticketRow.appendChild(familyFollow);
+  navigationRow.appendChild(familyFollow);
+  appendEventQuickActions(navigationRow, primaryFixture, { reminder:false, chat:false });
   const inspect = document.createElement("button");
   inspect.type = "button";
-  inspect.className = "event-quick-action";
+  inspect.className = "event-quick-action major-event-timetable";
   inspect.innerHTML = `${glyphMarkup("ui:list", { preferImage:true })}<span>Timetable</span>`;
   inspect.addEventListener("click", event => {
     event.stopPropagation();
     activeMajorEventNowId = record.id;
+    if (getEventAction(actionEvent).isMinimised) updateEventAction(actionEvent, { isMinimised:false });
     setCardState(record, "opened");
     refreshExpandableCard(eventCard, buildMajorEventCard(record, { interactionCard:eventCard }), { restoreFocus:false });
     window.requestAnimationFrame(() => focusMajorEventTimetable(record.id));
   });
-  ticketRow.appendChild(inspect);
-  const expand = document.createElement("button");
-  expand.type = "button";
-  expand.className = "major-event-expand-control";
-  expand.setAttribute("aria-expanded", String(state !== "compact"));
-  expand.setAttribute("aria-label", `${state === "compact" ? "Show summary for" : state === "selected" ? "Show full details for" : "Collapse"} ${record.name}`);
-  expand.title = state === "compact" ? "Show summary" : state === "selected" ? "Show full details" : "Collapse";
-  expand.innerHTML = glyphMarkup("ui:chevron-right", { preferImage: true });
-  expand.addEventListener("click", () => advanceState({ restoreFocus: true }));
-  ticketRow.appendChild(expand);
+  navigationRow.appendChild(inspect);
 
   const identity = document.createElement("header");
   identity.className = "major-event-identity";
@@ -20106,31 +20284,40 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   });
   identity.append(logo, title);
   identity.appendChild(facts);
-  const whyItMatters = buildEventWhyItMatters(record);
-  if (whyItMatters) identity.appendChild(whyItMatters);
-  identity.appendChild(buildEventNothingscoreAction(crowdEvent));
-  identity.appendChild(buildStakesMeter(record));
+  if (!isMinimised){
+    const whyItMatters = buildEventWhyItMatters(record);
+    if (whyItMatters) identity.appendChild(whyItMatters);
+    identity.appendChild(buildStakesMeter(record));
+    identity.appendChild(buildEventNothingscoreAction(crowdEvent));
+  }
 
-  card.append(identity, ticketRow);
-  if (state === "opened"){
+  card.append(
+    buildEventCardControls(actionEvent, { card:eventCard, eventsOnly:true, displayLabel:record.name }),
+    identity,
+    ticketRow,
+    navigationRow
+  );
+  if (!isMinimised && state === "opened"){
     const draw = buildMajorEventDraw(record);
     if (draw) card.appendChild(draw);
   }
-  const immediateSchedule = buildMajorEventSchedule(record, {
-    level: cardLevelForState(state),
-    headingText: state === "opened" ? "Published timeline" : state === "selected" ? "Around now" : "Next match or line-up",
-    compact: state === "compact",
-  });
-  if (immediateSchedule) card.appendChild(immediateSchedule);
-  else {
-    const tbc = document.createElement("p");
-    tbc.className = "major-event-immediate-tbc";
-    tbc.textContent = "Immediate match line-up TBC. Open timetable for the source-published schedule.";
-    card.appendChild(tbc);
+  if (!isMinimised){
+    const immediateSchedule = buildMajorEventSchedule(record, {
+      level: cardLevelForState(state),
+      headingText: state === "opened" ? "Published timeline" : state === "selected" ? "Around now" : "Next match or line-up",
+      compact: state === "compact",
+    });
+    if (immediateSchedule) card.appendChild(immediateSchedule);
+    else {
+      const tbc = document.createElement("p");
+      tbc.className = "major-event-immediate-tbc";
+      tbc.textContent = "Immediate match line-up TBC. Open timetable for the source-published schedule.";
+      card.appendChild(tbc);
+    }
+    const tablePreview = buildMajorEventTablePreview(record);
+    if (tablePreview && state !== "compact") card.appendChild(tablePreview);
   }
-  const tablePreview = buildMajorEventTablePreview(record);
-  if (tablePreview && state !== "compact") card.appendChild(tablePreview);
-  if (state === "opened"){
+  if (!isMinimised && state === "opened"){
     card.dataset.editorialProvenance = record.editorialNarrative ? "validated" : "structural";
   }
   return card;
@@ -20398,6 +20585,36 @@ function buildMajorEventMarker(event){
   return card;
 }
 
+function compareDismissedEventRecords(first, second){
+  const firstAt = Date.parse(getEventAction(majorEventActionEvent(first)).eventsDismissedAt || "") || 0;
+  const secondAt = Date.parse(getEventAction(majorEventActionEvent(second)).eventsDismissedAt || "") || 0;
+  return firstAt - secondAt || MAJOR_EVENTS.compareRecords(first, second, nowAEST());
+}
+
+function buildDismissedEventStub(record){
+  const event = majorEventActionEvent(record);
+  const action = getEventAction(event);
+  const stub = document.createElement("article");
+  stub.className = "event-dismissed-stub";
+  stub.dataset.scrollKey = `event-dismissed:${record.id}`;
+  const copy = document.createElement("div");
+  copy.className = "event-dismissed-copy";
+  const title = document.createElement("strong");
+  title.textContent = record.name;
+  const timestamp = document.createElement("time");
+  const dismissedAt = new Date(action.eventsDismissedAt || Date.now());
+  timestamp.dateTime = dismissedAt.toISOString();
+  timestamp.textContent = `Dismissed ${dismissedAt.toLocaleString("en-AU", { day:"numeric", month:"short", hour:"numeric", minute:"2-digit" })}`;
+  copy.append(title, timestamp);
+  const restore = document.createElement("button");
+  restore.type = "button";
+  restore.className = "event-card-control restore";
+  restore.textContent = "Restore";
+  restore.addEventListener("click", () => restoreDismissedEvent(event, { eventsOnly:true, displayLabel:record.name }));
+  stub.append(copy, restore);
+  return stub;
+}
+
 function renderEventsView(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
@@ -20481,10 +20698,16 @@ function renderEventsView(){
     return;
   }
   const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, majorEventVisibilityPreferences(), nowAEST());
-  visible.events = visible.events.filter(record => !getEventAction(majorEventActionEvent(record)).dismissed);
-  visible.alerts = visible.alerts.filter(record => !getEventAction(majorEventActionEvent(record)).dismissed);
+  const activeMajorRecords = visible.events.filter(record => !getEventAction(majorEventActionEvent(record)).isDismissed);
+  const dismissedMajorRecords = visible.events
+    .filter(record => getEventAction(majorEventActionEvent(record)).isDismissed)
+    .sort(compareDismissedEventRecords);
+  const activeAlertRecords = visible.alerts.filter(record => !getEventAction(majorEventActionEvent(record)).isDismissed);
+  const dismissedAlertRecords = visible.alerts
+    .filter(record => getEventAction(majorEventActionEvent(record)).isDismissed)
+    .sort(compareDismissedEventRecords);
   if (pendingMajorEventFocusId){
-    const pendingRecord = visible.events.find(record => record.id === pendingMajorEventFocusId);
+    const pendingRecord = activeMajorRecords.find(record => record.id === pendingMajorEventFocusId);
     if (pendingRecord && cardStateForEvent(pendingRecord) === "compact") setCardState(pendingRecord, "selected");
   }
   const panel = document.createElement("div");
@@ -20503,17 +20726,24 @@ function renderEventsView(){
     retiredNotice.textContent = `${retiredDeepLink.name} has been retired because its published schedule source failed. It will not appear in your current Events list.`;
     panel.appendChild(retiredNotice);
   }
-  if (eventsViewTab === "ticket-alerts" && visible.alerts.length){
+  if (eventsViewTab === "ticket-alerts" && (activeAlertRecords.length || dismissedAlertRecords.length)){
     const section = document.createElement("section");
     section.className = "events-section";
     const sectionTitle = document.createElement("h3");
     sectionTitle.className = "events-section-title";
     sectionTitle.textContent = "Ticket alerts";
     section.appendChild(sectionTitle);
-    visible.alerts.forEach(record => section.appendChild(buildTicketSaleCard(record)));
+    activeAlertRecords.forEach(record => section.appendChild(buildTicketSaleCard(record)));
+    if (dismissedAlertRecords.length){
+      const dismissedTitle = document.createElement("h4");
+      dismissedTitle.className = "events-dismissed-title";
+      dismissedTitle.textContent = "Dismissed";
+      section.appendChild(dismissedTitle);
+      dismissedAlertRecords.forEach(record => section.appendChild(buildDismissedEventStub(record)));
+    }
     panel.appendChild(section);
   }
-  if (eventsViewTab === "major-events" && visible.events.length){
+  if (eventsViewTab === "major-events" && (activeMajorRecords.length || dismissedMajorRecords.length)){
     const section = document.createElement("section");
     section.className = "events-section";
     const sectionTitle = document.createElement("h3");
@@ -20533,19 +20763,26 @@ function renderEventsView(){
       todayAnchorInserted = true;
     };
     const referenceTime = nowAEST().getTime();
-    if (!visible.events.some(record => record.id === activeMajorEventNowId)) activeMajorEventNowId = visible.events[0].id;
-    visible.events.forEach(record => {
+    if (activeMajorRecords.length && !activeMajorRecords.some(record => record.id === activeMajorEventNowId)) activeMajorEventNowId = activeMajorRecords[0].id;
+    activeMajorRecords.forEach(record => {
       if (!todayAnchorInserted && MAJOR_EVENTS.recordLifecycleTime(record, nowAEST()) >= referenceTime) appendEventsTodayAnchor();
       section.appendChild(buildMajorEventCard(record));
     });
-    appendEventsTodayAnchor();
+    if (activeMajorRecords.length) appendEventsTodayAnchor();
+    if (dismissedMajorRecords.length){
+      const dismissedTitle = document.createElement("h4");
+      dismissedTitle.className = "events-dismissed-title";
+      dismissedTitle.textContent = "Dismissed";
+      section.appendChild(dismissedTitle);
+      dismissedMajorRecords.forEach(record => section.appendChild(buildDismissedEventStub(record)));
+    }
     panel.appendChild(section);
   } else if (eventsViewTab === "major-events") {
     const empty = document.createElement("div");
     empty.className = "empty-state";
     empty.textContent = "No source-backed 5/5 events match your followed sports in the current window.";
     panel.appendChild(empty);
-  } else if (!visible.alerts.length){
+  } else if (!activeAlertRecords.length && !dismissedAlertRecords.length){
     const empty = document.createElement("div");
     empty.className = "empty-state";
     empty.textContent = "No active source-backed ticket alerts match your followed sports.";
@@ -20689,8 +20926,7 @@ function renderTabCounts(){
   const eventsCount = majorEventsDocument
     ? (() => {
         const visible = MAJOR_EVENTS.visibleRecords(majorEventsDocument, majorEventVisibilityPreferences(), nowAEST());
-        return visible.events.filter(record => !getEventAction(majorEventActionEvent(record)).dismissed).length
-          + visible.alerts.filter(record => !getEventAction(majorEventActionEvent(record)).dismissed).length;
+        return visible.events.length + visible.alerts.length;
       })()
     : 0;
   document.getElementById("eventsTabCount").textContent = eventsCount;
@@ -22667,7 +22903,7 @@ function appendFixtureChatActions(container, event){
     const chat = document.createElement("button");
     chat.type = "button";
     chat.className = "event-quick-action event-chat-action";
-    chat.textContent = "+ Chat";
+    chat.textContent = "Chat";
     chat.setAttribute("aria-label", rooms.length
       ? `Open ${rooms.length} private ${rooms.length === 1 ? "chat" : "chats"} for ${event.name}`
       : `Set up a chat for ${event.name}`);
