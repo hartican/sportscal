@@ -14,7 +14,7 @@
       return new Promise(resolve => {
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = "config/chat-media-ui.css?v=216";
+        link.href = "config/chat-media-ui.css?v=217";
         link.dataset.chatMediaStyles = "true";
         link.addEventListener("load", resolve, { once:true });
         link.addEventListener("error", resolve, { once:true });
@@ -24,6 +24,9 @@
     let searchTimer = null;
     let searchController = null;
     let searchSequence = 0;
+    let gifConfig = null;
+    let gifOffset = 0;
+    let gifQuery = "";
 
     async function prepareStaticImage(file){
       if (!media.shouldCompress(file.type)) return file;
@@ -219,11 +222,11 @@
       picker.setAttribute("aria-hidden", "true");
       document.getElementById("chatGifResults")?.replaceChildren();
       document.getElementById("chatGifSearchInput").value = "";
-      document.getElementById("chatGifPickerStatus").textContent = "Tap the search field and enter at least two characters.";
+      document.getElementById("chatGifPickerStatus").textContent = "Trending reactions and sports memes.";
       document.querySelector('#chatRoomComposer [data-chat-gif-trigger]')?.focus?.({ preventScroll:true });
     }
 
-    function openPicker(){
+    async function openPicker(){
       if (!state().capabilities.canUseGifs){
         context.connection(`Earn 25 NSC points to use GIFs. You have ${state().capabilities.lifetimeNscPoints || 0}.`, "retrying");
         return;
@@ -232,6 +235,30 @@
       picker.classList.add("show");
       picker.setAttribute("aria-hidden", "false");
       document.getElementById("closeChatGifPickerBtn").focus({ preventScroll:true });
+      await search("");
+    }
+
+    async function loadGifConfig(){
+      if (gifConfig) return gifConfig;
+      gifConfig = await context.request({ mode:"gif-config" });
+      return gifConfig;
+    }
+
+    function registerGifAction(gif, action){
+      const url = gif?.analytics?.[action]?.url;
+      if (!url) return;
+      void fetch(url, { mode:"no-cors", keepalive:true }).catch(() => {});
+    }
+
+    function normalizedGif(item){
+      const preview = item?.images?.fixed_width_small || item?.images?.fixed_width || item?.images?.preview_gif || {};
+      return {
+        id:item?.id, gifId:item?.id, provider:"giphy", title:item?.title || "GIF",
+        contentType:"image/gif", previewUrl:preview.url,
+        width:Number(preview.width || 240), height:Number(preview.height || 240),
+        sourcePage:item?.url || "https://giphy.com/", attribution:"Powered by GIPHY",
+        analytics:item?.analytics || null,
+      };
     }
 
     async function importGif(item, gif){
@@ -265,16 +292,18 @@
         sourceProvider:gif.provider, sourceGifId:gif.gifId,
       };
       current.pendingAttachments.push(item);
+      item.providerAnalytics = gif.analytics || null;
+      registerGifAction(gif, "onclick");
       closePicker();
       refreshPreviews();
       void importGif(item, gif);
     }
 
-    async function search(query){
+    async function search(query, { append = false } = {}){
       const q = String(query || "").trim();
       const results = document.getElementById("chatGifResults");
       const status = document.getElementById("chatGifPickerStatus");
-      if (q.length < 2){
+      if (q.length === 1){
         results.replaceChildren();
         status.textContent = "Enter at least two characters.";
         return;
@@ -283,38 +312,57 @@
       const controller = new AbortController();
       searchController = controller;
       const sequence = ++searchSequence;
-      status.textContent = "Searching GIFs…";
-      results.replaceChildren();
+      status.textContent = q ? "Searching GIFs…" : "Loading trending GIFs…";
+      if (!append) results.replaceChildren();
       try{
-        const payload = await context.request({ mode:"gif-search", q }, null, { signal:controller.signal });
+        const config = await loadGifConfig();
+        if (!append){ gifOffset = 0; gifQuery = q; }
+        const endpoint = q ? config.searchUrl : config.trendingUrl;
+        const url = new URL(endpoint);
+        url.searchParams.set("api_key", config.apiKey);
+        url.searchParams.set("limit", String(config.limit || 24));
+        url.searchParams.set("offset", String(gifOffset));
+        url.searchParams.set("rating", config.rating || "pg-13");
+        url.searchParams.set("country_code", config.countryCode || "AU");
+        url.searchParams.set("bundle", "messaging_non_clips");
+        url.searchParams.set("remove_low_contrast", "true");
+        if (q){
+          url.searchParams.set("q", q);
+          url.searchParams.set("lang", config.language || "en");
+        }
+        const response = await fetch(url, { signal:controller.signal });
+        if (!response.ok) throw new Error("The GIF library is temporarily unavailable.");
+        const providerPayload = await response.json();
+        const gifs = (providerPayload.data || []).map(normalizedGif).filter(item => item.gifId && item.previewUrl);
         if (controller.signal.aborted || sequence !== searchSequence) return;
-        if (!(payload.gifs || []).length){
-          status.textContent = "No GIFs found. Try another search.";
+        if (!gifs.length){
+          status.textContent = append ? "That’s everything." : "No GIFs found. Try another search.";
           return;
         }
-        status.textContent = `${payload.gifs.length} GIFs found.`;
-        payload.gifs.forEach(gif => {
+        status.textContent = q ? `${gifs.length} reactions found.` : "Trending reactions";
+        gifs.forEach(gif => {
           const button = document.createElement("button");
           button.type = "button";
           button.className = "chat-gif-result";
           const image = document.createElement("img");
           image.src = gif.previewUrl;
           image.alt = gif.title;
-          image.width = 240;
-          image.height = 240;
+          image.width = gif.width || 240;
+          image.height = gif.height || 240;
           button.appendChild(image);
           button.addEventListener("click", () => selectGif(gif));
           results.appendChild(button);
+          registerGifAction(gif, "onload");
         });
-        const attribution = document.createElement("a");
-        attribution.className = "chat-gif-attribution";
-        attribution.href = payload.attributionUrl || "https://commons.wikimedia.org/";
-        attribution.target = "_blank";
-        attribution.rel = "noopener noreferrer";
-        attribution.textContent = payload.attribution || "GIF library";
-        results.appendChild(attribution);
+        gifOffset += gifs.length;
+        const more = document.createElement("button");
+        more.type = "button";
+        more.className = "btn ghost chat-gif-more";
+        more.textContent = "Load more";
+        more.addEventListener("click", () => { more.remove(); void search(gifQuery, { append:true }); });
+        results.appendChild(more);
       }catch(error){
-        if (error?.name !== "AbortError") status.textContent = error.message || "GIF search is unavailable. Tap Search to retry.";
+        if (error?.name !== "AbortError") status.textContent = error.message || "The GIF library is temporarily unavailable. Tap Search to retry.";
       }
     }
 
@@ -333,7 +381,7 @@
       picker.setAttribute("aria-modal", "true");
       picker.setAttribute("aria-labelledby", "chatGifPickerTitle");
       picker.setAttribute("aria-hidden", "true");
-      picker.innerHTML = '<header class="chat-gif-picker-head"><button class="btn ghost" id="closeChatGifPickerBtn" type="button" aria-label="Back to chat">Back</button><h2 id="chatGifPickerTitle">Add a GIF</h2></header><div class="chat-gif-picker-search"><input id="chatGifSearchInput" type="search" inputmode="search" autocomplete="off" placeholder="Search GIFs" aria-label="Search GIFs"><button class="btn primary" id="chatGifSearchBtn" type="button">Search</button></div><p class="chat-gif-picker-status" id="chatGifPickerStatus" role="status" aria-live="polite">Tap the search field and enter at least two characters.</p><div class="chat-gif-results" id="chatGifResults"></div>';
+      picker.innerHTML = '<header class="chat-gif-picker-head"><button class="btn ghost" id="closeChatGifPickerBtn" type="button" aria-label="Back to chat">Back</button><h2 id="chatGifPickerTitle">Add a GIF</h2></header><div class="chat-gif-picker-search"><input id="chatGifSearchInput" type="search" inputmode="search" autocomplete="off" placeholder="Search reactions and memes" aria-label="Search GIFs"><button class="btn primary" id="chatGifSearchBtn" type="button">Search</button></div><div class="chat-gif-prompts" aria-label="GIF suggestions"><button type="button">Big win</button><button type="button">No way</button><button type="button">Banter</button><button type="button">Disaster</button><button type="button">Clutch</button><button type="button">Celebration</button></div><p class="chat-gif-picker-status" id="chatGifPickerStatus" role="status" aria-live="polite">Trending reactions and sports memes.</p><div class="chat-gif-results" id="chatGifResults"></div><a class="chat-gif-attribution" href="https://giphy.com/" target="_blank" rel="noopener noreferrer">Powered by GIPHY</a>';
       document.body.appendChild(picker);
       picker.querySelector("#closeChatGifPickerBtn").addEventListener("click", closePicker);
       picker.querySelector("#chatGifSearchBtn").addEventListener("click", () => { void search(picker.querySelector("#chatGifSearchInput").value); });
@@ -343,6 +391,10 @@
         void search(event.currentTarget.value);
       });
       picker.querySelector("#chatGifSearchInput").addEventListener("input", event => scheduleSearch(event.currentTarget.value));
+      picker.querySelectorAll(".chat-gif-prompts button").forEach(button => button.addEventListener("click", () => {
+        picker.querySelector("#chatGifSearchInput").value = button.textContent;
+        void search(button.textContent);
+      }));
     }
 
     ensurePicker();
@@ -352,6 +404,7 @@
       MAX_STATIC_IMAGE_EDGE:media.MAX_STATIC_IMAGE_EDGE,
       prepareStaticImage, stageText, preview, refreshPreviews, upload, choose,
       closePicker, openPicker, search, scheduleSearch,
+      notifyGifSent(items){ (items || []).filter(item => item.providerAnalytics).forEach(item => registerGifAction({ analytics:item.providerAnalytics }, "onsent")); },
     });
   }
 

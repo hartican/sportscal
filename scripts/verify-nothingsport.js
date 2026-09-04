@@ -157,7 +157,7 @@ assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned
 assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
 assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
 assert(html.includes('src="config/sport-context.js"'), "modular sport context must load before event and standings resolution");
-assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=216")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
+assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=217")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
 assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
 assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asset registry must load before app rendering");
 assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
@@ -180,8 +180,9 @@ assert(
   !html.includes('<script src="config/card-identities.js"></script>')
     && html.includes('loadDeferredScript("config/card-identities.js")')
     && html.includes("cardIdentitiesReady")
-    && html.includes("Promise.all([nationalTeamIdentityReady, cardIdentitiesReady, remoteFeedTask])"),
-  "the official card-identity registry must load concurrently with the first feed and settle before event cards render",
+    && !html.includes("Promise.all([nationalTeamIdentityReady, cardIdentitiesReady, remoteFeedTask])")
+    && html.includes("scheduleIdentityImageRecovery"),
+  "the official card-identity registry must load independently and patch reserved card marks without blocking usable Feed cards",
 );
 assert(cardIdentitiesSource.includes('"competition:nrl"') && cardIdentitiesSource.includes('"brand:roland-garros"'), "card identities must include official competition and marquee-event marks");
 assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "fine-tuning and compatible spectacle-rating contracts must load before app state");

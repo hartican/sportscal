@@ -11,8 +11,12 @@
 .chat-gif-picker-head h2{flex:1;font-size:1rem}
 .chat-gif-picker-search{flex:0 0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:12px 14px}
 .chat-gif-picker-search input{width:100%;min-height:46px}
+.chat-gif-prompts{display:flex;flex:0 0 auto;gap:7px;overflow-x:auto;padding:0 14px 10px;scrollbar-width:none}
+.chat-gif-prompts button{flex:0 0 auto;min-height:40px;padding:7px 12px;border:1px solid var(--border);border-radius:999px;background:var(--bg-card);color:var(--text);font:750 .68rem/1 inherit;cursor:pointer}
 .chat-gif-picker-status{flex:0 0 auto;min-height:24px;padding:0 14px 8px;color:var(--text-dim);font-size:.7rem}
 .chat-gif-results{flex:1 1 auto;min-height:0;display:grid;align-content:start;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;overflow-y:auto;overscroll-behavior:contain;padding:0 14px calc(14px + env(safe-area-inset-bottom))}
 .chat-gif-result{padding:0;border:0;border-radius:7px;overflow:hidden;background:var(--bg-card);cursor:pointer}
 .chat-gif-result img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
 .chat-gif-attribution{grid-column:1/-1;min-height:36px;color:var(--text-dim);text-align:right;font-size:.65rem}
+.chat-gif-picker>.chat-gif-attribution{flex:0 0 auto;padding:6px 14px calc(8px + env(safe-area-inset-bottom))}
+.chat-gif-more{grid-column:1/-1;min-height:44px}

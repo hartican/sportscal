@@ -616,5 +616,67 @@
     return errors;
   }
 
-  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followedSportKeys, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMatchesFollow, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, editorialRecordForSubEvent, editorialFixtureFromSubEvent, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument });
+  function recordIdFromValidationError(message, document){
+    return (document?.events || [])
+      .map(record => String(record?.id || ""))
+      .filter(Boolean)
+      .sort((left, right) => right.length - left.length)
+      .find(id => String(message).startsWith(`${id}:`)) || null;
+  }
+
+  function recordValidationCode(message){
+    if (/confirmed event falls outside the retention horizon/.test(message)) return "outside_retention_horizon";
+    if (/ticket-sale alert is outside its active window/.test(message)) return "ticket_alert_expired";
+    if (/TBC records require an active verified ticket state inside the retention horizon/.test(message)) return "tbc_ticket_alert_expired";
+    return null;
+  }
+
+  function validateDocumentDetailed(document, options = {}){
+    const fatalErrors = [];
+    const recordErrors = [];
+    validateDocument(document, options).forEach(message => {
+      const code = recordValidationCode(message);
+      const recordId = code ? recordIdFromValidationError(message, document) : null;
+      if (code && recordId) recordErrors.push({ recordId, code, message });
+      else fatalErrors.push(message);
+    });
+    return { fatalErrors, recordErrors };
+  }
+
+  function usableDocument(document, options = {}){
+    const validation = validateDocumentDetailed(document, options);
+    if (validation.fatalErrors.length) return { document:null, ...validation, quarantinedRecordIds:[] };
+    const quarantinedRecordIds = Array.from(new Set(validation.recordErrors.map(item => item.recordId)));
+    const quarantined = new Set(quarantinedRecordIds);
+    const events = (document?.events || []).filter(record => (
+      !quarantined.has(record.id) && !quarantined.has(record.parentEventId)
+    ));
+    return { document:{ ...document, events }, ...validation, quarantinedRecordIds };
+  }
+
+  function reconcileLifecycle(document, { reference = new Date() } = {}){
+    const next = JSON.parse(JSON.stringify(document || {}));
+    if (!Array.isArray(next.events)) return next;
+    const today = dateKey(reference);
+    const earliest = addDays(today, -PAST_WINDOW_DAYS);
+    const retiredAt = new Date(reference).toISOString();
+    const retiredParents = new Set();
+    next.events.forEach(record => {
+      if (record?.kind === "ticket_sale" || record?.lifecycleStatus === "retired") return;
+      const end = record?.endDate || record?.startDate;
+      if (!end || end >= earliest) return;
+      record.lifecycleStatus = "retired";
+      record.retiredReason = "Outside the Major Events retention window.";
+      record.retiredAt = retiredAt;
+      record.retiredDeepLinkBehaviour = "safe-tombstone";
+      retiredParents.add(record.id);
+    });
+    next.events = next.events.filter(record => {
+      if (record?.kind !== "ticket_sale") return true;
+      return !retiredParents.has(record.parentEventId) && activeTicketing(record, reference);
+    });
+    return next;
+  }
+
+  return Object.freeze({ SCHEMA_VERSION, PAST_WINDOW_DAYS, FORWARD_WINDOW_MONTHS, MARKERS, dateKey, addDays, addMonths, followedSportKeys, followed, eventFamilyId, activeTicketing, inWindow, recordLifecycleTime, compareRecords, visibleRecords, subEventTimelineTime, effectiveSubEventStatus, phaseTimeline, compactPhaseTimelineItems, normalizedParticipantName, subEventParticipantIdentity, subEventIsMarquee, subEventMatchesFollow, subEventMeetsDisplayPolicy, activeEditionForFamily, matchupSideLabels, fixtureSemanticKey, fixtureAliasIds, editorialRecordForSubEvent, editorialFixtureFromSubEvent, fixturePinReconciliationPlan, fixtureFromSubEvent, markerEvents, markerReplacementFixtureIds, validateDocument, validateDocumentDetailed, usableDocument, reconcileLifecycle });
 });

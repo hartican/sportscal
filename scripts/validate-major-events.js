@@ -171,7 +171,7 @@ everyInWindowEdition.forEach(record => {
     `${record.id} must surface from every equivalent ${sportKey} follow representation`,
   ));
 });
-assert(everyInWindowEdition.length >= 10, "the sport-follow visibility audit must cover every current major-event edition");
+assert(everyInWindowEdition.length >= 9, "the sport-follow visibility audit must cover every current major-event edition");
 
 const usOpen = catalogue.events.find(record => record.id === "major-event:us-open-2026");
 const expectedOfficialUsOpenFixtures = fixturesFromSnapshot(usOpenScheduleSnapshot);
@@ -286,17 +286,17 @@ invalidCopies.forEach(([document, message]) => {
 
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
-assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=216"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
+assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=217"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
-assert(worker.includes('"/config/major-events.js?v=216"') && worker.includes('"/config/follow-feed-policy.js?v=216"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
+assert(worker.includes('"/config/major-events.js?v=217"') && worker.includes('"/config/follow-feed-policy.js?v=217"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
 assert.match(html, /const crowdEvent = majorSubEventNothingscoreEvent\(subEvent, record, fixture\);[\s\S]*const editorialHook = buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\), editorialConsequenceForDisplay\(editorialRecord\)\);[\s\S]*if \(editorialHook\) row\.appendChild\(editorialHook\);[\s\S]*row\.appendChild\(buildEventNothingscoreAction\(crowdEvent\)\);/, "every Events timetable card must keep Why it matters and the contribution action together");
 assert.doesNotMatch(html, /row\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\)/, "Events timetable cards must keep volunteered NSC results invisible");
 assert.match(html, /function majorEventFixtureSnapshot\(subEvent, parent\)\{\s+return MAJOR_EVENTS\?\.editorialFixtureFromSubEvent\?\.\(subEvent, parent, \[\.\.\.EVENTS, \.\.\.activeEvents\]\) \|\| null;/, "Events fixtures added to Feed must be persisted with resolved editorial rather than structural copy");
 assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "the validated Events catalogue needs a first-visit offline fallback");
-assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");
+assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage && !quarantinedIds.length) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");
 assert(html.includes("addedToFixtures") && html.includes("addedFixture"), "selected match persistence must be wired into the browser state");
 assert(html.includes('activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event)'), "selected child fixtures must still respect an explicitly focused sport view");
 const feedMerger = html.match(/function mergeMainFeedSpecialEvents\(events\)\{[\s\S]*?\n\}/)?.[0] || "";

@@ -75,6 +75,36 @@
     wallabies: "Australia",
   });
   const INTERNATIONAL_DOMAIN_KEYS = new Set(["fifa", "football", "rugby", "soccer"]);
+  const COMPETITION_PHASES = Object.freeze({
+    REGULAR:"regular-season", FINAL_REGULAR_ROUND:"regular-season-final-round", WILDCARD:"wildcard-final",
+    FINALS_WEEK_ONE:"finals-week-1", SEMI_FINAL:"semi-final", PRELIMINARY_FINAL:"preliminary-final", GRAND_FINAL:"grand-final",
+  });
+
+  function canonicalCompetitionPhase(fixture){
+    const sport = String(fixture?.sportDomainId || fixture?.sportId || fixture?.key || "").toLowerCase().replace(/^sport:/, "");
+    const text = [fixture?.competitionPhase, fixture?.roundLabel, fixture?.stage, fixture?.round].filter(Boolean).join(" ").toLowerCase();
+    if (/grand final|championship decider|title decider/.test(text)) return COMPETITION_PHASES.GRAND_FINAL;
+    if (/preliminary final/.test(text)) return COMPETITION_PHASES.PRELIMINARY_FINAL;
+    if (/semi[ -]?final|finals week 2/.test(text)) return COMPETITION_PHASES.SEMI_FINAL;
+    if (/wildcard/.test(text)) return COMPETITION_PHASES.WILDCARD;
+    if (/qualifying|elimination|finals week 1/.test(text)) return COMPETITION_PHASES.FINALS_WEEK_ONE;
+    if (fixture?.isFinalRegularSeasonRound === true || (sport === "nrl" && /^round 27$/i.test(String(fixture?.roundLabel || "")))) return COMPETITION_PHASES.FINAL_REGULAR_ROUND;
+    return fixture?.competitionPhase || COMPETITION_PHASES.REGULAR;
+  }
+
+  function stakesFloorForFixture(fixture){
+    const sport = String(fixture?.sportDomainId || fixture?.sportId || fixture?.key || "").toLowerCase().replace(/^sport:/, "");
+    if (!new Set(["afl", "nrl"]).has(sport)) return Math.max(1, Number(fixture?.stakesFloor) || 1);
+    const phase = canonicalCompetitionPhase(fixture);
+    if ([COMPETITION_PHASES.PRELIMINARY_FINAL, COMPETITION_PHASES.GRAND_FINAL].includes(phase)) return 5;
+    if ([COMPETITION_PHASES.FINAL_REGULAR_ROUND, COMPETITION_PHASES.WILDCARD, COMPETITION_PHASES.FINALS_WEEK_ONE, COMPETITION_PHASES.SEMI_FINAL].includes(phase)) return 4;
+    return Math.max(1, Number(fixture?.stakesFloor) || 1);
+  }
+
+  function applyCompetitionStakes(fixture){
+    const competitionPhase = canonicalCompetitionPhase(fixture);
+    return { ...fixture, competitionPhase, isFinalRegularSeasonRound:competitionPhase === COMPETITION_PHASES.FINAL_REGULAR_ROUND, stakesFloor:stakesFloorForFixture({ ...fixture, competitionPhase }) };
+  }
 
   function clamp(value, min, max){
     return Math.min(max, Math.max(min, Number(value) || 0));
@@ -235,8 +265,9 @@
 
   function numericStakes(event, override = editorialOverrideFor(event)){
     const supplied = Number(override?.stakes ?? event.storyline?.stakes ?? event.stakesScore);
-    if (Number.isFinite(supplied)) return Math.round(clamp(supplied, 1, 5));
-    return inferredStakesScore(event);
+    const inferred = Number.isFinite(supplied) ? supplied : inferredStakesScore(event);
+    const floor = stakesFloorForFixture(event);
+    return Math.round(clamp(Math.max(inferred, floor), 1, 5));
   }
 
   function numericIntensity(event, stakes = numericStakes(event), override = editorialOverrideFor(event)){
@@ -576,6 +607,10 @@
     RANKING_VERSION,
     PREMIUM_SURFACE_POLICY,
     THREE_DAYS_MS,
+    COMPETITION_PHASES,
+    canonicalCompetitionPhase,
+    stakesFloorForFixture,
+    applyCompetitionStakes,
     canonicalFixtureTitle,
     shouldHideParticipant,
     spoilerSafeFixtureTitle,

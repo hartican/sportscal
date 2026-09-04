@@ -8,6 +8,8 @@ const path = require("node:path");
 const CATALOGUE_PATH = path.resolve(__dirname, "../data/major-events.v1.json");
 const CANONICAL_PATH = path.resolve(__dirname, "../data/canonical/afl-nrl-2026.json");
 const AFL_FINALS_ID = "major-event:afl-finals-series-2026";
+const majorEvents = require("../config/major-events.js");
+const competitionStakes = require("../config/enrichment-engine.js");
 
 function readJson(filePath){
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -40,6 +42,11 @@ function reconcileAflFinals(catalogue, canonical){
     subEvent.name = scheduledName(canonicalEvent, subEvent.name);
     subEvent.roundLabel = canonicalEvent.roundLabel || subEvent.roundLabel || null;
     subEvent.stage = canonicalEvent.roundLabel || subEvent.stage || null;
+    const stagePolicy = competitionStakes.applyCompetitionStakes(canonicalEvent);
+    subEvent.competitionPhase = stagePolicy.competitionPhase;
+    subEvent.isFinalRegularSeasonRound = stagePolicy.isFinalRegularSeasonRound;
+    subEvent.stakesFloor = stagePolicy.stakesFloor;
+    subEvent.stakesScore = Math.max(Number(subEvent.stakesScore) || 1, stagePolicy.stakesFloor);
     subEvent.participantIds = canonicalEvent.participantIds || [];
     subEvent.participants = (canonicalEvent.participantIds || []).map(participantId => ({
       id:participantId,
@@ -67,10 +74,14 @@ function reconcileAflFinals(catalogue, canonical){
   return catalogue;
 }
 
+function reconcileCatalogue(catalogue, canonical, reference = new Date()){
+  return majorEvents.reconcileLifecycle(reconcileAflFinals(catalogue, canonical), { reference });
+}
+
 function main(){
   const checkOnly = process.argv.slice(2).includes("--check");
   const original = fs.readFileSync(CATALOGUE_PATH, "utf8");
-  const reconciled = reconcileAflFinals(readJson(CATALOGUE_PATH), readJson(CANONICAL_PATH));
+  const reconciled = reconcileCatalogue(readJson(CATALOGUE_PATH), readJson(CANONICAL_PATH), new Date());
   const next = `${JSON.stringify(reconciled, null, 2)}\n`;
   if (checkOnly){
     if (original !== next) throw new Error("Major Events catalogue is stale against the canonical AFL Finals Series.");
@@ -83,4 +94,4 @@ function main(){
 
 if (require.main === module) main();
 
-module.exports = { reconcileAflFinals, scheduledName, venueLabel };
+module.exports = { reconcileAflFinals, reconcileCatalogue, scheduledName, venueLabel };

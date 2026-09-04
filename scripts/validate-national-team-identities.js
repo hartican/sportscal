@@ -56,7 +56,8 @@ assert.doesNotMatch(html, /<script src="config\/national-team-identities\.js"><\
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)?.[1];
 assert(shellVersion, "the app shell version must be declared");
 assert(html.includes(`loadDeferredScript("config/national-team-identities.js?v=${shellVersion}")`), "the national registry must load concurrently with the first feed page through a shell-versioned URL");
-assert.match(html, /Promise\.all\(\[nationalTeamIdentityReady, cardIdentitiesReady, remoteFeedTask\]\)/, "the first national-team card must wait for both identity registries");
+assert.doesNotMatch(html, /Promise\.all\(\[nationalTeamIdentityReady, cardIdentitiesReady, remoteFeedTask\]\)/, "national-team identity registries must not block the first usable Feed");
+assert.match(html, /scheduleIdentityImageRecovery/, "national-team marks must patch into reserved card slots after first render");
 assert.match(html, /if \(mark\?\.isNationalTeam \|\| mark\?\.teamKind === "national"\)/, "national-team broken images need an explicit no-flag fallback branch");
 assert.match(html, /const showNationalityFlag = athlete/, "athlete nationality flags must remain separate");
 assert.doesNotMatch(html, /if \(showNationalityFlag \|\| nationalTeam\)/, "Follow must not share the athlete flag branch with national teams");

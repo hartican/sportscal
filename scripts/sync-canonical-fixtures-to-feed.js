@@ -11,6 +11,7 @@ const {
   storylineFor,
 } = require("./lib/storyline-card-rules");
 const canonicalSportsTaxonomy = require("../config/canonical-sports-taxonomy.js");
+const competitionStakes = require("../config/enrichment-engine.js");
 
 const DEFAULT_LIVE_WINDOW_MS = 3 * 60 * 60 * 1000;
 const COMPLETED_RETENTION_MS = 7 * 24 * 60 * 60 * 1000;
@@ -249,6 +250,7 @@ function participantRefs(fixture, participantsById){
 }
 
 function canonicalMetadata(fixture){
+  const phase = competitionStakes.applyCompetitionStakes(fixture);
   return {
     canonicalEventId: fixture.id,
     canonicalSourceId: fixture.sourceId,
@@ -263,6 +265,9 @@ function canonicalMetadata(fixture){
     awayParticipantId: fixture.awayParticipantId,
     roundLabel: fixture.roundLabel || null,
     stage: fixture.stage || null,
+    competitionPhase: phase.competitionPhase,
+    isFinalRegularSeasonRound: phase.isFinalRegularSeasonRound,
+    stakesFloor: phase.stakesFloor,
     isInternational: fixture.competitionScope === "international" || fixture.isInternational === true,
     competitionScope: fixture.competitionScope || (fixture.isInternational === true ? "international" : "domestic"),
     representativeCountryCodes: Array.from(new Set([
@@ -275,6 +280,17 @@ function canonicalMetadata(fixture){
     ...(fixture.status === "completed" && fixture.result?.scorelineText
       ? { canonicalResultScoreline: fixture.result.scorelineText }
       : {}),
+  };
+}
+
+function applyCanonicalStakes(card, fixture){
+  const phase = competitionStakes.applyCompetitionStakes(fixture);
+  const stakesScore = Math.max(phase.stakesFloor, Number(card?.stakesScore) || 1, Number(card?.storyline?.stakes) || 1);
+  return {
+    ...card,
+    stakesScore,
+    expected:Math.max(Number(card?.expected) || 0, stakesScore >= 5 ? 10 : stakesScore >= 4 ? 8 : 4),
+    storyline:card?.storyline ? { ...card.storyline, stakes:stakesScore } : card?.storyline,
   };
 }
 
@@ -373,7 +389,7 @@ function fixtureToCard(fixture, participantsById, sportDetailsByDomainId){
   const fullSpiel = `${fixture.displayName} is an upcoming ${sport.label} fixture${venue ? ` at ${venue}` : ""}. The official fixture time is shown in Sydney time, with confirmed streaming and broadcast options attached to this card.`;
   const id = fixture.id.replace(/[^a-z0-9._-]+/gi, "-").toLowerCase();
 
-  return {
+  return applyCanonicalStakes({
     id,
     eventId: id,
     sport: sport.label,
@@ -404,7 +420,7 @@ function fixtureToCard(fixture, participantsById, sportDetailsByDomainId){
     briefingEligible: false,
     catchupEligible: fixture.broadcasters.some(item => item.replay),
     ...canonicalMetadata(fixture),
-  };
+  }, fixture);
 }
 
 function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
@@ -417,7 +433,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
     sportDetailsByDomainId.has(event.sportDomainId)
     && event.status === "scheduled"
     && event.startTimeUtc
-    && Date.parse(event.startTimeUtc) + DEFAULT_LIVE_WINDOW_MS >= basisTime
+    && Date.parse(event.startTimeUtc) + COMPLETED_RETENTION_MS >= basisTime
   );
   const completedFixtures = canonicalBundle.events.filter(event =>
     sportDetailsByDomainId.has(event.sportDomainId)
@@ -452,7 +468,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
       matchedCanonicalIds.add(fixture.id);
       const sport = getSportDetailsForFixture(fixture, sportDetailsByDomainId);
       const local = sydneyDateTime(fixture.startTimeUtc);
-      return {
+      return applyCanonicalStakes({
         ...card,
         name:fixture.displayName,
         displayTitleCompact:fixture.displayName,
@@ -464,7 +480,7 @@ function syncCanonicalFixtures(feed, canonicalBundle, options = {}){
         sport: sport.label,
         key: sport.key,
         ...canonicalMetadata(fixture),
-      };
+      }, fixture);
     }
     const completedFixture = completedFixtures.find(candidate => {
       if (matchedCanonicalIds.has(candidate.id)) return false;

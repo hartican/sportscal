@@ -817,56 +817,17 @@ async function gifImport(body, user, admin){
   };
 }
 
-async function gifSearch(query, user){
+async function gifConfig(user){
   const capabilities = await requireGifCapability(user);
-  const q = String(query || "").trim().slice(0, 80);
-  if (!q) return { schemaVersion:chatContract.SCHEMA_VERSION, capabilities, gifs:[] };
   const key = String(process.env.GIPHY_API_KEY || "").trim();
-  if (key){
-    const url = new URL("https://api.giphy.com/v1/gifs/search");
-    url.search = new URLSearchParams({ api_key:key, q, limit:"24", rating:"pg-13", lang:"en" }).toString();
-    const result = await fetch(url, { signal:AbortSignal.timeout(10_000) });
-    if (!result.ok) throw new ChatRequestError("GIF search is temporarily unavailable.", 502, "gif_search_unavailable");
-    const payload = await result.json();
-    return {
-      schemaVersion:chatContract.SCHEMA_VERSION, capabilities,
-      attribution:"Powered by GIPHY",
-      attributionUrl:"https://giphy.com/",
-      gifs:(payload.data || []).map(item => ({
-        id:item.id, gifId:item.id, provider:"giphy", title:item.title || "GIF", contentType:"image/gif",
-        previewUrl:item.images?.fixed_width_small?.url || item.images?.preview_gif?.url,
-        width:Number(item.images?.original?.width || 0), height:Number(item.images?.original?.height || 0),
-        sourcePage:item.url || "https://giphy.com/", licence:"GIPHY Terms", attribution:"Powered by GIPHY",
-      })).filter(item => item.previewUrl),
-    };
-  }
-
-  const url = new URL("https://commons.wikimedia.org/w/api.php");
-  url.search = new URLSearchParams({
-    action:"query", generator:"search", gsrsearch:`${q} filemime:image/gif`,
-    gsrnamespace:"6", gsrlimit:"24", prop:"imageinfo", iiprop:"url|mime|size|extmetadata",
-    iiurlwidth:"240", format:"json", origin:"*",
-  }).toString();
-  const result = await fetch(url, { signal:AbortSignal.timeout(10_000) });
-  if (!result.ok) throw new ChatRequestError("GIF search is temporarily unavailable.", 502, "gif_search_unavailable");
-  const payload = await result.json();
+  if (!key) throw new ChatRequestError("The GIF library is temporarily unavailable.", 503, "gif_provider_unavailable");
   return {
     schemaVersion:chatContract.SCHEMA_VERSION, capabilities,
-    attribution:"GIFs from Wikimedia Commons",
-    attributionUrl:"https://commons.wikimedia.org/",
-    gifs:Object.values(payload.query?.pages || {}).map(page => {
-      const info = page.imageinfo?.[0] || {};
-      const metadata = info.extmetadata || {};
-      return {
-        id:String(page.pageid || ""), gifId:String(page.pageid || ""), provider:"wikimedia",
-        title:String(page.title || "GIF").replace(/^File:/, ""),
-        contentType:"image/gif", previewUrl:info.thumburl || info.url,
-        width:Number(info.width || 0), height:Number(info.height || 0),
-        sourcePage:info.descriptionurl || `https://commons.wikimedia.org/?curid=${page.pageid}`,
-        licence:metadata.LicenseShortName?.value || "See source page",
-        attribution:metadata.Credit?.value || metadata.Artist?.value || "Wikimedia Commons",
-      };
-    }).filter(item => item.previewUrl && item.gifId),
+    provider:"giphy", apiKey:key, rating:"pg-13", countryCode:"AU", language:"en", limit:24,
+    searchUrl:"https://api.giphy.com/v1/gifs/search",
+    trendingUrl:"https://api.giphy.com/v1/gifs/trending",
+    attribution:"Powered by GIPHY", attributionUrl:"https://giphy.com/",
+    promptChips:["Big win", "No way", "Banter", "Disaster", "Clutch", "Celebration"],
   };
 }
 
@@ -1380,7 +1341,7 @@ async function chatHandler(request, response){
       const mode = String(queryValue(request, "mode") || "").trim();
       if (mode === "active") payload = await handleActive(user, admin, profile);
       else if (mode === "users") payload = await handleUserSearch(queryValue(request, "q"), admin);
-      else if (mode === "gif-search") payload = await gifSearch(queryValue(request, "q"), user);
+      else if (mode === "gif-config") payload = await gifConfig(user);
       else if (mode === "saved-media") payload = await listSavedMedia(user);
       else if (mode === "attachment"){
         response.redirect(302, await attachmentDownload(request, user, admin));

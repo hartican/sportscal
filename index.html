@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="216">
+<meta name="app-shell-version" content="217">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6988,8 +6988,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/team-follow-catalogue.js"></script>
 <script src="config/event-taxonomy-compat.js"></script>
 <script src="config/preference-taxonomy.js"></script>
-<script src="config/follow-first.js?v=216"></script>
-<script src="config/follow-feed-policy.js?v=216"></script>
+<script src="config/follow-first.js?v=217"></script>
+<script src="config/follow-feed-policy.js?v=217"></script>
 <script src="config/tennis-coverage.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
@@ -7020,7 +7020,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=216")
+  : loadDeferredScript("config/national-team-identities.js?v=217")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7832,7 +7832,7 @@ let SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
 let sportHubsLoad = null;
 function loadSportHubs(){
   if (SPORT_HUBS) return Promise.resolve(SPORT_HUBS);
-  sportHubsLoad ||= loadDeferredScript("config/sport-hubs.js?v=216").then(() => {
+  sportHubsLoad ||= loadDeferredScript("config/sport-hubs.js?v=217").then(() => {
     SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
     if (!SPORT_HUBS) throw new Error("Standings & Fixtures could not load.");
     return SPORT_HUBS;
@@ -8070,7 +8070,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=216",
+  moduleScriptUrl: "config/major-events.js?v=217",
   url: "data/major-events.v1.json",
 });
 
@@ -8283,6 +8283,7 @@ let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
 const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v5";
 const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
+const PERSONALISED_FEED_CACHE_MAX_STALE_MS = 7 * 24 * 60 * 60 * 1000;
 let publicFeedManifest = null;
 let publicFeedNextPageIndex = 0;
 let serverFeedNextCursor = null;
@@ -8310,6 +8311,8 @@ const feedPerformanceMetrics = {
   interactionDisplacements: [],
   longTasks: [],
   storageFallbacks: [],
+  startupCacheOutcome: "pending",
+  lastRevalidationMs: null,
 };
 globalThis.NOTHINGSPORTS_FEED_PERFORMANCE = feedPerformanceMetrics;
 
@@ -8330,6 +8333,8 @@ function publishFeedPerformanceMetrics(){
   root.dataset.feedInteractionMaxMs = maxInteraction.toFixed(1);
   root.dataset.feedInteractionMaxDisplacementPx = Math.max(0, ...feedPerformanceMetrics.interactionDisplacements.map(item => Math.abs(Number(item.displacementPx) || 0))).toFixed(1);
   root.dataset.feedLongTaskMaxMs = maxLongTask.toFixed(1);
+  root.dataset.feedStartupCache = feedPerformanceMetrics.startupCacheOutcome;
+  root.dataset.feedRevalidationMs = feedPerformanceMetrics.lastRevalidationMs === null ? "" : feedPerformanceMetrics.lastRevalidationMs.toFixed(1);
 }
 
 function recordFeedInteraction(name, startedAt){
@@ -10682,22 +10687,44 @@ async function loadMajorEventsData(){
     await moduleRequest;
     let payload;
     let loadedFromStorage = false;
+    let networkFailure = null;
     try{
       payload = await networkRequest;
     }catch(networkError){
+      networkFailure = networkError;
       payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null);
       loadedFromStorage = true;
       if (!payload) throw networkError;
     }
-    const validationErrors = MAJOR_EVENTS?.validateDocument?.(payload, {
+    const validationOptions = {
       reference: nowAEST(),
       verifiedTicketUrl: TICKETING?.verifiedSellerUrl,
-    }) || ["Major events validation is unavailable"];
-    if (validationErrors.length) throw new Error(`Unsupported major events catalogue: ${validationErrors[0]}`);
-    majorEventsDocument = payload;
+    };
+    let usable = MAJOR_EVENTS?.usableDocument?.(payload, validationOptions) || null;
+    if (!usable?.document && !loadedFromStorage){
+      const cached = readStorage(STORAGE_KEYS.majorEventsCatalogue, null);
+      if (cached){
+        const cachedUsable = MAJOR_EVENTS?.usableDocument?.(cached, validationOptions) || null;
+        if (cachedUsable?.document){
+          payload = cached;
+          usable = cachedUsable;
+          loadedFromStorage = true;
+        }
+      }
+    }
+    if (!usable?.document){
+      const firstError = usable?.fatalErrors?.[0] || networkFailure?.message || "Major events validation is unavailable";
+      throw new Error(`Unsupported major events catalogue: ${firstError}`);
+    }
+    majorEventsDocument = usable.document;
+    const quarantinedIds = usable.quarantinedRecordIds || [];
+    document.documentElement.dataset.majorEventsQuarantined = quarantinedIds.join(",");
+    if (quarantinedIds.length){
+      console.warn("Major Events continued after quarantining expired records", quarantinedIds);
+    }
     hydration?.progress(.9);
-    if (!loadedFromStorage) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload);
-    loadJointSchedule = payload.events.some(event => event.lifecycleStatus !== "retired" && event.scheduleAdapter === "joint-tennis-tournament-2026");
+    if (!loadedFromStorage && !quarantinedIds.length) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload);
+    loadJointSchedule = majorEventsDocument.events.some(event => event.lifecycleStatus !== "retired" && event.scheduleAdapter === "joint-tennis-tournament-2026");
     refreshAddedFixtureSnapshots();
     void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   }catch(error){
@@ -10751,8 +10778,17 @@ function applyFeedEvents(events, meta, { append = false } = {}){
 function personalisedFeedCacheKey(userId = serverSyncClient?.sessionSubject?.()){
   const subject = String(userId || "").trim();
   const profileId = String(activeProfileBundle?.profile?.id || "profile:local").trim();
-  const profileRevision = String(activeProfileBundle?.profile?.updatedAt || "unversioned").trim();
-  return subject ? `personalised-feed:${subject}:${profileId}:${profileRevision}:${PERSONALISED_FEED_CACHE_VERSION}` : "";
+  return subject ? `personalised-feed:${subject}:${profileId}:${PERSONALISED_FEED_CACHE_VERSION}` : "";
+}
+
+function personalisedFeedFollowFingerprint(){
+  const graph = userPreferences?.preferenceGraph || {};
+  const values = [
+    ...(userPreferences?.followedSports || []),
+    ...(userPreferences?.followedEventFamilyIds || []),
+    ...(graph.entityFollows || []).filter(item => item?.followLevel !== "none").map(item => item.participantId),
+  ].map(String).sort();
+  return values.join("|");
 }
 
 function cachePersonalisedFeedPayload(payload, userId){
@@ -10762,7 +10798,13 @@ function cachePersonalisedFeedPayload(payload, userId){
     && Array.isArray(payload.events)
     && payload.events.length > 0;
   if (!key || !firstPage) return false;
-  disposableStore?.set(key, payload, { ttlMs:PERSONALISED_FEED_CACHE_TTL_MS });
+  disposableStore?.set(key, {
+    cachedAt:new Date().toISOString(),
+    profileRevision:String(activeProfileBundle?.profile?.updatedAt || ""),
+    followFingerprint:personalisedFeedFollowFingerprint(),
+    sourceVersion:String(payload.sourceVersion || ""),
+    payload,
+  }, { ttlMs:PERSONALISED_FEED_CACHE_MAX_STALE_MS });
   void disposableStore?.flush?.();
   return true;
 }
@@ -10770,8 +10812,17 @@ function cachePersonalisedFeedPayload(payload, userId){
 async function restoreCachedPersonalisedFeed(userId){
   const key = personalisedFeedCacheKey(userId);
   if (!key || !disposableStore?.hydrate) return null;
-  const payload = await disposableStore.hydrate(key, null);
+  const cached = await disposableStore.hydrate(key, null);
+  const payload = cached?.payload || cached;
   if (payload?.schemaVersion !== "server-feed.v3" || Number(payload.pagination?.cursor || 0) !== 0) return null;
+  const cachedAt = Date.parse(cached?.cachedAt || "");
+  if (Number.isFinite(cachedAt) && Date.now() - cachedAt > PERSONALISED_FEED_CACHE_MAX_STALE_MS) return null;
+  payload.cacheMetadata = {
+    ageMs:Number.isFinite(cachedAt) ? Math.max(0, Date.now() - cachedAt) : null,
+    stale:Number.isFinite(cachedAt) ? Date.now() - cachedAt > PERSONALISED_FEED_CACHE_TTL_MS : true,
+    followFingerprint:cached?.followFingerprint || "",
+    profileRevision:cached?.profileRevision || "",
+  };
   return payload;
 }
 
@@ -10824,6 +10875,24 @@ function applyServerFeed(payload){
   };
 }
 
+async function loadPublicFeedFirstPage(){
+  if (globalThis.location?.protocol === "file:"){
+    const events = await loadLatestBundledEvents();
+    const rendered = applyFeedEvents(events);
+    return { source:"bundled", eventCount:events.length, cardCount:derivedCardCache.derivedCards.length, rendered };
+  }
+  const manifest = await fetchJson(FEED_CONFIG.manifestUrl, { cache:"default" });
+  if (manifest?.schemaVersion !== "public-feed.v2" || !manifest.pages?.length) throw new Error("Published feed manifest is unsupported");
+  publicFeedManifest = manifest;
+  publicFeedNextPageIndex = 1;
+  const payload = await fetchJson(manifest.pages[0].path, { cache:"default" });
+  const events = coerceEventList(payload);
+  if (!events.length) throw new Error("Remote feed did not contain usable events");
+  const rendered = applyFeedEvents(events, { version:manifest.sourceVersion, publishedAt:manifest.sourcePublishedAt });
+  warmNextFeedPageDuringIdle();
+  return { source:"remote", eventCount:events.length, cardCount:derivedCardCache.derivedCards.length, rendered };
+}
+
 async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
   const interactionStartedAt = feedPerformanceNow();
   const hydration = startupFunnelFinished ? beginInSessionLoading("Refreshing Feed") : null;
@@ -10856,26 +10925,10 @@ async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
       if (!quiet) showToast(`Feed rebuilt centrally: ${result.cardCount} personalised cards.`);
       return result;
     }
-    const manifest = await fetchJson(FEED_CONFIG.manifestUrl, { cache: "default" });
-    if (manifest?.schemaVersion !== "public-feed.v2" || !manifest.pages?.length) throw new Error("Published feed manifest is unsupported");
-    publicFeedManifest = manifest;
-    publicFeedNextPageIndex = 1;
-    const payload = await fetchJson(manifest.pages[0].path, { cache: "default" });
+    const result = await loadPublicFeedFirstPage();
     hydration?.progress(.82);
-    feedPerformanceMetrics.initialPayloadBytes = new TextEncoder()
-      .encode(JSON.stringify({ manifest, payload })).byteLength;
-    publishFeedPerformanceMetrics();
-    const events = coerceEventList(payload);
-    if (!events.length){
-      throw new Error("Remote feed did not contain usable events");
-    }
-    const rendered = applyFeedEvents(events, {
-      version: manifest.sourceVersion,
-      publishedAt: manifest.sourcePublishedAt,
-    });
-    warmNextFeedPageDuringIdle();
-    if (!quiet) showToast(`Published feed loaded: ${events.length} events.`);
-    return { source: "remote", eventCount: events.length, cardCount: derivedCardCache.derivedCards.length, rendered };
+    if (!quiet) showToast(`Published feed loaded: ${result.eventCount} events.`);
+    return result;
   }catch(err){
     console.warn("Feed refresh failed", err);
     if (centralRebuildRequested && err?.status === 401){
@@ -11018,31 +11071,43 @@ function observeFeedPageSentinel(container){
 async function refreshFeedOnFirstLoad(){
   const storedSession = serverSyncClient?.getSession?.() || null;
   const sessionUserId = serverSyncClient?.sessionSubject?.() || "";
-  let networkFeedSettled = false;
   const accountTask = storedSession
     ? bootstrapServerPersistence({ session:storedSession, checkStatus:false })
     : Promise.resolve(setServerPersistence({ state:"checking", user:null, message:"" }));
-  const remoteFeedTask = refreshRemoteFeed({ quiet:true, signedInHint:Boolean(storedSession) })
-    .finally(() => { networkFeedSettled = true; });
-  const feedTask = Promise.all([nationalTeamIdentityReady, cardIdentitiesReady, remoteFeedTask]).then(([, , feed]) => feed);
-  const cachedFeedTask = sessionUserId
-    ? restoreCachedPersonalisedFeed(sessionUserId).then(payload => {
-        if (!payload || networkFeedSettled) return null;
-        applyServerFeed(payload);
-        feedPerformanceMetrics.cachedFeedReadyMs = feedPerformanceNow();
-        publishFeedPerformanceMetrics();
-        loadingController.set("feed-page", .72);
-        return payload;
-      })
-    : Promise.resolve(null);
+  let initialFeed = null;
+  if (sessionUserId){
+    const cached = await restoreCachedPersonalisedFeed(sessionUserId);
+    if (cached){
+      const applied = applyServerFeed(cached);
+      initialFeed = { ...applied, source:"cache" };
+      feedPerformanceMetrics.cachedFeedReadyMs = feedPerformanceNow();
+      feedPerformanceMetrics.startupCacheOutcome = cached.cacheMetadata?.stale ? "stale-hit" : "fresh-hit";
+      publishFeedPerformanceMetrics();
+      loadingController.set("feed-page", .72);
+    }
+  }
+  if (!initialFeed){
+    feedPerformanceMetrics.startupCacheOutcome = sessionUserId ? "miss" : "signed-out";
+    try{ initialFeed = await loadPublicFeedFirstPage(); }
+    catch(error){
+      const events = await loadLatestBundledEvents().catch(() => EVENTS.slice());
+      if (!events.length) throw error;
+      initialFeed = { source:"fallback", eventCount:events.length, cardCount:derivedCardCache.derivedCards.length, rendered:applyFeedEvents(events) };
+    }
+    publishFeedPerformanceMetrics();
+  }
   void Promise.allSettled([accountTask]).then(([accountResult]) => {
     loadingController.complete("account-state");
     if (accountResult.status === "rejected"){
       console.warn("Account bootstrap unavailable; continuing with the already usable feed", accountResult.reason);
     }
+    const startedAt = feedPerformanceNow();
+    void refreshRemoteFeed({ quiet:true, signedInHint:Boolean(storedSession) }).finally(() => {
+      feedPerformanceMetrics.lastRevalidationMs = Math.max(0, feedPerformanceNow() - startedAt);
+      publishFeedPerformanceMetrics();
+    });
   });
-  void Promise.allSettled([cachedFeedTask]);
-  return feedTask;
+  return initialFeed;
 }
 
 function requestFeedRefreshForFilterChange(){
@@ -16082,7 +16147,7 @@ function buildNothingscoreChoices(ev, snapshot, panel){
 let nothingscoreVisualLoad = null;
 function ensureNothingscoreVisual(){
   if (globalThis.NOTHINGSPORTS_NSC_VISUAL) return Promise.resolve(globalThis.NOTHINGSPORTS_NSC_VISUAL);
-  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=216").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
+  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=217").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
   return nothingscoreVisualLoad;
 }
 function buildNothingscoreVisual(snapshot){
@@ -21278,7 +21343,7 @@ function appendPreferenceRecoverySettings(body){
   (body.querySelector(".preference-stack") || body).appendChild(placeholder);
   preferenceResetUiLoad ||= globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI)
-    : loadDeferredScript("config/preference-reset-ui.js?v=216").then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
+    : loadDeferredScript("config/preference-reset-ui.js?v=217").then(() => globalThis.NOTHINGSPORTS_PREFERENCE_RESET_UI);
   void preferenceResetUiLoad.then(ui => {
     if (!placeholder.isConnected || !ui?.mount) return;
     placeholder.remove();
@@ -23532,8 +23597,8 @@ async function ensureChatMediaUi(){
   if (chatMediaUi) return chatMediaUi;
   if (chatMediaUiLoading) return chatMediaUiLoading;
   chatMediaUiLoading = (async () => {
-    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA) await loadDeferredScript("config/chat-media.js?v=216");
-    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=216");
+    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA) await loadDeferredScript("config/chat-media.js?v=217");
+    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=217");
     chatMediaUi = globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI.install({
       media:globalThis.NOTHINGSPORTS_CHAT_MEDIA,
       state:() => chatState,
@@ -23632,6 +23697,7 @@ async function sendChatMessage(form){
     }
     mergeChatMessages([payload.message]);
     pendingAttachments.forEach(item => { item.status = "sent"; });
+    chatMediaUi?.notifyGifSent?.(pendingAttachments);
     try{ sessionStorage.removeItem(chatDraftStorageKey(room.roomId)); }catch(_error){}
     refreshChatMessageStream({ autoScroll:true, preserveScroll:false });
     submit.disabled = false;
@@ -24637,6 +24703,10 @@ document.addEventListener("visibilitychange", () => {
     return;
   }
   if (!startupFunnelStarted && loadingAudioPlayer?.enabled?.()) void loadingAudioPlayer.startFill();
+  const lastFeedRefreshAt = Date.parse(readStorage(STORAGE_KEYS.lastRefreshAt, "") || "");
+  if (!Number.isFinite(lastFeedRefreshAt) || Date.now() - lastFeedRefreshAt > PERSONALISED_FEED_CACHE_TTL_MS){
+    void refreshRemoteFeed({ quiet:true, signedInHint:Boolean(serverSyncClient?.getSession?.()) });
+  }
   if (!weeklyPulseWasHidden) return;
   weeklyPulseWasHidden = false;
   void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));

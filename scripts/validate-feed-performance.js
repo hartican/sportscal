@@ -113,7 +113,8 @@ function main(){
   assert(html.includes("scheduleStartupLogoFunnel({ feedReady:true })") && html.includes("FUNNEL_DURATION_MS || 1000"), "the branded launch must be coordinated with usable feed arrival and use the one-second funnel");
   const firstLoad = html.match(/async function refreshFeedOnFirstLoad\(\)\{([\s\S]*?)\n\}/)?.[1] || "";
   assert(firstLoad.includes("Promise.allSettled"), "signed-in account state and the first feed page must hydrate concurrently");
-  assert(firstLoad.includes("return feedTask"), "the usable personalised feed must not wait for account-state reconciliation");
+  assert(firstLoad.includes("return initialFeed"), "the first usable cached or bundled feed must not wait for account-state reconciliation");
+  assert(!firstLoad.includes("nationalTeamIdentityReady") && !firstLoad.includes("cardIdentitiesReady"), "optional identity assets must not gate first-card readiness");
   assert(!/await Promise\.allSettled\(\[accountTask, cachedFeedTask, feedTask\]\)/.test(firstLoad), "account reconciliation must continue independently after the first feed page becomes usable");
   assert(!/await bootstrapServerPersistence\(\)[\s\S]+return refreshRemoteFeed/.test(firstLoad), "the first feed request must not wait behind the full account bootstrap");
 
