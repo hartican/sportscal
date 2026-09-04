@@ -64,6 +64,7 @@ assert(localSteps.some(step => step[0] === "scripts/validate-mixed-feed-navigati
 assert(localSteps.some(step => step[0] === "scripts/validate-admin-console.js"), "every canonical update must enforce owner-console authorization, privacy, audit and shared-route contracts");
 assert(localSteps.some(step => step[0] === "scripts/validate-admin-api.js"), "every canonical update must exercise owner-console approval, report independence and privacy through the API handlers");
 assert(localSteps.some(step => step[0] === "scripts/validate-mobile-feed-events-brand-pass.js"), "every canonical update must enforce the mobile provider, Events and brand reliability pass");
+assert(localSteps.some(step => step[0] === "scripts/validate-ui-foundation.js"), "every canonical update must enforce the shared site-wide UI foundation and progressive card contract");
 assert(localSteps.some(step => step[0] === "scripts/validate-feed-sport-reliability-pass.js"), "every canonical update must enforce Feed stability, nineteen-sport coverage and event reliability");
 assert(
   localSteps.findIndex(step => step[0] === "scripts/refresh-f1-editorial.js")

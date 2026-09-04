@@ -67,9 +67,12 @@ assert.equal(refreshPolicy.classify({ status:429, code:"too_many_requests" }), "
 assert.equal(refreshPolicy.classify({ status:400, code:"refresh_token_not_found" }), "terminal");
 assert.equal(refreshPolicy.classify({ status:400, code:"refresh_token_already_used" }), "terminal");
 
-assert.match(html, /Read more/);
-assert.match(html, /Show less/);
-assert.doesNotMatch(html, /state\s*===\s*"opened"\s*\?\s*"Less"\s*:\s*"More…"/);
+assert.match(html, /control\("minimise", "Minimise"/);
+assert.match(html, /control\("expand", "Expand"/);
+assert.match(html, /expand\.setAttribute\("aria-expanded", String\(expanded\)\)/);
+assert.match(html, /recordEventFeedAction\(ev, "open", \{ surface:"card-control" \}\)/);
+assert.doesNotMatch(html, /Read more/);
+assert.doesNotMatch(html, /Show less/);
 assert.match(html, /Less of this/);
 assert.match(html, /More of this/);
 assert.match(html, /interactionName:"card-dismiss-undo"/);

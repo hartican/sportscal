@@ -10,6 +10,8 @@ const venues = require("../config/venue-registry.js");
 
 const html = fs.readFileSync("index.html", "utf8");
 const worker = fs.readFileSync("service-worker.js", "utf8");
+const foundation = fs.readFileSync("assets/styles/nothingsport-foundation.css", "utf8");
+const eventCardSource = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
 const userStateSchema = JSON.parse(fs.readFileSync("schemas/user-state.schema.json", "utf8"));
 const feed = JSON.parse(fs.readFileSync("data/events.json", "utf8"));
 
@@ -49,7 +51,7 @@ assert(html.includes(".event-hero-mark{") && html.includes("width:88px;") && htm
 assert(html.includes(".event-hero-mark{ width:74px; height:70px; margin-bottom:7px; padding:4px; }"), "mobile fixture identities must use the compact 74 by 70 pixel frame");
 assert(html.includes(".event-card.is-logo-led-event .event-top-row{ display:block; position:relative; }") && html.includes("margin:0 auto 8px"), "single-logo cards must centre their full text stack with compact reserved clearance");
 assert(html.includes(".major-event-logo{ display:grid; place-items:center; width:88px; height:90px; margin:0 auto 8px; padding:4px; }") && html.includes(".major-event-logo{ width:74px; height:70px; margin-bottom:7px; }") && html.includes(".event-hero-mark{ width:74px; height:70px; margin-bottom:7px; padding:4px; }"), "Fixtures and Events must share compact desktop and mobile logo treatment");
-assert(html.includes(".card-disclosure-row{") && html.includes("justify-content:space-between;") && html.includes("flex-wrap:nowrap;") && !html.includes(".event-card.is-logo-led-event .event-name-line .card-expand-control"), "Read more and the prediction action must share one in-flow row without overlap");
+assert(foundation.includes(".event-card-secondary-actions{") && foundation.includes("grid-template-columns:repeat(auto-fit,minmax(138px,1fr))") && !eventCardSource.includes("card-expand-control"), "expanded secondary actions must share one responsive row while traffic-light Expand remains the only disclosure");
 assert(html.includes("-webkit-line-clamp:2") && html.includes("white-space:normal"), "long names must wrap to two lines");
 assert(html.includes('return cardViewStates[ev.eventId || ev.id] || "compact";'), "the three-level card state must support both fixture and major-event IDs");
 assert(html.includes('state === "selected" ? "is-selected"') && html.includes('state === "opened" ? "is-opened"') && html.includes("setCardState(record, nextCardState(cardStateForEvent(record)))") && html.includes("mutateWithScrollContinuity"), "full Events cards must cycle through compact, summary and full-detail levels through the shared anchored transaction");

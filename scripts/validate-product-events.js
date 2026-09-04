@@ -353,7 +353,7 @@ async function run(){
   assert(html.includes('eventName: "fixture_check"'));
   assert(html.includes('eventName: "watch_decision"'), "genuine reminder and watched actions must emit watch decisions");
   assert(html.includes('if (enabled) recordWatchDecision(ev, "remind", { surface:"event_card" })'), "adding an in-place background reminder must record a watch decision while removing it must not fabricate one");
-  assert(html.includes('recordEventFeedAction(ev, "open", options)'), "card expansion must emit a separate categorical open action");
+  assert(html.includes('recordEventFeedAction(ev, "open", { surface:"card-control" })'), "traffic-light card expansion must emit a separate categorical open action");
   assert(html.includes('eventName: "preference_change"') && html.includes('eventName: "feed_control_change"'), "approved preference and feed-control actions must be instrumented");
   assert(html.includes('eventName: "weekly_pulse"'));
   assert(html.includes('clientEventId: `weekly_pulse_${currentSurveyId.replace(/[^A-Za-z0-9:_-]/g, "_")}`'), "weekly pulse retries must deduplicate per pilot user and survey release");

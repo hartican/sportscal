@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="229">
+<meta name="app-shell-version" content="230">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -5273,55 +5273,6 @@ body.settings-open .app-footer{
   margin-right: 0.28rem;
 }
 
-.card-expand-control{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap:4px;
-  min-width: 126px;
-  min-height: 44px;
-  margin: 0;
-  padding: 8px 14px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--text-dim);
-  cursor: pointer;
-  font:850 .72rem/1 'DM Sans',sans-serif;
-}
-
-.card-disclosure-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  flex-wrap:nowrap;
-  width:100%;
-  margin-top:8px;
-}
-
-.card-disclosure-row .card-expand-control{
-  min-width:0;
-  flex:0 0 auto;
-  justify-content:flex-start;
-  white-space:nowrap;
-}
-
-.card-disclosure-row .nsc-card-action{
-  width:auto;
-  min-width:0;
-  flex:0 1 auto;
-  margin:0 0 0 auto;
-  padding-inline:10px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.card-expand-control .vector-glyph{ width:14px; height:14px; transition:transform 160ms ease; }
-
-.card-expand-control[aria-expanded="true"] .vector-glyph{ transform: rotate(-90deg); }
-
 .skip-link{
   position: fixed;
   left: 12px;
@@ -5391,7 +5342,7 @@ body.settings-open .app-footer{
     min-width:100%;
   }
   .feed-control{ width:132px; }
-  :where(.btn, .tab-btn, .pill, .view-toggle button, .settings-icon-btn, .card-expand-control){
+  :where(.btn, .tab-btn, .pill, .view-toggle button, .settings-icon-btn){
     min-height: 44px;
   }
   .header-actions{ gap:5px; }
@@ -6950,6 +6901,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=230">
 </head>
 <body>
 
@@ -7251,7 +7203,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script src="config/event-taxonomy-compat.js"></script>
 <script src="config/preference-taxonomy.js"></script>
 <script src="config/follow-first.js?v=222"></script>
-<script src="config/follow-feed-policy.js?v=218"></script>
+<script src="config/follow-feed-policy.js?v=230"></script>
 <script src="config/tennis-coverage.js"></script>
 <script src="config/sport-context.js"></script>
 <script src="config/feed-refresh-lifecycle.js"></script>
@@ -7282,7 +7234,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=229")
+  : loadDeferredScript("config/national-team-identities.js?v=230")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -8549,7 +8501,7 @@ function saveActiveProfileSections(sections){
 
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
-const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v5";
+const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v6";
 const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 const PERSONALISED_FEED_CACHE_MAX_STALE_MS = 7 * 24 * 60 * 60 * 1000;
 let publicFeedManifest = null;
@@ -10810,6 +10762,13 @@ function profileHasAflEntityFollow(preferences = userPreferences){
   ));
 }
 
+function profileHasAflwEntityFollow(preferences = userPreferences){
+  return (preferences?.preferenceGraph?.entityFollows || []).some(follow => (
+    String(follow.participantId || "").startsWith("team:aflw:")
+    || String(follow.participantId || "").startsWith("competitor:aflw:")
+  ));
+}
+
 function reloadBundledCanonicalContextsScript(){
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
@@ -12128,8 +12087,13 @@ function automaticallyFollowedMajorEventFixtures(reference = nowAEST()){
   majorEventsDocument.events.filter(record => record.kind !== "ticket_sale").forEach(parent => {
     majorEventSubEvents(parent).forEach(subEvent => {
       const fixture = majorEventFixtureSnapshot(subEvent, parent);
-      const followed = Boolean(fixture && automaticEventFollowReason(fixture));
-      const decision = FOLLOW_FEED_POLICY.followedFixtureDecision(fixture, { followed, now:reference });
+      const followReason = fixture ? automaticEventFollowReason(fixture) : null;
+      const followed = Boolean(followReason);
+      const decision = FOLLOW_FEED_POLICY.followedFixtureDecision(fixture, {
+        followed,
+        followSource:followFeedPolicySource(followReason),
+        now:reference,
+      });
       if (!fixture || !decision.include) return;
       const action = getEventAction(fixture);
       if (action.archived || action.dismissed || eventIsAutoArchived(fixture, reference) || !eventMeetsDerivedRetention(fixture, reference)) return;
@@ -14345,7 +14309,6 @@ function followedParticipantLabel(participantId){
 }
 
 function automaticEventFollowReason(ev){
-  if (ev.key === "aflw" && userPreferences.selectedSelectorEntityIds?.includes("sport:aflw")) return{type:"sport"};
   const eventParticipantIds = Array.from(new Set([
     ...(Array.isArray(ev?.participantIds) ? ev.participantIds : []),
     ...(Array.isArray(ev?.matchupSides) ? ev.matchupSides.flatMap(side => (side.players || []).map(player => player.id)) : []),
@@ -14384,9 +14347,13 @@ function automaticEventFollowReason(ev){
   }) || null;
 }
 
+function followFeedPolicySource(reason){
+  return ["team", "athlete", "collection", "entity", "entity-follow"].includes(String(reason?.type || ""))
+    ? "entity"
+    : "sport";
+}
+
 function eventFollowReason(ev){
-  const automaticReason = automaticEventFollowReason(ev);
-  if (automaticReason) return automaticReason;
   if (getEventAction(ev).addedToFixtures || ev?.manualPin === true){
     return {
       type:"manualPin",
@@ -14395,6 +14362,18 @@ function eventFollowReason(ev){
       label:null,
       displayTag:false,
     };
+  }
+  const followLevels = eventParticipantFollowLevels(ev);
+  if (followLevels.includes("mute")) return null;
+  const automaticReason = automaticEventFollowReason(ev);
+  if (automaticReason) return automaticReason;
+  if (followLevels.some(level => level === "follow" || level === "priority")){
+    return { type:"entity-follow", entityKind:"participant", id:null, label:null, displayTag:false };
+  }
+  const explicitlyCompleteSport = ev?.key === "aflw" && eventDomainPreferences(ev)
+    .some(preference => preference?.enabled !== false && preference?.includeAllFixtures === true);
+  if (explicitlyCompleteSport && eventMeetsCoveragePreference(ev)){
+    return { type:"sport-tuned", entityKind:"sport", id:ev?.sportDomainId || ev?.sportId || ev?.key, label:null, displayTag:false };
   }
   return null;
 }
@@ -15999,11 +15978,11 @@ function buildEventCardControls(ev, { card = null, eventsOnly = activeTab === "e
     const dot = document.createElement("span");
     dot.className = "traffic-light-dot";
     dot.setAttribute("aria-hidden", "true");
-    const tooltip = document.createElement("span");
-    tooltip.className = "traffic-light-tooltip";
-    tooltip.setAttribute("aria-hidden", "true");
-    tooltip.textContent = label;
-    button.append(dot, tooltip);
+    const visibleLabel = document.createElement("span");
+    visibleLabel.className = "traffic-light-label";
+    visibleLabel.setAttribute("aria-hidden", "true");
+    visibleLabel.textContent = label;
+    button.append(dot, visibleLabel);
     button.addEventListener("click", event => {
       event.stopPropagation();
       activate();
@@ -16020,15 +15999,24 @@ function buildEventCardControls(ev, { card = null, eventsOnly = activeTab === "e
     });
   });
   const minimise = control("minimise", "Minimise", action.isMinimised, () => {
-    updateEventAction(ev, { isMinimised:true });
+    const nextMinimised = !Boolean(getEventAction(ev).isMinimised);
+    updateEventAction(ev, { isMinimised:nextMinimised });
+    if (nextMinimised) setCardState(viewStateEvent, "compact");
     restoreEventCardControlFocus(card, "minimise");
   });
   const expanded = !action.isMinimised && cardStateForEvent(viewStateEvent) === "opened";
   const expand = control("expand", "Expand", expanded, () => {
+    const opening = cardStateForEvent(viewStateEvent) !== "opened";
+    if (opening){
+      const eventId = String(ev.eventId || ev.id);
+      if (!sessionOpenedEventIds.has(eventId)) recordEventFeedAction(ev, "open", { surface:"card-control" });
+      sessionOpenedEventIds.add(eventId);
+    }
     updateEventAction(ev, { isMinimised:false });
-    setCardState(viewStateEvent, "opened");
+    setCardState(viewStateEvent, opening ? "opened" : "compact");
     restoreEventCardControlFocus(card, "expand");
   });
+  expand.setAttribute("aria-expanded", String(expanded));
   controls.append(dismiss, minimise, expand);
   return controls;
 }
@@ -16718,7 +16706,7 @@ function buildEventCard(ev, options = {}){
   const matchupIdentity = isTeamMatchup && mode !== "premium-rail" ? buildMatchupIdentity(ev, displayTitle) : null;
   const soloIdentity = !matchupIdentity && mode !== "premium-rail";
   // Interaction stays consistent while derived variants control visual weight.
-  const expandable = eventHasExpandedEditorial(ev);
+  const expandable = mode !== "premium-rail";
   const storedState = expandable ? cardStateForEvent(ev) : "compact";
   const state = storedState === "compact" ? "compact" : "opened";
   const importanceColor = importanceColorForEvent(ev);
@@ -16763,16 +16751,6 @@ function buildEventCard(ev, options = {}){
   card.style.setProperty("--sport-color", meta.color);
   card.style.setProperty("--importance-color", importanceColor);
   card.style.setProperty("--importance-strength", `${Math.min(34, 8 + enrichment.intensity * 4)}%`);
-  const advanceCardState = () => {
-    if (isMinimised) return;
-    const currentState = cardStateForEvent(ev);
-    if (currentState === "compact"){
-      const eventId = String(ev.eventId || ev.id);
-      if (!sessionOpenedEventIds.has(eventId)) recordEventFeedAction(ev, "open", options);
-      sessionOpenedEventIds.add(eventId);
-    }
-    setCardState(ev, nextFeedCardState(currentState));
-  };
   if (!options.archived && mode !== "premium-rail"){
     card.appendChild(buildEventCardControls(ev, {
       card:interactionCard,
@@ -16809,17 +16787,6 @@ function buildEventCard(ev, options = {}){
   const primaryActions = document.createElement("div");
   primaryActions.className = "event-card-primary-actions";
   const ticketOffer = preferredTicketOfferForEvent(ev, { surface: "fixture", localVenueMatched: localGame });
-  if (ticketOffer){
-    const tickets = document.createElement("a");
-    tickets.className = "ticket-link event-quick-action";
-    tickets.href = ticketOffer.url;
-    tickets.target = "_blank";
-    tickets.rel = "noopener noreferrer";
-    tickets.innerHTML = `${glyphMarkup("ui:ticket", { preferImage: true })}<span>Buy tickets</span>`;
-    tickets.setAttribute("aria-label", `Buy tickets for ${displayTitle} from ${ticketOffer.provider}`);
-    tickets.addEventListener("click", evt => evt.stopPropagation());
-    primaryActions.appendChild(tickets);
-  }
   appendEventQuickActions(primaryActions, ev, { viewing:false });
   nameWrap.appendChild(primaryActions);
 
@@ -16844,39 +16811,26 @@ function buildEventCard(ev, options = {}){
   mainDiv.appendChild(topRow);
   const whyItMatters = isMinimised ? null : buildEventWhyItMatters(ev);
   if (whyItMatters) mainDiv.appendChild(whyItMatters);
-  if (expandable && !isMinimised){
-    const disclosureRow = document.createElement("div");
-    disclosureRow.className = "card-disclosure-row";
-    const expandControl = document.createElement("button");
-    const disclosureKey = `event-disclosure:${mode}:${ev.eventId || ev.id}`;
-    expandControl.type = "button";
-    expandControl.className = "card-expand-control";
-    expandControl.dataset.viewportAnchorKey = disclosureKey;
-    expandControl.setAttribute("aria-expanded", state === "opened" ? "true" : "false");
-    expandControl.setAttribute("aria-controls", `${nameEl.id}-details`);
-    expandControl.setAttribute("aria-label", `${state === "opened" ? "Show less about" : "Read more about"} ${displayTitle}`);
-    const expandLabel = document.createElement("span");
-    expandLabel.className = "card-expand-label";
-    expandLabel.textContent = state === "opened" ? "Show less <" : "Read more >";
-    expandControl.appendChild(expandLabel);
-    expandControl.addEventListener("click", event => {
-      event.stopPropagation();
-      const activated = event.currentTarget;
-      advanceCardState();
-      refreshExpandableCard(interactionCard, buildEventCard(ev, { ...options, interactionCard }), {
-        restoreFocus:true,
-        focusTarget:`[data-viewport-anchor-key="${CSS.escape(disclosureKey)}"]`,
-        anchorTarget:activated,
-        interactionName:"card-disclosure",
-      });
-    });
-    disclosureRow.appendChild(expandControl);
-    disclosureRow.appendChild(buildEventNothingscoreAction(ev));
-    mainDiv.appendChild(disclosureRow);
+  if (!isMinimised && state === "opened"){
+    const secondaryActions = document.createElement("div");
+    secondaryActions.className = "event-card-secondary-actions";
+    if (ticketOffer){
+      const tickets = document.createElement("a");
+      tickets.className = "ticket-link event-quick-action";
+      tickets.href = ticketOffer.url;
+      tickets.target = "_blank";
+      tickets.rel = "noopener noreferrer";
+      tickets.innerHTML = `${glyphMarkup("ui:ticket", { preferImage: true })}<span>Buy tickets</span>`;
+      tickets.setAttribute("aria-label", `Buy tickets for ${displayTitle} from ${ticketOffer.provider}`);
+      tickets.addEventListener("click", evt => evt.stopPropagation());
+      secondaryActions.appendChild(tickets);
+    }
+    secondaryActions.appendChild(buildEventNothingscoreAction(ev));
+    mainDiv.appendChild(secondaryActions);
+    mainDiv.appendChild(activeTab === "feed" && !options.archived ? buildFeedStakesRow(ev) : buildStakesMeter(ev));
+  } else if (!isMinimised){
+    mainDiv.appendChild(buildStakesMeter(ev));
   }
-  if (!expandable && !isMinimised) mainDiv.appendChild(buildEventNothingscoreAction(ev));
-
-  if (!isMinimised) mainDiv.appendChild(activeTab === "feed" && !options.archived ? buildFeedStakesRow(ev) : buildStakesMeter(ev));
   mainDiv.id = `${nameEl.id}-details`;
   if (options.archived){
     mainDiv.appendChild(buildEventActionPanel(ev, {
@@ -17641,6 +17595,12 @@ function renderListView(){
       const relativeBadge = dateStr === todayStr ? "TODAY"
         : future && groupIndex === 0 ? boundaryPresentation.nextDateBadge : "";
       heading.innerHTML = fmtDateHeading(dateStr) + (relativeBadge ? ` <span class="today-flag">${relativeBadge}</span>` : "");
+      if (dateStr === todayStr){
+        heading.id = "calendarTodayAnchor";
+        heading.setAttribute("role", "heading");
+        heading.setAttribute("aria-level", "2");
+        heading.setAttribute("aria-label", `${boundaryPresentation.todayCopy}, ${fmtDateHeading(todayStr)}`);
+      }
       const grid = document.createElement("div");
       grid.className = "cards-grid";
       orderCuratedDayEvents(groups[dateStr]).forEach(event => {
@@ -17648,12 +17608,19 @@ function renderListView(){
         card.dataset.feedEventId = String(event?.canonicalEventId || event?.eventId || event?.id || "");
         grid.appendChild(card);
       });
-      groupDiv.append(heading, grid);
+      groupDiv.appendChild(heading);
+      if (dateStr === todayStr) appendTodayFallback(groupDiv, baseFiltered, todayStr);
+      groupDiv.appendChild(grid);
       container.appendChild(groupDiv);
     });
   };
 
-  appendDateGroups(timeline.retainedPast);
+  const retainedBeforeToday = timeline.retainedPast.filter(event => event.date !== todayStr);
+  const todayEvents = orderSurfacedEvents([
+    ...timeline.retainedPast.filter(event => event.date === todayStr),
+    ...timeline.today,
+  ]);
+  appendDateGroups(retainedBeforeToday);
 
   let todayAnchorInserted = false;
   const appendTodayAnchor = () => {
@@ -17669,8 +17636,8 @@ function renderListView(){
     todayAnchorInserted = true;
   };
 
-  appendTodayAnchor();
-  appendDateGroups(timeline.today);
+  if (todayEvents.length) appendDateGroups(todayEvents);
+  else appendTodayAnchor();
   appendDateGroups(timeline.future, { future:true });
   appendFocusedArchiveRecovery(container, focusedArchived);
   if (!filtered.length && !focusedArchived.length){
@@ -18891,6 +18858,10 @@ function ensureFollowCollectionDirectories(preferences = userPreferences){
   if (collectionIds.some(id => String(id).startsWith("collection:tennis:"))){
     loads.push(loadFollowDirectoryChunk("tennis"));
   }
+  if (profileHasFootballEntityFollow(preferences)) loads.push(loadFootballFollowIndex());
+  if (profileHasNrlEntityFollow(preferences)) loads.push(loadNrlFollowIndex());
+  if (profileHasAflEntityFollow(preferences)) loads.push(loadAflFollowIndex());
+  if (profileHasAflwEntityFollow(preferences)) loads.push(loadAflwFollowIndex());
   return Promise.all(loads);
 }
 
@@ -20187,7 +20158,11 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
     button.className = "major-event-match-action";
     const pinEligible = Boolean(fixture);
     const automaticReason = pinEligible ? automaticEventFollowReason(fixture) : null;
-    const automaticDecision = FOLLOW_FEED_POLICY.followedFixtureDecision(fixture, { followed:Boolean(automaticReason), now:nowAEST() });
+    const automaticDecision = FOLLOW_FEED_POLICY.followedFixtureDecision(fixture, {
+      followed:Boolean(automaticReason),
+      followSource:followFeedPolicySource(automaticReason),
+      now:nowAEST(),
+    });
     button.disabled = !pinEligible || automaticDecision.mode !== "manual" && automaticDecision.mode !== "ineligible";
     const syncPinButton = () => {
       const added = Boolean(pinEligible && getEventAction(fixture)?.addedToFixtures);

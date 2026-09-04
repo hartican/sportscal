@@ -10,12 +10,16 @@ const followFeedPolicy = require("../config/follow-feed-policy");
 const majorEventsConfig = require("../config/major-events");
 const majorEventsDocument = require("../data/major-events.v1.json");
 const tennisWatchPool = require("../data/canonical/tennis-watch-pool-2026.json");
+const publishedFeed = require("../data/events.json");
 
 const LIVERPOOL_ID = "event:premier-league:128939";
 const LIVERPOOL_TEAM_ID = "team:football:epl:10";
 const DJOKOVIC_ID = "athlete:tennis:novak-djokovic";
 const DJOKOVIC_US_OPEN_ID = "fixture:us-open-2026:official:ms:1148";
 const ALCARAZ_US_OPEN_ID = "fixture:us-open-2026:official:ms:1164";
+const GWS_AFLW_FIXTURE_ID = "event:aflw:cd_m20262640404";
+const GWS_AFLW_TEAM_ID = "team:aflw:cd_t7889";
+const TARNI_EVANS_ID = "competitor:aflw:tarni-evans";
 
 function genericEvent(index){
   const start = new Date(Date.UTC(2026, 7, 30 + index, 9, 0));
@@ -101,6 +105,83 @@ for (const [label, now, expectedStatus] of [
   assert(feed.events.length <= 20, `${label}: the startup page limit must be retained`);
 }
 
+function aflwPreferences({ entityFollows = [], templateId = "template:like", includeAllFixtures = false } = {}){
+  return {
+    version:18,
+    selectedSelectorEntityIds:["sport:aflw"],
+    followedSports:["aflw"],
+    preferenceGraph:{
+      domainPreferences:[{
+        sportDomainId:"sport:aflw",
+        enabled:true,
+        templateId,
+        includeAllFixtures,
+        includeMajorEvents:true,
+        includeFollowedTeams:true,
+      }],
+      competitionPreferences:[],
+      entityFollows,
+    },
+  };
+}
+
+function aflwFeed(preferences){
+  return buildServerFeed({
+    events:publishedFeed.events,
+    userId:"00000000-0000-4000-8000-000000000005",
+    userState:{ preferences },
+    now:new Date("2026-09-04T21:43:09.000Z"),
+    limit:20,
+  });
+}
+
+const gwsTeamFeed = aflwFeed(aflwPreferences({
+  entityFollows:[{ participantId:GWS_AFLW_TEAM_ID, followLevel:"follow" }],
+}));
+assert(
+  gwsTeamFeed.events.some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
+  "the released Brisbane Lions v GWS GIANTS fixture must surface despite its 1/5 stakes rating when GWS is followed",
+);
+
+const tarniEvansFeed = aflwFeed(aflwPreferences({
+  entityFollows:[{ participantId:TARNI_EVANS_ID, followLevel:"follow" }],
+}));
+assert(
+  tarniEvansFeed.events.some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
+  "following Tarni Evans must inherit GWS and surface the released Brisbane Lions v GWS GIANTS fixture",
+);
+
+const combinedGwsFeed = aflwFeed(aflwPreferences({
+  entityFollows:[
+    { participantId:GWS_AFLW_TEAM_ID, followLevel:"follow" },
+    { participantId:TARNI_EVANS_ID, followLevel:"follow" },
+  ],
+}));
+assert.equal(
+  combinedGwsFeed.events.filter(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID).length,
+  1,
+  "team and player follows must not duplicate the same released fixture",
+);
+
+assert.equal(
+  aflwFeed(aflwPreferences()).events.some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
+  false,
+  "an AFLW sport-only Like profile must retain tuning for a 1/5 fixture",
+);
+assert(
+  aflwFeed(aflwPreferences({ templateId:"template:froth", includeAllFixtures:true })).events
+    .some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
+  "an AFLW all-fixtures profile must surface the released Brisbane Lions v GWS GIANTS fixture",
+);
+assert.equal(
+  aflwFeed(aflwPreferences({ entityFollows:[
+    { participantId:TARNI_EVANS_ID, followLevel:"follow" },
+    { participantId:GWS_AFLW_TEAM_ID, followLevel:"mute" },
+  ] })).events.some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
+  false,
+  "an explicit GWS mute must override Tarni Evans team inheritance",
+);
+
 const topTenTennisState = {
   preferences: {
     followedSports: ["tennis"],
@@ -149,8 +230,8 @@ assert.equal(alcarazTimelineItem?.displayTime, "Follows · session starts 1:30am
 assert.equal(majorEventsConfig.fixtureFromSubEvent(rawAlcarazFixture, usOpen).displayTimeLabel, "Follows · session starts 1:30am", "Feed must use the same follows timing copy");
 
 assert.deepEqual(
-  followFeedPolicy.followedFixtureDecision(alcarazFixture, { followed:true, now:new Date("2026-08-31T04:00:00.000Z") }),
-  { mode:"immediate", include:true, label:"In Feed via follow" },
+  followFeedPolicy.followedFixtureDecision(alcarazFixture, { followed:true, followSource:"collection", now:new Date("2026-08-31T04:00:00.000Z") }),
+  { mode:"direct", include:true, label:"In Feed via follow" },
   "a released 4/5 followed fixture must enter Feed as soon as date and opponents are known",
 );
 
@@ -164,7 +245,7 @@ const auditedTopTenFeed = buildServerFeed({
   limit:1000,
 });
 activeTopTenFixtures.forEach(fixture => {
-  const decision = followFeedPolicy.followedFixtureDecision(fixture, { followed:true, now:new Date("2026-08-31T04:00:00.000Z") });
+  const decision = followFeedPolicy.followedFixtureDecision(fixture, { followed:true, followSource:"collection", now:new Date("2026-08-31T04:00:00.000Z") });
   assert.equal(
     auditedTopTenFeed.events.some(event => event.id === fixture.id),
     decision.include,

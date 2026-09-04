@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap");
+
+:root{
+  --ns-bg:#0a0a0f;
+  --ns-surface:#16161d;
+  --ns-surface-raised:#1c1c25;
+  --ns-line:#30303a;
+  --ns-text:#f7f4f8;
+  --ns-muted:#a8a3ae;
+  --ns-accent:#ff4778;
+  --ns-accent-strong:#e93368;
+  --ns-accent-soft:color-mix(in srgb,var(--ns-accent) 14%,transparent);
+  --ns-success:#28c840;
+  --ns-warning:#febc2e;
+  --ns-danger:#ff5f57;
+  --ns-radius-control:12px;
+  --ns-radius-card:18px;
+  --ns-touch-target:44px;
+  --ns-font-ui:"DM Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --ns-shadow-card:0 14px 38px rgba(0,0,0,.18);
+  accent-color:var(--ns-accent);
+  --accent:var(--ns-accent);
+  --pink:var(--ns-accent);
+  --events-text-accent:var(--ns-accent);
+  --ticket-action-bg:var(--ns-accent);
+  --ticket-action-border:#ff88a8;
+  --ticket-action-hover:#ff6d94;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{font-family:var(--ns-font-ui);text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{font-family:var(--ns-font-ui);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit}
+:where(button,[role="button"],input:not([type="checkbox"]):not([type="radio"]),select){min-height:var(--ns-touch-target)}
+:where(button,a,input,select,textarea,[tabindex]):focus-visible{outline:3px solid color-mix(in srgb,var(--ns-accent) 70%,white);outline-offset:3px}
+:where(button,.button){border-radius:var(--ns-radius-control)}
+
+/* Shared app chrome: one action accent, one control rhythm, sport colour only
+   where it identifies a code, club or athlete. */
+.event-card,.major-event-card,.admin-card,.admin-login,.card{border-radius:var(--ns-radius-card)}
+.date-heading .today-flag{background:var(--ns-accent);color:#16040a}
+.today-anchor{color:var(--ns-accent)}
+.today-anchor::before{background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--ns-accent) 48%,transparent))}
+.today-anchor::after{background:linear-gradient(90deg,color-mix(in srgb,var(--ns-accent) 48%,transparent),transparent)}
+
+.event-card-controls{
+  display:flex;
+  align-items:center;
+  width:100%;
+  gap:0;
+  padding:2px 4px 6px;
+  border-bottom:1px solid color-mix(in srgb,var(--border,var(--ns-line)) 72%,transparent);
+}
+.event-card-control{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  min-width:0;
+  min-height:44px;
+  gap:6px;
+  padding:5px 10px;
+  border-radius:9px;
+}
+.event-card-control+.event-card-control{border-left:1px solid color-mix(in srgb,var(--border,var(--ns-line)) 82%,transparent);border-top-left-radius:0;border-bottom-left-radius:0}
+.traffic-light-dot{flex:0 0 auto;width:12px;height:12px}
+.traffic-light-label{color:var(--text-dim,var(--ns-muted));font-size:.61rem;font-weight:800;letter-spacing:.01em}
+.event-card-control[aria-pressed="true"] .traffic-light-label{color:var(--text,var(--ns-text))}
+.traffic-light-tooltip{display:none!important}
+
+.event-card-secondary-actions{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(138px,1fr));
+  align-items:stretch;
+  gap:8px;
+  width:100%;
+  margin-top:8px;
+}
+.event-card-secondary-actions>*{width:100%;min-height:44px;justify-content:center;margin:0}
+.event-card:not(.is-opened) .editorial-l0-hook-copy{
+  display:-webkit-box;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+}
+.event-card.is-event-minimised .event-card-primary-actions,
+.event-card.is-event-minimised .event-card-viewing-actions,
+.event-card.is-event-minimised .event-name-line{display:none}
+.event-card.is-event-minimised .matchup-identity-row{height:64px}
+.event-card.is-event-minimised .matchup-team-logo-slot{height:60px}
+.event-card.is-event-minimised .matchup-team-logo{max-height:54px}
+.event-card-primary-actions{grid-template-columns:repeat(auto-fit,minmax(118px,1fr))}
+.event-card-viewing-actions .event-quick-actions{justify-content:center}
+.share-app-action{min-height:44px!important}
+
+@media(max-width:640px){
+  header.top .header-inner{gap:10px;padding-inline:max(12px,env(safe-area-inset-left)) max(12px,env(safe-area-inset-right))}
+  .header-brand-logo{width:82px}
+  .header-actions{gap:5px;justify-content:flex-end}
+  .header-actions .btn{width:44px;min-width:44px;min-height:44px;padding:0}
+  .spoiler-home-toggle{width:86px!important;min-width:76px!important;flex:0 1 86px!important;padding-inline:7px!important}
+  .event-card{padding:10px 11px 12px}
+  .event-card-control{flex:1 1 0;padding-inline:5px}
+  .event-card-control+.event-card-control{border-left-color:color-mix(in srgb,var(--border,var(--ns-line)) 72%,transparent)}
+  .traffic-light-label{font-size:.58rem}
+  .date-group{margin-bottom:22px}
+}
+
+@media(max-width:360px){
+  header.top .header-inner{grid-template-columns:1fr}
+  .brand{max-width:none}
+  .brand-title-row{display:flex;justify-content:space-between}
+  .header-actions{justify-content:stretch}
+  .header-actions>*{flex:1 1 0!important}
+  .spoiler-home-toggle{width:auto!important;min-width:70px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

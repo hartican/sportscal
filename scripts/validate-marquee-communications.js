@@ -182,7 +182,7 @@ async function main(){
   assert.match(participationSource, /rating_not_open/);
   assert.match(participationSource, /rating_window_closed/);
   assert.doesNotMatch(participationSource, /x-forwarded-for|cf-connecting-ip|request\.ip/i);
-  assert.match(worker, /nothingsport-shell-v229/);
+  assert.match(worker, /nothingsport-shell-v230/);
   assert.match(worker, /admin-comms-workspace\.js\?v=218/);
   assert.match(worker, /marquee-live-renderer\.js\?v=218/);
   assert.match(worker, /\/participate\.html/);

@@ -97,6 +97,6 @@ assert.match(uiSource, /function stripDecorativeGlyphs/, "legacy editorial glyph
 assert.match(uiSource, /class="skip-link"/, "keyboard users must receive a skip link");
 assert.match(uiSource, /prefers-reduced-motion/, "reduced-motion preferences must be honoured");
 assert.doesNotMatch(uiSource, /\bcard\.setAttribute\("role", "button"\)/, "event cards must not create nested interactive button roles");
-assert.match(uiSource, /className = "card-expand-control"/, "event disclosure must have a native keyboard-operable button");
+assert.match(uiSource, /button\.className = `event-card-control traffic-\$\{name\}`/, "event disclosure must use the shared native keyboard-operable traffic control");
 
 console.log(`Vector asset validation passed (${Object.keys(vectorAssets.openUse).length} open-use entries, ${sportRegistry.domains.length} configured sport keys).`);

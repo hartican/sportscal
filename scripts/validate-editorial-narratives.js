@@ -120,7 +120,7 @@ assert(eventSchema.$defs.editorialNarrative.properties.schemaVersion.enum.includ
 assert(majorSchema.$defs.event.properties.editorialNarrative, "the major-event schema must publish the event editorial projection contract");
 
 const html = fs.readFileSync("index.html", "utf8");
-assert.match(html, /const whyItMatters = isMinimised \? null : buildEventWhyItMatters\(ev\);[^]*if \(whyItMatters\) mainDiv\.appendChild\(whyItMatters\);[^]*disclosureRow\.appendChild\(buildEventNothingscoreAction\(ev\)\);[^]*if \(!expandable && !isMinimised\) mainDiv\.appendChild\(buildEventNothingscoreAction\(ev\)\);/, "Feed cards must place the contribution action directly beneath validated Why it matters copy");
+assert.match(html, /const whyItMatters = isMinimised \? null : buildEventWhyItMatters\(ev\);[^]*if \(whyItMatters\) mainDiv\.appendChild\(whyItMatters\);[^]*if \(!isMinimised && state === "opened"\)[^]*secondaryActions\.appendChild\(buildEventNothingscoreAction\(ev\)\);/, "Feed cards must place the contribution action beneath validated Why it matters copy only after Expand");
 assert.doesNotMatch(html, /labelText:"Independent context"/, "expanded cards must not repeat editorial in a second metadata box");
 assert.doesNotMatch(html, /editorialNarrativeCopyForDisplay\(/, "selected and opened cards must not repeat a second synopsis block beneath Why it matters");
 assert.match(html, /const whyItMatters = buildEventWhyItMatters\(record\);[^]*if \(whyItMatters\) identity\.appendChild\(whyItMatters\);[^]*identity\.appendChild\(buildEventNothingscoreAction\(crowdEvent\)\);/, "major-event cards must place the contribution action directly beneath validated Why it matters copy");

@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildFollowFeedPolicy(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-feed-policy.v1";
+  const SCHEMA_VERSION = "follow-feed-policy.v2";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
 
   function dateKey(value, timeZone = SYDNEY_TIME_ZONE){
@@ -44,8 +44,11 @@
     );
   }
 
-  function followedFixtureDecision(event, { followed = false, now = new Date(), timeZone = SYDNEY_TIME_ZONE } = {}){
+  function followedFixtureDecision(event, { followed = false, followSource = "sport", now = new Date(), timeZone = SYDNEY_TIME_ZONE } = {}){
     if (!followed || !hasReleasedMatchup(event)) return { mode:"ineligible", include:false, label:"Add to Feed" };
+    if (["team", "athlete", "collection", "entity"].includes(String(followSource || ""))){
+      return { mode:"direct", include:true, label:"In Feed via follow" };
+    }
     const stakes = stakesScore(event);
     if (stakes >= 4) return { mode:"immediate", include:true, label:"In Feed via follow" };
     if (stakes >= 2){

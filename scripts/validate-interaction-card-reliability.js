@@ -32,10 +32,12 @@ check("chat state is normalised at every ownership boundary", () => {
   ["pendingAttachments", "messages", "rooms", "capabilities"].forEach(key => assert.match(factory, new RegExp(`${key}:`)));
 });
 
-check("card expander has fixed Read more and Show less affordances", () => {
-  assert.match(html, /className\s*=\s*"card-expand-label"/);
-  assert.match(html, /textContent\s*=\s*state\s*===\s*"opened"\s*\?\s*"Show less <"\s*:\s*"Read more >"/);
-  assert.match(html, /\.card-expand-control\{[^}]*min-width:/s);
+check("traffic-light Expand is the single reversible disclosure affordance", () => {
+  const controls = html.slice(html.indexOf("function buildEventCardControls"), html.indexOf("function eventMajorEventId"));
+  const card = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
+  assert.match(controls, /visibleLabel\.className\s*=\s*"traffic-light-label"/);
+  assert.match(controls, /setCardState\(viewStateEvent, opening \? "opened" : "compact"\)/);
+  assert.doesNotMatch(card, /card-expand-control|Read more|Show less/);
 });
 
 check("stakes flames have a contrast plate", () => {

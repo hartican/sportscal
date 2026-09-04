@@ -458,7 +458,7 @@ assert(serverSyncSource.includes("persistentStorage = globalThis.localStorage"),
 assert(!serverSyncSource.includes("savedPassword") && !serverSyncSource.includes("passwordStorage"), "the server-sync storage layer must not introduce password persistence");
 const detailedCoverageSource = html.match(/function detailedCoverageDomainIds\(preferences\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(detailedCoverageSource.includes('"template:froth"') && detailedCoverageSource.includes("supportsCompetitors"), "detailed coverage must require Froth and a supported team, competitor, or standings model");
-assert(html.includes('const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl"]'), "first-time setup must seed Rugby League and AFL");
+assert(html.includes('const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl-premiership"]'), "first-time setup must seed Rugby League and the AFL Premiership child code");
 assert(!html.includes('draftPreferences.selectedSelectorEntityIds = []'), "first-time setup must preserve its seeded league choices");
 assert(html.includes('[["teams-players", "Teams & Players"], ["sports-australia", "Sports & Australia"], ["major-events", "Major Events"]]'), "Follow must expose its three clear choice sections");
 assert(html.includes('id="selectorOptInModal"'), "new selector entities must use one consolidated opt-in prompt");
@@ -472,7 +472,7 @@ assert(html.includes('renderChoices("startupSportsGrid", FOLLOW_FIRST.STARTUP_SP
 assert(html.includes("maximum-scale=1.0, user-scalable=no"), "the app viewport must suppress pinch zoom");
 assert(html.includes('document.addEventListener("gesturestart"'), "native-app gesture handling must suppress Safari pinch gestures");
 assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump to Today control");
-assert(html.includes('anchor.id = "calendarTodayAnchor"'), "Calendar must render a Today timeline anchor");
+assert(html.includes('heading.id = "calendarTodayAnchor"') && html.includes('else appendTodayAnchor()'), "Calendar must combine the populated Today date heading and timeline anchor");
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
 assert(html.includes('activeTab === "events" ? "eventsTodayAnchor" : "calendarTodayAnchor"'), "Feed and Events must retain distinct persistent Today anchors");
 assert(html.includes("startupFeedNavigationTouched") && html.includes('calendarInitialJumpPending = true;'), "initial Feed alignment must repeat after background loading unless the person has started navigating");
@@ -490,7 +490,7 @@ assert.equal(scrollRetractionSchedulerSource, "", "scrolling must not schedule e
 assert(!/window\.addEventListener\(["']scroll["'][\s\S]{0,240}(?:collapseCardsOutsideActiveViewport|scheduleCardRetractionDuringScroll)/.test(html), "scrolling must never collapse or rebuild an expanded card");
 assert(!/setInterval\(\(\) => \{[\s\S]*?renderCurrentSection\(true\);[\s\S]*?\}, 30000\)/.test(html), "the live clock must not rebuild every card and icon on a repeating timer");
 assert(html.includes("next[eventId] = state") && !html.includes("only one remains open"), "opening another card must retain every independently expanded card");
-assert(html.includes("refreshExpandableCard(interactionCard, buildEventCard") && html.includes("function mutateWithScrollContinuity"), "user-triggered expansion must patch the keyed card through the shared anchor transaction");
+assert(html.includes("function restoreEventCardControlFocus") && html.includes("renderAll({ preserveViewport:true })") && html.includes("function mutateWithScrollContinuity"), "user-triggered traffic controls must rebuild through the shared keyed viewport-preservation path");
 assert(html.includes("anchor?.isConnected") && html.includes("captureKeyedScrollNodes"), "user-triggered viewport restoration must retain the exact keyed DOM node when it remains connected");
 assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;'), "past cards must render revealed result summaries");
 assert(html.includes('const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;'), "revealed past cards must build their score line before rendering the title stack");
@@ -520,8 +520,8 @@ assert(cardIdentitiesSource.includes('"competition:icc"') && cardIdentitiesSourc
 assert(cardIdentitiesSource.includes('"competition:premier-league"') && cardIdentitiesSource.includes('"team:football:epl:1"') && cardIdentitiesSource.includes('"team:football:epl:21"'), "Premier League cards must register the league and every club's published badge identity");
 assert(html.includes("appendTeamIdentityFallback") && html.includes("team-logo-fallback") && html.includes('mark?.isNationalTeam || mark?.teamKind === "national"'), "a missing national-team mark must retain a semantic placeholder without falling back to a flag or monogram");
 assert(eventCardSource.includes("preferImage: true"), "event cards must use stable image-backed sport glyphs instead of Safari CSS masks");
-assert((eventCardSource.match(/preferImage: true/g) || []).length >= 1, "interactive ticket glyphs must use the stable image-backed path; expansion uses the explicit Read more > and Show less < labels");
-assert(eventCardSource.includes('expandLabel.textContent = state === "opened" ? "Show less <" : "Read more >"'), "event-card expansion must use the requested explicit Read more > and Show less < labels");
+assert((eventCardSource.match(/preferImage: true/g) || []).length >= 1, "interactive ticket glyphs must use the stable image-backed path");
+assert(eventCardSource.includes('secondaryActions.className = "event-card-secondary-actions"') && !eventCardSource.includes("card-expand-control"), "event-card expansion must defer secondary actions behind the single traffic-light Expand control");
 assert(eventCardSource.includes('mode !== "premium-rail"'), "horizontally scrolling premium-rail cards must not capture the same gesture for swipe-to-rate");
 assert(eventCardSource.includes('buildFeedStakesRow(ev) : buildStakesMeter(ev)') && html.includes('className = `stakes-flame${value <= score ? " is-filled" : " is-empty"}`') && html.includes('label.textContent = `STAKES ${score}/5`'), "cards must use the compact hollow-or-filled white flame stakes meter and Feed-only side feedback");
 assert(!eventCardSource.includes("buildEventCompactFooter(ev"), "card expansion must not duplicate the one centred stakes and feedback unit");
@@ -952,7 +952,6 @@ globalThis.__test = {
   eventMeetsCoveragePreference,
   eventEligibleForOneOffMotorsportDiscovery,
   discoverySportHasFroth,
-  eventMatchesSportPreferences,
   feedFilterMatchesEvent,
   focusedRecentPastDateKey,
   eventMatchesExplicitSubfilters,
@@ -1452,7 +1451,7 @@ assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a va
 assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
-assert.equal(app.mergePreferences(null).version, 17, "the seeded defaults must use the competition-classification preference migration");
+assert.equal(app.mergePreferences(null).version, 18, "the seeded defaults must use the current AFL-family preference migration");
 assert.deepEqual(Array.from(app.mergePreferences(null).standings.selectedSportKeys), [], "fresh profiles must deselect every Standings sport");
 assert.deepEqual(Array.from(app.mergePreferences({ version: 14, standings: { selectedSportKeys: null } }).standings.selectedSportKeys), [], "legacy null Standings selections must migrate to an explicit empty array");
 assert.deepEqual(Array.from(app.mergePreferences({ version: 15, standings: { selectedSportKeys: [] } }).standings.selectedSportKeys), [], "a durable explicit empty Standings selection must remain authoritative");
@@ -1466,7 +1465,7 @@ assert.equal(app.mergePreferences(null).pilotMeasurement.participationStartedAt,
 assert.equal(app.mergePreferences({ pilotMeasurement: { enabled: false, participationVersion: "pilot-participation.v1" } }).pilotMeasurement.enabled, false, "an explicit opt-out must remain off");
 assert.equal(app.mergePreferences({ pilotMeasurement: { enabled: true, acknowledgedAt: "2026-08-10T00:00:00.000Z" } }).pilotMeasurement.participationStartedAt, "2026-08-10T00:00:00.000Z", "legacy acknowledgement state must migrate without loss");
 assert.deepEqual(Array.from(app.mergePreferences(null).followedSports), ["nrl", "afl"], "new profiles must surface Rugby League and AFL immediately");
-assert.deepEqual(Array.from(app.mergePreferences(null).selectedSelectorEntityIds), ["sport:nrl", "sport:afl"], "new profiles must seed the two complete league selectors");
+assert.deepEqual(Array.from(app.mergePreferences(null).selectedSelectorEntityIds), ["sport:nrl", "sport:afl-premiership"], "new profiles must seed Rugby League and the AFL Premiership child selector");
 const incompleteEmptyProfile = app.mergePreferences({
   version: 7,
   onboardingComplete: false,
