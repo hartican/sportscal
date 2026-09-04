@@ -310,7 +310,7 @@ function validateArtifact(payload){
 }
 
 function isTransientSourceFailure(error){
-  return /fetch failed|timed?\s*out|abort|network|socket|econn|enotfound|eai_again/i.test(String(error?.message || error));
+  return /fetch failed|timed?\s*out|abort|network|socket|econn|enotfound|eai_again|Official follow source failed \((?:408|425|429|5\d\d)\)/i.test(String(error?.message || error));
 }
 
 async function mapWithConcurrency(values, concurrency, mapper){

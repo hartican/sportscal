@@ -27,11 +27,11 @@ assert.equal(f1Mark.logo.icon, "assets/identities/f1/formula-one-red-256.png", "
 assert.match(vectors.glyphMarkup("ui:tv"), /<svg|<img/, "provider actions must retain a local TV fallback");
 assert.match(vectors.glyphMarkup("semantic:nrl-finals-trophy"), /<svg|<img/, "NRL finals must have a local trophy glyph");
 
-assert(html.includes('prefix.textContent = `${viewing.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;'), "Feed and Events viewing actions must put the provider mark after Watch on or Replay on");
+assert(html.includes('prefix.textContent = `${viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;'), "Feed and Events viewing actions must put the provider mark after Watch on or Replay on");
 const providerMarkSource = html.match(/function buildViewingProviderMark\(viewing\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(providerMarkSource.includes('className = "provider-action-logo"') && providerMarkSource.includes("mark.appendChild(image)"), "providers with bundled marks must render the logo only");
 assert(providerMarkSource.includes('fallback.textContent = viewing.actionLabel || viewing.label') && providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider text must appear only when a logo is unavailable or fails");
-assert(html.includes("flex-wrap:nowrap") && html.includes('<span>Remind</span>') && html.includes('chat.textContent = "+ Chat"'), "fixture quick actions must remain on one compact row with approved labels");
+assert(html.includes("flex-wrap:nowrap") && html.includes('<span>Remind</span>') && html.includes('chat.textContent = "Chat"'), "fixture quick actions must remain on one compact row with approved labels");
 assert(html.includes('return "Submitted ✓"') && html.includes("button.disabled = submitted"), "submitted prediction controls must remain visibly sealed on mobile");
 assert(fs.existsSync("assets/providers/kayo-sports-negative.svg") && fs.existsSync("assets/providers/stan-sport.jpg"), "Kayo and Stan Sport provider marks must be committed locally");
 assert(worker.includes("/assets/providers/kayo-sports-negative.svg") && worker.includes("/assets/providers/stan-sport.jpg"), "provider marks must be available in the installed offline shell");

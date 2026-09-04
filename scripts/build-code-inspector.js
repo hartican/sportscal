@@ -225,7 +225,7 @@ function codeFixtures(code){
       : code.id === "sport:ice-hockey"
         ? canonicalIceHockey.fixtures || []
         : [];
-  return mergeFixtureRecords(placeholders, [...published, ...canonical], code.id, new Set(canonical));
+  return mergeFixtureRecords(placeholders, [...canonical, ...published], code.id, new Set(canonical));
 }
 
 function groupingMode(fixtures){

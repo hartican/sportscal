@@ -162,7 +162,15 @@ function build({ knowledge, feed, context, f1, reference }){
       const requirement = { 2:[1, 1, 1], 3:[2, 1, 1], 4:[3, 2, 2], 5:[4, 3, 3] }[stakesFor(event)];
       const factIndex = new Map((knowledge.narrativeFacts || []).map(fact => [fact.id, fact]));
       const dimensions = new Set((existing.factIds || []).map(id => factIndex.get(id)?.dimension).filter(Boolean));
+      const currentSnapshot = event.key === "f1"
+        ? f1.ladderSnapshots.find(item => item.competitionId === "competition:f1-drivers-2026")
+        : context.ladderSnapshots.find(item => item.competitionId === event.competitionId);
+      const currentSnapshotAt = Date.parse(currentSnapshot?.snapshotTimeUtc || currentSnapshot?.source?.checkedAt || "");
+      const existingResearchedAt = Date.parse(existing.researchedAt || "");
+      const isCurrent = !Number.isFinite(currentSnapshotAt)
+        || (Number.isFinite(existingResearchedAt) && existingResearchedAt >= currentSnapshotAt);
       if (requirement
+        && isCurrent
         && Number(existing.stakes) >= stakesFor(event)
         && (existing.factIds || []).length >= requirement[0]
         && (existing.sourceIds || []).length >= requirement[1]
@@ -274,7 +282,10 @@ function build({ knowledge, feed, context, f1, reference }){
       stakes:stakesFor(event),
       hook,
       synopsis,
-      ...(synopsisSpoilerOn ? { hookSpoilerOn:fit(`${event.outcomeText || event.recapText} ${hook}`, 180), synopsisSpoilerOn } : {}),
+      ...(synopsisSpoilerOn ? {
+        hookSpoilerOn:fit(event.outcomeText || `${event.displayTitleCompact || event.name || "This fixture"} is complete.`, 180),
+        synopsisSpoilerOn,
+      } : {}),
       threadIds,
       factIds,
       sourceIds,

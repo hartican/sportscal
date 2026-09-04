@@ -2057,7 +2057,7 @@
       "eventTitle": "UEFA Champions League",
       "source": "stan_sport",
       "sport": "sport:football",
-      "competition": "UEFA Champions League",
+      "competition": "competition:uefa-champions-league",
       "startsAt": "2026-09-08T16:45:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
@@ -2067,11 +2067,11 @@
       "priority": "high",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:football",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:uefa-champions-league",
         "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa-champions-league",
         "eventSeriesId": null,
         "rawSport": "Football",
         "rawCompetition": "UEFA Champions League"
@@ -2120,8 +2120,8 @@
         "id": "provisional:158p3n5",
         "title": "UEFA Champions League",
         "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa-champions-league",
         "eventSeriesId": null,
         "rawCompetition": "UEFA Champions League",
         "startTimeUtc": "2026-09-08T16:45:00.000Z",
@@ -2130,7 +2130,6 @@
       },
       "availabilityChange": null,
       "blockers": [
-        "competition_needs_review",
         "new_catalogue_identity"
       ],
       "editorial": {
@@ -4449,7 +4448,7 @@
       "eventTitle": "UEFA Champions League",
       "source": "stan_sport",
       "sport": "sport:football",
-      "competition": "UEFA Champions League",
+      "competition": "competition:uefa-champions-league",
       "startsAt": "2026-10-13T16:45:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
@@ -4459,11 +4458,11 @@
       "priority": "high",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:football",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:uefa-champions-league",
         "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa-champions-league",
         "eventSeriesId": null,
         "rawSport": "Football",
         "rawCompetition": "UEFA Champions League"
@@ -4516,8 +4515,8 @@
         "id": "provisional:1sv3vl9",
         "title": "UEFA Champions League",
         "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa-champions-league",
         "eventSeriesId": null,
         "rawCompetition": "UEFA Champions League",
         "startTimeUtc": "2026-10-13T16:45:00.000Z",
@@ -4526,7 +4525,6 @@
       },
       "availabilityChange": null,
       "blockers": [
-        "competition_needs_review",
         "new_catalogue_identity"
       ],
       "editorial": {
@@ -5685,7 +5683,7 @@
       "eventTitle": "UEFA Champions League",
       "source": "stan_sport",
       "sport": "sport:football",
-      "competition": "UEFA Champions League",
+      "competition": "competition:uefa-champions-league",
       "startsAt": "2026-11-03T17:45:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
@@ -5695,11 +5693,11 @@
       "priority": "high",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:football",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:uefa-champions-league",
         "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa-champions-league",
         "eventSeriesId": null,
         "rawSport": "Football",
         "rawCompetition": "UEFA Champions League"
@@ -5752,8 +5750,8 @@
         "id": "provisional:1cnud2z",
         "title": "UEFA Champions League",
         "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa-champions-league",
         "eventSeriesId": null,
         "rawCompetition": "UEFA Champions League",
         "startTimeUtc": "2026-11-03T17:45:00.000Z",
@@ -5762,7 +5760,6 @@
       },
       "availabilityChange": null,
       "blockers": [
-        "competition_needs_review",
         "new_catalogue_identity"
       ],
       "editorial": {
@@ -6633,7 +6630,7 @@
       "eventTitle": "UEFA Champions League",
       "source": "stan_sport",
       "sport": "sport:football",
-      "competition": "UEFA Champions League",
+      "competition": "competition:uefa-champions-league",
       "startsAt": "2026-12-08T17:45:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
@@ -6643,11 +6640,11 @@
       "priority": "high",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:football",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:uefa-champions-league",
         "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa-champions-league",
         "eventSeriesId": null,
         "rawSport": "Football",
         "rawCompetition": "UEFA Champions League"
@@ -6696,8 +6693,8 @@
         "id": "provisional:g4w1bm",
         "title": "UEFA Champions League",
         "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa-champions-league",
         "eventSeriesId": null,
         "rawCompetition": "UEFA Champions League",
         "startTimeUtc": "2026-12-08T17:45:00.000Z",
@@ -6706,7 +6703,6 @@
       },
       "availabilityChange": null,
       "blockers": [
-        "competition_needs_review",
         "new_catalogue_identity"
       ],
       "editorial": {
@@ -7392,7 +7388,7 @@
       "eventTitle": "UEFA Champions League",
       "source": "stan_sport",
       "sport": "sport:football",
-      "competition": "UEFA Champions League",
+      "competition": "competition:uefa-champions-league",
       "startsAt": "2027-01-19T17:45:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
@@ -7402,11 +7398,11 @@
       "priority": "high",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:football",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:uefa-champions-league",
         "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa-champions-league",
         "eventSeriesId": null,
         "rawSport": "Football",
         "rawCompetition": "UEFA Champions League"
@@ -7455,8 +7451,8 @@
         "id": "provisional:1u695sj",
         "title": "UEFA Champions League",
         "sportId": "sport:football",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:football:club",
+        "competitionId": "competition:uefa-champions-league",
         "eventSeriesId": null,
         "rawCompetition": "UEFA Champions League",
         "startTimeUtc": "2027-01-19T17:45:00.000Z",
@@ -7465,7 +7461,6 @@
       },
       "availabilityChange": null,
       "blockers": [
-        "competition_needs_review",
         "new_catalogue_identity"
       ],
       "editorial": {

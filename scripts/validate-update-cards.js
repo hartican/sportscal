@@ -40,6 +40,11 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-us-open-events.js" &
 assert(localSteps.some(step => step[0] === "scripts/refresh-us-open-events.js" && step.includes("--check")), "every canonical update must reject stale US Open Events fixtures");
 assert(localSteps.some(step => step[0] === "scripts/refresh-f1-editorial.js"), "every canonical update must refresh contemporary fixture-specific F1 editorial");
 assert(localSteps.some(step => step[0] === "scripts/apply-editorial-narratives.js" && step.includes("--write")), "every canonical update must project persistent stakes-led editorial before publication");
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/apply-editorial-narratives.js" && step.includes("--write"))
+    < localSteps.findIndex(step => step[0] === "scripts/validate-major-events.js"),
+  "every canonical update must complete missing Event editorial before validating surfaced Event fixtures"
+);
 assert(localSteps.some(step => step[0] === "scripts/update-rolling-editorial-projections.js" && step.includes("--write")), "every canonical update must build event-specific editorial for expected-score stakes before queue validation");
 assert(localSteps.some(step => step[0] === "scripts/update-sport-editorial-depth.js" && step.includes("--write")), "every canonical update must replace generic football, cricket and AFL templates with researched event-specific editorial");
 assert(localSteps.some(step => step[0] === "scripts/enrich-editorial-consequences.js" && step.includes("--write")), "every canonical update must restore immutable consequence snapshots after generated sport-depth editorial");

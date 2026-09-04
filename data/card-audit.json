@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-09-04T07:51:46.318Z",
+  "generatedAt": "2026-09-04T13:16:57.742Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -12,9 +12,9 @@
     "minimumContextSignals": 2
   },
   "summary": {
-    "totalMajorCards": 177,
-    "completed": 126,
-    "upcoming": 51,
+    "totalMajorCards": 176,
+    "completed": 128,
+    "upcoming": 48,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -1142,22 +1142,6 @@
       "issues": []
     },
     {
-      "id": "evt_20",
-      "name": "R10 Belgian GP Qualifying",
-      "sport": "F1",
-      "date": "2026-07-19",
-      "status": "completed",
-      "stakes": 4,
-      "isMajorCard": true,
-      "hasSpoilerOffCopy": true,
-      "hasSpoilerOnCopy": true,
-      "needsPreviewRefresh": false,
-      "needsRecap": false,
-      "needsEditorialRefresh": false,
-      "isStale": false,
-      "issues": []
-    },
-    {
       "id": "fifa-third-place-2026",
       "name": "World Cup Third-Place Playoff",
       "sport": "Football",
@@ -2058,7 +2042,7 @@
       "name": "Titans v Dolphins",
       "sport": "NRL",
       "date": "2026-09-04",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
@@ -2074,7 +2058,7 @@
       "name": "Geelong Cats v Carlton",
       "sport": "AFL",
       "date": "2026-09-04",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
@@ -2090,7 +2074,7 @@
       "name": "Rabbitohs v Roosters",
       "sport": "NRL",
       "date": "2026-09-04",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,

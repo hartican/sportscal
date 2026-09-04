@@ -12,14 +12,14 @@ const TARGETS = [
     canonicalId:"event:afl:cd_m20260142602",
     label:"Sydney Swans v Brisbane Lions",
     expectedHook:"Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
-    expectMajorChild:true,
+    expectMajorChild:false,
   },
   {
     code:"afl",
     canonicalId:"event:afl:cd_m20260142603",
     label:"Geelong Cats v Carlton",
-    expectedHook:"Carlton's 1–8 rescue has one life left against a Geelong side that closed the season with six straight wins.",
-    expectMajorChild:true,
+    expectedHook:"Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.",
+    expectMajorChild:false,
   },
   {
     code:"nrl",
@@ -74,19 +74,25 @@ function expectedHookFor(target, record){
   const ladder = canonical.ladderSnapshots.find(item => item.competitionId === record.competitionId);
   const ranks = new Map((ladder?.entries || []).map(entry => [entry.participantId, entry.rank]));
   const [homeName, awayName] = String(record.name || "").split(/\s+v\s+/i);
+  if (record.status === "completed"){
+    const round = record.roundLabel || record.resultLabels?.[0] || "this round";
+    return `${homeName} and ${awayName} met in ${round} with a direct finals-position contest; the outcome stays hidden here.`;
+  }
   return `${homeName} enter ${ordinal(ranks.get(record.homeParticipantId))} and ${awayName} ${ordinal(ranks.get(record.awayParticipantId))}; a direct finals-position contest.`;
 }
 const codeFixtures = new Map();
 for (const target of TARGETS){
   if (!codeFixtures.has(target.code)) codeFixtures.set(target.code, readJson(`data/code-inspector/${target.code}.json`).fixtures || []);
   const feedHits = feed.filter(record => matchesId(record, target.canonicalId));
-  assert.equal(feedHits.length, 1, `${target.label} must resolve to one canonical Feed fixture`);
-  assertEditorial(feedHits[0], `Feed ${target.label}`);
-  const expectedHook = expectedHookFor(target, feedHits[0]);
-  assert.equal(feedHits[0].editorialNarrative.hook, expectedHook, `${target.label} must retain its fixture-specific researched hook`);
+  assert(feedHits.length <= 1, `${target.label} must never duplicate in the rolling Feed`);
 
   const inspectorHits = codeFixtures.get(target.code).filter(record => matchesId(record, target.canonicalId));
   assert.equal(inspectorHits.length, 1, `${target.label} must resolve to one Inspector fixture after stable-id normalization`);
+  const expectedHook = expectedHookFor(target, feedHits[0] || inspectorHits[0]);
+  feedHits.forEach(record => {
+    assertEditorial(record, `Feed ${target.label}`);
+    assert.equal(record.editorialNarrative.hook, expectedHook, `${target.label} must retain its fixture-specific researched hook`);
+  });
   assertEditorial(inspectorHits[0], `Inspector ${target.label}`);
   assert.equal(inspectorHits[0].editorialNarrative.hook, expectedHook, `${target.label} Inspector fixture must inherit the canonical Feed editorial`);
 

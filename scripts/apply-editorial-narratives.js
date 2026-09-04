@@ -12,6 +12,7 @@ const {
   validateKnowledge,
 } = require("./lib/editorial-narrative.js");
 const majorEventContract = require("../config/major-events.js");
+const competitionClassification = require("../config/competition-classification.js");
 
 const WRITE = process.argv.includes("--write");
 const KNOWLEDGE_PATH = path.resolve("data/editorial-knowledge.v1.json");
@@ -80,7 +81,10 @@ function main(){
   });
 
   const expectedFeed = new Set(knowledge.eventProjections.filter(item => item.targetType === "feed-event").flatMap(item => item.targetIds));
-  const expectedMajor = new Set(knowledge.eventProjections.filter(item => item.targetType === "major-event").flatMap(item => item.targetIds));
+  const expectedMajor = new Set(knowledge.eventProjections
+    .filter(item => item.targetType === "major-event")
+    .flatMap(item => item.targetIds)
+    .filter(id => competitionClassification.belongsInEvents(id)));
   const foundFeed = new Set(feed.events.flatMap(event => [event.id, event.eventId]).filter(id => expectedFeed.has(id)));
   const foundMajor = new Set(majorEvents.events.map(record => record.id).filter(id => expectedMajor.has(id)));
   const missing = [...expectedFeed].filter(id => !foundFeed.has(id)).concat([...expectedMajor].filter(id => !foundMajor.has(id)));
