@@ -226,7 +226,7 @@ assert(
   "direct-file refresh must re-read the generated event bundle instead of reapplying the tab's captured EVENTS snapshot"
 );
 assert(html.includes("async function toggleQuickReminder") && html.includes("return ensureWebPushReminder(ev, timing)") && html.includes("return removeWebPushReminder(ev)"), "Remind me must optimistically render from the user gesture while still reconciling Web Push creation and cancellation");
-assert(html.includes('<span>Remind</span>') && html.includes('chat.textContent = "Chat"'), "fixture quick actions must use the compact Remind and Chat labels");
+assert(html.includes('active ? "Reminder ON" : "Remind"') && html.includes('chat.textContent = "Chat"'), "fixture quick actions must expose the compact Remind, confirmed Reminder ON and Chat labels");
 assert(html.includes("Background notifications") && html.includes("even when Nothing Sport is closed"), "reminder UI must describe background delivery");
 assert(!html.includes('<button class="btn ghost" id="aboutBtn"') && !html.includes('id="aboutModal"'), "About must be removed from the top-level header and standalone modal");
 assert(!html.includes('<button class="btn ghost soundtrack-toggle"') && !html.includes('document.getElementById("soundtrackToggle").addEventListener'), "Soundtrack must have no active user-facing entry point while parked");

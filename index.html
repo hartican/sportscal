@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="224">
+<meta name="app-shell-version" content="225">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -1859,6 +1859,8 @@ main{
 .event-quick-action{ min-height:34px; display:inline-flex; align-items:center; gap:6px; padding:7px 10px; border:1px solid var(--border); border-radius:999px; background:var(--soft-fill); color:var(--text); font:800 .68rem/1 'DM Sans',sans-serif; text-decoration:none; cursor:pointer; }
 .event-quick-action.primary{ border-color:color-mix(in srgb,var(--accent) 55%,var(--border)); background:color-mix(in srgb,var(--accent) 10%,transparent); }
 .event-quick-action .vector-glyph{ width:14px; height:14px; }
+.event-quick-action.is-reminder-on{ border-color:var(--accent); background:color-mix(in srgb,var(--accent) 18%,var(--soft-fill)); color:var(--accent); }
+.event-quick-action.is-reminder-on .reminder-bell{ fill:currentColor; }
 .follow-view{ width:min(1100px,100%); margin:0 auto; display:grid; gap:16px; }
 .follow-view-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:18px; border:1px solid var(--border); border-radius:18px; background:var(--bg-card); }
 .follow-view-head p{ margin-top:5px; color:var(--text-dim); font-size:.8rem; }
@@ -6834,29 +6836,42 @@ body.header-compact-3 .brand .slogan{ display:none; }
 
 /* Events cards: compact controls, deliberate action groupings and reversible dismissal. */
 .event-card-controls{
+  --traffic-dismiss:#ff5f57;
+  --traffic-minimise:#febc2e;
+  --traffic-expand:#28c840;
   grid-column:1 / -1;
   display:flex;
   align-items:center;
-  justify-content:flex-end;
-  gap:6px;
+  justify-content:flex-start;
+  gap:2px;
   width:100%;
   margin:0;
-  padding:0;
+  padding:6px 8px 2px;
 }
 .event-card-control{
-  min-width:88px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:44px;
   min-height:44px;
-  padding:8px 12px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  background:var(--soft-fill);
+  padding:0;
+  border:0;
+  border-radius:10px;
+  background:transparent;
   color:var(--text-dim);
-  font:800 .68rem/1 'DM Sans',sans-serif;
+  font:800 .64rem/1 'DM Sans',sans-serif;
   cursor:pointer;
 }
-.event-card-control:hover,.event-card-control:focus-visible{ border-color:var(--accent); color:var(--text); }
-.event-card-control.danger:hover,.event-card-control.danger:focus-visible{ border-color:#ff6b7a; color:#ff9aa5; }
-.event-card-control.restore{ border-color:color-mix(in srgb,var(--accent) 55%,var(--border)); color:var(--accent); }
+.event-card-control:hover{ background:color-mix(in srgb,var(--soft-fill) 78%,transparent); }
+.event-card-control:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+.traffic-light-dot{ width:14px; height:14px; border:1px solid rgba(0,0,0,.22); border-radius:999px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 1px 2px rgba(0,0,0,.2); }
+.traffic-dismiss .traffic-light-dot{ background:var(--traffic-dismiss); }
+.traffic-minimise .traffic-light-dot{ background:var(--traffic-minimise); }
+.traffic-expand .traffic-light-dot{ background:var(--traffic-expand); }
+.event-card-control[aria-pressed="true"] .traffic-light-dot{ box-shadow:inset 0 0 0 3px rgba(0,0,0,.22),0 0 0 2px color-mix(in srgb,var(--text) 18%,transparent); }
+.traffic-light-tooltip{ position:absolute; top:38px; left:50%; z-index:20; width:max-content; max-width:130px; padding:5px 7px; border:1px solid var(--border); border-radius:6px; background:var(--panel); color:var(--text); box-shadow:0 5px 16px rgba(0,0,0,.22); opacity:0; pointer-events:none; transform:translate(-50%,-3px); transition:opacity .12s ease,transform .12s ease; }
+.event-card-control:hover .traffic-light-tooltip,.event-card-control:focus-visible .traffic-light-tooltip{ opacity:1; transform:translate(-50%,0); }
+.event-card-control.restore{ display:inline-flex; width:auto; min-width:88px; padding:8px 12px; border:1px solid color-mix(in srgb,var(--accent) 55%,var(--border)); border-radius:999px; background:var(--soft-fill); color:var(--accent); }
 .event-card-primary-actions,
 .major-event-navigation-row{
   display:grid;
@@ -6878,7 +6893,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 .event-card-viewing-actions{ width:100%; }
 .event-card-viewing-actions > .event-quick-actions{ margin:0; }
 .event-card-viewing-actions .event-quick-action{ flex:0 1 210px; }
-.events-feed-card .event-card-controls{ padding:8px 10px 0; }
+.events-feed-card .event-card-controls{ padding:6px 8px 2px; }
 .events-feed-card .major-event-identity{ padding:8px 14px; }
 .events-feed-card .major-event-logo{ margin-bottom:4px; }
 .events-feed-card .major-event-facts{ margin-top:4px; }
@@ -6897,6 +6912,10 @@ body.header-compact-3 .brand .slogan{ display:none; }
 .events-feed-card.is-event-minimised .major-event-logo{ width:56px; height:46px; }
 .events-feed-card.is-event-minimised .major-event-identity{ padding-block:6px; }
 .event-card.is-event-minimised .event-main > * + *{ margin-top:6px; }
+.event-card.is-event-minimised .event-card-primary-actions,
+.event-card.is-event-minimised .event-card-viewing-actions,
+.events-feed-card.is-event-minimised .major-event-ticket-row,
+.events-feed-card.is-event-minimised .major-event-navigation-row{ display:none; }
 .events-dismissed-title{
   margin:16px 0 0;
   padding-top:12px;
@@ -6921,8 +6940,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 .event-dismissed-copy strong{ overflow:hidden; color:var(--text); font-size:.76rem; text-overflow:ellipsis; white-space:nowrap; }
 .event-dismissed-copy time{ color:var(--text-dim); font-size:.64rem; }
 @media (max-width:430px){
-  .event-card-controls{ justify-content:stretch; }
-  .event-card-control{ flex:1 1 0; min-width:0; }
+  .event-card-controls{ justify-content:flex-start; }
   .event-card-primary-actions,
   .major-event-navigation-row{ gap:5px; }
   .event-card-primary-actions .event-quick-action,
@@ -15834,6 +15852,25 @@ async function backfillWebPushReminders({ force = false } = {}){
   return webPushBackfillInFlight;
 }
 
+function renderQuickReminderButton(button, requested, { pending = false } = {}){
+  const active = Boolean(requested);
+  const label = active ? "Reminder ON" : "Remind";
+  button.disabled = pending;
+  button.classList.toggle("is-saving", pending);
+  button.classList.toggle("is-reminder-on", active);
+  button.setAttribute("aria-busy", String(pending));
+  button.setAttribute("aria-pressed", String(active));
+  button.setAttribute("aria-label", active ? "Reminder on. Remove reminder" : "Set reminder");
+  button.innerHTML = `${glyphMarkup("ui:bell", { className:"reminder-bell" })}<span>${label}</span>`;
+}
+
+function renderQuickReminderInstances(ev, requested, options = {}){
+  const actionKey = eventActionKey(ev);
+  Array.from(document.querySelectorAll("[data-reminder-action-key]"))
+    .filter(candidate => candidate.dataset.reminderActionKey === actionKey)
+    .forEach(candidate => renderQuickReminderButton(candidate, requested, options));
+}
+
 async function toggleQuickReminder(ev, button){
   const timing = eventReminderTiming(ev);
   const action = getEventAction(ev);
@@ -15850,18 +15887,11 @@ async function toggleQuickReminder(ev, button){
     }
     explanation.textContent = message;
   };
-  const renderReminderState = (requested, { pending = false } = {}) => {
-    button.disabled = pending;
-    button.classList.toggle("is-saving", pending);
-    button.setAttribute("aria-busy", String(pending));
-    button.setAttribute("aria-pressed", String(Boolean(requested)));
-    button.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>Remind</span>`;
-  };
   const outcome = await runOptimisticMutation({
     capture:() => ({ reminderRequested:Boolean(action.reminderRequested) }),
     apply:() => {
       updateEventAction(ev, { reminderRequested:enabled });
-      renderReminderState(enabled, { pending:true });
+      renderQuickReminderInstances(ev, enabled, { pending:true });
       showExplanation("");
     },
     request:async () => {
@@ -15873,14 +15903,14 @@ async function toggleQuickReminder(ev, button){
         const next = setBackgroundNotificationPreference(clonePreferences(userPreferences), true);
         savePreferences(next);
       }
-      renderReminderState(enabled);
+      renderQuickReminderInstances(ev, enabled);
       recordEventFeedAction(ev, enabled ? "reminder" : "reminder_removed", { surface:"event_card", recommendationClass:"direct" });
       if (enabled) recordWatchDecision(ev, "remind", { surface:"event_card" });
       if (enabled) recordCodeAffinity(codeIdForEvent(ev), "reminder");
     },
     rollback:prior => {
       updateEventAction(ev, { reminderRequested:prior.reminderRequested });
-      renderReminderState(prior.reminderRequested);
+      renderQuickReminderInstances(ev, prior.reminderRequested);
     },
   });
   if (outcome.ok){
@@ -15942,12 +15972,13 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
     reminderButton.type = "button";
     reminderButton.className = "event-quick-action primary";
     const reminderRequested = Boolean(getEventAction(ev).reminderRequested);
+    reminderButton.dataset.reminderActionKey = eventActionKey(ev);
     reminderButton.disabled = !reminderRequested && !reminderCanBeScheduled(timing);
     reminderButton.setAttribute("aria-pressed", String(reminderRequested));
     reminderButton.title = timing?.fallback
       ? "Background notification 15 minutes before the published broadcast time because a kickoff or race start is not available."
       : "Background notification 15 minutes before kickoff or race start.";
-    reminderButton.innerHTML = `${glyphMarkup("ui:bell", { preferImage:true })}<span>Remind</span>`;
+    renderQuickReminderButton(reminderButton, reminderRequested);
     reminderButton.addEventListener("click", event => {
       event.stopPropagation();
       void toggleQuickReminder(ev, reminderButton);
@@ -15982,26 +16013,46 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
   container.appendChild(actions);
 }
 
-function buildEventCardControls(ev, { card = null, eventsOnly = activeTab === "events", displayLabel = null } = {}){
+function restoreEventCardControlFocus(card, controlName){
+  const scrollKey = scrollKeyForElement(card);
+  renderAll({ preserveViewport:true });
+  if (!scrollKey) return;
+  window.requestAnimationFrame(() => {
+    const replacement = Array.from(document.querySelectorAll("[data-scroll-key]"))
+      .find(candidate => scrollKeyForElement(candidate) === scrollKey);
+    replacement?.querySelector(`[data-card-control="${controlName}"]`)?.focus({ preventScroll:true });
+  });
+}
+
+function buildEventCardControls(ev, { card = null, eventsOnly = activeTab === "events", displayLabel = null, viewStateEvent = ev } = {}){
   const action = getEventAction(ev);
   const controls = document.createElement("div");
   controls.className = "event-card-controls";
-  const minimise = document.createElement("button");
-  minimise.type = "button";
-  minimise.className = "event-card-control";
-  minimise.setAttribute("aria-pressed", String(Boolean(action.isMinimised)));
-  minimise.textContent = action.isMinimised ? "Expand" : "Minimise";
-  minimise.addEventListener("click", event => {
-    event.stopPropagation();
-    updateEventAction(ev, { isMinimised:!action.isMinimised });
-    renderAll({ preserveViewport:true });
-  });
-  const dismiss = document.createElement("button");
-  dismiss.type = "button";
-  dismiss.className = "event-card-control danger";
-  dismiss.textContent = "Dismiss";
-  dismiss.addEventListener("click", event => {
-    event.stopPropagation();
+  controls.setAttribute("role", "group");
+  controls.setAttribute("aria-label", "Card controls");
+  const control = (name, label, pressed, activate) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `event-card-control traffic-${name}`;
+    button.dataset.cardControl = name;
+    button.title = label;
+    button.setAttribute("aria-label", `${label}${displayLabel ? ` ${displayLabel}` : ""}`);
+    if (pressed !== null) button.setAttribute("aria-pressed", String(Boolean(pressed)));
+    const dot = document.createElement("span");
+    dot.className = "traffic-light-dot";
+    dot.setAttribute("aria-hidden", "true");
+    const tooltip = document.createElement("span");
+    tooltip.className = "traffic-light-tooltip";
+    tooltip.setAttribute("aria-hidden", "true");
+    tooltip.textContent = label;
+    button.append(dot, tooltip);
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      activate();
+    });
+    return button;
+  };
+  const dismiss = control("dismiss", "Dismiss", null, () => {
     const previousAction = storedEventAction(ev);
     dismissEventCard(ev, {
       previousAction:previousAction ? { ...previousAction } : null,
@@ -16010,7 +16061,17 @@ function buildEventCardControls(ev, { card = null, eventsOnly = activeTab === "e
       displayLabel,
     });
   });
-  controls.append(minimise, dismiss);
+  const minimise = control("minimise", "Minimise", action.isMinimised, () => {
+    updateEventAction(ev, { isMinimised:true });
+    restoreEventCardControlFocus(card, "minimise");
+  });
+  const expanded = !action.isMinimised && cardStateForEvent(viewStateEvent) === "opened";
+  const expand = control("expand", "Expand", expanded, () => {
+    updateEventAction(ev, { isMinimised:false });
+    setCardState(viewStateEvent, "opened");
+    restoreEventCardControlFocus(card, "expand");
+  });
+  controls.append(dismiss, minimise, expand);
   return controls;
 }
 
@@ -16758,6 +16819,7 @@ function buildEventCard(ev, options = {}){
     card.appendChild(buildEventCardControls(ev, {
       card:interactionCard,
       eventsOnly:activeTab === "events" || mode === "events",
+      displayLabel,
     }));
   }
   if (!matchupIdentity){
@@ -20390,7 +20452,7 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   }
 
   card.append(
-    buildEventCardControls(actionEvent, { card:eventCard, eventsOnly:true, displayLabel:record.name }),
+    buildEventCardControls(actionEvent, { card:eventCard, eventsOnly:true, displayLabel:record.name, viewStateEvent:record }),
     identity,
     ticketRow,
     navigationRow
@@ -20524,21 +20586,24 @@ function openTicketAlertInEvents(alertId, { pushHistory = true } = {}){
 function buildTicketSaleCard(record, { interactionCard = null } = {}){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
   const actionEvent = majorEventActionEvent(record);
+  const eventAction = getEventAction(actionEvent);
+  const isMinimised = Boolean(eventAction.isMinimised);
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
   const eventCard = interactionCard || card;
-  card.className = ["event-card", "mode-events", "ticket-sale-card", "events-feed-card", state === "selected" ? "is-selected" : "", state === "opened" ? "is-opened" : ""].filter(Boolean).join(" ");
+  card.className = ["event-card", "mode-events", "ticket-sale-card", "events-feed-card", state === "selected" ? "is-selected" : "", state === "opened" ? "is-opened" : "", isMinimised ? "is-event-minimised" : ""].filter(Boolean).join(" ");
   card.id = `ticket-sale-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.dataset.ticketAlertId = record.id;
   card.dataset.eventId = actionEvent.eventId || actionEvent.id;
   card.dataset.scrollKey = `ticket-alert:${record.id}`;
-  card.dataset.cardState = state;
-  card.dataset.cardLevel = cardLevelForState(state);
+  card.dataset.cardState = isMinimised ? "minimised" : state;
+  card.dataset.cardLevel = isMinimised ? "L0" : cardLevelForState(state);
   card.tabIndex = 0;
-  card.setAttribute("aria-expanded", String(state !== "compact"));
-  card.setAttribute("aria-label", `${record.name}. ${state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
+  card.setAttribute("aria-expanded", String(!isMinimised && state !== "compact"));
+  card.setAttribute("aria-label", `${record.name}. ${isMinimised ? "Minimised view" : state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
   card.style.setProperty("--sport-color", meta.color);
   const advanceState = ({ restoreFocus = false } = {}) => {
+    if (isMinimised) return;
     if (!getEventAction(actionEvent).ticketAlertSeenAt){
       updateEventAction(actionEvent, { ticketAlertSeenAt:new Date().toISOString() });
     }
@@ -20578,7 +20643,7 @@ function buildTicketSaleCard(record, { interactionCard = null } = {}){
     facts.appendChild(fact);
   });
   identity.append(logo, kicker, title);
-  if (state !== "compact") identity.appendChild(summary);
+  if (!isMinimised && state !== "compact") identity.appendChild(summary);
   identity.appendChild(facts);
   const actions = document.createElement("div");
   actions.className = "major-event-ticket-row";
@@ -20620,14 +20685,6 @@ function buildTicketSaleCard(record, { interactionCard = null } = {}){
     inventory.textContent = "Selling quickly";
     actions.appendChild(inventory);
   }
-  const expand = document.createElement("button");
-  expand.type = "button";
-  expand.className = "major-event-expand-control";
-  expand.setAttribute("aria-expanded", String(state !== "compact"));
-  expand.setAttribute("aria-label", `${state === "compact" ? "Show summary for" : state === "selected" ? "Show full details for" : "Collapse"} ${record.name}`);
-  expand.innerHTML = glyphMarkup("ui:chevron-right", { preferImage: true });
-  expand.addEventListener("click", () => advanceState({ restoreFocus: true }));
-  actions.appendChild(expand);
   card.addEventListener("click", event => {
     if (event.target.closest("a, button, input, select, textarea")) return;
     advanceState();
@@ -20639,8 +20696,12 @@ function buildTicketSaleCard(record, { interactionCard = null } = {}){
     advanceState({ restoreFocus: true });
   });
   card.setAttribute("aria-keyshortcuts", "Enter Space");
-  card.append(identity, actions);
-  if (state === "opened"){
+  card.append(
+    buildEventCardControls(actionEvent, { card:eventCard, eventsOnly:true, displayLabel:record.name, viewStateEvent:record }),
+    identity
+  );
+  if (!isMinimised) card.appendChild(actions);
+  if (!isMinimised && state === "opened"){
     const body = document.createElement("div");
     body.className = "major-event-body";
     const source = document.createElement("section");

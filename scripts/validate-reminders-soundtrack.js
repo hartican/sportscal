@@ -35,7 +35,13 @@ assert.equal(cancelled.reminders.length, 0, "the retired deterministic scheduler
 
 const html = fs.readFileSync("index.html", "utf8");
 assert(/async function ensurePushInstallation[\s\S]{0,1800}Notification\.permission === "default"[\s\S]{0,500}Notification\.requestPermission/.test(html), "system notification permission must remain inside the explicit Web Push enablement path");
-assert(/async function toggleQuickReminder[\s\S]{0,1200}await ensureWebPushReminder\(ev, timing\)[\s\S]{0,500}await removeWebPushReminder\(ev\)/.test(html), "reminder creation and cancellation must wait for the server");
+assert(/async function toggleQuickReminder[\s\S]{0,1600}return ensureWebPushReminder\(ev, timing\)[\s\S]{0,500}return removeWebPushReminder\(ev\)/.test(html), "reminder creation and cancellation must wait for the server");
+assert(/function renderQuickReminderButton[\s\S]{0,900}"Reminder ON"[\s\S]{0,500}"Remind"/.test(html), "the shared reminder renderer must expose distinct on and off labels");
+assert(/function renderQuickReminderButton[\s\S]{0,900}classList\.toggle\("is-reminder-on"[\s\S]{0,500}aria-pressed/.test(html), "the reminder renderer must expose its filled visual and accessible pressed state from the same source of truth");
+assert(html.includes('.event-quick-action.is-reminder-on .reminder-bell{ fill:currentColor; }'), "an active reminder must use a colour-filled bell");
+assert(/function appendEventQuickActions[\s\S]{0,1700}renderQuickReminderButton\(reminderButton, reminderRequested\)/.test(html), "initial card rendering must restore Reminder ON from persisted state");
+assert(/function renderQuickReminderInstances[\s\S]{0,1000}data-reminder-action-key[\s\S]{0,500}renderQuickReminderButton/.test(html), "every rendered instance of the same fixture reminder must update together");
+assert(/function toggleQuickReminder[\s\S]{0,1600}renderQuickReminderInstances\(ev, enabled, \{ pending:true \}\)[\s\S]{0,900}renderQuickReminderInstances\(ev, enabled\)[\s\S]{0,500}renderQuickReminderInstances\(ev, prior\.reminderRequested\)/.test(html), "reminder mutation must synchronise optimistic, committed and rolled-back states across cards");
 assert(/async function backfillWebPushReminders[\s\S]{0,500}Notification\.permission !== "granted"/.test(html), "automatic reminder upgrades must never prompt for permission");
 assert(!html.includes("scheduleBrowserReminders()") && !html.includes("deliverBrowserReminder"), "foreground timers must not duplicate server Web Push");
 assert(/async function playIncomingChatSound[\s\S]{0,500}await prepareChatAudio\(\{ force \}\)/.test(html), "incoming chat sound must await AudioContext resume before checking playback state");
