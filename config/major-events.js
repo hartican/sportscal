@@ -334,6 +334,11 @@
       if (/^finals?$/i.test(round)) return `${subject} decide the ${pathLabel} title after surviving the tournament's short knockout path.`;
       if (/opening|round\s*1/i.test(round)) return `${subject} meet at the first elimination point of the ${pathLabel} path.`;
       if (/round\s*2/i.test(round)) return `${subject} have already survived once; this match decides who reaches the next mixed-doubles cut.`;
+      if (/round\s*3/i.test(round)){
+        if (/doubles/i.test(stage)) return `${subject} have won twice; this match decides a ${pathLabel} quarterfinal place.`;
+        return `${subject} have won twice; this match decides a ${pathLabel} fourth-round place.`;
+      }
+      if (/round\s*4|fourth round/i.test(round)) return `${subject} play for a ${pathLabel} quarterfinal place.`;
     }
 
     if (parentId === "major-event:rlwc-2026") return `${subject} open the month-long, 53-match programme by pairing the men's defending champions with the Pacific Cup holders.`;

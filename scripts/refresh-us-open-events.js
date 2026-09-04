@@ -39,6 +39,11 @@ const NEUTRAL_PLAYER_COUNTRY_OVERRIDES = Object.freeze({
   wta327367: "RU", // Anastasia Zakharova
   wta324267: "RU", // Anna Blinkova
   wta331330: "RU", // Alina Korneeva
+  wta317915: "RU", // Irina Khromacheva; official match feed suppresses the nation field.
+  wta326961: "RU", // Anastasia Tikhonova; official match feed suppresses the nation field.
+  wta325632: "RU", // Mariia Kozyreva; official match feed suppresses the nation field.
+  wta311956: "RU", // Alexandra Panova; official match feed suppresses the nation field.
+  itf800590696: "RU", // Arina Malygina; official match feed suppresses the nation field.
 });
 
 const EVENT_LABELS = Object.freeze({

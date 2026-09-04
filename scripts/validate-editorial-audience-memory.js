@@ -64,7 +64,7 @@ const internalNothingscore = fs.readFileSync("config/nothingscore.js", "utf8");
 assert(!html.includes("Pilot contributors"));
 assert(!/name:\s*"Heat"|Heat can help/.test(html));
 assert(!/Heat blended/.test(enrichment));
-assert.match(html, /name:"How do you think it’ll go\?"/);
+assert.match(html, /name:"How do you think it'll go\?"/);
 assert.match(internalNothingscore, /PHASES = Object\.freeze\(\["heat",\s*"pulse",\s*"impact"\]\)/, "internal nothingscore.v1 phase must remain heat");
 assert.doesNotMatch(html, /label\.textContent = "Sentiment"/, "privacy-safe Sentiment memory must remain stored but invisible while the crowd-results structure is being refined");
 assert.doesNotMatch(html, /if \(state !== "compact"\)[\s\S]{0,240}buildEditorialSentiment\(ev\)/, "NSC aggregate Sentiment must not appear on event cards");

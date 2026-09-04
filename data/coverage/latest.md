@@ -40,7 +40,7 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 | 2026-09-06 | PL Saturday Wrap | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-06 | WEC | new | 0.08 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-09-07 | PL Weekend Wrap | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-09-09 | UEFA Champions League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-09-09 | UEFA Champions League | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-09-12 | Pacific Nations Cup | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-12 | Super Rugby AUS | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-09-12 | WXV | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
@@ -65,7 +65,7 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 | 2026-10-10 | Bledisloe Cup | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-10-10 | Premier League | new | 0.60 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-10-11 | PFL Africa | new | 0.08 | normal | review | Stan Sport (included) | unresolved_sport, competition_needs_review, new_catalogue_identity |
-| 2026-10-14 | UEFA Champions League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-10-14 | UEFA Champions League | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-10-16 | UEFA Conference League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-10-16 | UEFA Europa League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-10-17 | PFL | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
@@ -78,7 +78,7 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 | 2026-11-01 | WTA 250 | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-11-01 | WTA 500 | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-11-02 | NWSL | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-11-04 | UEFA Champions League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-11-04 | UEFA Champions League | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-11-06 | Nations Championship | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-11-06 | UEFA Conference League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-11-06 | UEFA Europa League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
@@ -88,7 +88,7 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 | 2026-11-15 | Australian Superbike Championship | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-12-05 | Premiership Rugby | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-12-06 | Australian Superbike Championship | new | 0.08 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2026-12-09 | UEFA Champions League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2026-12-09 | UEFA Champions League | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2026-12-11 | UEFA Conference League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-12-11 | UEFA Europa League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2026-12-12 | WSL | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
@@ -96,7 +96,7 @@ Missing inputs are explicit. They do not erase canonical events or silently impl
 | 2027-01-02 | Premiership Rugby | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2027-01-10 | WSL | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2027-01-17 | Australian Superbike Championship | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
-| 2027-01-20 | UEFA Champions League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
+| 2027-01-20 | UEFA Champions League | new | 0.00 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2027-01-22 | UEFA Europa League | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |
 | 2027-02-07 | WSL | new | 0.08 | high | review | Stan Sport (included) | new_catalogue_identity |
 | 2027-02-21 | Australian Superbike Championship | new | 0.00 | high | review | Stan Sport (included) | competition_needs_review, new_catalogue_identity |

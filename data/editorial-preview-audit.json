@@ -1,11 +1,11 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-04T07:51:46.199Z",
+  "generatedAt": "2026-09-04T13:16:57.627Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 13,
-    "passed": 13,
+    "due": 10,
+    "passed": 10,
     "failed": 0
   },
   "cards": [
@@ -24,52 +24,6 @@
         "narrative:history"
       ],
       "sourceUrl": "https://www.usopen.org/en_US/about/eventschedule.html",
-      "issues": []
-    },
-    {
-      "id": "event-nrl-129992702",
-      "name": "Titans v Dolphins",
-      "sport": "NRL",
-      "date": "2026-09-04",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "issues": []
-    },
-    {
-      "id": "event-afl-cd_m20260142603",
-      "name": "Geelong Cats v Carlton",
-      "sport": "AFL",
-      "date": "2026-09-04",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "issues": []
-    },
-    {
-      "id": "event-nrl-129992703",
-      "name": "Rabbitohs v Roosters",
-      "sport": "NRL",
-      "date": "2026-09-04",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/ladder",
       "issues": []
     },
     {

@@ -114,7 +114,7 @@ const ticketAlert=majorEvents.events.find(record=>record.kind==="ticket_sale");
 assert(server.eventFor(majorParent.id),"major Events parents must be registered for crowd snapshots");
 assert(server.eventFor(majorParent.subEvents[0].id),"unmatched Events children must be registered under their stable IDs");
 assert.equal(server.eventFor(ticketAlert.id),null,"ticket-sale alerts must never enter Nothingscore");
-const tbcChild=server.eventFor("major-match:nrl-finals-2026:qualifying-final-1");
+const tbcChild=server.eventFor("major-match:nations-championship-2026:sixth-place");
 assert(tbcChild,"TBC Events children must remain eligible for crowd context");
 assert.deepEqual(server.snapshotTiming(tbcChild),{startTimeUtc:null,endTimeUtc:null},"a TBC child must not invalidate its whole Events snapshot batch");
 const legacyFeed=feed.events.find(record=>record.date&&record.time&&!record.startTimeUtc);

@@ -153,9 +153,9 @@ assert(!html.includes("<span>AU interest</span>"), "Australia eligibility must s
 assert(
   html.includes("appendEventQuickActions")
     && html.includes('<span>Remind</span>')
-    && html.includes('chat.textContent = "+ Chat"')
+    && html.includes('chat.textContent = "Chat"')
     && html.includes("buildViewingProviderMark")
-    && html.includes('prefix.textContent = `${viewing.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;')
+    && html.includes('prefix.textContent = `${viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;')
     && html.includes("mark.replaceChildren(fallback)")
     && !html.includes("mark.append(fallback, image)"),
   "quick actions must use the approved labels and show either a provider logo or its text fallback"

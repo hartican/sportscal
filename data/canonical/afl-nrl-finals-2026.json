@@ -702,7 +702,7 @@
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142603",
             "researchTier": "featured",
-            "hook": "Carlton's 1–8 rescue has one life left against a Geelong side that closed the season with six straight wins.",
+            "hook": "Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.",
             "synopsis": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
             "threadIds": [
               "thread:depth:afl:finals"
@@ -729,8 +729,8 @@
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Carlton's 1–8 rescue has one life left against a Geelong side that closed the season with six straight wins.",
-            "hookSpoilerOn": "Carlton's 1–8 rescue has one life left against a Geelong side that closed the season with six straight wins.",
+            "hookSpoilerOff": "Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.",
+            "hookSpoilerOn": "Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.",
             "synopsisSpoilerOff": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
             "synopsisSpoilerOn": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
             "arcStage": "preview"

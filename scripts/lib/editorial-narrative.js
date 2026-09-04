@@ -289,6 +289,11 @@ function editorialNarrativeFor(projection, indexes){
 function applyToFeedEvent(event, projection, indexes){
   const primarySource = indexes.sources.get(projection.sourceIds[0]);
   const narrative = editorialNarrativeFor(projection, indexes);
+  const completed = event.status === "completed";
+  const completedHook = String(projection.hookSpoilerOn || event.outcomeText || event.scoreDisplay || "").trim()
+    || `${event.displayTitleCompact || event.name || "This fixture"} is complete.`;
+  const completedSynopsis = String(projection.synopsisSpoilerOn || event.recapText || event.fullSpiel || "").trim()
+    || completedHook;
   const contextSignals = unique(["event-specific", ...narrative.dimensions.map(value => `narrative:${value}`)]);
   const threadTitle = indexes.threads.get(projection.threadIds[0])?.title || "Persistent editorial thread";
   return {
@@ -313,11 +318,11 @@ function applyToFeedEvent(event, projection, indexes){
     storyline:{
       ...(event.storyline || {}),
       stakes:projection.stakes,
-      arcStage:event.status === "completed" ? "recap" : "preview",
+      arcStage:completed ? "recap" : "preview",
       hookSpoilerOff:projection.hook,
-      hookSpoilerOn:projection.hookSpoilerOn || projection.hook,
+      hookSpoilerOn:completed ? completedHook : projection.hookSpoilerOn || projection.hook,
       synopsisSpoilerOff:projection.synopsis,
-      synopsisSpoilerOn:projection.synopsisSpoilerOn || projection.synopsis,
+      synopsisSpoilerOn:completed ? completedSynopsis : projection.synopsisSpoilerOn || projection.synopsis,
       lastReviewedAt:projection.researchedAt,
     },
   };

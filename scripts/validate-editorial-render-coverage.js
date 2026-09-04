@@ -8,6 +8,7 @@ const {
   editorialConsequenceReadyForCard,
   editorialNarrativeReadyForCard,
 } = require("../config/enrichment-engine.js");
+const competitionClassification = require("../config/competition-classification.js");
 
 function readJson(filePath){
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -37,6 +38,10 @@ const majorById = byIdentity(majorEvents.events || []);
 const resolved = [];
 
 for (const projection of knowledge.eventProjections || []){
+  if (
+    projection.targetType === "major-event"
+    && !projection.targetIds.some(id => competitionClassification.belongsInEvents(id))
+  ) continue;
   const candidates = projection.targetType === "major-event" ? [majorById] : [incomingById, publishedById];
   for (const records of candidates){
     const record = projection.targetIds.map(id => records.get(id)).find(Boolean);

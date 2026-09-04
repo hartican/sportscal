@@ -101,7 +101,6 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-card-identities.js"],
   ["scripts/validate-identity-fallback-lifecycle.js"],
   ["scripts/validate-card-polish.js"],
-  ["scripts/validate-major-events.js"],
   ["scripts/validate-competition-classification.js"],
   ["scripts/validate-events-stakes-giphy-startup-release.js"],
   ["scripts/validate-gif-proxy.js"],
@@ -143,6 +142,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/enrich-editorial-consequences.js", "--write"],
   ["scripts/update-editorial-audience-memory.js", "--write"],
   ["scripts/apply-editorial-narratives.js", "--write"],
+  ["scripts/validate-major-events.js"],
   ["scripts/build-editorial-research-queue.js", "--write"],
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]

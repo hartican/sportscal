@@ -897,15 +897,16 @@ const found = new Set();
 
 feed.events = feed.events.map((event) => {
   const result = results[event.id];
-  if (!result) return event;
-  found.add(event.id);
-  const next = {
+  const next = result ? {
     ...event,
     status: "completed",
     ...result,
-  };
-  delete next.editorialPreview;
-  if (next.storyline) {
+  } : { ...event };
+  if (result) {
+    found.add(event.id);
+    delete next.editorialPreview;
+  }
+  if (next.status === "completed") {
     next.storyline = storylineFor(next);
     const rootCopy = spoilerSafeRootCopy(next, next.storyline);
     next.selectedSentence = rootCopy.hook;
