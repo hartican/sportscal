@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="228">
+<meta name="app-shell-version" content="229">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7282,7 +7282,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=228")
+  : loadDeferredScript("config/national-team-identities.js?v=229")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -13345,7 +13345,8 @@ function buildDiscoveryBrowseRow(code){
   const title = document.createElement("strong");
   title.textContent = code.label;
   const detail = document.createElement("span");
-  detail.textContent = `${code.fixtureCount} available fixture${code.fixtureCount === 1 ? "" : "s"} · ${followed ? "Following" : "Not followed"}`;
+  const parent = code.parentSportId && codeInspectorManifest?.codes?.find(candidate => candidate.id === code.parentSportId);
+  detail.textContent = `${parent ? `${parent.label} · ` : ""}${code.fixtureCount} available fixture${code.fixtureCount === 1 ? "" : "s"} · ${followed ? "Following" : "Not followed"}`;
   copy.append(title, detail);
   main.append(identity, copy);
   const actions = document.createElement("div");
@@ -13363,6 +13364,24 @@ function buildDiscoveryBrowseRow(code){
   actions.appendChild(open);
   row.append(main, actions);
   return row;
+}
+
+function orderCodeInspectorHierarchy(codes){
+  const ids = new Set(codes.map(code => code.id));
+  const childrenByParent = new Map();
+  codes.forEach(code => {
+    if (!code.parentSportId || !ids.has(code.parentSportId)) return;
+    const children = childrenByParent.get(code.parentSportId) || [];
+    children.push(code);
+    childrenByParent.set(code.parentSportId, children);
+  });
+  const ordered = [];
+  const append = code => {
+    ordered.push(code);
+    (childrenByParent.get(code.id) || []).forEach(append);
+  };
+  codes.filter(code => !code.parentSportId || !ids.has(code.parentSportId)).forEach(append);
+  return ordered;
 }
 
 function discoveryTuneFocusDescriptor(){
@@ -13403,11 +13422,14 @@ function renderTuneSheetContents(){
       });
     return;
   }
-  const codes = FOLLOW_FIRST?.sortCodesByAffinity
+  const affinityOrderedCodes = FOLLOW_FIRST?.sortCodesByAffinity
     ? FOLLOW_FIRST.sortCodesByAffinity(codeInspectorManifest.codes, userPreferences, nowAEST())
     : [...codeInspectorManifest.codes].sort((first, second) => Number(second.fixtureCount || 0) - Number(first.fixtureCount || 0) || first.label.localeCompare(second.label));
-  const primaryCodes = codes.slice(0, 6);
-  const remainingCodes = codes.slice(6);
+  const codes = orderCodeInspectorHierarchy(affinityOrderedCodes);
+  let primaryCount = 6;
+  while (codes[primaryCount]?.parentSportId && codes.slice(0, primaryCount).some(code => code.id === codes[primaryCount].parentSportId)) primaryCount += 1;
+  const primaryCodes = codes.slice(0, primaryCount);
+  const remainingCodes = codes.slice(primaryCount);
   primaryCodes.forEach(code => list.appendChild(buildDiscoveryBrowseRow(code)));
   remainingCodes.forEach(code => moreList.appendChild(buildDiscoveryBrowseRow(code)));
   more.hidden = remainingCodes.length === 0;

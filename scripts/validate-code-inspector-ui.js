@@ -19,6 +19,7 @@ assert(html.includes('back.textContent = "Back to Standings & Fixtures"'), "deta
 assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })') && html.indexOf('window.scrollTo({ top: 0, behavior: "auto" })') < html.indexOf("await loadCodeInspectorChunk(codeId)"), "Inspector detail must jump to top exactly before deferred fixture hydration");
 assert(!html.includes("tuneSelectAllBtn") && !html.includes("tuneDeselectAllBtn") && !html.includes('role="checkbox"'), "visit-scoped multi-select filtering must be removed from Inspector");
 assert(html.includes('open.textContent = "Inspect"') && html.includes("More codes"), "every canonical code must expose Inspect and unfollowed codes must collapse under More codes");
+assert(html.includes("orderCodeInspectorHierarchy") && html.includes("code.parentSportId"), "child codes must stay directly beneath their parent in Standings & Fixtures");
 assert(html.includes("renderCodeInspectorIdentity") && html.includes("renderEventIdentityMark(identity, event, sportMetaForEvent(event))"), "Inspector rows and headings must use the central official identity registry");
 assert(html.includes('frame.className = "code-inspector-team-icon identity-frame"') && html.includes('logo.width = 24') && html.includes('logo.height = 24'), "each Inspector participant must have a fixed 24px canonical identity frame");
 assert(html.includes("codeInspectorParticipantMark") && html.includes("appendTeamIdentityFallback(frame, mark, label)"), "recognised participants must resolve by canonical identity, flag or monogram rather than a question mark");
@@ -50,9 +51,34 @@ assert(manifest.codes.every(code => (
 )), "every code manifest row must state grouping, coverage and a lazy chunk");
 
 const taxonomy = require("../config/canonical-sports-taxonomy");
-const { mergeFixtureRecords } = require("./build-code-inspector");
+const { eventMatchesCode, mergeFixtureRecords } = require("./build-code-inspector");
+const aflwCode = manifest.codes.find(code => code.id === "sport:aflw");
+assert(aflwCode, "AFLW must be published as a separate Standings & Fixtures code");
+assert.equal(aflwCode.slug, "aflw");
+assert.equal(aflwCode.label, "AFLW");
+assert.equal(aflwCode.parentSportId, "sport:afl", "AFLW must remain grouped under AFL");
+const aflCode = manifest.codes.find(code => code.id === "sport:afl");
+assert(aflCode, "AFL must remain available beside its AFLW child code");
+assert.equal(eventMatchesCode({
+  key: "aflw",
+  sportDomainId: "sport:afl",
+  discoverySportId: "sport:aflw",
+  competitionId: "competition:aflw-2026",
+}, aflCode), false, "AFL must not absorb AFLW fixtures");
+assert.equal(eventMatchesCode({
+  key: "aflw",
+  sportDomainId: "sport:afl",
+  discoverySportId: "sport:aflw",
+  competitionId: "competition:aflw-2026",
+}, aflwCode), true, "AFLW must recognise its own fixtures");
+const aflwChunk = JSON.parse(fs.readFileSync(path.join(ROOT, aflwCode.chunkPath), "utf8"));
+assert(aflwChunk.fixtures.length > 0, "AFLW must publish its full fixture list");
+assert(aflwChunk.fixtures.every(fixture => fixture.competitionId !== "competition:afl-premiership-2026"), "the AFLW chunk must not contain men's AFL fixtures");
+const aflChunk = JSON.parse(fs.readFileSync(path.join(ROOT, aflCode.chunkPath), "utf8"));
+assert(aflChunk.fixtures.every(fixture => fixture.competitionId !== "competition:aflw-2026"), "the AFL chunk must not contain AFLW fixtures");
 const canonicalCodes = [
   ...taxonomy.sportDomains.filter(code => code.isActive !== false),
+  { id: "sport:aflw" },
   taxonomy.competitions.find(code => code.id === "competition:uefa-champions-league"),
 ].filter(Boolean);
 assert.deepEqual(
@@ -91,6 +117,11 @@ assert.deepEqual(merged[0].participantSlots.map(slot => slot.label), ["Broncos",
 assert.equal(merged[0].detailsExpectedAt, null);
 
 const canonicalBundle = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/afl-nrl-2026.json"), "utf8"));
+const canonicalAflwFixtures = canonicalBundle.events.filter(event => event.competitionId === "competition:aflw-2026");
+const publishedAflwFixtureIds = new Set(aflwChunk.fixtures.map(fixture => fixture.id));
+assert(canonicalAflwFixtures.length > 0, "the canonical AFLW schedule must not be empty");
+assert(canonicalAflwFixtures.every(fixture => publishedAflwFixtureIds.has(fixture.id)), "every canonical AFLW fixture must be published in the AFLW chunk");
+assert(canonicalBundle.ladderSnapshots.some(snapshot => snapshot.competitionId === "competition:aflw-2026" && snapshot.entries?.length), "AFLW must have a published ladder for its Standings tab");
 const publishedFeed = JSON.parse(fs.readFileSync(path.join(ROOT, "data/events.json"), "utf8"));
 const placeholderPattern = /(?:winner|loser|highest|lowest)[ -]ranked|winner of|loser of|\bTBC\b/i;
 for (const fixture of canonicalBundle.events.filter(event => event.status === "scheduled" && /final/i.test(event.roundLabel || "") && event.participantIds?.length === 2 && !placeholderPattern.test(event.displayName || ""))){

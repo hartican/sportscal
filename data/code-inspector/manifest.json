@@ -6,11 +6,22 @@
       "id": "sport:afl",
       "slug": "afl",
       "label": "AFL",
-      "fixtureCount": 329,
+      "fixtureCount": 221,
       "groupingMode": "round",
       "coverageStatus": "complete",
       "freshAt": "2026-09-04T19:39:32.594Z",
       "chunkPath": "data/code-inspector/afl.json"
+    },
+    {
+      "id": "sport:aflw",
+      "slug": "aflw",
+      "label": "AFLW",
+      "fixtureCount": 109,
+      "groupingMode": "round",
+      "coverageStatus": "complete",
+      "freshAt": "2026-09-04T19:39:32.594Z",
+      "parentSportId": "sport:afl",
+      "chunkPath": "data/code-inspector/aflw.json"
     },
     {
       "id": "sport:nrl",

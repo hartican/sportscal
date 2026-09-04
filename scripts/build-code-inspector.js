@@ -33,6 +33,7 @@ for (const participant of canonicalChampionsLeague.participants || []){
 
 const CODE_KEYS = Object.freeze({
   "sport:afl": ["afl"],
+  "sport:aflw": ["aflw"],
   "sport:nrl": ["nrl"],
   "sport:motorsport": ["f1", "motorsport", "motogp", "lemans", "goodwood", "bathurst"],
   "sport:extreme": ["extreme"],
@@ -69,7 +70,14 @@ function stableId(event){
   return String(event?.canonicalEventId || event?.eventId || event?.id || "");
 }
 
+function isAflwFixture(event){
+  return event?.discoverySportId === "sport:aflw"
+    || event?.competitionId === "competition:aflw-2026"
+    || String(event?.key || event?.sportId || event?.sportKey || event?.sport || "").toLowerCase() === "aflw";
+}
+
 function eventMatchesCode(event, code){
+  if (isAflwFixture(event)) return code.id === "sport:aflw";
   if (event?.sportDomainId === code.id || event?.competitionId === code.id || event?.codeId === code.id) return true;
   const values = [event?.key, event?.sportId, event?.sportKey, event?.sport]
     .filter(Boolean)
@@ -216,8 +224,10 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
 function codeFixtures(code){
   const placeholders = [...eventPhasePlaceholders(code), ...codePhasePlaceholders(code)];
   const published = feed.events.filter(event => eventMatchesCode(event, code));
-  const canonical = ["sport:afl", "sport:nrl"].includes(code.id)
-    ? canonicalAflNrl.events.filter(event => event.sportDomainId === code.id)
+  const canonical = ["sport:afl", "sport:aflw", "sport:nrl"].includes(code.id)
+    ? canonicalAflNrl.events.filter(event => code.id === "sport:aflw"
+      ? isAflwFixture(event)
+      : event.sportDomainId === code.id && !isAflwFixture(event))
     : code.id === "competition:uefa-champions-league"
       ? canonicalChampionsLeague.phases.flatMap(phase => phase.fixtures || [])
     : code.id === "sport:american-football"
@@ -254,15 +264,27 @@ function build(){
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   const championsLeagueCode = taxonomy.competitions.find(competition => competition.id === "competition:uefa-champions-league");
   if (!championsLeagueCode) throw new Error("The canonical Champions League Code is missing from the taxonomy.");
-  const codeDefinitions = [...taxonomy.sportDomains.filter(code => code.isActive !== false), championsLeagueCode];
+  const aflwCompetition = taxonomy.competitions.find(competition => competition.id === "competition:aflw-2026");
+  if (!aflwCompetition) throw new Error("The canonical AFLW competition is missing from the taxonomy.");
+  const aflwCode = {
+    id: aflwCompetition.preferenceDomainId,
+    slug: "aflw",
+    name: "AFLW",
+    parentSportId: aflwCompetition.sportDomainId,
+  };
+  const codeDefinitions = [
+    ...taxonomy.sportDomains.filter(code => code.isActive !== false)
+      .flatMap(code => code.id === aflwCode.parentSportId ? [code, aflwCode] : [code]),
+    championsLeagueCode,
+  ];
   const codes = codeDefinitions.map(code => {
     const fixtures = codeFixtures(code);
     const fileName = `${code.slug}.json`;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
-      : ["sport:afl", "sport:nrl", "sport:american-football", "sport:ice-hockey"].includes(code.id) ? "complete" : "partial";
+      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:american-football", "sport:ice-hockey"].includes(code.id) ? "complete" : "partial";
     const freshAt = code.id === "competition:uefa-champions-league" ? canonicalChampionsLeague.generatedAt : feed.publishedAt || null;
-    const parentSportId = code.id === "competition:uefa-champions-league" ? code.sportDomainId : null;
+    const parentSportId = code.parentSportId || (code.id === "competition:uefa-champions-league" ? code.sportDomainId : null);
     fs.writeFileSync(path.join(OUTPUT_DIR, fileName), `${JSON.stringify({
       schemaVersion: "code-inspector-chunk.v1",
       code: { id: code.id, slug: code.slug, name: code.name, ...(parentSportId ? { parentSportId } : {}) },
