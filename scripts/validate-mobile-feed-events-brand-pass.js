@@ -25,7 +25,7 @@ assert.doesNotMatch(brand.descriptor, /live sports curator|mate/i);
 assert(html.includes('data-brand-copy="loadingDescriptor"'), "the startup overlay must render the official loading slogan");
 assert(html.includes("function startLoadingSloganTypewriter"), "startup must own a deterministic two-second typewriter");
 assert(html.includes("prefers-reduced-motion: reduce"), "the loading slogan must respect reduced motion");
-assert(html.includes('settingsSection === "feedback") renderFeedbackAppearanceSettings(body)'), "the day/night/system Appearance selector must remain reachable from Settings > Feedback");
+assert(html.includes('settingsSection === "appearance") renderAppearanceSettings(body)') && html.includes('settingsSection === "feedback") renderFeedbackSettings(body)'), "Appearance and Feedback must remain separate Settings screens");
 
 const eplViewing = followFirst.viewingLink({
   key:"fifa",
@@ -59,7 +59,8 @@ const aflGrandFinal = followFirst.viewingOptions({ key:"afl", competitionId:"com
 assert.equal(aflGrandFinal[0]?.providerId, "seven", "AFL Grand Final must apply its event-specific Australian rights exception");
 
 assert(html.includes('prefix.textContent = `${viewing.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;'), "watch actions must put the provider mark after Watch on / Replay on");
-assert(html.includes('fallback.textContent = viewing.actionLabel || viewing.label;'), "provider-name text must be the image fallback");
+const providerMarkSource = html.match(/function buildViewingProviderMark\(viewing\)\{[\s\S]*?\n\}/)?.[0] || "";
+assert(providerMarkSource.includes("mark.appendChild(image)") && providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider logos and provider-name fallbacks must be mutually exclusive");
 assert(html.includes('rel = "noopener noreferrer external"'), "web fallbacks must leave the standalone PWA in a separate external window");
 
 const f1Mark = identities.markForEvent({ key:"f1", name:"Australian Grand Prix" });
@@ -117,7 +118,8 @@ assert(
     && html.includes('MAJOR_EVENTS.compactPhaseTimelineItems(timeline)'),
   "Events L0/L1/L2 must use the profile-filtered chronological card-local Now timeline"
 );
-assert(html.includes('fallback.textContent = viewing.actionLabel || viewing.label;'), "Watch on provider logos must retain a provider-name text fallback");
+assert(html.includes('image.alt = `${viewing.label} logo`'), "Watch on provider logos must retain an accessible provider name");
+assert(html.includes("function renderAboutSettings") && html.includes('href="/privacy.html"') && html.includes('href="/terms.html"'), "Settings About and every main tab footer must expose legal links");
 assert(html.includes("serverAuthoritativeFixturePins"), "server fixture-pin state must override the local backup outside pending offline commands");
 assert(html.includes("pinMutationId"), "fixture pin mutations must be idempotently identifiable");
 assert(html.includes("ticketAlertSeenAt") && html.includes("ticket-sale-countdown"), "ticket alerts must own unseen and countdown states");

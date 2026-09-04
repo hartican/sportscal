@@ -32,7 +32,7 @@ const brandRow = section(html, '<div class="brand-title-row">', '<div class="slo
 assert.match(brandRow, /id="shareAppBtn"/);
 assert.match(brandRow, /data-vector-glyph="ui:share"/);
 assert.match(brandRow, />Share app</);
-const appShare = section(html, "function canonicalAppShareUrl()", 'document.getElementById("soundtrackToggle")');
+const appShare = section(html, "function canonicalAppShareUrl()", 'document.getElementById("homeSpoilerToggle")');
 assert.match(html, /<link rel="canonical" href="https:\/\/nothingsport\.vercel\.app\/">/, "the clean production app URL must be configured independently of preview origins");
 assert.match(appShare, /document\.querySelector\('link\[rel="canonical"\]'\)/);
 assert.match(appShare, /new URL\("\/", configured\)\.href/);
@@ -102,7 +102,7 @@ const sendMessage = section(html, "async function sendChatMessage(form)", "funct
 assert.match(sendMessage, /const replyToMessageId = chatState\.replyToMessageId/);
 assertOrder(sendMessage, [
   "mergeChatMessages([optimisticMessage])",
-  "renderOpenChatRoom({ autoScroll:true",
+  "refreshChatMessageStream({ autoScroll:true",
   "await serverSyncClient.chatRequest",
 ], "optimistic chat send");
 assert.match(sendMessage, /clientId/);

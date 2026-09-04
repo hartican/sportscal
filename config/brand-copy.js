@@ -1,6 +1,6 @@
 (function attachNothingSportsBrand(root){
   const brand = Object.freeze({
-    version: "nothingsport-brand.v10",
+    version: "nothingsport-brand.v11",
     name: "Nothing Sport",
     officialName: "Nothing Sport",
     stylisedName: "nothing SPORT",
@@ -15,6 +15,7 @@
     loadingDescriptor: "Live sport, nothing missed.",
     hero: "Live sport, nothing missed.",
     about: "Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. A dislike removes that exact card and softly tunes future suggestions; a like gently lifts related suggestions without changing complete fixture lists. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.",
+    countryAcknowledgement: "Nothing Sport acknowledges the Yuin Nation, the Traditional Custodians of the land on which this app was built. Always was, always will be Aboriginal land. Voice. Treaty. Truth.",
     metadataDescription: "Live sport, nothing missed.",
     onboardingDescription: "Choose your sports and Australia-in-internationals seed once, then refine teams and players in Follow.",
     emptyStateDescription: "Nothing in your current filter deserves your time right now.",

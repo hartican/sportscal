@@ -13,6 +13,8 @@ const { createCanonicalSportsIndex } = require("./lib/canonical-sports");
 
 const html = fs.readFileSync("index.html", "utf8");
 const notFoundHtml = fs.readFileSync("404.html", "utf8");
+const privacyHtml = fs.readFileSync("privacy.html", "utf8");
+const termsHtml = fs.readFileSync("terms.html", "utf8");
 const manifest = JSON.parse(fs.readFileSync("manifest.webmanifest", "utf8"));
 const broadcastConfigSource = fs.readFileSync("config/au-broadcast-weights.js", "utf8");
 const selectorTaxonomySource = fs.readFileSync("config/selector-taxonomy.js", "utf8");
@@ -157,7 +159,7 @@ assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned
 assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
 assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
 assert(html.includes('src="config/sport-context.js"'), "modular sport context must load before event and standings resolution");
-assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=217")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
+assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=218")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
 assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
 assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asset registry must load before app rendering");
 assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
@@ -224,12 +226,23 @@ assert(
   "direct-file refresh must re-read the generated event bundle instead of reapplying the tab's captured EVENTS snapshot"
 );
 assert(html.includes("async function toggleQuickReminder") && html.includes("return ensureWebPushReminder(ev, timing)") && html.includes("return removeWebPushReminder(ev)"), "Remind me must optimistically render from the user gesture while still reconciling Web Push creation and cancellation");
+assert(html.includes('<span>Remind</span>') && html.includes('chat.textContent = "+ Chat"'), "fixture quick actions must use the compact Remind and + Chat labels");
 assert(html.includes("Background notifications") && html.includes("even when Nothing Sport is closed"), "reminder UI must describe background delivery");
-assert(html.includes('id="soundtrackToggle"'), "background audio must use an explicit top-bar toggle");
-assert(html.includes('class="soundtrack-toggle-state">OFF</span>'), "the soundtrack toggle must expose an ON/OFF state");
-assert(html.includes('id="soundtrackAudio"') && html.includes("/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"), "the supplied Skyscraper Samba recording must be the sole audio source");
+assert(!html.includes('<button class="btn ghost" id="aboutBtn"') && !html.includes('id="aboutModal"'), "About must be removed from the top-level header and standalone modal");
+assert(!html.includes('<button class="btn ghost soundtrack-toggle"') && !html.includes('document.getElementById("soundtrackToggle").addEventListener'), "Soundtrack must have no active user-facing entry point while parked");
+assert(html.includes('id="soundtrackAudio"') && html.includes("/assets/audio/sb_skyscrapersamba_eq_lessdrums.mp3"), "the supplied Skyscraper Samba recording must remain dormant for future restoration");
 assert(!html.includes('settingsMenuItem("soundtrack"') && !html.includes("renderSoundtrackSettings"), "Soundtrack must be removed from Settings");
-assert(html.includes("'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0."), "the supplied CC-BY attribution must appear in About");
+assert(!html.includes("'Skyscraper Samba' by Scott Buckley - released under CC-BY 4.0."), "the parked soundtrack acknowledgement must not appear in About");
+assert(html.includes("function renderAboutSettings") && html.includes('data-brand-copy="countryAcknowledgement"'), "About must render inside Settings with the country acknowledgement");
+assert.equal(brand.countryAcknowledgement, "Nothing Sport acknowledges the Yuin Nation, the Traditional Custodians of the land on which this app was built. Always was, always will be Aboriginal land. Voice. Treaty. Truth.");
+assert(html.includes('href="/privacy.html"') && html.includes('href="/terms.html"'), "the app footer and Settings About content must expose both legal documents");
+assert.match(privacyHtml, /what information is held, correct it, or request deletion/i);
+assert.match(termsHtml, /Australian Consumer Law/);
+const providerMarkSource = html.match(/function buildViewingProviderMark\(viewing\)\{[\s\S]*?\n\}/)?.[0] || "";
+assert(providerMarkSource.includes('image.alt = `${viewing.label} logo`') && providerMarkSource.includes("mark.appendChild(image)"), "available provider marks must render as accessible logos");
+assert(providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider fallback text and provider logos must be mutually exclusive");
+assert(html.includes('return "Submitted ✓"') && html.includes("button.disabled = submitted") && html.includes('button.setAttribute("aria-pressed", String(submitted))') && html.includes('button.setAttribute("aria-live", "polite")'), "prediction actions must seal and announce the Submitted state");
+assert(html.includes("nothingscoreSubmittedPhases") && html.includes("updateEventAction(event, { nothingscoreSubmittedPhases:Array.from(submittedPhases) })"), "sealed prediction state must persist in client event preferences");
 assert(soundtrackSource.includes("audio.volume = 1") && soundtrackSource.includes("player.volume = 1"), "soundtrack playback must use full HTML media volume");
 assert(!/createOscillator|elevator|epic orchestral|heavy metal/i.test(soundtrackSource), "procedural and alternate soundtrack modes must be removed");
 assert(!html.includes('join(" vs ")'), "fixture formatters must never emit the superseded vs separator");
@@ -308,9 +321,12 @@ assert(html.includes('id="settingsModal"'), "Settings must use a dedicated main 
 assert(html.includes('data-settings-section="${section}"'), "Settings must expose exitable submenus from its main screen");
 assert(html.includes('class="tab-btn" data-tab="follow"') && html.includes("function renderFollowView"), "Follow must own sports, team, player and event choices outside Settings");
 const settingsMenuSource = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
-const settingsMenuLabels = ["Account", "Subscriptions", "Notifications", "Set location", "Feedback"];
-assert(settingsMenuLabels.every(label => settingsMenuSource.includes(`"${label}"`)), "Settings must expose the five approved top-level areas");
+const settingsMenuLabels = ["Account", "About", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"];
+assert(settingsMenuLabels.every(label => settingsMenuSource.includes(`"${label}"`)), "Settings must expose the approved top-level areas");
 assert(settingsMenuLabels.every((label, index) => index === 0 || settingsMenuSource.indexOf(`"${settingsMenuLabels[index - 1]}"`) < settingsMenuSource.indexOf(`"${label}"`)), "Settings must retain the approved top-to-bottom order");
+assert(html.includes('settingsSection === "about") renderAboutSettings(body)') && html.includes('settingsSection === "appearance") renderAppearanceSettings(body)'), "About and Appearance must each own a Settings screen");
+assert(html.includes('settingsSection === "feedback") renderFeedbackSettings(body)') && !html.includes("renderFeedbackAppearanceSettings"), "Feedback must remain standalone from Appearance");
+assert(html.includes('class="filter-panel privacy-summary"') && html.includes("What is sent:") && html.includes("When it is shared:") && html.includes("Deletion or privacy questions:"), "Feedback must explain its privacy behaviour in plain language");
 assert(!settingsMenuSource.includes('settingsMenuItem("tune"') && !settingsMenuSource.includes('settingsMenuItem("calibration"'), "Tune and Swipe Calibration must remain absent from user-facing Settings navigation");
 assert(!settingsMenuSource.includes('"Froth knobs"') && !settingsMenuSource.includes('"Coverage overrides"') && !settingsMenuSource.includes('"Ladder & Standings"'), "Froth, coverage, and standings controls must not remain disconnected Settings homes");
 assert(!html.includes("Events Selector") && !html.includes("L&amp;S"), "superseded Events Selector and L&S labels must be removed from visible app copy");
@@ -383,6 +399,7 @@ const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)?.[1]
 assert(shellVersion && serviceWorkerSource.includes(`const CACHE_NAME = "nothingsport-shell-v${shellVersion}"`), "the startup release must advance the served shell cache");
 assert(html.includes(`<meta name="app-shell-version" content="${shellVersion}">`), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
+assert(serviceWorkerSource.includes('"/privacy.html"') && serviceWorkerSource.includes('"/terms.html"'), "legal documents must be available in the installed offline shell");
 assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
 assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
@@ -503,7 +520,8 @@ assert(cardIdentitiesSource.includes('"competition:icc"') && cardIdentitiesSourc
 assert(cardIdentitiesSource.includes('"competition:premier-league"') && cardIdentitiesSource.includes('"team:football:epl:1"') && cardIdentitiesSource.includes('"team:football:epl:21"'), "Premier League cards must register the league and every club's published badge identity");
 assert(html.includes("appendTeamIdentityFallback") && html.includes("team-logo-fallback") && html.includes('mark?.isNationalTeam || mark?.teamKind === "national"'), "a missing national-team mark must retain a semantic placeholder without falling back to a flag or monogram");
 assert(eventCardSource.includes("preferImage: true"), "event cards must use stable image-backed sport glyphs instead of Safari CSS masks");
-assert((eventCardSource.match(/preferImage: true/g) || []).length >= 2, "interactive ticket and expansion glyphs must use the stable image-backed path; the stakes flames are intentionally inline for hollow and filled states");
+assert((eventCardSource.match(/preferImage: true/g) || []).length >= 1, "interactive ticket glyphs must use the stable image-backed path; expansion uses the explicit Read more > and Show less < labels");
+assert(eventCardSource.includes('expandLabel.textContent = state === "opened" ? "Show less <" : "Read more >"'), "event-card expansion must use the requested explicit Read more > and Show less < labels");
 assert(eventCardSource.includes('mode !== "premium-rail"'), "horizontally scrolling premium-rail cards must not capture the same gesture for swipe-to-rate");
 assert(eventCardSource.includes('buildFeedStakesRow(ev) : buildStakesMeter(ev)') && html.includes('className = `stakes-flame${value <= score ? " is-filled" : " is-empty"}`') && html.includes('label.textContent = `STAKES ${score}/5`'), "cards must use the compact hollow-or-filled white flame stakes meter and Feed-only side feedback");
 assert(!eventCardSource.includes("buildEventCompactFooter(ev"), "card expansion must not duplicate the one centred stakes and feedback unit");

@@ -341,7 +341,7 @@ async function run(){
 
   const html = fs.readFileSync("index.html", "utf8");
   assert(html.includes('src="config/product-events.js"'));
-  assert(!html.includes('settingsMenuItem("pilot"') && html.includes('pilot.textContent = "Trust pilot details"'), "Trust pilot controls must sit inside Feedback & appearance rather than as a top-level Settings item");
+  assert(!html.includes('settingsMenuItem("pilot"') && html.includes('settingsSection === "appearance"') && html.includes('pilot.textContent = "Trust pilot details"'), "Trust pilot controls must sit inside Appearance rather than as a top-level Settings item");
   assert(html.includes('id="pilotMeasurementEnabled"'));
   assert(html.includes('enabled: true') && html.includes('id="pilotPulsePromptModal"'), "pilot measurement must default on and expose a dedicated reminder");
   assert(html.includes('participationVersion: "pilot-participation.v1"'), "signed-in measurement must use the explicit automatic-participation state");

@@ -13,7 +13,7 @@ const worker = fs.readFileSync("service-worker.js", "utf8");
 const notificationDispatch = fs.readFileSync("api/notification-dispatch.js", "utf8");
 const manifest = JSON.parse(fs.readFileSync("manifest.webmanifest", "utf8"));
 
-assert.equal(brand.version, "nothingsport-brand.v10");
+assert.equal(brand.version, "nothingsport-brand.v11");
 assert.equal(brand.officialName, "Nothing Sport");
 assert.equal(brand.stylisedName, "nothing SPORT");
 assert.equal(brand.title, "Nothing Sport — Smart sports feed");
@@ -25,6 +25,8 @@ assert.deepEqual(brand.social.instagram, {
 });
 assert.deepEqual(brand.social.x, { handle:"@nothingsport", status:"coming soon" });
 assert.deepEqual(brand.social.linkedin, { handle:"@nothingsport", status:"coming soon" });
+assert.match(brand.countryAcknowledgement, /Yuin Nation/);
+assert.match(brand.countryAcknowledgement, /Always was, always will be Aboriginal land\. Voice\. Treaty\. Truth\./);
 
 assert.equal(manifest.name, brand.title);
 assert.equal(manifest.short_name, brand.officialName);
@@ -38,6 +40,10 @@ assert.equal((html.match(/title="coming soon" data-tooltip="coming soon"/g) || [
 assert.match(html, /\.footer-social-link,[\s\S]{0,120}\.footer-social-placeholder\{[\s\S]{0,180}min-height:44px/);
 assert.match(html, /\.footer-socials\{[\s\S]{0,180}flex-wrap:wrap/);
 assert.match(html, /\.footer-social-link:focus-visible,[\s\S]{0,100}\.footer-social-placeholder:focus-visible/);
+assert.match(html, /<nav class="footer-legal-links"[^>]*>[\s\S]*href="\/privacy\.html"[\s\S]*href="\/terms\.html"/);
+assert.match(html, /function renderAboutSettings[\s\S]*cloneNode\(true\)[\s\S]*footer-legal-links/);
+assert.match(html, /body\.settings-open \.app-footer\{[\s\S]{0,80}visibility:hidden/);
+assert(fs.existsSync("privacy.html") && fs.existsSync("terms.html"));
 
 ["social:instagram", "social:x", "social:linkedin"].forEach(key => {
   const entry = vectors.openUse[key];

@@ -165,8 +165,8 @@ async function run(){
   assert.match(client,/refreshGuestChatSession[\s\S]+action:"refresh-anonymous-chat-session"/i,"guest refresh must remain distinct from ordinary account refresh");
   assert.match(html, /const anonymousSession = await serverSyncClient\.anonymousChatSession[\s\S]+anonymousSession\.joined && anonymousSession\.room\?\.roomId[\s\S]+: await serverSyncClient\.chatRequest/, "a newly minted and atomically joined guest must not repeat the capability join after rotation");
   assert.match(html, /id="activeChatsBtn"/);
-  assert.match(html, /Set up chat/);
-  assert.match(html, /`Chat · \$\{rooms\.length\}`/);
+  assert.match(html, /chat\.textContent = "\+ Chat"/);
+  assert.match(html, /if \(rooms\.length\) openFixtureChats\(event\);[\s\S]+else openChatSetup\(event\);/);
   assert.match(html, /class="chat-drawer"[\s\S]+role="dialog"[\s\S]+aria-modal="true"/);
   assert.match(html, /body\.textContent = message\.body/, "messages must render as plain text");
   assert.doesNotMatch(html, /chat-message-body[^\n]+innerHTML/, "message bodies must never render as HTML");
@@ -182,8 +182,8 @@ async function run(){
   assert.match(html, /copy\.className = "chat-user-copy"/);
   assert.match(html, /name\.className = "chat-user-name"/);
   assert.match(html, /email\.className = "chat-user-email"/, "member names and email addresses must render as separate rows");
-  assert.match(worker, /nothingsport-shell-v217/);
-  assert.equal(html.match(/name="app-shell-version" content="(\d+)"/)?.[1], "217");
+  assert.match(worker, /nothingsport-shell-v218/);
+  assert.equal(html.match(/name="app-shell-version" content="(\d+)"/)?.[1], "218");
   assert.match(worker, /"\/config\/chat-contract\.js"/);
 
   const ids = {

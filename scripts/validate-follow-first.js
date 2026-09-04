@@ -137,7 +137,7 @@ assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })'), "tab and 
 const settingsMenu = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert.deepEqual(
   Array.from(settingsMenu.matchAll(/settingsMenuItem\("[^"]+",\s*"[^"]+",\s*"([^"]+)"/g), match => match[1]),
-  ["Account", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
+  ["Account", "About", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
 );
 assert(!settingsMenu.includes("Froth") && !settingsMenu.includes("Tune") && !settingsMenu.includes("Local venues"));
 assert(!html.includes('id="calendarSyncBtn"') && !html.includes('id="calendarSyncModal"'));
@@ -152,11 +152,13 @@ assert(!html.includes("toggleAussiesOnly") && !html.includes("australiansOnlySpo
 assert(!html.includes("<span>AU interest</span>"), "Australia eligibility must stay hidden on Feed cards");
 assert(
   html.includes("appendEventQuickActions")
-    && html.includes("Remind me")
+    && html.includes('<span>Remind</span>')
+    && html.includes('chat.textContent = "+ Chat"')
     && html.includes("buildViewingProviderMark")
     && html.includes('prefix.textContent = `${viewing.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;')
-    && html.includes("fallback.textContent = viewing.actionLabel || viewing.label;"),
-  "viewing actions must read Watch on / Replay on followed by a provider logo with provider-name text fallback"
+    && html.includes("mark.replaceChildren(fallback)")
+    && !html.includes("mark.append(fallback, image)"),
+  "quick actions must use the approved labels and show either a provider logo or its text fallback"
 );
 assert(!html.includes("Swipe to like") && !html.includes("Swipe to dislike"), "startup and cards must not teach Tinder-style gestures");
 assert(html.includes('data-tab="follow"') && html.includes("renderFollowView"));
