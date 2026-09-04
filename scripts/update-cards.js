@@ -101,6 +101,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-card-polish.js"],
   ["scripts/validate-major-events.js"],
   ["scripts/validate-events-stakes-giphy-startup-release.js"],
+  ["scripts/validate-gif-proxy.js"],
   ["scripts/validate-major-event-duplicates.js"],
   ["scripts/validate-sport-hierarchy.js"],
   ["scripts/validate-discovery-catalogue.js"],

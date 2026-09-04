@@ -48,6 +48,15 @@ if [[ ! -f "$PROJECT_LINK" ]]; then
   exit 1
 fi
 
+if ! NS_VERCEL_ENV_NAMES="$(XDG_CACHE_HOME=/tmp vercel env ls production --scope "$VERCEL_SCOPE" 2>&1)"; then
+  echo "Error: unable to verify the Vercel Production environment before release." >&2
+  exit 1
+fi
+if ! grep -Eq '(^|[[:space:]])GIPHY_API_KEY([[:space:]]|$)' <<<"$NS_VERCEL_ENV_NAMES"; then
+  echo "Error: GIPHY_API_KEY is missing from the Vercel Production environment; refusing to promote a broken GIF library." >&2
+  exit 1
+fi
+
 mkdir -p "$NS_DEPLOY_DIR/.vercel"
 cp "$PROJECT_LINK" "$NS_DEPLOY_DIR/.vercel/project.json"
 

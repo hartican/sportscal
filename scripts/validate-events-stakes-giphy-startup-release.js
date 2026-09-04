@@ -48,12 +48,13 @@ canonical.events.filter(item => item.sportDomainId === "sport:afl" && /final/i.t
   assert(stakesPolicy.stakesFloorForFixture(item) >= 4, `${item.id} must be at least 4/5`);
 });
 
-assert.match(chatApi, /mode === "gif-config"/);
-assert.doesNotMatch(chatApi, /async function gifSearch/);
+assert.match(chatApi, /mode === "gifs"/);
+assert.match(chatApi, /async function gifSearch/);
 assert.match(chatUi, /Big win/);
 assert.match(chatUi, /Powered by GIPHY/);
-assert.match(chatUi, /config\.searchUrl/);
-assert.match(chatUi, /config\.trendingUrl/);
+assert.match(chatUi, /mode:"gifs"/);
+assert.doesNotMatch(chatUi, /config\.searchUrl/);
+assert.doesNotMatch(chatUi, /config\.trendingUrl/);
 assert.doesNotMatch(chatUi, /commons\.wikimedia\.org/);
 
 assert.match(html, /PERSONALISED_FEED_CACHE_MAX_STALE_MS = 7 \* 24 \* 60 \* 60 \* 1000/);

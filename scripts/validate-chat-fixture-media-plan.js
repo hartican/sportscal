@@ -29,13 +29,16 @@ assert.deepEqual(chatPolicy.gifCapability(24), { lifetimeNscPoints:24, gifMinimu
 assert.deepEqual(chatPolicy.gifCapability(25), { lifetimeNscPoints:25, gifMinimumPoints:25, canUseGifs:true });
 
 const api = fs.readFileSync("api/chat.js", "utf8");
+const gifProvider = fs.readFileSync("lib/giphy-provider.js", "utf8");
 const sql = fs.readFileSync("supabase/private-fixture-chat.sql", "utf8");
 const html = fs.readFileSync("index.html", "utf8");
 assert.match(api, /nsc_points_required/);
 assert.match(api, /lifetimeNscPoints/);
-assert.match(api, /gif-config/);
-assert.match(api, /api\.giphy\.com\/v1\/gifs\/search/, "authenticated GIPHY client configuration must remain available");
-assert.match(api, /The GIF library is temporarily unavailable/, "a missing provider key must fail explicitly");
+assert.match(api, /mode === "gifs"/);
+assert.match(api, /async function gifSearch/);
+assert.doesNotMatch(api, /async function gifConfig/);
+assert.match(gifProvider, /api\.giphy\.com\/v1\/gifs\/search/, "the authenticated server proxy must call GIPHY search");
+assert.match(gifProvider, /gif_provider_unconfigured/, "a missing provider key must fail explicitly");
 assert.match(api, /attachment-upload-url/);
 assert.match(api, /attachment-save/);
 assert.match(api, /saved-media-delete/);
@@ -52,5 +55,10 @@ assert.match(html, /Shift\+Enter|shiftKey/);
 assert.match(html, /25 NSC points/);
 assert.match(html, /Saved game media/);
 assert.match(html, /refreshChatMessageStream\(\{ autoScroll:true, preserveScroll:false \}\)/, "optimistic sends must update only the message stream");
+
+const mediaUi = fs.readFileSync("config/chat-media-ui.js", "utf8");
+assert.match(mediaUi, /mode:"gifs"/);
+assert.doesNotMatch(mediaUi, /gif-config|api_key|apiKey|api\.giphy\.com/, "the browser must never receive the provider key or call GIPHY's API directly");
+assert.match(mediaUi, /retryButton\.textContent = "Retry"/);
 
 console.log("Chat fixture and media plan valid: follows timing, private media and the 25-point GIF gate are enforced.");

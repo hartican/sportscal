@@ -21,6 +21,11 @@ const {
   supabaseServiceRequest,
 } = require("../lib/supabase-server");
 const { dispatchChatMessageNotifications } = require("../lib/chat-notifications");
+const {
+  normalizedGiphyItem,
+  requireGiphyApiKey,
+  searchGiphyProvider,
+} = require("../lib/giphy-provider");
 
 const TABLES = Object.freeze({
   profiles:"nothingsports_chat_profiles",
@@ -37,6 +42,9 @@ const CHAT_MEDIA_BUCKET = "nothingsports-chat-transient";
 const SAVED_MEDIA_BUCKET = "nothingsports-saved-game-media";
 const MAX_ATTACHMENT_BYTES = 25 * 1024 * 1024;
 const MAX_ATTACHMENTS_PER_MESSAGE = 4;
+const GIF_SEARCH_MAX_OFFSET = 4_800;
+const GIF_QUERY_MAX_CODE_POINTS = 100;
+const GIF_PROMPT_CHIPS = Object.freeze(["Big win", "No way", "Banter", "Disaster", "Clutch", "Celebration"]);
 const ALLOWED_MEDIA_TYPES = new Set([
   "image/jpeg", "image/png", "image/webp", "image/gif",
   "audio/mpeg", "audio/mp4", "audio/wav", "audio/ogg",
@@ -722,6 +730,30 @@ function cleanSourceMetadata(value){
     .map(([key, item]) => [String(key).slice(0, 80), typeof item === "string" ? item.slice(0, 2000) : item]));
 }
 
+function gifProviderRequestError(message, status, code){
+  return new ChatRequestError(message, status, code);
+}
+
+async function gifSearch(request, user){
+  const capabilities = await requireGifCapability(user);
+  const query = String(queryValue(request, "q") || "").normalize("NFC").trim();
+  const queryLength = Array.from(query).length;
+  if (queryLength === 1) throw new ChatRequestError("Enter at least two characters.", 400, "gif_query_too_short");
+  if (queryLength > GIF_QUERY_MAX_CODE_POINTS) throw new ChatRequestError("GIF searches may contain at most 100 characters.", 400, "gif_query_too_long");
+  const offsetValue = String(queryValue(request, "offset") || "0").trim();
+  if (!/^\d+$/.test(offsetValue)) throw new ChatRequestError("That GIF result offset is invalid.", 400, "invalid_gif_offset");
+  const offset = Number(offsetValue);
+  if (!Number.isSafeInteger(offset) || offset > GIF_SEARCH_MAX_OFFSET){
+    throw new ChatRequestError("That GIF result offset is invalid.", 400, "invalid_gif_offset");
+  }
+  return {
+    schemaVersion:chatContract.SCHEMA_VERSION,
+    capabilities,
+    ...(await searchGiphyProvider({ query, offset }, { errorFactory:gifProviderRequestError })),
+    promptChips:GIF_PROMPT_CHIPS,
+  };
+}
+
 async function resolveGifProviderMedia(providerValue, gifIdValue){
   const provider = String(providerValue || "").trim().toLowerCase();
   const gifId = String(gifIdValue || "").trim().slice(0, 200);
@@ -729,8 +761,7 @@ async function resolveGifProviderMedia(providerValue, gifIdValue){
     throw new ChatRequestError("That GIF provider reference is invalid.", 400, "invalid_gif_reference");
   }
   if (provider === "giphy"){
-    const key = String(process.env.GIPHY_API_KEY || "").trim();
-    if (!key) throw new ChatRequestError("GIPHY is not configured.", 503, "gif_provider_unavailable");
+    const key = requireGiphyApiKey(process.env, gifProviderRequestError);
     const url = new URL(`https://api.giphy.com/v1/gifs/${encodeURIComponent(gifId)}`);
     url.searchParams.set("api_key", key);
     const response = await fetch(url, { signal:AbortSignal.timeout(10_000) });
@@ -814,20 +845,6 @@ async function gifImport(body, user, admin){
       url:await storageSignedDownload(CHAT_MEDIA_BUCKET, objectPath), saved:false,
       sourceMetadata:resolved.sourceMetadata,
     },
-  };
-}
-
-async function gifConfig(user){
-  const capabilities = await requireGifCapability(user);
-  const key = String(process.env.GIPHY_API_KEY || "").trim();
-  if (!key) throw new ChatRequestError("The GIF library is temporarily unavailable.", 503, "gif_provider_unavailable");
-  return {
-    schemaVersion:chatContract.SCHEMA_VERSION, capabilities,
-    provider:"giphy", apiKey:key, rating:"pg-13", countryCode:"AU", language:"en", limit:24,
-    searchUrl:"https://api.giphy.com/v1/gifs/search",
-    trendingUrl:"https://api.giphy.com/v1/gifs/trending",
-    attribution:"Powered by GIPHY", attributionUrl:"https://giphy.com/",
-    promptChips:["Big win", "No way", "Banter", "Disaster", "Clutch", "Celebration"],
   };
 }
 
@@ -1341,7 +1358,7 @@ async function chatHandler(request, response){
       const mode = String(queryValue(request, "mode") || "").trim();
       if (mode === "active") payload = await handleActive(user, admin, profile);
       else if (mode === "users") payload = await handleUserSearch(queryValue(request, "q"), admin);
-      else if (mode === "gif-config") payload = await gifConfig(user);
+      else if (mode === "gifs") payload = await gifSearch(request, user);
       else if (mode === "saved-media") payload = await listSavedMedia(user);
       else if (mode === "attachment"){
         response.redirect(302, await attachmentDownload(request, user, admin));
@@ -1372,6 +1389,9 @@ chatHandler._test = Object.freeze({
   adminEmails,
   canonicalFixtureSnapshot,
   fixtureIsUpcomingOrLive,
+  normalizedGiphyItem,
+  requireGiphyApiKey,
+  searchGiphyProvider,
   isAdmin,
   isAnonymousUser,
   loadFixtureMap,

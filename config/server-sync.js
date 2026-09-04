@@ -553,7 +553,7 @@
           body:JSON.stringify({ action:"guest-preview", capability:String(capability || "") }),
         });
       },
-      async chatRequest({ mode = "", roomId = "", after = "", before = "", q = "", reactionAfter = "" } = {}, command = null, requestOptions = {}){
+      async chatRequest({ mode = "", roomId = "", after = "", before = "", q = "", offset = "", reactionAfter = "" } = {}, command = null, requestOptions = {}){
         if (command){
           return chatAuthenticatedRequest("/api/chat", {
             method:"POST",
@@ -567,6 +567,7 @@
         if (after) params.set("after", after);
         if (before) params.set("before", before);
         if (q) params.set("q", q);
+        if (offset !== "") params.set("offset", offset);
         if (reactionAfter) params.set("reactionAfter", reactionAfter);
         return chatAuthenticatedRequest(`/api/chat?${params.toString()}`, { signal:requestOptions.signal });
       },

@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="220">
+<meta name="app-shell-version" content="221">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -24078,7 +24078,7 @@ async function ensureChatMediaUi(){
   if (chatMediaUiLoading) return chatMediaUiLoading;
   chatMediaUiLoading = (async () => {
     if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA) await loadDeferredScript("config/chat-media.js?v=218");
-    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=220");
+    if (!globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI) await loadDeferredScript("config/chat-media-ui.js?v=221");
     chatMediaUi = globalThis.NOTHINGSPORTS_CHAT_MEDIA_UI.install({
       media:globalThis.NOTHINGSPORTS_CHAT_MEDIA,
       state:() => chatState,

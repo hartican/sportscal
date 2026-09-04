@@ -24,7 +24,6 @@
     let searchTimer = null;
     let searchController = null;
     let searchSequence = 0;
-    let gifConfig = null;
     let gifOffset = 0;
     let gifQuery = "";
 
@@ -238,27 +237,10 @@
       await search("");
     }
 
-    async function loadGifConfig(){
-      if (gifConfig) return gifConfig;
-      gifConfig = await context.request({ mode:"gif-config" });
-      return gifConfig;
-    }
-
     function registerGifAction(gif, action){
       const url = gif?.analytics?.[action]?.url;
       if (!url) return;
       void fetch(url, { mode:"no-cors", keepalive:true }).catch(() => {});
-    }
-
-    function normalizedGif(item){
-      const preview = item?.images?.fixed_width_small || item?.images?.fixed_width || item?.images?.preview_gif || {};
-      return {
-        id:item?.id, gifId:item?.id, provider:"giphy", title:item?.title || "GIF",
-        contentType:"image/gif", previewUrl:preview.url,
-        width:Number(preview.width || 240), height:Number(preview.height || 240),
-        sourcePage:item?.url || "https://giphy.com/", attribution:"Powered by GIPHY",
-        analytics:item?.analytics || null,
-      };
     }
 
     async function importGif(item, gif){
@@ -315,25 +297,13 @@
       status.textContent = q ? "Searching GIFs…" : "Loading trending GIFs…";
       if (!append) results.replaceChildren();
       try{
-        const config = await loadGifConfig();
         if (!append){ gifOffset = 0; gifQuery = q; }
-        const endpoint = q ? config.searchUrl : config.trendingUrl;
-        const url = new URL(endpoint);
-        url.searchParams.set("api_key", config.apiKey);
-        url.searchParams.set("limit", String(config.limit || 24));
-        url.searchParams.set("offset", String(gifOffset));
-        url.searchParams.set("rating", config.rating || "pg-13");
-        url.searchParams.set("country_code", config.countryCode || "AU");
-        url.searchParams.set("bundle", "messaging_non_clips");
-        url.searchParams.set("remove_low_contrast", "true");
-        if (q){
-          url.searchParams.set("q", q);
-          url.searchParams.set("lang", config.language || "en");
-        }
-        const response = await fetch(url, { signal:controller.signal });
-        if (!response.ok) throw new Error("The GIF library is temporarily unavailable.");
-        const providerPayload = await response.json();
-        const gifs = (providerPayload.data || []).map(normalizedGif).filter(item => item.gifId && item.previewUrl);
+        const providerPayload = await context.request(
+          { mode:"gifs", q, offset:String(gifOffset) },
+          null,
+          { signal:controller.signal }
+        );
+        const gifs = (providerPayload.items || []).filter(item => item.gifId && item.previewUrl);
         if (controller.signal.aborted || sequence !== searchSequence) return;
         if (!gifs.length){
           status.textContent = append ? "That’s everything." : "No GIFs found. Try another search.";
@@ -354,15 +324,26 @@
           results.appendChild(button);
           registerGifAction(gif, "onload");
         });
-        gifOffset += gifs.length;
-        const more = document.createElement("button");
-        more.type = "button";
-        more.className = "btn ghost chat-gif-more";
-        more.textContent = "Load more";
-        more.addEventListener("click", () => { more.remove(); void search(gifQuery, { append:true }); });
-        results.appendChild(more);
+        gifOffset = Number(providerPayload.pagination?.nextOffset) || (gifOffset + gifs.length);
+        if (providerPayload.pagination?.hasMore){
+          const more = document.createElement("button");
+          more.type = "button";
+          more.className = "btn ghost chat-gif-more";
+          more.textContent = "Load more";
+          more.addEventListener("click", () => { more.remove(); void search(gifQuery, { append:true }); });
+          results.appendChild(more);
+        }
       }catch(error){
-        if (error?.name !== "AbortError") status.textContent = error.message || "The GIF library is temporarily unavailable. Tap Search to retry.";
+        if (error?.name !== "AbortError"){
+          const message = document.createElement("span");
+          message.textContent = error.message || "GIFs are unavailable right now.";
+          const retryButton = document.createElement("button");
+          retryButton.type = "button";
+          retryButton.className = "btn ghost";
+          retryButton.textContent = "Retry";
+          retryButton.addEventListener("click", () => { void search(q, { append }); });
+          status.replaceChildren(message, document.createTextNode(" "), retryButton);
+        }
       }
     }
 
