@@ -36,6 +36,17 @@ check("worker update does not replay a visible launch", () => {
   coordinator.controllerChanged();
   assert.equal(reloads, 0);
 });
+check("a late summary preserves an unchanged peer breakdown", () => {
+  const context = { nothingscoreSnapshots:new Map(), nothingscoreLoadedAt:new Map(), Date, NOTHINGSPORTS_NSC_SUBMISSION_STATE:require("../config/nsc-submission-state") };
+  vm.createContext(context);
+  vm.runInContext(source("mergeNothingscoreSnapshot"), context);
+  const peers = {phase:"impact",count:2,average:4,distribution:[{rating:4,count:2}],comparison:{rating:4,difference:0}};
+  context.mergeNothingscoreSnapshot({eventId:"fixture",phase:"impact",peerResults:peers});
+  context.mergeNothingscoreSnapshot({eventId:"fixture",phase:"impact",peerResults:{phase:"impact",count:2,average:4}});
+  assert.equal(context.nothingscoreSnapshots.get("fixture").peerResults.distribution?.length,1);
+  context.mergeNothingscoreSnapshot({eventId:"fixture",phase:"impact",peerResults:{phase:"impact",count:3,average:3}});
+  assert.equal(context.nothingscoreSnapshots.get("fixture").peerResults.distribution,undefined,"changed totals must invalidate the old histogram");
+});
 check("past quick actions contain no reminder", () => {
   const context = { document:{createElement:() => ({appendChild(){},setAttribute(){},addEventListener(){}})}, getEventStatus:() => "past", FOLLOW_FIRST:null };
   vm.createContext(context);

@@ -16037,6 +16037,7 @@ function nothingscoreQueueRender(){
       const ev = nothingscoreEventRefs.get(panel.dataset.nscPanel);
       const snapshot = ev && nothingscoreSnapshotFor(ev);
       if (!snapshot) return;
+      if (snapshot.peerResults && !snapshot.peerResults.distribution) void loadNothingscoreDetail(ev);
       const peers = panel.querySelector(".nsc-peer-results");
       if (peers){
         const replacement = buildNothingscorePeerResults(ev, snapshot, {detail:true});
@@ -16062,6 +16063,12 @@ function mergeNothingscoreSnapshot(snapshot){
   const merged = {
     ...previous,
     ...snapshot,
+    // A slower batch summary must not erase the breakdown just opened. If its
+    // totals changed, discard the old histogram and refresh the visible detail.
+    peerResults:snapshot.peerResults && !snapshot.peerResults.distribution
+      && previous?.peerResults?.distribution
+      && ["phase","count","average"].every(key => previous.peerResults[key] === snapshot.peerResults[key])
+      ? {...previous.peerResults,...snapshot.peerResults} : snapshot.peerResults || previous?.peerResults,
     currentUser:globalThis.NOTHINGSPORTS_NSC_SUBMISSION_STATE.mergeCurrentUser(previous?.currentUser, snapshot.currentUser),
     ...(snapshot.contributors === undefined && previous?.contributors !== undefined ? { contributors:previous.contributors } : {}),
   };
@@ -16135,7 +16142,7 @@ function registerNothingscoreEvent(ev, { force = false } = {}){
 
 async function loadNothingscoreDetail(ev){
   const eventId = nothingscoreEventId(ev);
-  if (!eventId || nothingscoreDetailLoading.has(eventId) || nothingscoreSnapshots.get(eventId)?.contributors !== undefined) return;
+  if (!eventId || nothingscoreDetailLoading.has(eventId) || (nothingscoreSnapshots.get(eventId)?.contributors !== undefined && nothingscoreSnapshots.get(eventId)?.peerResults?.distribution)) return;
   nothingscoreDetailLoading.add(eventId);
   const owner = serverPersistence.user?.id || "";
   try{
@@ -16179,7 +16186,7 @@ function buildNothingscorePeerResults(ev, snapshot, {detail = false} = {}){
   if (!detail){
     const open = document.createElement("button");
     open.type = "button"; open.className = "nsc-results-link"; open.textContent = "View results";
-    open.addEventListener("click", event => { event.stopPropagation(); void openNothingscoreContribution(ev); });
+    open.addEventListener("click", event => { event.stopPropagation(); void openNothingscoreContribution(ev, {showResults:true}); });
     root.appendChild(open);
     return root;
   }
@@ -24803,7 +24810,7 @@ function openNothingscoreDrawer(){
   void refreshNothingscoreDrawer();
 }
 
-async function openNothingscoreContribution(ev){
+async function openNothingscoreContribution(ev, {showResults = false} = {}){
   activeNothingscoreContributionEvent = ev;
   activeNothingscoreContributionError = "";
   setNothingscoreDrawerOpen(true);
@@ -24827,6 +24834,7 @@ async function openNothingscoreContribution(ev){
   }
   if (document.getElementById("nothingscoreBackdrop")?.classList.contains("show") && activeNothingscoreContributionEvent === ev){
     renderNothingscoreDrawer();
+    if (showResults) document.getElementById("nothingscoreBackdrop")?.querySelector(".nsc-peer-results details")?.setAttribute("open", "");
   }
 }
 

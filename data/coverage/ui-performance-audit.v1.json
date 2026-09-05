@@ -1,13 +1,16 @@
 {
   "schemaVersion": "ui-performance-audit.v1",
-  "checkedAt": "2026-09-05T02:26:00Z",
+  "checkedAt": "2026-09-05T02:42:00Z",
   "baselineRef": "78e8eaed2342f551665e4237c3f0cb203d2ff08e",
-  "sourceFingerprint": "005daf941b71225dd02bfce989b970dc9d7b7868d0227c529939e87c8ee16069",
+  "sourceFingerprint": "34bcffea83aafc2be456b866e773497cc77b5043375dc6dae4e204e3a888671a",
   "environment": {
     "browser": "Codex in-app Chromium via CUA",
     "origin": "http://127.0.0.1:33956/",
-    "viewport": {"width":393,"height":851},
-    "viewportMeasurement": "Actual window.innerWidth/innerHeight; calibrated for the browser's existing 120 percent zoom.",
+    "viewport": {
+      "width": 472,
+      "height": 1022
+    },
+    "viewportMeasurement": "Actual window.innerWidth/innerHeight recorded per sample. Browser navigation reset the viewport override; these are 472px measurements, separate from the 320/393/768/1280 responsive checks.",
     "account": "signed out; local QA profile following GWS AFLW",
     "server": "scripts/serve-ui-audit.js; gzip static responses; no-cache; service worker bypassed",
     "serviceWorkerBypassed": true,
@@ -20,32 +23,176 @@
       "Branded completion includes the retained logo-fill, slogan and flight timings and is reported separately from usable data."
     ]
   },
-  "static": {"criticalLocalRequestsBefore":45,"criticalLocalRequestsAfter":3,"criticalGzipChangePercent":-2.44,"precacheBytes":2759224,"precacheAssets":103},
+  "static": {
+    "criticalLocalRequestsBefore": 45,
+    "criticalLocalRequestsAfter": 3,
+    "criticalGzipChangePercent": -2.38,
+    "precacheBytes": 2760076,
+    "precacheAssets": 103
+  },
   "runs": [
     {
       "name": "Cold cache-disabled Fast-4G stress",
-      "network": {"latencyMs":150,"downloadBytesPerSecond":200000,"uploadBytesPerSecond":93750,"cacheDisabled":true},
+      "network": {
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 200000,
+        "uploadBytesPerSecond": 93750,
+        "cacheDisabled": true
+      },
       "samples": [
-        {"navigationStartedAt":1788575004691.1,"shellReadyMs":3614.3,"feedReadyMs":4007.5,"firstCardRenderedMs":4027.9,"startupCompleteMs":7646.1,"cumulativeLayoutShift":0.0287750,"longTaskCount":0,"feedRefreshMs":485.4,"horizontalOverflow":false,"resourceCount":20,"resourceBytes":521945,"navigationBytes":232793,"cssWidth":393,"cssHeight":851},
-        {"navigationStartedAt":1788575030090.8,"shellReadyMs":3599,"feedReadyMs":4010.4,"firstCardRenderedMs":4040.8,"startupCompleteMs":7630.1,"cumulativeLayoutShift":0.0287741,"longTaskCount":0,"feedRefreshMs":499.4,"horizontalOverflow":false,"resourceCount":19,"resourceBytes":437096,"navigationBytes":232793,"cssWidth":393,"cssHeight":851},
-        {"navigationStartedAt":1788575057631.9,"shellReadyMs":3590.3,"feedReadyMs":3988.9,"firstCardRenderedMs":4021.2,"startupCompleteMs":7589.3,"cumulativeLayoutShift":0.0287746,"longTaskCount":0,"feedRefreshMs":485,"horizontalOverflow":false,"resourceCount":19,"resourceBytes":437096,"navigationBytes":232793,"cssWidth":393,"cssHeight":851}
+        {
+          "navigationStartedAt": 1788576023764.2,
+          "shellReadyMs": 3617.7,
+          "feedReadyMs": 4024.9,
+          "firstCardRenderedMs": 4054.1,
+          "startupCompleteMs": 7622.9,
+          "cumulativeLayoutShift": 0.02285985,
+          "longTaskCount": 0,
+          "feedRefreshMs": 498.6,
+          "horizontalOverflow": false,
+          "resourceCount": 18,
+          "resourceBytes": 436910,
+          "navigationBytes": 233026,
+          "cssWidth": 472,
+          "cssHeight": 1022
+        },
+        {
+          "navigationStartedAt": 1788576031407,
+          "shellReadyMs": 3617,
+          "feedReadyMs": 4011.6,
+          "firstCardRenderedMs": 4041.7,
+          "startupCompleteMs": 7614.1,
+          "cumulativeLayoutShift": 0.02285935,
+          "longTaskCount": 0,
+          "feedRefreshMs": 501.8,
+          "horizontalOverflow": false,
+          "resourceCount": 18,
+          "resourceBytes": 436910,
+          "navigationBytes": 233026,
+          "cssWidth": 472,
+          "cssHeight": 1022
+        },
+        {
+          "navigationStartedAt": 1788576039050,
+          "shellReadyMs": 3614.9,
+          "feedReadyMs": 4017.7,
+          "firstCardRenderedMs": 4049,
+          "startupCompleteMs": 7620.9,
+          "cumulativeLayoutShift": 0.02285935,
+          "longTaskCount": 0,
+          "feedRefreshMs": 495.2,
+          "horizontalOverflow": false,
+          "resourceCount": 18,
+          "resourceBytes": 436910,
+          "navigationBytes": 233026,
+          "cssWidth": 472,
+          "cssHeight": 1022
+        }
       ]
     },
     {
       "name": "Unthrottled repeat load",
-      "network": {"latencyMs":0,"cacheDisabled":false},
+      "network": {
+        "latencyMs": 0,
+        "cacheDisabled": false
+      },
       "samples": [
-        {"navigationStartedAt":1788575086754.8,"shellReadyMs":85.7,"feedReadyMs":119.6,"firstCardRenderedMs":139.2,"startupCompleteMs":4099.4,"cumulativeLayoutShift":0.0019808,"longTaskCount":0,"feedRefreshMs":35.4,"horizontalOverflow":false,"resourceCount":19,"resourceBytes":427978,"navigationBytes":232793,"cssWidth":393,"cssHeight":851},
-        {"navigationStartedAt":1788575114217.7,"shellReadyMs":90.8,"feedReadyMs":123,"firstCardRenderedMs":143.7,"startupCompleteMs":4103,"cumulativeLayoutShift":0.0019803,"longTaskCount":0,"feedRefreshMs":39.8,"horizontalOverflow":false,"resourceCount":19,"resourceBytes":427978,"navigationBytes":232793,"cssWidth":393,"cssHeight":851},
-        {"navigationStartedAt":1788575145224.9,"shellReadyMs":90.5,"feedReadyMs":126.8,"firstCardRenderedMs":148.1,"startupCompleteMs":4113.4,"cumulativeLayoutShift":0.0019022,"longTaskCount":0,"feedRefreshMs":35.3,"horizontalOverflow":false,"resourceCount":19,"resourceBytes":427978,"navigationBytes":232793,"cssWidth":393,"cssHeight":851}
+        {
+          "navigationStartedAt": 1788576072333.3,
+          "shellReadyMs": 94.9,
+          "feedReadyMs": 132.1,
+          "firstCardRenderedMs": 157.7,
+          "startupCompleteMs": 4120.2,
+          "cumulativeLayoutShift": 0.02210415,
+          "longTaskCount": 0,
+          "feedRefreshMs": 46,
+          "horizontalOverflow": false,
+          "resourceCount": 19,
+          "resourceBytes": 428092,
+          "navigationBytes": 233026,
+          "cssWidth": 472,
+          "cssHeight": 1022
+        },
+        {
+          "navigationStartedAt": 1788576076484.7,
+          "shellReadyMs": 87.9,
+          "feedReadyMs": 121.9,
+          "firstCardRenderedMs": 146.6,
+          "startupCompleteMs": 4119.4,
+          "cumulativeLayoutShift": 0.02197242,
+          "longTaskCount": 0,
+          "feedRefreshMs": 44,
+          "horizontalOverflow": false,
+          "resourceCount": 19,
+          "resourceBytes": 428092,
+          "navigationBytes": 233026,
+          "cssWidth": 472,
+          "cssHeight": 1022
+        },
+        {
+          "navigationStartedAt": 1788576080624.6,
+          "shellReadyMs": 99.2,
+          "feedReadyMs": 128.8,
+          "firstCardRenderedMs": 154.1,
+          "startupCompleteMs": 4112.5,
+          "cumulativeLayoutShift": 0.01888044,
+          "longTaskCount": 0,
+          "feedRefreshMs": 41.3,
+          "horizontalOverflow": false,
+          "resourceCount": 19,
+          "resourceBytes": 428092,
+          "navigationBytes": 233026,
+          "cssWidth": 472,
+          "cssHeight": 1022
+        }
       ]
     }
   ],
   "interactionProof": {
-    "responsive": {"cssWidths":[320,393,768,1280],"pages":["Feed","Events","Follow"],"horizontalOverflow":false,"aflwInspector320px":true,"nightMode393px":true,"reducedMotionIdleAnimations":0},
-    "f1": {"driverRowPx":64,"portraitPx":40,"loadedPortraitSourcePx":96,"constructorRowsPx":64,"haasAndAudiLoaded":true,"whiteMarksUseDarkPlate":true},
-    "minimisedTennis": {"heightPx":151.390625,"titleVisible":true,"competitionRoundStatusVisible":true,"reminderCount":0,"trafficTargetPx":32},
-    "submission": {"transport":"local in-memory fixture; no real API writes","pendingReopenPostCount":1,"formCountAfterConfirmation":0,"receipt":"Submitted ✓","peerHistogramBins":5,"peerCount":2,"earlyResponsesLabel":true,"comparisonVisible":true}
+    "responsive": {
+      "cssWidths": [
+        320,
+        393,
+        768,
+        1280
+      ],
+      "pages": [
+        "Feed",
+        "Events",
+        "Follow"
+      ],
+      "horizontalOverflow": false,
+      "aflwInspector320px": true,
+      "nightMode393px": true,
+      "reducedMotionIdleAnimations": 0
+    },
+    "f1": {
+      "driverRowPx": 64,
+      "portraitPx": 40,
+      "loadedPortraitSourcePx": 96,
+      "constructorRowsPx": 64,
+      "haasAndAudiLoaded": true,
+      "whiteMarksUseDarkPlate": true
+    },
+    "minimisedTennis": {
+      "heightPx": 151.390625,
+      "titleVisible": true,
+      "competitionRoundStatusVisible": true,
+      "reminderCount": 0,
+      "trafficTargetPx": 32
+    },
+    "submission": {
+      "transport": "local in-memory fixture; no real API writes",
+      "pendingReopenPostCount": 1,
+      "formCountAfterConfirmation": 0,
+      "receipt": "Submitted ✓",
+      "peerHistogramBins": 5,
+      "peerCount": 2,
+      "earlyResponsesLabel": true,
+      "comparisonVisible": true,
+      "oneTapResults": true,
+      "lateBatchPreservesBreakdown": true
+    }
   },
   "remainingAuditFindings": [
     "Cold cache-disabled Fast-4G data readiness is still approximately 4 seconds; do not claim a sub-2.5-second cold start.",

@@ -41,6 +41,15 @@ const command={action:"submit",phase:"impact",eventId:"alias",rating:4,tags:["Cl
 const receipt={...command,submittedAt:"2026-09-05T01:00:00Z",pointsAwarded:3,replayed:false};
 const detail=(submission=null)=>({detail:{eventId:"alias",canonicalEventId:"canonical",phase:"impact",currentUser:{submissions:submission?{impact:submission}:{}}}});
 async function main(){
+  const resultsContext=harness(async()=>detail());
+  let resultsOpened=false;
+  resultsContext.nothingscoreLoadErrors=new Map();
+  resultsContext.nothingscoreEventId=()=>"alias";
+  resultsContext.setNothingscoreDrawerOpen=()=>{};
+  resultsContext.document.getElementById=()=>({classList:{contains:()=>true},querySelector:()=>({setAttribute:name=>{if(name==="open")resultsOpened=true;}})});
+  vm.runInContext(extract("openNothingscoreContribution"),resultsContext);
+  await resultsContext.openNothingscoreContribution({id:"alias"},{showResults:true});
+  assert.equal(resultsOpened,true,"View results must reveal the breakdown without a second tap");
   const client = require("../config/server-sync").createClient({
     requestTimeoutMs:5,storage:null,persistentStorage:null,
     fetchImpl:(_url,options) => new Promise((_resolve,reject) => options.signal.addEventListener("abort",() => reject(new Error("aborted")))),
