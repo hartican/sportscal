@@ -21,7 +21,7 @@ require.cache[serverPath].exports={...real,
   return [...states.values()].filter(row=>path.includes(`user_id=eq.${row.user_id}`));
  }
 };
-const handler=require('../api/calendar');
+const handler=require('../lib/calendar-handler');
 async function request(method,token,body,url='/api/calendar'){
  const response={headers:{},setHeader(k,v){this.headers[k]=v;},status(code){this.code=code;return this;},json(body){this.body=body;},send(body){this.body=body;}};
  await handler({method,url,body,headers:token?{authorization:`Bearer ${token}`} : {}},response);return response;

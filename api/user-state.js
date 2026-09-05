@@ -15,6 +15,12 @@ const {
   userStateFromRow,
 } = require("../lib/supabase-server");
 const userStateSync = require("../config/user-state-sync");
+const calendarHandler = require("../lib/calendar-handler");
+
+function isCalendarRequest(request){
+  const url = new URL(request?.url || "/api/user-state", "https://nothingsport.local");
+  return url.searchParams.get("route") === "calendar" || request?.query?.route === "calendar";
+}
 
 function setPrivateResponseHeaders(response){
   response.setHeader("Cache-Control", "private, no-store, max-age=0");
@@ -101,6 +107,10 @@ async function preferenceRecoveryCommand(user, body){
 }
 
 module.exports = async function userStateHandler(request, response){
+  if (isCalendarRequest(request)){
+    await calendarHandler(request, response);
+    return;
+  }
   setPrivateResponseHeaders(response);
   try{
     if (!["GET", "PUT", "POST"].includes(request.method || "GET")){

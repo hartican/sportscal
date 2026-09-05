@@ -15102,12 +15102,38 @@ function scrollContinuityAnchorFor(target, strategy = "auto"){
     || null;
 }
 
+let scrollContinuityAnchorLockDepth = 0;
+let scrollContinuityPreviousAnchorStyles = null;
+function lockNativeScrollAnchoring(){
+  const root = document.documentElement;
+  const body = document.body;
+  if (scrollContinuityAnchorLockDepth++ === 0){
+    scrollContinuityPreviousAnchorStyles = {
+      root:root.style.overflowAnchor,
+      body:body?.style.overflowAnchor || "",
+    };
+    root.style.overflowAnchor = "none";
+    if (body) body.style.overflowAnchor = "none";
+  }
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    scrollContinuityAnchorLockDepth = Math.max(0, scrollContinuityAnchorLockDepth - 1);
+    if (scrollContinuityAnchorLockDepth || !scrollContinuityPreviousAnchorStyles) return;
+    root.style.overflowAnchor = scrollContinuityPreviousAnchorStyles.root;
+    if (body) body.style.overflowAnchor = scrollContinuityPreviousAnchorStyles.body;
+    scrollContinuityPreviousAnchorStyles = null;
+  };
+}
+
 function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focusTarget = null, anchorStrategy = "auto", interactionName = "anchored-mutation" } = {}){
   if (typeof mutate !== "function") return false;
   const anchor = scrollContinuityAnchorFor(target, anchorStrategy);
   const anchorKey = scrollKeyForElement(anchor);
   const anchorTop = anchor?.getBoundingClientRect?.().top;
   const previousNodes = captureKeyedScrollNodes();
+  const releaseNativeAnchor = lockNativeScrollAnchoring();
   mutate();
   reconcileKeyedScrollNodes(previousNodes);
   let lastCorrectionAt = -Infinity;
@@ -15145,6 +15171,7 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
     if (lateRestoreTimer !== null) window.clearInterval(lateRestoreTimer);
     if (restoreFrame !== null) window.cancelAnimationFrame(restoreFrame);
     cleanupIntentListeners();
+    releaseNativeAnchor();
   };
   const intentEvents = ["pointerdown", "touchstart", "wheel", "keydown"];
   const cleanupIntentListeners = () => intentEvents.forEach(type => window.removeEventListener(type, stopStabilizing, true));
@@ -15152,6 +15179,7 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
   const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(scheduleRestore) : null;
   const observedMutationElement = target?.closest?.(".event-card") || (target?.nodeType === 1 ? target : null);
   if (observedMutationElement) resizeObserver?.observe?.(observedMutationElement);
+  restoreAnchor();
   scheduleRestore();
   window.requestAnimationFrame(() => {
     // Replacing a focused disclosure control can trigger the browser's own

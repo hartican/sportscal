@@ -7,7 +7,7 @@
     "api/chat.js": {
       "includeFiles": "data/{feed/*.json,follow-fixtures.v1.json,major-events.v1.json}"
     },
-    "api/calendar.js": {
+    "api/user-state.js": {
       "includeFiles": "data/code-inspector/*.json"
     }
   },
@@ -29,6 +29,10 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/api/calendar",
+      "destination": "/api/user-state?route=calendar"
+    },
     {
       "source": "/api/nothingscore",
       "destination": "/api/participation?mode=nothingscore"

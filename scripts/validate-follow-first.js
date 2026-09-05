@@ -141,7 +141,9 @@ assert.deepEqual(
 );
 assert(!settingsMenu.includes("Froth") && !settingsMenu.includes("Tune") && !settingsMenu.includes("Local venues"));
 assert(html.includes('id="calendarSyncBtn"') && html.includes("function showCalendarDialog"));
-assert(fs.existsSync("api/calendar.js") && fs.existsSync("lib/calendar-catalogue.js"));
+assert(fs.existsSync("lib/calendar-handler.js") && fs.existsSync("lib/calendar-catalogue.js"));
+assert.match(fs.readFileSync("api/user-state.js","utf8"), /isCalendarRequest\(request\)/);
+assert.match(fs.readFileSync("vercel.json","utf8"), /"source": "\/api\/calendar"[\s\S]*"destination": "\/api\/user-state\?route=calendar"/);
 
 assert(html.includes('className = "matchup-stage-badge"') && html.includes("FOLLOW_FIRST?.stageLabel"));
 assert(followFirstSource.includes("Because you follow") && html.includes("function automaticEventFollowReason"), "follow context must remain available to eligibility without becoming card metadata");
