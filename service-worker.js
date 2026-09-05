@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v231";
+const CACHE_NAME = "nothingsport-shell-v231-r2";
 const APP_SHELL = [
   // Navigations already share /index.html below; do not download/cache its
   // million-byte HTML a second time under the root alias during installation.
@@ -191,11 +191,14 @@ self.addEventListener("activate", event => {
 async function staleWhileRevalidate(request, event, cacheKey = request){
   const cache = await caches.open(CACHE_NAME);
   const cached = await cache.match(cacheKey);
-  const network = fetch(request).then(response => {
-    if (response.ok) event.waitUntil(cache.put(cacheKey, response.clone()));
+  const network = fetch(request).then(async response => {
+    if (response.ok) await cache.put(cacheKey, response.clone());
     return response;
   }).catch(() => null);
-  return cached || network || caches.match("/index.html");
+  // Register the lifetime before returning a cached response. Registering it
+  // only after fetch resolves can leave an installed app stuck on its old shell.
+  event.waitUntil(network.then(() => undefined));
+  return cached || await network || caches.match("/index.html");
 }
 
 async function cacheFirst(request, cacheKey = request){

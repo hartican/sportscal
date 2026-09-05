@@ -139,6 +139,28 @@ async function validateServiceWorkerActivation(){
   assert.equal(navigations, 0, "worker activation must never navigate a live Home Screen app during startup");
 }
 
+async function validateServiceWorkerRevalidation(){
+  let resolveNetwork, lifetime, saved = false;
+  const cached = {body:"old"};
+  const fresh = {ok:true,clone(){return this;}};
+  const context = {
+    CACHE_NAME:"test", fetch:()=>new Promise(resolve=>{resolveNetwork=resolve;}),
+    caches:{open:async()=>({match:async()=>cached,put:async()=>{saved=true;}}),match:async()=>({body:"offline"})},
+  };
+  vm.createContext(context);
+  vm.runInContext(worker.slice(worker.indexOf("async function staleWhileRevalidate("),worker.indexOf("async function cacheFirst(")),context);
+  const response = await context.staleWhileRevalidate("request",{waitUntil(promise){lifetime=promise;}},"index");
+  assert.equal(response,cached);
+  assert(lifetime,"the worker must retain the background fetch before returning its cached page");
+  resolveNetwork(fresh); await lifetime;
+  assert(saved,"the next navigation must receive the refreshed cache");
+  context.fetch=async()=>{throw new Error("offline");};
+  context.caches.open=async()=>({match:async()=>null,put:async()=>{}});
+  const fallback=await context.staleWhileRevalidate("request",{waitUntil(promise){lifetime=promise;}},"missing");
+  await lifetime;
+  assert.equal(fallback.body,"offline","a failed network promise must fall back to the offline shell");
+}
+
 function validateScrollIdleMutationQueue(){
   const queueSource = html.match(/let scrollMomentumActive = false;[\s\S]*?function queueScrollIdleMutation\(mutation\)\{[\s\S]*?\n\}/);
   assert(queueSource, "the scroll-idle mutation queue must remain independently testable");
@@ -213,6 +235,7 @@ async function validateDirectFileBundleReload(){
 
 Promise.all([
   validateServiceWorkerActivation(),
+  validateServiceWorkerRevalidation(),
   validateDirectFileBundleReload(),
   Promise.resolve().then(validateScrollIdleMutationQueue),
 ])
