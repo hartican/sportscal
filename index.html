@@ -15150,15 +15150,14 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
       const correction = scrollCorrectionForAnchor(anchorTop, currentAnchor.getBoundingClientRect().top, window.scrollY, maxScrollY);
       if (Math.abs(correction) >= 0.5){
         lastCorrectionAt = measuredAt;
-        restoringScroll = true;
-        window.scrollTo({ top:window.scrollY + correction, behavior:"instant" });
-        window.requestAnimationFrame(() => { restoringScroll = false; });
+        expectedCorrectionScrollY = window.scrollY + correction;
+        window.scrollTo({ top:expectedCorrectionScrollY, behavior:"instant" });
       }
       recordInteractionDisplacement(interactionName, anchorTop, currentAnchor.getBoundingClientRect().top);
     }
   };
   let stabilizing = true;
-  let restoringScroll = false;
+  let expectedCorrectionScrollY = null;
   let lateRestoreTimer = null;
   let restoreFrame = null;
   const scheduleRestore = () => {
@@ -15180,7 +15179,11 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
   const intentEvents = ["pointerdown", "touchstart", "wheel", "keydown"];
   const cleanupIntentListeners = () => intentEvents.forEach(type => window.removeEventListener(type, stopStabilizing, true));
   const stopForExternalScroll = () => {
-    if (!restoringScroll) stopStabilizing();
+    if (expectedCorrectionScrollY !== null && Math.abs(window.scrollY - expectedCorrectionScrollY) <= 1){
+      expectedCorrectionScrollY = null;
+      return;
+    }
+    stopStabilizing();
   };
   intentEvents.forEach(type => window.addEventListener(type, stopStabilizing, { capture:true, once:true, passive:true }));
   window.addEventListener("scroll", stopForExternalScroll, { passive:true });
