@@ -15236,12 +15236,17 @@ function queueScrollIdleMutation(mutation){
 
 function captureViewportRenderAnchor(){
   const viewportTop = stickyFeedChromeHeight() + 12;
-  const anchorCard = Array.from(document.querySelectorAll("[data-scroll-key]"))
-    .find(card => card.getBoundingClientRect().bottom > viewportTop);
+  const keyed = Array.from(document.querySelectorAll("[data-scroll-key]"));
+  const visible = keyed.filter(element => element.getBoundingClientRect().bottom > viewportTop);
+  const anchorCard = visible.find(element => !visible.some(candidate => (
+    candidate !== element
+    && element.contains(candidate)
+    && candidate.getBoundingClientRect().bottom > viewportTop
+  )));
   return {
     card: anchorCard || null,
     scrollKey: scrollKeyForElement(anchorCard),
-    top: anchorCard?.getBoundingClientRect().top || null,
+    top: anchorCard?.getBoundingClientRect().top ?? null,
     scrollY: window.scrollY,
   };
 }
@@ -21033,10 +21038,16 @@ function renderTabCounts(){
 
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   if (preserveViewport || viewportAnchor){
-    const anchorTarget = viewportAnchor?.card?.isConnected
-      ? viewportAnchor.card
-      : scrollContinuityAnchorFor(document.querySelector("[data-scroll-key]"));
-    return mutateWithScrollContinuity(anchorTarget, () => renderAll());
+    const captured = viewportAnchor || captureViewportRenderAnchor();
+    const anchorTarget = captured?.card?.isConnected
+      ? captured.card
+      : captured?.scrollKey
+        ? viewportAnchorForKey(captured.scrollKey)
+        : null;
+    return mutateWithScrollContinuity(anchorTarget, () => renderAll(), {
+      anchorStrategy:"target",
+      interactionName:"preserved-render",
+    });
   }
   syncTopLevelNavigationState();
   renderHomeSpoilerToggle();
