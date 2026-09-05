@@ -41,6 +41,7 @@ const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8765';
   await page.getByRole('button',{name:'Compact',exact:true}).click();assert.equal(await card.getAttribute('data-card-state'),'compact');
   await page.getByRole('button',{name:'Compact',exact:true}).click();
   await align();before=await rect();await page.clock.fastForward(60000);await page.waitForTimeout(150);after=await rect();assert(Math.abs(after.top-before.top)<=2,`minute drift ${after.top-before.top}`);
+  await align();before=await rect();await page.evaluate(()=>{activeEvents.slice(0,5).forEach(ev=>nothingscoreLoadErrors.set(nothingscoreEventId(ev),Date.now()));nothingscoreQueueRender();});await page.waitForTimeout(150);after=await rect();assert(Math.abs(after.top-before.top)<=2,`Nothingscore update drift ${after.top-before.top}`);deltas.push(after.top-before.top);
   const viewing=await page.evaluate(()=>{
    const base={key:'football',date:'2026-09-05',time:'05:00',stakesScore:2};
    const host=document.createElement('section');host.id='provider-qa';document.getElementById('listView').append(host);
@@ -52,8 +53,13 @@ const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8765';
   await page.getByRole('button',{name:'Ladder',exact:true}).waitFor();
   const tabs=await page.locator('.follow-section-tabs button').allTextContents();assert.deepEqual(tabs,['Schedule','Ladder','Teams & players','Major Events']);
   const club=page.locator('[data-directory-team-id]').first();await club.waitFor();
-  await club.evaluate(node=>window.scrollTo(0,window.scrollY+node.getBoundingClientRect().top-400));
-  await page.waitForFunction(()=>{const node=document.querySelector('[data-directory-team-id]');const top=node?.getBoundingClientRect().top;return top>250&&top<650;});
+  await page.waitForTimeout(300);
+  for(let attempt=0;attempt<3;attempt++){
+   await club.evaluate(node=>node.scrollIntoView({block:'center',behavior:'instant'}));
+   await page.waitForTimeout(150);
+   if(await club.evaluate(node=>{const rect=node.getBoundingClientRect();return rect.bottom>0&&rect.top<innerHeight;}))break;
+  }
+  assert(await club.evaluate(node=>{const rect=node.getBoundingClientRect();return rect.bottom>0&&rect.top<innerHeight;}),'Follow anchor must be visible before expansion');
   const followDeltas=[];
   for(const expanded of [true,false]){const beforeFollow=await club.evaluate(node=>({top:node.getBoundingClientRect().top,scrollY}));const box=await club.locator('.football-club-expand').boundingBox();await page.mouse.click(box.x+box.width/2,box.y+box.height/2);await page.waitForTimeout(200);const afterFollow=await club.evaluate(node=>({top:node.getBoundingClientRect().top,scrollY}));const delta=afterFollow.top-beforeFollow.top;assert(Math.abs(delta)<=2,`Follow drift ${width} expanded=${expanded}: ${delta}`);followDeltas.push(delta);}
   await page.getByRole('button',{name:'Schedule',exact:true}).click();await page.waitForSelector('[data-inspector-fixture-id]');assert(!await page.getByRole('tab',{name:'Players',exact:true}).count());

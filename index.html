@@ -15150,12 +15150,15 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
       const correction = scrollCorrectionForAnchor(anchorTop, currentAnchor.getBoundingClientRect().top, window.scrollY, maxScrollY);
       if (Math.abs(correction) >= 0.5){
         lastCorrectionAt = measuredAt;
+        restoringScroll = true;
         window.scrollTo({ top:window.scrollY + correction, behavior:"instant" });
+        window.requestAnimationFrame(() => { restoringScroll = false; });
       }
       recordInteractionDisplacement(interactionName, anchorTop, currentAnchor.getBoundingClientRect().top);
     }
   };
   let stabilizing = true;
+  let restoringScroll = false;
   let lateRestoreTimer = null;
   let restoreFrame = null;
   const scheduleRestore = () => {
@@ -15171,11 +15174,16 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
     if (lateRestoreTimer !== null) window.clearInterval(lateRestoreTimer);
     if (restoreFrame !== null) window.cancelAnimationFrame(restoreFrame);
     cleanupIntentListeners();
+    window.removeEventListener("scroll", stopForExternalScroll);
     releaseNativeAnchor();
   };
   const intentEvents = ["pointerdown", "touchstart", "wheel", "keydown"];
   const cleanupIntentListeners = () => intentEvents.forEach(type => window.removeEventListener(type, stopStabilizing, true));
+  const stopForExternalScroll = () => {
+    if (!restoringScroll) stopStabilizing();
+  };
   intentEvents.forEach(type => window.addEventListener(type, stopStabilizing, { capture:true, once:true, passive:true }));
+  window.addEventListener("scroll", stopForExternalScroll, { passive:true });
   const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(scheduleRestore) : null;
   const observedMutationElement = target?.closest?.(".event-card") || (target?.nodeType === 1 ? target : null);
   if (observedMutationElement) resizeObserver?.observe?.(observedMutationElement);
@@ -16033,40 +16041,43 @@ function nothingscoreQueueRender(){
   nothingscoreRenderQueued = true;
   window.requestAnimationFrame(() => {
     nothingscoreRenderQueued = false;
-    // Scores never rebuild Feed, images, scroll containers or an unfinished form.
-    document.querySelectorAll(".nsc-summary").forEach(node => {
-      const ev = nothingscoreEventRefs.get(node.dataset.nscEventId);
-      if (!ev) return;
-      const replacement = buildNothingscoreSummary(ev);
-      if (node.outerHTML !== replacement.outerHTML) node.replaceWith(replacement);
-    });
-    document.querySelectorAll(".nsc-card-action").forEach(button => {
-      const ev = nothingscoreEventRefs.get(button.dataset.nscEventId);
-      if (!ev) return;
-      button.textContent = nothingscoreActionLabelForEvent(ev);
-      button.classList.toggle("is-submitted", nothingscoreSubmissionIsSealed(ev));
-      button.disabled = false;
-    });
-    document.querySelectorAll(".nsc-panel").forEach(panel => {
-      const ev = nothingscoreEventRefs.get(panel.dataset.nscPanel);
-      const snapshot = ev && nothingscoreSnapshotFor(ev);
-      if (!snapshot) return;
-      if (snapshot.peerResults && !snapshot.peerResults.distribution) void loadNothingscoreDetail(ev);
-      const peers = panel.querySelector(".nsc-peer-results");
-      if (peers){
-        const replacement = buildNothingscorePeerResults(ev, snapshot, {detail:true});
-        if (peers.querySelector("details")?.open) replacement.querySelector("details").open = true;
-        if (peers.outerHTML !== replacement.outerHTML) peers.replaceWith(replacement);
-      }
-      const receipt = snapshot.currentUser?.submissions?.[snapshot.phase];
-      if (receipt){
-        const target = panel.querySelector(".nsc-contribution-form, .is-confirming");
-        target?.replaceWith(buildNothingscoreReceipt(receipt, nothingscorePhaseCopy(snapshot.phase).name));
-        const confirmation = panel.querySelector(".nsc-receipt");
-        const results = panel.querySelector(".nsc-peer-results");
-        if (confirmation && results && confirmation.nextElementSibling !== results) panel.insertBefore(confirmation,results);
-      }
-    });
+    const anchor = captureViewportRenderAnchor().card;
+    mutateWithScrollContinuity(anchor, () => {
+      // Scores patch only their live regions and preserve the fixture being read.
+      document.querySelectorAll(".nsc-summary").forEach(node => {
+        const ev = nothingscoreEventRefs.get(node.dataset.nscEventId);
+        if (!ev) return;
+        const replacement = buildNothingscoreSummary(ev);
+        if (node.outerHTML !== replacement.outerHTML) node.replaceWith(replacement);
+      });
+      document.querySelectorAll(".nsc-card-action").forEach(button => {
+        const ev = nothingscoreEventRefs.get(button.dataset.nscEventId);
+        if (!ev) return;
+        button.textContent = nothingscoreActionLabelForEvent(ev);
+        button.classList.toggle("is-submitted", nothingscoreSubmissionIsSealed(ev));
+        button.disabled = false;
+      });
+      document.querySelectorAll(".nsc-panel").forEach(panel => {
+        const ev = nothingscoreEventRefs.get(panel.dataset.nscPanel);
+        const snapshot = ev && nothingscoreSnapshotFor(ev);
+        if (!snapshot) return;
+        if (snapshot.peerResults && !snapshot.peerResults.distribution) void loadNothingscoreDetail(ev);
+        const peers = panel.querySelector(".nsc-peer-results");
+        if (peers){
+          const replacement = buildNothingscorePeerResults(ev, snapshot, {detail:true});
+          if (peers.querySelector("details")?.open) replacement.querySelector("details").open = true;
+          if (peers.outerHTML !== replacement.outerHTML) peers.replaceWith(replacement);
+        }
+        const receipt = snapshot.currentUser?.submissions?.[snapshot.phase];
+        if (receipt){
+          const target = panel.querySelector(".nsc-contribution-form, .is-confirming");
+          target?.replaceWith(buildNothingscoreReceipt(receipt, nothingscorePhaseCopy(snapshot.phase).name));
+          const confirmation = panel.querySelector(".nsc-receipt");
+          const results = panel.querySelector(".nsc-peer-results");
+          if (confirmation && results && confirmation.nextElementSibling !== results) panel.insertBefore(confirmation,results);
+        }
+      });
+    }, { anchorStrategy:"target", interactionName:"nothingscore-update" });
   });
 }
 
