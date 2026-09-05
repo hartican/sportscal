@@ -6,7 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 
 const pages = ["index.html", "admin.html", "admin-comms.html", "participate.html", "privacy.html", "terms.html", "404.html"];
-const stylesheet = "/assets/styles/nothingsport-foundation.css?v=231";
+const stylesheet = "/assets/styles/nothingsport-foundation.css?v=232";
 const html = fs.readFileSync("index.html", "utf8");
 const foundation = fs.readFileSync("assets/styles/nothingsport-foundation.css", "utf8");
 
@@ -36,7 +36,7 @@ assert(html.includes('heading.id = "calendarTodayAnchor"') && html.includes("if 
 assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v6"'), "the redesigned personalised card cache must be invalidated");
 
 const worker = fs.readFileSync("service-worker.js", "utf8");
-assert(worker.includes('nothingsport-shell-v231') && worker.includes(`"${stylesheet}"`), "the new foundation and shell must be available after installed-app cache replacement");
+assert(worker.includes('nothingsport-shell-v232') && worker.includes(`"${stylesheet}"`), "the new foundation and shell must be available after installed-app cache replacement");
 pages.slice(1).forEach(page => assert(worker.includes(`"/${page}"`), `${page} must bypass the generic app-shell navigation fallback`));
 
 console.log("UI foundation valid: shared tokens, compact progressive cards, persistent traffic controls, Reminder ON and one Today heading passed.");

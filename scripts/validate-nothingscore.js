@@ -170,9 +170,9 @@ assert.match(html, /Report username/);
 assert.doesNotMatch(html, /NSC building/, "cards must not expose aggregate-building metadata");
 assert.match(html, /Submitted ✓/, "submitted cards must confirm success and retain access to results");
 assert.match(html, /action:"submit"/, "Heat and Impact must use the explicit submission action");
-assert.match(worker, /nothingsport-shell-v231/);
+assert.match(worker, /nothingsport-shell-v232/);
 assert.doesNotMatch(worker, /"\/config\/nothingscore\.js"/);
-assert.equal(html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1], "231");
+assert.equal(html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1], "232");
 
 const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/)?.[1];
 assert(inlineScript);

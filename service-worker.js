@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v231-r2";
+const CACHE_NAME = "nothingsport-shell-v232";
 const APP_SHELL = [
   // Navigations already share /index.html below; do not download/cache its
   // million-byte HTML a second time under the root alias during installation.
@@ -9,8 +9,8 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=231",
-  "/assets/js/app-shell-runtime.js?v=231",
+  "/assets/styles/nothingsport-foundation.css?v=232",
+  "/assets/js/app-shell-runtime.js?v=232",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/brand-copy.js",
