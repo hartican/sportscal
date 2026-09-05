@@ -11,7 +11,7 @@
     { "key": "skiing", "label": "Snow", "resolution": "event", "providerIds": ["youtube"] },
     { "key": "rugby", "label": "Rugby Union", "resolution": "sport", "providerIds": ["stan"] },
     { "key": "tennis", "label": "Tennis", "resolution": "tournament", "providerIds": ["stan"] },
-    { "key": "football", "label": "Football", "resolution": "competition", "providerIds": ["stan", "paramount", "sbs"] },
+    { "key": "football", "label": "Football", "resolution": "competition", "providerIds": ["stan", "paramount", "sbs", "bein"] },
     { "key": "cycling", "label": "Cycling", "resolution": "discipline", "providerIds": ["stan", "sbs"] },
     { "key": "cricket", "label": "Cricket", "resolution": "competition", "providerIds": ["kayo", "foxtel", "seven", "prime-video"] },
     { "key": "nba", "label": "Basketball", "resolution": "competition", "providerIds": ["nba-pass", "kayo", "foxtel"] },
@@ -24,6 +24,8 @@
     { "key": "boxing", "label": "Boxing", "resolution": "promotion-or-bout", "providerIds": ["stan"] }
   ],
   "rules": {
+    "competition:la-liga": {"sourceUrl": "https://prod.beinsports.com/en-au/football/laliga/articles-video/how-to-watch-laliga-live-in-australia-2026-08-10"},
+    "competition:ligue-1": {"sourceUrl": "https://www.psg.fr/en/content/fixtures-for-matchday-3-of-ligue-1-2026-2027-paris-saint-germain-as-monaco", "coverageStatus": "unverified-for-AU"},
     "competition:premier-league": { "sourceUrl": "https://www.stan.com.au/watch/sport/football/premier-league" },
     "competition:uefa-champions-league": { "sourceUrl": "https://www.stan.com.au/watch/sport/football/uefa-champions-league" },
     "competition:tennis:us-open": { "sourceUrl": "https://www.stan.com.au/watch/sport/tennis/us-open" },

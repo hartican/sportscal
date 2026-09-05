@@ -36,7 +36,7 @@ const followed = followFirst.migratePreferences({
   ] },
 });
 assert.equal(followed.followFirst.australiaInternationalsEnabled, true, "legacy per-sport Australia selections migrate to the default global switch");
-assert.equal(Object.hasOwn(followed.followFirst, "australiansOnlySportIds"), false, "retired per-sport Australia state must not survive migration");
+assert.deepEqual(followed.followFirst.australiansOnlySportIds, [], "legacy bare sport names must not enable new Australian restrictions");
 assert.deepEqual(followFirst.migratePreferences(followed), followed, "the global Australia migration must be idempotent");
 const teamReason = followFirst.reasonForEvent({ key:"afl", participantIds:["team:afl:test"] }, followed, { participantLabel:() => "Test Club" });
 assert.equal(teamReason.label, "Because you follow Test Club");
@@ -128,10 +128,10 @@ assert(scriptMatch);
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the browser application must parse");
 assert.match(html, />Feed</);
 assert.match(html, />Follow</);
-assert.match(html, /Standings &amp; Fixtures/);
+assert.match(html, /Back to Follow/);
 assert.doesNotMatch(html, /<span class="tab-label">Inspector<\/span>/);
 const navLabels = Array.from(html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g), match => match[1]);
-assert.deepEqual(navLabels.slice(0, 4), ["Feed", "Events", "Follow", "Standings &amp; Fixtures"]);
+assert.deepEqual(navLabels, ["Feed", "Events", "Follow"]);
 assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })'), "tab and inspector navigation must reset the viewport");
 
 const settingsMenu = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
@@ -140,8 +140,8 @@ assert.deepEqual(
   ["Account", "About", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
 );
 assert(!settingsMenu.includes("Froth") && !settingsMenu.includes("Tune") && !settingsMenu.includes("Local venues"));
-assert(!html.includes('id="calendarSyncBtn"') && !html.includes('id="calendarSyncModal"'));
-assert(!fs.existsSync("api/calendar.js") && !fs.existsSync("lib/calendar-sync.js"));
+assert(html.includes('id="calendarSyncBtn"') && html.includes("function showCalendarDialog"));
+assert(fs.existsSync("api/calendar.js") && fs.existsSync("lib/calendar-catalogue.js"));
 
 assert(html.includes('className = "matchup-stage-badge"') && html.includes("FOLLOW_FIRST?.stageLabel"));
 assert(followFirstSource.includes("Because you follow") && html.includes("function automaticEventFollowReason"), "follow context must remain available to eligibility without becoming card metadata");
@@ -149,7 +149,7 @@ assert(html.includes('type:"sport-tuned"') && !html.includes('if (ev.key === "af
 assert(!eventCardSource.includes("follow-reason-tag"), "Feed cards must not render follow-reason labels");
 assert(html.includes("stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(ev))"), "raw feed cards must derive their 5/5 sporting stakes before follow eligibility is evaluated");
 assert(html.includes("toggleAustraliaInternationals") && html.includes("australiaInternationalsEnabled"), "Follow must expose one global Australia-in-internationals switch");
-assert(!html.includes("toggleAussiesOnly") && !html.includes("australiansOnlySportIds"), "per-sport Australia toggles must be retired from runtime UI");
+assert(html.includes("australiansOnlySportIds") && html.includes("Follow Australians"), "Follow must provide a per-sport Australian restriction");
 assert(!html.includes("<span>AU interest</span>"), "Australia eligibility must stay hidden on Feed cards");
 assert(
   html.includes("appendEventQuickActions")
@@ -163,7 +163,7 @@ assert(
 );
 assert(!html.includes("Swipe to like") && !html.includes("Swipe to dislike"), "startup and cards must not teach Tinder-style gestures");
 assert(html.includes('data-tab="follow"') && html.includes("renderFollowView"));
-assert(html.includes('["all-fixtures", "Timetable"]') && html.includes('["matches", "Matches"]') && html.includes('["players", "Players"]') && html.includes('["standings", "Standings"]'));
+assert(html.includes('["all-fixtures", "Schedule"]') && !html.includes('["matches", "Matches"]') && !html.includes('["players", "Players"]') && html.includes("followStandingsLabel"));
 assert(html.includes("codeInspectorPlayersExpanded") && html.includes('"Top 3 + followed"'));
 
 assert(html.includes("startupSportsGrid") && html.includes("startupEventsGrid") && html.includes("startupOffersGrid"));

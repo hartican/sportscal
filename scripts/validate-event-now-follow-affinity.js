@@ -155,6 +155,6 @@ assert(/ensureFollowCollectionDirectories\(userPreferences\)\.then\(\(\) => \{[\
 assert(html.includes("activeMajorEventNowId") && html.includes("events-now-marker"), "Events must keep one active card-local Now marker");
 assert(html.includes("Follow Event") && html.includes("Unfollow Event"), "Event cards must expose family follow controls");
 assert(html.includes("renderTennisFollowCollections"), "Sports & Australia must expose expandable Tennis collections");
-assert(html.includes("sortCodesByAffinity"), "Standings & Fixtures must use the saved per-user affinity order");
+assert(html.includes("follow-sport-track") && html.includes("followBrowse"), "Follow must preserve sport navigation state in the paginated icon directory");
 
 console.log("Event Now, hierarchical Tennis follows and personalised Standings contracts passed.");

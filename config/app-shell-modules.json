@@ -1,4 +1,5 @@
 [
+  "config/calendar-export.js",
   "config/brand-copy.js",
   "config/vector-assets.js",
   "config/card-results.js",
@@ -26,6 +27,7 @@
   "config/chat-contract.js",
   "config/server-sync.js",
   "config/feed-controls.js",
+  "config/feed-timeline.js",
   "config/personalised-feed.js",
   "config/source-trust.js",
   "config/venue-registry.js",

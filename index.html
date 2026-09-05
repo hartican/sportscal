@@ -11,8 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="232">
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=232" as="script">
+<meta name="app-shell-version" content="234">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=234" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6901,7 +6901,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=232">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=234">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=234">
 </head>
 <body>
 
@@ -6930,6 +6931,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <div class="brand">
       <div class="brand-title-row">
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" fetchpriority="high" decoding="async"></h1>
+        <button class="btn ghost calendar-sync-action" id="calendarSyncBtn" type="button" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span></button>
         <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span data-vector-glyph="ui:share"></span><span class="share-app-label">Share app</span></button>
       </div>
       <div class="slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
@@ -6950,7 +6952,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
     <button class="tab-btn active" data-tab="feed"><span class="tab-label">Feed</span><span class="tab-count" id="feedTabCount">0</span></button>
     <button class="tab-btn" data-tab="events"><span class="tab-label">Events</span><span class="tab-count" id="eventsTabCount">0</span></button>
     <button class="tab-btn" data-tab="follow"><span class="tab-label">Follow</span><span class="tab-count" id="followTabCount">0</span></button>
-    <button class="tab-btn" id="tuneNavBtn" type="button" aria-haspopup="dialog" aria-controls="tuneSheet"><span class="tab-label">Standings &amp; Fixtures</span></button>
+
   </div>
 </header>
 
@@ -6996,7 +6998,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   <section class="tune-sheet" role="dialog" aria-modal="true" aria-labelledby="tuneSheetTitle" aria-describedby="tuneSheetDescription">
     <header class="tune-sheet-head">
       <div>
-        <h2 id="tuneSheetTitle">Standings &amp; Fixtures</h2>
+        <h2 id="tuneSheetTitle">Follow</h2>
         <p id="tuneSheetDescription">Drill into every published fixture and its standings for one code without changing your feed or saved settings.</p>
       </div>
       <button class="tune-sheet-close" id="closeTuneSheetBtn" type="button" aria-label="Close Standings and Fixtures">×</button>
@@ -7190,7 +7192,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=232"></script>
+<script src="assets/js/app-shell-runtime.js?v=234"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -8007,7 +8009,7 @@ function loadSportHubs(){
   if (SPORT_HUBS) return Promise.resolve(SPORT_HUBS);
   sportHubsLoad ||= loadDeferredScript("config/sport-hubs.js?v=218").then(() => {
     SPORT_HUBS = globalThis.NOTHINGSPORTS_SPORT_HUBS || null;
-    if (!SPORT_HUBS) throw new Error("Standings & Fixtures could not load.");
+    if (!SPORT_HUBS) throw new Error("Schedule could not load.");
     return SPORT_HUBS;
   });
   return sportHubsLoad;
@@ -8257,7 +8259,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=223",
+  moduleScriptUrl: "config/major-events.js?v=234",
   url: "data/major-events.v1.json",
 });
 
@@ -10885,6 +10887,18 @@ async function loadMajorEventsData(){
       throw new Error(`Unsupported major events catalogue: ${firstError}`);
     }
     majorEventsDocument = usable.document;
+    const mergedActions={...eventActions};let migratedTicketState=false;
+    for(const alert of majorEventsDocument.events.filter(record=>record.kind==='ticket_sale')){
+      const old=eventActions[alert.id],parent=eventActions[alert.parentEventId];
+      if(pendingTicketAlertFocusId===alert.id)pendingTicketAlertFocusId=alert.parentEventId;
+      if(!old)continue;
+      const parentNewer=Date.parse(parent?.lastActionAt || '')>=Date.parse(old.lastActionAt || '');
+      mergedActions[alert.parentEventId]={...(parentNewer?old:parent),...(parentNewer?parent:old),actionKey:alert.parentEventId,eventId:alert.parentEventId};
+      delete mergedActions[alert.id];migratedTicketState=true;
+      if(pendingTicketAlertFocusId===alert.id)pendingTicketAlertFocusId=alert.parentEventId;
+    }
+    if(migratedTicketState)saveEventActions(mergedActions);
+
     const quarantinedIds = usable.quarantinedRecordIds || [];
     document.documentElement.dataset.majorEventsQuarantined = quarantinedIds.join(",");
     if (quarantinedIds.length){
@@ -11351,7 +11365,7 @@ function setActiveFeedFilter(nextFilter, {
   const lazyHubKey = String(normalizedFilter).replace(/^sport:/, "");
   if (!SPORT_HUBS && ["afl", "nrl"].includes(lazyHubKey)){
     return loadSportHubs().then(() => setActiveFeedFilter(nextFilter, { refresh, roundNumber, measurementEntry }))
-      .catch(error => { showToast(error.message || "Standings & Fixtures could not load."); });
+      .catch(error => { showToast(error.message || "Schedule could not load."); });
   }
   if (activeFilter === normalizedFilter) return feedFilterRefreshInFlight || Promise.resolve();
   const previousHubKey = sportHubKeyForFilter(activeFilter);
@@ -11632,6 +11646,7 @@ function eventDateTime(ev){
 }
 
 function fmtTime12(time){
+  if(!/^\d{2}:\d{2}$/.test(time || ""))return "Time TBC";
   const [hh,mm] = time.split(":").map(Number);
   const period = hh >= 12 ? "pm" : "am";
   let h12 = hh % 12; if(h12===0) h12=12;
@@ -11646,13 +11661,7 @@ function fmtDateHeading(dateStr){
 }
 
 function getEventStatus(ev){
-  const start = eventDateTime(ev);
-  const now = nowAEST();
-  const timing = FEED_CONTROLS?.timingState?.(ev, now);
-  if (timing?.key === "live-now") return "live";
-  if (Number.isNaN(start.getTime())) return ev.status === "completed" || ev.lifecycleStatus === "retired" ? "past" : "upcoming";
-  if (now < start) return "upcoming";
-  return "past";
+  return NOTHINGSPORTS_FEED_TIMELINE.status(ev,nowAEST());
 }
 
 function getActual(id){
@@ -12671,6 +12680,7 @@ function reinstateArchivedEvent(ev){
 }
 
 function dayDateLabel(dateStr){
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(dateStr || ""))return "Dates TBC";
   const [y,m,d] = dateStr.split("-").map(Number);
   return new Date(y, m - 1, d).toLocaleDateString("en-AU", {
     weekday: "short",
@@ -13249,7 +13259,7 @@ async function loadCodeInspectorManifest(){
   codeInspectorManifestLoading = fetchJson(CODE_INSPECTOR_MANIFEST_URL, { cache: "default" })
     .then(document => {
       if (document?.schemaVersion !== "code-inspector.v1" || !Array.isArray(document.codes)){
-        throw new Error("Invalid Standings & Fixtures manifest");
+        throw new Error("Invalid Schedule manifest");
       }
       codeInspectorManifest = document;
       return document;
@@ -13258,43 +13268,6 @@ async function loadCodeInspectorManifest(){
   return codeInspectorManifestLoading;
 }
 
-function buildDiscoveryBrowseRow(code){
-  const followed = codeInspectorCodeIsFollowed(code.id);
-  const row = document.createElement("div");
-  row.className = "browse-row code-inspector-row";
-  row.dataset.discoverySportId = code.id;
-  row.style.setProperty("--sport-color", codeInspectorSportColor(code));
-  const main = document.createElement("div");
-  main.className = "browse-row-main";
-  const identity = document.createElement("span");
-  identity.className = "code-inspector-identity identity-frame";
-  identity.setAttribute("aria-hidden", "true");
-  renderCodeInspectorIdentity(identity, code);
-  const copy = document.createElement("div");
-  copy.className = "browse-copy";
-  const title = document.createElement("strong");
-  title.textContent = code.label;
-  const detail = document.createElement("span");
-  const parent = code.parentSportId && codeInspectorManifest?.codes?.find(candidate => candidate.id === code.parentSportId);
-  detail.textContent = `${parent ? `${parent.label} · ` : ""}${code.fixtureCount} available fixture${code.fixtureCount === 1 ? "" : "s"} · ${followed ? "Following" : "Not followed"}`;
-  copy.append(title, detail);
-  main.append(identity, copy);
-  const actions = document.createElement("div");
-  actions.className = "browse-actions";
-  const open = document.createElement("button");
-  open.type = "button";
-  open.className = "browse-open code-inspector-inspect";
-  open.dataset.discoveryTuneControl = "open";
-  open.textContent = "Inspect";
-  open.setAttribute("aria-label", `Inspect ${code.label} fixtures`);
-  open.addEventListener("click", () => {
-    recordCodeAffinity(code.id, "open");
-    openCodeInspector(code.id);
-  });
-  actions.appendChild(open);
-  row.append(main, actions);
-  return row;
-}
 
 function orderCodeInspectorHierarchy(codes){
   const ids = new Set(codes.map(code => code.id));
@@ -13331,40 +13304,7 @@ function restoreDiscoveryTuneFocus(descriptor){
 }
 
 function renderTuneSheetContents(){
-  const focusDescriptor = discoveryTuneFocusDescriptor();
-  const list = document.getElementById("tuneBrowseList");
-  const more = document.getElementById("tuneBrowseMore");
-  const moreList = document.getElementById("tuneBrowseMoreList");
-  if (!list || !more || !moreList) return;
-  list.innerHTML = "";
-  moreList.innerHTML = "";
-  const summary = document.getElementById("tuneBrowseSummary");
-  if (!codeInspectorManifest){
-    list.innerHTML = '<div class="empty-state" style="padding:16px">Loading published code coverage…</div>';
-    more.hidden = true;
-    if (summary) summary.textContent = "Loading coverage…";
-    void loadCodeInspectorManifest()
-      .then(() => renderTuneSheetContents())
-      .catch(error => {
-        console.warn("Standings & Fixtures manifest unavailable", error);
-        list.innerHTML = '<div class="empty-state" style="padding:16px">Code coverage is temporarily unavailable. Your feed and saved choices are unchanged.</div>';
-        if (summary) summary.textContent = "Unavailable";
-      });
-    return;
-  }
-  const affinityOrderedCodes = FOLLOW_FIRST?.sortCodesByAffinity
-    ? FOLLOW_FIRST.sortCodesByAffinity(codeInspectorManifest.codes, userPreferences, nowAEST())
-    : [...codeInspectorManifest.codes].sort((first, second) => Number(second.fixtureCount || 0) - Number(first.fixtureCount || 0) || first.label.localeCompare(second.label));
-  const codes = orderCodeInspectorHierarchy(affinityOrderedCodes);
-  let primaryCount = 6;
-  while (codes[primaryCount]?.parentSportId && codes.slice(0, primaryCount).some(code => code.id === codes[primaryCount].parentSportId)) primaryCount += 1;
-  const primaryCodes = codes.slice(0, primaryCount);
-  const remainingCodes = codes.slice(primaryCount);
-  primaryCodes.forEach(code => list.appendChild(buildDiscoveryBrowseRow(code)));
-  remainingCodes.forEach(code => moreList.appendChild(buildDiscoveryBrowseRow(code)));
-  more.hidden = remainingCodes.length === 0;
-  if (summary) summary.textContent = `${codes.length} canonical codes · fixtures can be pinned to Feed`;
-  restoreDiscoveryTuneFocus(focusDescriptor);
+  if(activeTab==='follow' && !activeInspectorCodeId)renderFollowView();
 }
 
 function syncTopLevelNavigationState(){
@@ -13372,7 +13312,7 @@ function syncTopLevelNavigationState(){
   document.querySelectorAll(".tab-btn").forEach(button => {
     const selected = button.id === "tuneNavBtn"
       ? inspectorActive
-      : !inspectorActive && button.dataset.tab === activeTab;
+      : button.dataset.tab === (inspectorActive ? "follow" : activeTab);
     button.classList.toggle("active", selected);
     if (selected) button.setAttribute("aria-current", "page");
     else button.removeAttribute("aria-current");
@@ -13391,32 +13331,10 @@ function inspectorPickerHash(){
   return "#standings-fixtures";
 }
 
-function openTuneSheet({ pushHistory = true, preserveReturnState = false } = {}){
-  if (document.getElementById("tuneSheet")?.classList.contains("show")) return;
-  const startedAt = feedPerformanceNow();
-  if (!preserveReturnState || !tuneSheetReturnState){
-    tuneSheetReturnState = {
-      focus: inspectorReturnState?.focus || document.activeElement,
-      scrollY: inspectorReturnState?.scrollY ?? window.scrollY,
-    };
-  }
-  discoveryTuneInteractionCount = 0;
-  if (!preserveReturnState) inspectorPickerState = { scrollTop:0, focusCodeId:null };
-  renderTuneSheetContents();
-  setTuneSheetModalState(true);
-  window.scrollTo({ top:0, behavior:"auto" });
-  if (pushHistory && window.location.hash !== inspectorPickerHash()){
-    history.pushState({ inspectorPicker: true }, "", inspectorPickerHash());
-  }
-  recordFeedInteraction("inspector_list_open", startedAt);
-  window.requestAnimationFrame(() => {
-    const sheetBody = document.querySelector("#tuneSheet .tune-sheet-body");
-    if (sheetBody) sheetBody.scrollTop = inspectorPickerState.scrollTop || 0;
-    const focusTarget = inspectorPickerState.focusCodeId
-      ? document.querySelector(`[data-discovery-sport-id="${CSS.escape(inspectorPickerState.focusCodeId)}"] .code-inspector-inspect`)
-      : null;
-    (focusTarget || document.getElementById("closeTuneSheetBtn"))?.focus({ preventScroll: true });
-  });
+function openTuneSheet(){
+  activeInspectorCodeId=null;activeTab='follow';activeView='list';
+  history.replaceState({follow:true},'',`${location.pathname}${location.search}#follow`);
+  syncTopLevelNavigationState();renderAll();window.scrollTo({top:0,behavior:'auto'});
 }
 
 function closeTuneSheet({ restoreFocus = true, restoreViewport = true } = {}){
@@ -13460,11 +13378,11 @@ function inspectorAlwaysShowsAllFixtures(){
 }
 
 function codeInspectorHash(codeId){
-  return `#standings-fixtures/${encodeURIComponent(codeId)}`;
+  return `#follow/${encodeURIComponent(codeId)}`;
 }
 
 function codeInspectorCodeFromLocation(){
-  const match = String(window.location.hash || "").match(/^#(?:standings-fixtures|inspect)\/(.+)$/);
+  const match = String(window.location.hash || "").match(/^#(?:follow|standings-fixtures|inspect)\/(.+)$/);
   if (!match) return null;
   try{ return decodeURIComponent(match[1]); }catch(_error){ return null; }
 }
@@ -13476,7 +13394,7 @@ async function openStandingsFixturesForEvent(event){
   const code = manifest.codes.find(item => item.id === `sport:${sportKey}` || item.slug === sportKey);
   if (!code){
     openTuneSheet();
-    showToast("That event’s timetable is not published in Standings & Fixtures yet.");
+    showToast("That event’s Schedule is not published yet.");
     return false;
   }
   await openCodeInspector(code.id);
@@ -13515,27 +13433,33 @@ function restoreInspectorFeedViewport(returnState){
   }
 }
 
-async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "" } = {}){
+async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "", startingTab = "all-fixtures" } = {}){
   const startedAt = feedPerformanceNow();
-  const hydration = codeInspectorChunk ? null : beginInSessionLoading("Loading Standings & Fixtures");
+  const hydration = codeInspectorChunk ? null : beginInSessionLoading("Loading Schedule");
   const manifest = await loadCodeInspectorManifest();
   if (!manifest.codes.some(code => code.id === codeId)){
-    hydration?.fail("Standings & Fixtures is unavailable.");
+    hydration?.fail("Schedule is unavailable.");
     return;
   }
   if (!activeInspectorCodeId){
     const pickerBody = document.querySelector("#tuneSheet .tune-sheet-body");
     inspectorPickerState = { scrollTop: pickerBody?.scrollTop || 0, focusCodeId: codeId };
     inspectorReturnState = {
-      activeTab,
-      activeView,
+      activeTab:"follow",
+      activeView:"list",
       activeFilter,
       scrollY: tuneSheetReturnState?.scrollY ?? window.scrollY,
       focus: tuneSheetReturnState?.focus || document.activeElement,
     };
   }
+  if(activeTab!=="follow"){
+    const alias={'sport:basketball':'sport:nba','sport:rugby-union':'sport:rugby'};
+    const entity=selectorEntityById(alias[codeId] || codeId);
+    if(entity){const root=selectorEntityById(entity.parentId);saveFollowBrowse({sportId:root?.level===2?root.id:entity.id,categoryId:entity.id==='sport:afl'?'sport:afl-premiership':entity.id,section:'teams-players'});}
+  }
+  activeTab = "follow";
   activeInspectorCodeId = codeId;
-  codeInspectorTab = "all-fixtures";
+  codeInspectorTab = startingTab;
   codeInspectorGroup = String(startingGroup || "");
   codeInspectorChunk = null;
   sportHubState.activeTab = "all-fixtures";
@@ -13557,8 +13481,8 @@ async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "
       recordFeedInteraction("inspector_fixture_render", renderStartedAt);
     }
   }catch(error){
-    hydration?.fail("Standings & Fixtures could not be loaded. Try again.");
-    console.warn("Standings & Fixtures unavailable", error);
+    hydration?.fail("Schedule could not be loaded. Try again.");
+    console.warn("Schedule unavailable", error);
     if (activeInspectorCodeId === codeId){
       const renderStartedAt = feedPerformanceNow();
       renderAll();
@@ -13600,7 +13524,7 @@ async function syncCodeInspectorFromLocation(){
       const detailHash = codeInspectorHash(codeId);
       const feedUrl = `${window.location.pathname}${window.location.search}`;
       history.replaceState({ inspectorFeed: true }, "", feedUrl);
-      history.pushState({ inspectorPicker: true }, "", inspectorPickerHash());
+      history.pushState({ inspectorPicker: true }, "", "#follow");
       history.pushState({ codeInspector: codeId, inspectorParent: true }, "", detailHash);
     }
     if (activeInspectorCodeId !== codeId) await openCodeInspector(codeId, { pushHistory: false });
@@ -13609,7 +13533,7 @@ async function syncCodeInspectorFromLocation(){
   if ([inspectorPickerHash(), "#inspector"].includes(window.location.hash)){
     if (window.location.hash === "#inspector") history.replaceState(history.state, "", inspectorPickerHash());
     if (activeInspectorCodeId) closeCodeInspector({ restoreViewport: false, preserveReturnState: true });
-    openTuneSheet({ pushHistory: false, preserveReturnState: true });
+    activeTab="follow";renderAll();
     return;
   }
   if (activeInspectorCodeId) closeCodeInspector();
@@ -13714,8 +13638,10 @@ function inspectorFixtureIsResult(fixture){
 }
 
 function inspectorFixtureMatchesTab(fixture){
-  if (codeInspectorTab === "matches") return (fixture.participantSlots || []).filter(slot => slot.participantId || slot.label).length >= 2;
-  return true;
+  const entity=followSelectedEntity();
+  if(!entity?.parentId || entity.parentId==='category:sports')return true;
+  const ev={...fixture,key:codeInspectorFixtureSportKey(fixture)};
+  return selectorEntityMatchesEvent(entity.id,ev);
 }
 
 function renderCodeInspectorPlayers(panel, fixtures){
@@ -13878,147 +13804,27 @@ function codeInspectorParticipantMark(slot, fixture){
 }
 
 function buildCodeInspectorFixture(fixture){
-  const row = document.createElement("article");
-  const expanded = codeInspectorExpandedFixtureIds.has(fixture.id);
-  row.className = `code-inspector-fixture${expanded ? " is-expanded" : ""}`;
-  row.dataset.inspectorFixtureId = fixture.id;
-  row.dataset.scrollKey = `inspector-fixture:${fixture.id}`;
-  row.tabIndex = 0;
-  row.setAttribute("role", "button");
-  row.setAttribute("aria-expanded", String(expanded));
-  const main = document.createElement("div");
-  const title = document.createElement("h4");
-  title.textContent = fixture.name || "Fixture TBC";
-  const participants = document.createElement("div");
-  participants.className = "code-inspector-participants";
-  const participantSlots = Array.isArray(fixture.participantSlots) && fixture.participantSlots.length
-    ? fixture.participantSlots
-    : [{ participantId: null, label: "Participants TBC" }];
-  participantSlots.forEach(slot => {
-    const label = slot.label || "TBC";
-    const participant = document.createElement("div");
-    participant.className = "code-inspector-participant";
-    const frame = document.createElement("span");
-    frame.className = "code-inspector-team-icon identity-frame";
-    frame.setAttribute("aria-hidden", "true");
-    const mark = codeInspectorParticipantMark(slot, fixture);
-    appendTeamIdentityFallback(frame, mark, label);
-    if (mark?.url || mark?.logo?.primary){
-      const logo = document.createElement("img");
-      logo.alt = "";
-      logo.width = 24;
-      logo.height = 24;
-      logo.loading = "lazy";
-      logo.decoding = "async";
-      logo.hidden = true;
-      applyTeamLogoAsset(logo, mark, "icon");
-      logo.addEventListener("error", () => logo.remove(), { once: true });
-      frame.appendChild(logo);
-    }
-    const name = document.createElement("span");
-    name.textContent = label;
-    participant.append(frame, name);
-    participants.appendChild(participant);
-  });
-  const detail = document.createElement("p");
-  detail.textContent = `${fixture.venue || "Venue TBC"}${fixture.broadcaster ? ` · ${fixture.broadcaster}` : ""}`;
-  main.append(title, participants, detail);
-  const expected = formatInspectorDetailsExpectedAt(fixture.detailsExpectedAt);
-  if (expected){
-    const note = document.createElement("p");
-    note.className = "code-inspector-tbc";
-    note.textContent = expected;
-    main.appendChild(note);
-  }
-  const timing = document.createElement("div");
-  timing.className = "code-inspector-fixture-time";
-  const date = document.createElement("div");
-  date.textContent = fixture.date || "TBC";
-  if (!fixture.date) date.className = "code-inspector-tbc";
-  const time = document.createElement("div");
-  time.textContent = fixture.time || "TBC";
-  if (!fixture.time) time.className = "code-inspector-tbc";
-  timing.append(date, time);
-  const snapshot = codeInspectorFixtureSnapshot(fixture);
-  let pin = null;
-  if (snapshot){
-    pin = document.createElement("button");
-    pin.type = "button";
-    pin.className = "event-quick-action code-inspector-feed-action";
-    const added = Boolean(getEventAction(snapshot).addedToFixtures);
-    pin.setAttribute("aria-pressed", String(added));
-    pin.textContent = added ? "Remove from Feed" : "Add to Feed";
-    pin.title = "Pin this one fixture to Feed without following either participant.";
-    pin.addEventListener("click", event => {
-      event.stopPropagation();
-      if (!setCodeInspectorFixtureAdded(fixture, !added)) return;
-      if (!added) recordCodeAffinity(fixture.codeId, "pin");
-      mutateWithScrollContinuity(row, renderCodeInspector);
-      showToast(added ? `${fixture.name} removed from Feed.` : `${fixture.name} added to Feed.`);
-    });
-  } else {
-    const statusStamp = document.createElement("span");
-    statusStamp.className = "code-inspector-status-stamp";
-    statusStamp.textContent = inspectorFixtureIsResult(fixture) ? "Finished" : "Time TBC";
-    timing.appendChild(statusStamp);
-  }
-  const side = document.createElement("div");
-  side.className = "code-inspector-fixture-side";
-  side.appendChild(timing);
-  if (pin) side.appendChild(pin);
-  row.append(main, side);
-  if (expanded){
-    const details = document.createElement("div");
-    details.className = "code-inspector-fixture-expanded";
-    const round = FOLLOW_FIRST?.stageLabel?.(fixture) || fixture.stage || fixture.roundLabel || "Stage TBC";
-    const roundLabel = document.createElement("strong");
-    roundLabel.textContent = round;
-    const sourceLabel = document.createElement("span");
-    sourceLabel.textContent = fixture.sourceCoverage === "official-canonical" ? "Official canonical fixture" : "Published fixture";
-    details.append(roundLabel, sourceLabel);
-    const viewing = FOLLOW_FIRST?.viewingLink?.(codeInspectorFixtureSnapshot(fixture) || fixture, userPreferences.followFirst?.subscriptions || []);
-    if (viewing){
-      const watch = document.createElement("a");
-      watch.className = "event-quick-action code-inspector-viewing-action";
-      configureProviderLaunch(watch, viewing);
-      const verb = viewing.liveOrReplay === "replay" ? "Replay" : "Watch";
-      watch.setAttribute("aria-label", `${verb} on ${viewing.label}`);
-      const prefix = document.createElement("span");
-      prefix.className = "viewing-action-prefix";
-      prefix.textContent = `${verb} on`;
-      watch.append(prefix, buildViewingProviderMark(viewing));
-      watch.addEventListener("click", event => event.stopPropagation());
-      details.appendChild(watch);
-    } else {
-      const unavailable = document.createElement("span");
-      unavailable.className = "code-inspector-status-stamp";
-      unavailable.textContent = "Viewing TBC";
-      details.appendChild(unavailable);
-    }
-    row.appendChild(details);
-  }
-  const toggle = () => {
-    const currentlyExpanded = codeInspectorExpandedFixtureIds.has(fixture.id);
-    if (!currentlyExpanded) recordCodeAffinity(fixture.codeId, "expand");
-    mutateWithScrollContinuity(row, () => {
-      if (currentlyExpanded) codeInspectorExpandedFixtureIds.delete(fixture.id);
-      else codeInspectorExpandedFixtureIds.add(fixture.id);
-      renderCodeInspector();
-    }, {
-      restoreFocus:true,
-      focusTarget:`[data-inspector-fixture-id="${CSS.escape(fixture.id)}"]`,
-    });
+  const slots=fixture.participantSlots || [];
+  const canonical=canonicalFeedFixtureForInspector(fixture);
+  const event=canonical || {...fixture,id:fixture.id,eventId:fixture.id,key:codeInspectorFixtureSportKey(fixture),
+    participantIds:slots.map(slot=>slot.participantId).filter(Boolean),
+    participants:slots.map(slot=>({id:slot.participantId,name:slot.label,displayName:slot.label,logoUrl:slot.logoUrl})),
+    status:inspectorFixtureIsResult(fixture)?'finished':fixture.status || 'scheduled',
+    stakesScore:fixture.stakesScore || (fixture.expected>=9?5:fixture.expected>=7?4:3)};
+  return buildEventCard(event,{mode:'schedule',inspectorFixture:fixture});
+}
+
+function appendSchedulePin(container,fixture,card){
+  const snapshot=codeInspectorFixtureSnapshot(fixture);
+  if(!snapshot)return;
+  const added=Boolean(getEventAction(snapshot).addedToFixtures);
+  const pin=document.createElement('button');pin.type='button';pin.className='event-quick-action code-inspector-feed-action';
+  pin.setAttribute('aria-pressed',String(added));pin.textContent=added?'Remove from Feed':'Add to Feed';
+  pin.onclick=event=>{event.stopPropagation();if(!setCodeInspectorFixtureAdded(fixture,!added))return;
+    if(!added)recordCodeAffinity(fixture.codeId,'pin');
+    mutateWithScrollContinuity(card,renderCodeInspector,{anchorStrategy:'target'});
   };
-  row.addEventListener("click", event => {
-    if (event.target.closest("a,button,input,select,textarea")) return;
-    toggle();
-  });
-  row.addEventListener("keydown", event => {
-    if (event.target !== row || !["Enter", " "].includes(event.key)) return;
-    event.preventDefault();
-    toggle();
-  });
-  return row;
+  container.appendChild(pin);
 }
 
 function codeInspectorStandingsSportKey(code){
@@ -14079,9 +13885,10 @@ function renderCodeInspector(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
   container.dataset.scrollList = "code-inspector";
+  renderCalendarSelectionToolbar(container);
   const code = codeInspectorManifest?.codes?.find(candidate => candidate.id === activeInspectorCodeId);
   if (!code){
-    container.innerHTML = '<div class="empty-state">Loading Standings &amp; Fixtures…</div>';
+    container.innerHTML = '<div class="empty-state">Loading Schedule…</div>';
     return;
   }
   const view = document.createElement("section");
@@ -14109,7 +13916,7 @@ function renderCodeInspector(){
   const back = document.createElement("button");
   back.type = "button";
   back.className = "btn ghost code-inspector-back";
-  back.textContent = "Back to Standings & Fixtures";
+  back.textContent = "Back to Follow";
   back.addEventListener("click", backFromCodeInspector);
   heading.append(headingMain, back);
   view.appendChild(heading);
@@ -14123,10 +13930,8 @@ function renderCodeInspector(){
   tabs.className = "code-inspector-tabs";
   tabs.setAttribute("role", "tablist");
   const tabDefinitions = [
-    ["all-fixtures", "Timetable"],
-    ["matches", "Matches"],
-    ["players", "Players"],
-    ["standings", "Standings"],
+    ["all-fixtures", "Schedule"],
+    ...(followHasStandings(code) ? [["standings", followStandingsLabel(code)]] : []),
   ];
   tabDefinitions.forEach(([value, label]) => {
     const tab = document.createElement("button");
@@ -14305,6 +14110,7 @@ function automaticEventFollowReason(ev){
   const eligibilityEvent = {
     ...ev,
     participantIds:eventParticipantIds,
+    participantCountryCodes:[...(ev.participantCountryCodes || []), ...cardIdentityParticipants().filter(p=>eventParticipantIdSet.has(p.id)).flatMap(p=>[p.countryCode,p.nationalityCode,p.isAustralian?'AU':null,p.metadata?.countryCode])].filter(Boolean),
     stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(ev)),
   };
   return FOLLOW_FIRST?.reasonForEvent?.(eligibilityEvent, userPreferences, {
@@ -14336,6 +14142,7 @@ function eventFollowReason(ev){
   if (followLevels.some(level => level === "follow" || level === "priority")){
     return { type:"entity-follow", entityKind:"participant", id:null, label:null, displayTag:false };
   }
+  if ((userPreferences.followFirst?.australiansOnlySportIds || []).some(id=>selectorEntityIsEffectivelySelected(id,userPreferences)&&selectorEntityMatchesEvent(id,ev))) return null;
   const explicitlyCompleteSport = ev?.key === "aflw" && eventDomainPreferences(ev)
     .some(preference => preference?.enabled !== false && preference?.includeAllFixtures === true);
   if (explicitlyCompleteSport && eventMeetsCoveragePreference(ev)){
@@ -14553,6 +14360,7 @@ function eventMeetsCoveragePreference(ev){
 }
 
 function eventMeetsDerivedRetention(ev, reference = nowAEST()){
+  if((ev.date || ev.startDate)===NOTHINGSPORTS_CALENDAR.sydneyDay(reference))return true;
   const effectiveReference = reference && typeof reference.getTime === "function" && Number.isFinite(reference.getTime())
     ? new Date(reference.getTime())
     : nowAEST();
@@ -14562,6 +14370,7 @@ function eventMeetsDerivedRetention(ev, reference = nowAEST()){
 }
 
 function eventIsAutoArchived(ev, reference = nowAEST()){
+  if((ev.date || ev.startDate)===NOTHINGSPORTS_CALENDAR.sydneyDay(reference))return false;
   const effectiveReference = reference && typeof reference.getTime === "function" && Number.isFinite(reference.getTime())
     ? new Date(reference.getTime())
     : nowAEST();
@@ -14993,6 +14802,182 @@ function buildCompactResult(ev, displayTitle = ""){
   return wrap;
 }
 
+const calendarChoice = {active:false, mode:'import', included:new Set(), excluded:new Set(), refs:new Map(), subscription:null, owner:null, busy:false};
+function calendarEvent(event){
+  if(event.majorEventMarker || event.majorEventId && !event.date){
+    return majorEventsDocument?.events?.find(record=>record.id===(event.majorEventId || event.majorEventMarker)) || event;
+  }
+  return event;
+}
+function calendarAutomaticallyIncluded(event){
+  if(event.kind==='major_event' || event.kind==='tournament')return Boolean(MAJOR_EVENTS?.followed(event,majorEventVisibilityPreferences()) || userPreferences.followFirst.followedMajorEventIds.includes(MAJOR_EVENTS?.eventFamilyId(event)));
+  return Boolean(eventFollowReason(event));
+}
+function calendarIsSelected(event){
+  const id=NOTHINGSPORTS_CALENDAR.idFor(event);
+  return !calendarChoice.excluded.has(id) && (calendarChoice.included.has(id) || calendarChoice.mode==='subscription' && calendarAutomaticallyIncluded(event));
+}
+function calendarSetSelected(event,selected){
+  event=calendarEvent(event);const id=NOTHINGSPORTS_CALENDAR.idFor(event);calendarChoice.refs.set(id,event);
+  if(selected){calendarChoice.excluded.delete(id);calendarChoice.included.add(id);}
+  else{calendarChoice.included.delete(id);calendarChoice.excluded.add(id);}
+}
+function appendCalendarChoice(card,input){
+  if(!calendarChoice.active)return;
+  const event=calendarEvent(input),id=NOTHINGSPORTS_CALENDAR.idFor(event);
+  calendarChoice.refs.set(id,event);
+  const label=document.createElement('label');label.className='calendar-select-label';
+  const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.checked=calendarIsSelected(event);checkbox.disabled=!NOTHINGSPORTS_CALENDAR.knownDate(event);checkbox.dataset.calendarId=id;
+  checkbox.setAttribute('aria-label',`Select ${event.name || event.title} for calendar`);
+  checkbox.onchange=()=>{calendarSetSelected(event,checkbox.checked);refreshCalendarChoiceCounts();};
+  label.append(checkbox,document.createTextNode(checkbox.disabled?'Dates TBC': 'Calendar'));card.prepend(label);
+}
+function calendarMatchingEvents(){
+  if(activeInspectorCodeId){
+    const code=codeInspectorChunk?.code;
+    const fixtures=(codeInspectorChunk?.fixtures || []).filter(inspectorFixtureMatchesTab);
+    const labels=[...new Set(fixtures.map(fixture=>codeInspectorGroupLabel(fixture,code?.groupingMode)))].sort((a,b)=>FOLLOW_FIRST.compareFixtureGroupLabels(a,b));
+    const matching=new Set(labels.slice(Math.max(0,labels.indexOf(codeInspectorGroup))));
+    return fixtures.filter(fixture=>matching.has(codeInspectorGroupLabel(fixture,code?.groupingMode))).map(fixture=>canonicalFeedFixtureForInspector(fixture) || {...fixture,eventId:fixture.id,key:codeInspectorFixtureSportKey(fixture)});
+  }
+  if(activeTab==='events'){
+    const visible=MAJOR_EVENTS?.visibleRecords(majorEventsDocument,majorEventVisibilityPreferences(),nowAEST());
+    return visible?.[eventsViewTab==='ticket-alerts'?'alerts':'events'] || [];
+  }
+  return mergeMainFeedSpecialEvents(getFilteredEvents()).map(calendarEvent);
+}
+function refreshCalendarChoiceCounts(){
+  const events=NOTHINGSPORTS_CALENDAR.uniqueEvents([...calendarChoice.refs.values()]);
+  const count=events.filter(event=>NOTHINGSPORTS_CALENDAR.knownDate(event)&&calendarIsSelected(event)).length;
+  document.querySelectorAll('[data-calendar-count]').forEach(node=>node.textContent=`${count} selected${calendarChoice.mode==='subscription'?' · followed fixtures included automatically':''}`);
+  document.querySelectorAll('[data-calendar-id]').forEach(node=>{const event=calendarChoice.refs.get(node.dataset.calendarId);if(event)node.checked=calendarIsSelected(event);});
+}
+function renderCalendarSelectionToolbar(container){
+  if(!calendarChoice.active)return;
+  const bar=document.createElement('div');bar.className='calendar-selection-toolbar';bar.setAttribute('aria-label','Calendar selection');
+  const count=document.createElement('span');count.dataset.calendarCount='';count.setAttribute('role','status');bar.appendChild(count);
+  for(const [label,selected] of [['Select all matching',true],['Unselect all matching',false]]){
+    const button=document.createElement('button');button.type='button';button.className='btn ghost';button.textContent=label;
+    button.onclick=async()=>{
+      if(calendarChoice.busy)return;calendarChoice.busy=true;button.disabled=true;button.textContent='Loading all matching fixtures…';
+      try{
+        if(activeTab==='feed'&&!activeInspectorCodeId){
+          while(serverFeedNextCursor!==null || publicFeedManifest?.pages?.[publicFeedNextPageIndex]){
+            if(!await loadNextFeedPage())throw new Error('Could not load every page. Please retry bulk selection.');
+          }
+        }
+        for(const event of NOTHINGSPORTS_CALENDAR.uniqueEvents(calendarMatchingEvents()))if(NOTHINGSPORTS_CALENDAR.knownDate(event))calendarSetSelected(event,selected);
+        renderAll({preserveViewport:true});refreshCalendarChoiceCounts();
+      }catch(error){showToast(error.message);}finally{calendarChoice.busy=false;button.disabled=false;button.textContent=label;}
+    };bar.appendChild(button);
+  }
+  const review=document.createElement('button');review.type='button';review.className='btn primary';review.textContent='Review calendar';review.onclick=()=>showCalendarDialog();bar.appendChild(review);
+  const done=document.createElement('button');done.type='button';done.className='btn ghost';done.textContent='Done selecting';done.onclick=()=>{calendarChoice.active=false;renderAll({preserveViewport:true});};bar.appendChild(done);
+  container.appendChild(bar);queueMicrotask(refreshCalendarChoiceCounts);
+}
+async function showCalendarDialog(){
+  const owner=serverSyncClient?.sessionSubject() || null;
+  if(calendarChoice.owner!==owner){calendarChoice.owner=owner;calendarChoice.subscription=null;calendarChoice.included.clear();calendarChoice.excluded.clear();calendarChoice.refs.clear();calendarChoice.mode='import';}
+  document.getElementById('calendarSyncDialog')?.remove();
+  const dialog=document.createElement('dialog');dialog.id='calendarSyncDialog';dialog.className='calendar-dialog';dialog.setAttribute('aria-labelledby','calendarSyncTitle');
+  dialog.innerHTML='<h2 id="calendarSyncTitle">Calendar sync</h2><p>Choose games from Feed, Events or a sport’s Schedule. Dates TBC cannot be added.</p>';
+  const actions=document.createElement('div');actions.className='calendar-actions';
+  const status=document.createElement('p');status.setAttribute('role','status');
+  function button(label,action,primary=false){const b=document.createElement('button');b.type='button';b.className=`btn ${primary?'primary':'ghost'}`;b.textContent=label;b.onclick=async()=>{b.disabled=true;try{await action();}catch(error){status.textContent=error.message || 'Calendar request failed. Please retry.';}finally{b.disabled=false;}};actions.appendChild(b);return b;}
+  button('One-off import',()=>{calendarChoice.mode='import';renderOptions();});
+  button('Calendar subscription',async()=>{
+    if(!serverSyncClient?.sessionSubject()){status.textContent='Sign in to keep a private subscription and its choices across devices.';return;}
+    const result=await serverSyncClient.calendarRequest();calendarChoice.mode='subscription';calendarChoice.subscription=result.subscription;
+    calendarChoice.included=new Set(result.subscription?.included_ids || []);calendarChoice.excluded=new Set(result.subscription?.excluded_ids || []);renderOptions();
+  });
+  button('Close',()=>dialog.close());dialog.append(actions,status);
+  const options=document.createElement('div');dialog.appendChild(options);
+  function renderOptions(){
+    options.replaceChildren();status.textContent='';
+    const info=document.createElement('p');info.textContent=calendarChoice.mode==='subscription'?'Followed fixtures are included automatically. Select or exclude individual games without changing follows. Your private URL stays the same when choices change. Calendar apps apply updates and removals when they refresh.':'One-off import downloads an ICS file. Imported entries do not receive later time changes or cancellations.';options.appendChild(info);
+    const count=document.createElement('p');count.dataset.calendarCount='';options.appendChild(count);
+    const controls=document.createElement('div');controls.className='calendar-actions';options.appendChild(controls);
+    const choose=document.createElement('button');choose.type='button';choose.className='btn primary';choose.textContent='Select fixtures';choose.onclick=()=>{calendarChoice.active=true;dialog.close();renderAll({preserveViewport:true});};controls.appendChild(choose);
+    const save=document.createElement('button');save.type='button';save.className='btn primary';save.textContent=calendarChoice.mode==='subscription'?'Save subscription':'Download ICS';
+    save.onclick=async()=>{
+      save.disabled=true;try{
+        if(calendarChoice.mode==='subscription'){
+          if(!serverSyncClient?.sessionSubject())throw new Error('Sign in before creating a subscription.');
+          await syncCurrentServerState();
+          const result=await serverSyncClient.calendarRequest({method:'POST',body:JSON.stringify({includedIds:[...calendarChoice.included],excludedIds:[...calendarChoice.excluded],updatedAt:calendarChoice.subscription?.updated_at || null})});
+          calendarChoice.subscription=result.subscription;renderOptions();status.textContent='Subscription saved. Calendar apps refresh on their own schedule.';
+        }else{
+          const events=[...calendarChoice.refs.values()].filter(event=>calendarIsSelected(event)&&NOTHINGSPORTS_CALENDAR.knownDate(event));
+          if(!events.length)throw new Error('Select at least one dated fixture first.');
+          const url=URL.createObjectURL(new Blob([NOTHINGSPORTS_CALENDAR.buildIcs(events)],{type:'text/calendar;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='nothing-sport.ics';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status.textContent='ICS downloaded. Open it in your calendar app to import.';
+        }
+      }catch(error){status.textContent=error.message;}finally{save.disabled=false;}
+    };controls.appendChild(save);
+    if(calendarChoice.mode==='subscription' && calendarChoice.subscription){
+      const url=new URL('/api/calendar',location.origin);url.searchParams.set('token',calendarChoice.subscription.token);
+      const privacy=document.createElement('p');privacy.textContent='Keep this URL private: anyone with it can read your selected fixtures.';options.appendChild(privacy);
+      const field=document.createElement('textarea');field.readOnly=true;field.value=url.href;field.setAttribute('aria-label','Private calendar subscription URL');options.appendChild(field);
+      const subscribe=document.createElement('a');subscribe.className='btn ghost';subscribe.href=url.href.replace(/^https?:/,'webcal:');subscribe.textContent='Open in calendar';controls.appendChild(subscribe);
+      const copy=document.createElement('button');copy.type='button';copy.className='btn ghost';copy.textContent='Copy URL';copy.onclick=()=>navigator.clipboard.writeText(url.href).then(()=>{status.textContent='Private URL copied. In Google Calendar, use Other calendars → From URL.';}).catch(()=>{field.focus();field.select();status.textContent='Select and copy the URL above.';});controls.appendChild(copy);
+      const revoke=document.createElement('button');revoke.type='button';revoke.className='btn ghost';revoke.textContent='Revoke subscription';revoke.onclick=async()=>{revoke.disabled=true;try{await serverSyncClient.calendarRequest({method:'DELETE'});calendarChoice.subscription=null;renderOptions();status.textContent='Private URL revoked. Remove the old subscription from your calendar app.';}catch(error){status.textContent=error.message;revoke.disabled=false;}};controls.appendChild(revoke);
+    }
+    if(!serverSyncClient?.sessionSubject()){const signIn=document.createElement('button');signIn.type='button';signIn.className='btn ghost';signIn.textContent='Sign in';signIn.onclick=()=>{dialog.close();openSettings({section:'account'});};controls.appendChild(signIn);}
+    refreshCalendarChoiceCounts();
+  }
+  document.body.appendChild(dialog);renderOptions();dialog.showModal();dialog.addEventListener('close',()=>dialog.remove(),{once:true});
+}
+
+function bindCardCycle(card, activate){
+  card._activateCard=activate;
+  card.tabIndex=0;
+  card.setAttribute('aria-keyshortcuts','Enter Space');
+  let pointer=null;
+  card.addEventListener('pointerdown',event=>{pointer={x:event.clientX,y:event.clientY,scroll:window.scrollY};},{passive:true});
+  card.addEventListener('click',event=>{
+    if(event.target.closest('a,button,input,select,textarea,label,summary,[contenteditable="true"],[role="button"]'))return;
+    if(window.getSelection()?.toString())return;
+    if(pointer && (Math.abs(event.clientX-pointer.x)>8 || Math.abs(event.clientY-pointer.y)>8 || Math.abs(window.scrollY-pointer.scroll)>8))return;
+    event.currentTarget._activateCard?.();
+  });
+  card.addEventListener('keydown',event=>{
+    if(event.target!==event.currentTarget || !['Enter',' '].includes(event.key))return;
+    event.preventDefault();event.currentTarget._activateCard?.({restoreFocus:true});
+  });
+}
+function buildCompactCardSummary(ev){
+  const summary=document.createElement('div');summary.className='compact-card-summary';
+  const icon=document.createElement('span');icon.className='compact-card-icon';
+  renderEventIdentityMark(icon,ev,sportMetaForEvent(ev));
+  const text=document.createElement('div');text.className='compact-card-copy';
+  const title=document.createElement('strong');title.textContent=spoilerSafeDisplayTitle(ev);
+  const time=document.createElement('span');time.textContent=`${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
+  const stakes=document.createElement('span');stakes.className='compact-card-stakes';stakes.setAttribute('aria-label',`Stakes ${Number(ev.stakesScore)||0} of 5`);
+  stakes.innerHTML=Array.from({length:Math.min(5,Math.max(0,Number(ev.stakesScore)||0))},()=>glyphMarkup('ui:flame',{preferImage:true})).join('');
+  text.append(title,time);summary.append(icon,text,stakes);return summary;
+}
+function feedClockKey(){
+  return `${NOTHINGSPORTS_CALENDAR.sydneyDay()}|${activeEvents.map(ev=>`${ev.eventId || ev.id}:${getEventStatus(ev)}`).join('|')}`;
+}
+let previousFeedClockKey='';
+function refreshFeedClock(){
+  if(activeTab!=='feed' || activeView!=='list' || activeInspectorCodeId || startupCoordinator.isHydrating())return;
+  const next=feedClockKey();
+  if(next!==previousFeedClockKey){previousFeedClockKey=next;queueScrollIdleMutation(()=>renderAll({preserveViewport:true}));}
+  document.getElementById('calendarNowAnchor')?.setAttribute('aria-label',`Now ${new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',hour:'numeric',minute:'2-digit'}).format(new Date())}`);
+}
+function buildFeedNowMarker(){
+  const marker=document.createElement('div');marker.id='calendarNowAnchor';marker.className='events-now-marker is-active feed-now-marker';marker.textContent='Now';marker.setAttribute('role','separator');marker.setAttribute('aria-label','Now: live and upcoming fixtures');return marker;
+}
+function renderFeedViewActions(container){
+  const bar=document.createElement('div');bar.className='feed-view-actions';
+  const compact=document.createElement('button');compact.type='button';compact.className='btn ghost';compact.textContent='Compact';compact.setAttribute('aria-pressed',String(Boolean(userPreferences.feedCompact)));
+  compact.onclick=()=>{const next=clonePreferences(userPreferences);next.feedCompact=!next.feedCompact;cardViewStates={};savePreferences(next);renderAll({preserveViewport:true});};
+  const now=document.createElement('button');now.type='button';now.className='btn ghost';now.textContent='Now';now.setAttribute('aria-label','Jump to Now');
+  now.onclick=()=>{const anchor=document.getElementById('calendarNowAnchor');if(anchor)window.scrollTo({top:Math.max(0,window.scrollY+anchor.getBoundingClientRect().top-stickyFeedChromeHeight()-14),behavior:'smooth'});};
+  const today=document.createElement('button');today.type='button';today.className='btn ghost';today.textContent='Today';today.setAttribute('aria-label','Jump to Today');today.onclick=()=>scrollActiveFeedToInitialAnchor({behavior:'smooth'});
+  bar.setAttribute('aria-label','Feed view and timeline controls');bar.append(compact,today,now);container.appendChild(bar);
+}
+
 function nextCardState(current){
   if (current === "compact") return "selected";
   if (current === "selected") return "opened";
@@ -15000,7 +14985,7 @@ function nextCardState(current){
 }
 
 function nextFeedCardState(current){
-  return current === "compact" ? "opened" : "compact";
+  return nextCardState(current);
 }
 
 function cardLevelForState(state){
@@ -15008,17 +14993,12 @@ function cardLevelForState(state){
 }
 
 function cardStateForEvent(ev){
-  return cardViewStates[ev.eventId || ev.id] || "compact";
+  return cardViewStates[ev.eventId || ev.id] || (userPreferences.feedCompact && activeTab === "feed" ? "compact" : "selected");
 }
 
 function setCardState(ev, state){
   const eventId = ev.eventId || ev.id;
   const next = { ...cardViewStates };
-  if (state === "compact"){
-    delete next[eventId];
-    cardViewStates = next;
-    return;
-  }
   next[eventId] = state;
   cardViewStates = next;
 }
@@ -15085,6 +15065,7 @@ function patchElementInPlace(element, replacement){
   if (!element || !replacement || element.tagName !== replacement.tagName) return false;
   preserveStableDescendants(element, replacement);
   syncElementAttributes(element, replacement);
+  if (replacement._activateCard) element._activateCard = replacement._activateCard;
   element.replaceChildren(...replacement.childNodes);
   finalizeLoadedIdentityImages(element);
   return true;
@@ -15910,7 +15891,7 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
     const unavailable = document.createElement("span");
     unavailable.className = "event-quick-action viewing-tbc";
     unavailable.setAttribute("aria-label", "Viewing provider to be confirmed");
-    unavailable.textContent = "Viewing TBC";
+    unavailable.textContent = "Australian viewing unconfirmed";
     actions.appendChild(unavailable);
   }
   container.appendChild(actions);
@@ -15971,7 +15952,7 @@ function buildEventCardControls(ev, { card = null, eventsOnly = activeTab === "e
     restoreEventCardControlFocus(card, "minimise");
   });
   const expanded = !action.isMinimised && cardStateForEvent(viewStateEvent) === "opened";
-  const expand = control("expand", "Expand", expanded, () => {
+  const expand = control("expand", expanded ? "Collapse" : "Maximise", expanded, () => {
     const opening = cardStateForEvent(viewStateEvent) !== "opened";
     if (opening){
       const eventId = String(ev.eventId || ev.id);
@@ -15979,7 +15960,7 @@ function buildEventCardControls(ev, { card = null, eventsOnly = activeTab === "e
       sessionOpenedEventIds.add(eventId);
     }
     updateEventAction(ev, { isMinimised:false });
-    setCardState(viewStateEvent, opening ? "opened" : "compact");
+    setCardState(viewStateEvent, opening ? "opened" : "selected");
     restoreEventCardControlFocus(card, "expand");
   });
   expand.setAttribute("aria-expanded", String(expanded));
@@ -16739,11 +16720,15 @@ function nothingscoreActionLabelForEvent(ev){
 function buildEventNothingscoreAction(ev){
   const button = document.createElement("button");
   const eventId = nothingscoreEventId(ev);
+  const submitted = nothingscoreSubmissionIsSealed(ev);
   nothingscoreEventRefs.set(eventId,ev);
   button.type = "button";
   button.className = "btn ghost nsc-card-action";
   button.dataset.nscEventId = eventId;
-  button.classList.toggle("is-submitted", nothingscoreSubmissionIsSealed(ev));
+  button.classList.toggle("is-submitted", submitted);
+  button.disabled = submitted;
+  button.setAttribute("aria-pressed", String(submitted));
+  button.setAttribute("aria-live", "polite");
   button.textContent = nothingscoreActionLabelForEvent(ev);
   button.addEventListener("click", event => { event.stopPropagation(); void openNothingscoreContribution(ev); });
   return button;
@@ -16765,7 +16750,7 @@ function buildEventCard(ev, options = {}){
   // Interaction stays consistent while derived variants control visual weight.
   const expandable = mode !== "premium-rail";
   const storedState = expandable ? cardStateForEvent(ev) : "compact";
-  const state = storedState === "compact" ? "compact" : "opened";
+  const state = storedState;
   const importanceColor = importanceColorForEvent(ev);
   const spoilerVisible = isSpoilerVisible(ev);
   const displayedResult = status === "past" ? buildCompactResult(ev, displayTitle) : null;
@@ -16778,6 +16763,7 @@ function buildEventCard(ev, options = {}){
   const isMinimised = Boolean(action.isMinimised);
   const card = document.createElement("article");
   const interactionCard = options.interactionCard || card;
+  appendCalendarChoice(card,ev);
   card.className = [
     "event-card",
     matchupIdentity ? "is-logo-led-matchup" : "",
@@ -16795,6 +16781,7 @@ function buildEventCard(ev, options = {}){
     ["adjacent", "discovery"].includes(recommendationProfile.classification) ? "is-discovery" : "",
     isMinimised ? "is-event-minimised" : "",
   ].filter(Boolean).join(" ");
+  if(options.inspectorFixture)card.dataset.inspectorFixtureId=options.inspectorFixture.id;
   card.dataset.eventId = ev.eventId || ev.id;
   card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`;
   card.dataset.cardState = isMinimised ? "minimised" : state;
@@ -16814,6 +16801,18 @@ function buildEventCard(ev, options = {}){
       eventsOnly:activeTab === "events" || mode === "events",
       displayLabel:displayTitle,
     }));
+  }
+  if (expandable) bindCardCycle(card, ({restoreFocus=false}={}) => {
+    updateEventAction(ev, {isMinimised:false});
+    setCardState(ev, nextCardState(cardStateForEvent(ev)));
+    refreshExpandableCard(interactionCard, buildEventCard(ev, {...options, interactionCard}), {restoreFocus,focusTarget:interactionCard});
+  });
+  card.dataset.cardLevel = cardLevelForState(state);
+  card.setAttribute("aria-expanded", String(state !== "compact" && !isMinimised));
+  if ((state === "compact" || isMinimised) && expandable){
+    card.classList.add("is-compact-row");
+    card.appendChild(buildCompactCardSummary(ev));
+    return card;
   }
   if (!matchupIdentity){
     const icon = document.createElement("div");
@@ -16839,18 +16838,19 @@ function buildEventCard(ev, options = {}){
   dateLine.appendChild(dateChip);
   const timingChip = buildEventTimingStateChip(ev, timingState);
   if (timingChip) dateLine.appendChild(timingChip);
-  if (!matchupIdentity) nameWrap.appendChild(dateLine);
+
 
   const primaryActions = document.createElement("div");
   primaryActions.className = "event-card-primary-actions";
   const ticketOffer = preferredTicketOfferForEvent(ev, { surface: "fixture", localVenueMatched: localGame });
   appendEventQuickActions(primaryActions, ev, { viewing:false });
-  nameWrap.appendChild(primaryActions);
+  if(options.inspectorFixture)appendSchedulePin(primaryActions,options.inspectorFixture,interactionCard);
+
 
   const viewingActions = document.createElement("div");
   viewingActions.className = "event-card-viewing-actions";
   appendEventQuickActions(viewingActions, ev, { reminder:false, chat:false });
-  nameWrap.appendChild(viewingActions);
+
   const nameLine = document.createElement("div");
   nameLine.className = "event-name-line";
   if (matchupIdentity) nameLine.classList.add("matchup-visual-title-hidden");
@@ -16868,7 +16868,7 @@ function buildEventCard(ev, options = {}){
     nameWrap.appendChild(competition);
   }
   if (displayedResult) nameWrap.appendChild(displayedResult);
-  if (matchupIdentity && dateLine) nameWrap.appendChild(dateLine);
+  nameWrap.append(dateLine, viewingActions, primaryActions);
   topRow.appendChild(nameWrap);
 
   mainDiv.appendChild(topRow);
@@ -17556,7 +17556,7 @@ function appendFeedPageToCurrentList(incomingEvents){
     const id = event?.canonicalEventId || event?.eventId || event?.id;
     return incomingIds.has(id) && !getEventAction(event).archived && !getEventAction(event).dismissed && !eventIsAutoArchived(event);
   });
-  if (additions.some(event => String(event.date || "") < todayStr)) return false;
+  if (additions.some(event => String(event.date || "") <= todayStr)) return false;
   container.querySelector(".feed-page-sentinel")?.remove();
   const groups = groupEventsByDate(additions);
   Object.keys(groups).sort().forEach(dateStr => {
@@ -17621,6 +17621,8 @@ function renderListView(){
   container.className = "";
   container.innerHTML = "";
   container.dataset.scrollList = "feed";
+  renderCalendarSelectionToolbar(container);
+  renderFeedViewActions(container);
   const focusedBanner = buildFocusedDiscoveryBanner(activeFilter);
   if (focusedBanner) container.appendChild(focusedBanner);
   let baseFiltered = mergeMainFeedSpecialEvents(getFilteredEvents());
@@ -17639,17 +17641,13 @@ function renderListView(){
     temporaryTodayMoreEvents(filtered, todayStr).forEach(event => merged.set(String(event.eventId || event.id), event));
     filtered = orderSurfacedEvents([...merged.values()]);
   }
-  const timeline = PERSONALISED_FEED?.splitTimeline?.(filtered, getEventAction, nowAEST()) || {
-    retainedPast: filtered.filter(event => getEventStatus(event) === "past"),
-    today: filtered.filter(event => event.date === todayStr),
-    future: filtered.filter(event => event.date > todayStr),
-  };
+  const timeline = NOTHINGSPORTS_FEED_TIMELINE.groups(filtered,nowAEST());
   const boundaryPresentation = PERSONALISED_FEED?.timelineBoundaryPresentation?.(timeline, nowAEST()) || {
     todayCopy:timeline.today.length ? "Today" : "Nothing else today",
     nextDateBadge:"",
   };
-  const appendDateGroups = (events, { future = false } = {}) => {
-    const groups = groupEventsByDate(events);
+  const appendDateGroups = (events, { future = false, today = false } = {}) => {
+    const groups = today ? {[todayStr]:events} : groupEventsByDate(events);
     Object.keys(groups).sort().forEach((dateStr, groupIndex) => {
       const groupDiv = document.createElement("div");
       groupDiv.className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`;
@@ -17667,11 +17665,16 @@ function renderListView(){
       }
       const grid = document.createElement("div");
       grid.className = "cards-grid";
-      orderCuratedDayEvents(groups[dateStr]).forEach(event => {
+      const ordered=sortedChrono(groups[dateStr]);
+      const dayEvents=dateStr===todayStr ? [...ordered.filter(ev=>getEventStatus(ev)==="past"),...ordered.filter(ev=>getEventStatus(ev)!=="past")] : ordered;
+      let nowInserted=false;
+      dayEvents.forEach(event => {
+        if(dateStr===todayStr && !nowInserted && getEventStatus(event)!=="past"){grid.appendChild(buildFeedNowMarker());nowInserted=true;}
         const card = event.majorEventMarker ? buildMajorEventMarker(event) : buildEventCard(event);
         card.dataset.feedEventId = String(event?.canonicalEventId || event?.eventId || event?.id || "");
         grid.appendChild(card);
       });
+      if(dateStr===todayStr && !nowInserted)grid.appendChild(buildFeedNowMarker());
       groupDiv.appendChild(heading);
       if (dateStr === todayStr) appendTodayFallback(groupDiv, baseFiltered, todayStr);
       groupDiv.appendChild(grid);
@@ -17700,8 +17703,8 @@ function renderListView(){
     todayAnchorInserted = true;
   };
 
-  if (todayEvents.length) appendDateGroups(todayEvents);
-  else appendTodayAnchor();
+  if (todayEvents.length) appendDateGroups(todayEvents,{today:true});
+  else {appendTodayAnchor();container.appendChild(buildFeedNowMarker());}
   appendDateGroups(timeline.future, { future:true });
   appendFocusedArchiveRecovery(container, focusedArchived);
   if (!filtered.length && !focusedArchived.length){
@@ -17728,10 +17731,7 @@ function renderStartupFeedLoading(){
 }
 
 function formatDateKey(dt){
-  const y = dt.getFullYear();
-  const m = String(dt.getMonth()+1).padStart(2,"0");
-  const d = String(dt.getDate()).padStart(2,"0");
-  return `${y}-${m}-${d}`;
+  return NOTHINGSPORTS_CALENDAR.sydneyDay(dt);
 }
 
 function activeTodayAnchorId(){
@@ -17782,7 +17782,7 @@ function syncContextualJumpButton(){
   if (!button) return;
   const feedTimeline = activeTab === "feed" && activeView === "list" && !activeSportHubKey();
   const eventsTimeline = activeTab === "events" && eventsViewTab === "major-events";
-  if (activeInspectorCodeId || (!feedTimeline && !eventsTimeline)){
+  if (feedTimeline || activeInspectorCodeId || (!feedTimeline && !eventsTimeline)){
     button.hidden = true;
     return;
   }
@@ -19158,6 +19158,7 @@ function buildFootballClubRow(team, league, players, expanded, sportKey = "footb
     }, {
       restoreFocus:true,
       focusTarget:`[data-directory-team-id="${CSS.escape(team.id)}"] .football-club-expand`,
+      anchorStrategy:"target",
     });
   });
   head.append(crest, copy, follow, expander);
@@ -19492,7 +19493,17 @@ function saveFollowSport(sport, followed){
   const next = clonePreferences(userPreferences);
   const selected = new Set(next.selectedSelectorEntityIds || []);
   if (followed) selected.add(sport.selectorId);
-  else selected.delete(sport.selectorId);
+  else {
+    const entity=selectorEntityById(sport.selectorId);
+    if(selected.has('category:sports')){selected.delete('category:sports');BASE_SPORT_SELECTOR_ENTITIES.filter(item=>item.level===2).forEach(item=>selected.add(item.id));}
+    if(entity?.parentId && selected.has(entity.parentId)){
+      selected.delete(entity.parentId);
+      (selectorEntityById(entity.parentId)?.childIds || []).filter(id=>id!==entity.id).forEach(id=>selected.add(id));
+    }
+    selected.delete(sport.selectorId);
+    (entity?.childIds || []).forEach(id=>selected.delete(id));
+    next.followFirst.australiansOnlySportIds = (next.followFirst.australiansOnlySportIds || []).filter(id => id !== sport.selectorId);
+  }
   next.selectedSelectorEntityIds = Array.from(selected);
   next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
   savePreferences(next);
@@ -19595,176 +19606,125 @@ function renderTennisFollowCollections(container){
   return panel;
 }
 
+function followBrowseState(){
+  return userPreferences.followBrowse || {sportId:'sport:afl', categoryId:'', section:'teams-players', page:0};
+}
+function saveFollowBrowse(patch){
+  const next=clonePreferences(userPreferences);
+  next.followBrowse={...followBrowseState(),...patch};
+  savePreferences(next);
+}
+function followSelectedEntity(){
+  const state=followBrowseState();
+  return selectorEntityById(state.categoryId || state.sportId) || BASE_SPORT_SELECTOR_ENTITIES[0];
+}
+function followDirectoryKey(entity=followSelectedEntity()){
+  const root=selectorEntityById(entity.parentId);
+  if (entity.id==='sport:aflw') return 'aflw';
+  return (root?.level===2 ? root : entity).id.replace(/^sport:/,'');
+}
+function followInspectorCode(entity=followSelectedEntity()){
+  const aliases={'sport:afl-premiership':'sport:afl','sport:rugby':'sport:rugby-union','sport:nba':'sport:basketball'};
+  return codeInspectorManifest?.codes.find(code=>code.id===(aliases[entity.id] || entity.id))
+    || codeInspectorManifest?.codes.find(code=>code.id===(aliases[entity.parentId] || entity.parentId));
+}
+function followStandingsLabel(code){
+  return ['afl','aflw','nrl','rugby-union','netball'].includes(code?.slug) ? 'Ladder' : 'Standings';
+}
+const followStandingsAvailability=new Map();
+const followStandingsLoading=new Set();
+function followHasStandings(code){
+  if (!code) return false;
+  return followStandingsAvailability.get(code.id)===true || Boolean(codeInspectorChunk?.code?.id===code.id && codeInspectorChunk.standings?.length)
+    || (CANONICAL_TAXONOMY.competitions || []).some(competition=>competition.supportsLadder && standingsSportKey(competition)===codeInspectorStandingsSportKey(code));
+}
+async function openFollowScreen(section){
+  const entity=followSelectedEntity();
+  await loadCodeInspectorManifest();
+  const code=followInspectorCode(entity);
+  if (!code) {showToast('No published schedule for this category yet.');return;}
+  const open=()=>openCodeInspector(code.id,{startingTab:section==='standings'?'standings':'all-fixtures'});
+  if (section==='standings') confirmStandingsReveal(open); else void open();
+}
 function renderFollowView(){
-  const container = document.getElementById("listView");
-  container.innerHTML = "";
-  container.className = "follow-view";
-  container.dataset.scrollList = "follow";
-  const head = document.createElement("header");
-  head.className = "follow-view-head";
-  const headCopy = document.createElement("div");
-  const title = document.createElement("h2");
-  title.textContent = "Follow";
-  const detail = document.createElement("p");
-  detail.textContent = "Automatic Feed cards come from your follows and Australian national representation. Dismiss removes that exact card. You can undo a dismissal without changing your follows.";
-  headCopy.append(title, detail);
-  if (userPreferences.followFirst.refinement.deferred && !userPreferences.followFirst.refinement.completedAt){
-    const notice = document.createElement("span");
-    notice.className = "follow-reason-tag";
-    notice.textContent = "Finish setup";
-    head.append(headCopy, notice);
-  } else head.appendChild(headCopy);
-  container.appendChild(head);
-
-  const entityFollows = (userPreferences.preferenceGraph?.entityFollows || [])
-    .filter(follow => ["follow", "priority"].includes(follow.followLevel));
-  const summary = document.createElement("div");
-  summary.className = "follow-summary";
-  summary.innerHTML = `<strong>${entityFollows.length} team/player follow${entityFollows.length === 1 ? "" : "s"}</strong><span>${userPreferences.followedSports.length} sports</span><span data-follow-summary="event-families">${userPreferences.followFirst.followedMajorEventIds.length} event families</span>`;
-  container.appendChild(summary);
-
-  const sectionTabs = document.createElement("div");
-  sectionTabs.className = "follow-section-tabs";
-  sectionTabs.setAttribute("role", "tablist");
-  [["teams-players", "Teams & Players"], ["sports-australia", "Sports & Australia"], ["major-events", "Major Events"]].forEach(([value, label]) => {
-    const tab = document.createElement("button");
-    tab.type = "button";
-    tab.className = `follow-section-tab${followViewSection === value ? " active" : ""}`;
-    tab.setAttribute("role", "tab");
-    tab.setAttribute("aria-selected", String(followViewSection === value));
-    tab.textContent = label;
-    tab.addEventListener("click", () => {
-      followViewSection = value;
-      renderFollowView();
-      window.scrollTo({ top:0, behavior:"auto" });
-    });
-    sectionTabs.appendChild(tab);
+  const container=document.getElementById('listView');
+  container.replaceChildren();container.className='follow-view';container.dataset.scrollList='follow';
+  const state=followBrowseState();
+  const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2));
+  const bar=document.createElement('nav');bar.className='follow-sport-bar';bar.setAttribute('aria-label','Choose sport');
+  const previous=document.createElement('button');previous.className='btn ghost';previous.type='button';previous.textContent='‹';previous.setAttribute('aria-label','Previous sports');
+  const track=document.createElement('div');track.className='follow-sport-track';
+  const next=document.createElement('button');next.className='btn ghost';next.type='button';next.textContent='›';next.setAttribute('aria-label','Next sports');
+  sports.forEach(entity=>{
+    const button=document.createElement('button');button.type='button';button.className=`follow-sport-icon${entity.id===state.sportId?' active':''}`;
+    button.dataset.followSport=entity.id;button.setAttribute('aria-pressed',String(entity.id===state.sportId));
+    const mark=document.createElement('span');mark.className='follow-sport-mark';mark.innerHTML=glyphMarkup(entity.glyph,{preferImage:true});
+    const label=document.createElement('span');label.textContent=entity.label;button.append(mark,label);
+    button.addEventListener('click',()=>{saveFollowBrowse({sportId:entity.id,categoryId:'',section:'teams-players',page:track.scrollLeft});renderFollowView();});track.appendChild(button);
   });
-  container.appendChild(sectionTabs);
-
-  if (followViewSection === "teams-players"){
-    const directory = document.createElement("section");
-    directory.className = "follow-section-panel";
-    directory.innerHTML = "<h3>Teams & players</h3><p class=\"preference-help\">Search all supported current directories. AFL and NRL use complete current squad lists; football remains restricted to current players in the included leagues.</p>";
-    renderTeamsAndPlayersDirectory(directory);
-    container.appendChild(directory);
+  previous.onclick=()=>track.scrollBy({left:-track.clientWidth,behavior:'smooth'});
+  next.onclick=()=>track.scrollBy({left:track.clientWidth,behavior:'smooth'});
+  track.addEventListener('scroll',()=>{clearTimeout(track.saveTimer);track.saveTimer=setTimeout(()=>saveFollowBrowse({page:track.scrollLeft}),200);},{passive:true});
+  bar.append(previous,track,next);container.appendChild(bar);
+  requestAnimationFrame(()=>{track.scrollLeft=state.page || 0;});
+  const root=selectorEntityById(state.sportId) || sports[0];
+  const children=(root.childIds || []).map(selectorEntityById).filter(Boolean);
+  if (children.length){
+    const choices=document.createElement('nav');choices.className='follow-category-bar';choices.setAttribute('aria-label',`${root.label} categories`);
+    const items=root.id==='sport:afl'?children:[{...root,label:`All ${root.label}`},...children];
+    items.forEach(entity=>{
+      const button=document.createElement('button');button.type='button';button.className=`btn ghost${state.categoryId===entity.id?' active':''}`;button.textContent=entity.label;
+      button.onclick=()=>{saveFollowBrowse({categoryId:entity.id,section:'teams-players'});renderFollowView();};choices.appendChild(button);
+    });container.appendChild(choices);
+    if (!state.categoryId) return;
+  }
+  const entity=followSelectedEntity();
+  const heading=document.createElement('h2');heading.textContent=entity.label;container.appendChild(heading);
+  if (!codeInspectorManifest && !codeInspectorManifestLoading) void loadCodeInspectorManifest().then(()=>{if(activeTab==='follow') queueScrollIdleMutation(renderFollowView);}).catch(()=>{});
+  const code=followInspectorCode(entity);
+  if(code && !followStandingsAvailability.has(code.id) && !followStandingsLoading.has(code.id)){
+    followStandingsLoading.add(code.id);
+    void fetchJson(code.chunkPath).then(chunk=>{followStandingsAvailability.set(code.id,Boolean(chunk.standings?.length));if(activeTab==='follow'&&!activeInspectorCodeId)queueScrollIdleMutation(()=>renderAll({preserveViewport:true}));}).catch(()=>{}).finally(()=>followStandingsLoading.delete(code.id));
+  }
+  const tabs=document.createElement('nav');tabs.className='follow-section-tabs';tabs.setAttribute('aria-label',`${entity.label} sections`);
+  [['schedule','Schedule'],...(followHasStandings(code)?[['standings',followStandingsLabel(code)]]:[]),['teams-players','Teams & players'],['major-events','Major Events']].forEach(([section,label])=>{
+    const button=document.createElement('button');button.type='button';button.className=`follow-section-tab${state.section===section?' active':''}`;button.textContent=label;
+    button.onclick=()=>{if(['schedule','standings'].includes(section)){void openFollowScreen(section);return;}saveFollowBrowse({section});renderFollowView();};tabs.appendChild(button);
+  });container.appendChild(tabs);
+  followViewSection=state.section || 'teams-players';
+  if(followViewSection==='major-events'){
+    const grid=document.createElement('div');grid.className='setup-choice-grid';
+    const keys=new Set([followDirectoryKey(entity),...(entity.canonicalSportKeys || [])]);
+    FOLLOW_FIRST.MAJOR_EVENT_FAMILIES.filter(record=>record.sportIds.some(id=>keys.has(id))).forEach(record=>{
+      const card=document.createElement('div');card.className='choice-card follow-event-family';card.dataset.eventFamilyId=record.id;card.dataset.scrollKey=`follow-event-family:${record.id}`;
+      const followed=userPreferences.followFirst.followedMajorEventIds.includes(record.id);
+      const toggle=document.createElement('button');toggle.type='button';toggle.className='follow-event-family-toggle';toggle.dataset.eventFamilyLabel=record.label;toggle.textContent=`${followed?'Unfollow':'Follow'} ${record.label}`;toggle.setAttribute('aria-pressed',String(followed));toggle.onclick=()=>toggleMajorEventFollow(record.id);
+      const edition=MAJOR_EVENTS?.activeEditionForFamily?.(majorEventsDocument,record.id,nowAEST());
+      card.appendChild(toggle);
+      if(edition){const open=document.createElement('button');open.type='button';open.className='btn ghost';open.textContent='Open in Events';open.onclick=()=>openMajorEventInEvents(edition.id);card.appendChild(open);}
+      grid.appendChild(card);
+    });
+    if(!grid.childElementCount){const empty=document.createElement('p');empty.textContent='No major events published for this category.';grid.appendChild(empty);}
+    container.appendChild(grid);
+    if(!majorEventsDocument && !majorEventsLoading) void loadMajorEventsData().then(()=>{if(activeTab==='follow')queueScrollIdleMutation(renderFollowView);});
     return;
   }
-
-  if (followViewSection === "sports-australia"){
-  const sportSection = document.createElement("section");
-  sportSection.className = "follow-section-panel";
-  sportSection.innerHTML = "<h3>Sports & Australia</h3><p class=\"preference-help\">Sport follows organise your choices. Australia in internationals is separate and only matches national teams or athletes explicitly representing Australia.</p>";
-  const australiaToggle = document.createElement("button");
-  const australiaOn = userPreferences.followFirst.australiaInternationalsEnabled !== false;
-  australiaToggle.type = "button";
-  australiaToggle.className = `follow-global-toggle${australiaOn ? " active" : ""}`;
-  australiaToggle.setAttribute("aria-pressed", String(australiaOn));
-  australiaToggle.innerHTML = `<span><strong>Australia in internationals</strong><small>Show explicit Australian representative fixtures for sports you follow.</small></span><b>${australiaOn ? "On" : "Off"}</b>`;
-  australiaToggle.addEventListener("click", toggleAustraliaInternationals);
-  sportSection.appendChild(australiaToggle);
-  if (userPreferences.aflFamilyMigration?.status === "pending"){
-    const migrationUi = globalThis.NOTHINGSPORTS_AFL_FAMILY_MIGRATION_UI;
-    if (!migrationUi){
-      aflFamilyUiLoading ||= loadDeferredScript("config/afl-family-migration-ui.js").then(() => renderAll({ preserveViewport:true }));
-    } else {
-      sportSection.appendChild(migrationUi.build(ids => {
-        const next = clonePreferences(userPreferences);
-        if (ids){ const selected = new Set(next.selectedSelectorEntityIds || []); selected.delete("sport:afl"); selected.delete("sport:afl-premiership"); selected.delete("sport:aflw"); ids.forEach(id => selected.add(id)); next.selectedSelectorEntityIds = Array.from(selected); next.followedSports = canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds); }
-        next.aflFamilyMigration = { status:ids ? "completed" : "dismissed" }; savePreferences(next); renderAll({ preserveViewport:true });
-      }));
-    }
+  const panel=document.createElement('section');panel.className='follow-section-panel';panel.dataset.scrollKey=`follow-directory:${entity.id}`;
+  const followed=selectorEntityIsEffectivelySelected(entity.id,userPreferences);
+  const followLabel=document.createElement('label');followLabel.className='follow-checkbox';
+  const follow=document.createElement('input');follow.type='checkbox';follow.checked=followed;follow.setAttribute('aria-label',`Follow ${entity.label}`);
+  follow.addEventListener('change',()=>saveFollowSport({id:entity.canonicalSportKeys?.[0],selectorId:entity.id,label:entity.label},follow.checked));
+  followLabel.append(follow,document.createTextNode(`Follow ${entity.label}`));panel.appendChild(followLabel);
+  if(followed){
+    const label=document.createElement('label');label.className='follow-checkbox';
+    const au=document.createElement('input');au.type='checkbox';au.checked=(userPreferences.followFirst.australiansOnlySportIds || []).includes(entity.id);au.setAttribute('aria-label','Follow Australians');
+    au.onchange=()=>{const next=clonePreferences(userPreferences);const ids=new Set(next.followFirst.australiansOnlySportIds || []);au.checked?ids.add(entity.id):ids.delete(entity.id);next.followFirst.australiansOnlySportIds=[...ids];savePreferences(next);renderAll({preserveViewport:true});};
+    label.append(au,document.createTextNode('Follow Australians'));panel.appendChild(label);
   }
-  const sportGrid = document.createElement("div");
-  sportGrid.className = "follow-sport-grid";
-  sportGrid.dataset.scrollList = "follow-sports";
-  orderSelectorEntitiesForDisplay(BASE_SPORT_SELECTOR_ENTITIES.filter(entity => Number(entity.level) === 2), userPreferences).forEach(entity => {
-    const sport = { id:entity.canonicalSportKeys?.[0] || entity.id.replace(/^sport:/, ""), selectorId:entity.id, label:entity.label };
-    const followed = selectorEntityIsEffectivelySelected(entity.id, userPreferences);
-    const card = document.createElement("div");
-    card.className = `follow-sport-card${followed ? " active" : ""}`;
-    card.dataset.scrollKey = `follow-sport:${sport.id}`;
-    card.style.setProperty("--sport-color", SPORT_META[sport.id]?.color || "var(--accent)");
-    const follow = document.createElement("button");
-    follow.type = "button";
-    follow.className = "btn ghost";
-    follow.setAttribute("aria-pressed", String(followed));
-    follow.textContent = followed ? `Following ${sport.label}` : `Follow ${sport.label}`;
-    follow.addEventListener("click", () => saveFollowSport(sport, !followed));
-    card.appendChild(follow);
-    if (entity.id === "sport:afl"){
-      follow.remove();
-      const ui = globalThis.NOTHINGSPORTS_AFL_FAMILY_MIGRATION_UI;
-      if (!ui) aflFamilyUiLoading ||= loadDeferredScript("config/afl-family-migration-ui.js").then(() => renderAll({ preserveViewport:true }));
-      else card.appendChild(ui.buildOptions(
-        id => selectorEntityIsEffectivelySelected(id, userPreferences),
-        (id, label, active) => saveFollowSport({ id:id.replace(/^sport:/, ""), selectorId:id, label }, !active)
-      ));
-    }
-    if (sport.id === "tennis"){
-      const expand = document.createElement("button");
-      const expanded = expandedFollowSportIds.has("tennis");
-      expand.type = "button";
-      expand.className = "follow-sport-expand";
-      expand.setAttribute("aria-expanded", String(expanded));
-      expand.textContent = expanded ? "Hide Tennis groups" : "Explore Tennis groups";
-      expand.addEventListener("click", event => {
-        event.stopPropagation();
-        const liveCard = document.querySelector('[data-scroll-key="follow-sport:tennis"]') || card;
-        const currentlyExpanded = expandedFollowSportIds.has("tennis");
-        mutateWithScrollContinuity(liveCard, () => {
-          if (currentlyExpanded) expandedFollowSportIds.delete("tennis");
-          else expandedFollowSportIds.add("tennis");
-          renderFollowView();
-        }, {
-          restoreFocus:true,
-          focusTarget:'[data-scroll-key="follow-sport:tennis"] .follow-sport-expand',
-        });
-      });
-      card.appendChild(expand);
-      if (expanded) renderTennisFollowCollections(card);
-    }
-    sportGrid.appendChild(card);
-  });
-  sportSection.appendChild(sportGrid);
-  container.appendChild(sportSection);
-  return;
-  }
-
-  const events = document.createElement("section");
-  events.className = "follow-section-panel";
-  events.innerHTML = "<h3>Major events</h3><p class=\"preference-help\">Keep event families handy in Events and future Follow suggestions. They do not bypass Feed eligibility.</p>";
-  const eventGrid = document.createElement("div");
-  eventGrid.className = "setup-choice-grid";
-  eventGrid.dataset.scrollList = "follow-major-events";
-  if (!majorEventsDocument && !majorEventsLoading) void loadMajorEventsData().then(() => {
-    if (activeTab === "follow" && followViewSection === "major-events") queueScrollIdleMutation(renderFollowView);
-  });
-  FOLLOW_FIRST.MAJOR_EVENT_FAMILIES.forEach(record => {
-    const selected = userPreferences.followFirst.followedMajorEventIds.includes(record.id);
-    const familyCard = document.createElement("div");
-    familyCard.className = `choice-card follow-event-family${selected ? " selected" : ""}`;
-    familyCard.dataset.eventFamilyId = record.id;
-    familyCard.dataset.scrollKey = `follow-event-family:${record.id}`;
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "follow-event-family-toggle";
-    button.dataset.eventFamilyLabel = record.label;
-    button.setAttribute("aria-pressed", String(selected));
-    button.textContent = `${selected ? "Unfollow" : "Follow"} ${record.label}`;
-    button.addEventListener("click", () => toggleMajorEventFollow(record.id));
-    const activeEdition = MAJOR_EVENTS?.activeEditionForFamily?.(majorEventsDocument, record.id, nowAEST()) || null;
-    const open = document.createElement("button");
-    open.type = "button";
-    open.className = "follow-event-family-open";
-    open.textContent = activeEdition ? "Open in Events" : "Next edition not published yet";
-    open.disabled = !activeEdition;
-    if (activeEdition) open.addEventListener("click", () => openMajorEventInEvents(activeEdition.id));
-    familyCard.append(button, open);
-    eventGrid.appendChild(familyCard);
-  });
-  events.appendChild(eventGrid);
-  container.appendChild(events);
+  const key=followDirectoryKey(entity);updateStandingsDirectorySession({directorySportKey:key});
+  if(key==='tennis')renderTennisFollowCollections(panel);
+  renderTeamsAndPlayersDirectory(panel);panel.querySelector('.football-directory-sport-choice')?.remove();
+  container.appendChild(panel);
 }
 
 function renderStandingsContext(options = {}){
@@ -20124,9 +20084,9 @@ function buildMajorEventTicketLink(record, className = "major-event-ticket-link 
   link.rel = "noopener noreferrer external";
   link.innerHTML = glyphMarkup("ui:ticket", { preferImage: true });
   const label = document.createElement("span");
-  label.textContent = "Buy tickets";
+  label.textContent = ["waitlist","register_interest"].includes(record.ticketing?.status) ? "Join waitlist" : "Buy tickets";
   link.appendChild(label);
-  link.setAttribute("aria-label", `Buy tickets for ${record.name} from ${offer.provider}`);
+  link.setAttribute("aria-label", `${label.textContent} for ${record.name} from ${offer.provider}`);
   link.title = `${offer.provider} - verified ${new Date(offer.verifiedAt).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" })}`;
   return link;
 }
@@ -20193,7 +20153,7 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
   if (!timelineItems.length) return null;
   const section = document.createElement("section");
   section.className = `major-event-schedule${compact ? " is-preview" : ""}`;
-  section.dataset.majorEventTimetable = record.id;
+  section.dataset.majorEventSchedule = record.id;
   section.tabIndex = -1;
   const heading = document.createElement("h4");
   heading.textContent = headingText;
@@ -20414,6 +20374,7 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
   const eventCard = interactionCard || card;
+  appendCalendarChoice(card,record);
   card.className = [
     "event-card",
     "mode-events",
@@ -20435,25 +20396,15 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   card.style.setProperty("--sport-color", meta.color);
 
   const advanceState = ({ restoreFocus = false } = {}) => {
-    if (isMinimised) return;
+    updateEventAction(actionEvent, {isMinimised:false});
     activeMajorEventNowId = record.id;
     setCardState(record, nextCardState(cardStateForEvent(record)));
-    refreshExpandableCard(eventCard, buildMajorEventCard(record, { interactionCard:eventCard }), {
+    refreshExpandableCard(eventCard, (eventCard.classList.contains("ticket-sale-card") ? buildTicketSaleCard : buildMajorEventCard)(record, { interactionCard:eventCard }), {
       restoreFocus,
       focusTarget:`[data-scroll-key="major-event:${CSS.escape(record.id)}"] .major-event-timetable`,
     });
   };
-  card.addEventListener("click", event => {
-    if (event.target.closest("a, button, input, select, textarea")) return;
-    advanceState();
-  });
-  card.addEventListener("keydown", event => {
-    if (event.target !== card) return;
-    if (!["Enter", " "].includes(event.key)) return;
-    event.preventDefault();
-    advanceState({ restoreFocus: true });
-  });
-  card.setAttribute("aria-keyshortcuts", "Enter Space");
+  bindCardCycle(card, advanceState);
 
   const ticketRow = document.createElement("div");
   ticketRow.className = "major-event-ticket-row event-card-primary-actions";
@@ -20482,14 +20433,14 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   const inspect = document.createElement("button");
   inspect.type = "button";
   inspect.className = "event-quick-action major-event-timetable";
-  inspect.innerHTML = `${glyphMarkup("ui:list", { preferImage:true })}<span>Timetable</span>`;
+  inspect.innerHTML = `${glyphMarkup("ui:list", { preferImage:true })}<span>Schedule</span>`;
   inspect.addEventListener("click", event => {
     event.stopPropagation();
     activeMajorEventNowId = record.id;
     if (getEventAction(actionEvent).isMinimised) updateEventAction(actionEvent, { isMinimised:false });
     setCardState(record, "opened");
-    refreshExpandableCard(eventCard, buildMajorEventCard(record, { interactionCard:eventCard }), { restoreFocus:false });
-    window.requestAnimationFrame(() => focusMajorEventTimetable(record.id));
+    refreshExpandableCard(eventCard, (eventCard.classList.contains("ticket-sale-card") ? buildTicketSaleCard : buildMajorEventCard)(record, { interactionCard:eventCard }), { restoreFocus:false });
+    window.requestAnimationFrame(() => focusMajorEventSchedule(record.id));
   });
   navigationRow.appendChild(inspect);
 
@@ -20542,7 +20493,7 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
     else {
       const tbc = document.createElement("p");
       tbc.className = "major-event-immediate-tbc";
-      tbc.textContent = "Immediate match line-up TBC. Open timetable for the source-published schedule.";
+      tbc.textContent = "Immediate match line-up TBC. Open Schedule for the source-published schedule.";
       card.appendChild(tbc);
     }
     const tablePreview = buildMajorEventTablePreview(record);
@@ -20551,10 +20502,20 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   if (!isMinimised && state === "opened"){
     card.dataset.editorialProvenance = record.editorialNarrative ? "validated" : "structural";
   }
+  if(isMinimised || state==='compact'){
+    card.classList.add('is-compact-row');
+    const choice=card.querySelector('.calendar-select-label');
+    const controls=card.querySelector('.event-card-controls');
+    card.replaceChildren();if(choice)card.appendChild(choice);if(controls)card.appendChild(controls);
+    const compactEvent={...record,key:record.sportKey,date:record.startDate,time:null};
+    const summary=buildCompactCardSummary(compactEvent);
+    summary.querySelector('.compact-card-copy>span').textContent=majorEventDateLabel(record);
+    card.appendChild(summary);
+  }
   return card;
 }
 
-function focusMajorEventTimetable(eventId){
+function focusMajorEventSchedule(eventId){
   const selector = `[data-major-event-timetable="${CSS.escape(String(eventId))}"]`;
   const target = document.querySelector(selector);
   if (!target) return false;
@@ -20654,142 +20615,14 @@ function openTicketAlertInEvents(alertId, { pushHistory = true } = {}){
   activateTopLevelTab("events", { resetViewport:false });
 }
 
-function buildTicketSaleCard(record, { interactionCard = null } = {}){
-  const meta = sportMetaForEvent(majorEventIdentityEvent(record));
-  const actionEvent = majorEventActionEvent(record);
-  const eventAction = getEventAction(actionEvent);
-  const isMinimised = Boolean(eventAction.isMinimised);
-  const state = cardStateForEvent(record);
-  const card = document.createElement("article");
-  const eventCard = interactionCard || card;
-  card.className = ["event-card", "mode-events", "ticket-sale-card", "events-feed-card", state === "selected" ? "is-selected" : "", state === "opened" ? "is-opened" : "", isMinimised ? "is-event-minimised" : ""].filter(Boolean).join(" ");
-  card.id = `ticket-sale-card-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
-  card.dataset.ticketAlertId = record.id;
-  card.dataset.eventId = actionEvent.eventId || actionEvent.id;
-  card.dataset.scrollKey = `ticket-alert:${record.id}`;
-  card.dataset.cardState = isMinimised ? "minimised" : state;
-  card.dataset.cardLevel = isMinimised ? "L0" : cardLevelForState(state);
-  card.tabIndex = 0;
-  card.setAttribute("aria-expanded", String(!isMinimised && state !== "compact"));
-  card.setAttribute("aria-label", `${record.name}. ${isMinimised ? "Minimised view" : state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
-  card.style.setProperty("--sport-color", meta.color);
-  const advanceState = ({ restoreFocus = false } = {}) => {
-    if (isMinimised) return;
-    if (!getEventAction(actionEvent).ticketAlertSeenAt){
-      updateEventAction(actionEvent, { ticketAlertSeenAt:new Date().toISOString() });
-    }
-    setCardState(record, nextCardState(cardStateForEvent(record)));
-    refreshExpandableCard(eventCard, buildTicketSaleCard(record, { interactionCard:eventCard }), {
-      restoreFocus,
-      focusTarget:`[data-scroll-key="ticket-alert:${CSS.escape(record.id)}"] .major-event-expand-control`,
-    });
-  };
-  const identity = document.createElement("header");
-  identity.className = "major-event-identity";
-  const logo = document.createElement("div");
-  logo.className = "major-event-logo";
-  logo.dataset.scrollStable = `ticket-alert-logo:${record.id}`;
-  renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta);
-  const alertAction = getEventAction(actionEvent);
-  if (!alertAction.ticketAlertSeenAt){
-    const newBadge = document.createElement("span");
-    newBadge.className = "ticket-alert-new-badge";
-    newBadge.textContent = "!";
-    newBadge.setAttribute("aria-label", "New ticket alert");
-    logo.appendChild(newBadge);
-  }
-  const kicker = document.createElement("div");
-  kicker.className = "major-event-kicker";
-  kicker.textContent = "Ticket alert";
-  const title = document.createElement("h3");
-  title.textContent = record.name;
-  const summary = document.createElement("p");
-  summary.className = "major-event-summary";
-  summary.textContent = record.summary;
-  const facts = document.createElement("div");
-  facts.className = "major-event-facts";
-  [majorEventDateLabel(record), record.ticketing?.status?.replace(/_/g, " ") || "Sale details TBC", `Stakes ${record.stakesScore}/5`].forEach(value => {
-    const fact = document.createElement("span");
-    fact.textContent = value;
-    facts.appendChild(fact);
-  });
-  identity.append(logo, kicker, title);
-  if (!isMinimised && state !== "compact") identity.appendChild(summary);
-  identity.appendChild(facts);
-  const actions = document.createElement("div");
-  actions.className = "major-event-ticket-row";
-  const ticket = buildMajorEventTicketLink(record);
-  if (ticket){
-    ticket.addEventListener("click", () => {
-      if (!getEventAction(actionEvent).ticketAlertSeenAt){
-        updateEventAction(actionEvent, { ticketAlertSeenAt:new Date().toISOString() });
-        eventCard.querySelector(".ticket-alert-new-badge")?.remove();
-      }
-    });
-    actions.appendChild(ticket);
-  }
-  const saleStartTime = new Date(record.ticketing?.saleStartAt || "").getTime();
-  if (Number.isFinite(saleStartTime) && saleStartTime > Date.now()){
-    const countdown = document.createElement("span");
-    countdown.className = "ticket-sale-countdown";
-    countdown.dataset.saleStartAt = String(saleStartTime);
-    countdown.setAttribute("aria-label", "Time until ticket sale opens");
-    const updateCountdown = () => {
-      if (!countdown.isConnected) return;
-      const remaining = Math.max(0, saleStartTime - Date.now());
-      const days = Math.floor(remaining / 86400000);
-      const hours = Math.floor((remaining % 86400000) / 3600000);
-      const minutes = Math.floor((remaining % 3600000) / 60000);
-      const seconds = Math.floor((remaining % 60000) / 1000);
-      countdown.textContent = remaining > 0
-        ? `On sale in ${days ? `${days}d ` : ""}${String(hours).padStart(2,"0")}:${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`
-        : "On sale now";
-      if (remaining > 0) window.setTimeout(updateCountdown, 1000);
-    };
-    updateCountdown();
-    actions.appendChild(countdown);
-  }
-  const inventoryTime = new Date(record.ticketing?.inventoryVerifiedAt || "").getTime();
-  if (record.ticketing?.inventoryStatus === "selling_quickly" && Date.now() - inventoryTime <= 86400000){
-    const inventory = document.createElement("span");
-    inventory.className = "ticket-inventory-stamp";
-    inventory.textContent = "Selling quickly";
-    actions.appendChild(inventory);
-  }
-  card.addEventListener("click", event => {
-    if (event.target.closest("a, button, input, select, textarea")) return;
-    advanceState();
-  });
-  card.addEventListener("keydown", event => {
-    if (event.target !== card) return;
-    if (!["Enter", " "].includes(event.key)) return;
-    event.preventDefault();
-    advanceState({ restoreFocus: true });
-  });
-  card.setAttribute("aria-keyshortcuts", "Enter Space");
-  card.append(
-    buildEventCardControls(actionEvent, { card:eventCard, eventsOnly:true, displayLabel:record.name, viewStateEvent:record }),
-    identity
-  );
-  if (!isMinimised) card.appendChild(actions);
-  if (!isMinimised && state === "opened"){
-    const body = document.createElement("div");
-    body.className = "major-event-body";
-    const source = document.createElement("section");
-    const heading = document.createElement("h4");
-    heading.textContent = "Verified sale details";
-    const details = document.createElement("p");
-    details.className = "major-event-summary";
-    details.textContent = `Provider: ${record.ticketing?.provider || "TBC"}. Verified ${record.ticketing?.verifiedAt ? new Date(record.ticketing.verifiedAt).toLocaleDateString("en-AU") : "date TBC"}.`;
-    const parent = document.createElement("button");
-    parent.type = "button";
-    parent.className = "btn ghost";
-    parent.textContent = "Open Major Event";
-    parent.addEventListener("click", () => openMajorEventInEvents(record.parentEventId));
-    source.append(heading, details, parent);
-    body.appendChild(source);
-    card.appendChild(body);
-  }
+function buildTicketSaleCard(record, {interactionCard=null}={}){
+  const card=buildMajorEventCard(record,{interactionCard});
+  card.classList.add('ticket-sale-card');card.dataset.ticketAlertId=record.id;
+  card.id=`ticket-sale-card-${record.id.replace(/[^a-z0-9_-]/gi,'-')}`;
+  const sale=document.createElement('p');sale.className='major-event-summary ticket-availability';
+  const released=record.ticketing?.saleStartAt;
+  sale.textContent=[record.ticketing?.status?.replace(/_/g,' '),released?`Ticket release: ${new Date(released).toLocaleDateString('en-AU',{timeZone:'Australia/Sydney',day:'numeric',month:'short',year:'numeric'})}`:null].filter(Boolean).join(' · ');
+  if(!card.classList.contains('is-compact-row'))card.querySelector('.major-event-identity')?.appendChild(sale);
   return card;
 }
 
@@ -20799,7 +20632,7 @@ function buildMajorEventMarker(event){
     const unavailable = document.createElement("article");
     unavailable.className = "major-event-marker feed-major-event-card";
     unavailable.dataset.majorEventMarker = event.majorEventId;
-    unavailable.innerHTML = `<strong>${event.name}</strong><span>Event timetable loading…</span>`;
+    unavailable.innerHTML = `<strong>${event.name}</strong><span>Event schedule loading…</span>`;
     if (!majorEventsLoading) void loadMajorEventsData();
     return unavailable;
   }
@@ -20855,6 +20688,7 @@ function renderEventsView(){
   container.innerHTML = "";
   container.className = "events-feed";
   container.dataset.scrollList = "events";
+  renderCalendarSelectionToolbar(container);
   const heading = document.createElement("header");
   heading.className = "events-feed-heading";
   const headingCopy = document.createElement("div");
@@ -20869,7 +20703,7 @@ function renderEventsView(){
   tabs.className = "events-view-tabs";
   tabs.setAttribute("role", "tablist");
   const eventTabButtons = [];
-  [["major-events", "Major Events"], ["ticket-alerts", "Ticket alerts"]].forEach(([value, label]) => {
+  [["major-events", "Major Events"], ["ticket-alerts", "Tickets"]].forEach(([value, label]) => {
     const tab = document.createElement("button");
     tab.type = "button";
     tab.className = `events-view-tab${eventsViewTab === value ? " active" : ""}`;
@@ -20885,7 +20719,7 @@ function renderEventsView(){
         const badge = document.createElement("span");
         badge.className = "ticket-alert-tab-badge";
         badge.textContent = "!";
-        badge.setAttribute("aria-label", "New ticket alerts");
+        badge.setAttribute("aria-label", "New tickets");
         tab.appendChild(badge);
       }
     }
@@ -20966,7 +20800,7 @@ function renderEventsView(){
     section.className = "events-section";
     const sectionTitle = document.createElement("h3");
     sectionTitle.className = "events-section-title";
-    sectionTitle.textContent = "Ticket alerts";
+    sectionTitle.textContent = "Tickets";
     section.appendChild(sectionTitle);
     activeAlertRecords.forEach(record => section.appendChild(buildTicketSaleCard(record)));
     if (dismissedAlertRecords.length){
@@ -21020,7 +20854,7 @@ function renderEventsView(){
   } else if (!activeAlertRecords.length && !dismissedAlertRecords.length){
     const empty = document.createElement("div");
     empty.className = "empty-state";
-    empty.textContent = "No active source-backed ticket alerts match your followed sports.";
+    empty.textContent = "No available tickets match your followed sports.";
     panel.appendChild(empty);
   }
   if (pendingMajorEventFocusId){
@@ -21060,7 +20894,7 @@ document.querySelectorAll(".tab-btn[data-tab]").forEach(btn => {
     activateTopLevelTab(btn.dataset.tab);
   });
 });
-document.getElementById("tuneNavBtn").addEventListener("click", () => openTuneSheet());
+document.getElementById("tuneNavBtn")?.addEventListener("click", () => openTuneSheet());
 document.getElementById("closeTuneSheetBtn").addEventListener("click", requestCloseInspectorPicker);
 document.getElementById("tuneSheet").addEventListener("click", event => {
   if (event.target.id === "tuneSheet") requestCloseInspectorPicker();
@@ -22671,7 +22505,7 @@ function renderAppearanceSettings(body){
 }
 
 function renderAboutSettings(body){
-  body.innerHTML = `<article class="about-body settings-about"><img class="settings-about-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="settings-about-copy"><p data-brand-copy="about">Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. Dismiss removes that exact card without changing your follows. A Like appears only on a high-stakes suggestion that did not come from a follow. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.</p><details class="asset-attribution"><summary>Editorial standards</summary><p>Why it matters is independently written from researched facts, with official sources preferred and reputable reporting used when official material cannot establish form or context. Source wording is not copied into cards. Citations, fact records and uncertainty notes are retained in the editorial audit trail rather than shown in the reading flow.</p><p>Future draws, participants and dates can change. Nothing Sport keeps the last verified narrative during a temporary source failure and withholds new structural filler when substantive context cannot be verified.</p></details><p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a text fallback otherwise.</p><p class="country-acknowledgement" data-brand-copy="countryAcknowledgement">Nothing Sport acknowledges the Yuin Nation, the Traditional Custodians of the land on which this app was built. Always was, always will be Aboriginal land. Voice. Treaty. Truth.</p></div></article>`;
+  body.innerHTML = `<article class="about-body settings-about"><img class="settings-about-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="settings-about-copy"><p data-brand-copy="about">Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. Dismiss removes that exact card without changing your follows. A Like appears only on a high-stakes suggestion that did not come from a follow. Open Events to choose special fixtures early, or Follow for each sport’s Schedule, Ladder and Standings.</p><details class="asset-attribution"><summary>Editorial standards</summary><p>Why it matters is independently written from researched facts, with official sources preferred and reputable reporting used when official material cannot establish form or context. Source wording is not copied into cards. Citations, fact records and uncertainty notes are retained in the editorial audit trail rather than shown in the reading flow.</p><p>Future draws, participants and dates can change. Nothing Sport keeps the last verified narrative during a temporary source failure and withholds new structural filler when substantive context cannot be verified.</p></details><p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a text fallback otherwise.</p><p class="country-acknowledgement" data-brand-copy="countryAcknowledgement">Nothing Sport acknowledges the Yuin Nation, the Traditional Custodians of the land on which this app was built. Always was, always will be Aboriginal land. Voice. Treaty. Truth.</p></div></article>`;
   const about = body.querySelector(".settings-about-copy");
   const socials = document.querySelector("footer.app-footer .footer-socials")?.cloneNode(true);
   if (socials) about.appendChild(socials);
@@ -23182,6 +23016,7 @@ async function shareOrCopyLink({ title, text, url }){
   return "selectable";
 }
 
+document.getElementById("calendarSyncBtn").addEventListener("click",showCalendarDialog);
 document.getElementById("shareAppBtn").addEventListener("click", () => {
   void shareOrCopyLink({
     title:"Nothing Sport",
@@ -25433,6 +25268,20 @@ if ("serviceWorker" in navigator){
   });
 }
 
+
+setInterval(refreshFeedClock, 60000);
+let feedMidnightTimer;
+function scheduleSydneyMidnight(){
+  clearTimeout(feedMidnightTimer);
+  const day=NOTHINGSPORTS_CALENDAR.sydneyDay();
+  const next=new Date(`${day}T12:00:00Z`);next.setUTCDate(next.getUTCDate()+1);
+  const midnight=NOTHINGSPORTS_CALENDAR.eventStart({date:next.toISOString().slice(0,10),time:'00:00'});
+  feedMidnightTimer=setTimeout(()=>{refreshFeedClock();scheduleSydneyMidnight();},Math.max(1,+midnight-Date.now()));
+}
+scheduleSydneyMidnight();
+window.addEventListener('focus',scheduleSydneyMidnight);
+window.addEventListener('focus',refreshFeedClock);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFeedClock();});
 </script>
 </body>
 </html>

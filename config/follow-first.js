@@ -58,6 +58,7 @@
   ]);
 
   const VIEWING_PROVIDERS = Object.freeze({
+    bein:{ label:"beIN SPORTS", actionLabel:"beIN SPORTS", webUrl:"https://connect-au.beinsports.com/en", paid:true, territory:"AU", accessType:"subscription", aliases:["bein", "be-in"], logoPath:"assets/providers/bein-sports-connect.svg", logoBackground:"#ffffff" },
     kayo:{ label:"Kayo Sports", actionLabel:"Kayo", webUrl:"https://kayosports.com.au/en-AU/schedule", universalUrl:"https://kayosports.com.au/en-AU/schedule", paid:true, territory:"AU", accessType:"subscription", aliases:["kayo"], logoPath:"assets/providers/kayo-sports-negative.svg", logoBackground:"#111111" },
     foxtel:{ label:"Foxtel", actionLabel:"Foxtel", webUrl:"https://www.foxtel.com.au/watch/sport.html", paid:true, territory:"AU", accessType:"subscription", aliases:["foxtel", "fox sports"], logoPath:"assets/providers/foxtel.svg", logoBackground:"#ffffff" },
     stan:{ label:"Stan Sport", actionLabel:"Stan Sport", webUrl:"https://www.stan.com.au/watch/sport", paid:true, territory:"AU", accessType:"subscription", aliases:["stan sport", "stan"], logoPath:"assets/providers/stan-sport.jpg", logoBackground:"#0877f9" },
@@ -91,6 +92,8 @@
   }
 
   const COMPETITION_VIEWING_RIGHTS = Object.freeze({
+    "competition:la-liga":viewingRights(["competition:la-liga", "competition:laliga", "la-liga", "laliga"], ["bein"], "https://prod.beinsports.com/en-au/football/laliga/articles-video/how-to-watch-laliga-live-in-australia-2026-08-10", {sourceIsProvider:true, providerUrls:Object.freeze({bein:"https://connect-au.beinsports.com/en"}), verifiedAt:"2026-09-05T00:00:00.000Z"}),
+    "competition:ligue-1":viewingRights(["competition:ligue-1", "ligue-1"], [], "https://www.psg.fr/en/content/fixtures-for-matchday-3-of-ligue-1-2026-2027-paris-saint-germain-as-monaco", {coverageStatus:"unverified", verifiedAt:"2026-09-05T00:00:00.000Z"}),
     "competition:premier-league":viewingRights(["competition:premier-league"], ["stan"], "https://www.stan.com.au/watch/sport/football/premier-league", { sourceIsProvider:true }),
     "competition:uefa-champions-league":viewingRights(["competition:uefa-champions-league"], ["stan"], "https://www.stan.com.au/watch/sport/football/uefa-champions-league", { sourceIsProvider:true }),
     "competition:tennis:us-open":viewingRights(["competition:tennis:us-open", "us-open"], ["stan"], "https://www.stan.com.au/watch/sport/tennis/us-open", { sourceIsProvider:true }),
@@ -212,6 +215,7 @@
       startupMeta:normalizeMeta({}),
       appliedSeedHash:null,
       australiaInternationalsEnabled:true,
+      australiansOnlySportIds:[],
       followedMajorEventIds:[],
       collectionFollows:[],
       codeInteractions:[],
@@ -305,6 +309,7 @@
         startupMeta,
         appliedSeedHash:String(prior.appliedSeedHash || "") || null,
         australiaInternationalsEnabled:prior.australiaInternationalsEnabled !== false,
+        australiansOnlySportIds:Array.from(new Set((Array.isArray(prior.australiansOnlySportIds) ? prior.australiansOnlySportIds : []).filter(id => typeof id === "string" && id.startsWith("sport:")))),
         followedMajorEventIds,
         collectionFollows:normalizeCollectionFollows(prior.collectionFollows),
         codeInteractions:normalizeCodeInteractions(prior.codeInteractions),
@@ -483,7 +488,7 @@
       ski:"telemark", skiing:"telemark", alpine:"telemark", freestyle:"telemark",
       skateboard:"extreme", wsl:"surf", "big-wave":"surf",
     };
-    const sourceSportId = String(event?.representativeSportKey || event?.sportId || event?.key || "");
+    const sourceSportId = String(event?.representativeSportKey || event?.sportId || event?.key || "").replace(/^sport:/, "");
     const sportId = sportAliases[sourceSportId] || sourceSportId;
     const representativeCountryCodes = Array.from(new Set([
       ...(Array.isArray(event?.representativeCountryCodes) ? event.representativeCountryCodes : []),
@@ -504,6 +509,12 @@
       && event?.kind !== "major_event"
       && event?.kind !== "ticket_sale"
     );
+    const australianScope = new Set(next.followFirst.australiansOnlySportIds || []);
+    const scopedSportIds = [sourceSportId,sportId,sourceSportId === 'afl' ? 'afl-premiership' : '',sourceSportId === 'f1' ? 'motorsport' : ''].filter(Boolean).map(id=>`sport:${id}`);
+    if (sportFollowed && scopedSportIds.some(id=>australianScope.has(id))){
+      const codes=[...representativeCountryCodes,...(event.participantCountryCodes || []),...(event.participants || []).flatMap(p=>[p.countryCode,p.nationalityCode,p.isAustralian?'AU':null])].map(code=>String(code || '').toUpperCase());
+      return codes.some(code=>['AU','AUS'].includes(code)) ? {type:'australians',entityKind:'sport',id:sportId,label:'Australian participants',displayTag:false} : null;
+    }
     if (next.followFirst.australiaInternationalsEnabled && sportFollowed && international && representsAustralia){
       return { type:"australians", entityKind:"national-representation", id:sportId, label:"Australia in international competition", displayTag:false };
     }
@@ -681,7 +692,7 @@
     const rightsProviderIds = fixtureProviderIds.length
       ? fixtureProviderIds
       : rights ? [...(isGrandFinal && rights.grandFinalProviderIds ? rights.grandFinalProviderIds : rights.providerIds)] : [];
-    if (rightsProviderIds.length){
+    if (rightsProviderIds.length || rights?.coverageStatus === "unverified"){
       broadcasterIds.clear();
       rightsProviderIds.forEach(id => broadcasterIds.add(id));
     }

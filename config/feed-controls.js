@@ -136,6 +136,8 @@
   }
 
   function timingState(event, now = new Date()){
+    const status=String(event?.status || event?.scheduleStatus || "").toLowerCase();
+    if(["completed","finished","final","cancelled","canceled","postponed"].includes(status))return null;
     const start = eventStart(event);
     if (!start) return null;
     const reference = now instanceof Date ? now : new Date(now);
@@ -146,6 +148,7 @@
     const derivedEnd = startMs + Math.max(1, Number.isFinite(liveWindowHours) ? liveWindowHours : 3) * 3600000;
     const endMs = Number.isFinite(explicitEnd) && explicitEnd >= startMs ? explicitEnd : derivedEnd;
     const nowMs = reference.getTime();
+    if(["live","in_progress","in-progress","ongoing"].includes(status) && nowMs>=startMs)return Object.freeze({key:"live-now",label:"Live Now",ariaLabel:"Live now"});
     if (nowMs >= startMs - STARTS_SOON_MS && nowMs < startMs){
       return Object.freeze({ key:"starts-soon", label:"Starts Soon", ariaLabel:"Starts soon" });
     }

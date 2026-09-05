@@ -6,6 +6,9 @@
   "functions": {
     "api/chat.js": {
       "includeFiles": "data/{feed/*.json,follow-fixtures.v1.json,major-events.v1.json}"
+    },
+    "api/calendar.js": {
+      "includeFiles": "data/code-inspector/*.json"
     }
   },
   "redirects": [

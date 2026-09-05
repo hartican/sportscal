@@ -3,6 +3,7 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const vm = require("node:vm");
+const { assertShellModule } = require("./app-shell-test-utils");
 const { classifyCalendarEvent, classifyCommonwealthDiscipline } = require("./import-calendar-events");
 const profileStorage = require("../config/profile-storage.js");
 const brand = require("../config/brand-copy.js");
@@ -37,6 +38,10 @@ const eventActionIdentitySource = fs.readFileSync("config/event-action-identity.
 const userStateSyncSource = fs.readFileSync("config/user-state-sync.js", "utf8");
 const pilotReadoutSource = fs.readFileSync("config/pilot-readout.js", "utf8");
 const serverSyncSource = fs.readFileSync("config/server-sync.js", "utf8");
+const nscSubmissionStateSource = fs.readFileSync("config/nsc-submission-state.js", "utf8");
+const calendarExportSource = fs.readFileSync("config/calendar-export.js", "utf8");
+const feedControlsSource = fs.readFileSync("config/feed-controls.js", "utf8");
+const feedTimelineSource = fs.readFileSync("config/feed-timeline.js", "utf8");
 const authApiSource = fs.readFileSync("api/auth.js", "utf8");
 const serverFeedSource = fs.readFileSync("lib/server-feed-pipeline.js", "utf8");
 const serverFeedApiSource = fs.readFileSync("api/feed.js", "utf8");
@@ -78,7 +83,7 @@ assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app scr
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
 assert.deepEqual(tabOrder, ["feed", "events", "follow"], "Feed, Events and Follow must remain the ordered routed destinations");
-assert(html.includes('id="tuneNavBtn"') && html.includes('aria-controls="tuneSheet"') && html.includes('<span class="tab-label">Standings &amp; Fixtures</span>'), "the compact primary navigation must expose Standings & Fixtures as the fourth destination");
+assert(!html.includes('id="tuneNavBtn"') && html.includes("follow-sport-track"), "Follow must own the sport directory without a duplicate primary destination");
 assert(!html.includes("Code Inspector"), "the retired Code Inspector label must not remain user-facing");
 const requiredSlogan = "Live sport, nothing missed.";
 assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must match the supplied slogan exactly");
@@ -95,7 +100,7 @@ assert(html.includes(`class="footer-slogan" data-brand-copy="descriptor">${requi
 assert(html.includes('data-brand-copy-content="metadataDescription"') && html.includes('data-brand-copy="about"'), "rendered and metadata copy must hydrate from the shared brand-copy config");
 assert(html.includes(`property="og:title" content="${brand.title}"`) && html.includes(`name="twitter:title" content="${brand.title}"`), "share-card titles must use the canonical smart-feed title");
 assert(!brand.about.includes(requiredSlogan), "About must expand the positioning without repeating the exact slogan");
-["live sports curator, tailored to your tastes", "sports, teams and players you follow", "Australian representatives in international competition", "A dislike removes that exact card and softly tunes future suggestions", "Standings & Fixtures"].forEach(phrase => {
+["live sports curator, tailored to your tastes", "sports, teams and players you follow", "Australian representatives in international competition", "Dismiss removes that exact card", "Follow for each sport’s Schedule"].forEach(phrase => {
   assert(brand.about.includes(phrase), `About must explain the refreshed product behavior: ${phrase}`);
 });
 assert(notFoundHtml.includes(requiredSlogan), "the not-found route must use the exact current slogan");
@@ -149,25 +154,25 @@ assert(!html.includes("Weekly Briefing"), "Weekly Briefing must not exist");
 assert(html.includes('<span class="tab-label">Feed</span>'), "Feed must be visible in primary navigation");
 assert(html.includes('<span class="tab-label">Events</span>'), "Events must be visible in primary navigation");
 assert(html.includes('<span class="tab-label">Follow</span>'), "Follow must be visible in primary navigation");
-assert(html.includes('<span class="tab-label">Standings &amp; Fixtures</span>'), "Standings & Fixtures must be visible in primary navigation");
+assert(!html.includes('<span class="tab-label">Standings &amp; Fixtures</span>'), "the retired Standings & Fixtures primary tab must stay removed");
 assert(!/<span class="tab-label">(?:Calendar|Don’t Miss|Catch Up|Archived|Ladders|L&amp;S)<\/span>/.test(html), "obsolete primary tab labels must be removed");
 assert(!/id="(?:neverMissView|watchLaterView|archivedView)"/.test(html), "removed navigation surfaces must not leave orphaned view routes");
 assert(html.includes("ns_event_user_state_v1"), "versioned event user state must be persisted separately");
 assert(html.includes("ns_event_spoiler_state_v1"), "spoiler state must be persisted separately from event user state");
 assert(html.includes("ns_surface_presentation_v1"), "new and seen presentation state must be persisted separately from canonical events");
-assert(html.includes('src="config/au-broadcast-weights.js"'), "the product-owned Australian broadcast config must load in hosted and direct-file modes");
-assert(html.includes('src="config/selector-taxonomy.js"'), "the selector taxonomy must load as a separate preference layer in hosted and direct-file modes");
-assert(html.includes('src="config/canonical-sports-taxonomy.js"'), "the canonical sports taxonomy must load as a separate versioned layer");
-assert(html.includes('src="config/sport-context.js"'), "modular sport context must load before event and standings resolution");
+assertShellModule(html, "config/au-broadcast-weights.js");
+assertShellModule(html, "config/selector-taxonomy.js");
+assertShellModule(html, "config/canonical-sports-taxonomy.js");
+assertShellModule(html, "config/sport-context.js");
 assert(html.includes('loadDeferredScript("config/sport-hubs.js?v=218")'), "the complete NRL/AFL hub adapter must load on first hub entry without delaying the initial Feed");
-assert(html.includes('src="config/brand-copy.js"'), "canonical brand copy must load before the app script");
-assert(html.includes('src="config/vector-assets.js"'), "the licensed vector asset registry must load before app rendering");
-assert(html.includes('src="config/sport-domain-registry.js"'), "surfaced sports must derive from a configuration registry");
-assert(html.includes('src="config/profile-storage.js"'), "profile-scoped storage and migrations must load before app state");
-assert(html.includes('src="config/product-events.js"'), "the fixed pilot-measurement contract must load before app state");
-assert(html.includes('src="config/event-action-identity.js"'), "stable event-action identity must load before durable user state");
-assert(html.includes('src="config/user-state-sync.js"'), "the field-level user-state contract must load before server sync");
-assert(html.includes('src="config/server-sync.js"'), "password sessions and server-state sync must load before app state");
+assertShellModule(html, "config/brand-copy.js");
+assertShellModule(html, "config/vector-assets.js");
+assertShellModule(html, "config/sport-domain-registry.js");
+assertShellModule(html, "config/profile-storage.js");
+assertShellModule(html, "config/product-events.js");
+assertShellModule(html, "config/event-action-identity.js");
+assertShellModule(html, "config/user-state-sync.js");
+assertShellModule(html, "config/server-sync.js");
 assert(userStateSyncSource.includes('const PATCH_SCHEMA_VERSION = "user-state-patch.v1"'), "cross-device state changes must use a versioned patch contract");
 assert(serverSyncSource.includes("async savePatch(patch)"), "the browser client must send field-level patches instead of stale full snapshots");
 assert(html.includes('autocomplete="current-password"') && html.includes('id="accountSignInForm"'), "Account settings must expose accessible email/password sign-in");
@@ -176,8 +181,9 @@ assert(serverSyncSource.includes('action: "password-sign-in"') && serverSyncSour
 assert(serverSyncSource.includes("PERSISTENT_SESSION_STORAGE_KEY") && serverSyncSource.includes("setSessionPersistence(persist)"), "trusted devices must retain rotating sessions without retaining passwords");
 assert(authApiSource.includes('"/auth/v1/token?grant_type=password"'), "the Auth API must exchange credentials through Supabase password Auth");
 assert(!authApiSource.includes("/auth/v1/otp") && !html.includes("magic link"), "the closed pilot must not expose magic-link or public account-creation paths");
-assert(html.includes('src="config/preference-system.js"'), "the reusable preference graph must load before app state");
-assert(html.includes('src="config/country-flags.js"') && html.includes("const COUNTRY_FLAGS"), "the local country-flag renderer must load before athlete names are built");
+assertShellModule(html, "config/preference-system.js");
+assertShellModule(html, "config/country-flags.js");
+assert(html.includes("const COUNTRY_FLAGS"), "the local country-flag renderer must load before athlete names are built");
 assert(
   !html.includes('<script src="config/card-identities.js"></script>')
     && html.includes('loadDeferredScript("config/card-identities.js")')
@@ -187,11 +193,12 @@ assert(
   "the official card-identity registry must load independently and patch reserved card marks without blocking usable Feed cards",
 );
 assert(cardIdentitiesSource.includes('"competition:nrl"') && cardIdentitiesSource.includes('"brand:roland-garros"'), "card identities must include official competition and marquee-event marks");
-assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "fine-tuning and compatible spectacle-rating contracts must load before app state");
-assert(html.includes('src="config/enrichment-engine.js"'), "the disposable enrichment engine must load before app state");
-assert(html.includes('src="config/card-lifecycle.js"'), "the 7-day archive and 14-day hide lifecycle must load before app state");
-assert(html.includes('src="config/reminder-engine.js"'), "the deterministic reminder scheduler must load before app state");
-assert(html.includes('src="config/soundtrack.js"'), "the top-bar soundtrack controller must load before app state");
+assertShellModule(html, "config/fine-tuning.js");
+assertShellModule(html, "config/rating-system.js");
+assertShellModule(html, "config/enrichment-engine.js");
+assertShellModule(html, "config/card-lifecycle.js");
+assertShellModule(html, "config/reminder-engine.js");
+assertShellModule(html, "config/soundtrack.js");
 assert(!html.includes('src="data/events.js"') && html.includes('function loadLatestBundledEvents()') && html.includes('return reloadBundledEventsScript();'), "the generated published-feed fallback must load on demand rather than block the initial parser");
 assert(
   html.includes('globalThis.location?.protocol === "file:"')
@@ -242,14 +249,14 @@ const providerMarkSource = html.match(/function buildViewingProviderMark\(viewin
 assert(providerMarkSource.includes('image.alt = `${viewing.label} logo`') && providerMarkSource.includes("mark.appendChild(image)"), "available provider marks must render as accessible logos");
 assert(providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider fallback text and provider logos must be mutually exclusive");
 assert(html.includes('return "Submitted ✓"') && html.includes("button.disabled = submitted") && html.includes('button.setAttribute("aria-pressed", String(submitted))') && html.includes('button.setAttribute("aria-live", "polite")'), "prediction actions must seal and announce the Submitted state");
-assert(html.includes("nothingscoreSubmittedPhases") && html.includes("updateEventAction(event, { nothingscoreSubmittedPhases:Array.from(submittedPhases) })"), "sealed prediction state must persist in client event preferences");
+assert(html.includes("nothingscoreSubmissionStore") && html.includes("nothingscoreSubmissionIsSealed"), "sealed prediction state must persist in the submission receipt store");
 assert(soundtrackSource.includes("audio.volume = 1") && soundtrackSource.includes("player.volume = 1"), "soundtrack playback must use full HTML media volume");
 assert(!/createOscillator|elevator|epic orchestral|heavy metal/i.test(soundtrackSource), "procedural and alternate soundtrack modes must be removed");
 assert(!html.includes('join(" vs ")'), "fixture formatters must never emit the superseded vs separator");
 assert(html.includes('PROFILE_STORAGE.commitSections(localStorage, activeProfileBundle'), "settings writes must target one stable profile transaction");
 assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
-assert(html.includes('id="tuneNavBtn"') && html.includes('<span class="tab-label">Standings &amp; Fixtures</span>') && html.includes('id="tuneSheet"'), "compact navigation must expose Standings & Fixtures");
-assert(html.includes("function setCodeInspectorFixtureAdded") && html.includes("addedFixture:snapshot") && html.includes('added ? "Remove from Feed" : "Add to Feed"'), "Standings & Fixtures must persist Add to Feed and Remove from Feed against the stable fixture snapshot");
+assert(html.includes("follow-sport-track") && html.includes("follow-section-tabs"), "Follow must expose sport entry points and drill-down controls");
+assert(html.includes("function setCodeInspectorFixtureAdded") && html.includes("addedFixture:snapshot") && html.includes("added?'Remove from Feed':'Add to Feed'"), "Schedule must persist Add to Feed and Remove from Feed against the stable fixture snapshot");
 assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.includes("if (activeSportHubKey()) return false;"), "complete NRL/AFL hubs must not mutate or impersonate the saved Froth preference");
 assert(html.includes("function openCodeInspector(codeId") && html.includes("history.pushState({ codeInspector: codeId, inspectorParent: true }") && !html.includes("openDiscoverySport(nodeId)"), "Inspect actions must use isolated history state rather than mutating the feed filter");
 assert(html.includes('activeTab: sportHubFullCoverageAllowed(sportKey) ? "all-fixtures" : "worth-watching"'), "AFL and NRL must default to highlights until that sport is Froth");
@@ -268,12 +275,11 @@ assert(!html.includes("summaryCardEventAction"), "derived round summaries must n
 assert(html.includes("function focusSportHubViewport()") && html.includes("stickyFeedChromeHeight() - 12"), "sport-hub entry must bring the in-place hub heading below the pinned app chrome");
 assert(html.includes("requestFeedRefreshForFilterChange()") && html.includes("await refreshRemoteFeed({ quiet: true })"), "focused sport and All filter changes must use the existing feed refresh path");
 assert(html.includes("feedFilterRefreshQueued") && html.includes("feedFilterRefreshInFlight"), "rapid sport filter changes must coalesce refreshes instead of racing duplicate loads");
-assert(html.includes('id="tuneBrowseList"') && !html.includes('id="tuneControlGrid"'), "Inspector must list codes without retaining feed controls");
-assert(html.includes('<h3 id="tuneBrowseTitle">Codes</h3>') && html.includes("loadCodeInspectorManifest"), "Inspector must lazy-load the canonical coverage manifest");
-assert(!html.includes('id="tuneSelectAllBtn"') && !html.includes('id="tuneDeselectAllBtn"') && !html.includes('id="tuneClearFilterBtn"'), "Inspector must remove visit-scoped multi-select filtering");
-assert(html.includes('role="dialog" aria-modal="true" aria-labelledby="tuneSheetTitle"') && html.includes("function trapTuneSheetFocus(event)"), "Inspector must remain an accessible focus-trapped bottom sheet");
-assert(html.includes("tuneSheetReturnState = {") && html.includes("inspectorPickerState = { scrollTop:") && html.includes('returnState.focus.focus({ preventScroll: true })'), "Inspector list must preserve feed and picker position and restore keyboard focus");
-assert(html.includes("activeInspectorCodeId") && html.includes("inspectorReturnState") && html.includes("#standings-fixtures/"), "Standings & Fixtures drill-down must keep a separate history-aware return state");
+assert(!html.includes('id="tuneNavBtn"') && html.includes("renderFollowView"), "the retired Inspector directory must be replaced by Follow");
+assert(html.includes("loadCodeInspectorManifest") && html.includes("followInspectorCode"), "Follow must lazy-load canonical Schedule coverage");
+assert(html.includes("followBrowseState") && html.includes("saveFollowBrowse"), "Follow must preserve sport, category, section and pagination state");
+assert(html.includes("openFollowScreen") && html.includes("backFromCodeInspector"), "Schedule and standings must use dedicated, history-aware screens");
+assert(html.includes("activeInspectorCodeId") && html.includes("inspectorReturnState") && html.includes("#follow/"), "Follow drill-down must keep a separate history-aware return state");
 assert(!html.includes('id="feedFilterVisibilityBtn"') && !html.includes('id="feedFilterDock"'), "the retired Hide/Show filter rail must not remain exposed");
 assert(html.includes("function stickyFeedChromeHeight()"), "focused-view offsets must continue to account for pinned app chrome");
 assert(html.includes("function scheduleFirstCardViewportFit()") && html.includes('"header-compact-1", "header-compact-2", "header-compact-3"'), "the phone opening must progressively compact the branded header around the first card");
@@ -296,7 +302,7 @@ assert(html.includes('className = "standings-freshness-note"'), "standings must 
 assert(html.includes("This round is ongoing, so positions may change after the next completed match."), "ongoing standings must warn that the table can still change");
 assert(html.includes("Standings refresh periodically and may briefly differ from official sources due to update delays."), "standings must disclose periodic update latency against official sources");
 assert(html.includes("buildDirectoryFollowButton") && html.includes("setDirectoryEntityFollow"), "entity follows must be editable in place from the central Follow directory");
-assert(html.includes('session.directorySportKey === "football"') && html.includes('session.directorySportKey === "nrl"') && html.includes('session.directorySportKey === "afl"'), "Teams & Players must expose NRL and AFL alongside Football");
+assert(html.includes('session.directorySportKey === "football"') && html.includes('session.directorySportKey === "nrl"') && html.includes('session.directorySportKey === "afl"'), "Teams & players must expose NRL and AFL alongside Football");
 assert(html.includes("loadNrlDirectoryData") && html.includes("loadAflDirectoryData"), "NRL and AFL catalogues must load only when opened");
 assert(html.includes("profileHasNrlEntityFollow") && html.includes("profileHasAflEntityFollow"), "saved NRL and AFL player follows must restore their fixture expansion at startup");
 assert(!serviceWorkerSource.includes('"/data/canonical/nrl-directory.v1.json"') && !serviceWorkerSource.includes('"/data/canonical/afl-directory.v1.json"'), "full NRL and AFL directories must remain outside the critical offline shell");
@@ -400,9 +406,11 @@ assert(shellVersion && serviceWorkerSource.includes(`const CACHE_NAME = "nothing
 assert(html.includes(`<meta name="app-shell-version" content="${shellVersion}">`), "the served page must expose its shell version for installed-app diagnostics");
 assert(serviceWorkerSource.includes('"/config/card-identities.js"'), "the card-identity registry must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/privacy.html"') && serviceWorkerSource.includes('"/terms.html"'), "legal documents must be available in the installed offline shell");
-assert(html.includes('<script src="config/team-follow-catalogue.js"></script>'), "Rugby, Cricket and Football team follows must load before the app");
+assertShellModule(html, "config/team-follow-catalogue.js");
 assert(serviceWorkerSource.includes('"/config/sport-hierarchy.js"') && serviceWorkerSource.includes('"/config/event-taxonomy-compat.js"') && serviceWorkerSource.includes('"/config/preference-taxonomy.js"'), "the hierarchy, event adapter, and preference translator must be available in the offline shell");
-assert(html.includes('src="config/sport-hierarchy.js"') && html.includes('src="config/event-taxonomy-compat.js"') && html.includes('src="config/preference-taxonomy.js"'), "the hierarchy compatibility and preference translation layers must load before app state");
+assertShellModule(html, "config/sport-hierarchy.js");
+assertShellModule(html, "config/event-taxonomy-compat.js");
+assertShellModule(html, "config/preference-taxonomy.js");
 assert(serviceWorkerSource.includes('"/config/sport-hubs.js"'), "the complete sport-hub adapter must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/product-events.js"'), "the pilot event contract must be available in the offline shell");
 assert(serviceWorkerSource.includes('"/config/event-action-identity.js"'), "stable event-action identity must be available in the offline shell");
@@ -420,8 +428,8 @@ assert(html.includes('lastFeedPublishedAt: "ns_last_feed_published_at_v1"'), "fe
 assert(html.includes("Feed generated ${publishedCopy}"), "feed status must label the actual generation time explicitly");
 assert(html.includes("This is when the published feed was generated, not when this browser last checked it."), "feed status must not imply that a browser refresh contacts sporting sources");
 assert(serverFeedSource.includes("sourcePublishedAt") && serverFeedApiSource.includes("sourcePublishedAt: eventFeed.publishedAt"), "signed-in feeds must retain the same canonical publication timestamp");
-assert(html.includes('open.type = "button"') && html.includes('open.textContent = "Inspect"') && !html.includes('tick.setAttribute("role", "checkbox")'), "Inspector rows must expose keyboard-native Inspect actions without feed-filter checkbox semantics");
-assert(!html.includes("Editorial top picks and story highlights can still appear when you do not follow their sport") && html.includes("Automatic Feed cards come from saved teams, players and Australian national representation."), "Follow must describe the strict follow-first Feed boundary without an editorial bypass");
+assert(html.includes("follow-sport-icon") && html.includes("openFollowScreen") && !html.includes('open.textContent = "Inspect"'), "sport icons must replace the retired Inspect actions");
+assert(html.includes("Follow Australians") && html.includes("australiansOnlySportIds"), "Follow must expose the sport-scoped Australian participant restriction");
 assert(serviceWorkerSource.includes('"/assets/brand/web/nothingsport-logo.png"'), "the visible brand mark must remain in the lean offline shell");
 const appShellSource = serviceWorkerSource.match(/const APP_SHELL = \[[\s\S]*?\n\];/)?.[0] || "";
 brandAssets
@@ -460,7 +468,7 @@ const detailedCoverageSource = html.match(/function detailedCoverageDomainIds\(p
 assert(detailedCoverageSource.includes('"template:froth"') && detailedCoverageSource.includes("supportsCompetitors"), "detailed coverage must require Froth and a supported team, competitor, or standings model");
 assert(html.includes('const DEFAULT_FIRST_RUN_SELECTOR_IDS = ["sport:nrl", "sport:afl-premiership"]'), "first-time setup must seed Rugby League and the AFL Premiership child code");
 assert(!html.includes('draftPreferences.selectedSelectorEntityIds = []'), "first-time setup must preserve its seeded league choices");
-assert(html.includes('[["teams-players", "Teams & Players"], ["sports-australia", "Sports & Australia"], ["major-events", "Major Events"]]'), "Follow must expose its three clear choice sections");
+assert(html.includes("follow-section-tabs") && html.includes("Teams & players") && html.includes("followStandingsLabel"), "Follow must expose its ordered sport-specific sections");
 assert(html.includes('id="selectorOptInModal"'), "new selector entities must use one consolidated opt-in prompt");
 assert.equal((html.match(/id="selectorOptInModal"/g) || []).length, 1, "new selector entities must not stack multiple prompts");
 assert(html.includes('selectorNewMarkerMarkup(entity)'), "new selector entities must reuse the contrast-colour dot treatment");
@@ -471,17 +479,17 @@ assert(!settingsMenuSource.includes('settingsMenuItem("archive"') && html.includ
 assert(html.includes('renderChoices("startupSportsGrid", FOLLOW_FIRST.STARTUP_SPORTS') && html.includes('renderChoices("startupEventsGrid", FOLLOW_FIRST.MAJOR_EVENT_FAMILIES'), "startup must render only the bounded popular sport and major-event choices");
 assert(html.includes("maximum-scale=1.0, user-scalable=no"), "the app viewport must suppress pinch zoom");
 assert(html.includes('document.addEventListener("gesturestart"'), "native-app gesture handling must suppress Safari pinch gestures");
-assert(html.includes('id="jumpTodayBtn"'), "Calendar must expose a floating Jump to Today control");
-assert(html.includes('heading.id = "calendarTodayAnchor"') && html.includes('else appendTodayAnchor()'), "Calendar must combine the populated Today date heading and timeline anchor");
+assert(html.includes('id="jumpTodayBtn"') && html.includes("renderFeedViewActions"), "Feed must expose compact Jump to Today and Jump to Now controls");
+assert(html.includes('heading.id = "calendarTodayAnchor"') && html.includes("appendTodayAnchor()"), "Feed must combine the populated Today date heading and timeline anchor");
 assert(html.includes("scheduleInitialCalendarJump()"), "Calendar must default the viewport to Today");
 assert(html.includes('activeTab === "events" ? "eventsTodayAnchor" : "calendarTodayAnchor"'), "Feed and Events must retain distinct persistent Today anchors");
 assert(html.includes("startupFeedNavigationTouched") && html.includes('calendarInitialJumpPending = true;'), "initial Feed alignment must repeat after background loading unless the person has started navigating");
 assert(html.includes("function openFirstRunSettingsAfterFeedAlignment") && html.includes("window.requestAnimationFrame(() => openSettings({ firstRun: true }))"), "first-run Settings must capture its return position only after the Feed has aligned at Today");
-assert(html.includes("PERSONALISED_FEED?.splitTimeline?.(filtered, getEventAction, nowAEST())"), "the curated feed must split past, Today and future cards from one canonical timeline model");
+assert(html.includes("FEED_TIMELINE.groups") && html.includes("buildFeedNowMarker"), "the Feed must split completed, live and upcoming cards from one canonical timeline model");
 assert(!html.includes("appendManualMustWatchQueue"), "the removed Must Watch queue must not split the timeline");
 assert(html.includes('rect.top <= window.innerHeight'), "the Today bar must count as visible across the full viewport for contextual navigation");
-assert(html.includes("jumpTodayBtn.hidden = hubActive"), "Jump to Today must remain available in curated Feed views and stay out of complete sport hubs");
-assert(html.includes("nothing high stakes on today"), "Today must explain when no high-stakes card qualifies");
+assert(html.includes("feedTimeline || activeInspectorCodeId") && html.includes("Jump to Today"), "the contextual jump must stay out of dedicated Follow screens while Feed owns its compact timeline actions");
+assert(html.includes("Nothing else today"), "Today must explain when no further card qualifies");
 assert(html.includes("temporaryTodayMoreEvents"), "Today More must use temporary reveal state rather than changing preferences");
 assert(html.includes('className = `date-group${dateStr < todayStr ? " is-past-date" : ""}`'), "past date groups must receive subdued styling");
 assert(html.includes('card.dataset.eventId = ev.eventId || ev.id') && html.includes('card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`'), "expanded cards must expose stable event and scroll identities");
@@ -527,13 +535,13 @@ assert(eventCardSource.includes('buildFeedStakesRow(ev) : buildStakesMeter(ev)')
 assert(!eventCardSource.includes("buildEventCompactFooter(ev"), "card expansion must not duplicate the one centred stakes and feedback unit");
 assert(!eventCardSource.includes('label.className = "new-tag"') && !eventCardSource.includes('label.textContent = "New"'), "cards must not expose the temporary New metadata tag");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
-assert(!html.includes('id="calendarSyncBtn"') && !html.includes('id="calendarSyncModal"') && !html.includes('id="calendarSyncUrl"'), "calendar sync must remain removed from the header and app");
+assert(html.includes('id="calendarSyncBtn"') && html.includes("showCalendarDialog"), "Calendar sync must be available beside Share");
 assert(!html.includes("Export Never Miss"), "the obsolete one-off Never Miss export language must be removed");
 assert(!html.includes('id="exportModal"') && !html.includes('id="exportForm"'), "the one-off batch export form must be removed");
 const actionPanelSource = html.match(/function buildEventActionPanel\(ev, options = \{\}\)\{[\s\S]*?\n  return panel;\n\}/)?.[0] || "";
 assert(!actionPanelSource.includes('setMustWatch') && !html.includes('Add to Must Watch'), "the removed Must Watch action must not remain on cards");
 assert(!/makeActionButton\("Archive"|makeActionButton\("Save"|Mark watched/.test(actionPanelSource), "Archive, Save and Mark watched must be removed from card actions");
-assert(actionPanelSource.includes('thumb-control'), "card feedback must use compact mutually exclusive thumb controls");
+assert(html.includes("function buildEventFeedbackButtons") && html.includes("suggestion-like"), "eligible suggestion feedback must use a compact intrinsic action");
 const spoilerControlSource = html.match(/function buildSpoilerOverrideControl\(ev\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(spoilerControlSource.includes('visible ? "Hide results" : "Show results"'), "per-event result controls must use Show results and Hide results");
 assert(spoilerControlSource.includes('window.confirm("Show results for this event?")'), "the per-event confirmation must use result language");
@@ -588,7 +596,7 @@ assert(!/\bsupportsAthletes\b|\bathlete\b/i.test(`${canonicalTaxonomySource}\n${
 assert.equal(profileStorageSchema.properties.schemaVersion.const, 5, "profile storage schema must be explicitly versioned");
 assert(profileStorageSchema.required.includes("learningPreference"), "profile storage must preserve the learning section across reloads");
 assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v2", "enrichment must use an explicitly versioned disposable schema");
-assert(html.includes('<script src="config/storyline-overrides.js"></script>'), "the editorial override registry must load before the enrichment engine");
+assertShellModule(html, "config/storyline-overrides.js");
 assert(!html.includes('function appendManualMustWatchQueue'), "the curated feed must not expose the removed Must Watch queue");
 assert(!html.includes("appendPremiumSurfaces(container, filtered)"), "editorial premium selections must not displace the chronological feed");
 assert(html.includes("function buildMajorEventMarker") && html.includes("openMajorEventInEvents"), "Cincinnati must use one compact Fixtures marker that opens its rich Events card");
@@ -859,6 +867,10 @@ const sandbox = {
 };
 vm.createContext(sandbox);
 vm.runInContext(vectorAssetsSource, sandbox, { filename: "config/vector-assets.js" });
+vm.runInContext(nscSubmissionStateSource, sandbox, { filename: "config/nsc-submission-state.js" });
+vm.runInContext(calendarExportSource, sandbox, { filename: "config/calendar-export.js" });
+vm.runInContext(feedControlsSource, sandbox, { filename: "config/feed-controls.js" });
+vm.runInContext(feedTimelineSource, sandbox, { filename: "config/feed-timeline.js" });
 vm.runInContext(cardIdentitiesSource, sandbox, { filename: "config/card-identities.js" });
 vm.runInContext(cardResultsSource, sandbox, { filename: "config/card-results.js" });
 vm.runInContext(ticketingSource, sandbox, { filename: "config/ticketing.js" });

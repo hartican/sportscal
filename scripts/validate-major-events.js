@@ -110,7 +110,8 @@ assert(catalogue.events.some(record => record.id === "ticket-sale:australian-gra
 const tennis = majorEvents.visibleRecords(catalogue, ["tennis"], REFERENCE);
 assert(tennis.events.some(record => record.id === "major-event:us-open-2026"));
 assert(tennis.events.some(record => record.id === "major-event:australian-open-2027"));
-assert(tennis.alerts.some(record => record.id === "ticket-sale:australian-open-2027-general-sale"));
+assert(tennis.alerts.some(record => record.id === "major-event:australian-open-2027"));
+assert(tennis.alerts.every(record=>record.kind!=="ticket_sale"),"Tickets must use canonical parents, with event dates");
 assert(!tennis.events.some(record => record.sportKey === "nrl"), "Events must respect followed sports");
 
 const followedSportVisibilityCases = [
@@ -277,11 +278,11 @@ invalidCopies.forEach(([document, message]) => {
 
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
 assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
-assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=223"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
+assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes('moduleScriptUrl: "config/major-events.js?v=234"'), "the Events runtime must stay off the critical startup path and load with its catalogue");
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
-assert(worker.includes('"/config/major-events.js?v=223"') && worker.includes('"/config/follow-feed-policy.js?v=230"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
+assert(worker.includes('"/config/major-events.js?v=234"') && worker.includes('"/config/follow-feed-policy.js?v=230"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
 assert.match(html, /const crowdEvent = majorSubEventNothingscoreEvent\(subEvent, record, fixture\);[\s\S]*const editorialHook = buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\), editorialConsequenceForDisplay\(editorialRecord\)\);[\s\S]*if \(editorialHook\) row\.appendChild\(editorialHook\);[\s\S]*row\.appendChild\(buildEventNothingscoreAction\(crowdEvent\)\);/, "every Events timetable card must keep Why it matters and the contribution action together");
 assert.match(html, /row\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\)/, "Events timetable cards must expose the real peer summary for that match");

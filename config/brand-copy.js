@@ -14,7 +14,7 @@
     descriptor: "Live sport, nothing missed.",
     loadingDescriptor: "Live sport, nothing missed.",
     hero: "Live sport, nothing missed.",
-    about: "Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. A dislike removes that exact card and softly tunes future suggestions; a like gently lifts related suggestions without changing complete fixture lists. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.",
+    about: "Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. Dismiss removes that exact card without changing your follows. A Like appears only on a high-stakes suggestion that did not come from a follow. Open Events to choose special fixtures early, or Follow for each sport’s Schedule, Ladder and Standings.",
     countryAcknowledgement: "Nothing Sport acknowledges the Yuin Nation, the Traditional Custodians of the land on which this app was built. Always was, always will be Aboriginal land. Voice. Treaty. Truth.",
     metadataDescription: "Live sport, nothing missed.",
     onboardingDescription: "Choose your sports and Australia-in-internationals seed once, then refine teams and players in Follow.",

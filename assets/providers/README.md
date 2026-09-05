@@ -18,3 +18,7 @@ inside the same reserved frame without moving the control.
 
 The marks remain the property of their respective owners and are not modified
 other than the Stan source image being resized for mobile delivery.
+
+## beIN SPORTS CONNECT
+
+`bein-sports-connect.svg` is the unmodified inline official logo from https://connect-au.beinsports.com/en, retrieved 5 September 2026. Used to identify the Australian viewing destination. Rights guide: https://prod.beinsports.com/en-au/football/laliga/articles-video/how-to-watch-laliga-live-in-australia-2026-08-10.

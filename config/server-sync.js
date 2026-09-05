@@ -460,6 +460,7 @@
     }
 
     return Object.freeze({
+      calendarRequest(options = {}){ return authenticatedRequest("/api/calendar", options); },
       async status(){
         return jsonRequest("/api/auth");
       },

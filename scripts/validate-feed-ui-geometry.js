@@ -32,7 +32,7 @@ assert(
   "identity images must be bounded and use contain sizing"
 );
 assert(html.includes('logo.loading = "lazy"') && html.includes('image.loading = eager ? "eager" : "lazy"'), "feed and Inspector identities must lazy-load outside their immediate view");
-assert(html.includes("identity.replaceChildren(fallback)") && html.includes("logo.hidden = true") && html.includes("fallback.remove()"), "image failure and load handling must prevent a visible image/fallback collision");
+assert(html.includes("identity.replaceChildren(fallback)") && html.includes("identity-image-pending") && html.includes("function finalizeLoadedIdentityImage") && html.includes("fallback.remove()"), "image failure and load handling must prevent a visible image/fallback collision");
 assert(html.includes("function auditFeedUiGeometry"), "the app must expose deterministic live geometry checks for responsive browser QA");
 assert(html.includes('type: "horizontal-overflow"') && html.includes('type: "identity-escape"') && html.includes('type: "identity-overlap"') && html.includes('type: "image-fallback-collision"'), "the live geometry audit must reject every required collision class");
 assert(!/\.event-card,\s*\n\.major-event-card,\s*\n\.joint-tournament-card[\s\S]{0,160}contain-intrinsic-size:\s*440px/.test(html), "variable-height feed cards must not use a shared intrinsic estimate");

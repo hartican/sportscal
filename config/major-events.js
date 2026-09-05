@@ -120,7 +120,7 @@
       )
       && inWindow(record, reference));
     const parentIds = new Set(parents.map(record => record.id));
-    const alerts = records.filter(record => record.kind === "ticket_sale" && parentIds.has(record.parentEventId) && activeTicketing(record, reference));
+    const alerts = parents.filter(record => activeTicketing(record, reference));
     return {
       events: parents.slice().sort((left, right) => compareRecords(left, right, reference)),
       alerts: alerts.slice().sort((left, right) => compareRecords(left, right, reference)),
