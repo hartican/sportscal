@@ -180,6 +180,7 @@
     storage = globalThis.sessionStorage,
     persistentStorage = globalThis.localStorage,
     now = () => Date.now(),
+    requestTimeoutMs = 15000,
   } = {}){
     let session = null;
     let persistSession = true;
@@ -198,8 +199,12 @@
 
     async function jsonRequest(path, options = {}){
       if (typeof fetchImpl !== "function") throw new Error("Server sync is unavailable in this browser.");
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
+      try{
       const response = await fetchImpl(path, {
         ...options,
+        signal:controller.signal,
         headers: {
           Accept: "application/json",
           ...(options.body ? { "Content-Type": "application/json" } : {}),
@@ -215,6 +220,14 @@
         throw error;
       }
       return payload;
+      }catch(error){
+        if (controller.signal.aborted){
+          const timedOut = new Error("The server took too long to respond. Check confirmation before trying again.");
+          timedOut.code = "request_timeout";
+          throw timedOut;
+        }
+        throw error;
+      }finally{ clearTimeout(timeout); }
     }
 
     function persistencePreference(){

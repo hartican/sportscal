@@ -85,7 +85,7 @@ const html = fs.readFileSync("index.html", "utf8");
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const shellVersion = html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1];
 const workerVersion = worker.match(/const CACHE_NAME = "nothingsport-shell-v(\d+)"/)?.[1];
-assert(html.includes('src="config/fine-tuning.js"') && html.includes('src="config/rating-system.js"'), "legacy signal and rating migrations must load before app state");
+["config/fine-tuning.js","config/rating-system.js"].forEach(file => require("./app-shell-test-utils").assertShellModule(html,file));
 assert(!html.includes('settingsMenuItem("tune"') && html.includes('<span class="tab-label">Follow</span>'), "Follow must replace Tune as the third primary tab");
 assert(!html.includes('id="frothKnobList"') && !html.includes('data-inline-froth'), "Froth controls must not remain in the UI");
 assert(html.includes("FOLLOW_FIRST?.toggleFeedback") && html.includes("firstSwipeAt"), "thumb feedback must persist reversible metadata and trigger Follow refinement");

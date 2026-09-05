@@ -38,6 +38,6 @@ const liked = followFirst.toggleFeedback(basePreferences, feedbackInput);
 assert.equal(liked.followFirst.feedback.entries.at(-1)?.direction, "positive", "the first thumbs-up tap must like the event");
 const unliked = followFirst.toggleFeedback(liked, { ...feedbackInput, occurredAt:"2026-08-30T08:01:00.000Z" });
 assert(!unliked.followFirst.feedback.entries.some(entry => entry.eventId === feedbackInput.eventId), "the second thumbs-up tap must remove the event like");
-assert.match(html, /publishPositiveNothingscoreLike\(ev,\s*!togglingOff\)/, "repeat thumbs-up must mirror its active state to the public Nothingscore like without exposing private learning data");
+assert.doesNotMatch(html, /publishPositiveNothingscoreLike/, "private suggestion learning must not weight public peer ratings");
 
 console.log(`Editorial interaction valid: ${projectedRecords.length} projected cards retain L1/L2 narrative and repeat thumbs-up removes the like.`);

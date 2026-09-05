@@ -26,16 +26,21 @@
     return new Promise((resolve, reject) => {
       const script = document.createElement("script");
       script.src = url;
-      script.onload = resolve;
-      script.onerror = () => reject(new Error(`Unable to load ${url}`));
+      const timer = setTimeout(() => { script.remove(); reject(new Error(`Timed out loading ${url}`)); }, 12000);
+      script.onload = () => { clearTimeout(timer); resolve(); };
+      script.onerror = () => { clearTimeout(timer); script.remove(); reject(new Error(`Unable to load ${url}`)); };
       document.head.appendChild(script);
     });
   }
 
   async function fetchJson(url){
-    const response = await fetch(url, { cache:"no-cache" });
-    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-    return response.json();
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 12000);
+    try{
+      const response = await fetch(url, { cache:"no-cache", signal:controller.signal });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      return await response.json();
+    } finally { clearTimeout(timer); }
   }
 
   async function loadManifest(){
@@ -119,6 +124,8 @@
   }
 
   function makeTrigger(target, record, sportKey){
+    if (target.dataset.athleteProfileBound === record.profileRef) return;
+    target.dataset.athleteProfileBound = record.profileRef;
     target.classList.add("athlete-profile-trigger"); target.tabIndex = 0; target.setAttribute("role", "button"); target.setAttribute("aria-label", `Open ${record.displayName} profile`);
     target.addEventListener("click", () => void open(record, sportKey, target));
     target.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " "){ event.preventDefault(); void open(record, sportKey, target); } });
@@ -161,6 +168,8 @@
       }
     }catch(error){
       body.innerHTML = "<p>The detailed profile is temporarily unavailable. The athlete can still be followed directly from the directory.</p>";
+      const retry = document.createElement("button"); retry.type = "button"; retry.className = "btn ghost"; retry.textContent = "Retry profile";
+      retry.addEventListener("click", () => { dismiss(); void open(record,sportKey,trigger); }); body.appendChild(retry);
       console.warn("Athlete profile failed", error);
     }
   }

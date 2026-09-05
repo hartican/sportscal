@@ -411,6 +411,9 @@ async function bootstrapAndWrite(){
     fs.writeFileSync(temp, body);
     staged.push([temp, target]);
   };
+  const identityPath = path.join(ROOT, "config/card-identities.js");
+  const identities = directory.teams.map(team => [team.id, team.displayName, team.crestUrl, team.crestSourceUrl, team.aliases]);
+  stage(identityPath, fs.readFileSync(identityPath, "utf8").replace(/\/\* football-club-identities:start \*\/[\s\S]*?\/\* football-club-identities:end \*\//, `/* football-club-identities:start */\n  const footballClubIdentities = ${JSON.stringify(identities)};\n  /* football-club-identities:end */`));
   stage(DIRECTORY_PATH, `${JSON.stringify(directory, null, 2)}\n`);
   stage(DIRECTORY_SCRIPT_PATH, `globalThis.NOTHINGSPORTS_FOOTBALL_DIRECTORY_DATA = ${JSON.stringify(directory)};\n`);
   stage(INDEX_PATH, `${JSON.stringify(index, null, 2)}\n`);

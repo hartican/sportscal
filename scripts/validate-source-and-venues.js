@@ -64,7 +64,7 @@ assert.equal(venues.resolve("New York, USA", { key: "tennis" }).officialName, "U
 assert.equal(venues.resolve("New York, USA").audited, false, "New York must not globally collapse to the US Open grounds");
 assert.equal(venues.resolve("Etihad Stadium", { key: "premier-league" }).id, "etihad-stadium-manchester", "the EPL context must resolve Manchester's Etihad without introducing a global venue collision");
 assert.equal(venues.resolve("Etihad Stadium").audited, false, "Etihad Stadium must not globally collapse to Manchester");
-assert(html.includes('src="config/source-trust.js"') && html.includes('src="config/venue-registry.js"'), "the source trust and venue models must load before the app state");
+["config/source-trust.js","config/venue-registry.js"].forEach(file => require("./app-shell-test-utils").assertShellModule(html,file));
 assert(worker.includes('"/config/source-trust.js"') && worker.includes('"/config/venue-registry.js"'), "the source trust and venue models must remain available in the offline shell");
 const audit = venues.audit(feed.events);
 assert.equal(audit.total, new Set(feed.events.map(event => event.venue).filter(Boolean)).size, "the venue audit must inspect every currently published venue");

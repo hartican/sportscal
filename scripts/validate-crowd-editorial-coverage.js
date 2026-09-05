@@ -71,12 +71,14 @@ assert(ticketAlerts.length > 0);
 ticketAlerts.forEach(record => assert.equal(server.eventFor(record.id), null, `${record.id} must remain outside Nothingscore`));
 
 const html = fs.readFileSync("index.html", "utf8");
-assert.doesNotMatch(html, /mainDiv\.appendChild\(buildNothingscoreSummary\(ev\)\)/, "Feed cards must not surface crowd aggregates");
-assert.doesNotMatch(html, /row\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\)/, "Events child cards must not surface crowd aggregates");
+assert.match(html, /mainDiv\.appendChild\(buildNothingscoreSummary\(ev\)\)/, "Feed cards must expose real peer summaries");
+const peerUi = html.slice(html.indexOf("function buildNothingscorePeerResults"),html.indexOf("function openNothingscoreLeaderboard"));
+assert.match(peerUi,/snapshot\?\.peerResults/);
+assert.doesNotMatch(peerUi,/snapshot\?\.(aggregate|crowdEditorial|earlyPanel)/,"peer UI must never use blended/modelled aggregates");
 assert.match(html, /buildEventWhyItMatters\(ev\)[\s\S]{0,1800}buildEventNothingscoreAction\(ev\)/, "Feed cards must keep the voluntary contribution action beneath sourced Why it matters copy and any in-flow editorial disclosure");
 assert.match(html, /const editorialHook = buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\), editorialConsequenceForDisplay\(editorialRecord\)\);[\s\S]{0,220}buildEventNothingscoreAction\(crowdEvent\)/, "Events child cards must keep the voluntary contribution action beneath sourced Why it matters copy");
 assert.doesNotMatch(html, /if \(crowdHook\)[\s\S]{0,120}else/, "crowd availability must never suppress sourced editorial");
 assert.doesNotMatch(html, /labelText:"Independent context"/);
 assert.doesNotMatch(html, /statistically significant/i);
 
-console.log(`Crowd/editorial coverage passed: ${records.length}/${records.length} Feed and Events records retain deterministic collection data behind hidden card aggregates; ${ticketAlerts.length} ticket alerts remain excluded.`);
+console.log(`Crowd/editorial coverage passed: ${records.length}/${records.length} records retain their editorial contracts; real peer summaries are separate from modelled aggregates; ${ticketAlerts.length} ticket alerts remain excluded.`);

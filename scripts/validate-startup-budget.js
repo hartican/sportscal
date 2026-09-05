@@ -10,11 +10,12 @@ const html = fs.readFileSync("index.html", "utf8");
 const shellBlock = serviceWorker.match(/const APP_SHELL = \[([\s\S]*?)\n\];/)?.[1] || "";
 const assets = [...shellBlock.matchAll(/"([^"]+)"/g)].map(match => match[1]);
 const bytes = assets.reduce((total, asset) => {
-  const localPath = `.${asset}`;
-  return total + (fs.existsSync(localPath) ? fs.statSync(localPath).size : 0);
+  const localPath = `.${asset.split(/[?#]/, 1)[0]}`;
+  return total + (fs.existsSync(localPath) && fs.statSync(localPath).isFile() ? fs.statSync(localPath).size : 0);
 }, 0);
 
 assert(bytes <= 3 * 1024 * 1024, `lean app shell must stay under 3 MB, received ${bytes} bytes`);
+assert(!assets.includes("/") && assets.includes("/index.html"), "installation must fetch one canonical HTML shell, not a duplicate root alias");
 assert(!html.includes('src="data/events.js"'), "the 1.6 MB fallback bundle must not block HTML parsing");
 assert(html.includes('function loadLatestBundledEvents()') && html.includes('return reloadBundledEventsScript();'), "offline fallback must remain available on demand");
 assert(html.includes('Preserve the stable URL so the service-worker'), "the on-demand fallback must use a cache-matchable URL");

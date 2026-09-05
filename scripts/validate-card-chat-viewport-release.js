@@ -73,8 +73,8 @@ assert.match(html, /expand\.setAttribute\("aria-expanded", String\(expanded\)\)/
 assert.match(html, /recordEventFeedAction\(ev, "open", \{ surface:"card-control" \}\)/);
 assert.doesNotMatch(html, /Read more/);
 assert.doesNotMatch(html, /Show less/);
-assert.match(html, /Less of this/);
-assert.match(html, /More of this/);
+assert.doesNotMatch(html, /Less of this|More of this/);
+assert.match(html, /if \(!eventIsHighStakesSuggestion\(ev\)\) return \[\]/);
 assert.match(html, /interactionName:"card-dismiss-undo"/);
 assert.match(mediaCss, /chat-gif-picker[^\n]*position:\s*fixed/s);
 assert.match(mediaUi, /Preparing…/);

@@ -31,8 +31,8 @@ assert.match(html, /settingsSection === "pilot"\) renderPilotSettings/);
 assert.doesNotMatch(html, /offerProviderWebFallback/);
 assert.doesNotMatch(html, /bindHorizontalLearningSwipe\(/);
 assert.doesNotMatch(html, /Swipe to (?:like|dislike)/i);
-assert.match(html, /row\.append\(negative, buildStakesMeter\(ev\), positive\)/, "Feed controls must render thumbs-down left and thumbs-up right of Stakes");
+assert.doesNotMatch(html, /Less of this|More of this/, "obsolete reaction controls must stay removed");
 assert.doesNotMatch(html, /aria-keyshortcuts="ArrowLeft ArrowRight/);
-assert(/function buildFeedStakesRow[\s\S]{0,1400}negative[\s\S]{0,700}buildStakesMeter[\s\S]{0,700}positive/.test(html), "thumbs-down must be left and thumbs-up right");
+assert.match(html, /if \(!eventIsHighStakesSuggestion\(ev\)\) return \[\]/, "only a genuine suggestion may expose Like");
 
 console.log("Trust/provider/swipe plan valid: escalating snooze, direct survey routing, HTTPS providers and button-only feedback passed.");

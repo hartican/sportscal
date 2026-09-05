@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+"use strict";
+const assert=require("node:assert/strict");
+const {createStore,mergeCurrentUser}=require("../config/nsc-submission-state");
+const storage=new Map();
+const options={read:key=>storage.get(key),write:(key,value)=>storage.set(key,value)};
+const first=createStore(options),key="account-a|canonical-match|impact",command={rating:4,tags:["Close"]};
+assert.equal(first.begin(key,command),true);
+assert.equal(first.begin(key,command),false);
+assert.equal(first.begin("account-b|canonical-match|impact",command),true);
+const reload=createStore(options);
+assert.equal(reload.get(key).status,"uncertain");
+assert.equal(reload.begin(key,command),false);
+reload.confirm(key,{rating:4,submittedAt:"2026-09-05"});
+reload.release(key);
+assert.equal(reload.begin(key,command),false);
+assert.equal(createStore(options).get(key).receipt.rating,4);
+assert.equal(mergeCurrentUser({submissions:{impact:{rating:4}}},{submissions:{}}).submissions.impact.rating,4);
+assert.equal(mergeCurrentUser({submissions:{impact:{rating:4}}},null),null);
+const recovery=createStore();recovery.begin(key,command);recovery.uncertain(key);recovery.release(key);
+assert.equal(recovery.get(key).draft.rating,4);
+console.log("PASS duplicate pending lock, account isolation, reload reconciliation, monotonic receipts and preserved drafts");

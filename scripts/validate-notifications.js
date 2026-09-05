@@ -100,8 +100,8 @@ async function main(){
   const installationMigration = fs.readFileSync(`${ROOT}/supabase/follow-first-user-meta-and-notifications.sql`, "utf8");
   const vercel = JSON.parse(fs.readFileSync(`${ROOT}/vercel.json`, "utf8"));
   const quickReminder = html.match(/async function toggleQuickReminder[\s\S]*?\n\}/)?.[0] || "";
-  assert(quickReminder.includes("await ensureWebPushReminder(ev, timing)"), "Remind me must confirm a server reminder before updating local state");
-  assert(quickReminder.includes("await removeWebPushReminder(ev)"), "turning a reminder off must confirm server cancellation first");
+  assert(quickReminder.includes("return ensureWebPushReminder(ev, timing)") && quickReminder.includes("rollback:prior"), "optimistic Remind must await server confirmation and roll back failure");
+  assert(quickReminder.includes("return removeWebPushReminder(ev)"), "turning a reminder off must confirm server cancellation");
   assert(quickReminder.includes("if (enabled && !reminderCanBeScheduled(timing))"), "an expired reminder window must block creation without blocking cancellation");
   assert(!quickReminder.includes("localNotificationRegistration"), "Remind me must not fall back to an active-app timer");
   assert(!html.includes("scheduleBrowserReminders()"), "the retired active-app scheduler must not run alongside Web Push");
@@ -265,7 +265,7 @@ async function main(){
     assert.equal(response.statusCode, 200);
     assert.equal(sends, 1);
     assert.equal(response.payload.claimed, 1);
-    assert.equal(dispatchedPayloads[0].title, "Session starts now: Claimed final");
+    assert.equal(dispatchedPayloads[0].title, "Claimed final", "push titles put the fixture first; timing belongs in the body");
     assert(dispatchCalls.some(call => call.options.method === "PATCH" && call.path.includes("claimed_at.is.null")), "dispatch must atomically claim a due row before sending");
 
     claimAllowed = false;

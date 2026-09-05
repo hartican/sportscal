@@ -11,7 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="230">
+<meta name="app-shell-version" content="231">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=231" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -345,11 +346,10 @@ header.top,
 #mainContent,
 .app-footer,
 #jumpTodayBtn{
-  will-change:opacity, transform, filter;
   opacity:0;
-  transform:translate3d(0, 14px, 0) scale(.994);
-  filter:blur(5px);
-  transition:opacity .28s cubic-bezier(.18,.78,.24,1), transform .28s cubic-bezier(.18,.78,.24,1), filter .28s ease;
+  transform:none;
+  filter:none;
+  transition:opacity .28s cubic-bezier(.18,.78,.24,1);
 }
 
 body.startup-shell-visible header.top,
@@ -6901,7 +6901,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=230">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=231">
 </head>
 <body>
 
@@ -7190,47 +7190,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </aside>
 </div>
 
-<script src="config/brand-copy.js"></script>
-<script src="config/vector-assets.js"></script>
-<script src="config/card-results.js"></script>
-<script src="config/ticketing.js"></script>
-<script src="config/country-flags.js"></script>
-<script src="config/sport-domain-registry.js"></script>
-<script src="config/canonical-sports-taxonomy.js"></script>
-<script src="config/sport-hierarchy.js"></script>
-<script src="config/competition-classification.js?v=222"></script>
-<script src="config/team-follow-catalogue.js"></script>
-<script src="config/event-taxonomy-compat.js"></script>
-<script src="config/preference-taxonomy.js"></script>
-<script src="config/follow-first.js?v=222"></script>
-<script src="config/follow-feed-policy.js?v=230"></script>
-<script src="config/tennis-coverage.js"></script>
-<script src="config/sport-context.js"></script>
-<script src="config/feed-refresh-lifecycle.js"></script>
-<script src="config/loading-progress.js"></script>
-<script src="config/profile-storage.js"></script>
-<script src="config/disposable-storage.js"></script>
-<script src="config/product-events.js"></script>
-<script src="config/event-action-identity.js"></script>
-<script src="config/user-state-sync.js"></script>
-<script src="config/chat-contract.js"></script>
-<script src="config/server-sync.js"></script>
-<script src="config/feed-controls.js"></script>
-<script src="config/personalised-feed.js"></script>
-<script src="config/source-trust.js"></script>
-<script src="config/venue-registry.js"></script>
-<script src="config/preference-system.js"></script>
-<script src="config/swipe-calibration.js"></script>
-<script src="config/fine-tuning.js"></script>
-<script src="config/rating-system.js"></script>
-<script src="config/storyline-overrides.js"></script>
-<script src="config/enrichment-engine.js"></script>
-<script src="config/card-lifecycle.js"></script>
-<script src="config/reminder-engine.js"></script>
-<script src="config/soundtrack.js"></script>
-<script src="config/selector-taxonomy.js"></script>
-<script src="config/discovery-catalogue.js"></script>
-<script src="config/au-broadcast-weights.js"></script>
+<script src="assets/js/app-shell-runtime.js?v=231"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -7288,9 +7248,6 @@ const FEED_REFRESH_LIFECYCLE = globalThis.NOTHINGSPORTS_FEED_REFRESH_LIFECYCLE;
 const startupCoordinator = FEED_REFRESH_LIFECYCLE?.createStartupCoordinator
   ? FEED_REFRESH_LIFECYCLE.createStartupCoordinator({
       hadControllerAtStartup: Boolean(globalThis.navigator?.serviceWorker?.controller),
-      reloadForUpdate(){
-        window.requestAnimationFrame(() => window.location.reload());
-      },
     })
   : Object.freeze({
       isHydrating: () => false,
@@ -7444,6 +7401,7 @@ function startLoadingSloganTypewriter(durationMs = 2000){
 }
 
 function finishStartupLogoLaunch(overlay, flight = null){
+  if (startupFunnelFinished){ flight?.remove(); return; }
   flight?.remove();
   document.body.classList.remove("startup-logo-in-flight");
   document.body.classList.add("startup-shell-visible");
@@ -8768,7 +8726,15 @@ let chatPreviousFocus = null;
 let chatSetupFixture = null;
 let chatViewportLock = null;
 const nothingscoreSnapshots = new Map();
+const nothingscoreEventRefs = new Map();
+const nothingscoreSubmissionRequests = new Map();
+const nothingscoreSubmissionStore = globalThis.NOTHINGSPORTS_NSC_SUBMISSION_STATE.createStore({
+  read:key => sessionStorage.getItem(`nsc-submission:${key}`),
+  write:(key,value) => sessionStorage.setItem(`nsc-submission:${key}`,value),
+});
 const nothingscoreLoadedAt = new Map();
+const nothingscoreLoadErrors = new Map();
+const nothingscoreBatchInFlight = new Set();
 const nothingscorePendingIds = new Set();
 const nothingscoreDetailLoading = new Set();
 const nothingscoreWatching = new Set();
@@ -10444,22 +10410,36 @@ function loadLatestBundledEvents(){
 }
 
 async function fetchJson(url, { cache = "no-store" } = {}){
-  const response = await fetch(url, { cache });
-  if (!response.ok){
-    throw new Error(`${url} returned ${response.status}`);
-  }
-  return response.json();
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 12000);
+  try {
+    const response = await fetch(url, { cache, signal:controller.signal });
+    if (!response.ok) throw new Error(`${url} returned ${response.status}`);
+    return await response.json();
+  } finally { window.clearTimeout(timeout); }
 }
 
 function loadDeferredScript(url){
-  return new Promise((resolve, reject) => {
+  // Function-owned cache is available even to the first hoisted startup call.
+  const requests = loadDeferredScript.requests ||= new Map();
+  const key = new URL(url, document.baseURI).href;
+  if (requests.has(key)) return requests.get(key);
+  const request = new Promise((resolve, reject) => {
     const script = document.createElement("script");
-    script.src = new URL(url, document.baseURI).href;
+    const finish = error => {
+      window.clearTimeout(timeout);
+      script.remove();
+      error ? reject(error) : resolve();
+    };
+    const timeout = window.setTimeout(() => finish(new Error(`${url} timed out`)), 12000);
+    script.src = key;
     script.async = true;
-    script.onload = () => { script.remove(); resolve(); };
-    script.onerror = () => { script.remove(); reject(new Error(`${url} could not be loaded`)); };
+    script.onload = () => finish();
+    script.onerror = () => finish(new Error(`${url} could not be loaded`));
     document.head.appendChild(script);
-  });
+  }).catch(error => { requests.delete(key); throw error; });
+  requests.set(key, request);
+  return request;
 }
 
 async function loadFootballDirectoryModule(){
@@ -10536,7 +10516,7 @@ async function loadFollowDirectoryChunk(sportKey){
 function ensureAthleteProfileUi(){
   return globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI
     ? Promise.resolve(globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI)
-    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI);
+    : athleteProfileUiLoading ||= loadDeferredScript("config/athlete-profile-ui.js").then(() => globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_UI).catch(error => { athleteProfileUiLoading = null; throw error; });
 }
 function pruneUnavailableFootballFollows(directory){
   const graph = userPreferences?.preferenceGraph;
@@ -10567,7 +10547,7 @@ async function loadFootballDirectoryData(){
   try{
     const [api, , data] = await Promise.all([
       loadFootballDirectoryModule(),
-      ensureAthleteProfileUi(),
+      ensureAthleteProfileUi().catch(() => null),
       loadFootballAsset({
         url: FOOTBALL_DIRECTORY_CONFIG.directoryUrl,
         scriptUrl: FOOTBALL_DIRECTORY_CONFIG.directoryScriptUrl,
@@ -10599,7 +10579,7 @@ async function loadLeagueDirectoryData(key){
   try{
     const [, , data] = await Promise.all([
       loadFootballDirectoryModule(),
-      ensureAthleteProfileUi(),
+      ensureAthleteProfileUi().catch(() => null),
       loadFootballAsset({ url:config.directoryUrl, scriptUrl:config.directoryScriptUrl, globalName:config.directoryGlobal }),
     ]);
     if (data?.schemaVersion !== `${key}-directory.v1` || !Array.isArray(data?.teams) || !Array.isArray(data?.players)) throw Error(key);
@@ -12765,21 +12745,7 @@ function buildEventActionPanel(ev, options = {}){
       });
     }
   } else {
-    const eventId = String(ev.eventId || ev.id);
-    const latestFeedback = [...(userPreferences.followFirst?.feedback?.entries || [])]
-      .reverse().find(entry => entry.eventId === eventId);
-    const positive = latestFeedback?.direction === "positive";
-    const negative = latestFeedback?.direction === "negative";
-    makeActionButton("", `thumb-control${positive ? " active" : ""}`, () => applyCuratedEventSwipe(ev, "positive", { card:row.closest(".event-card") }), {
-      pressed: positive,
-      ariaLabel: `More like ${ev.name}`,
-      iconMarkup: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v10H4V10h3Zm2 10V10l4-6 1 1v4h5.1c.8 0 1.4.7 1.2 1.5l-1.2 7c-.1.9-.9 1.5-1.8 1.5H9Z"/></svg>',
-    });
-    makeActionButton("", `thumb-control${negative ? " active" : ""}`, () => applyCuratedEventSwipe(ev, "negative", { card:row.closest(".event-card") }), {
-      pressed: negative,
-      ariaLabel: `Less like ${ev.name}`,
-      iconMarkup: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v10H4V4h3Zm2 0v10l4 6 1-1v-4h5.1c.8 0 1.4-.7 1.2-1.5l-1.2-7C19 5.6 18.2 5 17.3 5H9Z"/></svg>',
-    });
+    row.append(...buildEventFeedbackButtons(ev));
     if (getEventStatus(ev) === "past"){
       makeActionButton("Rate", "", () => {
         markSpoilerRevealed(ev);
@@ -14822,8 +14788,7 @@ function buildStakesMeter(ev){
 function buildFeedStakesRow(ev){
   const row = document.createElement("div");
   row.className = "feed-stakes-row";
-  const [positive, negative] = buildEventFeedbackButtons(ev);
-  row.append(negative, buildStakesMeter(ev), positive);
+  row.append(buildStakesMeter(ev), ...buildEventFeedbackButtons(ev));
   return row;
 }
 
@@ -14912,32 +14877,29 @@ function buildSpoilerOverrideButton(ev, refreshCard){
   return button;
 }
 
+function eventIsHighStakesSuggestion(ev){
+  // A high score alone is not a suggestion: explicit provenance must opt in.
+  if (ev?.surfacingReason !== "high-stakes-suggestion") return false;
+  if (eventFollowReason(ev) || eventDomainPreferences(ev).some(item => item.enabled !== false)) return false;
+  if (eventParticipantFollowLevels(ev).some(level => ["follow","priority"].includes(level))) return false;
+  if (getEventAction(ev).addedToFixtures || ev?.manualPin) return false;
+  if (userPreferences.followFirst?.followedMajorEventIds?.includes(ev.majorEventId || ev.parentMajorEventId)) return false;
+  return Number(ev.stakesScore || 0) >= 5;
+}
+
 function buildEventFeedbackButtons(ev){
-  const directions = [
-    ["positive", "More of this", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v10H4V10h3Zm2 10V10l4-6 1 1v4h5.1c.8 0 1.4.7 1.2 1.5l-1.2 7c-.1.9-.9 1.5-1.8 1.5H9Z"/></svg>'],
-    ["negative", "Less of this", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v10H4V4h3Zm2 0v10l4 6 1-1v-4h5.1c.8 0 1.4-.7 1.2-1.5l-1.2-7C19 5.6 18.2 5 17.3 5H9Z"/></svg>'],
-  ];
-  const buttons = directions.map(([direction, label, markup]) => {
-    const button = document.createElement("button");
-    const active = latestEventFeedbackDirection(ev) === direction;
-    button.type = "button";
-    button.className = `event-feedback-button${active ? " active" : ""}`;
-    button.dataset.feedbackDirection = direction;
-    button.setAttribute("aria-label", `${label} ${ev.name}`);
-    button.setAttribute("aria-pressed", String(active));
-    button.innerHTML = `${markup}<span class="event-feedback-label">${label}</span>`;
-    button.addEventListener("click", event => {
-      event.stopPropagation();
-      const result = applyCuratedEventSwipe(ev, direction, { card:event.currentTarget.closest(".event-card") });
-      buttons.forEach((candidate, index) => {
-        const selected = result?.active === true && directions[index][0] === direction;
-        candidate.classList.toggle("active", selected);
-        candidate.setAttribute("aria-pressed", String(selected));
-      });
-    });
-    return button;
+  if (!eventIsHighStakesSuggestion(ev)) return [];
+  const button = document.createElement("button");
+  button.type = "button"; button.className = "event-feedback-button suggestion-like";
+  button.dataset.feedbackDirection = "positive";
+  button.textContent = "Like suggestion";
+  button.setAttribute("aria-pressed", String(latestEventFeedbackDirection(ev) === "positive"));
+  button.addEventListener("click", event => {
+    event.stopPropagation();
+    const result = applyCuratedEventSwipe(ev,"positive",{card:button.closest(".event-card")});
+    button.setAttribute("aria-pressed",String(result?.active === true));
   });
-  return buttons;
+  return [button];
 }
 
 function buildEventCompactFooter(ev, options = {}, refreshCard = null){
@@ -15448,7 +15410,7 @@ function applyCuratedEventSwipe(ev, direction, { card = null } = {}){
     next.swipeCoaching = { dismissedAt: new Date().toISOString() };
   }
   savePreferences(next);
-  if (direction === "positive") void publishPositiveNothingscoreLike(ev, !togglingOff);
+  // Recommendation feedback is not an NSC contribution or vote.
   recordProductEvent({
     eventName: "swipe",
     surface: "curated_feed",
@@ -15903,7 +15865,7 @@ function configureProviderLaunch(link, viewing){
 function appendEventQuickActions(container, ev, { reminder = true, chat = true, viewing = true } = {}){
   const actions = document.createElement("div");
   actions.className = "event-quick-actions";
-  if (reminder){
+  if (reminder && getEventStatus(ev) === "upcoming"){
     const timing = eventReminderTiming(ev);
     const reminderButton = document.createElement("button");
     reminderButton.type = "button";
@@ -15922,7 +15884,11 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
     });
     actions.appendChild(reminderButton);
   }
-  if (chat) appendFixtureChatActions(actions, ev);
+  if (chat){
+    actions.dataset.fixtureChatId = nothingscoreEventId(ev);
+    nothingscoreEventRefs.set(nothingscoreEventId(ev),ev);
+    appendFixtureChatActions(actions, ev);
+  }
   const viewingLink = viewing ? FOLLOW_FIRST?.viewingLink?.(ev, userPreferences.followFirst?.subscriptions || []) : null;
   if (viewingLink){
     const link = document.createElement("a");
@@ -16053,7 +16019,39 @@ function nothingscoreQueueRender(){
   nothingscoreRenderQueued = true;
   window.requestAnimationFrame(() => {
     nothingscoreRenderQueued = false;
-    renderAll({ preserveViewport:true });
+    // Scores never rebuild Feed, images, scroll containers or an unfinished form.
+    document.querySelectorAll(".nsc-summary").forEach(node => {
+      const ev = nothingscoreEventRefs.get(node.dataset.nscEventId);
+      if (!ev) return;
+      const replacement = buildNothingscoreSummary(ev);
+      if (node.outerHTML !== replacement.outerHTML) node.replaceWith(replacement);
+    });
+    document.querySelectorAll(".nsc-card-action").forEach(button => {
+      const ev = nothingscoreEventRefs.get(button.dataset.nscEventId);
+      if (!ev) return;
+      button.textContent = nothingscoreActionLabelForEvent(ev);
+      button.classList.toggle("is-submitted", nothingscoreSubmissionIsSealed(ev));
+      button.disabled = false;
+    });
+    document.querySelectorAll(".nsc-panel").forEach(panel => {
+      const ev = nothingscoreEventRefs.get(panel.dataset.nscPanel);
+      const snapshot = ev && nothingscoreSnapshotFor(ev);
+      if (!snapshot) return;
+      const peers = panel.querySelector(".nsc-peer-results");
+      if (peers){
+        const replacement = buildNothingscorePeerResults(ev, snapshot, {detail:true});
+        if (peers.querySelector("details")?.open) replacement.querySelector("details").open = true;
+        if (peers.outerHTML !== replacement.outerHTML) peers.replaceWith(replacement);
+      }
+      const receipt = snapshot.currentUser?.submissions?.[snapshot.phase];
+      if (receipt){
+        const target = panel.querySelector(".nsc-contribution-form, .is-confirming");
+        target?.replaceWith(buildNothingscoreReceipt(receipt, nothingscorePhaseCopy(snapshot.phase).name));
+        const confirmation = panel.querySelector(".nsc-receipt");
+        const results = panel.querySelector(".nsc-peer-results");
+        if (confirmation && results && confirmation.nextElementSibling !== results) panel.insertBefore(confirmation,results);
+      }
+    });
   });
 }
 
@@ -16064,6 +16062,7 @@ function mergeNothingscoreSnapshot(snapshot){
   const merged = {
     ...previous,
     ...snapshot,
+    currentUser:globalThis.NOTHINGSPORTS_NSC_SUBMISSION_STATE.mergeCurrentUser(previous?.currentUser, snapshot.currentUser),
     ...(snapshot.contributors === undefined && previous?.contributors !== undefined ? { contributors:previous.contributors } : {}),
   };
   const fingerprint = value => JSON.stringify({
@@ -16075,6 +16074,7 @@ function mergeNothingscoreSnapshot(snapshot){
     contributors:value?.contributors,
     series:value?.series,
     crowdEditorial:value?.crowdEditorial,
+    peerResults:value?.peerResults,
   });
   nothingscoreSnapshots.set(eventId, merged);
   nothingscoreLoadedAt.set(eventId, Date.now());
@@ -16085,9 +16085,14 @@ async function loadNothingscoreBatch(ids, { rerender = true } = {}){
   if (!NOTHINGSCORE || !serverSyncClient?.nothingscoreRequest) return null;
   const requested = [...new Set((ids || []).map(String).filter(Boolean))].slice(0, 50);
   if (!requested.length) return null;
+  const owner = serverPersistence.user?.id || "";
   const payload = await serverSyncClient.nothingscoreRequest({ ids:requested });
+  if (owner !== (serverPersistence.user?.id || "")) return null;
   let changed = false;
-  (payload.snapshots || []).forEach(snapshot => { changed = mergeNothingscoreSnapshot(snapshot) || changed; });
+  (payload.snapshots || []).forEach(snapshot => {
+    nothingscoreLoadErrors.delete(String(snapshot.eventId));
+    changed = mergeNothingscoreSnapshot(snapshot) || changed;
+  });
   if (payload.viewer) nothingscoreViewer = payload.viewer;
   if (changed && rerender) nothingscoreQueueRender();
   return payload;
@@ -16099,11 +16104,18 @@ async function flushNothingscoreBatch(){
   const ids = [...nothingscorePendingIds].slice(0, 50);
   ids.forEach(id => nothingscorePendingIds.delete(id));
   if (!ids.length) return;
+  const owner = serverPersistence.user?.id || "";
+  ids.forEach(id => nothingscoreBatchInFlight.add(id));
   try{
     await loadNothingscoreBatch(ids);
   }catch(error){
+    if (owner === (serverPersistence.user?.id || "")){
+      ids.forEach(id => nothingscoreLoadErrors.set(id, Date.now()));
+      nothingscoreQueueRender();
+    }
     console.warn("Nothingscore summary refresh paused", error);
   }finally{
+    ids.forEach(id => nothingscoreBatchInFlight.delete(id));
     if (nothingscorePendingIds.size) nothingscoreBatchTimer = window.setTimeout(flushNothingscoreBatch, 0);
   }
 }
@@ -16112,6 +16124,8 @@ function registerNothingscoreEvent(ev, { force = false } = {}){
   if (!NOTHINGSCORE || !serverSyncClient?.nothingscoreRequest) return;
   const eventId = nothingscoreEventId(ev);
   if (!eventId) return;
+  if (nothingscoreBatchInFlight.has(eventId)) return;
+  if (!force && Date.now() - Number(nothingscoreLoadErrors.get(eventId) || 0) < 60_000) return;
   const snapshot = nothingscoreSnapshots.get(eventId);
   const maxAge = snapshot?.phase === "pulse" ? 25_000 : 5 * 60_000;
   if (!force && Date.now() - Number(nothingscoreLoadedAt.get(eventId) || 0) < maxAge) return;
@@ -16123,8 +16137,10 @@ async function loadNothingscoreDetail(ev){
   const eventId = nothingscoreEventId(ev);
   if (!eventId || nothingscoreDetailLoading.has(eventId) || nothingscoreSnapshots.get(eventId)?.contributors !== undefined) return;
   nothingscoreDetailLoading.add(eventId);
+  const owner = serverPersistence.user?.id || "";
   try{
     const payload = await serverSyncClient.nothingscoreRequest({ eventId });
+    if (owner !== (serverPersistence.user?.id || "")) return;
     if (payload.viewer) nothingscoreViewer = payload.viewer;
     if (payload.detail && mergeNothingscoreSnapshot(payload.detail)) nothingscoreQueueRender();
   }catch(error){
@@ -16142,48 +16158,63 @@ function nothingscorePhaseCopy(phase){
 
 function buildNothingscoreSummary(ev){
   const eventId = nothingscoreEventId(ev);
-  const snapshot = nothingscoreSnapshots.get(eventId);
-  const summary = document.createElement("div");
-  summary.className = "nsc-summary";
+  nothingscoreEventRefs.set(eventId, ev);
+  registerNothingscoreEvent(ev);
+  const summary = buildNothingscorePeerResults(ev, nothingscoreSnapshots.get(eventId));
+  summary.classList.add("nsc-summary");
   summary.dataset.nscEventId = eventId;
-  if (!snapshot){
-    summary.hidden = true;
-    return summary;
-  }
-  summary.classList.add("nsc-compact-strip");
-  const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
-  const phase = document.createElement("span");
-  phase.className = "nsc-phase";
-  if (snapshot.phase === "pulse"){
-    const dot = document.createElement("i");
-    dot.className = "nsc-live-dot";
-    dot.setAttribute("aria-hidden", "true");
-    phase.appendChild(dot);
-  }
-  phase.append(document.createTextNode(phaseCopy.name));
-  summary.appendChild(phase);
-  const editorial = snapshot.crowdEditorial;
-  if (editorial?.text){
-    const result = document.createElement("strong");
-    result.className = "nsc-compact-result";
-    result.textContent = editorial.text;
-    summary.appendChild(result);
-    summary.dataset.crowdMode = editorial.presentationMode || editorial.mode;
-    summary.dataset.modelledExposure = String(editorial.presentationMode === "early");
-  } else {
-    const action = document.createElement("strong");
-    action.textContent = snapshot.phase === "pulse" ? "Add your live score" : snapshot.phase === "heat" ? "Add your view" : `Submit ${phaseCopy.name}`;
-    summary.appendChild(action);
-  }
-  if (snapshot.earlyPanel?.includesModelled && snapshot.earlyPanel.disclosure){
-    const disclosure = document.createElement("p");
-    disclosure.className = "nsc-early-disclosure";
-    disclosure.textContent = snapshot.earlyPanel.disclosure;
-    summary.appendChild(disclosure);
-  }
-  const receipt = snapshot.currentUser?.submissions?.[snapshot.phase] || null;
-  if (receipt && ["heat", "impact"].includes(snapshot.phase)) summary.appendChild(buildNothingscoreReceipt(receipt, phaseCopy.submissionLabel || phaseCopy.name));
   return summary;
+}
+
+function buildNothingscorePeerResults(ev, snapshot, {detail = false} = {}){
+  const root = document.createElement("section");
+  root.className = "nsc-peer-results";
+  const peers = snapshot?.peerResults;
+  const summary = document.createElement("p");
+  summary.className = "nsc-peer-summary";
+  summary.textContent = !peers
+    ? (nothingscoreLoadErrors.has(nothingscoreEventId(ev)) ? "Community ratings unavailable · Tap View results to retry" : "Community ratings loading…")
+    : !peers.count ? "No other ratings yet" : `${Number(peers.average).toFixed(1)}/5 from ${peers.count} other ${peers.count === 1 ? "fan" : "fans"}${peers.early ? " · Early responses" : ""}`;
+  root.appendChild(summary);
+  if (!detail){
+    const open = document.createElement("button");
+    open.type = "button"; open.className = "nsc-results-link"; open.textContent = "View results";
+    open.addEventListener("click", event => { event.stopPropagation(); void openNothingscoreContribution(ev); });
+    root.appendChild(open);
+    return root;
+  }
+  const details = document.createElement("details");
+  details.open = Boolean(snapshot?.currentUser?.submissions?.[snapshot.phase]);
+  const toggle = document.createElement("summary"); toggle.textContent = "View results";
+  details.appendChild(toggle);
+  if (peers?.distribution){
+    const chart = document.createElement("div"); chart.className = "nsc-peer-distribution";
+    peers.distribution.forEach(bin => {
+      const row = document.createElement("div"); row.className = "nsc-peer-bin";
+      const label = document.createElement("span"); label.textContent = `${bin.rating}/5`;
+      const bar = document.createElement("meter"); bar.min = 0; bar.max = Math.max(1, peers.count); bar.value = bin.count;
+      bar.setAttribute("aria-label", `${bin.rating} out of 5: ${bin.count} ratings`);
+      const count = document.createElement("span"); count.textContent = `${bin.count} · ${bin.percent}%`;
+      row.append(label,bar,count); chart.appendChild(row);
+    });
+    details.appendChild(chart);
+    if (peers.tags?.length){
+      const tags = document.createElement("p"); tags.className = "nsc-note";
+      tags.textContent = peers.tags.map(item => `${item.tag} (${item.count})`).join(" · "); details.appendChild(tags);
+    }
+    if (peers.comparison){
+      const comparison = document.createElement("p"); comparison.className = "nsc-note";
+      const delta = peers.comparison.difference;
+      comparison.textContent = `Your ${peers.comparison.rating}/5 is ${delta === 0 ? "level with" : `${Math.abs(delta).toFixed(1)} ${delta > 0 ? "above" : "below"}`} the peer average. ${peers.comparison.sameRatingCount} chose the same score.`;
+      details.appendChild(comparison);
+    }
+  } else {
+    const note = document.createElement("p"); note.className = "nsc-note"; note.textContent = !peers ? "Ratings could not be confirmed yet." : peers.count ? "Loading the breakdown…" : "Be the first to share your take."; details.appendChild(note);
+  }
+  const disclosure = document.createElement("p"); disclosure.className = "nsc-note";
+  disclosure.textContent = `Real fan ratings for ${nothingscorePhaseCopy(snapshot?.phase).name}. Your rating is excluded; no simulated ratings or Like weighting.`;
+  details.appendChild(disclosure); root.appendChild(details);
+  return root;
 }
 
 function openNothingscoreLeaderboard(){
@@ -16194,16 +16225,17 @@ function openNothingscoreLeaderboard(){
 function buildNothingscoreReceipt(receipt, phaseName){
   const row = document.createElement("div");
   row.className = "nsc-receipt nsc-submission-receipt";
-  const points = Number(receipt?.pointsAwarded || 0);
-  const cheer = document.createElement("strong");
-  cheer.textContent = "Nice one — your take is in.";
+  row.setAttribute("role", "status");
+  const cheer = document.createElement("strong"); cheer.textContent = "Submitted ✓";
   const copy = document.createElement("span");
-  copy.textContent = `Submitted · ${phaseName} ${Number(receipt?.rating || 0)}/5 · +${points} NSC ${points === 1 ? "point" : "points"} · `;
-  const leaderboard = document.createElement("button");
-  leaderboard.type = "button";
-  leaderboard.textContent = "Leaderboard";
-  leaderboard.addEventListener("click", event => { event.stopPropagation(); openNothingscoreLeaderboard(); });
-  row.append(cheer, copy, leaderboard);
+  copy.textContent = `${phaseName} ${Number(receipt?.rating || 0)}/5${receipt?.tags?.length ? ` · ${receipt.tags.join(" · ")}` : ""}`;
+  const results = document.createElement("button"); results.type = "button"; results.textContent = "View results";
+  results.addEventListener("click", event => {
+    event.stopPropagation();
+    const details = row.closest(".nsc-panel")?.querySelector(".nsc-peer-results details");
+    if (details){ details.open = true; details.scrollIntoView({block:"nearest"}); }
+  });
+  row.append(cheer,copy,results);
   return row;
 }
 
@@ -16267,82 +16299,64 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
     ? String(command.phase)
     : null;
   if (submittedPhase){
+    const eventId = String(command.eventId);
+    const owner = serverPersistence.user?.id || "";
+    const key = nothingscoreSubmissionKey(eventId,submittedPhase);
+    if (nothingscoreSubmissionRequests.has(key)) return nothingscoreSubmissionRequests.get(key);
+    const known = nothingscoreSubmissionStore.get(key);
+    if (known.receipt){ nothingscoreQueueRender(); return known.receipt; }
+    if (known.status === "uncertain"){
+      await reconcileNothingscoreSubmission(eventId, submittedPhase, {expectedOwner:owner});
+      if (nothingscoreSubmissionStore.get(key).status !== "draft") return null;
+    }
+    if (owner !== (serverPersistence.user?.id || "")) return null;
+    if (!nothingscoreSubmissionStore.begin(key,command)) return null;
+    nothingscoreStatus(panel, "");
     const form = panel.querySelector(".nsc-contribution-form");
-    if (!form) return null;
-    const pendingReceipt = document.createElement("div");
-    pendingReceipt.className = "nsc-submission-receipt is-confirming";
-    pendingReceipt.setAttribute("role", "status");
-    pendingReceipt.setAttribute("aria-live", "polite");
-    pendingReceipt.textContent = "Submitted — confirming…";
-    const outcome = await runOptimisticMutation({
-      capture:() => ({ form }),
-      apply:prior => {
-        nothingscoreStatus(panel, "");
-        prior.form.replaceWith(pendingReceipt);
-      },
-      request:() => serverSyncClient.nothingscoreRequest({}, command),
-      commit:result => {
-        const eventId = String(command.eventId);
-        const snapshot = nothingscoreSnapshots.get(eventId);
-        const confirmedReceipt = {
-          phase:submittedPhase,
-          rating:Number(result.rating ?? command.rating),
-          tags:Array.isArray(result.tags) ? [...result.tags] : Array.isArray(command.tags) ? [...command.tags] : [],
-          pointsAwarded:Number(result.pointsAwarded || 0),
-          submittedAt:result.submittedAt,
-        };
-        if (snapshot){
-          mergeNothingscoreSnapshot({
-            ...snapshot,
-            currentUser:{
-              ...(snapshot.currentUser || {}),
-              submissions:{
-                ...(snapshot.currentUser?.submissions || {}),
-                [submittedPhase]:confirmedReceipt,
-              },
-            },
-          });
-          nothingscoreQueueRender();
+    const pending = document.createElement("div");
+    pending.className = "nsc-submission-receipt is-confirming";
+    pending.setAttribute("role","status"); pending.textContent = "Submitting — confirming your rating…";
+    form?.replaceWith(pending);
+    const operation = (async () => {
+      let result;
+      try {
+        result = await serverSyncClient.nothingscoreRequest({}, command);
+      } catch(error){
+        // A lost response or conflict may still mean the server committed the vote.
+        nothingscoreSubmissionStore.uncertain(key);
+        const receipt = await reconcileNothingscoreSubmission(eventId,submittedPhase,{expectedOwner:owner});
+        if (receipt) result = {...receipt,replayed:true};
+        else {
+          if (owner === (serverPersistence.user?.id || "")){
+            const retry = buildNothingscorePending(event || {eventId},submittedPhase);
+            pending.replaceWith(retry);
+            nothingscoreStatus(panel,"Confirmation interrupted. Your rating and tags are kept.");
+            if (nothingscoreSubmissionStore.get(key).status === "draft" && activeNothingscoreContributionEvent) renderNothingscoreDrawer();
+          }
+          return null;
         }
-        if (event){
-          const submittedPhases = new Set(Array.isArray(getEventAction(event).nothingscoreSubmittedPhases)
-            ? getEventAction(event).nothingscoreSubmittedPhases
-            : []);
-          submittedPhases.add(submittedPhase);
-          updateEventAction(event, { nothingscoreSubmittedPhases:Array.from(submittedPhases) });
-        }
-        pendingReceipt.replaceWith(buildNothingscoreReceipt(confirmedReceipt, nothingscorePhaseCopy(submittedPhase).submissionLabel || nothingscorePhaseCopy(submittedPhase).name));
-        nothingscoreStatus(panel, `${success}${result.pointsAwarded ? ` +${result.pointsAwarded} points.` : ""}`);
-        if (submittedPhase === "impact" && result.replayed === false){
-          panel.classList.remove("nsc-impact-burst");
-          void panel.offsetWidth;
-          panel.classList.add("nsc-impact-burst");
-          void playNothingscoreImpactSound(preparedAudio);
-        }
-        void serverSyncClient.nothingscoreRequest({ eventId })
-          .then(payload => {
-            if (payload?.viewer) nothingscoreViewer = payload.viewer;
-            if (payload?.detail && mergeNothingscoreSnapshot(payload.detail)) nothingscoreQueueRender();
-          })
-          .catch(error => console.warn("Nothingscore receipt saved; fresh community detail will retry later", error));
-      },
-      rollback:(prior, error) => {
-        pendingReceipt.replaceWith(prior.form);
-        let retry = prior.form.querySelector(".nsc-retry");
-        if (!retry){
-          retry = document.createElement("button");
-          retry.type = "button";
-          retry.className = "btn primary nsc-retry";
-          retry.textContent = "Retry";
-          retry.addEventListener("click", () => { void submitNothingscoreAction(command, panel, { success, preparedAudio, event }); });
-          prior.form.appendChild(retry);
-        }
-        nothingscoreStatus(panel, `${error?.message || "That did not confirm."} Your rating and tags are still here.`);
-      },
-    });
-    return outcome.ok ? outcome.result : null;
+      }
+      const receipt = {
+        phase:submittedPhase,rating:Number(result.rating ?? command.rating),
+        tags:Array.isArray(result.tags) ? result.tags : command.tags || [],
+        pointsAwarded:Number(result.pointsAwarded || 0),submittedAt:result.submittedAt,
+      };
+      nothingscoreSubmissionStore.confirm(key,receipt);
+      if (owner !== (serverPersistence.user?.id || "")) return result;
+      const snapshot = nothingscoreSnapshots.get(eventId) || {eventId,phase:submittedPhase};
+      mergeNothingscoreSnapshot({...snapshot,currentUser:{...snapshot.currentUser,submissions:{...snapshot.currentUser?.submissions,[submittedPhase]:receipt}}});
+      nothingscoreQueueRender();
+      pending.replaceWith(buildNothingscoreReceipt(receipt,nothingscorePhaseCopy(submittedPhase).name));
+      nothingscoreStatus(panel,"Submitted ✓");
+      if (submittedPhase === "impact" && result.replayed === false) void playNothingscoreImpactSound(preparedAudio);
+      void reconcileNothingscoreSubmission(eventId,submittedPhase);
+      return result;
+    })().finally(() => nothingscoreSubmissionRequests.delete(key));
+    nothingscoreSubmissionRequests.set(key,operation);
+    return operation;
   }
   nothingscoreStatus(panel, "Saving…");
+  const owner = serverPersistence.user?.id || "";
   panel.querySelectorAll("button, input, select").forEach(control => { control.disabled = true; });
   try{
     const result = await serverSyncClient.nothingscoreRequest({}, command);
@@ -16350,6 +16364,7 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
     if (command.eventId){
       try{
         const payload = await serverSyncClient.nothingscoreRequest({ eventId:String(command.eventId) });
+        if (owner !== (serverPersistence.user?.id || "")) return result;
         if (payload.viewer) nothingscoreViewer = payload.viewer;
         if (payload.detail && mergeNothingscoreSnapshot(payload.detail)) nothingscoreQueueRender();
       }catch(error){
@@ -16365,19 +16380,59 @@ async function submitNothingscoreAction(command, panel, { success = "Your Nothin
   }
 }
 
+async function reconcileNothingscoreSubmission(eventId,phase,{expectedOwner = serverPersistence.user?.id || ""} = {}){
+  const owner = expectedOwner;
+  if (owner !== (serverPersistence.user?.id || "")) return null;
+  const key = nothingscoreSubmissionKey(eventId,phase);
+  try {
+    const payload = await serverSyncClient.nothingscoreRequest({eventId});
+    if (owner !== (serverPersistence.user?.id || "")) return null;
+    if (!payload?.detail) return null;
+    if (payload.viewer) nothingscoreViewer = payload.viewer;
+    const receipt = payload.detail.currentUser?.submissions?.[phase];
+    if (receipt) nothingscoreSubmissionStore.confirm(key,receipt);
+    else if (!nothingscoreSubmissionRequests.has(key)) nothingscoreSubmissionStore.release(key);
+    // During a failed POST reconciliation the request promise still owns the lock.
+    else if (nothingscoreSubmissionStore.get(key).status === "uncertain") nothingscoreSubmissionStore.release(key);
+    mergeNothingscoreSnapshot(payload.detail);
+    nothingscoreQueueRender();
+    return receipt || null;
+  } catch(_error){ return null; }
+}
+
+function buildNothingscorePending(ev,phase){
+  const row = document.createElement("div"); row.className = "nsc-submission-receipt is-confirming";
+  row.setAttribute("role","status"); row.textContent = "Confirming your rating…";
+  const retry = document.createElement("button"); retry.type = "button"; retry.className = "btn ghost"; retry.textContent = "Check confirmation";
+  retry.addEventListener("click", async () => {
+    retry.disabled = true;
+    await reconcileNothingscoreSubmission(nothingscoreEventId(ev),phase);
+    retry.disabled = false;
+    if (activeNothingscoreContributionEvent === ev) renderNothingscoreDrawer();
+  });
+  row.appendChild(retry); return row;
+}
+
 function buildNothingscoreChoices(ev, snapshot, panel){
   const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
   const current = snapshot.currentUser?.contribution || null;
-  const receipt = snapshot.currentUser?.submissions?.[snapshot.phase] || null;
+  const submissionKey = nothingscoreSubmissionKey(nothingscoreEventId(ev),snapshot.phase);
+  const submission = nothingscoreSubmissionStore.get(submissionKey);
+  const receipt = snapshot.currentUser?.submissions?.[snapshot.phase] || submission.receipt || null;
   if (receipt && ["heat", "impact"].includes(snapshot.phase)){
-    panel.appendChild(buildNothingscoreReceipt(receipt, phaseCopy.submissionLabel || phaseCopy.name));
+    panel.insertBefore(buildNothingscoreReceipt(receipt, phaseCopy.submissionLabel || phaseCopy.name),panel.querySelector(".nsc-peer-results"));
+    return;
+  }
+  if (["pending","uncertain"].includes(submission.status)){
+    panel.appendChild(buildNothingscorePending(ev,snapshot.phase));
     return;
   }
   const form = document.createElement("div");
   form.className = "nsc-contribution-form";
   panel.appendChild(form);
   const pulsePromptReady = snapshot.phase !== "pulse" || Date.now() >= Date.parse(snapshot.timing?.startTimeUtc || "") + 5 * 60_000 || Boolean(current);
-  let draftRating = snapshot.phase === "pulse" ? Number(current?.rating || 0) : 0;
+  let draftRating = Number(submission.draft?.rating || (snapshot.phase === "pulse" ? current?.rating : 0) || 0);
+  let draftTags = submission.draft?.tags || [];
   let renderTags = null;
   const choices = document.createElement("div");
   choices.className = "nsc-choice-row";
@@ -16408,6 +16463,8 @@ function buildNothingscoreChoices(ev, snapshot, panel){
         return;
       }
       draftRating = value;
+      draftTags = [];
+      nothingscoreSubmissionStore.draft(submissionKey,{rating:draftRating,tags:draftTags});
       choices.querySelectorAll(".nsc-choice").forEach((choice, index) => choice.setAttribute("aria-pressed", String(index + 1 === draftRating)));
       if (renderTags) renderTags();
       const submit = panel.querySelector(".nsc-submit");
@@ -16437,13 +16494,15 @@ function buildNothingscoreChoices(ev, snapshot, panel){
         const input = document.createElement("input");
         input.type = "checkbox";
         input.value = tag;
-        input.checked = false;
+        input.checked = draftTags.includes(tag);
         const copy = document.createElement("span");
         copy.textContent = tag;
         label.append(input, copy);
         input.addEventListener("change", () => {
           const selected = [...tags.querySelectorAll("input:checked")].slice(0, 3);
           tags.querySelectorAll("input:checked").forEach(item => { if (!selected.includes(item)) item.checked = false; });
+          draftTags = selected.map(input => input.value);
+          nothingscoreSubmissionStore.draft(submissionKey,{rating:draftRating,tags:draftTags});
         });
         tags.appendChild(label);
       });
@@ -16457,7 +16516,8 @@ function buildNothingscoreChoices(ev, snapshot, panel){
     submit.type = "button";
     submit.className = "btn primary nsc-submit";
     submit.textContent = "Submit";
-    submit.disabled = true;
+    submit.disabled = !draftRating;
+    if (draftRating) renderTags();
     submit.addEventListener("click", () => {
       if (!draftRating) return;
       const preparedAudio = snapshot.phase === "impact" ? prepareNothingscoreAudio() : null;
@@ -16560,6 +16620,7 @@ function buildNothingscorePanel(ev, snapshot, state){
   status.setAttribute("role", "status");
   status.setAttribute("aria-live", "polite");
   panel.appendChild(status);
+  panel.appendChild(buildNothingscorePeerResults(ev, snapshot, {detail:true}));
 
   if (!nothingscoreViewer.signedIn){
     const note = document.createElement("p");
@@ -16582,14 +16643,6 @@ function buildNothingscorePanel(ev, snapshot, state){
     buildNothingscoreChoices(ev, snapshot, panel);
   }
   return panel;
-}
-
-async function publishPositiveNothingscoreLike(ev, active = true){
-  if (!serverPersistence.user || !serverSyncClient?.nothingscoreRequest) return;
-  try{
-    await serverSyncClient.nothingscoreRequest({}, { action:"like", eventId:nothingscoreEventId(ev), active:Boolean(active) });
-    registerNothingscoreEvent(ev, { force:true });
-  }catch(_error){ /* Local learning remains valid for signed-out or non-pilot users. */ }
 }
 
 function visiblePulseNothingscoreIds(){
@@ -16656,13 +16709,16 @@ function nothingscoreSubmissionPhaseForEvent(ev){
   return status === "past" || ev?.status === "completed" ? "impact" : "heat";
 }
 
+function nothingscoreSubmissionKey(eventId, phase){
+  const canonical = nothingscoreSnapshots.get(String(eventId))?.canonicalEventId || String(eventId);
+  return `${serverPersistence.user?.id || "signed-out"}|${canonical}|${phase}`;
+}
+
 function nothingscoreSubmissionIsSealed(ev){
   const phase = nothingscoreSubmissionPhaseForEvent(ev);
   if (!phase) return false;
-  const snapshot = nothingscoreSnapshotFor(ev);
-  const locallySubmitted = Array.isArray(getEventAction(ev).nothingscoreSubmittedPhases)
-    && getEventAction(ev).nothingscoreSubmittedPhases.includes(phase);
-  return Boolean(snapshot?.currentUser?.submissions?.[phase] || locallySubmitted);
+  return Boolean(nothingscoreSnapshotFor(ev)?.currentUser?.submissions?.[phase]
+    || nothingscoreSubmissionStore.get(nothingscoreSubmissionKey(nothingscoreEventId(ev),phase)).receipt);
 }
 
 function nothingscoreActionLabelForEvent(ev){
@@ -16675,20 +16731,14 @@ function nothingscoreActionLabelForEvent(ev){
 
 function buildEventNothingscoreAction(ev){
   const button = document.createElement("button");
+  const eventId = nothingscoreEventId(ev);
+  nothingscoreEventRefs.set(eventId,ev);
   button.type = "button";
   button.className = "btn ghost nsc-card-action";
-  const submitted = nothingscoreSubmissionIsSealed(ev);
-  button.disabled = submitted;
-  button.classList.toggle("is-submitted", submitted);
-  button.setAttribute("aria-pressed", String(submitted));
-  button.setAttribute("aria-live", "polite");
+  button.dataset.nscEventId = eventId;
+  button.classList.toggle("is-submitted", nothingscoreSubmissionIsSealed(ev));
   button.textContent = nothingscoreActionLabelForEvent(ev);
-  if (!submitted){
-    button.addEventListener("click", event => {
-      event.stopPropagation();
-      void openNothingscoreContribution(ev);
-    });
-  }
+  button.addEventListener("click", event => { event.stopPropagation(); void openNothingscoreContribution(ev); });
   return button;
 }
 
@@ -16740,7 +16790,7 @@ function buildEventCard(ev, options = {}){
   ].filter(Boolean).join(" ");
   card.dataset.eventId = ev.eventId || ev.id;
   card.dataset.scrollKey = `event:${mode}:${ev.eventId || ev.id}`;
-  card.dataset.cardState = state;
+  card.dataset.cardState = isMinimised ? "minimised" : state;
   card.dataset.cardMode = mode;
   card.dataset.feedBucket = presentation.feedBucket;
   card.dataset.cardVariant = enrichment.cardVariant;
@@ -16804,11 +16854,18 @@ function buildEventCard(ev, options = {}){
   else renderEventTitleIdentity(nameEl, ev, displayTitle);
   nameLine.appendChild(nameEl);
   nameWrap.appendChild(nameLine);
+  if (isMinimised){
+    const competition = document.createElement("div");
+    competition.className = "event-competition-line";
+    competition.textContent = [ev.competitionName || ev.competitionLabel || meta.label, ev.roundLabel || ev.round, status === "past" ? "Completed" : status === "live" ? "Live" : "Upcoming"].filter(value => value && value !== "all").join(" · ");
+    nameWrap.appendChild(competition);
+  }
   if (displayedResult) nameWrap.appendChild(displayedResult);
   if (matchupIdentity && dateLine) nameWrap.appendChild(dateLine);
   topRow.appendChild(nameWrap);
 
   mainDiv.appendChild(topRow);
+  if (!isMinimised) mainDiv.appendChild(buildNothingscoreSummary(ev));
   const whyItMatters = isMinimised ? null : buildEventWhyItMatters(ev);
   if (whyItMatters) mainDiv.appendChild(whyItMatters);
   if (!isMinimised && state === "opened"){
@@ -17041,7 +17098,7 @@ function buildJointTournamentMatch(match, tournamentDocument, { savedSection = f
     if (!reminderEligible) return;
     void toggleQuickReminder(event, reminder);
   });
-  actions.append(reminder);
+  if (getEventStatus(event) === "upcoming") actions.append(reminder);
   row.append(orderCopy, copy, actions);
   return row;
 }
@@ -18508,6 +18565,7 @@ function directoryFilters(sportKey = readStandingsDirectorySession().directorySp
     prominenceTier: ["marquee", "established", "emerging"].includes(raw.prominenceTier) ? raw.prominenceTier : "",
     sortMode: ["table", "value", "alpha"].includes(raw.sortMode) ? raw.sortMode : "table",
     genderCategory: ["male", "female", "mixed", "unknown"].includes(raw.genderCategory) ? raw.genderCategory : "",
+    entityType: raw.entityType === "team" ? "team" : "athlete",
     query: typeof raw.query === "string" ? raw.query.slice(0, 80) : "",
     expandedTeamIds,
     expandedTeamId: legacyExpandedTeamId,
@@ -19071,7 +19129,7 @@ function buildFootballClubRow(team, league, players, expanded, sportKey = "footb
   const title = document.createElement("strong");
   title.textContent = team.displayName;
   const detail = document.createElement("span");
-  const playerScope = ["nrl", "afl"].includes(sportKey) ? "current player" : "priority player";
+  const playerScope = ["nrl", "afl", "aflw"].includes(sportKey) ? "current player" : "priority player";
   detail.textContent = `${league?.displayName || SPORT_META[sportKey]?.label || "Sport"} · ${players.length} ${playerScope}${players.length === 1 ? "" : "s"}`;
   copy.append(title, detail);
   const follow = buildDirectoryFollowButton(team.id, { sportKey, leagueId: team.leagueId, label: team.displayName });
@@ -19125,8 +19183,12 @@ function renderFootballDirectory(container, {
     status.className = "standings-module";
     const sportLabel = SPORT_META[sportKey]?.label || "Sport";
     status.textContent = error ? `${sportLabel} teams and players are temporarily unavailable.` : `Loading ${sportLabel.toLocaleLowerCase("en-AU")} teams and players…`;
+    if (error){
+      const retry = document.createElement("button"); retry.type = "button"; retry.className = "btn ghost"; retry.textContent = "Retry directory";
+      retry.addEventListener("click", () => { retry.disabled = true; void loadDirectory(); }); status.appendChild(retry);
+    }
     container.appendChild(status);
-    if (!loading) void loadDirectory();
+    if (!loading && !error) void loadDirectory();
     return;
   }
   const filters = directoryFilters(sportKey);
@@ -19143,7 +19205,7 @@ function renderFootballDirectory(container, {
   directory.appendChild(buildFootballDirectoryToolbar(directoryData, filters, sportKey));
   const summary = document.createElement("p");
   summary.className = "football-directory-summary";
-  const directoryNote = ["nrl", "afl"].includes(sportKey)
+  const directoryNote = ["nrl", "afl", "aflw"].includes(sportKey)
     ? " Current official squad list at the directory refresh time."
     : directoryData.players.some(player => player.birthCountryCode)
       ? " Flags use evidenced birthplace where published; provider country is labelled as country, not birthplace."
@@ -19189,14 +19251,14 @@ function renderLegacyParticipantDirectory(container, sportKey){
       state.appendChild(retry);
     }
     container.appendChild(state);
-    if (!followDirectoryChunkLoading.has(sportKey)){
+    if (!failed && !followDirectoryChunkLoading.has(sportKey)){
       Promise.all([loadFootballDirectoryModule(), loadFollowDirectoryChunk(sportKey)])
         .then(() => queueScrollIdleMutation(renderStandingsContext))
         .catch(() => queueScrollIdleMutation(renderStandingsContext));
     }
     return;
   }
-  if ((chunk.records || []).some(record => record.entityType === "athlete")) void ensureAthleteProfileUi();
+  if ((chunk.records || []).some(record => record.entityType === "athlete")) void ensureAthleteProfileUi().catch(() => {});
   const filters = directoryFilters(sportKey);
   const allRecords = chunk.records.map(record => ({
     ...record,
@@ -19209,6 +19271,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
     rosterCountries.set(record.currentTeamId, countries);
   });
   const records = allRecords
+    .filter(record => sportKey !== "motorsport" || record.entityType === filters.entityType)
     .filter(record => !filters.birthCountryCode || record.countryCode === filters.birthCountryCode)
     .filter(record => !filters.genderCategory || record.genderCategory === filters.genderCategory)
     .filter(record => Number.isFinite(footballDirectoryApi.searchMatchScore(record, filters.query)))
@@ -19231,6 +19294,22 @@ function renderLegacyParticipantDirectory(container, sportKey){
     });
   const directory = document.createElement("section");
   directory.className = "football-directory";
+  if (sportKey === "motorsport"){
+    const tabs = document.createElement("div");
+    tabs.className = "follow-directory-tabs";
+    tabs.setAttribute("role", "group");
+    tabs.setAttribute("aria-label", "Formula 1 directory");
+    [["athlete", "Drivers"], ["team", "Teams"]].forEach(([entityType, label]) => {
+      const tab = document.createElement("button");
+      tab.type = "button";
+      tab.className = "btn ghost";
+      tab.textContent = label;
+      tab.setAttribute("aria-pressed", String(filters.entityType === entityType));
+      tab.addEventListener("click", () => { updateDirectoryFilters(sportKey, { entityType }); renderStandingsContext(); });
+      tabs.appendChild(tab);
+    });
+    directory.appendChild(tabs);
+  }
   const toolbar = document.createElement("div");
   toolbar.className = "football-directory-toolbar";
   const field = document.createElement("label");
@@ -19279,18 +19358,25 @@ function renderLegacyParticipantDirectory(container, sportKey){
   list.dataset.scrollList = `directory-participants:${sportKey}`;
   records.forEach(record => {
     const row = document.createElement("div");
-    row.className = "football-club-head";
+    row.className = "football-club-head follow-directory-row";
     const icon = document.createElement("span");
     icon.className = "follow-directory-identity identity-frame";
-    const identityUrl = record.logoUrl || record.headshotUrl || null;
+    const originalIdentityUrl = record.logoUrl || record.headshotUrl || null;
+    const identityUrl = sportKey === "motorsport" && record.entityType === "athlete"
+      ? originalIdentityUrl?.replace("/c_fill,w_720/", "/c_fill,w_96,h_96,g_north/")
+      : originalIdentityUrl;
     const mark = CARD_IDENTITIES?.participantMarks?.[record.id]
       || (identityUrl ? { url:identityUrl, logo:{ primary:identityUrl, dark:record.logoDarkUrl || identityUrl } } : null);
     const athlete = record.entityType === "athlete";
+    icon.classList.toggle("is-athlete", athlete);
+    icon.classList.toggle("on-dark", !athlete && mark?.logo?.backgroundLight === "dark");
     const nationalTeam = record.entityType === "team" && record.teamKind === "national";
     const showNationalityFlag = athlete && (!record.currentTeamId || (rosterCountries.get(record.currentTeamId)?.size || 0) > 1);
     if (mark?.url || mark?.logo?.primary){
       const image = document.createElement("img");
       image.alt = `${record.displayName} identity`;
+      image.width = 40;
+      image.height = 40;
       image.loading = "lazy";
       image.decoding = "async";
       applyTeamLogoAsset(image, mark, "icon");
@@ -19318,10 +19404,10 @@ function renderLegacyParticipantDirectory(container, sportKey){
       if (flag) name.insertAdjacentHTML("afterbegin", `${flag} `);
     }
     const detail = document.createElement("span");
-    const rankLabel = record.rank !== null ? ` · #${record.rank}` : "";
+    const rankLabel = record.rank !== null ? ` · Rank ${record.rank}` : "";
     const competitionNumber = Number(record.competitionNumber || 0);
     const numberLabel = athlete ? ` · ${competitionNumber > 0 ? `No. ${competitionNumber}` : "No. TBC"}` : "";
-    detail.textContent = `${record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${numberLabel}${rankLabel}`;
+    detail.textContent = `${sportKey === "motorsport" ? (athlete ? "Driver" : "Constructor") : record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${numberLabel}${rankLabel}`;
     copy.append(name, detail);
     if (Array.isArray(record.collectionIds) && record.collectionIds.length){
       const chips = document.createElement("span");
@@ -19336,7 +19422,10 @@ function renderLegacyParticipantDirectory(container, sportKey){
       if (chips.childElementCount) copy.appendChild(chips);
     }
     const follow = buildDirectoryFollowButton(record.id, { sportKey, label: record.displayName });
-    if (athlete && record.profileRef) void ensureAthleteProfileUi().then(ui => [icon, copy].forEach(target => ui.makeTrigger(target, record, sportKey === "motorsport" ? "f1" : sportKey)));
+    if (athlete && record.profileRef) void ensureAthleteProfileUi().then(ui => [icon, copy].forEach(target => ui.makeTrigger(target, record, sportKey === "motorsport" ? "f1" : sportKey))).catch(() => {
+      copy.title = "Profile temporarily unavailable. Select to retry.";
+      copy.addEventListener("click", () => { void ensureAthleteProfileUi().then(ui => ui.open(record, sportKey === "motorsport" ? "f1" : sportKey, copy)).catch(() => showToast("Profile unavailable. Please try again.")); });
+    });
     row.append(icon, copy, follow);
     list.appendChild(row);
   });
@@ -19510,7 +19599,7 @@ function renderFollowView(){
   const title = document.createElement("h2");
   title.textContent = "Follow";
   const detail = document.createElement("p");
-  detail.textContent = "Automatic Feed cards come from saved teams, players and Australian national representation. A dislike hides that exact card and gently tunes later suggestions; it does not ban related events.";
+  detail.textContent = "Automatic Feed cards come from your follows and Australian national representation. Dismiss removes that exact card. You can undo a dismissal without changing your follows.";
   headCopy.append(title, detail);
   if (userPreferences.followFirst.refinement.deferred && !userPreferences.followFirst.refinement.completedAt){
     const notice = document.createElement("span");
@@ -20189,6 +20278,7 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
     row.append(copy, button);
     const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(editorialRecord), editorialConsequenceForDisplay(editorialRecord));
     if (editorialHook) row.appendChild(editorialHook);
+    row.appendChild(buildNothingscoreSummary(crowdEvent));
     row.appendChild(buildEventNothingscoreAction(crowdEvent));
     list.appendChild(row);
   });
@@ -20311,7 +20401,7 @@ function buildMajorEventDraw(record){
 function buildMajorEventCard(record, { interactionCard = null } = {}){
   const meta = sportMetaForEvent(majorEventIdentityEvent(record));
   const actionEvent = majorEventActionEvent(record);
-  const crowdEvent = majorEventNothingscoreEvent(record);
+  // Overview actions use the next published fixture, never a tournament score.
   const eventAction = getEventAction(actionEvent);
   const isMinimised = Boolean(eventAction.isMinimised);
   const state = cardStateForEvent(record);
@@ -20413,11 +20503,16 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   });
   identity.append(logo, title);
   identity.appendChild(facts);
+  if (isMinimised && primaryItem){
+    const next = document.createElement("p");
+    next.className = "major-event-next-fixture";
+    next.textContent = `${primaryTimeline.upcoming.length ? "Next" : "Latest"}: ${spoilerSafeDisplayTitle(primaryFixture)} · ${eventDateLabel(primaryFixture)} · ${eventTimeLabel(primaryFixture)}`;
+    identity.appendChild(next);
+  }
   if (!isMinimised){
     const whyItMatters = buildEventWhyItMatters(record);
     if (whyItMatters) identity.appendChild(whyItMatters);
     identity.appendChild(buildStakesMeter(record));
-    identity.appendChild(buildEventNothingscoreAction(crowdEvent));
   }
 
   card.append(
@@ -21142,7 +21237,13 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     jumpTodayBtn.hidden = true;
   }
   if (startupFeedRevealPending && !startupCoordinator.isHydrating()){
-    listView.classList.add("is-startup-revealed");
+    // Animate these initial nodes only. Later refreshes must not replay the reveal.
+    listView.querySelectorAll(".date-group, .today-anchor, .premium-surface").forEach(node => {
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) node.animate(
+        [{opacity:0, transform:"translateY(8px)"}, {opacity:1, transform:"none"}],
+        {duration:420, easing:"cubic-bezier(.2,.75,.2,1)"}
+      );
+    });
     startupFeedRevealPending = false;
   }
   committedFeedPresentationFingerprint = currentFeedPresentationFingerprint();
@@ -22563,7 +22664,7 @@ function renderAppearanceSettings(body){
 }
 
 function renderAboutSettings(body){
-  body.innerHTML = `<article class="about-body settings-about"><img class="settings-about-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="settings-about-copy"><p data-brand-copy="about">Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. A dislike removes that exact card and softly tunes future suggestions; a like gently lifts related suggestions without changing complete fixture lists. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.</p><details class="asset-attribution"><summary>Editorial standards</summary><p>Why it matters is independently written from researched facts, with official sources preferred and reputable reporting used when official material cannot establish form or context. Source wording is not copied into cards. Citations, fact records and uncertainty notes are retained in the editorial audit trail rather than shown in the reading flow.</p><p>Future draws, participants and dates can change. Nothing Sport keeps the last verified narrative during a temporary source failure and withholds new structural filler when substantive context cannot be verified.</p></details><p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a text fallback otherwise.</p><p class="country-acknowledgement" data-brand-copy="countryAcknowledgement">Nothing Sport acknowledges the Yuin Nation, the Traditional Custodians of the land on which this app was built. Always was, always will be Aboriginal land. Voice. Treaty. Truth.</p></div></article>`;
+  body.innerHTML = `<article class="about-body settings-about"><img class="settings-about-logo" data-brand-asset="hero" src="assets/brand/web/nothingsport-hero-logo.png" width="1400" height="856" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="settings-about-copy"><p data-brand-copy="about">Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. Dismiss removes that exact card without changing your follows. A Like appears only on a high-stakes suggestion that did not come from a follow. Open Events to choose special fixtures early, or Standings & Fixtures for the complete timetable and ladder context.</p><details class="asset-attribution"><summary>Editorial standards</summary><p>Why it matters is independently written from researched facts, with official sources preferred and reputable reporting used when official material cannot establish form or context. Source wording is not copied into cards. Citations, fact records and uncertainty notes are retained in the editorial audit trail rather than shown in the reading flow.</p><p>Future draws, participants and dates can change. Nothing Sport keeps the last verified narrative during a temporary source failure and withholds new structural filler when substantive context cannot be verified.</p></details><p class="asset-attribution">Generic sport silhouettes use Sporticon under Apache 2.0. Interface glyphs use Lucide under ISC. Team, league and event marks use recorded sources or neutral fallbacks. Watch actions use official-source provider marks where bundled and a text fallback otherwise.</p><p class="country-acknowledgement" data-brand-copy="countryAcknowledgement">Nothing Sport acknowledges the Yuin Nation, the Traditional Custodians of the land on which this app was built. Always was, always will be Aboriginal land. Voice. Treaty. Truth.</p></div></article>`;
   const about = body.querySelector(".settings-about-copy");
   const socials = document.querySelector("footer.app-footer .footer-socials")?.cloneNode(true);
   if (socials) about.appendChild(socials);
@@ -24612,7 +24713,14 @@ async function refreshChatActive({ rerenderOpenList = false } = {}){
     updateActiveChatButton();
     if (outsideRoomUnreadIncreased) playIncomingChatSound();
     if (rerenderOpenList && document.getElementById("chatBackdrop").classList.contains("show") && !chatState.currentRoom) renderActiveChats();
-    if (changed) renderAll({ preserveViewport:true });
+    if (changed){
+      document.querySelectorAll("[data-fixture-chat-id]").forEach(host => {
+        const ev = nothingscoreEventRefs.get(host.dataset.fixtureChatId);
+        if (!ev) return;
+        host.querySelectorAll(".event-chat-action").forEach(button => button.remove());
+        appendFixtureChatActions(host,ev);
+      });
+    }
     scheduleChatActivePoll(CHAT.POLLING.activeMs);
     return payload;
   }catch(error){
@@ -24650,6 +24758,8 @@ function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
   if (!NOTHINGSCORE || previousOwnerId === nextOwnerId) return;
   nothingscoreSnapshots.clear();
   nothingscoreLoadedAt.clear();
+  nothingscoreLoadErrors.clear();
+  nothingscorePendingIds.clear();
   nothingscoreViewer = { signedIn:false, pilot:false, profile:null };
   if (!nextOwnerId){
     nothingscoreWatching.clear();
@@ -24662,7 +24772,9 @@ function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
 async function refreshNothingscoreViewer(){
   const event = activeEvents[0] || EVENTS[0] || null;
   if (!event) return null;
+  const owner = serverPersistence.user?.id || "";
   const payload = await serverSyncClient.nothingscoreRequest({ eventId:nothingscoreEventId(event) });
+  if (owner !== (serverPersistence.user?.id || "")) return null;
   if (payload.viewer) nothingscoreViewer = payload.viewer;
   if (payload.detail) mergeNothingscoreSnapshot(payload.detail);
   return payload.viewer || null;
@@ -24695,10 +24807,20 @@ async function openNothingscoreContribution(ev){
   activeNothingscoreContributionEvent = ev;
   activeNothingscoreContributionError = "";
   setNothingscoreDrawerOpen(true);
+  const owner = serverPersistence.user?.id || "";
   try{
     const payload = await serverSyncClient?.nothingscoreRequest?.({ eventId:nothingscoreEventId(ev) });
+    if (owner !== (serverPersistence.user?.id || "")) return;
     if (payload?.viewer) nothingscoreViewer = payload.viewer;
-    if (payload?.detail) mergeNothingscoreSnapshot(payload.detail);
+    if (payload?.detail){
+      nothingscoreLoadErrors.delete(nothingscoreEventId(ev));
+      const phase = payload.detail.phase;
+      const key = nothingscoreSubmissionKey(nothingscoreEventId(ev),phase);
+      const receipt = payload.detail.currentUser?.submissions?.[phase];
+      if (receipt) nothingscoreSubmissionStore.confirm(key,receipt);
+      else if (!nothingscoreSubmissionRequests.has(key)) nothingscoreSubmissionStore.release(key);
+      mergeNothingscoreSnapshot(payload.detail);
+    }
   }catch(error){
     console.warn("Nothingscore contribution unavailable", error);
     activeNothingscoreContributionError = error?.message || "Your contribution form could not be loaded.";
@@ -24891,16 +25013,16 @@ function renderNothingscoreDrawer(){
   body.appendChild(profileSection);
 
   const communitySnapshots = [...nothingscoreSnapshots.values()]
-    .filter(snapshot => snapshot?.aggregate?.score != null)
+    .filter(snapshot => snapshot?.peerResults?.count > 0)
     .slice(0, 12);
   if (communitySnapshots.length){
     const communityHeading = document.createElement("h3");
     communityHeading.className = "chat-section-title";
-    communityHeading.textContent = "Community scores";
+    communityHeading.textContent = "Real fan ratings";
     const community = document.createElement("div");
     community.className = "nsc-board";
     communitySnapshots.forEach(snapshot => {
-      const event = activeEvents.find(item => nothingscoreEventId(item) === snapshot.eventId);
+      const event = nothingscoreEventRefs.get(snapshot.eventId) || activeEvents.find(item => nothingscoreEventId(item) === snapshot.eventId);
       const row = document.createElement("div");
       row.className = "nsc-board-row";
       const phase = document.createElement("strong");
@@ -24909,12 +25031,12 @@ function renderNothingscoreDrawer(){
       const name = document.createElement("strong");
       name.textContent = event?.name || event?.displayTitleCompact || "Fixture";
       const detail = document.createElement("small");
-      const contributors = Number(snapshot.aggregate?.contributorCount ?? snapshot.aggregate?.uniqueContributors ?? snapshot.aggregate?.ratingCount ?? 0);
-      detail.textContent = `${nothingscorePhaseCopy(snapshot.phase).name} · ${contributors} contributor${contributors === 1 ? "" : "s"}`;
+      const contributors = snapshot.peerResults.count;
+      detail.textContent = `${nothingscorePhaseCopy(snapshot.phase).name} · ${contributors} other fan${contributors === 1 ? "" : "s"}${snapshot.peerResults.early ? " · Early responses" : ""}`;
       copy.append(name, detail);
       const score = document.createElement("span");
       score.className = "nsc-board-points";
-      score.textContent = `${Number(snapshot.aggregate.score).toFixed(1)}/5`;
+      score.textContent = `${Number(snapshot.peerResults.average).toFixed(1)}/5`;
       row.append(phase, copy, score);
       community.appendChild(row);
     });

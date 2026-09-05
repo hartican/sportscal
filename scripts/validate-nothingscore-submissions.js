@@ -126,6 +126,9 @@ async function snapshotContract(){
     assert.equal(snapshot.crowdEditorial.presentationMode,"early");
     assert.deepEqual(snapshot.earlyPanel,{publicEnabled:true,includesModelled:true,disclosure:"Early panel · includes modelled responses.",activeRealContributors90d:1,retirementThreshold:10});
     assert.equal(snapshot.series,undefined,"batch summaries must not carry graph payloads until card detail is requested");
+    assert.equal(snapshot.peerResults.count,0,"real peer count excludes the viewer and every modelled row");
+    assert.equal(snapshot.peerResults.average,null);
+    assert.equal(snapshot.peerResults.distribution,undefined,"batch peer summaries exclude the detailed histogram");
     assert.deepEqual(snapshot.currentUser.submissions.heat,{
       phase:"heat",rating:5,tags:["Big stakes"],bucketStart:"1970-01-01T00:00:00.000Z",
       submitted:true,submittedAt:"2026-06-13T01:00:00.000Z",pointsAwarded:3,
@@ -134,6 +137,10 @@ async function snapshotContract(){
     const [repeat]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
     assert.deepEqual(repeat,snapshot,"identical frozen-clock requests must produce identical public output");
     const [detail]=await server.snapshots([eventId],{userId,detailId:eventId,now:fixedNow,demoMode:"public"});
+    assert.equal(detail.peerResults.distribution.length,5);
+    const [publicSnapshot]=await server.snapshots([eventId],{now:fixedNow,demoMode:"public"});
+    assert.equal(publicSnapshot.peerResults.count,1,"a signed-out reader can see one real vote without modelled inflation");
+    assert.equal(publicSnapshot.peerResults.early,true);
     assert(detail.contributors.every(contributor=>contributor.demo===false&&!contributor.audienceCohort),"public contributor payloads must contain genuine public profiles only");
     assert.equal(JSON.stringify(detail.contributors).includes("modelled:"),false);
     publicEnabled=false;

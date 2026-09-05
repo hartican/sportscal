@@ -340,7 +340,7 @@ async function run(){
   assert.match(pilotReadoutSql, /spectacle_rating_completion_percent/i);
 
   const html = fs.readFileSync("index.html", "utf8");
-  assert(html.includes('src="config/product-events.js"'));
+  require("./app-shell-test-utils").assertShellModule(html,"config/product-events.js");
   assert(!html.includes('settingsMenuItem("pilot"') && html.includes('settingsSection === "appearance"') && html.includes('pilot.textContent = "Trust pilot details"'), "Trust pilot controls must sit inside Appearance rather than as a top-level Settings item");
   assert(html.includes('id="pilotMeasurementEnabled"'));
   assert(html.includes('enabled: true') && html.includes('id="pilotPulsePromptModal"'), "pilot measurement must default on and expose a dedicated reminder");

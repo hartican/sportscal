@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "ui-performance-audit.v1",
+  "checkedAt": "2026-09-05T02:26:00Z",
+  "baselineRef": "78e8eaed2342f551665e4237c3f0cb203d2ff08e",
+  "sourceFingerprint": "005daf941b71225dd02bfce989b970dc9d7b7868d0227c529939e87c8ee16069",
+  "environment": {
+    "browser": "Codex in-app Chromium via CUA",
+    "origin": "http://127.0.0.1:33956/",
+    "viewport": {"width":393,"height":851},
+    "viewportMeasurement": "Actual window.innerWidth/innerHeight; calibrated for the browser's existing 120 percent zoom.",
+    "account": "signed out; local QA profile following GWS AFLW",
+    "server": "scripts/serve-ui-audit.js; gzip static responses; no-cache; service worker bypassed",
+    "serviceWorkerBypassed": true,
+    "fingerprintScope": "Rendered UI sources; service worker is separately checked by startup-budget and refresh-lifecycle validators.",
+    "limitations": [
+      "Local origin is not a production CDN or a physical iPhone/PWA.",
+      "Cold samples deliberately disable all HTTP cache and can repeat same-page image downloads; this is a stress profile, not an estimate of every user's first visit.",
+      "Repeat-load samples are unthrottled, not a warm Fast-4G claim; the QA server still revalidates resources.",
+      "Authenticated server hydration and physical push delivery are not measured by these samples.",
+      "Branded completion includes the retained logo-fill, slogan and flight timings and is reported separately from usable data."
+    ]
+  },
+  "static": {"criticalLocalRequestsBefore":45,"criticalLocalRequestsAfter":3,"criticalGzipChangePercent":-2.44,"precacheBytes":2759224,"precacheAssets":103},
+  "runs": [
+    {
+      "name": "Cold cache-disabled Fast-4G stress",
+      "network": {"latencyMs":150,"downloadBytesPerSecond":200000,"uploadBytesPerSecond":93750,"cacheDisabled":true},
+      "samples": [
+        {"navigationStartedAt":1788575004691.1,"shellReadyMs":3614.3,"feedReadyMs":4007.5,"firstCardRenderedMs":4027.9,"startupCompleteMs":7646.1,"cumulativeLayoutShift":0.0287750,"longTaskCount":0,"feedRefreshMs":485.4,"horizontalOverflow":false,"resourceCount":20,"resourceBytes":521945,"navigationBytes":232793,"cssWidth":393,"cssHeight":851},
+        {"navigationStartedAt":1788575030090.8,"shellReadyMs":3599,"feedReadyMs":4010.4,"firstCardRenderedMs":4040.8,"startupCompleteMs":7630.1,"cumulativeLayoutShift":0.0287741,"longTaskCount":0,"feedRefreshMs":499.4,"horizontalOverflow":false,"resourceCount":19,"resourceBytes":437096,"navigationBytes":232793,"cssWidth":393,"cssHeight":851},
+        {"navigationStartedAt":1788575057631.9,"shellReadyMs":3590.3,"feedReadyMs":3988.9,"firstCardRenderedMs":4021.2,"startupCompleteMs":7589.3,"cumulativeLayoutShift":0.0287746,"longTaskCount":0,"feedRefreshMs":485,"horizontalOverflow":false,"resourceCount":19,"resourceBytes":437096,"navigationBytes":232793,"cssWidth":393,"cssHeight":851}
+      ]
+    },
+    {
+      "name": "Unthrottled repeat load",
+      "network": {"latencyMs":0,"cacheDisabled":false},
+      "samples": [
+        {"navigationStartedAt":1788575086754.8,"shellReadyMs":85.7,"feedReadyMs":119.6,"firstCardRenderedMs":139.2,"startupCompleteMs":4099.4,"cumulativeLayoutShift":0.0019808,"longTaskCount":0,"feedRefreshMs":35.4,"horizontalOverflow":false,"resourceCount":19,"resourceBytes":427978,"navigationBytes":232793,"cssWidth":393,"cssHeight":851},
+        {"navigationStartedAt":1788575114217.7,"shellReadyMs":90.8,"feedReadyMs":123,"firstCardRenderedMs":143.7,"startupCompleteMs":4103,"cumulativeLayoutShift":0.0019803,"longTaskCount":0,"feedRefreshMs":39.8,"horizontalOverflow":false,"resourceCount":19,"resourceBytes":427978,"navigationBytes":232793,"cssWidth":393,"cssHeight":851},
+        {"navigationStartedAt":1788575145224.9,"shellReadyMs":90.5,"feedReadyMs":126.8,"firstCardRenderedMs":148.1,"startupCompleteMs":4113.4,"cumulativeLayoutShift":0.0019022,"longTaskCount":0,"feedRefreshMs":35.3,"horizontalOverflow":false,"resourceCount":19,"resourceBytes":427978,"navigationBytes":232793,"cssWidth":393,"cssHeight":851}
+      ]
+    }
+  ],
+  "interactionProof": {
+    "responsive": {"cssWidths":[320,393,768,1280],"pages":["Feed","Events","Follow"],"horizontalOverflow":false,"aflwInspector320px":true,"nightMode393px":true,"reducedMotionIdleAnimations":0},
+    "f1": {"driverRowPx":64,"portraitPx":40,"loadedPortraitSourcePx":96,"constructorRowsPx":64,"haasAndAudiLoaded":true,"whiteMarksUseDarkPlate":true},
+    "minimisedTennis": {"heightPx":151.390625,"titleVisible":true,"competitionRoundStatusVisible":true,"reminderCount":0,"trafficTargetPx":32},
+    "submission": {"transport":"local in-memory fixture; no real API writes","pendingReopenPostCount":1,"formCountAfterConfirmation":0,"receipt":"Submitted ✓","peerHistogramBins":5,"peerCount":2,"earlyResponsesLabel":true,"comparisonVisible":true}
+  },
+  "remainingAuditFindings": [
+    "Cold cache-disabled Fast-4G data readiness is still approximately 4 seconds; do not claim a sub-2.5-second cold start.",
+    "Exploratory long-session scrolling recorded some Feed page appends around 0.6 seconds. This is a remaining pagination hotspot, separate from startup flicker and the six loading samples."
+  ]
+}

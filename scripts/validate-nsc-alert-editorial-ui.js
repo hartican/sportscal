@@ -30,26 +30,25 @@ function assertOrder(source, markers, message){
   });
 }
 
-// Cards expose a dedicated deterministic NSC strip plus the current action or durable receipt.
+// Cards expose real peer summaries; the drawer owns durable receipts and the breakdown.
 const cardSummary = section(html, "function buildNothingscoreSummary(ev)", "function openNothingscoreLeaderboard");
 assert.match(cardSummary, /currentUser\?\.submissions\?\.\[snapshot\.phase\]/);
-assert.match(cardSummary, /buildNothingscoreReceipt\(receipt, phaseCopy\.submissionLabel \|\| phaseCopy\.name\)/);
-assert.match(cardSummary, /Submit \$\{phaseCopy\.name\}/);
-assert.match(cardSummary, /nsc-compact-strip/);
-assert.match(cardSummary, /editorial\?\.text/);
-assert.match(cardSummary, /snapshot\.earlyPanel\?\.includesModelled/);
-for (const retiredCardMeta of ["Building", "aggregate", "contributor", "like", "Watching Now"]){
+assert.match(cardSummary, /snapshot\?\.peerResults/);
+assert.match(cardSummary, /View results/);
+assert.match(cardSummary, /No other ratings yet/);
+assert.match(cardSummary, /Early responses/);
+for (const retiredCardMeta of ["nsc-compact-strip", "snapshot.aggregate", "snapshot.earlyPanel", "Watching Now"]){
   assert(!cardSummary.includes(retiredCardMeta), `NSC card summary must not contain ${retiredCardMeta}`);
 }
 const receipt = section(html, "function buildNothingscoreReceipt(receipt, phaseName)", "function nothingscoreStatus");
-assert.match(receipt, /Submitted · \$\{phaseName\} \$\{Number\(receipt\?\.rating \|\| 0\)\}\/5 · \+\$\{points\} NSC/);
-assert.match(receipt, /receipt\?\.pointsAwarded/);
-assert.match(receipt, /leaderboard\.textContent = "Leaderboard"/);
-assert.match(receipt, /openNothingscoreLeaderboard\(\)/);
+assert.match(receipt, /Submitted ✓/);
+assert.match(receipt, /receipt\?\.rating/);
+assert.match(receipt, /receipt\?\.tags/);
+assert.match(receipt, /View results/);
 
 // Heat/Impact selections are local drafts. Only Submit writes; Pulse retains its immediate mutable action.
 const choices = section(html, "function buildNothingscoreChoices(ev, snapshot, panel)", "function buildNothingscoreContributors");
-assert.match(choices, /let draftRating = snapshot\.phase === "pulse"/);
+assert.match(choices, /let draftRating = Number\(submission\.draft\?\.rating/);
 assert.match(choices, /if \(snapshot\.phase === "pulse"\)[\s\S]*?action:"pulse"[\s\S]*?return;/);
 assert.match(choices, /draftRating = value/);
 assert.match(choices, /submit\.disabled = false/);
@@ -70,12 +69,12 @@ assert.match(soundPreference, /catch\(_error\)\{ return true; \}/);
 const submitAction = section(html, "async function submitNothingscoreAction", "function buildNothingscoreChoices");
 assertOrder(submitAction, [
   "await serverSyncClient.nothingscoreRequest",
-  "result.phase",
+  "nothingscoreSubmissionStore.confirm(key,receipt)",
   "result.replayed === false",
   "playNothingscoreImpactSound(preparedAudio)",
 ], "new Impact receipt and sound");
 assert.match(submitAction, /submittedPhase === "impact" && result\.replayed === false/, "the server-confirmed Impact phase must drive the cue");
-assert.match(submitAction, /\[submittedPhase\]:\{/, "the server-confirmed phase must own the durable receipt");
+assert.match(submitAction, /\[submittedPhase\]:receipt/, "the server-confirmed phase must own the durable receipt");
 assert.equal((submitAction.match(/playNothingscoreImpactSound/g) || []).length, 1, "submission must play at most one cue");
 const drawer = section(html, "function renderNothingscoreDrawer()", "async function loadNothingscoreLeaderboard");
 assert.match(drawer, /Impact sound<\/strong>On by default/);
@@ -112,7 +111,7 @@ assertOrder(chatAlertPrompt, [
   "ensurePushInstallation({ requestPermission:true })",
 ], "chat alert permission and audio user gesture");
 assert.match(html, /function openFixtureChats\(event\)\{\s+prepareChatAudio\(\)/, "fixture-room entry must resume audio from its opening gesture");
-const chatPushIdentitySync = section(html, "async function syncPermittedChatPushInstallation()", "function notificationEventUrl");
+const chatPushIdentitySync = section(html, "async function syncPermittedChatPushInstallation()", "async function notificationDiagnosticsCommand");
 assert.match(chatPushIdentitySync, /Notification\.permission !== "granted"/);
 assert.match(chatPushIdentitySync, /notifications\.enabled === false \|\| notifications\.chatAlertsEnabled === false/, "identity activation must preserve an explicit system/chat-alert opt-out");
 assert.match(chatPushIdentitySync, /ensurePushInstallation\(\{ requestPermission:false \}\)/, "an already-permitted chat identity must re-register without prompting");
@@ -138,9 +137,9 @@ const narrativeGate = section(html, "function editorialNarrativeReadyForCard(nar
 assert.match(narrativeGate, /ENRICHMENT_ENGINE\?\.editorialNarrativeReadyForCard/, "the shell must use the shared narrative compatibility predicate");
 assert.match(enrichment, /function editorialNarrativeReadyForCard\(narrative\)[\s\S]*editorial-narrative\\\.v\(\?:1\|2\|3\)/);
 assert.match(enrichment, /generationMode !== "researched"[\s\S]*factIds[\s\S]*sourceIds/, "researched editorial must require source provenance rather than a consequence backfill");
-const narrativeHook = section(html, "function editorialNarrativeHookForDisplay(record)", "function editorialNarrativeCopyForDisplay");
+const narrativeHook = section(html, "function editorialNarrativeHookForDisplay(record)", "function isValidatedEditorialCopy");
 assert.match(narrativeHook, /editorialNarrativeReadyForCard\(narrative\)/);
-const consequence = section(html, "function editorialConsequenceForDisplay(record)", "function appendEditorialConsequence");
+const consequence = section(html, "function editorialConsequenceForDisplay(record)", "function buildEventTimingStateChip");
 assert.match(consequence, /ENRICHMENT_ENGINE\?\.editorialConsequenceReadyForCard/, "only the optional consequence must use the stricter consequence predicate");
 assert.match(consequence, /completed && isSpoilerVisible\(record\)/);
 assertOrder(consequence, [

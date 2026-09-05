@@ -6,7 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 
 const pages = ["index.html", "admin.html", "admin-comms.html", "participate.html", "privacy.html", "terms.html", "404.html"];
-const stylesheet = "/assets/styles/nothingsport-foundation.css?v=230";
+const stylesheet = "/assets/styles/nothingsport-foundation.css?v=231";
 const html = fs.readFileSync("index.html", "utf8");
 const foundation = fs.readFileSync("assets/styles/nothingsport-foundation.css", "utf8");
 
@@ -19,10 +19,10 @@ pages.forEach(page => {
   assert(foundation.includes(token), `shared UI token ${token} must remain explicit`);
 });
 assert(foundation.includes("prefers-reduced-motion:reduce"), "the shared foundation must respect reduced-motion preferences");
-assert(foundation.includes(".traffic-light-label") && foundation.includes(".event-card-control+.event-card-control"), "traffic-light actions must keep persistent labels and separators");
+assert(foundation.includes(".traffic-light-label{display:none}") && foundation.includes("width:32px"), "traffic-light actions must be compact dots with fixed 32px targets");
 
 const controls = html.slice(html.indexOf("function buildEventCardControls"), html.indexOf("function eventMajorEventId"));
-assert(controls.includes('visibleLabel.className = "traffic-light-label"'), "traffic controls must render visible labels rather than hover-only tooltips");
+assert(controls.includes('button.title = label') && controls.includes('button.setAttribute("aria-label"'), "dots must retain tooltip and accessible action names");
 assert(controls.includes("!Boolean(getEventAction(ev).isMinimised)"), "Minimise must toggle back to the standard card");
 assert(controls.includes('setCardState(viewStateEvent, opening ? "opened" : "compact")'), "Expand must toggle full detail without a second disclosure control");
 
@@ -36,7 +36,7 @@ assert(html.includes('heading.id = "calendarTodayAnchor"') && html.includes("if 
 assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v6"'), "the redesigned personalised card cache must be invalidated");
 
 const worker = fs.readFileSync("service-worker.js", "utf8");
-assert(worker.includes('nothingsport-shell-v230') && worker.includes(`"${stylesheet}"`), "the new foundation and shell must be available after installed-app cache replacement");
+assert(worker.includes('nothingsport-shell-v231') && worker.includes(`"${stylesheet}"`), "the new foundation and shell must be available after installed-app cache replacement");
 pages.slice(1).forEach(page => assert(worker.includes(`"/${page}"`), `${page} must bypass the generic app-shell navigation fallback`));
 
 console.log("UI foundation valid: shared tokens, compact progressive cards, persistent traffic controls, Reminder ON and one Today heading passed.");

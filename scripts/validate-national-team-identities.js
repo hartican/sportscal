@@ -55,14 +55,14 @@ assert.equal(catalogue.allTeams.filter(team => team.teamKind === "national").len
 assert.doesNotMatch(html, /<script src="config\/national-team-identities\.js"><\/script>/, "the full provenance registry must stay out of the critical app shell");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)?.[1];
 assert(shellVersion, "the app shell version must be declared");
-assert(html.includes(`loadDeferredScript("config/national-team-identities.js?v=${shellVersion}")`), "the national registry must load concurrently with the first feed page through a shell-versioned URL");
+require("./app-shell-test-utils").assertShellModule(html,"config/national-team-identities.js");
 assert.doesNotMatch(html, /Promise\.all\(\[nationalTeamIdentityReady, cardIdentitiesReady, remoteFeedTask\]\)/, "national-team identity registries must not block the first usable Feed");
 assert.match(html, /scheduleIdentityImageRecovery/, "national-team marks must patch into reserved card slots after first render");
 assert.match(html, /if \(mark\?\.isNationalTeam \|\| mark\?\.teamKind === "national"\)/, "national-team broken images need an explicit no-flag fallback branch");
 assert.match(html, /const showNationalityFlag = athlete/, "athlete nationality flags must remain separate");
 assert.doesNotMatch(html, /if \(showNationalityFlag \|\| nationalTeam\)/, "Follow must not share the athlete flag branch with national teams");
 assert(serviceWorkerSource.includes(`nothingsport-shell-v${shellVersion}`), "the application-shell cache must be bumped for the identity library");
-assert(serviceWorkerSource.includes(`"/config/national-team-identities.js?v=${shellVersion}"`), "the offline shell must cache the exact versioned registry URL used at runtime");
+assert(serviceWorkerSource.includes(`"/assets/js/app-shell-runtime.js?v=${shellVersion}"`), "the offline shell must cache the exact runtime carrying national identities");
 
 const regressionCases = [
   [{ key:"nrl", name:"Australia v New Zealand" }, ["team:nrl:kangaroos", "team:nrl:kiwis"]],

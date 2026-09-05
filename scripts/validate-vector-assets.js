@@ -19,7 +19,12 @@ assert.equal(sportRegistry.schemaVersion, "sport-domain-registry.v1");
 assert(sportRegistry.domains.length >= 26, "the expanded catalogue must retain every established registry domain");
 assert.equal(new Set(sportRegistry.domains.map(domain => domain.key)).size, sportRegistry.domains.length, "sport keys must be unique");
 const exposedSportKeys = new Set((selectorTaxonomy.exposedSportNodes || []).flatMap(node => node.canonicalSportKeys || []));
-exposedSportKeys.forEach(key => assert(sportRegistry.byKey[key], `${key} must be registry-driven before it is exposed in Browse`));
+const hierarchy = require("../config/sport-hierarchy.js");
+exposedSportKeys.forEach(key => {
+  const canonical = hierarchy.legacySportKeys[key];
+  const registeredAlias = canonical && hierarchy.lineageFor(canonical).some(node => sportRegistry.domains.some(domain => domain.domainId === node.id));
+  assert(sportRegistry.byKey[key] || registeredAlias, `${key} must resolve to a registered sport before it is exposed in Browse`);
+});
 
 const canonicalDomainIds = new Set(canonicalTaxonomy.sportDomains.map(domain => domain.id));
 const canonicalSpecialEventIds = new Set(canonicalTaxonomy.specialEventDomains.map(domain => domain.id));
@@ -92,7 +97,9 @@ assert.match(stableCardIntensityIcon, /<img\b/, "small stakes card glyphs must u
 assert(!html.includes('src="data/events.js"'), "the generated direct-file event bundle must not block the initial parser");
 assert(html.includes('function loadLatestBundledEvents()') && html.includes('return reloadBundledEventsScript();'), "the generated direct-file event bundle must remain available as an on-demand fallback");
 const uiSource = html;
-assert.doesNotMatch(uiSource, /\p{Extended_Pictographic}|\p{Regional_Indicator}{2}/u, "visible interface graphics must not use emoji");
+const cardUiSource = uiSource.slice(uiSource.indexOf("function buildEventCard(ev"),uiSource.indexOf("function jointTournamentIsActive"))
+  + uiSource.slice(uiSource.indexOf("function buildMajorEventCard"),uiSource.indexOf("function buildTicketSaleCard"));
+assert.doesNotMatch(cardUiSource, /\p{Extended_Pictographic}|\p{Regional_Indicator}{2}/u, "sporting card graphics must not use emoji; native chat reactions and copyright text are separate");
 assert.match(uiSource, /function stripDecorativeGlyphs/, "legacy editorial glyphs must be removed before rendering or export");
 assert.match(uiSource, /class="skip-link"/, "keyboard users must receive a skip link");
 assert.match(uiSource, /prefers-reduced-motion/, "reduced-motion preferences must be honoured");

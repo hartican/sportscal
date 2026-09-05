@@ -32,7 +32,7 @@ const providerMarkSource = html.match(/function buildViewingProviderMark\(viewin
 assert(providerMarkSource.includes('className = "provider-action-logo"') && providerMarkSource.includes("mark.appendChild(image)"), "providers with bundled marks must render the logo only");
 assert(providerMarkSource.includes('fallback.textContent = viewing.actionLabel || viewing.label') && providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider text must appear only when a logo is unavailable or fails");
 assert(html.includes("flex-wrap:nowrap") && html.includes('const label = active ? "Reminder ON" : "Remind"') && html.includes('chat.textContent = "Chat"'), "fixture quick actions must remain on one compact row with approved labels");
-assert(html.includes('return "Submitted ✓"') && html.includes("button.disabled = submitted"), "submitted prediction controls must remain visibly sealed on mobile");
+assert(html.includes('return "Submitted ✓"') && html.includes("submission.receipt || null"), "submitted ratings must show a receipt; the card action stays available for peer results");
 assert(fs.existsSync("assets/providers/kayo-sports-negative.svg") && fs.existsSync("assets/providers/stan-sport.jpg"), "Kayo and Stan Sport provider marks must be committed locally");
 assert(worker.includes("/assets/providers/kayo-sports-negative.svg") && worker.includes("/assets/providers/stan-sport.jpg"), "provider marks must be available in the installed offline shell");
 assert(html.includes('function eventMajorEventId('), "all event routing must share one major-event ID resolver");

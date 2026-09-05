@@ -79,7 +79,7 @@ assert(actionProperties.isMinimised, "event actions must persist card minimisati
 assert(actionProperties.dismissedAt, "event actions must persist when an exact card was dismissed");
 assert(actionProperties.eventsDismissedAt, "Events dismissal ordering must not overwrite the Feed dismissal timestamp");
 assert.match(html, /function dismissEventCard\(/, "Feed and Events must share one exact-card dismissal path");
-assert.match(html, /config\/event-action-identity\.js/, "the browser must load the shared action identity helper");
+require("./app-shell-test-utils").assertShellModule(html,"config/event-action-identity.js");
 assert.match(html, /direction === "negative" && getEventAction\(ev\)\.dismissed/, "repeat dislikes must be idempotent");
 assert.match(html, /function restoreDismissedEvent\(/, "dismissed cards must have a durable restoration path");
 assert.match(html, /PREFERENCE_SYSTEM\.applyLearningSignal/, "Feed feedback must update the durable learning graph");
@@ -99,6 +99,6 @@ assert.doesNotMatch(
   "dismissal must animate the exact initiating card instead of the first duplicate event card in the document"
 );
 assert.match(swipeHandler, /\{ card = null \}/, "the dismissal handler must receive the exact initiating card");
-assert.match(html, /applyCuratedEventSwipe\(ev, direction, \{ card:event\.currentTarget\.closest\("\.event-card"\) \}\)/, "feedback buttons must pass their own card to dismissal");
+assert.match(html, /applyCuratedEventSwipe\(ev,"positive",\{card:button\.closest\("\.event-card"\)\}\)/, "suggestion Like must target its own card");
 
 console.log("Card dismissal valid: exact-card persistence, bounded button learning, Undo and Hidden recovery are wired.");

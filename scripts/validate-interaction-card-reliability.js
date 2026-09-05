@@ -46,8 +46,9 @@ check("stakes flames have a contrast plate", () => {
   assert.match(html, /STAKES \$\{score\}\/5/);
 });
 
-check("thumbs-down is left and thumbs-up is right", () => {
-  assert.match(html, /row\.append\(negative,\s*buildStakesMeter\(ev\),\s*positive\)/);
+check("Dismiss replaces Dislike and Like is suggestion-only", () => {
+  assert.doesNotMatch(html, /Less of this|More of this/);
+  assert.match(html, /if \(!eventIsHighStakesSuggestion\(ev\)\) return \[\]/);
 });
 
 check("one rollback-safe optimistic mutation helper is shared", () => {
@@ -56,12 +57,15 @@ check("one rollback-safe optimistic mutation helper is shared", () => {
   assert.equal(typeof optimistic.isLostResponse, "function");
 });
 
-check("reminders, chat reactions, attachment Save and NSC use optimistic mutation", () => {
+check("reversible actions use rollback; immutable ratings use a receipt lock", () => {
   const reminder = html.slice(html.indexOf("async function toggleQuickReminder"), html.indexOf("function codeIdForEvent"));
   const reaction = html.slice(html.indexOf("async function toggleChatReaction"), html.indexOf("function buildChatReactionSummary"));
   const attachment = html.slice(html.indexOf("async function saveChatAttachment"), html.indexOf("function chatMessageElement"));
   const nsc = html.slice(html.indexOf("async function submitNothingscoreAction"), html.indexOf("function buildNothingscoreChoices"));
-  [reminder, reaction, attachment, nsc].forEach(source => assert.match(source, /runOptimisticMutation\(/));
+  [reminder, reaction, attachment].forEach(source => assert.match(source, /runOptimisticMutation\(/));
+  assert.match(nsc,/nothingscoreSubmissionStore\.begin\(key,command\)/);
+  assert.match(nsc,/nothingscoreSubmissionRequests\.has\(key\)/);
+  assert.match(nsc,/reconcileNothingscoreSubmission/);
 });
 
 check("notification copy puts the matchup first", () => {
@@ -80,7 +84,7 @@ check("low Heat and Impact ratings expose their agreed tags", () => {
 });
 
 check("NSC submission visibly confirms, rolls back and retries", () => {
-  assert.match(html, /Submitted — confirming…/);
+  assert.match(html, /Submitting — confirming your rating…/);
   assert.match(html, /Retry/);
   assert.match(html, /nsc-submission-receipt/);
   assert.match(html, /replayed/);

@@ -66,11 +66,11 @@ const controlledUpdate = lifecycle.createStartupCoordinator({
 assert.equal(controlledUpdate.isHydrating(), true, "the framework must expose a loading card surface while startup data settles");
 assert.equal(controlledUpdate.controllerChanged(), false, "a worker update during startup must wait instead of interrupting the live app");
 assert.equal(controlledUpdateReloads, 0, "controller changes must not reload an app that is still hydrating");
-assert.equal(controlledUpdate.markHydrationComplete(), true, "startup completion must release one pending controlled update");
-assert.equal(controlledUpdateReloads, 1, "a pending installed-app update must reload exactly once after startup is safe");
+assert.equal(controlledUpdate.markHydrationComplete(), false, "a worker update must wait for the next natural navigation");
+assert.equal(controlledUpdateReloads, 0, "a pending installed-app update must never restart the visible launch");
 controlledUpdate.controllerChanged();
 controlledUpdate.markHydrationComplete();
-assert.equal(controlledUpdateReloads, 1, "repeated lifecycle signals must not create an update reload loop");
+assert.equal(controlledUpdateReloads, 0, "repeated lifecycle signals must not create an update reload loop");
 
 let firstInstallReloads = 0;
 const firstInstall = lifecycle.createStartupCoordinator({

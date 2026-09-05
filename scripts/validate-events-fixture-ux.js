@@ -16,7 +16,7 @@ assert(html.includes('eventsDeepLinkHash("major"') && html.includes('eventsDeepL
 assert(html.includes("pendingMajorEventFocusId") && html.includes("pendingTicketAlertFocusId") && html.includes("focusTicketAlertCard"), "deep links must select and focus either card collection");
 assert(/function focusMajorEventCard[\s\S]{0,900}requestAnimationFrame\(restoreTargetFocus\)[\s\S]{0,500}setTimeout/.test(html), "major-event deep links must restore focus after late Events rerenders");
 
-assert(html.includes('card.dataset.cardState = state') && html.includes('state === "selected" ? "is-selected"') && html.includes('state === "opened" ? "is-opened"'), "both Events card types must expose compact, selected and opened states");
+assert(html.includes('card.dataset.cardState = isMinimised ? "minimised" : state') && html.includes('state === "opened" ? "is-opened"'), "Events cards must distinguish minimised identity from expanded detail");
 assert(html.includes("refreshExpandableCard(eventCard, buildMajorEventCard(record") && html.includes("refreshExpandableCard(eventCard, buildTicketSaleCard(record"), "Events expansion must patch the stable keyed card");
 const anchoredMutationSource = html.slice(html.indexOf("function mutateWithScrollContinuity"), html.indexOf("let scrollMomentumActive"));
 assert(anchoredMutationSource.includes("getBoundingClientRect().top") && anchoredMutationSource.includes("lastCorrectionAt < 40") && anchoredMutationSource.includes("window.scrollTo"), "the shared transaction must restore the selected anchor with one coalesced measured correction");
@@ -36,23 +36,22 @@ assert(html.includes('.matchup-team-logo-slot{ width:74px; height:70px;') && htm
 assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
 const eventCardSource = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
 assert(eventCardSource.includes('displayLabel:displayTitle'), "regular fixture traffic controls must receive the renderer's spoiler-safe display title");
-assert(!eventCardSource.includes("buildNothingscoreSummary") && !eventCardSource.includes("buildNothingscorePanel"), "Feed cards must not fetch or render public Nothingscore aggregates");
+assert(eventCardSource.includes("buildNothingscoreSummary") && !eventCardSource.includes("buildNothingscorePanel"), "Feed cards show peer summaries; detailed results belong in the drawer");
 assert(!eventCardSource.includes("follow-reason-tag") && !eventCardSource.includes("new-tag") && !eventCardSource.includes("event-meta-row") && !eventCardSource.includes("Independent context"), "Feed cards must omit meta labels and duplicate metadata rails");
 assert(eventCardSource.includes("buildEventNothingscoreAction(ev)") && eventCardSource.indexOf("buildEventWhyItMatters(ev)") < eventCardSource.indexOf("buildEventNothingscoreAction(ev)"), "the lifecycle-specific contribution button must sit immediately below Why it matters");
 assert(!eventCardSource.includes("buildPostEventRatingPrompt"), "Feed cards must keep the separate impact rating prompt hidden behind the contribution action");
-assert(/function buildFeedStakesRow[\s\S]{0,1200}negative[\s\S]{0,600}buildStakesMeter[\s\S]{0,600}positive/.test(html), "Feed must place thumbs down left and thumbs up right of Stakes");
+assert(!/Less of this|More of this/.test(html) && html.includes("eventIsHighStakesSuggestion"), "Feed must remove duplicate feedback controls and gate Like to suggestions");
 assert(/function buildStakesMeter[\s\S]{0,1200}stakes-flame[\s\S]{0,800}STAKES/.test(html), "Stakes must use five filled or hollow white flame glyphs with the numeric label below");
 const majorCardSource = html.slice(html.indexOf("function buildMajorEventCard"), html.indexOf("function buildTicketSaleCard"));
 assert(!majorCardSource.includes('expand.className = "major-event-expand-control"'), "major cards must not duplicate Timetable with a chevron control");
 assert(!majorCardSource.includes("buildEventFeedbackButtons"), "Events cards must not show thumbs controls");
-assert(!majorCardSource.includes("buildNothingscoreSummary") && !majorCardSource.includes("buildNothingscorePanel") && !majorCardSource.includes("buildIndependentContext"), "Events cards must keep public Nothingscore results and redundant context panels hidden");
-assert(majorCardSource.indexOf("buildStakesMeter(record)") < majorCardSource.indexOf("buildEventNothingscoreAction(crowdEvent)"), "Add live Pulse must render directly below Stakes");
+assert(!majorCardSource.includes("buildEventNothingscoreAction") && html.includes("row.appendChild(buildNothingscoreSummary(crowdEvent))"), "peer summary and contribution must belong to each real child fixture, never a synthetic or duplicated tournament action");
 const cardControlSource = html.slice(html.indexOf("function buildEventCardControls"), html.indexOf("function eventMajorEventId"));
 assert(cardControlSource.includes('controls.setAttribute("role", "group")') && cardControlSource.includes('controls.setAttribute("aria-label", "Card controls")'), "traffic-light controls must expose one accessible group");
 assert(cardControlSource.indexOf('"dismiss"') < cardControlSource.indexOf('"minimise"') && cardControlSource.indexOf('"minimise"') < cardControlSource.indexOf('"expand"'), "traffic-light controls must remain in red Dismiss, amber Minimise, green Expand order");
 assert(cardControlSource.includes('button.className = `event-card-control traffic-${name}`') && html.includes('.traffic-dismiss .traffic-light-dot') && html.includes('.traffic-minimise .traffic-light-dot') && html.includes('.traffic-expand .traffic-light-dot'), "the three card actions must expose stable traffic-light visual roles");
 assert(cardControlSource.includes('!Boolean(getEventAction(ev).isMinimised)') && cardControlSource.includes('updateEventAction(ev, { isMinimised:false })') && cardControlSource.includes('setCardState(viewStateEvent, opening ? "opened" : "compact")'), "Minimise and Expand must be separate reversible actions and Expand must toggle full detail");
-assert(cardControlSource.includes('visibleLabel.className = "traffic-light-label"'), "traffic-light actions must keep their labels visible without hover");
+assert(cardControlSource.includes('button.setAttribute("aria-label"') && cardControlSource.includes('button.title = label'), "dot-only actions must keep accessible names and tooltips");
 assert(html.includes('--traffic-dismiss:#ff5f57') && html.includes('--traffic-minimise:#febc2e') && html.includes('--traffic-expand:#28c840'), "traffic lights must use the Apple-style red, amber and green palette");
 assert(majorCardSource.includes("buildEventCardControls(actionEvent") && html.includes("buildDismissedEventStub") && html.includes("compareDismissedEventRecords"), "Events cards must expose traffic-light controls with bottom-sorted Restore stubs");
 const ticketCardSource = html.slice(html.indexOf("function buildTicketSaleCard"), html.indexOf("function buildMajorEventMarker"));

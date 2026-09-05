@@ -63,7 +63,7 @@ assert.equal(funnelAudio.playCalls, 1, "the funnel cue must play once after the 
 
 const html = fs.readFileSync("index.html", "utf8");
 const worker = fs.readFileSync("service-worker.js", "utf8");
-assert(html.includes('src="config/loading-progress.js"'), "the shared loading controller must load with the app shell");
+require("./app-shell-test-utils").assertShellModule(html,"config/loading-progress.js");
 assert(html.includes('id="startupProgressRing"') && html.includes('id="headerHydrationSlot"'), "startup and in-session surfaces must share percentage-ring hosts");
 assert(html.includes("loadingController.complete(\"feed-page\")"), "usable feed arrival must drive the weighted progress controller");
 assert(html.includes("function beginInSessionLoading(label)"), "one shared ring controller must cover in-session hydration");
