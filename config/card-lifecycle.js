@@ -1,8 +1,8 @@
 (function attachNothingSportsCardLifecycle(root, factory){
-  const api = factory();
+  const api = factory(root);
   root.NOTHINGSPORTS_CARD_LIFECYCLE = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildCardLifecycle(){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildCardLifecycle(root){
   "use strict";
 
   const SCHEMA_VERSION = "derived-card-cache.v1";
@@ -48,27 +48,11 @@
   }
 
   function sydneyEndOfDay(dateKey){
-    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(dateKey || ""));
-    if (!match) return null;
-    const desired = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]), 23, 59, 59);
-    let guess = desired;
-    const formatter = new Intl.DateTimeFormat("en-CA", {
-      timeZone:"Australia/Sydney",
-      year:"numeric",
-      month:"2-digit",
-      day:"2-digit",
-      hour:"2-digit",
-      minute:"2-digit",
-      second:"2-digit",
-      hourCycle:"h23",
-    });
-    for (let attempt = 0; attempt < 3; attempt += 1){
-      const parts = Object.fromEntries(formatter.formatToParts(new Date(guess)).map(part => [part.type, part.value]));
-      const observed = Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day), Number(parts.hour), Number(parts.minute), Number(parts.second));
-      guess += desired - observed;
-    }
-    const result = new Date(guess + 999);
-    return Number.isNaN(result.getTime()) ? null : result;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(dateKey || ""))) return null;
+    const nextDay = new Date(`${dateKey}T12:00:00Z`);
+    nextDay.setUTCDate(nextDay.getUTCDate() + 1);
+    const start = (root.NOTHINGSPORTS_CALENDAR || require("./calendar-export.js")).eventStart({ date:nextDay.toISOString().slice(0, 10), time:"00:00" });
+    return start ? new Date(start.getTime() - 1) : null;
   }
 
   function retentionEnd(event){

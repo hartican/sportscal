@@ -25130,10 +25130,8 @@ if (userPreferences.followFirst?.location?.mode === "automatic" && navigator.per
     }, () => {}, { enableHighAccuracy:false, maximumAge:300000, timeout:10000 });
   }).catch(() => {});
 }
-const watchedServiceWorkerRegistrations = new WeakSet();
 function watchServiceWorkerUpdate(registration){
-  if (!registration || watchedServiceWorkerRegistrations.has(registration)) return;
-  watchedServiceWorkerRegistrations.add(registration);
+  if (!registration) return;
   const requestActivation = worker => {
     if (!worker || worker.state !== "installed") return false;
     worker.postMessage({ type:"nothingsport-activate-update" });
@@ -25170,7 +25168,7 @@ if ("serviceWorker" in navigator){
       .then(registration => {
         installedServiceWorkerRegistration = registration;
         watchServiceWorkerUpdate(registration);
-        return registration.update().then(() => watchServiceWorkerUpdate(registration));
+        return registration.update();
       })
       .catch(err => {
         console.warn("Service worker registration failed", err);
