@@ -11,8 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="237">
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=237" as="script">
+<meta name="app-shell-version" content="238">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=238" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6894,8 +6894,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=237">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=237">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=238">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=238">
 </head>
 <body>
 
@@ -7185,7 +7185,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=237"></script>
+<script src="assets/js/app-shell-runtime.js?v=238"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -8275,7 +8275,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=237",
+  moduleScriptUrl: "config/major-events.js?v=238",
   url: "data/major-events.v1.json",
 });
 
@@ -24604,7 +24604,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=237");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=238");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Crowd rankings could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -25130,6 +25130,29 @@ if (userPreferences.followFirst?.location?.mode === "automatic" && navigator.per
     }, () => {}, { enableHighAccuracy:false, maximumAge:300000, timeout:10000 });
   }).catch(() => {});
 }
+const watchedServiceWorkerRegistrations = new WeakSet();
+function watchServiceWorkerUpdate(registration){
+  if (!registration || watchedServiceWorkerRegistrations.has(registration)) return;
+  watchedServiceWorkerRegistrations.add(registration);
+  const requestActivation = worker => {
+    if (!worker || worker.state !== "installed") return false;
+    worker.postMessage({ type:"nothingsport-activate-update" });
+    return true;
+  };
+  requestActivation(registration.waiting);
+  registration.addEventListener("updatefound", () => {
+    const worker = registration.installing;
+    if (!worker) return;
+    worker.addEventListener("statechange", () => requestActivation(worker));
+  });
+  let attempts = 0;
+  const detectWaitingWorker = () => {
+    if (requestActivation(registration.waiting) || attempts >= 240) return;
+    attempts += 1;
+    setTimeout(detectWaitingWorker, 250);
+  };
+  detectWaitingWorker();
+}
 if ("serviceWorker" in navigator){
   navigator.serviceWorker.addEventListener("message", event => {
     if (event.data?.type !== "nothingsport-notification-received" || event.data?.kind !== "test" || !event.data?.testId) return;
@@ -25142,16 +25165,19 @@ if ("serviceWorker" in navigator){
   navigator.serviceWorker.addEventListener("controllerchange", () => {
     startupCoordinator.controllerChanged();
   });
-  window.addEventListener("load", () => {
+  const registerInstalledServiceWorker = () => {
     navigator.serviceWorker.register("/service-worker.js")
       .then(registration => {
         installedServiceWorkerRegistration = registration;
-        return registration.update();
+        watchServiceWorkerUpdate(registration);
+        return registration.update().then(() => watchServiceWorkerUpdate(registration));
       })
       .catch(err => {
         console.warn("Service worker registration failed", err);
       });
-  });
+  };
+  if (document.readyState === "complete") registerInstalledServiceWorker();
+  else window.addEventListener("load", registerInstalledServiceWorker, { once:true });
 }
 
 

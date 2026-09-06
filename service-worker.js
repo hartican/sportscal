@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v237";
+const CACHE_NAME = "nothingsport-shell-v238";
 const APP_SHELL = [
   // Navigations already share /index.html below; do not download/cache its
   // million-byte HTML a second time under the root alias during installation.
@@ -9,11 +9,11 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=237",
-  "/assets/js/app-shell-runtime.js?v=237",
-  "/assets/js/nsc-rankings-ui.js?v=237",
+  "/assets/styles/nothingsport-foundation.css?v=238",
+  "/assets/js/app-shell-runtime.js?v=238",
+  "/assets/js/nsc-rankings-ui.js?v=238",
   "/assets/identities/events/le-mans-24-hours.png",
-  "/styles/follow-feed-rework.css?v=237",
+  "/styles/follow-feed-rework.css?v=238",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/brand-copy.js",
@@ -47,8 +47,8 @@ const APP_SHELL = [
   "/config/follow-first.js?v=222",
   "/config/feed-controls.js",
   "/config/ticketing.js",
-  "/config/major-events.js?v=237",
-  "/config/follow-feed-policy.js?v=237",
+  "/config/major-events.js?v=238",
+  "/config/follow-feed-policy.js?v=238",
   "/config/football-directory.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",
@@ -176,10 +176,14 @@ const DEFERRED_IDENTITY_ASSETS = new Set([
 ]);
 
 self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL))
-  );
   self.skipWaiting();
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
+});
+
+self.addEventListener("message", event => {
+  if (event.data?.type === "nothingsport-activate-update"){
+    event.waitUntil(self.skipWaiting());
+  }
 });
 
 self.addEventListener("activate", event => {

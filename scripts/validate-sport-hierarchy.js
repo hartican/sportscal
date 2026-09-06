@@ -40,6 +40,7 @@ assert.deepEqual(
 );
 assert.equal(compat.resolveEvent({ key: "nrl", name: "State of Origin Game I" }).competitionId, "competition:state-of-origin");
 assert.equal(compat.resolveEvent({ key: "nrl", name: "RLWC — Australia v Fiji" }).competitionId, "competition:rugby-league-world-cup");
+assert.equal(compat.resolveEvent({ competitionId: "competition:fia-wec", key: "lemans", name: "24 Hours of Le Mans" }).competitionId, "competition:world-endurance-championship", "legacy FIA WEC IDs must migrate to the canonical endurance competition");
 assert.equal(
   compat.resolveEvent({ eventSeriesId: "event-series:wimbledon", key: "nrl", name: "State of Origin Game I" }).eventSeriesId,
   "event-series:wimbledon",

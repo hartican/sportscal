@@ -196,6 +196,7 @@
     "competition:uefa-champions-league:2026-27": "competition:uefa-champions-league",
     "competition:f1-drivers-2026": "competition:formula-one",
     "competition:f1-constructors-2026": "competition:formula-one",
+    "competition:fia-wec": "competition:world-endurance-championship",
     "competition:atp-singles-2026": "competition:atp-tour",
     "competition:tour-de-france-stage-jerseys-2026": "event-series:tour-de-france",
     "competition:nba-eastern-conference-2025-26": "competition:nba",

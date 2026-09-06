@@ -29,6 +29,8 @@ const enrich = event => ({
 
 assert.equal(lifecycle.ARCHIVE_DAYS, 7);
 assert.equal(lifecycle.RETENTION_DAYS, 14);
+assert.equal(lifecycle.sydneyEndOfDay("2026-07-10").toISOString(), "2026-07-10T13:59:59.999Z", "winter date-only retention must end at Sydney midnight");
+assert.equal(lifecycle.sydneyEndOfDay("2026-12-10").toISOString(), "2026-12-10T12:59:59.999Z", "summer date-only retention must follow Sydney daylight saving");
 assert.equal(lifecycle.isWithinRetention(recent, now), true);
 assert.equal(lifecycle.lifecycleState(recent, { now }).state, "active");
 assert.equal(lifecycle.lifecycleState(archived, { now }).state, "archived");

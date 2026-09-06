@@ -47,12 +47,36 @@
     return new Date(start.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
   }
 
+  function sydneyEndOfDay(dateKey){
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(dateKey || ""));
+    if (!match) return null;
+    const desired = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]), 23, 59, 59);
+    let guess = desired;
+    const formatter = new Intl.DateTimeFormat("en-CA", {
+      timeZone:"Australia/Sydney",
+      year:"numeric",
+      month:"2-digit",
+      day:"2-digit",
+      hour:"2-digit",
+      minute:"2-digit",
+      second:"2-digit",
+      hourCycle:"h23",
+    });
+    for (let attempt = 0; attempt < 3; attempt += 1){
+      const parts = Object.fromEntries(formatter.formatToParts(new Date(guess)).map(part => [part.type, part.value]));
+      const observed = Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day), Number(parts.hour), Number(parts.minute), Number(parts.second));
+      guess += desired - observed;
+    }
+    const result = new Date(guess + 999);
+    return Number.isNaN(result.getTime()) ? null : result;
+  }
+
   function retentionEnd(event){
     const exactEnd = eventEnd(event);
     if (exactEnd) return exactEnd;
     const timeline = new Date(event?.timelineSortTimeUtc || event?.sessionStartTimeUtc || "");
     if (!Number.isNaN(timeline.getTime())) return new Date(timeline.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
-    if (/^\d{4}-\d{2}-\d{2}$/.test(String(event?.date || ""))) return new Date(`${event.date}T23:59:59.999Z`);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(String(event?.date || ""))) return sydneyEndOfDay(event.date);
     return null;
   }
 
@@ -298,6 +322,7 @@
     lifecycleState,
     isWithinRetention,
     shouldAutoArchive,
+    sydneyEndOfDay,
     createDerivedCard,
     materialize,
     purgeExpired,

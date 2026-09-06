@@ -1456,7 +1456,7 @@
 
 ;
 
-;/* config/sport-hierarchy.js sha256:f9f24973422a5959d1714d05c9ab486cc65300e727be08d6d83ff0f76900b07c */
+;/* config/sport-hierarchy.js sha256:8c8d498f9be45ab560a8f67c37fff1151a73db50f65b11de8792117e54109d99 */
 (function attachNothingSportsHierarchy(root, factory){
   const hierarchy = factory();
   root.NOTHINGSPORTS_SPORT_HIERARCHY = hierarchy;
@@ -1655,6 +1655,7 @@
     "competition:uefa-champions-league:2026-27": "competition:uefa-champions-league",
     "competition:f1-drivers-2026": "competition:formula-one",
     "competition:f1-constructors-2026": "competition:formula-one",
+    "competition:fia-wec": "competition:world-endurance-championship",
     "competition:atp-singles-2026": "competition:atp-tour",
     "competition:tour-de-france-stage-jerseys-2026": "event-series:tour-de-france",
     "competition:nba-eastern-conference-2025-26": "competition:nba",
@@ -8754,7 +8755,7 @@
 
 ;
 
-;/* config/card-lifecycle.js sha256:bf6c73dc4637ff6f9ba8f7fec1f9122199fa6d1434bb103f70500881833ae39e */
+;/* config/card-lifecycle.js sha256:d90fb9e56195db7891357778c46004934940abd45f0857d5c266d9b510a7933b */
 (function attachNothingSportsCardLifecycle(root, factory){
   const api = factory();
   root.NOTHINGSPORTS_CARD_LIFECYCLE = api;
@@ -8804,12 +8805,36 @@
     return new Date(start.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
   }
 
+  function sydneyEndOfDay(dateKey){
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(dateKey || ""));
+    if (!match) return null;
+    const desired = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]), 23, 59, 59);
+    let guess = desired;
+    const formatter = new Intl.DateTimeFormat("en-CA", {
+      timeZone:"Australia/Sydney",
+      year:"numeric",
+      month:"2-digit",
+      day:"2-digit",
+      hour:"2-digit",
+      minute:"2-digit",
+      second:"2-digit",
+      hourCycle:"h23",
+    });
+    for (let attempt = 0; attempt < 3; attempt += 1){
+      const parts = Object.fromEntries(formatter.formatToParts(new Date(guess)).map(part => [part.type, part.value]));
+      const observed = Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day), Number(parts.hour), Number(parts.minute), Number(parts.second));
+      guess += desired - observed;
+    }
+    const result = new Date(guess + 999);
+    return Number.isNaN(result.getTime()) ? null : result;
+  }
+
   function retentionEnd(event){
     const exactEnd = eventEnd(event);
     if (exactEnd) return exactEnd;
     const timeline = new Date(event?.timelineSortTimeUtc || event?.sessionStartTimeUtc || "");
     if (!Number.isNaN(timeline.getTime())) return new Date(timeline.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
-    if (/^\d{4}-\d{2}-\d{2}$/.test(String(event?.date || ""))) return new Date(`${event.date}T23:59:59.999Z`);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(String(event?.date || ""))) return sydneyEndOfDay(event.date);
     return null;
   }
 
@@ -9055,6 +9080,7 @@
     lifecycleState,
     isWithinRetention,
     shouldAutoArchive,
+    sydneyEndOfDay,
     createDerivedCard,
     materialize,
     purgeExpired,

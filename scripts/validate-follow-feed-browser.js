@@ -11,9 +11,10 @@ const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8765';
   debugPage=page;page.setDefaultTimeout(10000);
   if(process.env.QA_HTML_PATH)await page.route(`${base}/?acceptance=*`,route=>route.fulfill({path:process.env.QA_HTML_PATH,contentType:'text/html'}));
   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,followedSports:['afl'],selectedSelectorEntityIds:['sport:afl-premiership']})));
-  await page.clock.install({time:new Date('2026-09-05T02:00:00Z')});
   await page.goto(`${base}/?acceptance=${width}`);
   await page.waitForFunction(()=>typeof buildEventCard==='function'&&startupFunnelFinished&&!startupCoordinator.isHydrating());
+  await page.evaluate(()=>loadMajorEventsData());
+  await page.clock.install({time:new Date('2026-09-05T02:00:00Z')});
   await page.evaluate(()=>{
    userPreferences.followedSports=['afl','tennis','f1'];userPreferences.selectedSelectorEntityIds=['sport:afl-premiership','sport:tennis','sport:f1'];userPreferences.followFirst.australiansOnlySportIds=[];
    activeEvents=Array.from({length:12},(_,i)=>({id:'qa-'+i,eventId:'qa-'+i,name:'Carlton v Hawthorn '+i,key:'afl',date:'2026-09-05',time:`${String(8+i).padStart(2,'0')}:00`,status:i<3?'finished':'scheduled',venue:'MCG',stakesScore:5,expected:9,participantIds:['team:afl:carlton','team:afl:hawthorn'],manualPin:true}));
