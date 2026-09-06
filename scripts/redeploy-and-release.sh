@@ -47,6 +47,8 @@ log() {
 }
 
 PROJECT_ROOT="$(pwd)"
+VERCEL_SCOPE="${NS_VERCEL_SCOPE:-harticans-projects}"
+VERCEL_PROJECT="${NS_VERCEL_PROJECT:-sportscal}"
 
 load_token_file() {
   local token_file="$1"
@@ -167,7 +169,7 @@ run_push() {
 ensure_vercel_auth() {
   if [[ -n "${VERCEL_TOKEN:-}" ]]; then
     export VERCEL_TOKEN
-    if vercel whoami --token "$VERCEL_TOKEN" >/dev/null 2>&1; then
+    if vercel project inspect "$VERCEL_PROJECT" --scope "$VERCEL_SCOPE" --token "$VERCEL_TOKEN" >/dev/null 2>&1; then
       return
     fi
     echo "Saved VERCEL_TOKEN is not authorized; falling back to the authenticated Vercel CLI session." >&2
@@ -304,7 +306,7 @@ VERCEL_LIST_AUTH_ARGS=()
 if [[ -n "${VERCEL_TOKEN:-}" ]]; then
   VERCEL_LIST_AUTH_ARGS=(--token "$VERCEL_TOKEN")
 fi
-if ! vercel list sportscal --meta "releaseGitSha=$DEPLOY_SHA" --status READY --json "${VERCEL_LIST_AUTH_ARGS[@]}" > "$DEPLOYMENT_LIST_FILE"; then
+if ! vercel list "$VERCEL_PROJECT" --meta "releaseGitSha=$DEPLOY_SHA" --status READY --json "${VERCEL_LIST_AUTH_ARGS[@]}" > "$DEPLOYMENT_LIST_FILE"; then
   rm -f "$DEPLOYMENT_LIST_FILE"
   log "Unable to verify the READY deployment metadata for $DEPLOY_SHA."
   exit 1

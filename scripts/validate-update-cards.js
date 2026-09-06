@@ -238,8 +238,8 @@ assert.match(wrapperScript, /local_head.*origin_head/s, "the scheduled wrapper m
 assert.doesNotMatch(releaseScript, /rsync -a/, "the release must never stage the mutable working tree");
 assert.match(releaseScript, /git config --local --get http\.https:\/\/github\.com\/\.extraheader[^]*git --git-dir="\$push_git_dir" config http\.https:\/\/github\.com\/\.extraheader/, "the isolated release push must inherit the checkout-scoped GitHub Actions credential without logging or persisting it");
 assert.match(releaseScript, /NS_DEPLOY_REF=origin\/main \.\/scripts\/deploy-current-commit\.sh/, "the release must deploy the fetched origin\/main commit");
-assert.match(releaseScript, /vercel list sportscal --meta "releaseGitSha=\$DEPLOY_SHA" --status READY --json/, "the release must query READY deployments by immutable source commit");
-assert.match(releaseScript, /vercel whoami --token "\$VERCEL_TOKEN"/, "CI must pass the saved access token explicitly to Vercel CLI authentication");
+assert.match(releaseScript, /vercel list "\$VERCEL_PROJECT" --meta "releaseGitSha=\$DEPLOY_SHA" --status READY --json/, "the release must query READY deployments by immutable source commit");
+assert.match(releaseScript, /vercel project inspect "\$VERCEL_PROJECT" --scope "\$VERCEL_SCOPE" --token "\$VERCEL_TOKEN"/, "CI must validate a project-scoped token against the linked deployment target");
 assert.match(releaseScript, /VERCEL_LIST_AUTH_ARGS=\(--token "\$VERCEL_TOKEN"\)/, "deployment verification must pass the saved token explicitly to Vercel CLI");
 assert.match(releaseScript, /item\.target === "production"/, "the release metadata check must require the production target");
 assert.match(releaseScript, /validate-live-editorial-render-coverage\.js/, "every production release must prove that live data remains visible through the live browser predicate");
