@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-09-06T11:58:36.649Z",
+  "generatedAt": "2026-09-06T14:36:44.667Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
@@ -9,7 +9,7 @@
   },
   "consequenceMigration": {
     "covered": 0,
-    "queued": 105
+    "queued": 104
   },
   "entries": [
     {
@@ -168,48 +168,6 @@
     },
     {
       "targetType": "feed-event",
-      "targetId": "event:premier-league:128935",
-      "title": "Chelsea v Brighton & Hove Albion",
-      "stakes": 3,
-      "startsAt": "2026-08-30T13:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:epl-2026-27-128935",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:premier-league:128938",
-      "title": "Leeds United v Brentford",
-      "stakes": 3,
-      "startsAt": "2026-08-30T13:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:epl-2026-27-128938",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:premier-league:128941",
-      "title": "Sunderland v Fulham",
-      "stakes": 3,
-      "startsAt": "2026-08-30T13:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:epl-2026-27-128941",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
       "targetId": "event:premier-league:128940",
       "title": "Manchester United v Ipswich Town",
       "stakes": 3,
@@ -229,12 +187,12 @@
       "stakes": 4,
       "startsAt": "2026-08-30T16:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2117",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -243,12 +201,12 @@
       "stakes": 4,
       "startsAt": "2026-08-30T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1148",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -257,12 +215,12 @@
       "stakes": 4,
       "startsAt": "2026-08-31T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2101",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -285,12 +243,12 @@
       "stakes": 4,
       "startsAt": "2026-08-31T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1149",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -299,12 +257,12 @@
       "stakes": 4,
       "startsAt": "2026-09-01T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2153",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -313,12 +271,12 @@
       "stakes": 4,
       "startsAt": "2026-09-01T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2148",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -327,12 +285,12 @@
       "stakes": 4,
       "startsAt": "2026-09-02T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2209",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -341,12 +299,12 @@
       "stakes": 4,
       "startsAt": "2026-09-02T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2201",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -383,12 +341,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25101",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -397,12 +355,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25102",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -411,12 +369,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25103",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -425,12 +383,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25104",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -439,12 +397,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25105",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -453,12 +411,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25106",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -467,12 +425,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25107",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -481,12 +439,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25108",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -495,12 +453,12 @@
       "stakes": 4,
       "startsAt": "2026-09-03T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2229",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -509,12 +467,12 @@
       "stakes": 4,
       "startsAt": "2026-09-03T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2224",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -565,12 +523,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26201",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -579,12 +537,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26202",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -593,12 +551,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26203",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -607,12 +565,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26204",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -621,12 +579,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26205",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -635,12 +593,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26206",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -649,12 +607,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26207",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -663,12 +621,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26208",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -677,12 +635,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T15:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2301",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -691,12 +649,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T15:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2303",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -705,12 +663,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T15:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2306",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -719,12 +677,12 @@
       "stakes": 4,
       "startsAt": "2026-09-04T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2305",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -747,12 +705,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1310",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -761,12 +719,12 @@
       "stakes": 4,
       "startsAt": "2026-09-04T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:wd:4112",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -775,12 +733,12 @@
       "stakes": 4,
       "startsAt": "2026-09-05T02:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1316",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -943,12 +901,12 @@
       "stakes": 3,
       "startsAt": "2026-09-05T15:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2310",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -957,12 +915,12 @@
       "stakes": 3,
       "startsAt": "2026-09-05T15:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2314",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -971,12 +929,12 @@
       "stakes": 4,
       "startsAt": "2026-09-05T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1307",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1013,12 +971,12 @@
       "stakes": 4,
       "startsAt": "2026-09-05T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2311",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -1027,12 +985,12 @@
       "stakes": 3,
       "startsAt": "2026-09-05T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2315",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "major-event-child",
@@ -1041,12 +999,12 @@
       "stakes": 4,
       "startsAt": "2026-09-06T01:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": null,
-      "coverage": "missing",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1301",
+      "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": false,
+      "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": null
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -1117,6 +1075,34 @@
       "consequenceResearchRequired": true,
       "priority": "rolling",
       "refreshDeadline": "2026-09-06T15:30:00.000Z"
+    },
+    {
+      "targetType": "major-event-child",
+      "targetId": "fixture:us-open-2026:official:ws:2401",
+      "title": "Aryna Sabalenka v Taylor Townsend",
+      "stakes": 4,
+      "startsAt": "2026-09-06T15:30:00.000Z",
+      "reason": "surfaced-major-fixture",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2401",
+      "coverage": "covered",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": true,
+      "priority": "rolling",
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+    },
+    {
+      "targetType": "major-event-child",
+      "targetId": "fixture:us-open-2026:official:ms:1407",
+      "title": "Ben Shelton v Stefanos Tsitsipas",
+      "stakes": 4,
+      "startsAt": "2026-09-06T23:00:00.000Z",
+      "reason": "surfaced-major-fixture",
+      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1407",
+      "coverage": "covered",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": true,
+      "priority": "rolling",
+      "refreshDeadline": "2026-08-31T12:00:00.000Z"
     },
     {
       "targetType": "feed-event",

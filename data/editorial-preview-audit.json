@@ -1,19 +1,19 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-06T12:03:43.489Z",
+  "generatedAt": "2026-09-06T14:36:53.034Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 5,
-    "passed": 5,
+    "due": 4,
+    "passed": 4,
     "failed": 0
   },
   "cards": [
     {
-      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-06",
+      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-07",
       "name": "US Open — Grand Slam",
       "sport": "Tennis",
-      "date": "2026-09-06",
+      "date": "2026-09-07",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
@@ -24,22 +24,6 @@
         "narrative:history"
       ],
       "sourceUrl": "https://www.usopen.org/en_US/about/eventschedule.html",
-      "issues": []
-    },
-    {
-      "id": "evt_27",
-      "name": "R13 Italian GP Race",
-      "sport": "F1",
-      "date": "2026-09-06",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path"
-      ],
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/italy",
       "issues": []
     },
     {

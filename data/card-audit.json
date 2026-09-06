@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-09-06T12:03:43.610Z",
+  "generatedAt": "2026-09-06T14:36:53.143Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -2150,22 +2150,6 @@
       "issues": []
     },
     {
-      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-06",
-      "name": "US Open — Grand Slam",
-      "sport": "Tennis",
-      "date": "2026-09-06",
-      "status": "upcoming",
-      "stakes": 4,
-      "isMajorCard": true,
-      "hasSpoilerOffCopy": true,
-      "hasSpoilerOnCopy": true,
-      "needsPreviewRefresh": false,
-      "needsRecap": false,
-      "needsEditorialRefresh": false,
-      "isStale": false,
-      "issues": []
-    },
-    {
       "id": "event-nrl-129992707",
       "name": "Dragons v Eels",
       "sport": "NRL",
@@ -2202,6 +2186,22 @@
       "name": "R13 Italian GP Race",
       "sport": "F1",
       "date": "2026-09-06",
+      "status": "upcoming",
+      "stakes": 4,
+      "isMajorCard": true,
+      "hasSpoilerOffCopy": true,
+      "hasSpoilerOnCopy": true,
+      "needsPreviewRefresh": false,
+      "needsRecap": false,
+      "needsEditorialRefresh": false,
+      "isStale": false,
+      "issues": []
+    },
+    {
+      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-07",
+      "name": "US Open — Grand Slam",
+      "sport": "Tennis",
+      "date": "2026-09-07",
       "status": "upcoming",
       "stakes": 4,
       "isMajorCard": true,

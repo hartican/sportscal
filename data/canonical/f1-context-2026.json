@@ -2,7 +2,7 @@
   "schemaVersion": "sport-context.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-09-06T11:50:27.136Z",
+  "generatedAt": "2026-09-06T14:36:18.536Z",
   "sources": [
     {
       "provider": "Formula 1",
@@ -685,7 +685,7 @@
       "competitionId": "competition:f1-drivers-2026",
       "seasonLabel": "2026",
       "roundLabel": "After Hungarian Grand Prix",
-      "snapshotTimeUtc": "2026-09-06T11:50:27.136Z",
+      "snapshotTimeUtc": "2026-09-06T14:36:18.536Z",
       "entries": [
         {
           "participantId": "competitor:f1:kimi-antonelli",
