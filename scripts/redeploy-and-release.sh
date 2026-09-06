@@ -302,11 +302,12 @@ log "Deploying immutable origin/main snapshot $DEPLOY_SHA."
 NS_DEPLOY_REF=origin/main ./scripts/deploy-current-commit.sh
 
 DEPLOYMENT_LIST_FILE="$(mktemp)"
-VERCEL_LIST_AUTH_ARGS=()
 if [[ -n "${VERCEL_TOKEN:-}" ]]; then
-  VERCEL_LIST_AUTH_ARGS=(--token "$VERCEL_TOKEN")
+  VERCEL_LIST_COMMAND=(vercel list "$VERCEL_PROJECT" --meta "releaseGitSha=$DEPLOY_SHA" --status READY --json --token "$VERCEL_TOKEN")
+else
+  VERCEL_LIST_COMMAND=(vercel list "$VERCEL_PROJECT" --meta "releaseGitSha=$DEPLOY_SHA" --status READY --json)
 fi
-if ! vercel list "$VERCEL_PROJECT" --meta "releaseGitSha=$DEPLOY_SHA" --status READY --json "${VERCEL_LIST_AUTH_ARGS[@]}" > "$DEPLOYMENT_LIST_FILE"; then
+if ! "${VERCEL_LIST_COMMAND[@]}" > "$DEPLOYMENT_LIST_FILE"; then
   rm -f "$DEPLOYMENT_LIST_FILE"
   log "Unable to verify the READY deployment metadata for $DEPLOY_SHA."
   exit 1
