@@ -12,6 +12,7 @@ const followFirst = require("../config/follow-first");
 const nationalTeamIdentities = require("../config/national-team-identities");
 const feed = require("../data/events.json");
 const canonicalAflNrl = require("../data/canonical/afl-nrl-2026.json");
+const canonicalWrc = require("../data/canonical/wrc-context-2026.json");
 const canonicalAmericanFootball = require("../data/canonical/american-football-directory.v1.json");
 const canonicalIceHockey = require("../data/canonical/ice-hockey-directory.v1.json");
 const canonicalChampionsLeague = require("../data/canonical/uefa-champions-league-2026-27.json");
@@ -30,12 +31,16 @@ for (const participant of nationalTeamIdentities.participants){
 for (const participant of canonicalChampionsLeague.participants || []){
   canonicalParticipantNames.set(participant.id, participant.displayName);
 }
+for (const participant of canonicalWrc.participants || []){
+  canonicalParticipantNames.set(participant.id, participant.displayName || participant.shortName || null);
+}
 
 const CODE_KEYS = Object.freeze({
   "sport:afl": ["afl"],
   "sport:aflw": ["aflw"],
   "sport:nrl": ["nrl"],
-  "sport:motorsport": ["f1", "motorsport", "motogp", "lemans", "goodwood", "bathurst"],
+  "sport:motorsport": ["f1", "wrc", "motorsport", "motogp", "lemans", "goodwood", "bathurst"],
+  "sport:wrc": ["wrc"],
   "sport:extreme": ["extreme"],
   "sport:surf": ["surf", "surfing"],
   "sport:rugby-union": ["rugby", "rugby-union"],
@@ -143,6 +148,8 @@ function normalizeFixture(event, codeId, extra = {}){
     name: event.name || event.displayName || "TBC",
     date: event.date || sydney?.date || extra.date || null,
     time: event.time || sydney?.time || null,
+    ...(event.endDate ? { endDate:event.endDate } : {}),
+    ...(event.dateOnly === true || event.timePrecision === "date-only" ? { dateOnly:true, timePrecision:"date-only" } : {}),
     startTimeUtc: event.startTimeUtc || null,
     venue: (event.venue || event.venueName) && !/tbc/i.test(event.venue || event.venueName) ? (event.venue || event.venueName) : null,
     status: event.status || "upcoming",
@@ -160,6 +167,11 @@ function normalizeFixture(event, codeId, extra = {}){
     expected: Number(event.expected || event.stakesScore || 0),
     broadcaster: event.broadcaster || (event.broadcasters || []).map(item => item.broadcasterName).filter(Boolean).join(" / ") || null,
     viewingOptions:Array.isArray(event.viewingOptions) ? event.viewingOptions : [],
+    ...(event.replayUrl ? { replayUrl:event.replayUrl } : {}),
+    ...(codeId === "sport:wrc" && event.resultStatus ? { resultStatus:event.resultStatus } : {}),
+    ...(codeId === "sport:wrc" && event.score ? { resultScore:event.score } : {}),
+    ...(codeId === "sport:wrc" && event.outcomeText ? { resultOutcome:event.outcomeText } : {}),
+    ...(codeId === "sport:wrc" && event.resultSourceUrl ? { resultSourceUrl:event.resultSourceUrl } : {}),
     sourceUrl:event.sourceUrl || null,
     ticketUrl:event.ticketUrl || null,
     ...(event.editorialNarrative ? { editorialNarrative:event.editorialNarrative } : {}),
@@ -234,6 +246,8 @@ function codeFixtures(code){
       ? canonicalAmericanFootball.fixtures || []
       : code.id === "sport:ice-hockey"
         ? canonicalIceHockey.fixtures || []
+        : code.id === "sport:wrc"
+          ? canonicalWrc.events || []
         : [];
   return mergeFixtureRecords(placeholders, [...canonical, ...published], code.id, new Set(canonical));
 }
@@ -245,7 +259,9 @@ function groupingMode(fixtures){
 }
 
 function codeStandings(code){
-  const source = code.id === "sport:american-football"
+  const source = code.id === "sport:wrc"
+    ? (canonicalWrc.ladderSnapshots || []).flatMap(snapshot => (snapshot.entries || []).map(entry => ({ ...entry, competitionId:snapshot.competitionId })))
+    : code.id === "sport:american-football"
     ? canonicalAmericanFootball.standings || []
     : code.id === "sport:ice-hockey"
       ? canonicalIceHockey.standings || []
@@ -272,9 +288,15 @@ function build(){
     name: "AFLW",
     parentSportId: aflwCompetition.sportDomainId,
   };
+  const wrcCode = {
+    id:"sport:wrc",
+    slug:"wrc",
+    name:"WRC",
+    parentSportId:"sport:motorsport",
+  };
   const codeDefinitions = [
     ...taxonomy.sportDomains.filter(code => code.isActive !== false)
-      .flatMap(code => code.id === aflwCode.parentSportId ? [code, aflwCode] : [code]),
+      .flatMap(code => code.id === aflwCode.parentSportId ? [code, aflwCode] : code.id === wrcCode.parentSportId ? [code, wrcCode] : [code]),
     championsLeagueCode,
   ];
   const codes = codeDefinitions.map(code => {
@@ -282,8 +304,8 @@ function build(){
     const fileName = `${code.slug}.json`;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
-      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:american-football", "sport:ice-hockey"].includes(code.id) ? "complete" : "partial";
-    const freshAt = code.id === "competition:uefa-champions-league" ? canonicalChampionsLeague.generatedAt : feed.publishedAt || null;
+      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:wrc", "sport:american-football", "sport:ice-hockey"].includes(code.id) ? "complete" : "partial";
+    const freshAt = code.id === "competition:uefa-champions-league" ? canonicalChampionsLeague.generatedAt : code.id === "sport:wrc" ? canonicalWrc.generatedAt : feed.publishedAt || null;
     const parentSportId = code.parentSportId || (code.id === "competition:uefa-champions-league" ? code.sportDomainId : null);
     fs.writeFileSync(path.join(OUTPUT_DIR, fileName), `${JSON.stringify({
       schemaVersion: "code-inspector-chunk.v1",

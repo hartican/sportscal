@@ -51,7 +51,7 @@
     "competition:tennis-major": { "sourceUrl": "https://www.stan.com.au/watch/sport/tennis" },
     "competition:stan-motorsport": { "sourceUrl": "https://www.stan.com.au/watch/sport/motorsport" },
     "competition:wec": { "sourceUrl": "https://www.fiawec.com/en/page/ou-regarder-1/36" },
-    "competition:wrc": { "sourceUrl": "https://www.stan.com.au/watch/sport/motorsport" },
+    "competition:wrc": { "sourceUrl": "https://www.stan.com.au/watch/sport/motorsport/wrc" },
     "competition:dakar": { "sourceUrl": "https://www.sbs.com.au/sport/" },
     "competition:goodwood": { "sourceUrl": "https://api.goodwood.com/grr/event-coverage/festival-of-speed/how-to-watch-festival-of-speed/" },
     "competition:road-cycling": { "sourceUrl": "https://www.sbs.com.au/aboutus/2026/03/20/feast-for-cycling-fans-as-sbs-extends-road-cycling-broadcasts-to-include-all-grand-tours-and-monuments/" },

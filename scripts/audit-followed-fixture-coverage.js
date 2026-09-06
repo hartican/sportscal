@@ -6,6 +6,7 @@ const baseFeed = require("../data/events.json");
 const sportContext = require("../config/sport-context");
 const canonicalSports = require("../data/canonical/afl-nrl-2026.json");
 const f1Context = require("../data/canonical/f1-context-2026.json");
+const wrcContext = require("../data/canonical/wrc-context-2026.json");
 const tennisContext = require("../data/canonical/tennis-context-2026.json");
 const cyclingContext = require("../data/canonical/cycling-context-2026.json");
 const nbaContext = require("../data/canonical/nba-context-2026.json");
@@ -14,6 +15,9 @@ const cardLifecycle = require("../config/card-lifecycle");
 const { readSnapshot } = require("../lib/follow-snapshot");
 const { buildServerFeed, normalizeEvent, shouldEnrichEvent, sydneyDateKey } = require("../lib/server-feed-pipeline");
 const { eventMatchesEntities, expandedFollowEntityIds, resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
+
+const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, wrcContext, tennisContext, cyclingContext, nbaContext, cwgContext);
+const contextualBaseEvents = sportContext.applyContextToEvents(baseFeed.events, canonicalSportContext);
 
 const NO_CURRENT_FIXTURE = new Set([
   "team:rugby:brumbies",
@@ -65,7 +69,7 @@ function buildCompleteFeed(options){
   return { eventIds, cardIds, firstPage, pageCount };
 }
 
-function auditProfile(profile, { now = new Date(), baseEvents = baseFeed.events } = {}){
+function auditProfile(profile, { now = new Date(), baseEvents = contextualBaseEvents } = {}){
   const reference = now instanceof Date ? now : new Date(now);
   const userState = profileState(profile);
   const resolved = resolveUserFollowFixtures({ events:baseEvents, userState });

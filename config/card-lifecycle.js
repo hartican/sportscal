@@ -58,6 +58,9 @@
   function retentionEnd(event){
     const exactEnd = eventEnd(event);
     if (exactEnd) return exactEnd;
+    if ((event?.dateOnly === true || event?.timePrecision === "date-only") && /^\d{4}-\d{2}-\d{2}$/.test(String(event?.endDate || ""))){
+      return new Date(`${event.endDate}T23:59:59.999Z`);
+    }
     const timeline = new Date(event?.timelineSortTimeUtc || event?.sessionStartTimeUtc || "");
     if (!Number.isNaN(timeline.getTime())) return new Date(timeline.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
     if (/^\d{4}-\d{2}-\d{2}$/.test(String(event?.date || ""))) return sydneyEndOfDay(event.date);

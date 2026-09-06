@@ -61,9 +61,22 @@ assert(aflwChunk.fixtures.length > 0, "AFLW must publish its full fixture list")
 assert(aflwChunk.fixtures.every(fixture => fixture.competitionId !== "competition:afl-premiership-2026"), "the AFLW chunk must not contain men's AFL fixtures");
 const aflChunk = JSON.parse(fs.readFileSync(path.join(ROOT, aflCode.chunkPath), "utf8"));
 assert(aflChunk.fixtures.every(fixture => fixture.competitionId !== "competition:aflw-2026"), "the AFL chunk must not contain AFLW fixtures");
+const wrcCode = manifest.codes.find(code => code.id === "sport:wrc");
+assert(wrcCode, "WRC must publish a dedicated Follow Schedule code under Motorsport");
+assert.equal(wrcCode.parentSportId, "sport:motorsport");
+const wrcChunk = JSON.parse(fs.readFileSync(path.join(ROOT, wrcCode.chunkPath), "utf8"));
+assert.equal(wrcChunk.fixtures.length, 14, "WRC Schedule must expose exactly fourteen championship rounds");
+assert.equal(wrcChunk.standings.length, 77, "WRC Standings must expose all three senior FIA tables");
+assert(wrcChunk.fixtures.every(fixture => fixture.dateOnly && fixture.endDate >= fixture.date), "WRC Schedule must preserve inclusive date-only ranges");
+assert.equal(wrcChunk.fixtures.filter(fixture => fixture.status === "completed").length, 11, "WRC Results / Replays must expose every completed round");
+assert(wrcChunk.fixtures.filter(fixture => fixture.status === "completed").every(fixture => fixture.replayUrl), "every completed WRC round must retain a replay destination");
+assert.equal(wrcChunk.fixtures.filter(fixture => fixture.resultStatus === "official" && fixture.resultScore).length, 10, "every available official FIA classification must be exposed to the spoiler-aware result renderer");
+assert.equal(wrcChunk.fixtures.find(fixture => fixture.roundNumber === 4)?.resultStatus, "pending", "Croatia must retain its fail-closed FIA classification state in Results / Replays");
+assert(html.includes('code.slug === "wrc" ? [["results", "Results / Replays"]] : []'), "the WRC Follow screen must expose Results / Replays beside Schedule and Standings");
 const canonicalCodes = [
   ...taxonomy.sportDomains.filter(code => code.isActive !== false),
   { id: "sport:aflw" },
+  { id: "sport:wrc" },
   taxonomy.competitions.find(code => code.id === "competition:uefa-champions-league"),
 ].filter(Boolean);
 assert.deepEqual(

@@ -7,7 +7,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/manifest.v1.json"), "utf8"));
 assert.equal(manifest.schemaVersion, "follow-directory-manifest.v1");
-assert.equal(manifest.sports.length, 20, "all exposed top-level sports plus the AFLW child code require lazy chunks");
+assert.equal(manifest.sports.length, 22, "all exposed top-level sports plus AFLW, F1 and WRC child codes require lazy chunks");
 for (const supportKey of ["hockey", "multi-sport"]){
   const supportChunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${supportKey}.v1.json`), "utf8"));
   assert(supportChunk.records.some(record => record.teamKind === "national"), `${supportKey}: hidden national-team support data must remain current without becoming a top-level Follow category`);
@@ -57,12 +57,21 @@ assert.equal(new Set(tennis.records.map(record => record.displayName.normalize("
 for (const collectionId of ["collection:tennis:mens-top-10", "collection:tennis:womens-top-10"]){
   assert.equal(tennis.collections.find(collection => collection.id === collectionId)?.memberIds.length, 10, `${collectionId}: current top ten must contain ten players`);
 }
-for (const sportKey of ["afl", "aflw", "motorsport"]){
+for (const sportKey of ["afl", "aflw", "f1"]){
   const chunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${sportKey}.v1.json`), "utf8"));
   const athletes = chunk.records.filter(record => record.entityType === "athlete");
-  assert.ok(athletes.length >= (sportKey === "motorsport" ? 22 : 500), `${sportKey}: current athlete directory is incomplete`);
+  assert.ok(athletes.length >= (sportKey === "f1" ? 22 : 500), `${sportKey}: current athlete directory is incomplete`);
   assert.ok(athletes.every(record => record.headshotUrl), `${sportKey}: every athlete needs a portrait URL`);
-  if (sportKey === "motorsport") assert.ok(athletes.every(record => Number(record.competitionNumber) > 0 && record.competitionNumberKind === "racing"), "F1 drivers need current racing numbers");
+  if (sportKey === "f1") assert.ok(athletes.every(record => Number(record.competitionNumber) > 0 && record.competitionNumberKind === "racing"), "F1 drivers need current racing numbers");
   else assert.ok(athletes.every(record => record.competitionNumberKind === "guernsey"), `${sportKey}: guernsey metadata is required even while a source number is TBC`);
 }
+const wrc = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/wrc.v1.json"), "utf8"));
+assert.equal(wrc.records.length, 77, "WRC must expose the complete senior FIA standings field");
+assert.equal(wrc.records.filter(record => record.position === "driver").length, 36, "WRC drivers directory is incomplete");
+assert.equal(wrc.records.filter(record => record.position === "co-driver").length, 37, "WRC co-drivers directory is incomplete");
+assert.equal(wrc.records.filter(record => record.position === "manufacturer").length, 4, "WRC manufacturers directory is incomplete");
+assert.ok(wrc.records.every(record => record.sourceRefs.some(ref => /^https:\/\/(?:www\.)?(?:wrc\.com|fia\.com|api\.fia\.com)/.test(ref))), "WRC follows require official source provenance");
+const motorsport = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/motorsport.v1.json"), "utf8"));
+assert.ok(motorsport.records.some(record => String(record.id).startsWith("competitor:f1:")), "general Motorsport must retain F1 discovery");
+assert.ok(motorsport.records.some(record => String(record.id).startsWith("competitor:wrc:")), "general Motorsport must include WRC discovery");
 console.log(`Follow directory manifest valid: ${manifest.sports.length} chunks, tolerant search and current-only records.`);

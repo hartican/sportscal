@@ -32,6 +32,16 @@ assert(
   "official source refresh, compact generation and anonymised audit must run in that order"
 );
 assert(localSteps.some(step => step[0] === "scripts/refresh-canonical-sports.js"), "local-only updates must still refresh canonical sports data");
+assert(localSteps.some(step => step[0] === "scripts/refresh-wrc-context.js" && !step.includes("--check")), "every canonical update must refresh the official WRC calendar, senior standings, and available classifications");
+assert(localSteps.some(step => step[0] === "scripts/refresh-wrc-context.js" && step.includes("--check")), "every canonical update must reject an invalid preserved or refreshed WRC context");
+assert(localSteps.some(step => step[0] === "scripts/sync-wrc-to-feed.js"), "every canonical update must project exactly one card per WRC round into the Feed");
+assert.equal(localSteps.filter(step => step[0] === "scripts/sync-wrc-to-feed.js").length, 1, "the WRC projection must update the incoming source once before normal publication");
+assert(localSteps.some(step => step[0] === "scripts/validate-wrc-context.js"), "every canonical update must validate WRC taxonomy, source, migration, Feed, hub, result, and ICS contracts");
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/refresh-wrc-context.js" && !step.includes("--check"))
+    < localSteps.findIndex(step => step[0] === "scripts/sync-wrc-to-feed.js"),
+  "the WRC source context must refresh before it is projected into the Feed"
+);
 assert(localSteps.some(step => step[0] === "scripts/refresh-premier-league-context.js" && !step.includes("--check")), "every canonical update must refresh the official EPL league table");
 assert(localSteps.some(step => step[0] === "scripts/refresh-premier-league-context.js" && step.includes("--check")), "every canonical update must reject an incomplete published EPL snapshot");
 assert(localSteps.some(step => step[0] === "scripts/validate-premier-league-context.js"), "every canonical update must validate EPL identity mapping, offline transport and failed-refresh preservation");

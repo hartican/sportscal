@@ -5,6 +5,11 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function(){
   'use strict';
   const idFor = event => String(event.canonicalEventId || event.eventId || event.id || '').toLowerCase().replace(/[:_]+/g,'-');
+  const LEGACY_SELECTION_IDS=Object.freeze({
+    'calendar-nothingsport-manual-seed-rally-wrc-safari-2027':'event-wrc-2026-round-03',
+    'calendar-nothingsport-manual-seed-rally-paris-dakar-stage-11-2026':null,
+  });
+  function migrateSelectionIds(values){return [...new Set((Array.isArray(values)?values:[]).map(value=>LEGACY_SELECTION_IDS[String(value)]===undefined?String(value):LEGACY_SELECTION_IDS[String(value)]).filter(Boolean))];}
   function sydneyDay(now = new Date()){
     return new Intl.DateTimeFormat('en-CA', {timeZone:'Australia/Sydney', year:'numeric', month:'2-digit', day:'2-digit'}).format(now);
   }
@@ -69,8 +74,8 @@
     lines.push('END:VCALENDAR');return lines.map(fold).join('\r\n')+'\r\n';
   }
   function selectedEvents(events, eligibleIds, selection={}){
-    const included=new Set(selection.includedIds || []), excluded=new Set(selection.excludedIds || []), eligible=new Set(eligibleIds);
+    const included=new Set(migrateSelectionIds(selection.includedIds)), excluded=new Set(migrateSelectionIds(selection.excludedIds)), eligible=new Set(migrateSelectionIds(eligibleIds));
     return uniqueEvents(events).filter(event=>!excluded.has(idFor(event)) && (included.has(idFor(event)) || eligible.has(idFor(event))));
   }
-  return {idFor, sydneyDay, eventStart, knownDate, uniqueEvents, buildIcs, selectedEvents};
+  return {idFor, sydneyDay, eventStart, knownDate, uniqueEvents, buildIcs, migrateSelectionIds, selectedEvents};
 });

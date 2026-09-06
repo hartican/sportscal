@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildProfileStorage(){
   "use strict";
 
-  const PROFILE_SCHEMA_VERSION = 5;
+  const PROFILE_SCHEMA_VERSION = 6;
   const INSTALL_SCHEMA_VERSION = 1;
   const CACHE_SCHEMA_VERSION = 2;
   const KEYS = Object.freeze({
@@ -28,6 +28,20 @@
     "team:football:melbourne-victory", "team:football:club:newcastle-jets", "team:football:perth-glory",
     "team:football:sydney-fc", "team:football:club:wellington-phoenix-fc", "team:football:western-sydney-wanderers",
   ]);
+  const selectorAlias = value => String(value || "") === "sport:rally" ? "sport:wrc" : String(value || "");
+  const sportAlias = value => String(value || "") === "rally" ? "wrc" : String(value || "");
+  const competitionAlias = value => String(value || "") === "competition:world-rally" ? "competition:wrc-2026" : String(value || "");
+
+  function uniquePreferences(items, field, alias){
+    const byId = new Map();
+    (Array.isArray(items) ? items : []).forEach(item => {
+      if (!item || typeof item !== "object") return;
+      const id = alias(item[field]);
+      if (!id) return;
+      byId.set(id, { ...item, [field]:id });
+    });
+    return Array.from(byId.values());
+  }
 
   function sanitizeEventUserState(input){
     return Object.fromEntries(Object.entries(input && typeof input === "object" ? input : {}).map(([key, value]) => {
@@ -41,19 +55,31 @@
     if (!input || typeof input !== "object" || Array.isArray(input)) return input ?? null;
     const preferences = clone(input);
     ["selectedSelectorEntityIds", "followedSports"].forEach(key => {
-      if (Array.isArray(preferences[key])) preferences[key] = preferences[key].filter(id => !REMOVED_COMPETITION_IDS.has(String(id)));
+      if (Array.isArray(preferences[key])){
+        preferences[key] = Array.from(new Set(preferences[key]
+          .map(key === "selectedSelectorEntityIds" ? selectorAlias : sportAlias)
+          .filter(id => !REMOVED_COMPETITION_IDS.has(String(id)))));
+      }
     });
+    if (Array.isArray(preferences.standings?.selectedSportKeys)) preferences.standings.selectedSportKeys = Array.from(new Set(preferences.standings.selectedSportKeys.map(sportAlias)));
+    if (preferences.standings?.pinTimestamps && typeof preferences.standings.pinTimestamps === "object"){
+      preferences.standings.pinTimestamps = Object.fromEntries(Object.entries(preferences.standings.pinTimestamps)
+        .map(([competitionId, value]) => [competitionAlias(competitionId), value]));
+    }
     const graph = preferences.preferenceGraph;
     if (graph && typeof graph === "object"){
       if (Array.isArray(graph.domainPreferences)){
-        graph.domainPreferences = graph.domainPreferences.map(item => {
+        graph.domainPreferences = uniquePreferences(graph.domainPreferences.map(item => {
           if (!item || typeof item !== "object") return item;
           const { mustWatchSensitivity, ...safe } = item;
-          return safe;
-        });
+          return { ...safe, sportDomainId: selectorAlias(safe.sportDomainId) };
+        }), "sportDomainId", selectorAlias);
       }
       if (Array.isArray(graph.competitionPreferences)){
-        graph.competitionPreferences = graph.competitionPreferences.filter(item => !REMOVED_COMPETITION_IDS.has(String(item?.competitionId || item?.id || "")));
+        graph.competitionPreferences = graph.competitionPreferences
+          .filter(item => !REMOVED_COMPETITION_IDS.has(String(item?.competitionId || item?.id || "")))
+          .map(item => ({ ...item, competitionId:competitionAlias(item?.competitionId) }));
+        graph.competitionPreferences = uniquePreferences(graph.competitionPreferences, "competitionId", competitionAlias);
       }
       if (Array.isArray(graph.entityFollows)){
         graph.entityFollows = graph.entityFollows.filter(item => !REMOVED_A_LEAGUE_TEAM_IDS.has(String(item?.participantId || item?.id || "")));
@@ -194,8 +220,8 @@
         schemaVersion: PROFILE_SCHEMA_VERSION,
         updatedAt: input.profile?.updatedAt || nowIso(now),
       },
-      domainPreferences: Array.isArray(input.domainPreferences) ? input.domainPreferences : [],
-      competitionPreferences: Array.isArray(input.competitionPreferences) ? input.competitionPreferences : [],
+      domainPreferences: uniquePreferences(input.domainPreferences, "sportDomainId", selectorAlias),
+      competitionPreferences: uniquePreferences(input.competitionPreferences, "competitionId", competitionAlias),
       entityFollows: Array.isArray(input.entityFollows) ? input.entityFollows : [],
       learningPreference: input.learningPreference && typeof input.learningPreference === "object" && !Array.isArray(input.learningPreference)
         ? input.learningPreference

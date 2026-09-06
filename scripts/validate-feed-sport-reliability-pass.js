@@ -43,7 +43,7 @@ assert(migratedPreferences.followFirst.followedMajorEventIds.includes("commonwea
 assert.deepEqual(followFirst.migratePreferences(migratedPreferences), migratedPreferences, "the retired-sport preference migration must be idempotent");
 
 const manifest = json("data/follow-directory/manifest.v1.json");
-assert.equal(manifest.sports.length, 20, "the lazy Follow manifest must include the nineteen exposed sports plus the AFLW child code");
+assert.equal(manifest.sports.length, 22, "the lazy Follow manifest must include the nineteen exposed sports plus AFLW, F1 and WRC child codes");
 const chunks = new Map(manifest.sports.map(sport => [sport.key, json(sport.jsonUrl)]));
 const swimming = chunks.get("swimming")?.records || [];
 assert.equal(swimming.length, 60, "Swimming must contain exactly sixty current ranked athletes");

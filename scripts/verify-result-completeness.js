@@ -11,6 +11,10 @@ if (Number.isNaN(now.getTime())) throw new Error("RESULT_CHECK_NOW must be a val
 function expectedCloseAt(event) {
   const explicitEnd = event.endTimeUtc ? new Date(event.endTimeUtc) : null;
   if (explicitEnd && !Number.isNaN(explicitEnd.getTime())) return explicitEnd;
+  if (event.dateOnly && event.endDate){
+    const endOfFinalDay = new Date(`${event.endDate}T23:59:59+10:00`);
+    if (!Number.isNaN(endOfFinalDay.getTime())) return endOfFinalDay;
+  }
   if (!event.date || !event.time) return null;
   const start = new Date(`${event.date}T${event.time}:00+10:00`);
   if (Number.isNaN(start.getTime())) return null;
@@ -43,7 +47,9 @@ function resultSourceKind(event) {
 const dueEvents = events.filter(isDueForResult);
 
 const missing = dueEvents
-  .filter(event => !event.score || !event.outcomeText || !event.recapText || !event.sourceName || !event.sourceUrl || !event.sourceCheckedAt);
+  .filter(event => event.resultStatus === "pending"
+    ? !event.resultSourceUrl || !event.resultSourceCheckedAt
+    : !event.score || !event.outcomeText || !event.recapText || !event.sourceName || !event.sourceUrl || !event.sourceCheckedAt);
 
 const summary = {
   checkedAt: now.toISOString(),

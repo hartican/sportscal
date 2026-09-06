@@ -8,7 +8,7 @@
   "use strict";
 
   const SCHEMA_VERSION = "sports-discovery-catalogue.v1";
-  const PREFERENCE_VERSION = 18;
+  const PREFERENCE_VERSION = 19;
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const DEFAULT_WINDOW_DAYS = 30;
   const DEFAULT_VISIBILITY_THRESHOLD = 5;
@@ -31,7 +31,7 @@
       titlePattern: /\ble mans\b|\bbathurst(?:\s+1000)?\b|\bindy(?:\s+500)?\b|\bindianapolis\s+500\b|\bgoodwood\b/i,
     }),
     Object.freeze({
-      sportId: "sport:rally",
+      sportId: "sport:motorsport",
       canonicalKeys: Object.freeze([]),
       titlePattern: /\b(?:paris[- ]?)?dakar\b/i,
     }),
@@ -53,6 +53,8 @@
     "sport:freestyle-skiing": ["sport:freestyle"],
     "sport:mtb": ["sport:downhill-mtb"],
     "sport:goodwood": ["sport:motorsport"],
+    "sport:rally": ["sport:wrc"],
+    rally: ["sport:wrc"],
     "sport:wimbledon": ["sport:tennis"],
     "sport:fifa": ["sport:football"],
     "sport:tdf": ["sport:cycling"],
@@ -263,7 +265,7 @@
     // Explicit selector IDs are the durable source of truth whenever they exist.
     // `followedSports` is a derived compatibility field and can contain every
     // descendant of a selected parent, so unioning it here would silently turn a
-    // Motorsport parent follow into separate F1 and Rally follows.
+    // Motorsport parent follow into separate F1 and WRC follows.
     const migration = migrateEventBrandFollows(
       selectedSelectorEntityIds.length ? selectedSelectorEntityIds : followedSports,
       { commonwealthDisciplineIds }
@@ -274,6 +276,18 @@
       discoveryCatalogueVersion: SCHEMA_VERSION,
       selectedSelectorEntityIds: migration.sportIds.slice(),
       followedSports: migration.followedSportKeys.slice(),
+      ...(saved.standings && typeof saved.standings === "object" ? {
+        standings: {
+          ...saved.standings,
+          selectedSportKeys: Array.isArray(saved.standings.selectedSportKeys)
+            ? uniqueStrings(saved.standings.selectedSportKeys.map(key => key === "rally" ? "wrc" : key))
+            : saved.standings.selectedSportKeys,
+          ...(saved.standings.pinTimestamps && typeof saved.standings.pinTimestamps === "object" ? {
+            pinTimestamps: Object.fromEntries(Object.entries(saved.standings.pinTimestamps)
+              .map(([competitionId, value]) => [competitionId === "competition:world-rally" ? "competition:wrc-2026" : competitionId, value])),
+          } : {}),
+        },
+      } : {}),
       aflFamilyMigration: legacyAflFollow && !saved.aflFamilyMigration
         ? { status:"pending" }
         : saved.aflFamilyMigration || null,

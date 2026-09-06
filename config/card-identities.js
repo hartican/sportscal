@@ -159,6 +159,7 @@
   const sportMarks = Object.freeze({
     f1: sportMark("f1", "Formula One", "sport:motorsport", "F1"),
     motorsport: sportMark("motorsport", "Motorsport", "sport:motorsport"),
+    wrc: sportMark("wrc", "FIA World Rally Championship", "sport:motorsport", "WRC"),
     rally: sportMark("rally", "Rally", "sport:motorsport"),
     goodwood: sportMark("goodwood", "Goodwood motorsport", "sport:motorsport"),
     lemans: sportMark("lemans", "Endurance motorsport", "sport:motorsport"),

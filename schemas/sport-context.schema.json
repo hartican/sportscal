@@ -47,6 +47,11 @@
       "minItems": 2,
       "items": { "$ref": "#/$defs/participant" }
     },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/event" }
+    },
     "ladderSnapshots": {
       "type": "array",
       "minItems": 0,
@@ -142,7 +147,7 @@
         "supportsTeams": { "type": "boolean" },
         "supportsCompetitors": { "type": "boolean" },
         "standingsOnly": { "type": "boolean" },
-        "standingsType": { "enum": ["drivers", "constructors", "singlesRanking", "stageJerseys", "conferenceStandings", "medalTable", "leagueTable"] },
+        "standingsType": { "enum": ["none", "drivers", "coDrivers", "manufacturers", "constructors", "singlesRanking", "stageJerseys", "conferenceStandings", "medalTable", "leagueTable"] },
         "defaultStandingsVisibility": { "enum": ["summary", "full"] }
       }
     },
@@ -173,6 +178,24 @@
             }
           }
         }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "sportDomainId", "preferenceDomainId", "competitionId", "displayName", "roundNumber", "date", "endDate", "dateOnly", "status"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "sportDomainId": { "$ref": "#/$defs/id" },
+        "preferenceDomainId": { "$ref": "#/$defs/id" },
+        "competitionId": { "$ref": "#/$defs/id" },
+        "displayName": { "type": "string", "minLength": 2 },
+        "roundNumber": { "type": "integer", "minimum": 1 },
+        "date": { "type": "string", "format": "date" },
+        "endDate": { "type": "string", "format": "date" },
+        "dateOnly": { "const": true },
+        "status": { "enum": ["scheduled", "completed", "cancelled", "abandoned"] },
+        "participantIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
       }
     },
     "standingsEntry": {

@@ -5,6 +5,11 @@
   'use strict';
   function status(event,now=new Date()){
     if(['completed','finished','final','cancelled','canceled','postponed'].includes(String(event.status || event.scheduleStatus || '').toLowerCase()))return 'past';
+    if(event.dateOnly && event.endDate){
+      const today=calendar.sydneyDay(now),start=event.date || event.startDate;
+      if(start && today>=start && today<=event.endDate)return 'live';
+      if(today>event.endDate)return 'past';
+    }
     if(controls.timingState(event,now)?.key==='live-now')return 'live';
     const start=calendar.eventStart(event);
     return start && +start<=+now?'past':'upcoming';

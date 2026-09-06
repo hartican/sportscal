@@ -12,6 +12,7 @@ const selectorTaxonomy = globalThis.NOTHINGSPORTS_SELECTOR_TAXONOMY;
 const canonicalFiles = [
   "data/canonical/afl-nrl-2026.json",
   "data/canonical/f1-context-2026.json",
+  "data/canonical/wrc-context-2026.json",
   "data/canonical/tennis-context-2026.json",
   "data/canonical/cycling-context-2026.json",
   "data/canonical/nba-context-2026.json",

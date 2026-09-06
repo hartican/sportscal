@@ -11,8 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="238">
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=238" as="script">
+<meta name="app-shell-version" content="239">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=239" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6110,7 +6110,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .code-inspector-heading h2{ margin-top:3px; font-size:1.25rem; }
 .code-inspector-heading p{ margin-top:5px; color:var(--text-dim); font-size:.78rem; line-height:1.45; }
 .code-inspector-back{ flex:0 0 auto; min-height:44px; }
-.code-inspector-tabs{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-bottom:14px; border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+.code-inspector-tabs{ display:grid; grid-template-columns:repeat(var(--code-inspector-tab-count,2),minmax(0,1fr)); margin-bottom:14px; border:1px solid var(--border); border-radius:14px; overflow:hidden; }
 .code-inspector-tab{ min-height:48px; border:0; border-right:1px solid var(--border); background:var(--soft-fill); color:var(--text-dim); font:800 .76rem/1.2 'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif; cursor:pointer; }
 .code-inspector-tab:last-child{ border-right:0; }
 .code-inspector-tab.active{ background:color-mix(in srgb,var(--sport-color) 13%,var(--bg-card)); color:var(--text); box-shadow:inset 0 -4px 0 var(--sport-color); }
@@ -6132,14 +6132,14 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .code-inspector-team-icon .team-logo-fallback{ max-width:20px; max-height:20px; font-size:.5rem; }
 .code-inspector-fixture-time{ text-align:right; font-size:.73rem; font-weight:900; white-space:nowrap; }
 .code-inspector-tbc{ color:var(--attention); font-weight:900; }
+.code-inspector-result-note{ margin:8px 0 0; color:var(--attention); font-size:.72rem; font-weight:800; }
+.code-inspector-result-note.is-official{ color:var(--text); }
 .code-inspector-coverage{ margin-bottom:14px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; color:var(--text-dim); font-size:.75rem; line-height:1.45; }
 
 @media (max-width:600px){
   .code-inspector-heading{ flex-direction:column; }
   .code-inspector-back{ width:100%; }
-  .code-inspector-tabs{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .code-inspector-tab:nth-child(2){ border-right:0; }
-  .code-inspector-tab:nth-child(-n+2){ border-bottom:1px solid var(--border); }
+  .code-inspector-tabs{ grid-template-columns:repeat(var(--code-inspector-tab-count,2),minmax(0,1fr)); }
   .code-inspector-fixture{ grid-template-columns:minmax(0,1fr); }
   .code-inspector-fixture-time{ text-align:left; }
 }
@@ -6894,8 +6894,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=238">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=238">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=239">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=239">
 </head>
 <body>
 
@@ -7185,7 +7185,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=238"></script>
+<script src="assets/js/app-shell-runtime.js?v=239"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -8094,6 +8094,9 @@ const LEGACY_SELECTOR_ID_ALIASES = Object.freeze({
   "nrl-finals": "sport:nrl",
   "special:nrl-finals": "sport:nrl",
   "major-event:nrl-finals-series-2026": "sport:nrl",
+  "sport:rally": "sport:wrc",
+  "competition:world-rally": "sport:wrc",
+  rally: "sport:wrc",
 });
 const BASE_SPORT_SELECTOR_OVERRIDES = Object.freeze({
   nba: {
@@ -8202,7 +8205,7 @@ const DEFAULT_FIRST_RUN_SPORT_KEYS = ["nrl", "afl"];
 const LEGACY_SEEDED_DEFAULTS_VERSION = 10;
 
 const DEFAULT_PREFERENCES = {
-  version: 18,
+  version: 19,
   discoveryCatalogueVersion: DISCOVERY_CATALOGUE?.SCHEMA_VERSION || "sports-discovery-catalogue.v1",
   onboardingComplete: false,
   theme: "system",
@@ -8275,7 +8278,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=238",
+  moduleScriptUrl: "config/major-events.js?v=239",
   url: "data/major-events.v1.json",
 });
 
@@ -8310,6 +8313,7 @@ const CANONICAL_CONTEXT_CONFIG = Object.freeze({
   sources: Object.freeze([
     ["leagueSports", "data/canonical/afl-nrl-2026.json"],
     ["f1Context", "data/canonical/f1-context-2026.json"],
+    ["wrcContext", "data/canonical/wrc-context-2026.json"],
     ["tennisContext", "data/canonical/tennis-context-2026.json"],
     ["cyclingContext", "data/canonical/cycling-context-2026.json"],
     ["nbaContext", "data/canonical/nba-context-2026.json"],
@@ -9172,12 +9176,12 @@ function mergePreferences(saved){
     }) || merged.feedControls,
     standings: {
       selectedSportKeys: Array.isArray(saved.standings?.selectedSportKeys)
-        ? uniqueArray(saved.standings.selectedSportKeys)
+        ? uniqueArray(saved.standings.selectedSportKeys.map(key => key === "rally" ? "wrc" : key))
         : [],
       pinTimestamps: saved.standings?.pinTimestamps && typeof saved.standings.pinTimestamps === "object"
         ? Object.fromEntries(Object.entries(saved.standings.pinTimestamps)
           .filter(([competitionId, value]) => String(competitionId).startsWith("competition:") && !Number.isNaN(Date.parse(value)))
-          .map(([competitionId, value]) => [competitionId, new Date(value).toISOString()]))
+          .map(([competitionId, value]) => [competitionId === "competition:world-rally" ? "competition:wrc-2026" : competitionId, new Date(value).toISOString()]))
         : {},
     },
     swipeCoaching: {
@@ -12712,7 +12716,9 @@ function dayDateLabel(dateStr){
 }
 
 function eventDateLabel(ev){
-  return ev.displayDateLabel || dayDateLabel(ev.date);
+  if (ev.displayDateLabel) return ev.displayDateLabel;
+  if (ev.endDate && ev.endDate !== ev.date) return `${dayDateLabel(ev.date)} – ${dayDateLabel(ev.endDate)}`;
+  return dayDateLabel(ev.date);
 }
 
 function eventLocationLabel(ev){
@@ -12736,6 +12742,7 @@ function eventLocationLabel(ev){
 
 function eventTimeLabel(ev){
   if(ev.timePrecision==="follows")return "Follows prior match";
+  if(ev.dateOnly)return `${ev.displayTime || "Multiple live stages"} · ${eventLocationLabel(ev)}`;
   if (ev.displayTimeLabel) return ev.displayTimeLabel;
   if (ev.timeTbc) return "Time TBC";
   return `${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
@@ -13871,7 +13878,7 @@ function renderCodeInspectorStandings(panel, code){
       const title = document.createElement("h3");
       title.textContent = competitionId === "competition:nhl" ? "NHL standings"
         : competitionId === "competition:chl" ? "Champions Hockey League table"
-        : "NFL standings";
+        : (CANONICAL_TAXONOMY.competitions || []).find(competition => competition.id === competitionId)?.name || "NFL standings";
       const list = document.createElement("div");
       list.className = "code-inspector-fixtures";
       rows.sort((first, second) => Number(first.rank || 999) - Number(second.rank || 999) || String(first.displayName).localeCompare(String(second.displayName))).forEach(entry => {
@@ -13902,6 +13909,88 @@ function renderCodeInspectorStandings(panel, code){
     return;
   }
   renderStandingsContext({ container: panel, competitions, sectionLabel: `${code.label} standings` });
+}
+
+function renderCodeInspectorResults(panel, code){
+  if (codeInspectorChunkLoading || codeInspectorChunk?.code?.id !== code.id){
+    panel.innerHTML = '<div class="empty-state">Loading completed rallies…</div>';
+    return;
+  }
+  const fixtures = (codeInspectorChunk.fixtures || [])
+    .filter(inspectorFixtureMatchesTab)
+    .filter(inspectorFixtureIsResult);
+  if (!fixtures.length){
+    panel.appendChild(sportHubEmptyState("No completed rallies are available yet."));
+    return;
+  }
+
+  const notice = document.createElement("p");
+  notice.className = "sport-hub-spoiler-notice";
+  notice.textContent = userPreferences.showSpoilers
+    ? "Official classifications are shown where FIA has published them. Stan Sport replay availability remains visible."
+    : "Results are off. Winning crews and total times stay hidden; Stan Sport replay availability remains visible.";
+  panel.appendChild(notice);
+
+  const grouped = new Map();
+  fixtures.forEach(fixture => {
+    const label = codeInspectorGroupLabel(fixture, code.groupingMode);
+    const group = grouped.get(label) || [];
+    group.push(fixture);
+    grouped.set(label, group);
+  });
+  const groupLabels = [...grouped.keys()].sort((first, second) => FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second)
+    ?? String(first).localeCompare(String(second), "en-AU", { numeric:true, sensitivity:"base" }));
+  if (!codeInspectorGroup || !grouped.has(codeInspectorGroup)) codeInspectorGroup = groupLabels.at(-1);
+
+  const toolbar = document.createElement("div");
+  toolbar.className = "code-inspector-toolbar";
+  const pickerLabel = document.createElement("label");
+  pickerLabel.setAttribute("for", "codeInspectorResultsRound");
+  pickerLabel.textContent = "Results round";
+  const picker = document.createElement("select");
+  picker.id = "codeInspectorResultsRound";
+  picker.className = "starting-round-select";
+  [...groupLabels].reverse().forEach(label => {
+    const option = document.createElement("option");
+    option.value = label;
+    option.textContent = label;
+    option.selected = label === codeInspectorGroup;
+    picker.appendChild(option);
+  });
+  picker.addEventListener("change", () => {
+    codeInspectorGroup = picker.value;
+    renderCodeInspector();
+  });
+  toolbar.append(pickerLabel, picker);
+  panel.appendChild(toolbar);
+
+  const section = document.createElement("section");
+  section.className = "code-inspector-group";
+  const title = document.createElement("h3");
+  title.textContent = codeInspectorGroup;
+  const list = document.createElement("div");
+  list.className = "code-inspector-fixtures";
+  list.dataset.scrollList = `inspector-results:${codeInspectorGroup}`;
+  grouped.get(codeInspectorGroup).forEach(fixture => {
+    const card = buildCodeInspectorFixture(fixture);
+    const canonicalFixture = canonicalFeedFixtureForInspector(fixture);
+    const resultStatus = fixture.resultStatus || canonicalFixture?.resultStatus;
+    const resultScore = fixture.resultScore || canonicalFixture?.score;
+    if (resultStatus === "pending"){
+      const pending = document.createElement("p");
+      pending.className = "code-inspector-result-note";
+      pending.textContent = "Official FIA classification pending.";
+      card.appendChild(pending);
+    } else if (userPreferences.showSpoilers && resultScore){
+      const result = document.createElement("p");
+      result.className = "code-inspector-result-note is-official";
+      result.textContent = `Official: ${resultScore}`;
+      card.appendChild(result);
+    }
+    list.appendChild(card);
+  });
+  section.append(title, list);
+  panel.appendChild(section);
 }
 
 function renderCodeInspector(){
@@ -13955,7 +14044,9 @@ function renderCodeInspector(){
   const tabDefinitions = [
     ["all-fixtures", "Schedule"],
     ...(followHasStandings(code) ? [["standings", followStandingsLabel(code)]] : []),
+    ...(code.slug === "wrc" ? [["results", "Results / Replays"]] : []),
   ];
+  tabs.style.setProperty("--code-inspector-tab-count", String(tabDefinitions.length));
   tabDefinitions.forEach(([value, label]) => {
     const tab = document.createElement("button");
     tab.type = "button";
@@ -13984,6 +14075,10 @@ function renderCodeInspector(){
 
   if (codeInspectorTab === "standings"){
     renderCodeInspectorStandings(panel, code);
+    return;
+  }
+  if (codeInspectorTab === "results"){
+    renderCodeInspectorResults(panel, code);
     return;
   }
   if (codeInspectorChunkLoading || codeInspectorChunk?.code?.id !== code.id){
@@ -17764,11 +17859,12 @@ function sportHubCuratedCanonicalIds(sportKey, reference = nowAEST()){
 function followedSupportedSportKeys(preferences = userPreferences){
   if (!SPORT_HUBS) return [];
   const selectedDomains = new Set(selectedPreferenceDomainIds(preferences));
-  return ["nrl", "afl"].filter(sportKey => {
+  return Object.keys(SPORT_HUBS.SUPPORTED_SPORTS || {}).filter(sportKey => {
     const sport = SPORT_HUBS.sportConfig(sportKey);
-    if (!sport || !selectedDomains.has(sport.domainId)) return false;
+    const selectedDomainId = sport?.preferenceDomainId || sport?.domainId;
+    if (!sport || !selectedDomains.has(selectedDomainId)) return false;
     const domainPreference = preferences?.preferenceGraph?.domainPreferences
-      ?.find(preference => preference.sportDomainId === sport.domainId);
+      ?.find(preference => preference.sportDomainId === selectedDomainId);
     return domainPreference?.enabled !== false && sportHubFullCoverageAllowed(sportKey);
   });
 }
@@ -17887,6 +17983,12 @@ function sportHubRoundLabel(round){
 }
 
 function sportHubDateTimeLabel(view){
+  if (view?.event?.dateOnly && view.event.date){
+    const range = view.event.endDate && view.event.endDate !== view.event.date
+      ? `${dayDateLabel(view.event.date)} – ${dayDateLabel(view.event.endDate)}`
+      : dayDateLabel(view.event.date);
+    return `${range} · Multiple live stages`;
+  }
   if (!view?.event?.date || !view?.event?.time) return "Date and time TBC";
   return `${dayDateLabel(view.event.date)} · ${fmtTime12(view.event.time)}`;
 }
@@ -17935,7 +18037,9 @@ function buildSportHubFixtureRow(view, {
   const details = document.createElement("p");
   details.className = "sport-hub-fixture-detail";
   details.textContent = resultsMode
-    ? `${sportHubVenueLabel(view)} · Result record · video availability is not promised`
+    ? event.key === "wrc"
+      ? `${sportHubVenueLabel(view)} · ${event.resultStatus === "pending" ? "Official result pending" : "Official result"} · Replays: ${sportHubProviderCopy(view.replayProviders, "TBC")}`
+      : `${sportHubVenueLabel(view)} · Result record · video availability is not promised`
     : `${sportHubVenueLabel(view)} · ${sportHubProviderCopy(view.liveProviders, "Broadcaster TBC")}`;
   main.append(titleLine, details);
 
@@ -17945,6 +18049,8 @@ function buildSportHubFixtureRow(view, {
     if (userPreferences.showSpoilers && event.canonicalResultScoreline){
       status.textContent = event.canonicalResultScoreline;
       status.classList.add("has-result");
+    } else if (event.resultStatus === "pending") {
+      status.textContent = "Completed · Official result pending";
     } else {
       status.textContent = "Completed · Result hidden";
     }
@@ -18151,7 +18257,9 @@ function renderSportHubResults(panel, fixtures, sportKey){
   if (!userPreferences.showSpoilers){
     const notice = document.createElement("p");
     notice.className = "sport-hub-spoiler-notice";
-    notice.textContent = "Results are off. Scores stay hidden; this view does not promise video availability.";
+    notice.textContent = sportKey === "wrc"
+      ? "Results are off. Winning crews and total times stay hidden; Stan Sport replay availability remains visible."
+      : "Results are off. Scores stay hidden; this view does not promise video availability.";
     panel.appendChild(notice);
   }
   const selectedFixtures = SPORT_HUBS.fixturesForRoundWindow(fixtures, sportHubState.resultsRoundNumber, 1)
@@ -18215,7 +18323,7 @@ function renderSportHub(){
     ["worth-watching", "Worth Watching"],
     ...(fullCoverage ? [["all-fixtures", "All Fixtures"]] : []),
     ["standings", "Standings"],
-    ["results", "Results"],
+    ["results", sportKey === "wrc" ? "Results / Replays" : "Results"],
   ];
   const tablist = document.createElement("div");
   tablist.className = "sport-hub-tabs";
@@ -18555,6 +18663,9 @@ function standingsColumnsForCompetition(competition){
     ];
   }
   if (competition.standingsType === "drivers"){
+    if (competition.competitionFamilyId === "family:world-rally-championship"){
+      return [["rank", "#"], ["participant", "Driver"], ["points", "Pts"]];
+    }
     return [
       ["rank", "#"],
       ["participant", "Driver"],
@@ -18568,6 +18679,12 @@ function standingsColumnsForCompetition(competition){
       ["participant", "Team"],
       ["points", "Pts"],
     ];
+  }
+  if (competition.standingsType === "coDrivers"){
+    return [["rank", "#"], ["participant", "Co-driver"], ["points", "Pts"]];
+  }
+  if (competition.standingsType === "manufacturers"){
+    return [["rank", "#"], ["participant", "Manufacturer"], ["points", "Pts"]];
   }
   if (competition.standingsType === "singlesRanking"){
     return [
@@ -19107,8 +19224,9 @@ function renderLegacyParticipantDirectory(container, sportKey){
     countries.add(record.countryCode);
     rosterCountries.set(record.currentTeamId, countries);
   });
+  const motorsportDirectory = ["motorsport", "f1", "wrc"].includes(sportKey);
   const records = allRecords
-    .filter(record => sportKey !== "motorsport" || record.entityType === filters.entityType)
+    .filter(record => !motorsportDirectory || record.entityType === filters.entityType)
     .filter(record => !filters.birthCountryCode || record.countryCode === filters.birthCountryCode)
     .filter(record => !filters.genderCategory || record.genderCategory === filters.genderCategory)
     .filter(record => Number.isFinite(footballDirectoryApi.searchMatchScore(record, filters.query)))
@@ -19131,12 +19249,12 @@ function renderLegacyParticipantDirectory(container, sportKey){
     });
   const directory = document.createElement("section");
   directory.className = "football-directory";
-  if (sportKey === "motorsport"){
+  if (motorsportDirectory){
     const tabs = document.createElement("div");
     tabs.className = "follow-directory-tabs";
     tabs.setAttribute("role", "group");
-    tabs.setAttribute("aria-label", "Formula 1 directory");
-    [["athlete", "Drivers"], ["team", "Teams"]].forEach(([entityType, label]) => {
+    tabs.setAttribute("aria-label", `${SPORT_META[sportKey]?.label || "Motorsport"} directory`);
+    [["athlete", sportKey === "wrc" ? "Drivers / co-drivers" : "Drivers"], ["team", sportKey === "wrc" ? "Manufacturers" : "Teams"]].forEach(([entityType, label]) => {
       const tab = document.createElement("button");
       tab.type = "button";
       tab.className = "btn ghost";
@@ -19199,7 +19317,9 @@ function renderLegacyParticipantDirectory(container, sportKey){
     const icon = document.createElement("span");
     icon.className = "follow-directory-identity identity-frame";
     const originalIdentityUrl = record.logoUrl || record.headshotUrl || null;
-    const identityUrl = sportKey === "motorsport" && record.entityType === "athlete"
+    const isF1Record = /^(?:competitor|team):f1:/.test(String(record.id || ""));
+    const isWrcRecord = /^(?:competitor|team):wrc:/.test(String(record.id || ""));
+    const identityUrl = isF1Record && record.entityType === "athlete"
       ? originalIdentityUrl?.replace("/c_fill,w_720/", "/c_fill,w_96,h_96,g_north/")
       : originalIdentityUrl;
     const mark = CARD_IDENTITIES?.participantMarks?.[record.id]
@@ -19243,8 +19363,9 @@ function renderLegacyParticipantDirectory(container, sportKey){
     const detail = document.createElement("span");
     const rankLabel = record.rank !== null ? ` · Rank ${record.rank}` : "";
     const competitionNumber = Number(record.competitionNumber || 0);
-    const numberLabel = athlete ? ` · ${competitionNumber > 0 ? `No. ${competitionNumber}` : "No. TBC"}` : "";
-    detail.textContent = `${sportKey === "motorsport" ? (athlete ? "Driver" : "Constructor") : record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${numberLabel}${rankLabel}`;
+    const numberLabel = athlete && !isWrcRecord ? ` · ${competitionNumber > 0 ? `No. ${competitionNumber}` : "No. TBC"}` : "";
+    const wrcRole = ({ driver:"Driver", "co-driver":"Co-driver", manufacturer:"Manufacturer" })[record.position];
+    detail.textContent = `${isWrcRecord ? wrcRole || (athlete ? "Competitor" : "Manufacturer") : motorsportDirectory ? (athlete ? "Driver" : "Constructor") : record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${numberLabel}${rankLabel}`;
     copy.append(name, detail);
     if (Array.isArray(record.collectionIds) && record.collectionIds.length){
       const chips = document.createElement("span");
@@ -19259,9 +19380,9 @@ function renderLegacyParticipantDirectory(container, sportKey){
       if (chips.childElementCount) copy.appendChild(chips);
     }
     const follow = buildDirectoryFollowButton(record.id, { sportKey, label: record.displayName });
-    if (athlete && record.profileRef) void ensureAthleteProfileUi().then(ui => [icon, copy].forEach(target => ui.makeTrigger(target, record, sportKey === "motorsport" ? "f1" : sportKey))).catch(() => {
+    if (athlete && record.profileRef) void ensureAthleteProfileUi().then(ui => [icon, copy].forEach(target => ui.makeTrigger(target, record, isF1Record ? "f1" : sportKey))).catch(() => {
       copy.title = "Profile temporarily unavailable. Select to retry.";
-      copy.addEventListener("click", () => { void ensureAthleteProfileUi().then(ui => ui.open(record, sportKey === "motorsport" ? "f1" : sportKey, copy)).catch(() => showToast("Profile unavailable. Please try again.")); });
+      copy.addEventListener("click", () => { void ensureAthleteProfileUi().then(ui => ui.open(record, isF1Record ? "f1" : sportKey, copy)).catch(() => showToast("Profile unavailable. Please try again.")); });
     });
     row.append(icon, copy, follow);
     list.appendChild(row);
@@ -19450,6 +19571,7 @@ function followSelectedEntity(){
 function followDirectoryKey(entity=followSelectedEntity()){
   const root=selectorEntityById(entity.parentId);
   if (entity.id==='sport:aflw') return 'aflw';
+  if (entity.parentId==='sport:motorsport') return entity.canonicalSportKeys?.[0] || entity.id.replace(/^sport:/,'');
   return (root?.level===2 ? root : entity).id.replace(/^sport:/,'');
 }
 function followInspectorCode(entity=followSelectedEntity()){
@@ -19754,6 +19876,7 @@ function groupEventsByDate(events){
 }
 
 function eventEndDateTime(ev){
+  if (ev.dateOnly && ev.endDate) return new Date(`${ev.endDate}T23:59:59+10:00`);
   const start = eventDateTime(ev);
   return new Date(start.getTime() + (ev.liveWindow || 3) * 3600 * 1000);
 }
@@ -22224,6 +22347,8 @@ function coverageModeFor(preference){
 
 const PREFERENCE_TO_CANONICAL_DOMAIN = Object.freeze({
   "sport:f1": "sport:motorsport",
+  "sport:wrc": "sport:motorsport",
+  "sport:rally": "sport:motorsport",
   "sport:rugby": "sport:rugby-union",
   "sport:cricket": "sport:cricket",
   "sport:nba": "sport:basketball",
@@ -22255,6 +22380,11 @@ function competitionsForPreferenceDomain(domainId){
 
 function participantsForPreferenceDomain(domainId){
   const canonicalDomainId = canonicalDomainIdForPreferenceDomain(domainId);
+  const explicitlyScoped = canonicalPreferenceParticipants.filter(participant => (
+    participant?.preferenceDomainId === domainId
+    || participant?.metadata?.preferenceDomainId === domainId
+  ));
+  if (explicitlyScoped.length) return explicitlyScoped;
   const scopedParticipantDomainIds = new Set((canonicalSportsData?.eventParticipantScopes || [])
     .filter(scope => scope.preferenceDomainId === domainId)
     .map(scope => scope.participantSportDomainId));
@@ -22285,8 +22415,8 @@ async function loadCanonicalSportsData(){
   canonicalSportsDataError = null;
   try{
     if (!SPORT_CONTEXT) throw new Error("Sport context adapter is unavailable");
-    const [leagueSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext] = await loadCanonicalContextBundles();
-    canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(leagueSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
+    const contextBundles = await loadCanonicalContextBundles();
+    canonicalSportsData = SPORT_CONTEXT.mergeCanonicalBundles(...contextBundles);
     hydration?.progress(.9);
     canonicalPreferenceParticipants = Array.isArray(canonicalSportsData.participants) ? canonicalSportsData.participants : [];
     activeEvents = SPORT_CONTEXT.applyContextToEvents(activeEvents, canonicalSportsData);
@@ -24604,7 +24734,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=238");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=239");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Crowd rankings could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

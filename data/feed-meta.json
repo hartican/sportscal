@@ -1,9 +1,10 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-06T14:49:35.200Z",
+  "publishedAt": "2026-09-06T17:38:29.140Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
+    "wrc",
     "nfl",
     "masters",
     "nba",
@@ -22,7 +23,6 @@
     "tennis",
     "wsl",
     "downhill-mtb",
-    "rally",
     "big-wave",
     "ski",
     "goodwood"
@@ -36,11 +36,16 @@
       "marqueeAnnualMonths": 12
     },
     "status": "scaffolded",
-    "firstEventDate": "2026-02-09",
+    "firstEventDate": "2026-01-22",
     "lastEventDate": "2027-07-10",
     "daysAhead": 307,
     "coversStandardPreloadWindow": true,
     "sports": {
+      "wrc": {
+        "count": 14,
+        "firstEventDate": "2026-01-22",
+        "lastEventDate": "2026-11-11"
+      },
       "nfl": {
         "count": 1,
         "firstEventDate": "2026-02-09",
@@ -130,11 +135,6 @@
         "count": 1,
         "firstEventDate": "2026-11-05",
         "lastEventDate": "2026-11-05"
-      },
-      "rally": {
-        "count": 2,
-        "firstEventDate": "2026-12-20",
-        "lastEventDate": "2027-06-17"
       },
       "big-wave": {
         "count": 2,

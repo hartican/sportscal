@@ -300,7 +300,9 @@
 
     const safeProfileId = typeof profileId === "string" && profileId ? profileId : raw.profileId || "profile:local";
     const selectedDomains = uniqueStrings(domainIds);
-    const existingDomains = Array.isArray(raw.domainPreferences) ? raw.domainPreferences : [];
+    const existingDomains = (Array.isArray(raw.domainPreferences) ? raw.domainPreferences : []).map(preference => (
+      preference?.sportDomainId === "sport:rally" ? { ...preference, sportDomainId:"sport:wrc" } : preference
+    ));
     const existingById = new Map(existingDomains.filter(Boolean).map(preference => [preference.sportDomainId, preference]));
     const allDomainIds = uniqueStrings([...existingById.keys(), ...selectedDomains]);
     const domainPreferences = allDomainIds.map(domainId => {
@@ -318,6 +320,7 @@
         const { showLadder: _obsoleteShowLadder, ...cleanPreference } = preference;
         return {
           ...cleanPreference,
+          competitionId: cleanPreference.competitionId === "competition:world-rally" ? "competition:wrc-2026" : cleanPreference.competitionId,
           profileId: safeProfileId,
           taxonomyCompetitionId: taxonomyNodeId(cleanPreference.competitionId)
             || cleanPreference.taxonomyCompetitionId

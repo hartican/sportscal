@@ -260,7 +260,7 @@ assert(html.includes("function setCodeInspectorFixtureAdded") && html.includes("
 assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.includes("if (activeSportHubKey()) return false;"), "complete NRL/AFL hubs must not mutate or impersonate the saved Froth preference");
 assert(html.includes("function openCodeInspector(codeId") && html.includes("history.pushState({ codeInspector: codeId, inspectorParent: true }") && !html.includes("openDiscoverySport(nodeId)"), "Inspect actions must use isolated history state rather than mutating the feed filter");
 assert(html.includes('activeTab: sportHubFullCoverageAllowed(sportKey) ? "all-fixtures" : "worth-watching"'), "AFL and NRL must default to highlights until that sport is Froth");
-assert(html.includes('["worth-watching", "Worth Watching"]') && html.includes('...(fullCoverage ? [["all-fixtures", "All Fixtures"]] : [])') && html.includes('["standings", "Standings"]') && html.includes('["results", "Results"]'), "legacy supported sport hubs must use honest Results labelling while Inspector owns generic fixture drill-down");
+assert(html.includes('["worth-watching", "Worth Watching"]') && html.includes('...(fullCoverage ? [["all-fixtures", "All Fixtures"]] : [])') && html.includes('["standings", "Standings"]') && html.includes('["results", sportKey === "wrc" ? "Results / Replays" : "Results"]'), "supported sport hubs must use honest Results labelling while WRC also discloses replay availability");
 assert(html.includes("SPORT_HUBS.buildFixtureViews") && html.includes("feedCards: activeEvents"), "fixture rows must derive from canonical truth and merge published card enrichment only at render time");
 assert(html.includes("SPORT_HUBS.partitionMutedFixtures") && html.includes('toggle.textContent = sportHubState.showHidden ? "Hide muted" : "Show hidden"'), "sport hubs must count explicit mutes and provide a temporary Show hidden control");
 assert(html.includes("renderStandingsContext({") && html.includes("competitions,"), "sport hubs must reuse the existing standings renderer with a scoped competition set");
@@ -566,6 +566,7 @@ const profileStorageSchema = JSON.parse(fs.readFileSync("schemas/profile-storage
 const enrichedEventSchema = JSON.parse(fs.readFileSync("schemas/enriched-event.schema.json", "utf8"));
 const canonicalSports = JSON.parse(fs.readFileSync("data/canonical/afl-nrl-2026.json", "utf8"));
 const f1Context = JSON.parse(fs.readFileSync("data/canonical/f1-context-2026.json", "utf8"));
+const wrcContext = JSON.parse(fs.readFileSync("data/canonical/wrc-context-2026.json", "utf8"));
 const tennisContext = JSON.parse(fs.readFileSync("data/canonical/tennis-context-2026.json", "utf8"));
 const cyclingContext = JSON.parse(fs.readFileSync("data/canonical/cycling-context-2026.json", "utf8"));
 const nbaContext = JSON.parse(fs.readFileSync("data/canonical/nba-context-2026.json", "utf8"));
@@ -586,6 +587,7 @@ const bundledContexts = JSON.parse(JSON.stringify(contextBundleSandbox.globalThi
 assert.deepEqual(bundledContexts, {
   leagueSports: canonicalSports,
   f1Context,
+  wrcContext,
   tennisContext,
   cyclingContext,
   nbaContext,
@@ -595,7 +597,7 @@ assert.equal(canonicalSportsSchema.properties.schemaVersion.const, "canonical-sp
 assert(canonicalSportsSchema.$defs.sportDomain.required.includes("supportsCompetitors"), "canonical sport domains must declare competitor support");
 assert(canonicalSportsSchema.$defs.participant.properties.type.enum.includes("competitor"), "canonical participants must use the Competitor type");
 assert(!/\bsupportsAthletes\b|\bathlete\b/i.test(`${canonicalTaxonomySource}\n${JSON.stringify(canonicalSportsSchema)}`), "canonical taxonomy and schemas must use Competitor as the single participant term");
-assert.equal(profileStorageSchema.properties.schemaVersion.const, 5, "profile storage schema must be explicitly versioned");
+assert.equal(profileStorageSchema.properties.schemaVersion.const, 6, "profile storage schema must be explicitly versioned");
 assert(profileStorageSchema.required.includes("learningPreference"), "profile storage must preserve the learning section across reloads");
 assert.equal(enrichedEventSchema.properties.schemaVersion.const, "enriched-event.v2", "enrichment must use an explicitly versioned disposable schema");
 assertShellModule(html, "config/storyline-overrides.js");
@@ -1148,7 +1150,7 @@ const oneOffMotorsportEvent = (id, key, name) => ({
   stakesScore: 5,
 });
 const leMansDiscovery = oneOffMotorsportEvent("one-off-le-mans", "lemans", "24 Hours of Le Mans");
-const dakarDiscovery = oneOffMotorsportEvent("one-off-dakar", "rally", "Paris-Dakar Rally");
+const dakarDiscovery = oneOffMotorsportEvent("one-off-dakar", "motorsport", "Paris-Dakar Rally");
 const setMotorsportTemplate = (domainId, templateId) => app.setPreferences({
   selectedSelectorEntityIds: [domainId],
   preferenceGraph: app.PREFERENCE_SYSTEM.createPreferenceGraph({
@@ -1166,11 +1168,10 @@ assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(leMansDiscovery), tru
 setMotorsportTemplate("sport:motorsport", "template:froth");
 assert.equal(app.discoverySportHasFroth("sport:f1"), true, "parent Motorsport Froth must inherit into F1");
 assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(leMansDiscovery), true, "parent Motorsport Froth must unlock F1 one-offs");
-setMotorsportTemplate("sport:rally", "template:like");
-assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(dakarDiscovery), false, "Dakar must not surface from Rally Like alone");
-setMotorsportTemplate("sport:rally", "template:froth");
-assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(dakarDiscovery), true, "Rally Froth must unlock Dakar as a feed-only one-off");
-assert.equal(app.discoverySportHasFroth("sport:f1"), false, "Rally Froth must not leak into the F1 sibling");
+setMotorsportTemplate("sport:motorsport", "template:like");
+assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(dakarDiscovery), false, "Dakar must not surface from general Motorsport Like alone");
+setMotorsportTemplate("sport:motorsport", "template:froth");
+assert.equal(app.eventEligibleForOneOffMotorsportDiscovery(dakarDiscovery), true, "general Motorsport Froth must unlock Dakar as a feed-only one-off");
 app.setPreferences({});
 const newSelectorOptInIds = Array.from(app.selectorNewPromptEntities(), entity => entity.id);
 const expectedNewSelectorOptInIds = Array.from(app.SELECTOR_TAXONOMY.exposedSportNodes || [])
@@ -1391,7 +1392,7 @@ const legacyProfileStorage = memoryStorage({
 });
 const migratedProfile = profileStorage.loadActiveProfile(legacyProfileStorage, { now: new Date("2026-07-20T00:00:00Z") });
 assert.match(migratedProfile.profile.id, /^profile:/, "legacy settings must migrate under a stable internal profile id");
-assert.equal(migratedProfile.schemaVersion, 5, "profile migration must land on the current schema version");
+assert.equal(migratedProfile.schemaVersion, 6, "profile migration must land on the current schema version");
 assert.equal(migratedProfile.preferences.theme, "day", "existing preference fields must survive the profile migration");
 assert.equal(migratedProfile.ratings["legacy-event"], 9, "existing ratings must survive the profile migration");
 assert.equal(migratedProfile.eventUserState["legacy-event"].archived, true, "existing event state must survive the profile migration");
@@ -1465,7 +1466,7 @@ assert.equal(app.normalizeThemePreference("night"), "night", "Night must be a va
 assert.equal(app.normalizeThemePreference("system"), "system", "System must be a valid theme preference");
 assert.equal(app.normalizeThemePreference("sepia"), "system", "unknown themes must safely fall back to System");
 assert.equal(app.mergePreferences({ theme: "day" }).theme, "day", "theme choice must survive preference merging");
-assert.equal(app.mergePreferences(null).version, 18, "the seeded defaults must use the current AFL-family preference migration");
+assert.equal(app.mergePreferences(null).version, 19, "the seeded defaults must use the current WRC preference migration");
 assert.deepEqual(Array.from(app.mergePreferences(null).standings.selectedSportKeys), [], "fresh profiles must deselect every Standings sport");
 assert.deepEqual(Array.from(app.mergePreferences({ version: 14, standings: { selectedSportKeys: null } }).standings.selectedSportKeys), [], "legacy null Standings selections must migrate to an explicit empty array");
 assert.deepEqual(Array.from(app.mergePreferences({ version: 15, standings: { selectedSportKeys: [] } }).standings.selectedSportKeys), [], "a durable explicit empty Standings selection must remain authoritative");
@@ -2103,8 +2104,9 @@ assert.equal(app.archivedEvents().some(event => event.id === pastA.id), true, "a
 const olderThanRetention = { ...event("older-than-retention", -20, 4), status: "completed" };
 assert.equal(app.eventMeetsDerivedRetention(olderThanRetention), false, "unarchived past cards must expire after 14 days");
 
-const autoArchivedAfterSevenDays = { ...event("auto-archived-after-seven-days", -8, 4), status: "completed" };
-const expiredAfterFourteenDays = { ...event("expired-after-fourteen-days", -15, 4), status: "completed" };
+// Use full-day margins so this wall-clock test remains stable around Sydney midnight.
+const autoArchivedAfterSevenDays = { ...event("auto-archived-after-seven-days", -9, 4), status: "completed" };
+const expiredAfterFourteenDays = { ...event("expired-after-fourteen-days", -16, 4), status: "completed" };
 const savedPastRetention = { ...event("saved-past-retention", -20, 4), status: "completed" };
 app.setEvents([autoArchivedAfterSevenDays, expiredAfterFourteenDays, savedPastRetention]);
 app.setActions({});

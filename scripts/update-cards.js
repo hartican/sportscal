@@ -62,6 +62,9 @@ function buildSteps({ localOnly = false } = {}) {
   const steps = [
   ["scripts/snapshot-active-follows.js"],
   ["scripts/refresh-canonical-sports.js"],
+  ["scripts/refresh-wrc-context.js"],
+  ["scripts/refresh-wrc-context.js", "--check"],
+  ["scripts/validate-wrc-context.js"],
   ["scripts/refresh-premier-league-context.js"],
   ["scripts/refresh-premier-league-context.js", "--check"],
   ["scripts/validate-premier-league-context.js"],
@@ -123,6 +126,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-cycling-context.js"],
   ["scripts/build-canonical-context-bundle.js"],
   ["scripts/build-canonical-context-bundle.js", "--check"],
+  ["scripts/sync-wrc-to-feed.js", "data/canonical/wrc-context-2026.json", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/refresh-results-2026-07-30.js", "feeds/incoming/events.json"],
   ["scripts/reconcile-australian-marquee-events.js", "data/canonical/australian-marquee-events-2026.json", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/sync-tennis-tournaments-to-feed.js", "--from-exports", "feeds/incoming/events.json", "feeds/incoming/events.json"],

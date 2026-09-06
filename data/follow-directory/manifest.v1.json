@@ -30,9 +30,25 @@
       "key": "motorsport",
       "label": "Motorsport",
       "status": "available",
-      "recordCount": 33,
+      "recordCount": 110,
       "jsonUrl": "data/follow-directory/motorsport.v1.json",
       "scriptUrl": "data/follow-directory/motorsport.v1.js"
+    },
+    {
+      "key": "f1",
+      "label": "F1",
+      "status": "available",
+      "recordCount": 33,
+      "jsonUrl": "data/follow-directory/f1.v1.json",
+      "scriptUrl": "data/follow-directory/f1.v1.js"
+    },
+    {
+      "key": "wrc",
+      "label": "WRC",
+      "status": "available",
+      "recordCount": 77,
+      "jsonUrl": "data/follow-directory/wrc.v1.json",
+      "scriptUrl": "data/follow-directory/wrc.v1.js"
     },
     {
       "key": "extreme",

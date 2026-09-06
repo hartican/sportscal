@@ -5,6 +5,7 @@ const crypto = require("node:crypto");
 const eventFeed = require("../data/events.json");
 const canonicalSports = require("../data/canonical/afl-nrl-2026.json");
 const f1Context = require("../data/canonical/f1-context-2026.json");
+const wrcContext = require("../data/canonical/wrc-context-2026.json");
 const tennisContext = require("../data/canonical/tennis-context-2026.json");
 const cyclingContext = require("../data/canonical/cycling-context-2026.json");
 const nbaContext = require("../data/canonical/nba-context-2026.json");
@@ -25,7 +26,7 @@ const {
 const { resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
 const { catalogue } = require("../lib/calendar-catalogue");
 
-const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
+const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, wrcContext, tennisContext, cyclingContext, nbaContext, cwgContext);
 const contextualEvents = sportContext.applyContextToEvents(catalogue(), canonicalSportContext);
 
 function selectedFixtureEvents(userState){

@@ -13,7 +13,7 @@ assert(selector.nodes.some(node => node.nodeType === "internal-event-tag"), "nam
 assert(selector.internalEventTags.every(node => node.exposed === false && node.selectable === false), "event brands must never be filter or follow choices");
 
 const hierarchyExpectations = {
-  "sport:motorsport": [["sport:f1", "F1"], ["sport:rally", "Rally"]],
+  "sport:motorsport": [["sport:f1", "F1"], ["sport:wrc", "WRC"]],
   "sport:extreme": [["sport:downhill-mtb", "MTB"]],
   "sport:surf": [["sport:big-wave", "Big-wave"]],
   "sport:skiing": [["sport:alpine", "Alpine"], ["sport:freestyle", "Freestyle"]],
@@ -99,7 +99,7 @@ const migratedParentRoundTrip = catalogue.migratePreferences({
   version: catalogue.PREFERENCE_VERSION,
   discoveryCatalogueVersion: catalogue.SCHEMA_VERSION,
   selectedSelectorEntityIds: ["sport:motorsport"],
-  followedSports: ["motorsport", "f1", "rally"],
+  followedSports: ["motorsport", "f1", "wrc"],
 });
 assert.deepEqual(
   migratedParentRoundTrip.selectedSelectorEntityIds,
@@ -118,30 +118,30 @@ assert.deepEqual(
 );
 
 const initialSession = catalogue.createSessionInclusion(["sport:motorsport", "sport:tennis"]);
-assert.deepEqual(initialSession, ["sport:motorsport", "sport:f1", "sport:rally", "sport:tennis"]);
+assert.deepEqual(initialSession, ["sport:motorsport", "sport:f1", "sport:wrc", "sport:tennis"]);
 assert.deepEqual(catalogue.selectionState("sport:motorsport", initialSession), {
   checked: true,
   mixed: false,
   selectedCount: 3,
   totalCount: 3,
 });
-const withoutRally = catalogue.setSessionNodeIncluded(initialSession, "sport:rally", false);
-assert.deepEqual(catalogue.selectionState("sport:motorsport", withoutRally), {
+const withoutWrc = catalogue.setSessionNodeIncluded(initialSession, "sport:wrc", false);
+assert.deepEqual(catalogue.selectionState("sport:motorsport", withoutWrc), {
   checked: false,
   mixed: true,
   selectedCount: 2,
   totalCount: 3,
 });
-const withoutMotorsport = catalogue.setSessionNodeIncluded(withoutRally, "sport:motorsport", false);
+const withoutMotorsport = catalogue.setSessionNodeIncluded(withoutWrc, "sport:motorsport", false);
 assert(!withoutMotorsport.some(id => catalogue.familyIds("sport:motorsport").includes(id)));
-const rallyOnly = catalogue.setSessionNodeIncluded(withoutMotorsport, "sport:rally", true);
-assert.deepEqual(catalogue.selectionState("sport:motorsport", rallyOnly), {
+const wrcOnly = catalogue.setSessionNodeIncluded(withoutMotorsport, "sport:wrc", true);
+assert.deepEqual(catalogue.selectionState("sport:motorsport", wrcOnly), {
   checked: false,
   mixed: true,
   selectedCount: 1,
   totalCount: 3,
 });
-assert.deepEqual(catalogue.resetSessionInclusion(["sport:motorsport"]), ["sport:motorsport", "sport:f1", "sport:rally"]);
+assert.deepEqual(catalogue.resetSessionInclusion(["sport:motorsport"]), ["sport:motorsport", "sport:f1", "sport:wrc"]);
 
 const now = new Date("2026-08-14T00:15:00Z"); // 10:15 on 14 August in Sydney.
 const fixtures = [
@@ -156,8 +156,8 @@ const fixtures = [
   },
   { eventId: "fixture:f1:two", key: "motorsport", date: "2026-08-16" },
   { sessionId: "session:motorsport:one", key: "motorsport", date: "2026-08-17", status: "scheduled" },
-  { raceId: "race:rally:one", key: "rally", date: "2026-08-18" },
-  { raceId: "race:rally:two", key: "rally", date: "2026-09-12" },
+  { raceId: "race:wrc:one", key: "wrc", date: "2026-08-18" },
+  { raceId: "race:wrc:two", key: "wrc", date: "2026-09-12" },
   { eventId: "event:f1:finished", key: "f1", date: "2026-08-19", status: "completed" },
   { eventId: "event:f1:old", key: "f1", date: "2026-08-13" },
   { eventId: "event:f1:day-thirty", key: "f1", date: "2026-09-13" },
@@ -168,7 +168,7 @@ const counts = catalogue.countUnderlyingEvents(fixtures, { now });
 assert.equal(counts.uniqueEventCount, 7, "stable IDs, status and the Sydney date window must govern event counts");
 assert.equal(counts.exactCounts["sport:f1"], 2, "grouped F1 cards must count their actual fixtures");
 assert.equal(counts.exactCounts["sport:motorsport"], 1, "an independently identified Motorsport session must count once");
-assert.equal(counts.exactCounts["sport:rally"], 2);
+assert.equal(counts.exactCounts["sport:wrc"], 2);
 assert.equal(counts.aggregateCounts["sport:motorsport"], 5, "parent visibility must aggregate its own events and descendants without duplicates");
 assert.equal(counts.exactCounts["sport:nrl"], 1);
 assert.equal(counts.exactCounts["sport:tennis"], 1, "internal event tags must resolve to their underlying sport");
@@ -201,9 +201,9 @@ assert.deepEqual(
   "future Bathurst inputs must resolve without becoming a follow choice"
 );
 assert.deepEqual(
-  catalogue.oneOffMotorsportFrothIds({ key: "rally", name: "Paris-Dakar Rally" }),
-  ["sport:rally"],
-  "Dakar must be unlocked by Rally Froth"
+  catalogue.oneOffMotorsportFrothIds({ key: "motorsport", name: "Paris-Dakar Rally" }),
+  ["sport:motorsport"],
+  "Dakar must remain discoverable through general Motorsport Froth"
 );
 assert.deepEqual(catalogue.oneOffMotorsportFrothIds({ key: "f1", name: "Australian Grand Prix" }), []);
 

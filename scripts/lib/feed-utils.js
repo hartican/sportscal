@@ -9,6 +9,7 @@ const LEGACY_SPORT_KEYS = new Set([
   "rugby",
   "fifa",
   "f1",
+  "wrc",
   "rally",
   "goodwood",
   "cycling",
@@ -147,6 +148,7 @@ function validateFeed(feed) {
     if (!SPORT_KEYS.has(event.key)) errors.push(`${prefix}.key is not a supported sport key: ${event.key}`);
     if (event.commonwealthDiscipline !== undefined && (String(event.commonwealthDiscipline).trim().length < 2 || String(event.commonwealthDiscipline).length > 80)) errors.push(`${prefix}.commonwealthDiscipline must be 2-80 characters if present.`);
     if (!isDate(event.date)) errors.push(`${prefix}.date must be YYYY-MM-DD.`);
+    if (event.endDate !== undefined && event.endDate !== null && (!isDate(event.endDate) || event.endDate < event.date)) errors.push(`${prefix}.endDate must be YYYY-MM-DD on or after date.`);
     if (!isTime(event.time)) errors.push(`${prefix}.time must be HH:MM Sydney time.`);
     if (event.startTimeUtc !== undefined && event.startTimeUtc !== null && !isDateTime(event.startTimeUtc)) errors.push(`${prefix}.startTimeUtc must be ISO date-time if present.`);
     if (event.endTimeUtc !== undefined && event.endTimeUtc !== null && !isDateTime(event.endTimeUtc)) errors.push(`${prefix}.endTimeUtc must be ISO date-time if present.`);

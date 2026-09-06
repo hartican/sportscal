@@ -26,6 +26,8 @@ function writeIfChanged(filePath, content, checkOnly){
 function sportKeyForParticipant(participant){
   const domain = String(participant?.sportDomainId || "");
   const discipline = String(participant?.metadata?.discipline || "").toLowerCase();
+  if (participant?.metadata?.preferenceDomainId === "sport:wrc") return "wrc";
+  if (/^(?:competitor|team):f1:/.test(String(participant?.id || ""))) return "f1";
   if (participant?.metadata?.competitionCode === "aflw" || String(participant?.leagueId || "").startsWith("competition:aflw")) return "aflw";
   if (domain.includes(":cwg:competitors")){
     if (discipline.includes("swimming")) return "swimming";
@@ -93,7 +95,7 @@ function normalizeRecord(record, additions = {}){
     currentTeamId:record.currentTeamId || null,
     leagueId:record.leagueId || null,
     teamKind:record.teamKind || (record.isNationalTeam === true ? "national" : null),
-    position:record.position || metadata.discipline || null,
+    position:record.position || metadata.discipline || metadata.championshipRole || null,
     identityId:String(record.identityId || record.id),
     logoUrl:record.logoUrl || null,
     logoDarkUrl:record.logoDarkUrl || null,
@@ -121,7 +123,7 @@ function main(){
   const taxonomy = require(path.join(ROOT, "config/selector-taxonomy.js"));
   const catalogue = require(path.join(ROOT, "config/team-follow-catalogue.js"));
   const nationalTeamIdentities = require(path.join(ROOT, "config/national-team-identities.js"));
-  const exposedSports = taxonomy.exposedSportNodes.filter(entity => Number(entity.level) === 2)
+  const exposedSports = taxonomy.exposedSportNodes.filter(entity => Number(entity.level) === 2 || entity.parentId === "sport:motorsport")
     .map(entity => ({ key:entity.id.replace(/^sport:/, ""), label:entity.label }));
   if (!exposedSports.some(sport => sport.key === "aflw")) exposedSports.splice(exposedSports.findIndex(sport => sport.key === "afl") + 1, 0, { key:"aflw", label:"AFLW" });
   const sportsByKey = new Map(exposedSports.map(sport => [sport.key, sport]));
@@ -138,10 +140,12 @@ function main(){
   const chunks = new Map(directorySports.map(sport => [sport.key, new Map()]));
   const contexts = [
     "data/canonical/afl-nrl-2026.json", "data/canonical/f1-context-2026.json",
+    "data/canonical/wrc-context-2026.json",
     "data/canonical/tennis-context-2026.json", "data/canonical/cycling-context-2026.json",
     "data/canonical/nba-context-2026.json", "data/canonical/cwg-context-2026.json",
   ].map(readJson);
-  const sourceGeneratedAt = contexts.map(context => context.generatedAt).filter(Boolean);
+  const wrcContext = contexts.find(context => (context.competitions || []).some(competition => competition.id === "competition:wrc-2026"));
+  const sourceGeneratedAt = contexts.filter(context => context !== wrcContext).map(context => context.generatedAt).filter(Boolean);
   const supplement = readJson(SUPPLEMENT_PATH);
   const tennisWatchPool = readJson(TENNIS_WATCH_POOL_PATH);
   const championsLeague = readJson(CHAMPIONS_LEAGUE_PATH);
@@ -158,10 +162,16 @@ function main(){
   contexts.forEach(context => (context.participants || []).forEach(participant => {
     const key = sportKeyForParticipant(participant);
     if (!key || !chunks.has(key) || participant?.metadata?.active === false) return;
-    chunks.get(key).set(participant.id, normalizeRecord(participant, {
+    const contextSources = key === "wrc" ? (context.sources || []).map(source => source.sourceUrl).filter(Boolean) : [];
+    const sourceCheckedAt = key === "wrc" ? (context.sources || []).map(source => source.checkedAt).filter(Boolean).sort().at(-1) || null : null;
+    const record = normalizeRecord(participant, {
       ranking:rankByParticipant.get(participant.id),
       genderCategory:key === "tennis" ? tennisGenderForParticipant(participant) : null,
-    }));
+      sourceRefs:contextSources,
+      sourceCheckedAt,
+    });
+    chunks.get(key).set(participant.id, record);
+    if (["f1", "wrc"].includes(key)) chunks.get("motorsport")?.set(participant.id, record);
   }));
   (catalogue.groups || []).forEach(group => {
     const key = String(group.domainId || "").replace(/^sport:/, "");
@@ -266,9 +276,10 @@ function main(){
   });
 
   const generatedAt = sourceGeneratedAt.slice().sort().at(-1) || "2026-08-25T00:00:00.000Z";
+  const manifestGeneratedAt = [generatedAt, wrcContext?.generatedAt].filter(Boolean).sort().at(-1) || generatedAt;
   const manifest = {
     schemaVersion:"follow-directory-manifest.v1",
-    generatedAt,
+    generatedAt:manifestGeneratedAt,
     sports:exposedSports.map(sport => {
       const records = [...chunks.get(sport.key).values()];
       return {
@@ -296,11 +307,12 @@ function main(){
       (first.ranking ?? first.ladderPosition ?? Number.MAX_SAFE_INTEGER) - (second.ranking ?? second.ladderPosition ?? Number.MAX_SAFE_INTEGER)
       || first.displayName.localeCompare(second.displayName, "en-AU", { sensitivity:"base" })
     ));
+    const payloadGeneratedAt = ["motorsport", "wrc"].includes(sport.key) ? manifestGeneratedAt : generatedAt;
     const payload = {
       schemaVersion:"follow-directory-chunk.v1",
       sportKey:sport.key,
       label:sport.label,
-      generatedAt,
+      generatedAt:payloadGeneratedAt,
       status:sport.status,
       sortBasis:records.some(record => Number.isFinite(record.ranking) || Number.isFinite(record.ladderPosition)) ? "ranking-or-ladder-then-alphabetical" : "alphabetical-fallback",
       records,

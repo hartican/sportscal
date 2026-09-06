@@ -7,6 +7,7 @@
 
   const narrativeProfiles = Object.freeze(Object.fromEntries(Object.entries({
     f1: { id: "narrative:motorsport-grand-prix", signals: [{ match: "record|milestone|all-time", label: "Record Chase", archetype: "quest" }, { match: "championship|decider", label: "Title Decider", archetype: "quest" }] },
+    wrc: { id: "narrative:world-rally-championship", signals: [{ match: "stage|rally|finish|championship", label: "Title Decider", archetype: "quest" }, { match: "time|record|win", label: "Record Chase", archetype: "quest" }] },
     rugby: { id: "narrative:rugby-test", signals: [{ match: "bledisloe|rival|derby", label: "Rivalry", archetype: "rivalry" }, { match: "final|decider", label: "Title Decider", archetype: "quest" }] },
     motorsport: { id: "narrative:motorsport-family", signals: [{ match: "stage|rally|endurance|finish|qualifying", label: "Title Decider", archetype: "quest" }, { match: "record|best lap|fastest", label: "Record Chase", archetype: "quest" }, { match: "podium|championship|winner", label: "Rivalry", archetype: "rivalry" }] },
     extreme: { id: "narrative:extreme-sport", signals: [{ match: "world cup|championship|title|final", label: "Title Decider", archetype: "quest" }, { match: "record|run|dirt|jump|crash", label: "Record Chase", archetype: "quest" }, { match: "trick|park|gravity", label: "Rivalry", archetype: "rivalry" }] },
@@ -68,7 +69,7 @@
     { key: "f1", domainId: "sport:motorsport", label: "F1", selectorLabel: "F1", detail: "Qualifying, races, driver and constructor standings.", color: "var(--c-f1)", glyph: "sport:motorsport", sortOrder: 10, selector: true, supportsLadders: true, supportsNarrative: true },
     { key: "motorsport", domainId: "sport:motorsport", label: "Motorsport", selectorLabel: "Motorsport", detail: "Cross-discipline motorsport coverage spanning rally, endurance and performance events.", color: "var(--c-motorsport)", glyph: "sport:motorsport", sortOrder: 15, selector: true, supportsLadders: true, supportsNarrative: true },
     { key: "extreme", domainId: "sport:extreme", label: "Extreme", selectorLabel: "Extreme", detail: "Skateboarding, big drops and gravity sports.", color: "var(--c-extreme)", glyph: "sport:extreme", sortOrder: 17, selector: true, supportsLadders: false, supportsNarrative: true },
-    { key: "rally", domainId: "sport:motorsport", label: "Rally", selectorLabel: "Rally", detail: "Stage-based rally events and cross-country runs.", color: "var(--c-motorsport)", glyph: "sport:motorsport", sortOrder: 18, selector: true, supportsLadders: false, supportsNarrative: true },
+    { key: "wrc", domainId: "sport:motorsport", preferenceDomainId: "sport:wrc", label: "WRC", selectorLabel: "WRC", detail: "All 14 World Rally Championship rounds, senior standings, results and replays.", color: "var(--c-motorsport)", glyph: "sport:motorsport", sortOrder: 18, selector: true, supportsLadders: true, supportsNarrative: true },
     { key: "goodwood", domainId: "sport:motorsport", label: "Goodwood Festival", selectorLabel: "Goodwood Festival", detail: "Hill climbs, exhibition runs and fan-facing competition.", color: "var(--c-lemans)", glyph: "sport:motorsport", sortOrder: 19, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "wsl", domainId: "sport:surf", label: "Surfing", selectorLabel: "Surfing", detail: "WSL and related high-significance surf events.", color: "var(--c-surf)", glyph: "sport:surf", sortOrder: 22, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "big-wave", domainId: "sport:surf", label: "Big Wave", selectorLabel: "Big-wave Surfing", detail: "Big-wave windows and specialist events in deep-ocean conditions.", color: "var(--c-surf)", glyph: "sport:surf", sortOrder: 23, selector: true, supportsLadders: false, supportsNarrative: true },
@@ -114,15 +115,18 @@
     narrativeProfile: narrativeProfiles[domain.key] || narrativeProfiles[narrativeProfileKeyByDomainId[domain.domainId]],
   }));
 
-  const byKey = Object.freeze(Object.fromEntries(domains.map(domain => [domain.key, domain])));
+  const canonicalByKey = Object.fromEntries(domains.map(domain => [domain.key, domain]));
+  const byKey = Object.freeze({ ...canonicalByKey, rally: canonicalByKey.wrc });
 
   function metaByKey(){
-    return Object.freeze(Object.fromEntries(domains.map(domain => [domain.key, Object.freeze({
+    const entries = Object.fromEntries(domains.map(domain => [domain.key, Object.freeze({
       label: domain.label,
       color: domain.color,
       glyph: domain.glyph,
       domainId: domain.domainId,
-    })])));
+    })]));
+    entries.rally = entries.wrc;
+    return Object.freeze(entries);
   }
 
   function selectorLibrary(){

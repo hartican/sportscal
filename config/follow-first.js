@@ -23,6 +23,7 @@
     { id:"football", selectorId:"sport:football", label:"Football" },
     { id:"tennis", selectorId:"sport:tennis", label:"Tennis" },
     { id:"f1", selectorId:"sport:f1", label:"Formula 1" },
+    { id:"wrc", selectorId:"sport:wrc", label:"WRC" },
     { id:"rugby", selectorId:"sport:rugby", label:"Rugby Union" },
     { id:"nba", selectorId:"sport:nba", label:"Basketball" },
     { id:"american-football", selectorId:"sport:american-football", label:"American Football" },
@@ -44,7 +45,7 @@
   ]);
 
   const INTERNATIONAL_AUSTRALIA_SPORT_IDS = Object.freeze([
-    "cricket", "football", "tennis", "f1", "rugby", "nba", "motorsport", "rally",
+    "cricket", "football", "tennis", "f1", "wrc", "rugby", "nba", "motorsport",
     "extreme", "skateboard", "surf", "wsl", "big-wave", "cycling", "tdf", "basketball",
     "golf", "masters", "ski", "alpine", "freestyle", "telemark", "cwg",
     "athletics", "swimming", "netball", "boxing",
@@ -119,7 +120,7 @@
     "competition:tennis-major":viewingRights(["competition:tennis:australian-open", "competition:tennis:roland-garros", "competition:tennis:wimbledon", "australian-open", "roland-garros", "french-open", "wimbledon"], ["stan"], null),
     "competition:stan-motorsport":viewingRights(["competition:formula-e", "competition:indycar", "competition:asbk", "competition:mxgp"], ["stan"], null),
     "competition:wec":viewingRights(["competition:wec", "le-mans"], ["stan"], null),
-    "competition:wrc":viewingRights(["competition:wrc"], ["stan"], null),
+    "competition:wrc":viewingRights(["competition:wrc", "wrc"], ["stan"], "https://www.stan.com.au/watch/sport/motorsport/wrc", { sourceIsProvider:true }),
     "competition:dakar":viewingRights(["competition:dakar", "paris-dakar"], ["sbs"], null),
     "competition:goodwood":viewingRights(["competition:goodwood"], ["goodwood"], null, { territory:"GLOBAL" }),
     "competition:road-cycling":viewingRights(["competition:tour-de-france", "competition:giro-ditalia", "competition:vuelta-a-espana"], ["sbs"], null),

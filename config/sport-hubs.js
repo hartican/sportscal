@@ -18,6 +18,13 @@
       competitionId: "competition:nrl-premiership-2026",
       label: "NRL",
     }),
+    wrc: Object.freeze({
+      key: "wrc",
+      domainId: "sport:motorsport",
+      preferenceDomainId: "sport:wrc",
+      competitionId: "competition:wrc-2026",
+      label: "WRC",
+    }),
   });
 
   function clone(value){
@@ -38,6 +45,8 @@
     if (!sport) return [];
     return (Array.isArray(bundle?.events) ? bundle.events : [])
       .filter(event => event?.sportDomainId === sport.domainId)
+      .filter(event => !sport.preferenceDomainId || event?.preferenceDomainId === sport.preferenceDomainId)
+      .filter(event => !sport.competitionId || event?.competitionId === sport.competitionId)
       .filter(event => Number.isInteger(Number(event.roundNumber)))
       .map(clone)
       .sort(compareFixtures);
@@ -46,8 +55,8 @@
   function compareFixtures(first, second){
     const roundDifference = Number(first?.roundNumber || 0) - Number(second?.roundNumber || 0);
     if (roundDifference) return roundDifference;
-    const firstTime = Date.parse(first?.startTimeUtc || "");
-    const secondTime = Date.parse(second?.startTimeUtc || "");
+    const firstTime = Date.parse(first?.startTimeUtc || `${first?.date || ""}T00:00:00Z`);
+    const secondTime = Date.parse(second?.startTimeUtc || `${second?.date || ""}T00:00:00Z`);
     if (Number.isFinite(firstTime) && Number.isFinite(secondTime) && firstTime !== secondTime) return firstTime - secondTime;
     if (Number.isFinite(firstTime)) return -1;
     if (Number.isFinite(secondTime)) return 1;
@@ -171,14 +180,16 @@
 
   function canonicalFixtureView(fixture, { feedCards, participants } = {}){
     if (!fixture?.id) return null;
-    const sport = sportConfig(fixture.sportDomainId);
+    const sport = sportConfig(fixture.preferenceDomainId || fixture.sportDomainId);
     if (!sport) return null;
     const cardIndex = feedCards instanceof Map ? feedCards : feedCardByCanonicalId(feedCards);
     const participantIndex = participants instanceof Map ? participants : participantById(participants);
     const feedCard = cardIndex.get(fixture.id) || null;
     const home = participantIndex.get(fixture.homeParticipantId);
     const away = participantIndex.get(fixture.awayParticipantId);
-    const start = sydneyDateTime(fixture.startTimeUtc);
+    const start = fixture.dateOnly
+      ? { date: fixture.date || null, time: null }
+      : sydneyDateTime(fixture.startTimeUtc);
     const liveProviders = broadcasterNames(fixture, "live");
     const replayProviders = broadcasterNames(fixture, "replay");
     const mergedEvent = {
@@ -188,12 +199,17 @@
       canonicalEventId: fixture.id,
       key: sport.key,
       sport: sport.label,
-      sportDomainId: sport.domainId,
+      sportDomainId: sport.preferenceDomainId || sport.domainId,
+      canonicalSportDomainId: sport.domainId,
       competitionId: fixture.competitionId,
       name: fixture.displayName,
       displayTitleCompact: fixture.displayName,
       date: start.date,
+      endDate: fixture.endDate || start.date,
       time: start.time,
+      dateOnly: fixture.dateOnly === true,
+      timePrecision: fixture.timePrecision,
+      displayTime: fixture.dateOnly ? "Multiple live stages" : null,
       startTimeUtc: fixture.startTimeUtc,
       status: fixtureIsFinished(fixture) ? "completed" : "upcoming",
       scheduleStatus: fixture.scheduleStatus,
@@ -203,14 +219,20 @@
       participantIds: clone(fixture.participantIds || []),
       homeParticipantId: fixture.homeParticipantId,
       awayParticipantId: fixture.awayParticipantId,
-      participants: [
+      participants: fixture.homeParticipantId && fixture.awayParticipantId ? [
         { name: home?.displayName || home?.shortName || "Home team", role: "home" },
         { name: away?.displayName || away?.shortName || "Away team", role: "away" },
-      ],
+      ] : [
+        participantIndex.get(fixture.result?.driverParticipantId),
+        participantIndex.get(fixture.result?.coDriverParticipantId),
+      ].filter(Boolean).map((participant, index) => ({ name: participant.displayName, role: index === 0 ? "driver" : "co-driver" })),
       broadcaster: liveProviders.join(" / ") || "Broadcaster TBC",
       broadcastOptions: liveProviders,
       broadcasterIds: (fixture.broadcasters || []).map(item => String(item.broadcasterId || "").replace(/^broadcaster:/, "")).filter(Boolean),
-      canonicalResultScoreline: fixture.result?.scorelineText || null,
+      canonicalResultScoreline: fixture.result?.scorelineText
+        || (fixture.result?.status === "official" ? `${fixture.result.winningCrew} · ${fixture.result.totalTime}` : null),
+      canonicalResultText: fixture.result?.status === "official" ? `${fixture.result.winningCrew} · ${fixture.result.totalTime}` : null,
+      resultStatus: fixture.result?.status || null,
       score: fixture.result?.scorelineText || null,
     };
     return {
@@ -292,7 +314,7 @@
     const visible = roundFixtures.filter(fixture => !fixtureIsMuted(fixture, muted));
     const worthWatching = visible.filter(fixture => curated.has(fixture.id));
     const firstStart = roundFixtures
-      .map(fixture => new Date(fixture?.startTimeUtc || ""))
+      .map(fixture => new Date(fixture?.startTimeUtc || `${fixture?.date || ""}T00:00:00Z`))
       .filter(date => Number.isFinite(date.getTime()))
       .sort((first, second) => first - second)[0] || null;
     const referenceDateKey = sydneyDateKey(now);

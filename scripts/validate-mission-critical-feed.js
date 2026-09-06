@@ -48,7 +48,7 @@ function read(relativePath){
 }
 
 function validateProfileStorage(){
-  assert.equal(profileStorage.PROFILE_SCHEMA_VERSION, 5, "durable profiles must use schema v5");
+  assert.equal(profileStorage.PROFILE_SCHEMA_VERSION, 6, "durable profiles must use schema v6");
   assert.equal(typeof profileStorage.commitSections, "function", "profile storage must expose one transactional commitSections API");
 
   const storage = new CountingStorage();
@@ -63,7 +63,7 @@ function validateProfileStorage(){
     learningPreference: { version: 1 },
   }, { now: new Date("2026-08-24T00:01:00Z") });
   assert.equal(storage.writes, 1, "one settings save must perform one durable profile write");
-  assert.equal(bundle.schemaVersion, 5);
+  assert.equal(bundle.schemaVersion, 6);
   assert.equal(Object.prototype.hasOwnProperty.call(bundle, "surfacePresentation"), false, "surface history must not inflate the durable profile");
 
   storage.failWrites = true;
@@ -88,7 +88,7 @@ function validateProfileStorage(){
     ns_event_user_state_v1: JSON.stringify({ fixture:{ mustWatch:true, mustWatchAddedAt:"2026-08-20T00:00:00Z", reminderRequested:true } }),
   });
   const migrated = profileStorage.loadActiveProfile(legacyStorage, { now: new Date("2026-08-24T00:02:00Z") });
-  assert.equal(migrated.schemaVersion, 5);
+  assert.equal(migrated.schemaVersion, 6);
   assert.equal(migrated.preferences.feedIntent, "focused");
   assert.equal(migrated.ratings.fixture, 9);
   assert(!migrated.preferences.selectedSelectorEntityIds.includes("competition:a-leagues"));
@@ -97,7 +97,7 @@ function validateProfileStorage(){
   assert.equal(Object.hasOwn(migrated.preferences.preferenceGraph.domainPreferences[0], "mustWatchSensitivity"), false, "legacy preference-level Must Watch fields must be discarded");
   assert.equal(Object.hasOwn(migrated.eventUserState.fixture, "mustWatch"), false, "legacy Must Watch fields must be accepted then discarded");
   assert.equal(migrated.eventUserState.fixture.reminderRequested, true, "unrelated legacy actions must survive migration");
-  assert.equal(legacyStorage.getItem("ns_preferences_v1"), null, "legacy preferences may be removed only after the v5 bundle reads back successfully");
+  assert.equal(legacyStorage.getItem("ns_preferences_v1"), null, "legacy preferences may be removed only after the v6 bundle reads back successfully");
   const migratedAgain = profileStorage.loadActiveProfile(legacyStorage, { now: new Date("2026-08-24T00:03:00Z") });
   assert.deepEqual(migratedAgain.preferences, migrated.preferences, "legacy migration must be idempotent");
 
