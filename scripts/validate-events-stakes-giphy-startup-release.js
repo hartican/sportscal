@@ -13,7 +13,15 @@ const html = fs.readFileSync("index.html", "utf8");
 const chatApi = fs.readFileSync("api/chat.js", "utf8");
 const chatUi = fs.readFileSync("config/chat-media-ui.js", "utf8");
 
-const future = new Date("2026-09-04T23:59:59.999Z");
+const refreshedEvidenceTimes = catalogue.events
+  .flatMap(record => Array.isArray(record.sources) ? record.sources : [])
+  .map(source => Date.parse(source.checkedAt || ""))
+  .filter(Number.isFinite);
+const future = new Date(Math.max(
+  Date.parse("2026-09-04T23:59:59.999Z"),
+  Date.parse(catalogue.publishedAt || ""),
+  ...refreshedEvidenceTimes,
+));
 const staleCatalogue = JSON.parse(JSON.stringify(catalogue));
 const staleCincinnati = staleCatalogue.events.find(item => item.id === "major-event:cincinnati-open-2026");
 delete staleCincinnati.lifecycleStatus;
