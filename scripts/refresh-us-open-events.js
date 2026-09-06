@@ -49,6 +49,12 @@ const NEUTRAL_PLAYER_COUNTRY_OVERRIDES = Object.freeze({
   wta311956: "RU", // Alexandra Panova; official match feed suppresses the nation field.
   itf800590696: "RU", // Arina Malygina; official match feed suppresses the nation field.
   wta337470: "RU", // Arina Malygina; the live feed changed from her ITF id to her WTA id without restoring the nation field.
+  atplf40: "BY", // Ivan Liutarevich; official match feed suppresses the nation field.
+  wta335383: "RU", // Polina Berezina; official match feed suppresses the nation field.
+  wta336001: "RU", // Alisa Terentyeva; official match feed suppresses the nation field.
+  wta336783: "RU", // Anna Pushkareva; official match feed suppresses the nation field.
+  wta337548: "RU", // Mariia Makarova; official match feed suppresses the nation field.
+  wta337668: "RU", // Ekaterina Dotsenko; official match feed suppresses the nation field.
 });
 
 const EVENT_LABELS = Object.freeze({
@@ -293,13 +299,24 @@ function isPublishedMatch(match){
 function fixturesFromSnapshot(snapshot){
   validateSnapshot(snapshot);
   const dayByFeedUrl = new Map(snapshot.scheduleDays.eventDays.filter(day => day?.feedUrl).map(day => [day.feedUrl, day]));
+  const identityErrors=[];
   const imported = snapshot.scheduleFeeds.flatMap(feed => {
     const day = dayByFeedUrl.get(feed.sourceUrl);
     if (!day) throw new Error(`US Open snapshot cannot map ${feed.sourceUrl} to a released day`);
     return feed.payload.courts.flatMap(court => (court.matches || [])
       .filter(isPublishedMatch)
-      .map(match => fixtureFromMatch(match, court, day, feed.sourceUrl, snapshot.capturedAt)));
+      .flatMap(match => {
+        try{return[fixtureFromMatch(match,court,day,feed.sourceUrl,snapshot.capturedAt)];}
+        catch(error){
+          if(/US Open fixture has no published country identity/.test(error?.message||"")){
+            identityErrors.push(error.message);
+            return[];
+          }
+          throw error;
+        }
+      }));
   });
+  if(identityErrors.length)throw new Error([...new Set(identityErrors)].sort().join("; "));
   const fixtures = [...new Map(imported.map(fixture => [fixture.id, fixture])).values()];
   if (!fixtures.length) throw new Error("US Open official fixtures are empty");
   return fixtures.sort((left, right) => {
