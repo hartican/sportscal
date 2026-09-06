@@ -181,6 +181,8 @@ assert(officialUsOpenFixtures.every(event => event.name.includes(" v ") && !/\b(
 assert(officialUsOpenFixtures.every(event => event.stage && event.roundLabel && event.court), "released US Open fixtures must retain event, round and court naming");
 assert(officialUsOpenFixtures.every(event => event.matchupSides.length === 2), "released US Open fixtures must retain exactly two matchup sides");
 assert(officialUsOpenFixtures.flatMap(event => event.matchupSides).flatMap(side => side.players).every(player => player.nationalityCode), "every released US Open player must retain the official country identity when available");
+const usOpenRefreshSource=fs.readFileSync("scripts/refresh-us-open-events.js","utf8");
+assert.match(usOpenRefreshSource,/itf800590696:\s*"RU"[\s\S]+wta337470:\s*"RU"/,"Arina Malygina must retain her ITF-backed country identity across the provider's ITF-to-WTA id change");
 assert(officialUsOpenFixtures.filter(event => event.sequenceInSession === 1).every(event => event.startTimeUtc && event.timePrecision === "exact"), "first matches on each US Open court must use the published exact session start");
 assert(officialUsOpenFixtures.filter(event => event.sequenceInSession > 1).every(event => event.timingSource?.precedence==="verified-broadcaster" ? Boolean(event.startTimeUtc)&&event.timePrecision==="exact" : !event.startTimeUtc&&event.timePrecision==="follows"), "later US Open court matches must stay as follows unless a verified broadcaster publishes an exact start");
 assert(usOpen.subEvents.every(event => event.competitionId===usOpen.competitionId && event.parentEventId===usOpen.id && event.identityRef==="event:us-open"), "US Open children must carry canonical tournament and parent identity references");

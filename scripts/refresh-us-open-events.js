@@ -48,6 +48,7 @@ const NEUTRAL_PLAYER_COUNTRY_OVERRIDES = Object.freeze({
   wta325632: "RU", // Mariia Kozyreva; official match feed suppresses the nation field.
   wta311956: "RU", // Alexandra Panova; official match feed suppresses the nation field.
   itf800590696: "RU", // Arina Malygina; official match feed suppresses the nation field.
+  wta337470: "RU", // Arina Malygina; the live feed changed from her ITF id to her WTA id without restoring the nation field.
 });
 
 const EVENT_LABELS = Object.freeze({
