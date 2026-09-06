@@ -291,8 +291,7 @@
       return temporary;
     }
 
-    async function performSessionRefresh(){
-      const previousRefreshToken = session.refreshToken;
+    async function performSessionRefresh(previousRefreshToken = session.refreshToken){
       const payload = await jsonRequest("/api/auth", {
         method: "POST",
         body: JSON.stringify({ action:"refresh", refreshToken:previousRefreshToken }),
@@ -302,37 +301,45 @@
       return saved;
     }
 
-    async function refreshWithStorageLease(){
+    async function refreshWithStorageLease(previousRefreshToken = session.refreshToken){
       let lease = null;
       try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
       while (lease?.owner && Number(lease.expiresAt) > now() && lease.owner !== refreshOwner){
         await new Promise(resolve => globalThis.setTimeout(resolve, Math.min(220, Math.max(20, Number(lease.expiresAt) - now()))));
         const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
-        if (stored && stored.refreshToken !== session.refreshToken){
+        if (stored && stored.refreshToken !== previousRefreshToken){
           session = stored;
           return session;
         }
         try{ lease = JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null"); }catch(_error){ lease = null; }
       }
+      const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
+      if (stored && stored.refreshToken !== previousRefreshToken){
+        session = stored;
+        return session;
+      }
+      if (session?.refreshToken !== previousRefreshToken) return session;
       try{ persistentStorage?.setItem?.(REFRESH_LOCK_KEY, JSON.stringify({ owner:refreshOwner, expiresAt:now() + 15_000 })); }catch(_error){}
-      try{ return await performSessionRefresh(); }
+      try{ return await performSessionRefresh(previousRefreshToken); }
       finally{
         try{ if (JSON.parse(persistentStorage?.getItem?.(REFRESH_LOCK_KEY) || "null")?.owner === refreshOwner) persistentStorage?.removeItem?.(REFRESH_LOCK_KEY); }catch(_error){}
       }
     }
 
     async function coordinatedSessionRefresh(){
+      const previousRefreshToken = session.refreshToken;
       if (globalThis.navigator?.locks?.request){
         return navigator.locks.request("nothingsport-auth-refresh", { mode:"exclusive" }, async () => {
           const stored = storageRead(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY);
-          if (stored && stored.refreshToken !== session.refreshToken){
+          if (stored && stored.refreshToken !== previousRefreshToken){
             session = stored;
             return session;
           }
-          return performSessionRefresh();
+          if (session?.refreshToken !== previousRefreshToken) return session;
+          return performSessionRefresh(previousRefreshToken);
         });
       }
-      return refreshWithStorageLease();
+      return refreshWithStorageLease(previousRefreshToken);
     }
 
     async function refreshSession(){
