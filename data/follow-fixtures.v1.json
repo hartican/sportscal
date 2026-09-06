@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-fixtures.v1",
-  "generatedAt": "2026-09-06T13:08:37.866Z",
+  "generatedAt": "2026-09-06T13:24:40.983Z",
   "sources": [
     {
       "sourceName": "ESPN public football schedule snapshot",
@@ -107,6 +107,12 @@
     {
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
+      "sourceType": "official",
+      "checkedAt": null
+    },
+    {
+      "sourceName": "US Open official schedule",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
       "sourceType": "official",
       "checkedAt": null
     },
@@ -879,7 +885,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1013,7 +1019,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1315,7 +1321,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1449,7 +1455,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1583,7 +1589,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1717,7 +1723,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1851,7 +1857,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1985,7 +1991,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2269,7 +2275,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2379,7 +2385,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2489,7 +2495,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2599,7 +2605,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2711,7 +2717,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2846,7 +2852,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -3384,7 +3390,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -3517,7 +3523,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -3627,7 +3633,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -3739,7 +3745,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -3874,7 +3880,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -4067,7 +4073,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule5.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -4178,7 +4184,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule5.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -4289,7 +4295,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -4643,7 +4649,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -4753,7 +4759,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -4863,7 +4869,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5034,7 +5040,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5145,7 +5151,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5255,7 +5261,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -5365,7 +5371,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -5476,7 +5482,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -5587,7 +5593,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5697,7 +5703,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5868,7 +5874,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5979,7 +5985,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -6089,7 +6095,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6199,7 +6205,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6309,7 +6315,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6419,7 +6425,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6529,7 +6535,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6639,7 +6645,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6749,7 +6755,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6859,7 +6865,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6970,7 +6976,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -7080,7 +7086,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -7191,7 +7197,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -7301,7 +7307,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -7411,7 +7417,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -7521,7 +7527,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -7632,7 +7638,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -7742,7 +7748,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -7853,7 +7859,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -7964,7 +7970,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -8074,7 +8080,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -8185,7 +8191,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -8296,7 +8302,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8406,7 +8412,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8516,7 +8522,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8626,7 +8632,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8736,7 +8742,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8847,7 +8853,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8957,7 +8963,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -9068,7 +9074,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -9178,7 +9184,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -9288,7 +9294,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -9398,7 +9404,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -9509,7 +9515,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -9620,7 +9626,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -9730,7 +9736,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -9840,7 +9846,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -9950,7 +9956,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10062,7 +10068,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10196,7 +10202,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10330,7 +10336,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10462,7 +10468,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10572,7 +10578,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10682,7 +10688,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10793,7 +10799,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10904,7 +10910,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -11016,7 +11022,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -11150,7 +11156,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -11282,7 +11288,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -11392,7 +11398,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -11625,12 +11631,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T12:29:57.873Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Serena Williams / Venus Williams 3-6 7(8)-6(6) 6(7)-7(10) Hao-Ching Chan / Maya Joint",
+      "result": "Serena Williams / Venus Williams 3-6 7(8)-6(6) 6(7)-7(10) Hao-Ching Chan / Maya Joint",
       "previewPriority": 4,
       "matchupSides": [
         {
@@ -11757,7 +11766,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -11889,7 +11898,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -12001,13 +12010,16 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "live",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
-      "previewPriority": 5,
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Tatjana Maria / Zeynep Sonmez 6-3 7(7)-6(4) Ekaterina Alexandrova / Talia Gibson",
+      "result": "Tatjana Maria / Zeynep Sonmez 6-3 7(7)-6(4) Ekaterina Alexandrova / Talia Gibson",
+      "previewPriority": 2,
       "matchupSides": [
         {
           "id": "side:tennis:tatjana-maria-zeynep-sonmez",
@@ -12090,7 +12102,7 @@
       "broadcastOptions": [
         "Stan Sport"
       ],
-      "expected": 5,
+      "expected": 2,
       "liveWindow": 3,
       "storyline": {
         "stakes": 2,
@@ -12130,12 +12142,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T12:29:57.873Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Ann Li 2-6 7(8)-6(6) 2-6 Linda Noskova",
+      "result": "Ann Li 2-6 7(8)-6(6) 2-6 Linda Noskova",
       "previewPriority": 3,
       "matchupSides": [
         {
@@ -12237,13 +12252,16 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "live",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
-      "previewPriority": 5,
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Emma Navarro 6-3 7-5 Karolina Muchova",
+      "result": "Emma Navarro 6-3 7-5 Karolina Muchova",
+      "previewPriority": 3,
       "matchupSides": [
         {
           "id": "side:tennis:emma-navarro",
@@ -12304,7 +12322,7 @@
       "broadcastOptions": [
         "Stan Sport"
       ],
-      "expected": 5,
+      "expected": 3,
       "liveWindow": 3,
       "storyline": {
         "stakes": 3,
@@ -12348,9 +12366,12 @@
         "precedence": "verified-broadcaster"
       },
       "scheduleStatus": "confirmed",
-      "status": "live",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
-      "previewPriority": 5,
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Yibing Wu 3-6 4-6 1-6 Carlos Alcaraz",
+      "result": "Yibing Wu 3-6 4-6 1-6 Carlos Alcaraz",
+      "previewPriority": 4,
       "matchupSides": [
         {
           "id": "side:tennis:yibing-wu",
@@ -12412,7 +12433,7 @@
       "broadcastOptions": [
         "Stan Sport"
       ],
-      "expected": 5,
+      "expected": 4,
       "liveWindow": 3,
       "storyline": {
         "stakes": 4,
@@ -12452,12 +12473,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T12:29:57.873Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Ben Shelton 7(7)-6(3) 6(5)-7(7) 6-3 6-4 Denis Shapovalov",
+      "result": "Ben Shelton 7(7)-6(3) 6(5)-7(7) 6-3 6-4 Denis Shapovalov",
       "previewPriority": 4,
       "matchupSides": [
         {
@@ -12560,12 +12584,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T12:29:57.873Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Elina Svitolina 3-6 6-2 3-6 Anna Kalinskaya",
+      "result": "Elina Svitolina 3-6 6-2 3-6 Anna Kalinskaya",
       "previewPriority": 3,
       "matchupSides": [
         {
@@ -12667,12 +12694,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Anastasia Potapova 6-2 7-5 Amanda Anisimova",
+      "result": "Anastasia Potapova 6-2 7-5 Amanda Anisimova",
       "previewPriority": 3,
       "matchupSides": [
         {
@@ -12774,12 +12804,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Taylor Fritz 6-3 6-4 3-6 4-6 4-6 Francisco Cerundolo",
+      "result": "Taylor Fritz 6-3 6-4 3-6 4-6 4-6 Francisco Cerundolo",
       "previewPriority": 4,
       "matchupSides": [
         {
@@ -13002,12 +13035,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Naomi Osaka 6-3 3-6 7-5 Elise Mertens",
+      "result": "Naomi Osaka 6-3 3-6 7-5 Elise Mertens",
       "previewPriority": 3,
       "matchupSides": [
         {
@@ -13109,12 +13145,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Luciano Darderi 6-4 6-3 6-3 Dane Sweeny",
+      "result": "Luciano Darderi 6-4 6-3 6-3 Dane Sweeny",
       "previewPriority": 3,
       "matchupSides": [
         {
@@ -13216,12 +13255,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Alexander Blockx 6(4)-7(7) 6-3 6-0 6-3 Flavio Cobolli",
+      "result": "Alexander Blockx 6(4)-7(7) 6-3 6-0 6-3 Flavio Cobolli",
       "previewPriority": 3,
       "matchupSides": [
         {
@@ -13325,12 +13367,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
+      "result": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
       "previewPriority": 2,
       "matchupSides": [
         {
@@ -13454,12 +13499,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Mirra Andreeva 6-2 7(7)-6(5) Nikola Bartunkova",
+      "result": "Mirra Andreeva 6-2 7(7)-6(5) Nikola Bartunkova",
       "previewPriority": 3,
       "matchupSides": [
         {
@@ -13561,12 +13609,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Iga Swiatek 7(7)-6(3) 7(7)-6(3) Marie Bouzkova",
+      "result": "Iga Swiatek 7(7)-6(3) 7(7)-6(3) Marie Bouzkova",
       "previewPriority": 3,
       "matchupSides": [
         {
@@ -13668,12 +13719,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Yuliia Starodubtseva 6(6)-7(8) 3-6 Elena Rybakina",
+      "result": "Yuliia Starodubtseva 6(6)-7(8) 3-6 Elena Rybakina",
       "previewPriority": 3,
       "matchupSides": [
         {
@@ -13775,12 +13829,15 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-04T19:38:45.921Z",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Cristina Bucsa 3-6 4-6 Coco Gauff",
+      "result": "Cristina Bucsa 3-6 4-6 Coco Gauff",
       "previewPriority": 4,
       "matchupSides": [
         {
@@ -13887,8 +13944,11 @@
         "precedence": "verified-broadcaster"
       },
       "scheduleStatus": "confirmed",
-      "status": "scheduled",
-      "statusUpdatedAt": "2026-09-04T19:38:45.921Z",
+      "status": "completed",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "resultPublishedAt": "2026-09-06T13:24:38.104Z",
+      "scoreDisplay": "Alexander Zverev 6-2 7(7)-6(2) 6-2 Alejandro Tabilo",
+      "result": "Alexander Zverev 6-2 7(7)-6(2) 6-2 Alejandro Tabilo",
       "previewPriority": 4,
       "matchupSides": [
         {
@@ -14023,6 +14083,782 @@
       "resultLabels": [
         "Scheduled"
       ]
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2401",
+      "stableMatchId": "usopen-2026-ws-2401",
+      "cardKind": "fixture",
+      "competitionId": "competition:tennis:us-open:2026",
+      "parentEventId": "major-event:us-open-2026",
+      "identityRef": "event:us-open",
+      "participantIds": [
+        "athlete:tennis:aryna-sabalenka",
+        "athlete:tennis:taylor-townsend"
+      ],
+      "name": "Aryna Sabalenka v Taylor Townsend",
+      "stage": "Women's singles",
+      "roundLabel": "Round 4",
+      "matchType": "womens-singles",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-09-07",
+      "time": "01:30",
+      "startTimeUtc": "2026-09-06T15:30:00.000Z",
+      "timelineSortTimeUtc": "2026-09-06T15:30:00.000Z",
+      "sessionId": "us-open-2026:day-15:court-aa:session-1",
+      "sessionStartTimeUtc": "2026-09-06T15:30:00.000Z",
+      "sequenceInSession": 1,
+      "timePrecision": "exact",
+      "timingSource": {
+        "publisher": "US Open",
+        "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
+        "precedence": "official-tournament"
+      },
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "previewPriority": 4,
+      "matchupSides": [
+        {
+          "id": "side:tennis:aryna-sabalenka",
+          "name": "Aryna Sabalenka",
+          "players": [
+            {
+              "id": "athlete:tennis:aryna-sabalenka",
+              "name": "Aryna Sabalenka",
+              "seed": 1,
+              "rank": null,
+              "nationalityCode": "BY"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:taylor-townsend",
+          "name": "Taylor Townsend",
+          "players": [
+            {
+              "id": "athlete:tennis:taylor-townsend",
+              "name": "Taylor Townsend",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        }
+      ],
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 4,
+      "marquee": true,
+      "summary": "US Open 2026 · Women's singles · Round 4 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+      "eventId": "fixture:us-open-2026:official:ws:2401",
+      "canonicalEventId": "fixture:us-open-2026:official:ws:2401",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "majorEventId": "major-event:us-open-2026",
+      "displayTitleCompact": "Aryna Sabalenka v Taylor Townsend",
+      "endTimeUtc": "2026-09-06T20:30:00.000Z",
+      "timeTbc": false,
+      "homeParticipantId": "side:tennis:aryna-sabalenka",
+      "awayParticipantId": "side:tennis:taylor-townsend",
+      "participants": [
+        {
+          "name": "Aryna Sabalenka",
+          "role": "home"
+        },
+        {
+          "name": "Taylor Townsend",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 4,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1407",
+      "stableMatchId": "usopen-2026-ms-1407",
+      "cardKind": "fixture",
+      "competitionId": "competition:tennis:us-open:2026",
+      "parentEventId": "major-event:us-open-2026",
+      "identityRef": "event:us-open",
+      "participantIds": [
+        "athlete:tennis:ben-shelton",
+        "athlete:tennis:stefanos-tsitsipas"
+      ],
+      "name": "Ben Shelton v Stefanos Tsitsipas",
+      "stage": "Men's singles",
+      "roundLabel": "Round 4",
+      "matchType": "mens-singles",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-09-07",
+      "time": "09:00",
+      "startTimeUtc": "2026-09-06T23:00:00.000Z",
+      "timelineSortTimeUtc": "2026-09-06T23:00:00.000Z",
+      "sessionId": "us-open-2026:day-15:court-aa:session-2",
+      "sessionStartTimeUtc": "2026-09-06T23:00:00.000Z",
+      "sequenceInSession": 1,
+      "timePrecision": "exact",
+      "timingSource": {
+        "publisher": "US Open",
+        "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
+        "precedence": "official-tournament"
+      },
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "previewPriority": 4,
+      "matchupSides": [
+        {
+          "id": "side:tennis:ben-shelton",
+          "name": "Ben Shelton",
+          "players": [
+            {
+              "id": "athlete:tennis:ben-shelton",
+              "name": "Ben Shelton",
+              "seed": 8,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:stefanos-tsitsipas",
+          "name": "Stefanos Tsitsipas",
+          "players": [
+            {
+              "id": "athlete:tennis:stefanos-tsitsipas",
+              "name": "Stefanos Tsitsipas",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "GR"
+            }
+          ]
+        }
+      ],
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 4,
+      "marquee": true,
+      "summary": "US Open 2026 · Men's singles · Round 4 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+      "eventId": "fixture:us-open-2026:official:ms:1407",
+      "canonicalEventId": "fixture:us-open-2026:official:ms:1407",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "majorEventId": "major-event:us-open-2026",
+      "displayTitleCompact": "Ben Shelton v Stefanos Tsitsipas",
+      "endTimeUtc": "2026-09-07T04:00:00.000Z",
+      "timeTbc": false,
+      "homeParticipantId": "side:tennis:ben-shelton",
+      "awayParticipantId": "side:tennis:stefanos-tsitsipas",
+      "participants": [
+        {
+          "name": "Ben Shelton",
+          "role": "home"
+        },
+        {
+          "name": "Stefanos Tsitsipas",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 4,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1405",
+      "stableMatchId": "usopen-2026-ms-1405",
+      "cardKind": "fixture",
+      "competitionId": "competition:tennis:us-open:2026",
+      "parentEventId": "major-event:us-open-2026",
+      "identityRef": "event:us-open",
+      "participantIds": [
+        "athlete:tennis:daniil-medvedev",
+        "athlete:tennis:frances-tiafoe"
+      ],
+      "name": "Daniil Medvedev v Frances Tiafoe",
+      "stage": "Men's singles",
+      "roundLabel": "Round 4",
+      "matchType": "mens-singles",
+      "court": "Louis Armstrong Stadium",
+      "date": "2026-09-07",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "timelineSortTimeUtc": "2026-09-06T15:00:00.000Z",
+      "sessionId": "us-open-2026:day-15:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-09-06T15:00:00.000Z",
+      "sequenceInSession": 3,
+      "timePrecision": "follows",
+      "timingSource": {
+        "publisher": "US Open",
+        "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
+        "precedence": "official-session-order"
+      },
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:daniil-medvedev",
+          "name": "Daniil Medvedev",
+          "players": [
+            {
+              "id": "athlete:tennis:daniil-medvedev",
+              "name": "Daniil Medvedev",
+              "seed": 7,
+              "rank": null,
+              "nationalityCode": "RU"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:frances-tiafoe",
+          "name": "Frances Tiafoe",
+          "players": [
+            {
+              "id": "athlete:tennis:frances-tiafoe",
+              "name": "Frances Tiafoe",
+              "seed": 11,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        }
+      ],
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Men's singles · Round 4 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+      "eventId": "fixture:us-open-2026:official:ms:1405",
+      "canonicalEventId": "fixture:us-open-2026:official:ms:1405",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "majorEventId": "major-event:us-open-2026",
+      "displayTitleCompact": "Daniil Medvedev v Frances Tiafoe",
+      "endTimeUtc": null,
+      "timeTbc": true,
+      "homeParticipantId": "side:tennis:daniil-medvedev",
+      "awayParticipantId": "side:tennis:frances-tiafoe",
+      "participants": [
+        {
+          "name": "Daniil Medvedev",
+          "role": "home"
+        },
+        {
+          "name": "Frances Tiafoe",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:wd:4206",
+      "stableMatchId": "usopen-2026-wd-4206",
+      "cardKind": "fixture",
+      "competitionId": "competition:tennis:us-open:2026",
+      "parentEventId": "major-event:us-open-2026",
+      "identityRef": "event:us-open",
+      "participantIds": [
+        "athlete:tennis:nicole-fossa-huergo",
+        "athlete:tennis:tamara-korpatsch",
+        "athlete:tennis:hao-ching-chan",
+        "athlete:tennis:maya-joint"
+      ],
+      "name": "Nicole Fossa Huergo / Tamara Korpatsch v Hao-Ching Chan / Maya Joint",
+      "stage": "Women's doubles",
+      "roundLabel": "Round 2",
+      "matchType": "womens-doubles",
+      "court": "Court 12",
+      "date": "2026-09-07",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "timelineSortTimeUtc": "2026-09-06T15:00:00.000Z",
+      "sessionId": "us-open-2026:day-15:court-am:session-1",
+      "sessionStartTimeUtc": "2026-09-06T15:00:00.000Z",
+      "sequenceInSession": 4,
+      "timePrecision": "follows",
+      "timingSource": {
+        "publisher": "US Open",
+        "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
+        "precedence": "official-session-order"
+      },
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:nicole-fossa-huergo-tamara-korpatsch",
+          "name": "Nicole Fossa Huergo / Tamara Korpatsch",
+          "players": [
+            {
+              "id": "athlete:tennis:nicole-fossa-huergo",
+              "name": "Nicole Fossa Huergo",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "AR"
+            },
+            {
+              "id": "athlete:tennis:tamara-korpatsch",
+              "name": "Tamara Korpatsch",
+              "seed": 0,
+              "rank": null,
+              "nationalityCode": "DE"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:hao-ching-chan-maya-joint",
+          "name": "Hao-Ching Chan / Maya Joint",
+          "players": [
+            {
+              "id": "athlete:tennis:hao-ching-chan",
+              "name": "Hao-Ching Chan",
+              "seed": 14,
+              "rank": null,
+              "nationalityCode": "TPE"
+            },
+            {
+              "id": "athlete:tennis:maya-joint",
+              "name": "Maya Joint",
+              "seed": 14,
+              "rank": null,
+              "nationalityCode": "AU"
+            }
+          ]
+        }
+      ],
+      "venue": "Court 12",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Women's doubles · Round 2 · Court 12.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+      "eventId": "fixture:us-open-2026:official:wd:4206",
+      "canonicalEventId": "fixture:us-open-2026:official:wd:4206",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "majorEventId": "major-event:us-open-2026",
+      "displayTitleCompact": "Nicole Fossa Huergo / Tamara Korpatsch v Hao-Ching Chan / Maya Joint",
+      "endTimeUtc": null,
+      "timeTbc": true,
+      "homeParticipantId": "side:tennis:nicole-fossa-huergo-tamara-korpatsch",
+      "awayParticipantId": "side:tennis:hao-ching-chan-maya-joint",
+      "participants": [
+        {
+          "name": "Nicole Fossa Huergo",
+          "role": "home"
+        },
+        {
+          "name": "Tamara Korpatsch",
+          "role": "home"
+        },
+        {
+          "name": "Hao-Ching Chan",
+          "role": "away"
+        },
+        {
+          "name": "Maya Joint",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2402",
+      "stableMatchId": "usopen-2026-ws-2402",
+      "cardKind": "fixture",
+      "competitionId": "competition:tennis:us-open:2026",
+      "parentEventId": "major-event:us-open-2026",
+      "identityRef": "event:us-open",
+      "participantIds": [
+        "athlete:tennis:marta-kostyuk",
+        "athlete:tennis:linda-noskova"
+      ],
+      "name": "Marta Kostyuk v Linda Noskova",
+      "stage": "Women's singles",
+      "roundLabel": "Round 4",
+      "matchType": "womens-singles",
+      "court": "Louis Armstrong Stadium",
+      "date": "2026-09-07",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "timelineSortTimeUtc": "2026-09-06T15:00:00.000Z",
+      "sessionId": "us-open-2026:day-15:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-09-06T15:00:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "timingSource": {
+        "publisher": "US Open",
+        "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
+        "precedence": "official-session-order"
+      },
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:marta-kostyuk",
+          "name": "Marta Kostyuk",
+          "players": [
+            {
+              "id": "athlete:tennis:marta-kostyuk",
+              "name": "Marta Kostyuk",
+              "seed": 11,
+              "rank": null,
+              "nationalityCode": "UA"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:linda-noskova",
+          "name": "Linda Noskova",
+          "players": [
+            {
+              "id": "athlete:tennis:linda-noskova",
+              "name": "Linda Noskova",
+              "seed": 6,
+              "rank": null,
+              "nationalityCode": "CZ"
+            }
+          ]
+        }
+      ],
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Women's singles · Round 4 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+      "eventId": "fixture:us-open-2026:official:ws:2402",
+      "canonicalEventId": "fixture:us-open-2026:official:ws:2402",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "majorEventId": "major-event:us-open-2026",
+      "displayTitleCompact": "Marta Kostyuk v Linda Noskova",
+      "endTimeUtc": null,
+      "timeTbc": true,
+      "homeParticipantId": "side:tennis:marta-kostyuk",
+      "awayParticipantId": "side:tennis:linda-noskova",
+      "participants": [
+        {
+          "name": "Marta Kostyuk",
+          "role": "home"
+        },
+        {
+          "name": "Linda Noskova",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2403",
+      "stableMatchId": "usopen-2026-ws-2403",
+      "cardKind": "fixture",
+      "competitionId": "competition:tennis:us-open:2026",
+      "parentEventId": "major-event:us-open-2026",
+      "identityRef": "event:us-open",
+      "participantIds": [
+        "athlete:tennis:jessica-pegula",
+        "athlete:tennis:sorana-cirstea"
+      ],
+      "name": "Jessica Pegula v Sorana Cirstea",
+      "stage": "Women's singles",
+      "roundLabel": "Round 4",
+      "matchType": "womens-singles",
+      "court": "Louis Armstrong Stadium",
+      "date": "2026-09-07",
+      "time": "01:00",
+      "startTimeUtc": null,
+      "timelineSortTimeUtc": "2026-09-06T15:00:00.000Z",
+      "sessionId": "us-open-2026:day-15:court-ab:session-1",
+      "sessionStartTimeUtc": "2026-09-06T15:00:00.000Z",
+      "sequenceInSession": 4,
+      "timePrecision": "follows",
+      "timingSource": {
+        "publisher": "US Open",
+        "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
+        "precedence": "official-session-order"
+      },
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "previewPriority": 2,
+      "matchupSides": [
+        {
+          "id": "side:tennis:jessica-pegula",
+          "name": "Jessica Pegula",
+          "players": [
+            {
+              "id": "athlete:tennis:jessica-pegula",
+              "name": "Jessica Pegula",
+              "seed": 3,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:sorana-cirstea",
+          "name": "Sorana Cirstea",
+          "players": [
+            {
+              "id": "athlete:tennis:sorana-cirstea",
+              "name": "Sorana Cirstea",
+              "seed": 16,
+              "rank": null,
+              "nationalityCode": "RO"
+            }
+          ]
+        }
+      ],
+      "venue": "Louis Armstrong Stadium",
+      "stakesScore": 2,
+      "summary": "US Open 2026 · Women's singles · Round 4 · Louis Armstrong Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+      "eventId": "fixture:us-open-2026:official:ws:2403",
+      "canonicalEventId": "fixture:us-open-2026:official:ws:2403",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "majorEventId": "major-event:us-open-2026",
+      "displayTitleCompact": "Jessica Pegula v Sorana Cirstea",
+      "endTimeUtc": null,
+      "timeTbc": true,
+      "homeParticipantId": "side:tennis:jessica-pegula",
+      "awayParticipantId": "side:tennis:sorana-cirstea",
+      "participants": [
+        {
+          "name": "Jessica Pegula",
+          "role": "home"
+        },
+        {
+          "name": "Sorana Cirstea",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 2,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 2,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1408",
+      "stableMatchId": "usopen-2026-ms-1408",
+      "cardKind": "fixture",
+      "competitionId": "competition:tennis:us-open:2026",
+      "parentEventId": "major-event:us-open-2026",
+      "identityRef": "event:us-open",
+      "participantIds": [
+        "athlete:tennis:tommy-paul",
+        "athlete:tennis:carlos-alcaraz"
+      ],
+      "name": "Tommy Paul v Carlos Alcaraz",
+      "stage": "Men's singles",
+      "roundLabel": "Round 4",
+      "matchType": "mens-singles",
+      "court": "Arthur Ashe Stadium",
+      "date": "2026-09-07",
+      "time": "01:30",
+      "startTimeUtc": null,
+      "timelineSortTimeUtc": "2026-09-06T15:30:00.000Z",
+      "sessionId": "us-open-2026:day-15:court-aa:session-1",
+      "sessionStartTimeUtc": "2026-09-06T15:30:00.000Z",
+      "sequenceInSession": 2,
+      "timePrecision": "follows",
+      "timingSource": {
+        "publisher": "US Open",
+        "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+        "checkedAt": "2026-09-06T13:24:38.104Z",
+        "precedence": "official-session-order"
+      },
+      "scheduleStatus": "confirmed",
+      "status": "scheduled",
+      "statusUpdatedAt": "2026-09-06T13:24:38.104Z",
+      "previewPriority": 4,
+      "matchupSides": [
+        {
+          "id": "side:tennis:tommy-paul",
+          "name": "Tommy Paul",
+          "players": [
+            {
+              "id": "athlete:tennis:tommy-paul",
+              "name": "Tommy Paul",
+              "seed": 20,
+              "rank": null,
+              "nationalityCode": "US"
+            }
+          ]
+        },
+        {
+          "id": "side:tennis:carlos-alcaraz",
+          "name": "Carlos Alcaraz",
+          "players": [
+            {
+              "id": "athlete:tennis:carlos-alcaraz",
+              "name": "Carlos Alcaraz",
+              "seed": 2,
+              "rank": null,
+              "nationalityCode": "ES"
+            }
+          ]
+        }
+      ],
+      "venue": "Arthur Ashe Stadium",
+      "stakesScore": 4,
+      "marquee": true,
+      "summary": "US Open 2026 · Men's singles · Round 4 · Arthur Ashe Stadium.",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
+      "eventId": "fixture:us-open-2026:official:ms:1408",
+      "canonicalEventId": "fixture:us-open-2026:official:ms:1408",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "majorEventId": "major-event:us-open-2026",
+      "displayTitleCompact": "Tommy Paul v Carlos Alcaraz",
+      "endTimeUtc": null,
+      "timeTbc": true,
+      "homeParticipantId": "side:tennis:tommy-paul",
+      "awayParticipantId": "side:tennis:carlos-alcaraz",
+      "participants": [
+        {
+          "name": "Tommy Paul",
+          "role": "home"
+        },
+        {
+          "name": "Carlos Alcaraz",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Stan Sport",
+      "broadcasterIds": [
+        "stan"
+      ],
+      "broadcastOptions": [
+        "Stan Sport"
+      ],
+      "expected": 4,
+      "liveWindow": 3,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "scoreReasons": [
+          "Followed US Open player fixture"
+        ]
+      },
+      "sourceName": "US Open official schedule",
+      "sourceType": "official",
+      "sourceTrust": "verified"
     },
     {
       "id": "football-bundesliga-2026-27-401884791",

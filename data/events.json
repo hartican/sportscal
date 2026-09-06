@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
-  "publishedAt": "2026-09-06T13:08:37.458Z",
+  "publishedAt": "2026-09-06T13:24:40.628Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
   "events": [
     {
@@ -24938,7 +24938,7 @@
       "sourceUrl": "https://www.nrl.com/ladder",
       "sourceCheckedAt": "2026-09-06T11:49:48.005Z",
       "sourceType": "official",
-      "lastReviewedAt": "2026-09-06T13:08:37.242Z",
+      "lastReviewedAt": "2026-09-06T13:24:40.490Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": false,
@@ -25297,7 +25297,7 @@
       "sourceUrl": "https://www.nrl.com/ladder",
       "sourceCheckedAt": "2026-09-06T11:49:48.005Z",
       "sourceType": "official",
-      "lastReviewedAt": "2026-09-06T13:08:37.242Z",
+      "lastReviewedAt": "2026-09-06T13:24:40.490Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": false,
