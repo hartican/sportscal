@@ -71,7 +71,7 @@ assert(ticketAlerts.length > 0);
 ticketAlerts.forEach(record => assert.equal(server.eventFor(record.id), null, `${record.id} must remain outside Nothingscore`));
 
 const html = fs.readFileSync("index.html", "utf8");
-assert.match(html, /mainDiv\.appendChild\(buildNothingscoreSummary\(ev\)\)/, "Feed cards must expose real peer summaries");
+assert.match(html, /mainDiv\.appendChild\(buildNothingscoreSummary\(ev,\{showAggregate:state==="opened"\}\)\)/, "Feed L2 cards must expose real peer summaries while L1 keeps the one-tap rating compact");
 const peerUi = html.slice(html.indexOf("function buildNothingscorePeerResults"),html.indexOf("function openNothingscoreLeaderboard"));
 assert.match(peerUi,/snapshot\?\.peerResults/);
 assert.doesNotMatch(peerUi,/snapshot\?\.(aggregate|crowdEditorial|earlyPanel)/,"peer UI must never use blended/modelled aggregates");

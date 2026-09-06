@@ -1,7 +1,7 @@
 {
   "schemaVersion": "individual-sport-directory.v1",
   "sportKey": "swimming",
-  "generatedAt": "2026-09-06T02:05:36.9327891Z",
+  "generatedAt": "2026-09-06T11:50:47.3271543Z",
   "source": {
     "publisher": "World Aquatics",
     "url": "https://www.worldaquatics.com/swimming/rankings",
@@ -1504,7 +1504,7 @@
           "stroke": "FREESTYLE",
           "distance": 100,
           "poolConfiguration": "LCM",
-          "rank": 193,
+          "rank": 194,
           "aquaPoints": 811,
           "time": "55.44",
           "resultDate": "2026-03-04T00:00:00",

@@ -12,15 +12,18 @@ window.NOTHINGSPORTS_CROWD_RANKINGS={render:async function renderCrowdRankings()
   const mine=document.createElement('button');mine.type='button';mine.className='btn ghost';mine.textContent='My NSC';mine.onclick=()=>{nscMyView=true;renderNothingscoreDrawer();};controls.appendChild(mine);body.appendChild(controls);
   const list=document.createElement('div');list.className='nsc-ranking-list';list.textContent='Loading crowd ratings…';body.appendChild(list);
   const options=()=>({...nscRankingState,preferences:JSON.stringify({followFirst:userPreferences.followFirst,preferenceGraph:userPreferences.preferenceGraph,followedSports:userPreferences.followedSports,selectedSelectorEntityIds:userPreferences.selectedSelectorEntityIds})});
-  function paintCrowd(value,ev){value.textContent=ev.crowd.count?`${Number(ev.crowd.average).toFixed(1)}/5`:'—';const count=document.createElement('small');count.textContent=ev.crowd.count?`${ev.crowd.count} ratings${ev.crowd.early?' · Early':''}`:ev.phase==='pulse'?'No recent ratings':'Unrated';value.appendChild(count);}
+  function paintCrowd(value,ev){value.replaceChildren();if(ev.ratingRequired){value.textContent='Rate to reveal';return;}const crowd=ev.crowd||{};value.textContent=crowd.count?`${Number(crowd.average).toFixed(1)}/5`:'—';const count=document.createElement('small');count.textContent=crowd.count?`${crowd.count} ratings${crowd.early?' · Early':''}`:ev.phase==='pulse'?'No recent ratings':'Unrated';value.appendChild(count);}
   function draw(payload){
     list.replaceChildren();if(!payload.entries?.length){list.textContent=nscRankingState.scope==='following'?'No matching fixtures. Try All sports.':'No matching fixtures in this period.';return;}
     payload.entries.forEach(ev=>{
-      const row=document.createElement('button');row.type='button';row.className='nsc-fixture-row';row.dataset.rankFixture=ev.id;
+      const row=document.createElement('div');row.className='nsc-fixture-row';row.dataset.rankFixture=ev.id;
       const rank=document.createElement('span');rank.textContent=ev.rank || '–';
-      const identity=document.createElement('span');identity.textContent=ev.name;const time=document.createElement('small');time.textContent=ev.phase==='pulse'?'Live':ev.startTimeUtc?new Date(ev.startTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}):'Time TBC';identity.appendChild(time);
+      const identity=document.createElement('button');identity.type='button';identity.className='nsc-rank-identity';identity.textContent=ev.name;const time=document.createElement('small');time.textContent=ev.phase==='pulse'?'Live':ev.startTimeUtc?new Date(ev.startTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}):'Time TBC';identity.appendChild(time);
       const value=document.createElement('span');value.className='nsc-rank-value';paintCrowd(value,ev);
-      row.append(rank,identity,value);row.onclick=()=>{nscRankingState.scrollTop=body.scrollTop;void openNothingscoreContribution({...ev,eventId:ev.id},{showResults:true});};list.appendChild(row);
+      identity.onclick=()=>{nscRankingState.scrollTop=body.scrollTop;void openNothingscoreContribution({...ev,eventId:ev.id},{showResults:true});};
+      row.append(rank,identity,value);
+      if(ev.phase==='heat'&&ev.ratingRequired){const rating=buildInlineCrowdRating({...ev,eventId:ev.id,timePrecision:ev.startTimeUtc?'exact':'tbc'},{phase:'heat',ratingRequired:true,currentUser:null});rating.classList.add('nsc-ranking-inline-rating');row.appendChild(rating);}
+      list.appendChild(row);
     });
     if(nscRankingState.cursor>0){const prev=document.createElement('button');prev.className='btn ghost';prev.textContent='Previous';prev.onclick=()=>{nscRankingState.cursor=Math.max(0,nscRankingState.cursor-25);renderCrowdRankings();};list.appendChild(prev);}
     if(payload.nextCursor!==null){const next=document.createElement('button');next.className='btn ghost';next.textContent='Next';next.onclick=()=>{nscRankingState.cursor=payload.nextCursor;renderCrowdRankings();};list.appendChild(next);}

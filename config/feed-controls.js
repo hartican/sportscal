@@ -79,25 +79,19 @@
   function eventStart(event){
     if (event?.timeTbc === true || event?.startTimeTbc === true || event?.dateOnly === true) return null;
     if (NON_PLAYING_STATUSES.has(String(event?.status || "").toLowerCase())) return null;
-    const utc = Date.parse(event?.startTimeUtc || event?.timelineSortTimeUtc || "");
-    if (Number.isFinite(utc)) return new Date(utc);
-    if (!event?.time || /tbc/i.test(String(event.time))) return null;
-    const match = `${event?.date || ""}T${event.time}`.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
-    if (!match) return null;
-    const [, year, month, day, hour, minute] = match.map(Number);
-    const assumedUtc = Date.UTC(year, month - 1, day, hour, minute);
-    const offsetParts = new Intl.DateTimeFormat("en-CA", {
-      timeZone: "Australia/Sydney",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hourCycle: "h23",
-    }).formatToParts(new Date(assumedUtc));
-    const offset = Object.fromEntries(offsetParts.map(part => [part.type, Number(part.value)]));
-    const renderedAsUtc = Date.UTC(offset.year, offset.month - 1, offset.day, offset.hour, offset.minute);
-    return new Date(assumedUtc - (renderedAsUtc - assumedUtc));
+    if (event?.timePrecision && !["exact","session-start"].includes(event.timePrecision)) return null;
+    const utc = Date.parse(event?.startTimeUtc || "");
+    return Number.isFinite(utc) ? new Date(utc) : null;
+  }
+
+  function inferredDurationHours(event){
+    const explicit=Number(event?.publishedDurationHours || event?.liveWindow || event?.calendarTemplate?.durationHours);
+    if(Number.isFinite(explicit)&&explicit>0)return explicit;
+    const identity=`${event?.competitionId || ""} ${event?.key || ""} ${event?.sportId || ""} ${event?.name || ""}`.toLowerCase();
+    if(/le mans|endurance|fia wec/.test(identity))return 24;
+    if(/tennis|us open|wimbledon|roland garros|australian open/.test(identity))return 5;
+    if(/formula 1|\bf1\b|motorsport/.test(identity))return 4;
+    return 3;
   }
 
   function sydneyParts(value){
@@ -144,11 +138,12 @@
     if (Number.isNaN(reference.getTime())) return null;
     const startMs = start.getTime();
     const explicitEnd = Date.parse(event?.endTimeUtc || "");
-    const liveWindowHours = Number(event?.liveWindow);
-    const derivedEnd = startMs + Math.max(1, Number.isFinite(liveWindowHours) ? liveWindowHours : 3) * 3600000;
+    const derivedEnd = startMs + inferredDurationHours(event) * 3600000;
     const endMs = Number.isFinite(explicitEnd) && explicitEnd >= startMs ? explicitEnd : derivedEnd;
     const nowMs = reference.getTime();
-    if(["live","in_progress","in-progress","ongoing"].includes(status) && nowMs>=startMs)return Object.freeze({key:"live-now",label:"Live Now",ariaLabel:"Live now"});
+    const statusCheckedAt=Date.parse(event?.statusCheckedAt || event?.statusSource?.checkedAt || event?.timingSource?.checkedAt || "");
+    const freshExplicitStatus=Number.isFinite(statusCheckedAt)&&Math.abs(nowMs-statusCheckedAt)<=30*60*1000;
+    if(["live","in_progress","in-progress","ongoing"].includes(status) && nowMs>=startMs && (nowMs<endMs || freshExplicitStatus))return Object.freeze({key:"live-now",label:"Live Now",ariaLabel:"Live now"});
     if (nowMs >= startMs - STARTS_SOON_MS && nowMs < startMs){
       return Object.freeze({ key:"starts-soon", label:"Starts Soon", ariaLabel:"Starts soon" });
     }

@@ -16,7 +16,7 @@ const event = { canonicalEventId:"demo-australia-grand-final", sport:"AFL", comp
 assert.equal(demo.SCHEMA_VERSION,"nsc-modelled-panel.v2");
 assert.equal(demo.PERSONAS.length,6,"the six behavioural personas remain an internal deterministic panel");
 assert(demo.PERSONAS.every(persona=>/^cohort-0[1-6]$/.test(persona.id)&&!Object.hasOwn(persona,"displayName")&&!Object.hasOwn(persona,"handle")),"the private panel definition must not retain fictional public identities");
-assert.equal(demo.enabled(undefined),false,"missing configuration must be off");
+assert.equal(demo.enabled(null),false,"missing configuration must be off");
 assert.equal(demo.enabled("off"),false);
 assert.equal(demo.enabled("internal"),false,"internal cohorts must not leak to public requests");
 assert.equal(demo.enabled("internal",{internal:true}),true);
@@ -98,16 +98,17 @@ const approvedPilots=[
   {user_id:"one",approved:true,suspended:false},{user_id:"two",approved:true,suspended:false},
   {user_id:"three",approved:true,suspended:true},{user_id:"four",approved:true,suspended:false},
 ];
-assert.equal(server.activeRealContributors90d(activeContributions,approvedPilots,boundaryNow),2,"90-day counting must include the exact boundary, deduplicate accounts and exclude suspended accounts");
+assert.equal(server.activeRealContributors90d(activeContributions,approvedPilots,boundaryNow),3,"90-day counting must include the exact boundary, deduplicate accounts and ignore the retired pilot allowlist");
 
 const timedLegacy=server.eventWithTiming({date:"2026-08-19",time:"20:00",liveWindow:3});
-assert.equal(timedLegacy.startTimeUtc,"2026-08-19T10:00:00.000Z","legacy Sydney fixture clocks must enter the correct NSC phase");
-assert.equal(nsc.phaseFor(server.eventTiming(timedLegacy),new Date("2026-08-19T09:59:59.000Z")),"heat");
+assert.equal(timedLegacy.startTimeUtc,null,"legacy display clocks must not be promoted to authoritative NSC timing");
+const timedExact=server.eventWithTiming({startTimeUtc:"2026-08-19T10:00:00.000Z",timePrecision:"exact",liveWindow:3});
+assert.equal(nsc.phaseFor(server.eventTiming(timedExact),new Date("2026-08-19T09:59:59.000Z")),"heat");
 assert.equal(nsc.phaseFor({
-  ...server.eventTiming(timedLegacy),
-  session:{status:"active",effectiveStartAt:timedLegacy.startTimeUtc,effectiveEndAt:timedLegacy.endTimeUtc},
+  ...server.eventTiming(timedExact),
+  session:{status:"active",effectiveStartAt:timedExact.startTimeUtc,effectiveEndAt:timedExact.endTimeUtc},
 },new Date("2026-08-19T10:30:00.000Z")),"pulse");
-assert.equal(nsc.phaseFor(server.eventTiming(timedLegacy),new Date("2026-08-19T13:00:00.000Z")),"impact");
+assert.equal(nsc.phaseFor(server.eventTiming(timedExact),new Date("2026-08-19T13:00:00.000Z")),"impact");
 
 const majorParent=majorEvents.events.find(record=>record.kind!=="ticket_sale"&&record.subEvents?.length);
 const ticketAlert=majorEvents.events.find(record=>record.kind==="ticket_sale");
@@ -118,7 +119,7 @@ const tbcChild=server.eventFor("major-match:nations-championship-2026:sixth-plac
 assert(tbcChild,"TBC Events children must remain eligible for crowd context");
 assert.deepEqual(server.snapshotTiming(tbcChild),{startTimeUtc:null,endTimeUtc:null},"a TBC child must not invalidate its whole Events snapshot batch");
 const legacyFeed=feed.events.find(record=>record.date&&record.time&&!record.startTimeUtc);
-assert(server.eventFor(legacyFeed.id)?.startTimeUtc,"legacy Feed fixtures must be normalised before phase selection");
+assert.equal(server.eventFor(legacyFeed.id)?.startTimeUtc,null,"legacy Feed display clocks must remain ineligible for phase selection");
 const lazyFootball=footballCore.events.find(record=>!feed.events.some(event=>event.id===record.id));
 assert(server.eventFor(lazyFootball.canonicalEventId),"lazy football cards must be registered under the same canonical ID the reader requests");
 
@@ -138,7 +139,7 @@ assert.doesNotMatch(html,/Independent context/);
 assert.doesNotMatch(html,/nsc-demo-badge|>Demo</,"modelled personas must never appear as named public contributors");
 assert(serverSource.includes('includesModelled=internalDemo &&'), 'public crowd must exclude simulated responses');
 assert.doesNotMatch(html,/dataset\.modelledExposure/,"peer summaries must not expose a blended modelled crowd");
-assert.match(html,/loadDeferredScript\("config\/nsc-visual\.js\?v=218"\)/,"the graph renderer must stay off the critical startup path");
+assert.doesNotMatch(html,/config\/nsc-visual\.js|NOTHINGSPORTS_NSC_VISUAL/,"the retired graph renderer must stay out of the app shell");
 assert.match(visualSource,/createElementNS\("http:\/\/www\.w3\.org\/2000\/svg"/);
 assert.match(visualSource,/Accessible data for/);
 assert.match(visualSource,/Community responses/);

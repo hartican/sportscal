@@ -22,15 +22,19 @@
   }
 
   function eventStart(event){
-    if (event?.startTimeUtc || event?.timelineSortTimeUtc){
-      const parsed = new Date(event.startTimeUtc || event.timelineSortTimeUtc);
-      if (!Number.isNaN(parsed.getTime())) return parsed;
-    }
-    if (event?.date){
-      const parsed = new Date(`${event.date}T${event.time || "00:00"}:00`);
-      if (!Number.isNaN(parsed.getTime())) return parsed;
-    }
-    return null;
+    if(event?.timePrecision && !["exact","session-start"].includes(event.timePrecision))return null;
+    const parsed = new Date(event?.startTimeUtc || "");
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  }
+
+  function inferredDurationHours(event){
+    const explicit=Number(event?.publishedDurationHours || event?.liveWindow || event?.calendarTemplate?.durationHours);
+    if(Number.isFinite(explicit)&&explicit>0)return explicit;
+    const identity=`${event?.competitionId || ""} ${event?.key || ""} ${event?.sportId || ""} ${event?.name || ""}`.toLowerCase();
+    if(/le mans|endurance|fia wec/.test(identity))return 24;
+    if(/tennis|us open|wimbledon|roland garros|australian open/.test(identity))return 5;
+    if(/formula 1|\bf1\b|motorsport/.test(identity))return 4;
+    return 3;
   }
 
   function eventEnd(event){
@@ -40,17 +44,25 @@
     }
     const start = eventStart(event);
     if (!start) return null;
-    const durationHours = Number(event.liveWindow || event.calendarTemplate?.durationHours || 3);
-    return new Date(start.getTime() + (Number.isFinite(durationHours) && durationHours > 0 ? durationHours : 3) * 60 * 60 * 1000);
+    return new Date(start.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
+  }
+
+  function retentionEnd(event){
+    const exactEnd = eventEnd(event);
+    if (exactEnd) return exactEnd;
+    const timeline = new Date(event?.timelineSortTimeUtc || event?.sessionStartTimeUtc || "");
+    if (!Number.isNaN(timeline.getTime())) return new Date(timeline.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(String(event?.date || ""))) return new Date(`${event.date}T23:59:59.999Z`);
+    return null;
   }
 
   function expiresAtForEvent(event){
-    const end = eventEnd(event);
+    const end = retentionEnd(event);
     return end ? new Date(end.getTime() + RETENTION_MS) : null;
   }
 
   function archivesAtForEvent(event){
-    const end = eventEnd(event);
+    const end = retentionEnd(event);
     return end ? new Date(end.getTime() + ARCHIVE_MS) : null;
   }
 
@@ -67,7 +79,7 @@
     saved = isRetentionExemptAction(action),
     now = new Date(),
   } = {}){
-    const end = eventEnd(event);
+    const end = retentionEnd(event);
     const reference = now instanceof Date ? now : new Date(now);
     if (!end || Number.isNaN(reference.getTime())){
       return {

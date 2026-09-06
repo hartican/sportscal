@@ -128,6 +128,8 @@
   }
 
   function subEventTimelineTime(subEvent){
+    const timeline = new Date(subEvent?.timelineSortTimeUtc || "").getTime();
+    if (Number.isFinite(timeline)) return timeline;
     const direct = new Date(subEvent?.startTimeUtc || "").getTime();
     if (Number.isFinite(direct)) return direct;
     const session = new Date(subEvent?.sessionStartTimeUtc || "").getTime();
@@ -161,7 +163,7 @@
         .format(new Date(session)).replace(/\s/g, "").toLowerCase();
       return `Follows · session starts ${label}`;
     }
-    if (["unpublished", "date-only"].includes(subEvent?.timePrecision)) return "Time unpublished";
+    if (["tbc", "unpublished", "date-only"].includes(subEvent?.timePrecision)) return "Time unpublished";
     const direct = new Date(subEvent?.startTimeUtc || "").getTime();
     if (!Number.isFinite(direct)) return "Time TBC";
     return new Intl.DateTimeFormat("en-AU", { timeZone, hour:"numeric", minute:"2-digit", hour12:true })
@@ -450,10 +452,14 @@
   }
 
   function fixtureFromSubEvent(subEvent, parent){
-    const directTime = new Date(subEvent?.startTimeUtc || "").getTime();
+    const precision=subEvent?.timePrecision==="session-start" ? "exact" : subEvent?.timePrecision==="unpublished" ? "tbc" : subEvent?.timePrecision || (subEvent?.startTimeUtc ? "exact" : "follows");
+    const directTime = precision==="exact" ? new Date(subEvent?.startTimeUtc || "").getTime() : NaN;
     const sessionTime = new Date(subEvent?.sessionStartTimeUtc || "").getTime();
-    const follows = subEvent?.timePrecision === "follows" && Number.isFinite(sessionTime);
-    const timelineTime = Number.isFinite(directTime)
+    const explicitTimeline = new Date(subEvent?.timelineSortTimeUtc || "").getTime();
+    const follows = precision === "follows" && Number.isFinite(sessionTime);
+    const timelineTime = Number.isFinite(explicitTimeline)
+      ? explicitTimeline
+      : Number.isFinite(directTime)
       ? directTime
       : follows ? sessionTime + Math.max(0, Number(subEvent?.sequenceInSession) || 0) * 1000 : NaN;
     if (!subEvent?.id || !Number.isFinite(timelineTime)) return null;
@@ -476,6 +482,8 @@
       key: parent.sportKey,
       sport: parent.sportLabel,
       competitionId: parent.competitionId,
+      parentEventId: parent.id,
+      identityRef: subEvent.identityRef || `event:${String(parent.id || "").replace(/^major-event:/,"").replace(/-\d{4}(?::.*)?$/,"")}`,
       stableMatchId: subEvent.stableMatchId || null,
       legacyEventIds: Array.isArray(subEvent.legacyEventIds) ? [...subEvent.legacyEventIds] : [],
       roundLabel: subEvent.roundLabel || subEvent.stage || null,
@@ -493,7 +501,8 @@
       timelineSortTimeUtc:instant.toISOString(),
       sessionStartTimeUtc:subEvent.sessionStartTimeUtc || null,
       sequenceInSession:Number(subEvent.sequenceInSession) || 0,
-      timePrecision:subEvent.timePrecision || (Number.isFinite(directTime) ? "exact" : "follows"),
+      timePrecision:precision || (Number.isFinite(directTime) ? "exact" : "follows"),
+      timingSource:subEvent.timingSource || null,
       ...(follows ? { displayTimeLabel:timelineDisplayTime(subEvent, "Australia/Sydney") } : {}),
       venue: subEvent.venue || parent.venue,
       status: subEvent.status || "scheduled",

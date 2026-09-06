@@ -66,11 +66,11 @@ const controlledUpdate = lifecycle.createStartupCoordinator({
 assert.equal(controlledUpdate.isHydrating(), true, "the framework must expose a loading card surface while startup data settles");
 assert.equal(controlledUpdate.controllerChanged(), false, "a worker update during startup must wait instead of interrupting the live app");
 assert.equal(controlledUpdateReloads, 0, "controller changes must not reload an app that is still hydrating");
-assert.equal(controlledUpdate.markHydrationComplete(), false, "a worker update must wait for the next natural navigation");
-assert.equal(controlledUpdateReloads, 0, "a pending installed-app update must never restart the visible launch");
+assert.equal(controlledUpdate.markHydrationComplete(), true, "a worker update must reload once after hydration so the installed app receives the current shell");
+assert.equal(controlledUpdateReloads, 1, "a pending installed-app update must commit one guarded reload");
 controlledUpdate.controllerChanged();
 controlledUpdate.markHydrationComplete();
-assert.equal(controlledUpdateReloads, 0, "repeated lifecycle signals must not create an update reload loop");
+assert.equal(controlledUpdateReloads, 1, "repeated lifecycle signals must not create an update reload loop");
 
 let firstInstallReloads = 0;
 const firstInstall = lifecycle.createStartupCoordinator({
@@ -136,7 +136,7 @@ async function validateServiceWorkerActivation(){
   let activation;
   handlers.activate({ waitUntil(promise){ activation = promise; } });
   await activation;
-  assert.equal(navigations, 0, "worker activation must never navigate a live Home Screen app during startup");
+  assert.equal(navigations, 0, "worker activation leaves reload timing to the hydrated page coordinator");
 }
 
 async function validateServiceWorkerRevalidation(){

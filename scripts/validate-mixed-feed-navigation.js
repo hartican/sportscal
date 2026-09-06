@@ -38,4 +38,4 @@ assert.deepEqual(
   "repeated identical profiles and clocks must produce identical feeds",
 );
 
-console.log("Mixed Feed navigation passed: AFL/NRL round summaries stay in Standings & Fixtures and every Feed return clears legacy sport focus.");
+console.log("Mixed Feed navigation passed: AFL/NRL round summaries stay in Follow Schedule and every Feed return clears legacy sport focus.");

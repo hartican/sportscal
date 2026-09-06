@@ -179,28 +179,6 @@ IFS='|' read -r \
   LOCAL_META_VERSION_BEFORE LOCAL_META_GENERATED_BEFORE LOCAL_META_PUBLISHED_BEFORE LOCAL_META_UPDATED_BEFORE LOCAL_META_CARD_COUNT_BEFORE LOCAL_META_SOURCE_BEFORE \
   < <(read_feed_meta_fields "data/feed-meta.json")
 
-if [[ "${SKIP_RELEASE:-0}" != "1" ]]; then
-  resolve_vercel_token
-
-  VERCEL_TOKEN="$(printf '%s' "${VERCEL_TOKEN:-}")"
-  VERCEL_TOKEN="${VERCEL_TOKEN//$'\r'/}"
-  VERCEL_TOKEN="${VERCEL_TOKEN//[[:space:]]/}"
-
-  if [[ -n "${VERCEL_TOKEN:-}" ]]; then
-    export VERCEL_TOKEN
-    if ! vercel whoami >/dev/null 2>&1; then
-      echo "Saved VERCEL_TOKEN is not authorized; falling back to the authenticated Vercel CLI session." >&2
-      unset VERCEL_TOKEN
-    fi
-  fi
-
-  if [[ -z "${VERCEL_TOKEN:-}" ]] && ! vercel whoami >/dev/null 2>&1; then
-    echo "Error: neither VERCEL_TOKEN nor the Vercel CLI session is authorized." >&2
-    echo "Run 'vercel login' once on this machine or provide a valid account token, then retry." >&2
-    exit 1
-  fi
-fi
-
 ensure_clean_origin_main_checkout
 
 if [[ "${QUICK_RESULTS:-0}" == "1" ]]; then

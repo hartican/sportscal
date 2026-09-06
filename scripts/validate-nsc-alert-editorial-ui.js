@@ -33,7 +33,8 @@ function assertOrder(source, markers, message){
 // Standard cards submit a one-tap rating; all Events feed surfaces omit inputs.
 const cardSummary=section(html,"function buildNothingscorePeerResults", "function openNothingscoreLeaderboard");
 for(const marker of ["buildInlineCrowdRating", "inlineRatingRequests.has(id)", "pointsAwarded", "paint(chosen)", "Early ratings", "No ratings yet"]){assert(cardSummary.includes(marker), marker);}
-for(const tip of ["Rate how you think it'll go", "Rate how it's going", "Rate how it went"]){assert(cardSummary.includes(tip),tip);}
+for(const tip of ["How do you think it'll go?", "How do you think it's going?", "How do you think it went?"]){assert(cardSummary.includes(tip),tip);}
+for(const label of ["Boring","Mid","Interesting","Cooking","Epic"]){assert(cardSummary.includes(label),label);}
 assert(cardSummary.includes("activeTab==='events'&&!inDrawer"),'Events feed must omit ratings');
 assert(cardSummary.includes("phase==='pulse'?'pulse':'submit'"),'all phases use the server-owned one-tap contract');
 assert(cardSummary.includes("prefers-reduced-motion: reduce"),'points animation respects reduced motion');

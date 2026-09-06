@@ -1,11 +1,11 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-06T02:34:00.407Z",
+  "generatedAt": "2026-09-06T12:03:43.489Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 7,
-    "passed": 7,
+    "due": 5,
+    "passed": 5,
     "failed": 0
   },
   "cards": [
@@ -24,36 +24,6 @@
         "narrative:history"
       ],
       "sourceUrl": "https://www.usopen.org/en_US/about/eventschedule.html",
-      "issues": []
-    },
-    {
-      "id": "event-nrl-129992707",
-      "name": "Dragons v Eels",
-      "sport": "NRL",
-      "date": "2026-09-06",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "issues": []
-    },
-    {
-      "id": "event-nrl-129992708",
-      "name": "Panthers v Wests Tigers",
-      "sport": "NRL",
-      "date": "2026-09-06",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/ladder",
       "issues": []
     },
     {

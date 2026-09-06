@@ -26,20 +26,20 @@ const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8765';
   const card=page.locator('[data-event-id="qa-4"]');
   const align=async()=>{for(let attempt=0;attempt<3;attempt++){await card.evaluate(node=>window.scrollTo({top:window.scrollY+node.getBoundingClientRect().top-stickyFeedChromeHeight()-25,behavior:'instant'}));await page.waitForTimeout(100);if(await card.evaluate(node=>Math.abs(node.getBoundingClientRect().top-stickyFeedChromeHeight()-25)<=2))return;}assert.fail('The measured card could not be positioned at the visible reading anchor');};
   const rect=()=>card.evaluate(node=>({top:node.getBoundingClientRect().top,state:node.dataset.cardState,scroll:scrollY,max:document.documentElement.scrollHeight-innerHeight}));
-  const deltas=[];
-  for(const expected of ['opened','compact','selected']){
-   await align();const before=await rect();await card.press('Enter');await page.waitForTimeout(150);const after=await rect();assert.equal(after.state,expected);assert(Math.abs(after.top-before.top)<=2,`width ${width} cycle ${expected} drift ${after.top-before.top}`);deltas.push(after.top-before.top);
+  const deltas=[],expansionPaintMs=[];
+  for(const expected of ['opened','selected','opened']){
+   await align();const before=await rect();const paintMs=await card.evaluate(node=>{const started=performance.now();node.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));return performance.now()-started;});await page.waitForTimeout(150);const after=await rect();assert.equal(after.state,expected);assert(paintMs<100,`width ${width} cycle ${expected} paint ${paintMs}ms`);assert(Math.abs(after.top-before.top)<=2,`width ${width} cycle ${expected} drift ${after.top-before.top}`);deltas.push(after.top-before.top);expansionPaintMs.push(paintMs);
   }
-  for(const expected of ['opened','compact','selected']){
-   await align();const before=await rect();await card.locator(expected==='selected'?'.compact-card-summary':'.event-date-line').click();await page.waitForTimeout(150);const after=await rect();assert.equal(after.state,expected);assert(Math.abs(after.top-before.top)<=2,`tap drift ${width}: ${after.top-before.top}`);deltas.push(after.top-before.top);
+  for(const expected of ['selected','opened','selected']){
+   await align();const before=await rect();await card.locator('.event-date-line').click();await page.waitForTimeout(150);const after=await rect();assert.equal(after.state,expected);assert(Math.abs(after.top-before.top)<=2,`tap drift ${width}: ${after.top-before.top}`);deltas.push(after.top-before.top);
   }
   let before,after;
   await page.getByRole('button',{name:'Calendar sync',exact:true}).click();await page.getByRole('button',{name:'Select fixtures',exact:true}).click();
-  const checkbox=card.locator('[data-calendar-id]');await checkbox.check();assert.equal(await card.getAttribute('data-card-state'),'compact');
+  const checkbox=card.locator('[data-calendar-id]');await card.evaluate(node=>node.scrollIntoView({block:'center',behavior:'instant'}));await card.locator('.compact-card-summary').click();assert(await checkbox.isChecked());assert.equal(await card.getAttribute('data-card-state'),'compact');
   await page.getByRole('button',{name:'Review calendar',exact:true}).click();const downloaded=page.waitForEvent('download');await page.getByRole('button',{name:'Download ICS',exact:true}).click();const download=await downloaded;const fs=require('node:fs');const ics=fs.readFileSync(await download.path(),'utf8');assert(ics.includes('UID:qa-4@')&&ics.includes('BEGIN:VCALENDAR'));
   await page.getByRole('button',{name:'Close',exact:true}).click();await page.getByRole('button',{name:'Done selecting',exact:true}).click();
   await page.getByRole('button',{name:'Compact',exact:true}).click();await page.waitForFunction(()=>compactRenderFrame===null);assert.equal(await card.getAttribute('data-card-state'),'compact');
-  await page.getByRole('button',{name:'Compact',exact:true}).click();await page.waitForFunction(()=>compactRenderFrame===null);
+  await page.getByRole('button',{name:'Expand',exact:true}).click();await page.waitForFunction(()=>compactRenderFrame===null);assert.equal(await card.getAttribute('data-card-state'),'selected');
   await align();before=await rect();await page.clock.fastForward(60000);await page.waitForTimeout(150);after=await rect();assert(Math.abs(after.top-before.top)<=2,`minute drift ${after.top-before.top}`);
   await align();before=await rect();await page.evaluate(()=>{activeEvents.slice(0,5).forEach(ev=>nothingscoreLoadErrors.set(nothingscoreEventId(ev),Date.now()));nothingscoreQueueRender();});await page.waitForTimeout(150);after=await rect();assert(Math.abs(after.top-before.top)<=2,`Nothingscore update drift ${after.top-before.top}`);deltas.push(after.top-before.top);
   await align();before=await rect();await page.clock.setSystemTime(new Date('2026-09-05T02:05:00Z'));await page.evaluate(()=>window.dispatchEvent(new Event('focus')));await page.waitForTimeout(150);after=await rect();assert(Math.abs(after.top-before.top)<=2,`resume drift ${after.top-before.top}`);deltas.push(after.top-before.top);
@@ -49,7 +49,7 @@ const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8765';
    const base={key:'football',date:'2026-09-05',time:'05:00',stakesScore:2};
    const host=document.createElement('section');host.id='provider-qa';document.getElementById('listView').append(host);
    host.append(buildEventCard({...base,id:'qa-betis',name:'Real Betis v Real Madrid',competitionId:'competition:la-liga'}),buildEventCard({...base,id:'qa-psg',name:'Paris Saint-Germain v AS Monaco',competitionId:'competition:ligue-1',broadcaster:'beIN Sports'}));
-   return {bein:host.querySelector('[data-event-id="qa-betis"] .event-card-viewing-actions')?.textContent,psg:host.querySelector('[data-event-id="qa-psg"] .event-card-viewing-actions')?.textContent};
+   return {bein:host.querySelector('[data-event-id="qa-betis"]')?.textContent,psg:host.querySelector('[data-event-id="qa-psg"]')?.textContent};
   });assert(viewing.bein.includes('Watch on')||viewing.bein.includes('Replay on'));assert(viewing.psg.includes('Australian viewing unconfirmed'));
   await page.locator('#provider-qa img[alt="beIN SPORTS logo"]').waitFor({state:'attached'});
   await page.locator('.tab-btn[data-tab="follow"]').click();await page.getByRole('button',{name:'AFL',exact:true}).click();await page.getByRole('button',{name:'AFL Premiership',exact:true}).click();
@@ -72,7 +72,7 @@ const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8765';
   assert((await page.getByRole('article',{name:'Formula 1 Australian Grand Prix 2027. Summary view.',exact:true}).innerText()).includes('Dates TBC'));
   assert.equal(await page.getByRole('link',{name:/Join waitlist for Formula 1 Australian/}).count(),1);
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);assert(!overflow,`horizontal overflow ${width}`);
-  evidence.push({width,anchorDeltas:deltas,followDeltas,guestIcs:true,providers:true,followBack:true,ticketDates:true});await page.close();
+  evidence.push({width,anchorDeltas:deltas,expansionPaintMs,followDeltas,guestIcs:true,providers:true,followBack:true,ticketDates:true});await page.close();
  }}catch(error){console.log('Failure URL',debugPage?.url());console.log((await debugPage?.locator('body').innerText())?.slice(0,1600));throw error;}finally{await browser.close();}
  console.log(JSON.stringify(evidence,null,2));
 })().catch(error=>{console.error(error);process.exitCode=1;});

@@ -17,6 +17,10 @@ const US_OPEN_ID = "major-event:us-open-2026";
 const AUTO_ID_PREFIX = "fixture:us-open-2026:official:";
 const TOURNAMENT_YEAR = 2026;
 const CHECK_ONLY = process.argv.includes("--check");
+const VERIFIED_BROADCAST_STARTS = Object.freeze({
+  "Yibing Wu v Carlos Alcaraz":{startTimeUtc:"2026-09-05T02:30:00.000Z",publisher:"Stan Sport",url:"https://www.stan.com.au/watch/sport/tennis/us-open",checkedAt:"2026-09-06T00:30:00.000Z"},
+  "Alexander Zverev v Alejandro Tabilo":{startTimeUtc:"2026-09-06T01:30:00.000Z",publisher:"Stan Sport",url:"https://www.stan.com.au/watch/sport/tennis/us-open",checkedAt:"2026-09-06T00:30:00.000Z"},
+});
 
 const NEUTRAL_PLAYER_COUNTRY_OVERRIDES = Object.freeze({
   wta330151: "RU", // Erika Andreeva
@@ -209,7 +213,9 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
   const sessionStartTimeUtc = Number.isFinite(Number(court?.startEpoch))
     ? new Date(Number(court.startEpoch) * 1000).toISOString()
     : null;
-  const startTimeUtc = order === 1 ? sessionStartTimeUtc : null;
+  const publishedStartTimeUtc = order === 1 ? sessionStartTimeUtc : null;
+  const broadcastTiming=VERIFIED_BROADCAST_STARTS[sideLabels.join(" v ")] || null;
+  const startTimeUtc=publishedStartTimeUtc || broadcastTiming?.startTimeUtc || null;
   const status = statusForMatch(match);
   const score = scoreDisplay(match, sideLabels);
   const courtName = compactWhitespace(match?.courtName || court?.courtName || "USTA Billie Jean King National Tennis Center");
@@ -221,6 +227,10 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
     id:`${AUTO_ID_PREFIX}${eventCode.toLowerCase()}:${sourceMatchId}`,
     stableMatchId,
     cardKind:"fixture",
+    competitionId:"competition:tennis:us-open:2026",
+    parentEventId:US_OPEN_ID,
+    identityRef:"event:us-open",
+    participantIds:matchupSides.flatMap(side => side.players.map(player => player.id)),
     name:sideLabels.join(" v "),
     stage:eventLabel.stage,
     roundLabel,
@@ -229,10 +239,17 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
     date,
     time:localTime(startTimeUtc),
     startTimeUtc,
+    timelineSortTimeUtc:startTimeUtc || (sessionStartTimeUtc ? new Date(new Date(sessionStartTimeUtc).getTime() + order * 1000).toISOString() : null),
     sessionId:`us-open-2026:day-${day.tournDay}:court-${slug(court?.courtId || courtName)}:session-${court?.session || 1}`,
     sessionStartTimeUtc,
     sequenceInSession:order,
-    timePrecision:startTimeUtc ? "session-start" : "follows",
+    timePrecision:startTimeUtc ? "exact" : "follows",
+    timingSource:{
+      publisher:publishedStartTimeUtc?"US Open":broadcastTiming?.publisher || "US Open",
+      url:publishedStartTimeUtc?sourceUrl:broadcastTiming?.url || sourceUrl,
+      checkedAt:publishedStartTimeUtc?capturedAt:broadcastTiming?.checkedAt || capturedAt,
+      precedence:publishedStartTimeUtc?"official-tournament":broadcastTiming?"verified-broadcaster":"official-session-order",
+    },
     scheduleStatus:"confirmed",
     status,
     statusUpdatedAt:capturedAt,
@@ -311,6 +328,29 @@ function preserveResultTimestamps(fixture, previous){
   };
 }
 
+function canonicalUsOpenFixture(subEvent){
+  const legacyPrecision=String(subEvent?.timePrecision || "").toLowerCase();
+  const timePrecision=legacyPrecision==="session-start" ? "exact" : legacyPrecision==="unpublished" ? "tbc" : ["exact","follows","date-only","tbc"].includes(legacyPrecision) ? legacyPrecision : subEvent?.startTimeUtc ? "exact" : "follows";
+  const directTime=timePrecision==="exact" ? new Date(subEvent?.startTimeUtc || "").getTime() : NaN;
+  const sessionTime=new Date(subEvent?.sessionStartTimeUtc || "").getTime();
+  const previousSortTime=new Date(subEvent?.timelineSortTimeUtc || "").getTime();
+  const sortTime=Number.isFinite(directTime) ? directTime : Number.isFinite(previousSortTime) ? previousSortTime : Number.isFinite(sessionTime) ? sessionTime + Math.max(0,Number(subEvent?.sequenceInSession)||0)*1000 : NaN;
+  const participantIds=Array.from(new Set([
+    ...(subEvent?.participantIds || []),
+    ...(subEvent?.matchupSides || []).flatMap(side => (side.players || []).map(player => player.id)),
+  ].filter(Boolean)));
+  return {
+    ...subEvent,
+    competitionId:"competition:tennis:us-open:2026",
+    parentEventId:US_OPEN_ID,
+    identityRef:"event:us-open",
+    participantIds,
+    startTimeUtc:Number.isFinite(directTime) ? new Date(directTime).toISOString() : null,
+    timelineSortTimeUtc:Number.isFinite(sortTime) ? new Date(sortTime).toISOString() : null,
+    timePrecision,
+  };
+}
+
 function mergeCatalogue(catalogue, snapshot){
   const snapshotFixtures = fixturesFromSnapshot(snapshot);
   const currentFeedUrls = new Set(currentScheduleDays(snapshot).map(day => day.feedUrl));
@@ -331,7 +371,7 @@ function mergeCatalogue(catalogue, snapshot){
       const rightTime = new Date(right.startTimeUtc || right.sessionStartTimeUtc).getTime() + Math.max(0, Number(right.sequenceInSession) || 0) * 1000;
       return leftTime - rightTime || left.id.localeCompare(right.id);
     });
-    const mergedSubEvents = deduplicateFixtures([...handCurated, ...officialFixtures]);
+    const mergedSubEvents = deduplicateFixtures([...handCurated, ...officialFixtures]).map(canonicalUsOpenFixture);
     const isMainDraw = currentFixtures.some(fixture => !/qualifying/.test(fixture.matchType));
     const officialSource = {
       name:"US Open official released order of play",
@@ -423,4 +463,4 @@ if (require.main === module){
   });
 }
 
-module.exports = { AUTO_ID_PREFIX, CHECK_ONLY, SCHEDULE_DAYS_URL, currentScheduleDays, fetchOfficialSnapshot, fixtureFromMatch, fixturesFromSnapshot, isPublishedMatch, mergeCatalogue, releasedScheduleDays, sourceDate, stakesPolicyForMatch, statusForMatch };
+module.exports = { AUTO_ID_PREFIX, CHECK_ONLY, SCHEDULE_DAYS_URL, canonicalUsOpenFixture, currentScheduleDays, fetchOfficialSnapshot, fixtureFromMatch, fixturesFromSnapshot, isPublishedMatch, mergeCatalogue, releasedScheduleDays, sourceDate, stakesPolicyForMatch, statusForMatch };

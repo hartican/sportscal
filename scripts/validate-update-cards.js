@@ -21,6 +21,8 @@ assert(localSteps.some(step => step[0] === "scripts/refresh-official-follow-fixt
 assert(localSteps.some(step => step[0] === "scripts/build-follow-fixtures.js" && step.length === 1), "every update must regenerate the compact fixture-only follow artifact");
 assert(localSteps.some(step => step[0] === "scripts/build-follow-fixtures.js" && step.includes("--check")), "every update must reject identifying fields or duplicate ids in the compact artifact");
 assert(localSteps.some(step => step[0] === "scripts/audit-followed-fixture-coverage.js"), "every update must audit every anonymised profile before completion");
+assert(localSteps.some(step => step[0] === "scripts/validate-feed-coverage-resilience.js"), "every update must reject stale follow artifacts, missing released tournament days and unexplained future gaps");
+assert(localSteps.some(step => step[0] === "scripts/validate-quick-results-cadence.js"), "every update must prove the three Sydney quick-refresh windows across daylight-saving changes");
 assert(localSteps.some(step => step[0] === "scripts/validate-authenticated-feed-startup.js"), "every update must prove a restored session starts on the personalised follow-derived Feed");
 assert(
   localSteps.findIndex(step => step[0] === "scripts/refresh-official-follow-fixtures.js" && step.length === 1)

@@ -4,7 +4,15 @@ const fs=require('node:fs'),server=require('../lib/nothingscore-server'),crowd=r
 const {allRows}=require('../lib/nsc-rankings');
 async function main(){
  if(!process.env.SUPABASE_SERVICE_ROLE_KEY&&!process.env.SUPABASE_SECRET_KEY){console.log('Forecast training skipped: no source credentials; retaining prior forecasts.');return;}
- const now=new Date(),rows=await allRows(server.TABLES.contributions,{phase:'eq.impact',select:'event_id,user_id,rating,phase,updated_at'}),grouped=new Map();
+ const now=new Date();
+ let rows;
+ try{
+  rows=await allRows(server.TABLES.contributions,{phase:'eq.impact',select:'event_id,user_id,rating,phase,updated_at'});
+ }catch(error){
+  console.warn(`Forecast training source unavailable (${error.message}); retaining prior validated forecasts.`);
+  return;
+ }
+ const grouped=new Map();
  for(const row of rows){if(!grouped.has(row.event_id))grouped.set(row.event_id,[]);grouped.get(row.event_id).push(row);}
  const bySport=new Map();
  for(const [id,votes] of grouped){const event=server.eventFor(id);if(!event||Date.parse(event.endTimeUtc)>=+now)continue;const verdict=crowd.summary(votes,{phase:'impact',now});if(verdict.count<5)continue;const key=event.key||event.sportDomainId;if(!bySport.has(key))bySport.set(key,[]);bySport.get(key).push(verdict.rawAverage);}

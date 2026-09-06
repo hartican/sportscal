@@ -17,7 +17,9 @@ assert.deepEqual(feedControls.MIX_TARGETS.balanced, { direct: 0.75, adjacent: 0.
 assert.equal(feedControls.EXPERIMENT_FLAGS.balancedDiscovery, true);
 assert.equal(feedControls.EXPERIMENT_FLAGS.firstImpressionDiscoveryCap, 1);
 assert.deepEqual(feedControls.normalize({ froth: "invalid", scope: "invalid" }), feedControls.DEFAULT_CONTROLS);
-assert.equal(feedControls.eventStart({ date: "2026-08-13", time: "19:00" }).toISOString(), "2026-08-13T09:00:00.000Z", "legacy local times must be interpreted in Australia/Sydney");
+assert.equal(feedControls.eventStart({ date: "2026-08-13", time: "19:00" }), null, "display-only local times must never become an authoritative start");
+assert.equal(feedControls.eventStart({ startTimeUtc:"2026-08-13T09:00:00.000Z", timePrecision:"follows" }), null, "follows placeholders must never activate timing state even if a legacy start leaked through");
+assert.equal(feedControls.eventStart({ startTimeUtc:"2026-08-13T09:00:00.000Z", timePrecision:"exact" }).toISOString(), "2026-08-13T09:00:00.000Z");
 assert.equal(feedControls.eventStart({ date: "2026-08-13", timeTbc: true }), null, "time-TBC records must not receive a timing state");
 assert.equal(feedControls.eventStart({ date: "2026-08-13", dateOnly: true }), null, "date-only records must not receive a timing state");
 
@@ -30,6 +32,7 @@ assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T13:59:59.
 assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T14:00:00.000Z")), null, "Just Finished expires exactly three hours after the end");
 assert.equal(feedControls.timingState({ startTimeUtc:timedEvent.startTimeUtc, liveWindow:2 }, new Date("2026-08-13T11:00:00.000Z")).key, "just-finished", "liveWindow supplies the derived end");
 ["cancelled", "canceled", "postponed"].forEach(status => assert.equal(feedControls.timingState({ ...timedEvent, status }, new Date("2026-08-13T09:30:00.000Z")), null));
+assert.equal(feedControls.timingState({startTimeUtc:"2026-09-05T02:30:00.000Z",timePrecision:"exact",key:"tennis",status:"live"},new Date("2026-09-06T09:09:00.000Z")),null,"stale explicit live status must expire after the sport cap");
 
 const viewingEvent = {
   date: "2026-08-13",

@@ -25,11 +25,12 @@ const events=Array.from({length:125},(_,i)=>({...fixture,eventId:`fixture-${i}`}
 assert.equal(calendar.selectedEvents(events,events.map(calendar.idFor),{excludedIds:['fixture-2']}).length,124);
 assert.equal(calendar.selectedEvents([...events,{...fixture,eventId:'new-followed'}],[...events.map(calendar.idFor),'new-followed'],{excludedIds:['fixture-2']}).length,125);
 assert.equal(calendar.selectedEvents(events,[],{includedIds:['fixture-3'],excludedIds:['fixture-2']})[0].eventId,'fixture-3');
-const overnight={...fixture,eventId:'overnight',date:'2026-09-04',time:'23:30',liveWindow:4};
-const completed={...fixture,eventId:'done',time:'00:30',status:'completed'};
-const simultaneous={...fixture,eventId:'simultaneous',time:'01:30'};
-let groups=timeline.groups([fixture,overnight,completed,simultaneous],new Date('2026-09-04T15:30:00Z'));
-assert.deepEqual(groups.today.map(e=>e.eventId),['done','overnight','simultaneous',fixture.eventId]);
+const overnight={...fixture,eventId:'overnight',date:'2026-09-04',time:'23:30',startTimeUtc:'2026-09-04T13:30:00.000Z',timePrecision:'exact',liveWindow:4};
+const completed={...fixture,eventId:'done',date:'2026-09-05',time:'00:30',startTimeUtc:'2026-09-04T14:30:00.000Z',timePrecision:'exact',status:'completed'};
+const simultaneous={...fixture,eventId:'simultaneous',date:'2026-09-05',time:'15:15',startTimeUtc:'2026-09-05T05:15:00.000Z',timePrecision:'exact'};
+const exactFixture={...fixture,startTimeUtc:'2026-09-05T05:15:00.000Z',timePrecision:'exact'};
+let groups=timeline.groups([exactFixture,overnight,completed,simultaneous],new Date('2026-09-04T15:30:00Z'));
+assert.deepEqual(groups.today.map(e=>e.eventId),['done','overnight',fixture.eventId,'simultaneous']);
 assert.equal(groups.today[1].date,'2026-09-04');assert.equal(timeline.status(overnight,new Date('2026-09-04T15:30:00Z')),'live');
 assert.equal(timeline.status({...overnight,status:'completed'},new Date('2026-09-04T15:30:00Z')),'past');
 groups=timeline.groups([overnight],new Date('2026-09-04T18:00:00Z'));assert.equal(groups.today.length,0);assert.equal(groups.retainedPast.length,1);

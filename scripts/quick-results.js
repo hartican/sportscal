@@ -51,7 +51,7 @@ async function refresh({now=new Date(),offline=false}={}){
    run('scripts/select-result-editorial.js');
    run('scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--replace');
    run('scripts/build-follow-fixtures.js');run('scripts/build-paged-feed.js');run('scripts/build-code-inspector.js');
-   run('scripts/validate-feed.js','data/events.json');run('scripts/validate-crowd-foresight.js');
+   run('scripts/validate-feed-coverage-resilience.js');run('scripts/validate-feed.js','data/events.json');run('scripts/validate-crowd-foresight.js');
  }
  if(process.env.SUPABASE_SERVICE_ROLE_KEY||process.env.SUPABASE_SECRET_KEY)run('scripts/settle-nsc-foresight.js');
  console.log(JSON.stringify({mode:'quick',changed:changes,failures,aiCalls:0}));

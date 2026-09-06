@@ -48,7 +48,7 @@ assert(currentOfficialFixtures.length, "the current released US Open day must re
 assert.equal(timeline.upcoming.length, 3, "L1 must preview the next three released US Open fixtures below Now");
 assert(timeline.upcoming.every(item => item.subEvent.id.startsWith("fixture:us-open-2026:official:")), "L1 upcoming rows must come from the current official order of play");
 assert(officialFixtures.some(event => event.timePrecision === "follows" && !event.startTimeUtc), "later court matches must retain follows timing rather than an invented start");
-assert(officialFixtures.some(event => event.timePrecision === "session-start" && event.startTimeUtc), "first court matches must retain the published session start");
+assert(officialFixtures.some(event => event.timePrecision === "exact" && event.startTimeUtc && event.timingSource), "first court matches must retain the published authoritative start and timing provenance");
 const compactUpcoming = majorEvents.compactPhaseTimelineItems(
   majorEvents.phaseTimeline(usOpen, reference, { level:"L0", timeZone:"Australia/Sydney" })
 );

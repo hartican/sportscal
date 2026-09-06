@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-09-06T02:33:53.319Z",
+  "generatedAt": "2026-09-06T11:58:36.649Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
@@ -8,8 +8,8 @@
     "minimumStakes": 2
   },
   "consequenceMigration": {
-    "covered": 1,
-    "queued": 109
+    "covered": 0,
+    "queued": 105
   },
   "entries": [
     {
@@ -39,34 +39,6 @@
       "consequenceResearchRequired": true,
       "priority": "marquee",
       "refreshDeadline": "2026-09-26T04:30:00.000Z"
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "evt_83",
-      "title": "NRL Preliminary Finals",
-      "stakes": 5,
-      "startsAt": "2026-09-26T09:30:00.000Z",
-      "reason": "rolling-stakes-2-plus+surfaced-stakes-5",
-      "projectionId": "projection:feed:nrl-preliminary-finals-2026",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "marquee",
-      "refreshDeadline": "2026-09-21T12:00:00.000Z"
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "evt_84",
-      "title": "NRL Grand Final",
-      "stakes": 5,
-      "startsAt": "2026-10-04T08:30:00.000Z",
-      "reason": "rolling-stakes-2-plus+surfaced-stakes-5",
-      "projectionId": "projection:feed:nrl-grand-final-2026",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "marquee",
-      "refreshDeadline": "2026-09-01T12:00:00.000Z"
     },
     {
       "targetType": "major-event",
@@ -153,6 +125,34 @@
       "refreshDeadline": "2026-12-01T00:00:00.000Z"
     },
     {
+      "targetType": "feed-event",
+      "targetId": "evt_83",
+      "title": "NRL Preliminary Finals",
+      "stakes": 5,
+      "startsAt": null,
+      "reason": "surfaced-stakes-5",
+      "projectionId": "projection:feed:nrl-preliminary-finals-2026",
+      "coverage": "covered",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": true,
+      "priority": "marquee",
+      "refreshDeadline": "2026-09-21T12:00:00.000Z"
+    },
+    {
+      "targetType": "feed-event",
+      "targetId": "evt_84",
+      "title": "NRL Grand Final",
+      "stakes": 5,
+      "startsAt": null,
+      "reason": "surfaced-stakes-5",
+      "projectionId": "projection:feed:nrl-grand-final-2026",
+      "coverage": "covered",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": true,
+      "priority": "marquee",
+      "refreshDeadline": "2026-09-01T12:00:00.000Z"
+    },
+    {
       "targetType": "major-event",
       "targetId": "major-event:australian-grand-prix-2027",
       "title": "Formula 1 Australian Grand Prix 2027",
@@ -165,34 +165,6 @@
       "consequenceResearchRequired": true,
       "priority": "marquee",
       "refreshDeadline": "2026-10-01T00:00:00.000Z"
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:nrl:129992607",
-      "title": "Warriors v Knights",
-      "stakes": 2,
-      "startsAt": "2026-08-30T04:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:event-nrl-129992607",
-      "coverage": "covered",
-      "consequenceCoverage": "covered",
-      "consequenceResearchRequired": false,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:nrl:129992608",
-      "title": "Eels v Sharks",
-      "stakes": 2,
-      "startsAt": "2026-08-30T06:05:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:event-nrl-129992608",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -257,12 +229,12 @@
       "stakes": 4,
       "startsAt": "2026-08-30T16:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2117",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -271,12 +243,12 @@
       "stakes": 4,
       "startsAt": "2026-08-30T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1148",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -285,12 +257,12 @@
       "stakes": 4,
       "startsAt": "2026-08-31T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2101",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -313,12 +285,12 @@
       "stakes": 4,
       "startsAt": "2026-08-31T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1149",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -327,12 +299,12 @@
       "stakes": 4,
       "startsAt": "2026-09-01T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2153",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -341,12 +313,12 @@
       "stakes": 4,
       "startsAt": "2026-09-01T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2148",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -355,12 +327,12 @@
       "stakes": 4,
       "startsAt": "2026-09-02T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2209",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -369,12 +341,12 @@
       "stakes": 4,
       "startsAt": "2026-09-02T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2201",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -411,12 +383,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25101",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -425,12 +397,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25102",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -439,12 +411,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25103",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -453,12 +425,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25104",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -467,12 +439,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25105",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -481,12 +453,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25106",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -495,12 +467,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25107",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -509,12 +481,12 @@
       "stakes": 3,
       "startsAt": "2026-09-03T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:bq:25108",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -523,12 +495,12 @@
       "stakes": 4,
       "startsAt": "2026-09-03T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2229",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -537,12 +509,12 @@
       "stakes": 4,
       "startsAt": "2026-09-03T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2224",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -593,12 +565,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26201",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -607,12 +579,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26202",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -621,12 +593,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26203",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -635,12 +607,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26204",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -649,12 +621,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26205",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -663,12 +635,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26206",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -677,12 +649,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26207",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -691,12 +663,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T14:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:gq:26208",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -705,12 +677,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T15:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2301",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -719,12 +691,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T15:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2303",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -733,12 +705,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T15:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2306",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -747,12 +719,12 @@
       "stakes": 4,
       "startsAt": "2026-09-04T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2305",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -775,12 +747,12 @@
       "stakes": 3,
       "startsAt": "2026-09-04T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1310",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -789,12 +761,26 @@
       "stakes": 4,
       "startsAt": "2026-09-04T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:wd:4112",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
+    },
+    {
+      "targetType": "major-event-child",
+      "targetId": "fixture:us-open-2026:official:ms:1316",
+      "title": "Yibing Wu v Carlos Alcaraz",
+      "stakes": 4,
+      "startsAt": "2026-09-05T02:30:00.000Z",
+      "reason": "surfaced-major-fixture",
+      "projectionId": null,
+      "coverage": "missing",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": false,
+      "priority": "rolling",
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -951,32 +937,18 @@
       "refreshDeadline": null
     },
     {
-      "targetType": "feed-event",
-      "targetId": "evt_26",
-      "title": "R13 Italian GP Qualifying",
-      "stakes": 3,
-      "startsAt": "2026-09-05T15:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:evt-26",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
       "targetType": "major-event-child",
       "targetId": "fixture:us-open-2026:official:ws:2310",
       "title": "Anastasia Potapova v Amanda Anisimova",
       "stakes": 3,
       "startsAt": "2026-09-05T15:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2310",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -985,12 +957,12 @@
       "stakes": 3,
       "startsAt": "2026-09-05T15:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2314",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -999,12 +971,12 @@
       "stakes": 4,
       "startsAt": "2026-09-05T15:30:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1307",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -1041,12 +1013,12 @@
       "stakes": 4,
       "startsAt": "2026-09-05T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2311",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -1055,12 +1027,26 @@
       "stakes": 3,
       "startsAt": "2026-09-05T23:00:00.000Z",
       "reason": "surfaced-major-fixture",
-      "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2315",
-      "coverage": "covered",
+      "projectionId": null,
+      "coverage": "missing",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "priority": "rolling",
-      "refreshDeadline": "2026-08-31T12:00:00.000Z"
+      "refreshDeadline": null
+    },
+    {
+      "targetType": "major-event-child",
+      "targetId": "fixture:us-open-2026:official:ms:1301",
+      "title": "Alexander Zverev v Alejandro Tabilo",
+      "stakes": 4,
+      "startsAt": "2026-09-06T01:30:00.000Z",
+      "reason": "surfaced-major-fixture",
+      "projectionId": null,
+      "coverage": "missing",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": false,
+      "priority": "rolling",
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -1148,20 +1134,6 @@
     },
     {
       "targetType": "feed-event",
-      "targetId": "evt_81",
-      "title": "NRL Finals Week 1",
-      "stakes": 4,
-      "startsAt": "2026-09-12T09:30:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:feed:nrl-finals-week-one-2026",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": "2026-09-07T12:00:00.000Z"
-    },
-    {
-      "targetType": "feed-event",
       "targetId": "event:afl:cd_m20260142702",
       "title": "Brisbane Lions v Adelaide Crows",
       "stakes": 4,
@@ -1246,20 +1218,6 @@
     },
     {
       "targetType": "feed-event",
-      "targetId": "evt_28",
-      "title": "R14 Spanish GP Qualifying",
-      "stakes": 3,
-      "startsAt": "2026-09-12T15:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:evt-28",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
       "targetId": "event:premier-league:128962",
       "title": "Tottenham Hotspur v Everton",
       "stakes": 3,
@@ -1302,20 +1260,6 @@
     },
     {
       "targetType": "feed-event",
-      "targetId": "evt_29",
-      "title": "R14 Spanish GP Race",
-      "stakes": 3,
-      "startsAt": "2026-09-13T14:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:evt-29",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
       "targetId": "event:premier-league:128960",
       "title": "Manchester United v Manchester City",
       "stakes": 3,
@@ -1355,20 +1299,6 @@
       "consequenceResearchRequired": true,
       "priority": "rolling",
       "refreshDeadline": "2026-09-18T19:00:00.000Z"
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "evt_82",
-      "title": "NRL Finals Week 2",
-      "stakes": 4,
-      "startsAt": "2026-09-19T09:30:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:feed:nrl-finals-week-two-2026",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": "2026-09-14T12:00:00.000Z"
     },
     {
       "targetType": "feed-event",

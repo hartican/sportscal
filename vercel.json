@@ -12,6 +12,9 @@
     },
     "api/participation.js": {
       "includeFiles": "data/{code-inspector/*.json,nsc-forecasts.json}"
+    },
+    "api/feed.js": {
+      "includeFiles": "data/{code-inspector/*.json,events.json,follow-fixtures.v1.json,major-events.v1.json}"
     }
   },
   "redirects": [

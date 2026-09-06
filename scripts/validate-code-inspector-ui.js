@@ -13,7 +13,7 @@ const manifestPath = path.join(ROOT, "data/code-inspector/manifest.json");
 assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow']);
 assert(html.includes('Back to Follow')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
 assert(html.includes('inspectorReturnState')&&html.includes('popstate'),'dedicated screens retain navigation state');
-assert(html.includes('follow-sport-track')&&html.includes('retainedSportBar'),'Follow uses a retained horizontal sport track');
+assert(html.includes('follow-sport-track')&&html.includes('follow-sport-pager')&&html.includes('follow-sport-pages'),'Follow uses a paged horizontal sport track');
 assert(!html.includes('open.textContent = "Inspect"'),'sport icons replace Inspect');
 for(const label of ['Schedule','Teams & players','Major Events','Ladder','Standings'])assert(html.includes(label));
 assert(html.includes('renderCodeInspectorIdentity')&&html.includes('codeInspectorParticipantMark'),'Schedule reuses canonical identities');
@@ -38,7 +38,7 @@ assert(manifest.codes.every(code => (
 const taxonomy = require("../config/canonical-sports-taxonomy");
 const { eventMatchesCode, mergeFixtureRecords } = require("./build-code-inspector");
 const aflwCode = manifest.codes.find(code => code.id === "sport:aflw");
-assert(aflwCode, "AFLW must be published as a separate Standings & Fixtures code");
+assert(aflwCode, "AFLW must be published as a separate Follow code");
 assert.equal(aflwCode.slug, "aflw");
 assert.equal(aflwCode.label, "AFLW");
 assert.equal(aflwCode.parentSportId, "sport:afl", "AFLW must remain grouped under AFL");
@@ -69,7 +69,7 @@ const canonicalCodes = [
 assert.deepEqual(
   new Set(manifest.codes.map(code => code.id)),
   new Set(canonicalCodes.map(code => code.id)),
-  "Standings & Fixtures must cover every active canonical code, including unfollowed codes"
+  "Follow Schedule must cover every active canonical code, including unfollowed codes"
 );
 
 const placeholder = {

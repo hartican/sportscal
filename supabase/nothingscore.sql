@@ -1,4 +1,4 @@
--- Nothing Sport Public Profile and closed-pilot Nothingscore contribution layer.
+-- Nothing Sport optional Public Profile and registered-user Nothingscore contribution layer.
 -- Public reads and all writes pass through server APIs; raw identities and ledgers are never browser-selectable.
 
 create extension if not exists pgcrypto;

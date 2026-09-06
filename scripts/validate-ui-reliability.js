@@ -28,13 +28,13 @@ check("a confirmed receipt survives a late empty snapshot", () => {
   context.mergeNothingscoreSnapshot({eventId:"fixture", phase:"impact", currentUser:{submissions:{}}});
   assert.equal(context.nothingscoreSnapshots.get("fixture").currentUser.submissions.impact?.rating, 4);
 });
-check("worker update does not replay a visible launch", () => {
+check("worker update performs one guarded post-hydration reload", () => {
   let reloads = 0;
   const coordinator = require("../config/feed-refresh-lifecycle").createStartupCoordinator({hadControllerAtStartup:true,reloadForUpdate:() => reloads++});
   coordinator.controllerChanged();
   coordinator.markHydrationComplete();
   coordinator.controllerChanged();
-  assert.equal(reloads, 0);
+  assert.equal(reloads, 1);
 });
 check("a late summary preserves an unchanged peer breakdown", () => {
   const context = { nothingscoreSnapshots:new Map(), nothingscoreLoadedAt:new Map(), Date, NOTHINGSPORTS_NSC_SUBMISSION_STATE:require("../config/nsc-submission-state") };

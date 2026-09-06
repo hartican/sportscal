@@ -44,19 +44,27 @@
     );
   }
 
+  function isFinalsOrKnockout(event){
+    if(event?.isFinals===true || event?.isKnockout===true || event?.knockout===true)return true;
+    const text=[event?.stage,event?.round,event?.roundLabel,event?.competitionName,event?.name].filter(Boolean).join(" ").toLowerCase();
+    return /\b(finals?|semi[- ]?finals?|quarter[- ]?finals?|eliminat(?:ion|or)|qualifying final|knockout|play[- ]?offs?|grand final)\b/.test(text);
+  }
+
+  function eligibleForFollow(event,{competitionFollow=false,participantFollow=false,explicitSelection=false}={}){
+    if(explicitSelection)return true;
+    if(!hasReleasedMatchup(event))return false;
+    if(participantFollow)return true;
+    return Boolean(competitionFollow && (stakesScore(event)>=4 || isFinalsOrKnockout(event)));
+  }
+
   function followedFixtureDecision(event, { followed = false, followSource = "sport", now = new Date(), timeZone = SYDNEY_TIME_ZONE } = {}){
     if (!followed || !hasReleasedMatchup(event)) return { mode:"ineligible", include:false, label:"Add to Feed" };
     if (["team", "athlete", "collection", "entity"].includes(String(followSource || ""))){
       return { mode:"direct", include:true, label:"In Feed via follow" };
     }
-    const stakes = stakesScore(event);
-    if (stakes >= 4) return { mode:"immediate", include:true, label:"In Feed via follow" };
-    if (stakes >= 2){
-      const matchDayOrLater = String(event.date) <= dateKey(now, timeZone);
-      return { mode:"match-day", include:matchDayOrLater, label:matchDayOrLater ? "In Feed via follow" : "Auto-adds on match day" };
-    }
+    if (eligibleForFollow(event,{competitionFollow:true})) return { mode:"immediate", include:true, label:"In Feed via follow" };
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, dateKey, hasReleasedMatchup, participantIds, stakesScore, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, dateKey, hasReleasedMatchup, participantIds, stakesScore, isFinalsOrKnockout, eligibleForFollow, followedFixtureDecision });
 });

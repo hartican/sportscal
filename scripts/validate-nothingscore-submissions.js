@@ -6,6 +6,7 @@ const fs = require("node:fs");
 
 const root = `${__dirname}/..`;
 const sql = fs.readFileSync(`${root}/supabase/nothingscore.sql`, "utf8");
+const registeredRatingMigration = fs.readFileSync(`${root}/supabase/migrations/20260906030000_open_registered_nsc_and_seal_ratings.sql`, "utf8");
 const handlerSource = fs.readFileSync(`${root}/lib/nothingscore-handler.js`, "utf8");
 const serverSource = fs.readFileSync(`${root}/lib/nothingscore-server.js`, "utf8");
 
@@ -26,6 +27,16 @@ assert.match(serverSource, /async function submitRating/);
 assert.match(serverSource, /submitted_at/);
 assert.match(serverSource, /pointsAwarded/);
 assert.match(serverSource, /submissions/);
+assert.match(registeredRatingMigration, /old\.phase in\('heat','impact'\)[\s\S]+nsc_already_submitted/,
+  "the database must seal the first upcoming and postgame rating");
+assert.match(registeredRatingMigration, /nothingsports_nsc_record_unconfirmed_opinion[\s\S]+pointsAwarded',0[\s\S]+foresightEligible',false/,
+  "an opinion without provable timing must remain non-rewarding");
+assert.match(registeredRatingMigration, /target_phase='pulse'[\s\S]+on conflict\(event_id,user_id,phase,bucket_start\) do update/,
+  "the live rating must retain one replaceable latest value");
+assert.match(registeredRatingMigration, /basePointsAwarded[\s\S]+settlementBonusPending[\s\S]+foresightEligible/,
+  "one-tap receipts must distinguish immediate participation from later foresight settlement");
+assert.doesNotMatch(handlerSource, /requirePilot|pilotFor\(user\.id\)/,
+  "registered contribution must not depend on the retired pilot allowlist");
 
 function responseCapture(){
   return {
@@ -90,7 +101,7 @@ async function snapshotContract(){
   const actualSupabase = require(supabasePath);
   const supabaseCache = require.cache[supabasePath];
   const userId="11111111-1111-4111-8111-111111111111";
-  const eventId="fifa-group-australia-turkiye-2026";
+    const eventId="event-afl-cd_m20260142701";
   let rolloutConfigured=true,publicEnabled=true;
   supabaseCache.exports={
     ...actualSupabase,
@@ -116,18 +127,17 @@ async function snapshotContract(){
   delete require.cache[serverPath];
   try{
     const server=require(serverPath);
-    const fixedNow=new Date("2026-06-13T02:00:00.000Z");
+    const fixedNow=new Date("2026-09-10T02:00:00.000Z");
     const [snapshot]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
     assert.equal(snapshot.phase,"heat");
     assert.equal(snapshot.aggregate.contributorMix.real,1);
-    assert(snapshot.aggregate.contributorMix.modelled>0,"public mode must disclose deterministic modelled responses separately");
-    assert.equal(snapshot.aggregate.contributorMix.demo,snapshot.aggregate.contributorMix.modelled,"cached readers retain the temporary demo count alias");
-    assert.equal(snapshot.crowdEditorial.mode,"demo","cached readers retain the temporary mode value");
-    assert.equal(snapshot.crowdEditorial.presentationMode,"early");
-    assert.deepEqual(snapshot.earlyPanel,{publicEnabled:true,includesModelled:true,disclosure:"Early panel · includes modelled responses.",activeRealContributors90d:1,retirementThreshold:10});
+    assert.equal(snapshot.aggregate.contributorMix.modelled,0,"public crowd results must remain genuine-user data");
+    assert.equal(snapshot.aggregate.contributorMix.demo,0,"public results must not carry modelled demo rows");
+    assert.equal(snapshot.crowdEditorial,null,"one genuine response stays below the editorial aggregate gate");
+    assert.deepEqual(snapshot.earlyPanel,{publicEnabled:false,includesModelled:false,disclosure:null,activeRealContributors90d:1,retirementThreshold:10});
     assert.equal(snapshot.series,undefined,"batch summaries must not carry graph payloads until card detail is requested");
-    assert.equal(snapshot.peerResults.count,0,"real peer count excludes the viewer and every modelled row");
-    assert.equal(snapshot.peerResults.average,null);
+    assert.equal(snapshot.peerResults.count,1,"visible crowd totals include the viewer after the sealed upcoming rating is submitted");
+    assert.equal(snapshot.peerResults.average,5);
     assert.equal(snapshot.peerResults.distribution,undefined,"batch peer summaries exclude the detailed histogram");
     assert.deepEqual(snapshot.currentUser.submissions.heat,{
       phase:"heat",rating:5,tags:["Big stakes"],bucketStart:"1970-01-01T00:00:00.000Z",
@@ -137,17 +147,17 @@ async function snapshotContract(){
     const [repeat]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
     assert.deepEqual(repeat,snapshot,"identical frozen-clock requests must produce identical public output");
     const [detail]=await server.snapshots([eventId],{userId,detailId:eventId,now:fixedNow,demoMode:"public"});
-    assert.equal(detail.peerResults.distribution.length,5);
+    assert.equal(detail.series.distribution.length,5);
     const [publicSnapshot]=await server.snapshots([eventId],{now:fixedNow,demoMode:"public"});
-    assert.equal(publicSnapshot.peerResults.count,1,"a signed-out reader can see one real vote without modelled inflation");
-    assert.equal(publicSnapshot.peerResults.early,true);
+    assert.equal(publicSnapshot.ratingRequired,true,"an upcoming reader must rate before crowd results are disclosed");
+    assert.equal(publicSnapshot.peerResults,null,"signed-out upcoming results must not leak the sealed crowd average");
     assert(detail.contributors.every(contributor=>contributor.demo===false&&!contributor.audienceCohort),"public contributor payloads must contain genuine public profiles only");
     assert.equal(JSON.stringify(detail.contributors).includes("modelled:"),false);
     publicEnabled=false;
     const [retired]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
     assert.equal(retired.earlyPanel.includesModelled,false);
-    assert.equal(retired.crowdEditorial,null,"after retirement, one genuine response is below the three-person aggregate gate");
-    assert.equal(retired.aggregate.score,null);
+    assert.equal(retired.crowdEditorial,null,"one genuine response is below the editorial aggregate gate");
+    assert.equal(retired.aggregate.score,5,"the simple crowd score remains visible after the viewer has rated");
     rolloutConfigured=false;publicEnabled=true;
     const [missing]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
     assert.equal(missing.earlyPanel.includesModelled,false,"missing rollout configuration must degrade to genuine-only results");
@@ -163,10 +173,13 @@ async function handlerContracts(){
   const supabasePath = require.resolve(`${root}/lib/supabase-server.js`);
   const serverPath = require.resolve(`${root}/lib/nothingscore-server.js`);
   const handlerPath = require.resolve(`${root}/lib/nothingscore-handler.js`);
+  const rewardsPath = require.resolve(`${root}/lib/nsc-rewards.js`);
   const actualSupabase = require(supabasePath);
   const actualServer = require(serverPath);
+  const actualRewards = require(rewardsPath);
   const supabaseCache = require.cache[supabasePath];
   const serverCache = require.cache[serverPath];
+  const rewardsCache = require.cache[rewardsPath];
   let pilotCalls=0,profileWrites=0,submitMode="success",profileVisibility="visible",eventPhase="heat",existingSubmission=null;
   const submitCalls=[];
   supabaseCache.exports={
@@ -189,7 +202,11 @@ async function handlerContracts(){
     async snapshots(){return[];},
     ownerProfile:actualServer.ownerProfile,
     async personaFor(){return{persona:"general",moderation_flag:false};},
-    async submitRating(_userId,_eventId,phase,rating,tags){
+  };
+  rewardsCache.exports={
+    ...actualRewards,
+    async submit(_userId,_eventId,phase,rating){
+      const tags=[];
       submitCalls.push({phase,rating,tags});
       if(submitMode==="conflict")throw new actualSupabase.SupabaseRequestError("nsc_already_submitted",{status:400,payload:{code:"P0001",message:"nsc_already_submitted"}});
       return{eventId:"fixture-one",phase,rating,tags,submitted:true,submittedAt:"2026-08-30T01:00:00.000Z",pointsAwarded:2,replayed:submitMode==="replay"};
@@ -210,7 +227,7 @@ async function handlerContracts(){
     assert.equal(submitResponse.body.submitted,true);
     assert.equal(submitResponse.body.pointsAwarded,2);
     assert.deepEqual(submitCalls.at(-1),{phase:"heat",rating:4,tags:[]},"the API must submit the phase selected by the user");
-    assert.equal(pilotCalls,1,"submitting an NSC rating must remain pilot-gated");
+    assert.equal(pilotCalls,0,"every registered, unmoderated account may rate without pilot allowlisting");
 
     const callsBeforeUnbound=submitCalls.length;
     const unboundPhaseResponse=responseCapture();
@@ -268,6 +285,7 @@ async function handlerContracts(){
     delete require.cache[handlerPath];
     supabaseCache.exports=actualSupabase;
     serverCache.exports=actualServer;
+    rewardsCache.exports=actualRewards;
   }
 }
 

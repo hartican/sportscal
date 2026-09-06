@@ -3262,7 +3262,7 @@
 
 ;
 
-;/* config/follow-feed-policy.js sha256:f103549fc4573f8fc23ed877ae9f693def29750fe3cc84757547d3679e1137f9 */
+;/* config/follow-feed-policy.js sha256:adcedcf3040982a82ebeb3bc0284d2dd5d009b074c0c7e471fa8be57a949b9d7 */
 (function attachNothingSportsFollowFeedPolicy(root, factory){
   const api = factory();
   root.NOTHINGSPORTS_FOLLOW_FEED_POLICY = api;
@@ -3309,21 +3309,29 @@
     );
   }
 
+  function isFinalsOrKnockout(event){
+    if(event?.isFinals===true || event?.isKnockout===true || event?.knockout===true)return true;
+    const text=[event?.stage,event?.round,event?.roundLabel,event?.competitionName,event?.name].filter(Boolean).join(" ").toLowerCase();
+    return /\b(finals?|semi[- ]?finals?|quarter[- ]?finals?|eliminat(?:ion|or)|qualifying final|knockout|play[- ]?offs?|grand final)\b/.test(text);
+  }
+
+  function eligibleForFollow(event,{competitionFollow=false,participantFollow=false,explicitSelection=false}={}){
+    if(explicitSelection)return true;
+    if(!hasReleasedMatchup(event))return false;
+    if(participantFollow)return true;
+    return Boolean(competitionFollow && (stakesScore(event)>=4 || isFinalsOrKnockout(event)));
+  }
+
   function followedFixtureDecision(event, { followed = false, followSource = "sport", now = new Date(), timeZone = SYDNEY_TIME_ZONE } = {}){
     if (!followed || !hasReleasedMatchup(event)) return { mode:"ineligible", include:false, label:"Add to Feed" };
     if (["team", "athlete", "collection", "entity"].includes(String(followSource || ""))){
       return { mode:"direct", include:true, label:"In Feed via follow" };
     }
-    const stakes = stakesScore(event);
-    if (stakes >= 4) return { mode:"immediate", include:true, label:"In Feed via follow" };
-    if (stakes >= 2){
-      const matchDayOrLater = String(event.date) <= dateKey(now, timeZone);
-      return { mode:"match-day", include:matchDayOrLater, label:matchDayOrLater ? "In Feed via follow" : "Auto-adds on match day" };
-    }
+    if (eligibleForFollow(event,{competitionFollow:true})) return { mode:"immediate", include:true, label:"In Feed via follow" };
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, dateKey, hasReleasedMatchup, participantIds, stakesScore, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, dateKey, hasReleasedMatchup, participantIds, stakesScore, isFinalsOrKnockout, eligibleForFollow, followedFixtureDecision });
 });
 
 ;
@@ -3639,7 +3647,7 @@
 
 ;
 
-;/* config/feed-refresh-lifecycle.js sha256:0385107fd8576c8c05e8ea4d61b06c03dc2d93fedc0f67c59cec9e9305307fee */
+;/* config/feed-refresh-lifecycle.js sha256:9eb72380e1281141e23ebda9cb539ee50fb2b222d11381bf392752424836e183 */
 (function attachNothingSportsFeedRefreshLifecycle(root, factory){
   const api = factory();
   root.NOTHINGSPORTS_FEED_REFRESH_LIFECYCLE = api;
@@ -3700,11 +3708,10 @@
         || !controllerUpdatePending
         || reloadCommitted
       ) return false;
-      // The activated worker serves the next navigation. Never restart an
-      // already visible document or replay its launch animation.
       controllerUpdatePending = false;
       reloadCommitted = true;
-      return false;
+      reloadForUpdate();
+      return true;
     }
 
     return Object.freeze({
@@ -6123,7 +6130,7 @@
 
 ;
 
-;/* config/feed-controls.js sha256:b3e262a0871ce5c53799a98af32f58cd3df7aeedad8735632f4575af23f60fc2 */
+;/* config/feed-controls.js sha256:3aa869504eccaa439f0f291e6f50e73ae42881fd83f911270796cc03cf5a8c46 */
 (function attachNothingSportsFeedControls(root, factory){
   const api = factory();
   root.NOTHINGSPORTS_FEED_CONTROLS = api;
@@ -6205,25 +6212,19 @@
   function eventStart(event){
     if (event?.timeTbc === true || event?.startTimeTbc === true || event?.dateOnly === true) return null;
     if (NON_PLAYING_STATUSES.has(String(event?.status || "").toLowerCase())) return null;
-    const utc = Date.parse(event?.startTimeUtc || event?.timelineSortTimeUtc || "");
-    if (Number.isFinite(utc)) return new Date(utc);
-    if (!event?.time || /tbc/i.test(String(event.time))) return null;
-    const match = `${event?.date || ""}T${event.time}`.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
-    if (!match) return null;
-    const [, year, month, day, hour, minute] = match.map(Number);
-    const assumedUtc = Date.UTC(year, month - 1, day, hour, minute);
-    const offsetParts = new Intl.DateTimeFormat("en-CA", {
-      timeZone: "Australia/Sydney",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hourCycle: "h23",
-    }).formatToParts(new Date(assumedUtc));
-    const offset = Object.fromEntries(offsetParts.map(part => [part.type, Number(part.value)]));
-    const renderedAsUtc = Date.UTC(offset.year, offset.month - 1, offset.day, offset.hour, offset.minute);
-    return new Date(assumedUtc - (renderedAsUtc - assumedUtc));
+    if (event?.timePrecision && !["exact","session-start"].includes(event.timePrecision)) return null;
+    const utc = Date.parse(event?.startTimeUtc || "");
+    return Number.isFinite(utc) ? new Date(utc) : null;
+  }
+
+  function inferredDurationHours(event){
+    const explicit=Number(event?.publishedDurationHours || event?.liveWindow || event?.calendarTemplate?.durationHours);
+    if(Number.isFinite(explicit)&&explicit>0)return explicit;
+    const identity=`${event?.competitionId || ""} ${event?.key || ""} ${event?.sportId || ""} ${event?.name || ""}`.toLowerCase();
+    if(/le mans|endurance|fia wec/.test(identity))return 24;
+    if(/tennis|us open|wimbledon|roland garros|australian open/.test(identity))return 5;
+    if(/formula 1|\bf1\b|motorsport/.test(identity))return 4;
+    return 3;
   }
 
   function sydneyParts(value){
@@ -6270,11 +6271,12 @@
     if (Number.isNaN(reference.getTime())) return null;
     const startMs = start.getTime();
     const explicitEnd = Date.parse(event?.endTimeUtc || "");
-    const liveWindowHours = Number(event?.liveWindow);
-    const derivedEnd = startMs + Math.max(1, Number.isFinite(liveWindowHours) ? liveWindowHours : 3) * 3600000;
+    const derivedEnd = startMs + inferredDurationHours(event) * 3600000;
     const endMs = Number.isFinite(explicitEnd) && explicitEnd >= startMs ? explicitEnd : derivedEnd;
     const nowMs = reference.getTime();
-    if(["live","in_progress","in-progress","ongoing"].includes(status) && nowMs>=startMs)return Object.freeze({key:"live-now",label:"Live Now",ariaLabel:"Live now"});
+    const statusCheckedAt=Date.parse(event?.statusCheckedAt || event?.statusSource?.checkedAt || event?.timingSource?.checkedAt || "");
+    const freshExplicitStatus=Number.isFinite(statusCheckedAt)&&Math.abs(nowMs-statusCheckedAt)<=30*60*1000;
+    if(["live","in_progress","in-progress","ongoing"].includes(status) && nowMs>=startMs && (nowMs<endMs || freshExplicitStatus))return Object.freeze({key:"live-now",label:"Live Now",ariaLabel:"Live now"});
     if (nowMs >= startMs - STARTS_SOON_MS && nowMs < startMs){
       return Object.freeze({ key:"starts-soon", label:"Starts Soon", ariaLabel:"Starts soon" });
     }
@@ -8752,7 +8754,7 @@
 
 ;
 
-;/* config/card-lifecycle.js sha256:5f16d73ae72b0a4ddbf04fef16c6255cd442114c2355654403febbd031222fca */
+;/* config/card-lifecycle.js sha256:bf6c73dc4637ff6f9ba8f7fec1f9122199fa6d1434bb103f70500881833ae39e */
 (function attachNothingSportsCardLifecycle(root, factory){
   const api = factory();
   root.NOTHINGSPORTS_CARD_LIFECYCLE = api;
@@ -8777,15 +8779,19 @@
   }
 
   function eventStart(event){
-    if (event?.startTimeUtc || event?.timelineSortTimeUtc){
-      const parsed = new Date(event.startTimeUtc || event.timelineSortTimeUtc);
-      if (!Number.isNaN(parsed.getTime())) return parsed;
-    }
-    if (event?.date){
-      const parsed = new Date(`${event.date}T${event.time || "00:00"}:00`);
-      if (!Number.isNaN(parsed.getTime())) return parsed;
-    }
-    return null;
+    if(event?.timePrecision && !["exact","session-start"].includes(event.timePrecision))return null;
+    const parsed = new Date(event?.startTimeUtc || "");
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  }
+
+  function inferredDurationHours(event){
+    const explicit=Number(event?.publishedDurationHours || event?.liveWindow || event?.calendarTemplate?.durationHours);
+    if(Number.isFinite(explicit)&&explicit>0)return explicit;
+    const identity=`${event?.competitionId || ""} ${event?.key || ""} ${event?.sportId || ""} ${event?.name || ""}`.toLowerCase();
+    if(/le mans|endurance|fia wec/.test(identity))return 24;
+    if(/tennis|us open|wimbledon|roland garros|australian open/.test(identity))return 5;
+    if(/formula 1|\bf1\b|motorsport/.test(identity))return 4;
+    return 3;
   }
 
   function eventEnd(event){
@@ -8795,17 +8801,25 @@
     }
     const start = eventStart(event);
     if (!start) return null;
-    const durationHours = Number(event.liveWindow || event.calendarTemplate?.durationHours || 3);
-    return new Date(start.getTime() + (Number.isFinite(durationHours) && durationHours > 0 ? durationHours : 3) * 60 * 60 * 1000);
+    return new Date(start.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
+  }
+
+  function retentionEnd(event){
+    const exactEnd = eventEnd(event);
+    if (exactEnd) return exactEnd;
+    const timeline = new Date(event?.timelineSortTimeUtc || event?.sessionStartTimeUtc || "");
+    if (!Number.isNaN(timeline.getTime())) return new Date(timeline.getTime() + inferredDurationHours(event) * 60 * 60 * 1000);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(String(event?.date || ""))) return new Date(`${event.date}T23:59:59.999Z`);
+    return null;
   }
 
   function expiresAtForEvent(event){
-    const end = eventEnd(event);
+    const end = retentionEnd(event);
     return end ? new Date(end.getTime() + RETENTION_MS) : null;
   }
 
   function archivesAtForEvent(event){
-    const end = eventEnd(event);
+    const end = retentionEnd(event);
     return end ? new Date(end.getTime() + ARCHIVE_MS) : null;
   }
 
@@ -8822,7 +8836,7 @@
     saved = isRetentionExemptAction(action),
     now = new Date(),
   } = {}){
-    const end = eventEnd(event);
+    const end = retentionEnd(event);
     const reference = now instanceof Date ? now : new Date(now);
     if (!end || Number.isNaN(reference.getTime())){
       return {
@@ -10217,7 +10231,7 @@
 
 ;
 
-;/* config/card-identities.js sha256:a232aba943f8e88cdb985797073bd7bb3e601d623864ff454884c3a883a39f9c */
+;/* config/card-identities.js sha256:2dd6c2d5ea9e5e9fdcde2ac7f84ab5b7bed864faad9dc2a05708772c63a3593e */
 (function attachNothingSportsCardIdentities(root, factory){
   const nodeNationalTeamIdentities = typeof module !== "undefined" && module.exports ? require("./national-team-identities.js") : null;
   const api = factory(() => root.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES || nodeNationalTeamIdentities);
@@ -10358,6 +10372,7 @@
     "cincinnati-open": officialMark("brand:cincinnati-open", "Cincinnati Open", "https://cincinnatiopen.com/wp-content/uploads/2024/01/Cincinnati-Open_Logo_01-Primary-RGB-1.png", "https://cincinnatiopen.com/our-brand/"),
     "us-open": officialMark("brand:us-open", "US Open", "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3c/41/d8/3c41d8b5-9f18-b706-6bca-fc963d2a0a65/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg", "https://www.usopen.org/en_US/content/official_us_open_app.html"),
     "australian-open": officialMark("brand:australian-open", "Australian Open", "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ca/21/c5/ca21c5e1-dd94-4fdc-25c0-4602be548fcb/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg", "https://ausopen.com/app"),
+    "le-mans": officialMark("brand:le-mans-24-hours", "24 Hours of Le Mans", "assets/identities/events/le-mans-24-hours.png", "https://www.24h-lemans.com/en/news/the-24-hours-of-le-mans-reveals-a-new-brand-identity-60525"),
     "cricket-icc": officialMark("competition:icc", "International Cricket Council", "https://images.icc-cricket.com/image/private/t_q-best/v1698133655/prd/assets/logos/icc-white-logo.svg", "https://www.icc-cricket.com/", {
       logo: { backgroundLight: "dark", backgroundDark: "dark" },
     }),
@@ -10704,6 +10719,7 @@
     "tournament:tennis:joint:cincinnati-open": eventMarks["cincinnati-open"],
     "competition:afl:premiership": eventMarks.afl,
     "competition:nrl:premiership": eventMarks.nrl,
+    "competition:fia-wec": eventMarks["le-mans"],
   });
   function eventSearchText(event){ return [event?.brandId, event?.competitionId, event?.series, event?.tournament, event?.name, event?.displayTitleCompact, event?.spoilerSafeTitle].filter(Boolean).join(" "); }
   function cricketOrganisationMarkForEvent(event){
@@ -10713,6 +10729,7 @@
     return sportMarks.cricket;
   }
   function markForEvent(event){
+    if(event?.identityRef==="event:le-mans" || /\b24 hours of le mans\b/i.test(eventSearchText(event)))return eventMarks["le-mans"];
     const brandRule = brandRules.find(rule => rule.pattern.test(eventSearchText(event)));
     if (brandRule) return eventMarks[brandRule.id] || null;
     const competitionMark = markForCompetitionId(event?.competitionId);
@@ -10755,10 +10772,10 @@
     const nationalTeamIdentities = getNationalTeamIdentities();
     (Array.isArray(event?.participantIds) ? event.participantIds : []).map(participantId => nationalTeamIdentities?.canonicalId(participantId) || participantId).map(participantId => byId.get(participantId) || identityParticipants[participantId]).forEach(addParticipant);
     (nationalTeamIdentities?.identitiesForEvent({ ...event, name:title || event?.name }) || []).map(team => nationalTeamIdentities.participantsById[team.id]).forEach(addParticipant);
-    if (resolved.length < 2 && /\s+v\.?\s+/i.test(title)){
-      const registeredPrefixes = participantIdPrefixesByEventKey[event?.key] || [];
+    const registeredPrefixes = participantIdPrefixesByEventKey[event?.key] || [];
+    if (resolved.length < 2 && registeredPrefixes.length && /\s+v\.?\s+/i.test(title)){
       const registeredParticipants = Object.values(identityParticipants).filter(participant => registeredPrefixes.some(prefix => participant.id.startsWith(prefix)));
-      [...participantList, ...registeredParticipants]
+      [...participantList.filter(participant=>registeredPrefixes.some(prefix=>String(participant?.id||"").startsWith(prefix))), ...registeredParticipants]
         .filter(participant => participantMarks[participant.id] || participant.crestUrl)
         .filter(participant => aliasRange(title, participant))
         .forEach(addParticipant);

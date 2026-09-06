@@ -58,11 +58,10 @@
         || !controllerUpdatePending
         || reloadCommitted
       ) return false;
-      // The activated worker serves the next navigation. Never restart an
-      // already visible document or replay its launch animation.
       controllerUpdatePending = false;
       reloadCommitted = true;
-      return false;
+      reloadForUpdate();
+      return true;
     }
 
     return Object.freeze({

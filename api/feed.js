@@ -23,9 +23,10 @@ const {
   SERVER_FEED_SCHEMA_VERSION,
 } = require("../lib/server-feed-pipeline");
 const { resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
+const { catalogue } = require("../lib/calendar-catalogue");
 
 const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, tennisContext, cyclingContext, nbaContext, cwgContext);
-const contextualEvents = sportContext.applyContextToEvents(eventFeed.events, canonicalSportContext);
+const contextualEvents = sportContext.applyContextToEvents(catalogue(), canonicalSportContext);
 
 function selectedFixtureEvents(userState){
   const actions = userState?.event_user_state || userState?.eventUserState || {};

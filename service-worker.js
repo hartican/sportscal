@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v236";
+const CACHE_NAME = "nothingsport-shell-v237";
 const APP_SHELL = [
   // Navigations already share /index.html below; do not download/cache its
   // million-byte HTML a second time under the root alias during installation.
@@ -9,16 +9,16 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=236",
-  "/assets/js/app-shell-runtime.js?v=236",
-  "/assets/js/nsc-rankings-ui.js?v=236",
-  "/styles/follow-feed-rework.css?v=236",
+  "/assets/styles/nothingsport-foundation.css?v=237",
+  "/assets/js/app-shell-runtime.js?v=237",
+  "/assets/js/nsc-rankings-ui.js?v=237",
+  "/assets/identities/events/le-mans-24-hours.png",
+  "/styles/follow-feed-rework.css?v=237",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/brand-copy.js",
   "/config/vector-assets.js",
   "/config/national-team-identities.js?v=230",
-  "/config/nsc-visual.js?v=218",
   "/config/card-identities.js",
   "/config/card-results.js",
   "/config/country-flags.js",
@@ -47,8 +47,8 @@ const APP_SHELL = [
   "/config/follow-first.js?v=222",
   "/config/feed-controls.js",
   "/config/ticketing.js",
-  "/config/major-events.js?v=236",
-  "/config/follow-feed-policy.js?v=230",
+  "/config/major-events.js?v=237",
+  "/config/follow-feed-policy.js?v=237",
   "/config/football-directory.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",
@@ -98,6 +98,7 @@ const APP_SHELL = [
   "/assets/providers/stan-sport.jpg",
   "/assets/providers/foxtel.svg",
   "/assets/providers/paramount-plus.svg",
+  "/assets/providers/bein-sports-connect.svg",
   "/assets/icons/sporticon/motorsports.svg",
   "/assets/icons/sporticon/rugby.svg",
   "/assets/icons/sporticon/tennis.svg",
@@ -247,7 +248,7 @@ self.addEventListener("fetch", event => {
     return;
   }
   if (event.request.mode === "navigate"){
-    event.respondWith(staleWhileRevalidate(event.request, event, new Request("/index.html")));
+    event.respondWith(networkFirst(event.request, event, new Request("/index.html")));
     return;
   }
   if (requestUrl.origin === self.location.origin && requestUrl.pathname.startsWith("/api/")){

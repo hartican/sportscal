@@ -168,10 +168,11 @@ assert.equal(
   false,
   "an AFLW sport-only Like profile must retain tuning for a 1/5 fixture",
 );
-assert(
+assert.equal(
   aflwFeed(aflwPreferences({ templateId:"template:froth", includeAllFixtures:true })).events
     .some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
-  "an AFLW all-fixtures profile must surface the released Brisbane Lions v GWS GIANTS fixture",
+  false,
+  "a broad sport follow must not flood Feed with a low-stakes regular fixture unless a team or player is followed",
 );
 assert.equal(
   aflwFeed(aflwPreferences({ entityFollows:[
@@ -255,18 +256,23 @@ activeTopTenFixtures.forEach(fixture => {
 const lowStakesTomorrow = { ...alcarazFixture, id:"fixture:test:tomorrow", eventId:"fixture:test:tomorrow", canonicalEventId:"fixture:test:tomorrow", stakesScore:2, storyline:{ stakes:2 }, date:"2026-09-01" };
 assert.deepEqual(
   followFeedPolicy.followedFixtureDecision(lowStakesTomorrow, { followed:true, now:new Date("2026-08-31T04:00:00.000Z") }),
-  { mode:"match-day", include:false, label:"Auto-adds on match day" },
-  "a released 2/5 followed fixture must wait for match day",
+  { mode:"manual", include:false, label:"Add to Feed" },
+  "a released 2/5 competition-follow fixture must remain manual unless a team or player is followed",
 );
 assert.deepEqual(
   followFeedPolicy.followedFixtureDecision({ ...lowStakesTomorrow, date:"2026-08-30" }, { followed:true, now:new Date("2026-08-31T04:00:00.000Z") }),
-  { mode:"match-day", include:true, label:"In Feed via follow" },
-  "a match-day followed fixture must remain available through its normal post-match retention window",
+  { mode:"manual", include:false, label:"Add to Feed" },
+  "match day must not bypass the shared competition-follow eligibility policy",
 );
 assert.deepEqual(
   followFeedPolicy.followedFixtureDecision({ ...lowStakesTomorrow, stakesScore:1, storyline:{ stakes:1 } }, { followed:true, now:new Date("2026-09-01T04:00:00.000Z") }),
   { mode:"manual", include:false, label:"Add to Feed" },
   "a 1/5 followed fixture must remain manual-only even on match day",
+);
+assert.deepEqual(
+  followFeedPolicy.followedFixtureDecision({ ...lowStakesTomorrow, stage:"Elimination Final" }, { followed:true }),
+  { mode:"immediate", include:true, label:"In Feed via follow" },
+  "every finals or knockout fixture in a followed competition must enter Feed",
 );
 const djokovicFixture = resolvedTennis.events.find(event => (
   event.id === DJOKOVIC_US_OPEN_ID

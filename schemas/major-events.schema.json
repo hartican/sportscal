@@ -82,12 +82,27 @@
         "sequenceInSession": { "type": "integer", "minimum": 0 },
         "previewPriority": { "type": "integer", "minimum": 0 },
         "marquee": { "type": "boolean" },
-        "timePrecision": { "enum": ["exact", "session-start", "follows", "date-only", "unpublished"] },
+        "timePrecision": { "enum": ["exact", "follows", "date-only", "tbc"] },
+        "timelineSortTimeUtc": { "type": ["string", "null"], "format": "date-time" },
+        "timingSource": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["publisher", "url", "checkedAt", "precedence"],
+          "properties": {
+            "publisher": { "type": "string", "minLength": 1 },
+            "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+            "checkedAt": { "type": "string", "format": "date-time" },
+            "precedence": { "enum": ["official-tournament", "official-session-order", "verified-broadcaster"] }
+          }
+        },
         "statusUpdatedAt": { "type": "string", "format": "date-time" },
         "resultPublishedAt": { "type": "string", "format": "date-time" },
         "stableMatchId": { "type": "string", "minLength": 1 },
         "legacyEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
         "cardKind": { "const": "fixture" },
+        "competitionId": { "type": "string", "minLength": 1 },
+        "parentEventId": { "type": "string", "minLength": 1 },
+        "identityRef": { "type": "string", "minLength": 1 },
         "name": { "type": "string", "minLength": 1 },
         "roundLabel": { "type": ["string", "null"] },
         "stage": { "type": ["string", "null"] },

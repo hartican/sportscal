@@ -181,8 +181,10 @@ assert(officialUsOpenFixtures.every(event => event.name.includes(" v ") && !/\b(
 assert(officialUsOpenFixtures.every(event => event.stage && event.roundLabel && event.court), "released US Open fixtures must retain event, round and court naming");
 assert(officialUsOpenFixtures.every(event => event.matchupSides.length === 2), "released US Open fixtures must retain exactly two matchup sides");
 assert(officialUsOpenFixtures.flatMap(event => event.matchupSides).flatMap(side => side.players).every(player => player.nationalityCode), "every released US Open player must retain the official country identity when available");
-assert(officialUsOpenFixtures.filter(event => event.sequenceInSession === 1).every(event => event.startTimeUtc && event.timePrecision === "session-start"), "first matches on each US Open court must use the published session start");
-assert(officialUsOpenFixtures.filter(event => event.sequenceInSession > 1).every(event => !event.startTimeUtc && event.timePrecision === "follows"), "later US Open court matches must say follows rather than inventing a start time");
+assert(officialUsOpenFixtures.filter(event => event.sequenceInSession === 1).every(event => event.startTimeUtc && event.timePrecision === "exact"), "first matches on each US Open court must use the published exact session start");
+assert(officialUsOpenFixtures.filter(event => event.sequenceInSession > 1).every(event => event.timingSource?.precedence==="verified-broadcaster" ? Boolean(event.startTimeUtc)&&event.timePrecision==="exact" : !event.startTimeUtc&&event.timePrecision==="follows"), "later US Open court matches must stay as follows unless a verified broadcaster publishes an exact start");
+assert(usOpen.subEvents.every(event => event.competitionId===usOpen.competitionId && event.parentEventId===usOpen.id && event.identityRef==="event:us-open"), "US Open children must carry canonical tournament and parent identity references");
+assert(usOpen.subEvents.every(event => Array.isArray(event.participantIds) && event.timelineSortTimeUtc), "US Open children must carry typed participants and a non-authoritative timeline sort position");
 officialUsOpenFixtures.forEach(event => {
   const fixture = majorEvents.fixtureFromSubEvent(event, usOpen);
   assert(fixture, `${event.id} must be pinnable from Events even when completed or published as Follows`);
@@ -283,7 +285,7 @@ assert(!html.includes('<script src="config/major-events.js"></script>') && html.
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
-assert(worker.includes(`"/config/major-events.js?v=${shellVersion}"`) && worker.includes('"/config/follow-feed-policy.js?v=230"') && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
+assert(worker.includes(`"/config/major-events.js?v=${shellVersion}"`) && worker.includes(`"/config/follow-feed-policy.js?v=${shellVersion}"`) && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
 assert(html.includes('if (editorialHook) row.appendChild(editorialHook);'), 'Events schedule retains fixture editorial');
 assert(!html.includes('row.appendChild(buildEventNothingscoreAction(crowdEvent));') && !html.includes('row.appendChild(buildNothingscoreSummary(crowdEvent))'), 'Events schedule must omit ratings and submissions');

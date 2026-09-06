@@ -6,6 +6,21 @@ const zlib = require("node:zlib");
 const cardLifecycle = require("../config/card-lifecycle");
 const feedPipeline = require("../lib/server-feed-pipeline");
 const feedHandler = require("../api/feed");
+const sportContext = require("../config/sport-context");
+const { catalogue } = require("../lib/calendar-catalogue");
+
+const canonicalSportContext = sportContext.mergeCanonicalBundles(
+  require("../data/canonical/afl-nrl-2026.json"),
+  require("../data/canonical/f1-context-2026.json"),
+  require("../data/canonical/tennis-context-2026.json"),
+  require("../data/canonical/cycling-context-2026.json"),
+  require("../data/canonical/nba-context-2026.json"),
+  require("../data/canonical/cwg-context-2026.json")
+);
+const contextualCatalogueById = new Map(
+  sportContext.applyContextToEvents(catalogue(), canonicalSportContext)
+    .map(item => [String(item.id || item.eventId || ""), item])
+);
 
 function event(id, startTimeUtc, overrides = {}){
   const start = new Date(startTimeUtc);
@@ -182,9 +197,9 @@ async function run(){
     ["sport:motorsport"],
     "a migrated Motorsport preference must govern Goodwood's internal event domain"
   );
-  assert.equal(feedPipeline.shouldEnrichEvent(goodwood, migratedCataloguePreferences, {}), true);
-  assert.equal(feedPipeline.shouldEnrichEvent(wimbledon, migratedCataloguePreferences, {}), true);
-  assert.equal(feedPipeline.shouldEnrichEvent(cwgSwimming, migratedCataloguePreferences, {}), true);
+  assert.equal(feedPipeline.shouldEnrichEvent(goodwood, migratedCataloguePreferences, {}), false,"a terminal competition follow must not include a low-stakes regular fixture");
+  assert.equal(feedPipeline.shouldEnrichEvent(wimbledon, migratedCataloguePreferences, {}), false,"a terminal competition follow includes 4+ stakes, finals, participant follows and explicit selections");
+  assert.equal(feedPipeline.shouldEnrichEvent(cwgSwimming, migratedCataloguePreferences, {}), false);
   assert.equal(
     feedPipeline.shouldEnrichEvent(cwgAthletics, migratedCataloguePreferences, {}),
     false,
@@ -222,9 +237,10 @@ async function run(){
     },
     now: new Date("2026-07-27T12:00:00.000Z"),
   });
-  assert(
+  assert.equal(
     legacyEventFollowFeed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === goodwood.eventId),
-    "the signed-in server pipeline must migrate a legacy Le Mans follow before applying it to the Motorsport family"
+    false,
+    "a migrated Le Mans follow must not pull an unrelated low-stakes Goodwood fixture into Feed"
   );
 
   const now = new Date("2026-07-27T12:00:00.000Z");
@@ -418,20 +434,20 @@ async function run(){
     assert.equal(f1Session.participantIds.length, 33, "central F1 cards must resolve the active driver and team field");
     const f1Watch = response.body.events.find(item => item.key === "f1" && /watch/i.test(item.name));
     assert(!f1Watch || !f1Watch.participantIds?.length, "central ticket/date watches must not inherit sporting follow context");
-    const tennisFinal = response.body.events.find(item => item.id === "wimbledon-final-sinner-zverev-2026");
+    const tennisFinal = contextualCatalogueById.get("wimbledon-final-sinner-zverev-2026");
     assert(tennisFinal, "the authenticated feed must retain the Wimbledon men's final card");
     assert.equal(tennisFinal.sportDomainId, "special:wimbledon", "central Wimbledon cards must use the Special Event preference domain");
     assert.deepEqual(tennisFinal.participantIds, [
       "competitor:tennis:atp:jannik-sinner",
       "competitor:tennis:atp:alexander-zverev",
     ], "central Wimbledon men's cards must resolve only named ATP competitors");
-    const womensFinal = response.body.events.find(item => item.id === "wimbledon-final-noskova-muchova-2026");
+    const womensFinal = contextualCatalogueById.get("wimbledon-final-noskova-muchova-2026");
     assert(womensFinal, "the authenticated feed must retain the saved Wimbledon women's final card");
     assert.deepEqual([...womensFinal.participantIds].sort(), [
       "competitor:tennis:wta:karolina-muchova",
       "competitor:tennis:wta:linda-noskova",
     ].sort(), "central Wimbledon women's cards must resolve only named WTA competitors regardless of home/away display order");
-    const tourFinal = response.body.events.find(item => item.id === "evt_66");
+    const tourFinal = contextualCatalogueById.get("evt_66");
     assert(tourFinal, "the authenticated feed must retain the recent Tour de France final stage");
     assert.equal(tourFinal.sportDomainId, "special:tour-de-france", "central Tour cards must use the Special Event preference domain");
     assert.equal(tourFinal.participantIds.length, 14, "central Tour cards must resolve the calibrated rider-follow field");
@@ -439,7 +455,7 @@ async function run(){
     assert.equal(tourFinal.jerseySnapshot?.close.yellowParticipantId, "competitor:cycling:tdf:tadej-pogacar");
     assert.equal(tourFinal.jerseySnapshot?.close.polkadotParticipantId, "competitor:cycling:tdf:richard-carapaz");
     assert.equal(tourFinal.jerseySnapshot?.close.purpleParticipantId, null, "central context must not fabricate a purple Tour classification");
-    const nbaFinal = response.body.events.find(item => item.id === "evt_75");
+    const nbaFinal = contextualCatalogueById.get("evt_75");
     assert(nbaFinal, "the authenticated feed must retain the saved NBA Finals decider");
     assert.equal(nbaFinal.sportDomainId, "sport:nba", "central NBA cards must use the NBA preference domain");
     assert.deepEqual(nbaFinal.participantIds, [
@@ -448,7 +464,7 @@ async function run(){
       "competitor:nba:jalen-brunson",
       "competitor:nba:victor-wembanyama",
     ], "central NBA Finals cards must resolve only the two teams and their surfaced All-NBA leaders");
-    const cwgSwimmingFinals = response.body.events.find(item => item.id === "cwg-glasgow-2026-swimming-closing-finals");
+    const cwgSwimmingFinals = contextualCatalogueById.get("cwg-glasgow-2026-swimming-closing-finals");
     assert(cwgSwimmingFinals, "the authenticated feed must retain the saved Commonwealth Games swimming finals");
     assert.equal(cwgSwimmingFinals.sportDomainId, "special:commonwealth-games");
     assert.deepEqual(cwgSwimmingFinals.participantIds, [
@@ -459,7 +475,7 @@ async function run(){
       "competitor:cwg:tim-hodge",
       "competitor:cwg:lakeisha-patterson",
     ], "central CWG swimming cards must resolve only the calibrated swimming and para-swimming competitors");
-    const cwgBoxingFinals = response.body.events.find(item => item.id === "cwg-glasgow-2026-boxing-finals-one");
+    const cwgBoxingFinals = contextualCatalogueById.get("cwg-glasgow-2026-boxing-finals-one");
     assert(cwgBoxingFinals, "the authenticated feed must retain the saved Commonwealth Games boxing finals");
     assert(!cwgBoxingFinals.participantIds?.length, "unsupported CWG disciplines must not inherit competitor context");
 

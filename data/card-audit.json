@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-09-06T02:34:00.551Z",
+  "generatedAt": "2026-09-06T12:03:43.610Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -13,8 +13,8 @@
   },
   "summary": {
     "totalMajorCards": 178,
-    "completed": 133,
-    "upcoming": 45,
+    "completed": 135,
+    "upcoming": 43,
     "stale": 0,
     "needsRecap": 0,
     "needsPreviewRefresh": 0,
@@ -152,7 +152,7 @@
     {
       "id": "evt_79",
       "name": "24 Hours of Le Mans — Start",
-      "sport": "Le Mans",
+      "sport": "Endurance",
       "date": "2026-06-13",
       "status": "completed",
       "stakes": 4,
@@ -200,7 +200,7 @@
     {
       "id": "evt_80",
       "name": "24 Hours of Le Mans — Finish",
-      "sport": "Le Mans",
+      "sport": "Endurance",
       "date": "2026-06-14",
       "status": "completed",
       "stakes": 4,
@@ -2170,7 +2170,7 @@
       "name": "Dragons v Eels",
       "sport": "NRL",
       "date": "2026-09-06",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
@@ -2186,7 +2186,7 @@
       "name": "Panthers v Wests Tigers",
       "sport": "NRL",
       "date": "2026-09-06",
-      "status": "upcoming",
+      "status": "completed",
       "stakes": 4,
       "isMajorCard": true,
       "hasSpoilerOffCopy": true,
