@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-fixtures.v1",
-  "generatedAt": "2026-09-06T14:36:47.196Z",
+  "generatedAt": "2026-09-06T14:45:28.674Z",
   "sources": [
     {
       "sourceName": "ESPN public football schedule snapshot",
@@ -216,7 +216,7 @@
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
       "sourceType": "official",
-      "checkedAt": "2026-09-06T14:36:26.280Z"
+      "checkedAt": "2026-09-06T14:45:07.901Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -885,7 +885,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1051,7 +1051,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1385,7 +1385,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1551,7 +1551,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1717,7 +1717,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1883,7 +1883,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2049,7 +2049,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2215,7 +2215,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2531,7 +2531,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2673,7 +2673,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2815,7 +2815,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2957,7 +2957,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -3101,7 +3101,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -3268,7 +3268,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule3.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -3838,7 +3838,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -4003,7 +4003,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -4145,7 +4145,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -4289,7 +4289,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -4456,7 +4456,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule4.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -4681,7 +4681,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule5.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -4824,7 +4824,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule5.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -4967,7 +4967,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule6.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5353,7 +5353,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5495,7 +5495,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5637,7 +5637,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5840,7 +5840,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -5983,7 +5983,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -6125,7 +6125,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6267,7 +6267,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6410,7 +6410,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule8.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -6553,7 +6553,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -6695,7 +6695,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -6898,7 +6898,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -7041,7 +7041,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -7183,7 +7183,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -7325,7 +7325,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -7467,7 +7467,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -7609,7 +7609,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -7751,7 +7751,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -7893,7 +7893,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8035,7 +8035,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8177,7 +8177,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8320,7 +8320,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8462,7 +8462,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule9.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -8605,7 +8605,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -8747,7 +8747,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -8889,7 +8889,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -9031,7 +9031,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -9174,7 +9174,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -9316,7 +9316,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -9459,7 +9459,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule10.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -9602,7 +9602,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -9744,7 +9744,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -9887,7 +9887,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -10030,7 +10030,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10172,7 +10172,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10314,7 +10314,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10456,7 +10456,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10598,7 +10598,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10741,7 +10741,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -10883,7 +10883,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -11026,7 +11026,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -11168,7 +11168,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -11310,7 +11310,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -11452,7 +11452,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -11595,7 +11595,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -11738,7 +11738,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -11880,7 +11880,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -12022,7 +12022,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -12164,7 +12164,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -12308,7 +12308,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -12474,7 +12474,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -12640,7 +12640,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -12804,7 +12804,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -12946,7 +12946,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -13088,7 +13088,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -13231,7 +13231,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -13374,7 +13374,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -13518,7 +13518,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -13684,7 +13684,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -13848,7 +13848,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -13990,7 +13990,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -14255,7 +14255,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -14422,7 +14422,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -14586,7 +14586,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -14730,7 +14730,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -14894,7 +14894,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -15036,7 +15036,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -15321,7 +15321,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -15464,7 +15464,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -15606,7 +15606,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -15748,7 +15748,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -16011,7 +16011,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -16153,7 +16153,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -16295,7 +16295,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -16439,7 +16439,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -16603,7 +16603,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -16745,7 +16745,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -16887,7 +16887,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -17029,7 +17029,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -17375,7 +17375,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -17515,7 +17515,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -17655,7 +17655,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -17796,7 +17796,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -17957,7 +17957,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -18096,7 +18096,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -18235,7 +18235,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json",
-        "checkedAt": "2026-09-06T14:36:01.448Z",
+        "checkedAt": "2026-09-06T14:44:46.823Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -20569,7 +20569,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-06T14:36:26.280Z",
+      "sourceCheckedAt": "2026-09-06T14:45:07.901Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21058,7 +21058,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-06T14:36:26.280Z",
+      "sourceCheckedAt": "2026-09-06T14:45:07.901Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21247,7 +21247,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-06T14:36:26.280Z",
+      "sourceCheckedAt": "2026-09-06T14:45:07.901Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21736,7 +21736,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-06T14:36:26.280Z",
+      "sourceCheckedAt": "2026-09-06T14:45:07.901Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },

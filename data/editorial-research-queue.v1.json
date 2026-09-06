@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-09-06T14:36:44.667Z",
+  "generatedAt": "2026-09-06T14:45:25.930Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
