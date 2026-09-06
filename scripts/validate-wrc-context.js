@@ -103,7 +103,7 @@ assert.throws(
 
 const motorsport = selector.byId["sport:motorsport"];
 const wrc = selector.byId["sport:wrc"];
-assert.deepEqual(Array.from(motorsport.childIds), ["sport:f1", "sport:wrc"]);
+assert.deepEqual(Array.from(motorsport.childIds), ["sport:f1", "sport:motogp", "sport:wrc"]);
 assert.equal(wrc.label, "WRC");
 assert(!selector.exposedSportNodes.some(node => node.id === "sport:rally"));
 assert.equal(taxonomy.competitionFamilies.find(family => family.id === "family:world-rally-championship")?.name, "FIA World Rally Championship");
@@ -212,8 +212,8 @@ const officialView = hubs.canonicalFixtureView(context.events[0], { participants
 assert.equal(officialView.event.canonicalResultText, "Oliver Solberg / Elliott Edmondson · 4:24:59.0");
 assert.equal(officialView.event.sportDomainId, "sport:wrc");
 assert.equal(officialView.event.canonicalSportDomainId, "sport:motorsport");
-const pendingView = hubs.canonicalFixtureView(context.events[3], { participants:context.participants, feedCards:feed.events });
-assert.equal(pendingView.event.resultStatus, "pending");
+const scheduledView = hubs.canonicalFixtureView(context.events.find(event => event.status === "scheduled"), { participants:context.participants, feedCards:feed.events });
+assert.equal(scheduledView.event.resultStatus, null, "a scheduled WRC round must not invent a result state");
 assert.equal(hubs.supportedRounds(hubs.canonicalFixturesForSport(context, "wrc")).length, 14);
 assert.equal(feedTimeline.status({date:"2026-09-10",endDate:"2026-09-13",dateOnly:true,status:"upcoming"}, new Date("2026-09-11T02:00:00.000Z")), "live");
 
@@ -227,13 +227,19 @@ assert.deepEqual(calendar.migrateSelectionIds([
   "calendar-nothingsport-manual-seed-rally-paris-dakar-stage-11-2026",
 ]), ["event-wrc-2026-round-03"]);
 
-const pendingCard = feedWrc.find(event => event.roundNumber === 4);
+const pendingCard = {
+  ...feedWrc.find(event => event.roundNumber === 12),
+  status:"completed",
+  resultStatus:"pending",
+  resultSourceUrl:CLASSIFICATION_URLS[12],
+  resultSourceCheckedAt:"2026-09-14T12:00:00.000Z",
+};
 const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "wrc-result-pending-"));
 try {
   const pendingPath = path.join(tempDirectory, "events.json");
   fs.writeFileSync(pendingPath, JSON.stringify({ events:[pendingCard] }));
   const check = spawnSync(process.execPath, ["scripts/verify-result-completeness.js", pendingPath], {
-    cwd:ROOT, env:{...process.env,RESULT_CHECK_NOW:"2026-04-13T14:30:00.000Z"}, encoding:"utf8",
+    cwd:ROOT, env:{...process.env,RESULT_CHECK_NOW:"2026-09-14T14:30:00.000Z"}, encoding:"utf8",
   });
   assert.equal(check.status, 0, `source-backed pending WRC result must fail closed without breaking refresh: ${check.stderr}`);
 } finally {

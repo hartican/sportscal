@@ -11,8 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="239">
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=239" as="script">
+<meta name="app-shell-version" content="240">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=240" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -737,6 +737,15 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
 
 .btn.ghost{
   background: transparent;
+}
+
+.nothing-score-label{
+  display:inline-block;
+  text-align:center;
+  font-size:.64rem;
+  font-weight:800;
+  line-height:.88;
+  letter-spacing:-.02em;
 }
 
 .tabs{
@@ -6894,8 +6903,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=239">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=239">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=240">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=240">
 </head>
 <body>
 
@@ -6933,7 +6942,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show results"><span class="spoiler-home-label">Show/Hide Results:</span><span class="spoiler-home-state">OFF</span></button>
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost" id="activeChatsBtn" type="button" aria-haspopup="dialog" aria-controls="chatDrawer" aria-label="Active chats" hidden><span data-vector-glyph="ui:message"></span> <span class="full-label">Chats</span><span class="active-chat-count" id="activeChatCount">0</span></button>
-      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-haspopup="dialog" aria-controls="nothingscoreDrawer" aria-label="Crowd fixture rankings"><span aria-hidden="true">NSC</span> <span class="full-label">Crowd rankings</span></button>
+      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-haspopup="dialog" aria-controls="nothingscoreDrawer" aria-label="Nothing Score rankings"><span class="nothing-score-label" aria-hidden="true">Nothing<br>Score</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
         <div class="loading-indicator-overlay" id="headerProgressRing" hidden></div>
         <time class="header-date-badge" id="calendarDateBadge"><span>MON</span><strong>24AUG</strong></time>
@@ -7176,16 +7185,16 @@ body.header-compact-3 .brand .slogan{ display:none; }
   <aside class="chat-drawer nsc-drawer" id="nothingscoreDrawer" role="dialog" aria-modal="true" aria-labelledby="nothingscoreTitle" aria-describedby="nothingscoreSubtitle">
     <header class="chat-head">
       <div class="chat-head-copy">
-        <h2 id="nothingscoreTitle">Nothingscore</h2>
+        <h2 id="nothingscoreTitle">Nothing Score</h2>
         <p id="nothingscoreSubtitle">How the crowd ranks upcoming, live and past fixtures.</p>
       </div>
-      <button class="chat-close" id="closeNothingscoreBtn" type="button" aria-label="Close Nothingscore">×</button>
+      <button class="chat-close" id="closeNothingscoreBtn" type="button" aria-label="Close Nothing Score">×</button>
     </header>
     <div class="chat-body" id="nothingscoreBody"></div>
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=239"></script>
+<script src="assets/js/app-shell-runtime.js?v=240"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -7989,7 +7998,6 @@ if (typeof document !== "undefined") hydrateStaticVectorGlyphs();
 
 const COMING_SOON_SPORTS = [
   "UFC",
-  "MotoGP",
   "Olympics",
 ];
 
@@ -8088,6 +8096,14 @@ const LEGACY_SELECTOR_ID_ALIASES = Object.freeze({
   "competition:uefa-champions-league": "sport:champions-league",
   "competition:uefa-champions-league:2026-27": "sport:champions-league",
   "uefa-champions-league": "sport:champions-league",
+  "competition:motogp": "sport:motogp",
+  "competition:motogp-2026": "sport:motogp",
+  "competition:sailgp": "sport:sailgp",
+  "competition:sailgp-2026": "sport:sailgp",
+  "competition:fiba-womens-world-cup": "sport:fiba-women",
+  "competition:fiba-womens-world-cup-2026": "sport:fiba-women",
+  "competition:nrlw-premiership": "sport:nrlw",
+  "competition:nrlw-premiership-2026": "sport:nrlw",
   "afl-finals": "sport:afl-premiership",
   "special:afl-finals": "sport:afl-premiership",
   "major-event:afl-finals-series-2026": "sport:afl-premiership",
@@ -8278,7 +8294,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=239",
+  moduleScriptUrl: "config/major-events.js?v=240",
   url: "data/major-events.v1.json",
 });
 
@@ -16447,7 +16463,7 @@ async function playNothingscoreImpactSound(prepared = prepareNothingscoreAudio()
   }
 }
 
-async function submitNothingscoreAction(command, panel, { success = "Your Nothingscore is in.", preparedAudio = null, event = null } = {}){
+async function submitNothingscoreAction(command, panel, { success = "Your Nothing Score is in.", preparedAudio = null, event = null } = {}){
   if (!serverSyncClient?.nothingscoreRequest) return null;
   const submittedPhase = command.action === "submit" && ["heat", "impact"].includes(String(command.phase || ""))
     ? String(command.phase)
@@ -19570,12 +19586,12 @@ function followSelectedEntity(){
 }
 function followDirectoryKey(entity=followSelectedEntity()){
   const root=selectorEntityById(entity.parentId);
-  if (entity.id==='sport:aflw') return 'aflw';
+  if (['sport:aflw','sport:nrlw'].includes(entity.id)) return entity.id.replace(/^sport:/,'');
   if (entity.parentId==='sport:motorsport') return entity.canonicalSportKeys?.[0] || entity.id.replace(/^sport:/,'');
   return (root?.level===2 ? root : entity).id.replace(/^sport:/,'');
 }
 function followInspectorCode(entity=followSelectedEntity()){
-  const aliases={'sport:afl-premiership':'sport:afl','sport:rugby':'sport:rugby-union','sport:nba':'sport:basketball'};
+  const aliases={'sport:afl-premiership':'sport:afl','sport:nrl-premiership':'sport:nrl','sport:nrlw':'sport:nrlw','sport:rugby':'sport:rugby-union','sport:nba':'sport:basketball','sport:motogp':'competition:motogp','sport:sailgp':'competition:sailgp','sport:fiba-women':'competition:fiba-womens-world-cup'};
   return codeInspectorManifest?.codes.find(code=>code.id===(aliases[entity.id] || entity.id))
     || codeInspectorManifest?.codes.find(code=>code.id===(aliases[entity.parentId] || entity.parentId));
 }
@@ -21694,8 +21710,8 @@ function appendPublicProfileAccountSettings(body){
     const visibility = document.createElement("p");
     visibility.className = "preference-help";
     visibility.textContent = profile.visibility === "hidden"
-      ? "Hidden from public NSC and leaderboards. Your display name remains visible in rooms you join."
-      : "Visible on public NSC and leaderboards. Your display name is also used in signed-in chat.";
+      ? "Hidden from public Nothing Score and leaderboards. Your display name remains visible in rooms you join."
+      : "Visible on public Nothing Score and leaderboards. Your display name is also used in signed-in chat.";
     const actions = document.createElement("div");
     actions.className = "account-sync-actions";
     const toggle = document.createElement("button");
@@ -22161,7 +22177,7 @@ function renderNotificationSettings(body){
       <p class="preference-help">Background notifications can arrive even when Nothing Sport is closed. Nothing Sport asks for system permission only when you tap the button below. Message previews stay private: lock-screen chat alerts name only the room.</p>
       <label class="viewing-toggle"><input type="checkbox" id="chatAlertsEnabled" ${preferences.chatAlertsEnabled !== false ? "checked" : ""}><span><strong>Chat alerts</strong>Notify you about new messages from other room participants.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="sportingRemindersEnabled" ${preferences.sportingRemindersEnabled !== false ? "checked" : ""}><span><strong>Sporting reminders</strong>Send requested reminders 15 minutes before the sporting start.</span></label>
-      <label class="viewing-toggle"><input type="checkbox" id="notificationSoundsEnabled" ${preferences.soundsEnabled !== false ? "checked" : ""}><span><strong>In-app sounds</strong>Play a short cue for an incoming chat message. Impact sound has its own switch in NSC.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="notificationSoundsEnabled" ${preferences.soundsEnabled !== false ? "checked" : ""}><span><strong>In-app sounds</strong>Play a short cue for an incoming chat message. Impact sound has its own switch in Nothing Score.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="notificationBadgesEnabled" ${preferences.badgesEnabled !== false ? "checked" : ""}><span><strong>Unread badges</strong>Show the total unread chat message count on the app icon where supported.</span></label>
       <button class="btn ${permission === "granted" && enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn" ${permission === "unsupported" ? "disabled" : ""}>${actionLabel}</button>
       <button class="btn ghost" type="button" id="testChatSoundBtn">Play test sound</button>
@@ -23392,7 +23408,7 @@ function openChatSetup(event){
   if (!chatState.profile?.publicProfile){
     const required = document.createElement("p");
     required.className = "chat-disclosure";
-    required.textContent = "Create your global Public Profile before setting up a room. This display name is inherited by every signed-in chat and by NSC.";
+    required.textContent = "Create your global Public Profile before setting up a room. This display name is inherited by every signed-in chat and by Nothing Score.";
     body.appendChild(required);
     renderChatPublicProfileForm(body, { onSaved:() => openChatSetup(event) });
     return;
@@ -23836,7 +23852,7 @@ function renderChatPublicProfileForm(host, { onSaved } = {}){
   handleLabel.appendChild(handle);
   const help = document.createElement("p");
   help.className = "chat-empty";
-  help.textContent = "This global display name is inherited by every signed-in chat and by NSC. Your @handle remains secondary; your email stays private.";
+  help.textContent = "This global display name is inherited by every signed-in chat and by Nothing Score. Your @handle remains secondary; your email stays private.";
   const save = document.createElement("button");
   save.type = "submit";
   save.className = "btn primary";
@@ -24241,7 +24257,7 @@ function buildChatComposer({ focus = false } = {}){
   gif.className = "btn ghost";
   gif.textContent = "GIF";
   gif.dataset.chatGifTrigger = "true";
-  gif.title = chatState.capabilities.canUseGifs ? "Search GIFs" : "Requires 25 NSC points";
+  gif.title = chatState.capabilities.canUseGifs ? "Search GIFs" : "Requires 25 Nothing Score points";
   gif.addEventListener("click", openChatGifPicker);
   tools.append(attach, fileInput, selfie, selfieInput, gif);
   const previews = document.createElement("div");
@@ -24336,7 +24352,7 @@ function renderOpenChatRoom({ autoScroll = true, showNew = false, focusComposer 
   if (room.viewer?.publicProfileRequired && !room.readOnly){
     const required = document.createElement("p");
     required.className = "chat-disclosure";
-    required.textContent = "Create your global Public Profile before posting. It will be inherited by every signed-in room and by NSC.";
+    required.textContent = "Create your global Public Profile before posting. It will be inherited by every signed-in room and by Nothing Score.";
     body.appendChild(required);
     renderChatPublicProfileForm(body, { onSaved:() => openChatRoom(room.roomId) });
   } else if (room.viewer?.canPost){
@@ -24668,7 +24684,7 @@ function nothingscoreProfileForm(){
   heading.textContent = existing ? "Public Profile" : "Create Public Profile";
   const disclosure = document.createElement("p");
   disclosure.className = "nsc-note";
-  disclosure.textContent = "Set this once for signed-in chat and NSC. Your display name is your room name; the unique lowercase @handle stays secondary on NSC and leaderboards. Email and account identifiers are never shown.";
+  disclosure.textContent = "Set this once for signed-in chat and Nothing Score. Your display name is your room name; the unique lowercase @handle stays secondary on Nothing Score and leaderboards. Email and account identifiers are never shown.";
   const displayLabel = document.createElement("label");
   displayLabel.className = "field-label";
   displayLabel.textContent = "Display name";
@@ -24734,7 +24750,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=239");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=240");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Crowd rankings could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -24782,7 +24798,7 @@ function renderNothingscoreDrawer(){
     }
     return;
   }
-  drawerTitle.textContent = "Nothingscore";
+  drawerTitle.textContent = "Nothing Score";
   drawerSubtitle.textContent = "Your private contribution tools and leaderboard.";
   const sound = document.createElement("label");
   sound.className = "pilot-disclosure nsc-sound-setting";
@@ -24827,7 +24843,7 @@ function renderNothingscoreDrawer(){
   if (!serverPersistence.user){
     const copy = document.createElement("p");
     copy.className = "chat-disclosure";
-    copy.textContent = "Nothingscore is public to read. Sign in to rate; a public handle is optional.";
+    copy.textContent = "Nothing Score is public to read. Sign in to rate; a public handle is optional.";
     const signIn = document.createElement("button");
     signIn.type = "button";
     signIn.className = "btn primary";
@@ -24847,7 +24863,7 @@ function renderNothingscoreDrawer(){
     name.textContent = profile && profile.visibility !== "deleted" ? profile.displayName : "Rating privately";
     const handle = document.createElement("span");
     handle.textContent = profile && profile.visibility !== "deleted"
-      ? `${profile.handle || "No handle"}${profile.visibility === "hidden" ? " · Hidden from public NSC" : ""}`
+      ? `${profile.handle || "No handle"}${profile.visibility === "hidden" ? " · Hidden from public Nothing Score" : ""}`
       : "A public handle is optional for ratings and leaderboards.";
     summary.append(name, handle);
     const edit = document.createElement("button");
@@ -24898,7 +24914,7 @@ function renderNothingscoreDrawer(){
 
   const heading = document.createElement("h3");
   heading.className = "chat-section-title";
-  heading.textContent = "NSC leaderboard";
+  heading.textContent = "Nothing Score leaderboard";
   const tabs = document.createElement("div");
   tabs.className = "nsc-leaderboard-tabs";
   [["weekly","This week"],["all-time","All time"]].forEach(([period,label]) => {
@@ -24926,7 +24942,7 @@ async function loadNothingscoreLeaderboard(){
     if (!payload.entries?.length){
       const empty = document.createElement("p");
       empty.className = "nsc-note";
-      empty.textContent = "No NSC points yet. Early contributors set the pace.";
+      empty.textContent = "No Nothing Score points yet. Early contributors set the pace.";
       board.appendChild(empty);
       return;
     }

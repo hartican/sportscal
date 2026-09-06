@@ -7,7 +7,7 @@ const fs = require("node:fs");
 const html = fs.readFileSync("index.html", "utf8");
 const worker = fs.readFileSync("service-worker.js", "utf8");
 const feedUtils = require("./lib/feed-utils.js");
-assert.equal(venues.VERSION, "venue-registry.v2", "the context-aware venue identity migration must be versioned");
+assert.equal(venues.VERSION, "venue-registry.v3", "the context-aware venue identity migration must be versioned");
 
 assert.equal(sourceTrust.sourceTrustForEvent({ sourceType: "official" }).trust, "verified");
 assert.equal(sourceTrust.sourceTrustForEvent({ sourceType: "reputable" }).label, "Unverified source");
@@ -64,6 +64,10 @@ assert.equal(venues.resolve("New York, USA", { key: "tennis" }).officialName, "U
 assert.equal(venues.resolve("New York, USA").audited, false, "New York must not globally collapse to the US Open grounds");
 assert.equal(venues.resolve("Etihad Stadium", { key: "premier-league" }).id, "etihad-stadium-manchester", "the EPL context must resolve Manchester's Etihad without introducing a global venue collision");
 assert.equal(venues.resolve("Etihad Stadium").audited, false, "Etihad Stadium must not globally collapse to Manchester");
+assert.equal(venues.resolve("Berlin, Germany", { key: "fiba-women" }).id, "uber-arena-berlin", "the FIBA Women finals host must resolve to the tournament arena only in its sport context");
+assert.equal(venues.resolve("Berlin, Germany").audited, false, "Berlin must not globally collapse to one arena");
+assert.equal(venues.resolve("Phillip Island Grand Prix Circuit").id, "phillip-island-grand-prix-circuit");
+assert.equal(venues.resolve("Geneva, Switzerland").id, "geneva-sailgp");
 ["config/source-trust.js","config/venue-registry.js"].forEach(file => require("./app-shell-test-utils").assertShellModule(html,file));
 assert(worker.includes('"/config/source-trust.js"') && worker.includes('"/config/venue-registry.js"'), "the source trust and venue models must remain available in the offline shell");
 const audit = venues.audit(feed.events);
@@ -74,9 +78,21 @@ assert.deepEqual(audit.pending, [
   "2026 NBA Finals",
   "Belfort",
   "Chalon-sur-Saône",
+  "Chile",
+  "Croatia",
+  "Estonia",
+  "Finland",
+  "Greece",
+  "Italy",
+  "Japan",
+  "Kenya",
   "Le Markstein",
-  "Marrakech to Ouarzazate",
-  "Nairobi to Malindi",
+  "Monaco",
+  "Paraguay",
+  "Portugal",
+  "Saudi Arabia",
+  "Spain",
+  "Sweden",
   "Tour de France 2026",
 ], "only reviewed route and competition-placeholder inputs may remain unresolved");
 

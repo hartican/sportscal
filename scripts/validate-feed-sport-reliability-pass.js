@@ -18,7 +18,7 @@ const identities = require(path.join(ROOT, "config/card-identities.js"));
 const html = read("index.html");
 const exposedSports = taxonomy.exposedSportNodes.filter(node => Number(node.level) === 2);
 const exposedIds = exposedSports.map(node => node.id);
-assert.equal(exposedSports.length, 19, "the user-facing catalogue must expose exactly nineteen top-level sports");
+assert.equal(exposedSports.length, 21, "the user-facing catalogue must expose the approved twenty-one top-level sports");
 assert(exposedIds.includes("sport:ice-hockey"), "Ice Hockey must be a first-class exposed sport");
 for (const retiredId of ["sport:hockey", "sport:gymnastics", "sport:multi-sport"]){
   assert(!exposedIds.includes(retiredId), `${retiredId} must not remain user-facing`);
@@ -26,7 +26,7 @@ for (const retiredId of ["sport:hockey", "sport:gymnastics", "sport:multi-sport"
 assert(taxonomy.byId["cwg:hockey"] && taxonomy.byId["cwg:gymnastics"] && taxonomy.byId["cwg:miscellaneous"], "retired user-facing sports must retain internal Commonwealth Games compatibility nodes");
 
 const startupIds = followFirst.STARTUP_SPORTS.map(sport => sport.id);
-for (const requiredId of ["american-football", "ice-hockey", "swimming"]){
+for (const requiredId of ["american-football", "ice-hockey", "swimming", "fiba-women", "sailgp", "motogp", "nrlw"]){
   assert(startupIds.includes(requiredId), `${requiredId} must be offered during signup`);
 }
 assert(!followFirst.MAJOR_EVENT_FAMILIES.some(event => event.id === "cincinnati-open"), "failed Cincinnati must not remain a followable major event");
@@ -43,7 +43,7 @@ assert(migratedPreferences.followFirst.followedMajorEventIds.includes("commonwea
 assert.deepEqual(followFirst.migratePreferences(migratedPreferences), migratedPreferences, "the retired-sport preference migration must be idempotent");
 
 const manifest = json("data/follow-directory/manifest.v1.json");
-assert.equal(manifest.sports.length, 22, "the lazy Follow manifest must include the nineteen exposed sports plus AFLW, F1 and WRC child codes");
+assert.equal(manifest.sports.length, 26, "the lazy Follow manifest must include twenty-one exposed sports plus AFLW, NRLW, F1, MotoGP and WRC child codes");
 const chunks = new Map(manifest.sports.map(sport => [sport.key, json(sport.jsonUrl)]));
 const swimming = chunks.get("swimming")?.records || [];
 assert.equal(swimming.length, 60, "Swimming must contain exactly sixty current ranked athletes");
@@ -97,7 +97,7 @@ assert.equal(viewing.webUrl, "https://www.stan.com.au/watch/example-us-open-matc
 assert(viewing.permalinkVerifiedAt, "fixture permalinks must retain their verification timestamp");
 
 const rights = json("data/coverage/australian-viewing-rights.v1.json");
-assert.equal(rights.sports.length, 19, "the Australian rights matrix must match the active catalogue");
+assert.equal(rights.sports.length, 21, "the Australian rights matrix must match the active catalogue");
 assert(rights.sports.some(sport => sport.key === "ice-hockey"), "Ice Hockey viewing rights must be audited");
 assert(!rights.sports.some(sport => ["hockey", "gymnastics", "multi-sport"].includes(sport.key)), "retired sport rows must leave the active rights matrix");
 

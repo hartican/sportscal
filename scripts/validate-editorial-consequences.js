@@ -102,6 +102,8 @@ buildRollingEditorial({
   feed:refreshedFeed,
   context:canonical,
   f1:readJson("data/canonical/f1-context-2026.json"),
+  wrc:readJson("data/canonical/wrc-context-2026.json"),
+  requestedSports:readJson("data/canonical/fiba-women-sailgp-motogp-2026.json"),
   reference:new Date("2026-08-30T00:08:03.244Z"),
 });
 assert.equal(projectionForTarget(refreshedKnowledge, "feed-event", warriorsEvent).consequence, undefined, "the generated rolling stage should not pretend to reconstruct the frozen snapshot");

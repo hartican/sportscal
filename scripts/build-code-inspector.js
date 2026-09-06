@@ -41,6 +41,10 @@ const CODE_KEYS = Object.freeze({
   "sport:nrl": ["nrl"],
   "sport:motorsport": ["f1", "wrc", "motorsport", "motogp", "lemans", "goodwood", "bathurst"],
   "sport:wrc": ["wrc"],
+  "sport:nrlw": ["nrlw"],
+  "competition:motogp": ["motogp"],
+  "competition:sailgp": ["sailgp"],
+  "competition:fiba-womens-world-cup": ["fiba-women"],
   "sport:extreme": ["extreme"],
   "sport:surf": ["surf", "surfing"],
   "sport:rugby-union": ["rugby", "rugby-union"],
@@ -81,8 +85,25 @@ function isAflwFixture(event){
     || String(event?.key || event?.sportId || event?.sportKey || event?.sport || "").toLowerCase() === "aflw";
 }
 
+const CHILD_CODE_IDS = new Set([
+  "sport:aflw",
+  "sport:nrlw",
+  "competition:motogp",
+  "competition:sailgp",
+  "competition:fiba-womens-world-cup",
+]);
+
+function childCodeId(event){
+  if (isAflwFixture(event)) return "sport:aflw";
+  if (event?.discoverySportId === "sport:nrlw" || event?.competitionId === "competition:nrlw-premiership-2026" || event?.key === "nrlw") return "sport:nrlw";
+  const explicit = String(event?.codeId || event?.taxonomyNodeId || "");
+  if (CHILD_CODE_IDS.has(explicit)) return explicit;
+  return null;
+}
+
 function eventMatchesCode(event, code){
-  if (isAflwFixture(event)) return code.id === "sport:aflw";
+  const childId = childCodeId(event);
+  if (childId) return code.id === childId;
   if (event?.sportDomainId === code.id || event?.competitionId === code.id || event?.codeId === code.id) return true;
   const values = [event?.key, event?.sportId, event?.sportKey, event?.sport]
     .filter(Boolean)
@@ -91,6 +112,7 @@ function eventMatchesCode(event, code){
 }
 
 function participantSlots(event){
+  if (event?.participantDisplayMode === "field") return [];
   const nationalTeams = nationalTeamIdentities.identitiesForEvent(event);
   if (Array.isArray(event?.participantSlots) && event.participantSlots.length){
     return event.participantSlots.map((slot, index) => ({
@@ -138,6 +160,7 @@ function sydneyPartsFromUtc(iso){
 function normalizeFixture(event, codeId, extra = {}){
   const slots = participantSlots(event);
   const sydney = sydneyPartsFromUtc(event.startTimeUtc);
+  const timeTbc = event.timeTbc === true || event.scheduleStatus === "tbc";
   const confirmedParticipants = slots.length > 0 && slots.every(slot => slot.participantId || (slot.label && !/\b(?:winner|loser|\d+(?:st|nd|rd|th)|tbc)\b/i.test(slot.label)));
   const roundLabel = event.roundLabel || event.round || extra.roundLabel || null;
   const stage = event.stage || event.phaseLabel || extra.stage || null;
@@ -147,13 +170,17 @@ function normalizeFixture(event, codeId, extra = {}){
     competitionId: event.competitionId || extra.competitionId || null,
     name: event.name || event.displayName || "TBC",
     date: event.date || sydney?.date || extra.date || null,
-    time: event.time || sydney?.time || null,
+    time: timeTbc ? null : (event.time || sydney?.time || null),
     ...(event.endDate ? { endDate:event.endDate } : {}),
-    ...(event.dateOnly === true || event.timePrecision === "date-only" ? { dateOnly:true, timePrecision:"date-only" } : {}),
+    ...(event.dateOnly === true || event.timePrecision === "date-only"
+      ? { dateOnly:true, timePrecision:"date-only" }
+      : timeTbc
+        ? { timeTbc:true, timePrecision:"tbc" }
+        : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     venue: (event.venue || event.venueName) && !/tbc/i.test(event.venue || event.venueName) ? (event.venue || event.venueName) : null,
     status: event.status || "upcoming",
-    scheduleStatus: event.scheduleStatus || (event.startTimeUtc && confirmedParticipants ? "confirmed" : "provisional"),
+    scheduleStatus: timeTbc ? "tbc" : (event.scheduleStatus || (event.startTimeUtc && confirmedParticipants ? "confirmed" : "provisional")),
     participantSlots: slots,
     detailsExpectedAt: event.detailsExpectedAt || extra.detailsExpectedAt || null,
     schedulingWindow: event.schedulingWindow || extra.schedulingWindow || null,
@@ -294,17 +321,35 @@ function build(){
     name:"WRC",
     parentSportId:"sport:motorsport",
   };
+  const nrlwCompetition = taxonomy.competitions.find(competition => competition.id === "competition:nrlw-premiership-2026");
+  if (!nrlwCompetition) throw new Error("The canonical NRLW competition is missing from the taxonomy.");
+  const nrlwCode = { id:"sport:nrlw", slug:"nrlw", name:"NRLW", parentSportId:"sport:nrl" };
+  const requestedCompetitionCodes = [
+    { id:"competition:motogp", slug:"motogp", name:"MotoGP", parentSportId:"sport:motorsport" },
+    { id:"competition:sailgp", slug:"sailgp", name:"SailGP", parentSportId:"sport:sailing" },
+    { id:"competition:fiba-womens-world-cup", slug:"fiba-women", name:"FIBA Women", parentSportId:"sport:basketball" },
+  ];
+  requestedCompetitionCodes.forEach(code => {
+    if (!taxonomy.competitions.some(competition => competition.id === code.id)) throw new Error(`${code.name} is missing from the canonical taxonomy.`);
+  });
   const codeDefinitions = [
     ...taxonomy.sportDomains.filter(code => code.isActive !== false)
-      .flatMap(code => code.id === aflwCode.parentSportId ? [code, aflwCode] : code.id === wrcCode.parentSportId ? [code, wrcCode] : [code]),
+      .flatMap(code => {
+        const childCodes = [];
+        if (code.id === aflwCode.parentSportId) childCodes.push(aflwCode);
+        if (code.id === nrlwCode.parentSportId) childCodes.push(nrlwCode);
+        if (code.id === wrcCode.parentSportId) childCodes.push(wrcCode);
+        return [code, ...childCodes];
+      }),
     championsLeagueCode,
+    ...requestedCompetitionCodes,
   ];
   const codes = codeDefinitions.map(code => {
     const fixtures = codeFixtures(code);
     const fileName = `${code.slug}.json`;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
-      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:wrc", "sport:american-football", "sport:ice-hockey"].includes(code.id) ? "complete" : "partial";
+      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:nrlw", "sport:wrc", "sport:american-football", "sport:ice-hockey", "competition:motogp", "competition:sailgp", "competition:fiba-womens-world-cup"].includes(code.id) ? "complete" : "partial";
     const freshAt = code.id === "competition:uefa-champions-league" ? canonicalChampionsLeague.generatedAt : code.id === "sport:wrc" ? canonicalWrc.generatedAt : feed.publishedAt || null;
     const parentSportId = code.parentSportId || (code.id === "competition:uefa-champions-league" ? code.sportDomainId : null);
     fs.writeFileSync(path.join(OUTPUT_DIR, fileName), `${JSON.stringify({

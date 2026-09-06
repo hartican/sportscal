@@ -13,7 +13,8 @@ assert(selector.nodes.some(node => node.nodeType === "internal-event-tag"), "nam
 assert(selector.internalEventTags.every(node => node.exposed === false && node.selectable === false), "event brands must never be filter or follow choices");
 
 const hierarchyExpectations = {
-  "sport:motorsport": [["sport:f1", "F1"], ["sport:wrc", "WRC"]],
+  "sport:nrl": [["sport:nrl-premiership", "NRL Premiership"], ["sport:nrlw", "NRLW"]],
+  "sport:motorsport": [["sport:f1", "F1"], ["sport:motogp", "MotoGP"], ["sport:wrc", "WRC"]],
   "sport:extreme": [["sport:downhill-mtb", "MTB"]],
   "sport:surf": [["sport:big-wave", "Big-wave"]],
   "sport:skiing": [["sport:alpine", "Alpine"], ["sport:freestyle", "Freestyle"]],
@@ -118,19 +119,19 @@ assert.deepEqual(
 );
 
 const initialSession = catalogue.createSessionInclusion(["sport:motorsport", "sport:tennis"]);
-assert.deepEqual(initialSession, ["sport:motorsport", "sport:f1", "sport:wrc", "sport:tennis"]);
+assert.deepEqual(initialSession, ["sport:motorsport", "sport:f1", "sport:motogp", "sport:wrc", "sport:tennis"]);
 assert.deepEqual(catalogue.selectionState("sport:motorsport", initialSession), {
   checked: true,
   mixed: false,
-  selectedCount: 3,
-  totalCount: 3,
+  selectedCount: 4,
+  totalCount: 4,
 });
 const withoutWrc = catalogue.setSessionNodeIncluded(initialSession, "sport:wrc", false);
 assert.deepEqual(catalogue.selectionState("sport:motorsport", withoutWrc), {
   checked: false,
   mixed: true,
-  selectedCount: 2,
-  totalCount: 3,
+  selectedCount: 3,
+  totalCount: 4,
 });
 const withoutMotorsport = catalogue.setSessionNodeIncluded(withoutWrc, "sport:motorsport", false);
 assert(!withoutMotorsport.some(id => catalogue.familyIds("sport:motorsport").includes(id)));
@@ -139,9 +140,9 @@ assert.deepEqual(catalogue.selectionState("sport:motorsport", wrcOnly), {
   checked: false,
   mixed: true,
   selectedCount: 1,
-  totalCount: 3,
+  totalCount: 4,
 });
-assert.deepEqual(catalogue.resetSessionInclusion(["sport:motorsport"]), ["sport:motorsport", "sport:f1", "sport:wrc"]);
+assert.deepEqual(catalogue.resetSessionInclusion(["sport:motorsport"]), ["sport:motorsport", "sport:f1", "sport:motogp", "sport:wrc"]);
 
 const now = new Date("2026-08-14T00:15:00Z"); // 10:15 on 14 August in Sydney.
 const fixtures = [
@@ -170,7 +171,8 @@ assert.equal(counts.exactCounts["sport:f1"], 2, "grouped F1 cards must count the
 assert.equal(counts.exactCounts["sport:motorsport"], 1, "an independently identified Motorsport session must count once");
 assert.equal(counts.exactCounts["sport:wrc"], 2);
 assert.equal(counts.aggregateCounts["sport:motorsport"], 5, "parent visibility must aggregate its own events and descendants without duplicates");
-assert.equal(counts.exactCounts["sport:nrl"], 1);
+assert.equal(counts.exactCounts["sport:nrl-premiership"], 1, "men's NRL cards must resolve to the Premiership child code");
+assert.equal(counts.aggregateCounts["sport:nrl"], 1, "the NRL family must aggregate its Premiership child");
 assert.equal(counts.exactCounts["sport:tennis"], 1, "internal event tags must resolve to their underlying sport");
 
 const visibility = catalogue.catalogueVisibility(fixtures, {

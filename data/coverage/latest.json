@@ -306,7 +306,7 @@
     }
   ],
   "summary": {
-    "canonicalEventsCompared": 782,
+    "canonicalEventsCompared": 834,
     "priorityAuSources": 8,
     "priorityAuSourcesLoaded": 1,
     "sourceListingsLoaded": 81,
@@ -2424,7 +2424,7 @@
       "eventTitle": "WRC",
       "source": "stan_sport",
       "sport": "sport:motorsport",
-      "competition": "WRC",
+      "competition": "competition:world-rally-championship",
       "startsAt": "2026-09-12T14:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
@@ -2434,11 +2434,11 @@
       "priority": "high",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:motorsport",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:world-rally-championship",
         "sportId": "sport:motorsport",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:motorsport:rally",
+        "competitionId": "competition:world-rally-championship",
         "eventSeriesId": null,
         "rawSport": "Motorsport",
         "rawCompetition": "WRC"
@@ -2459,6 +2459,11 @@
           {
             "canonicalEventId": "evt_28",
             "title": "R14 Spanish GP Qualifying",
+            "confidence": 0.08
+          },
+          {
+            "canonicalEventId": "evt_motogp_2026_san_marino",
+            "title": "MotoGP San Marino Grand Prix",
             "confidence": 0.08
           },
           {
@@ -2498,8 +2503,8 @@
         "id": "provisional:7liczu",
         "title": "WRC",
         "sportId": "sport:motorsport",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:motorsport:rally",
+        "competitionId": "competition:world-rally-championship",
         "eventSeriesId": null,
         "rawCompetition": "WRC",
         "startTimeUtc": "2026-09-12T14:00:00.000Z",
@@ -2508,7 +2513,6 @@
       },
       "availabilityChange": null,
       "blockers": [
-        "competition_needs_review",
         "new_catalogue_identity"
       ],
       "editorial": {
@@ -3375,21 +3379,21 @@
       "eventTitle": "WRC",
       "source": "stan_sport",
       "sport": "sport:motorsport",
-      "competition": "WRC",
+      "competition": "competition:world-rally-championship",
       "startsAt": "2026-10-01T14:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0,
+      "matchConfidence": 0.45,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:motorsport",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:world-rally-championship",
         "sportId": "sport:motorsport",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:motorsport:rally",
+        "competitionId": "competition:world-rally-championship",
         "eventSeriesId": null,
         "rawSport": "Motorsport",
         "rawCompetition": "WRC"
@@ -3402,11 +3406,17 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0,
+        "confidence": 0.45,
         "reasonCodes": [
-          "no_catalogue_match"
+          "competition_match"
         ],
-        "alternatives": []
+        "alternatives": [
+          {
+            "canonicalEventId": "event-wrc-2026-round-13",
+            "title": "WRC Rally Italia Sardegna",
+            "confidence": 0.45
+          }
+        ]
       },
       "broadcastsAu": [
         {
@@ -3438,8 +3448,8 @@
         "id": "provisional:ceixgl",
         "title": "WRC",
         "sportId": "sport:motorsport",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:motorsport:rally",
+        "competitionId": "competition:world-rally-championship",
         "eventSeriesId": null,
         "rawCompetition": "WRC",
         "startTimeUtc": "2026-10-01T14:00:00.000Z",
@@ -3448,7 +3458,6 @@
       },
       "availabilityChange": null,
       "blockers": [
-        "competition_needs_review",
         "new_catalogue_identity"
       ],
       "editorial": {
@@ -3942,7 +3951,7 @@
       "startsAt": "2026-10-04T11:00:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0,
+      "matchConfidence": 0.08,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
@@ -3965,11 +3974,17 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0,
+        "confidence": 0.08,
         "reasonCodes": [
-          "no_catalogue_match"
+          "same_calendar_date"
         ],
-        "alternatives": []
+        "alternatives": [
+          {
+            "canonicalEventId": "evt_motogp_2026_japan",
+            "title": "MotoGP Japanese Grand Prix",
+            "confidence": 0.08
+          }
+        ]
       },
       "broadcastsAu": [
         {
@@ -4377,9 +4392,9 @@
             "confidence": 0.08
           },
           {
-            "canonicalEventId": "epl-2026-27-128973",
-            "title": "Arsenal v Leeds United",
-            "confidence": 0
+            "canonicalEventId": "evt_motogp_2026_indonesia",
+            "title": "MotoGP Indonesian Grand Prix",
+            "confidence": 0.08
           }
         ]
       },
@@ -6181,6 +6196,11 @@
             "canonicalEventId": "evt_38",
             "title": "R19 Brazilian GP Qualifying",
             "confidence": 0
+          },
+          {
+            "canonicalEventId": "evt_motogp_2026_qatar",
+            "title": "MotoGP Qatar Grand Prix",
+            "confidence": 0
           }
         ]
       },
@@ -6243,21 +6263,21 @@
       "eventTitle": "WRC",
       "source": "stan_sport",
       "sport": "sport:motorsport",
-      "competition": "WRC",
+      "competition": "competition:world-rally-championship",
       "startsAt": "2026-11-10T17:30:00.000Z",
       "matchStatus": "new",
       "catalogueStatus": "new",
-      "matchConfidence": 0,
+      "matchConfidence": 0.53,
       "coverageReason": "broadcaster_featured",
       "suggestedAction": "review",
       "priority": "high",
       "taxonomy": {
         "taxonomyVersion": "sport-hierarchy.v1",
-        "taxonomyStatus": "sport_only",
-        "taxonomyNodeId": "sport:motorsport",
+        "taxonomyStatus": "resolved",
+        "taxonomyNodeId": "competition:world-rally-championship",
         "sportId": "sport:motorsport",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:motorsport:rally",
+        "competitionId": "competition:world-rally-championship",
         "eventSeriesId": null,
         "rawSport": "Motorsport",
         "rawCompetition": "WRC"
@@ -6270,11 +6290,18 @@
       },
       "match": {
         "canonicalEventId": null,
-        "confidence": 0,
+        "confidence": 0.53,
         "reasonCodes": [
-          "no_catalogue_match"
+          "competition_match",
+          "same_calendar_date"
         ],
-        "alternatives": []
+        "alternatives": [
+          {
+            "canonicalEventId": "event-wrc-2026-round-14",
+            "title": "WRC Rally Saudi Arabia",
+            "confidence": 0.53
+          }
+        ]
       },
       "broadcastsAu": [
         {
@@ -6306,8 +6333,8 @@
         "id": "provisional:1wqs7a0",
         "title": "WRC",
         "sportId": "sport:motorsport",
-        "disciplineId": null,
-        "competitionId": null,
+        "disciplineId": "discipline:motorsport:rally",
+        "competitionId": "competition:world-rally-championship",
         "eventSeriesId": null,
         "rawCompetition": "WRC",
         "startTimeUtc": "2026-11-10T17:30:00.000Z",
@@ -6316,7 +6343,6 @@
       },
       "availabilityChange": null,
       "blockers": [
-        "competition_needs_review",
         "new_catalogue_identity"
       ],
       "editorial": {

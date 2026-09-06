@@ -1,13 +1,13 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T14:45:18.023Z",
+  "sourceRevision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z",
   "generatedAt": "2026-08-29T00:00:00.000Z",
   "shadowMode": true,
   "summary": {
-    "stakesFiveFuture": 6,
-    "shown": 6,
+    "stakesFiveFuture": 21,
+    "shown": 21,
     "eligible": 2,
-    "watching": 4,
+    "watching": 19,
     "actionable": 0,
     "late": 0
   },
@@ -61,7 +61,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T14:45:18.023Z"
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -343,7 +343,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T14:45:18.023Z"
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -577,6 +577,1297 @@
       }
     },
     {
+      "campaignId": "marquee_3326cab1444bb462",
+      "campaignRevision": 1,
+      "contentHash": "795b93fd5bac68c746a8fe31a7f581beae702b2fed47676ec852889675a20a12",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:fiba-women:2026:group-belgium-australia",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": "2026-09-07T09:30:00.000Z",
+        "fixtureDate": "2026-09-07"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": true,
+        "finish": "derived_from_live_window",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "2026-09-07T09:30:00.000Z",
+        "endTimeUtc": "2026-09-07T12:30:00.000Z",
+        "liveWindowHours": 3,
+        "endDerived": true,
+        "sydneyStart": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 7 Sept 2026",
+          "time": "7:30 pm",
+          "timezone": "AEST"
+        },
+        "sydneyFinish": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 7 Sept 2026",
+          "time": "10:30 pm",
+          "timezone": "AEST"
+        }
+      },
+      "source": {
+        "name": "FIBA Women's Basketball World Cup 2026 official schedule",
+        "url": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "Belgium v Australian Opals",
+        "participants": [
+          "Belgium",
+          "Australian Opals"
+        ],
+        "sport": "FIBA Women",
+        "competition": "early",
+        "startTimeUtc": "2026-09-07T09:30:00.000Z",
+        "endTimeUtc": "2026-09-07T12:30:00.000Z",
+        "venue": "Berlin, Germany",
+        "broadcaster": "ESPN via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "FIBA Women's Basketball World Cup 2026 official schedule",
+          "url": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "Belgium v Australian Opals",
+        "matchupLabel": "Belgium v Australian Opals",
+        "displayDate": "2026-09-07"
+      },
+      "identities": {
+        "code": {
+          "label": "FIBA Women",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Monday watch party: Belgium v Australian Opals",
+        "hook": "The Opals face Belgium with a direct quarterfinal place and a cleaner title route in play.",
+        "kicker": "5/5 stakes · FIBA Women",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Belgium v Australian Opals, starting Mon 7 Sept 2026 at 7:30 pm AEST."
+        }
+      },
+      "drafts": {
+        "hook": "The Opals face Belgium with a direct quarterfinal place and a cleaner title route in play.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE FIBA WOMEN: Belgium v Australian Opals. Mon 7 Sept 2026 at 7:30 pm AEST. 5/5 stakes. The Opals face Belgium with a direct quarterfinal place and a cleaner title route in play. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Belgium v Australian Opals, starting Mon 7 Sept 2026 at 7:30 pm AEST.",
+          "image": {
+            "path": "/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Belgium v Australian Opals, starting Mon 7 Sept 2026 at 7:30 pm AEST."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Belgium v Australian Opals — Mon 7:30 pm",
+          "preheader": "Join the Belgium v Australian Opals watch party, then rate it after the finish.",
+          "headline": "Monday watch party: Belgium v Australian Opals",
+          "bodyParagraphs": [
+            "The Opals face Belgium with a direct quarterfinal place and a cleaner title route in play. Australia's last group assignment is the sharpest test of its Berlin campaign before knockout basketball.",
+            "Join us for the Belgium v Australian Opals, on Mon at 7:30 pm AEST. Open the fixture for the watch party, live context and post-match rating."
+          ],
+          "timingLine": "Belgium v Australian Opals starts Mon 7 Sept 2026 at 7:30 pm AEST at Berlin, Germany. Expected finish: 10:30 pm AEST.",
+          "broadcastLine": "Watch in Australia on ESPN via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Agroup-belgium-australia?source=marquee&campaign=marquee_3326cab1444bb462"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Agroup-belgium-australia?source=marquee&campaign=marquee_3326cab1444bb462&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Agroup-belgium-australia?source=marquee&campaign=marquee_3326cab1444bb462",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Agroup-belgium-australia?source=marquee&campaign=marquee_3326cab1444bb462&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Belgium v Australian Opals, starting Mon 7 Sept 2026 at 7:30 pm AEST."
+          }
+        },
+        "when": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 7 Sept 2026",
+          "time": "7:30 pm",
+          "timezone": "AEST"
+        },
+        "finish": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 7 Sept 2026",
+          "time": "10:30 pm",
+          "timezone": "AEST"
+        },
+        "live": {
+          "headline": "Monday watch party: Belgium v Australian Opals",
+          "hook": "The Opals face Belgium with a direct quarterfinal place and a cleaner title route in play.",
+          "kicker": "5/5 stakes · FIBA Women",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Belgium v Australian Opals, starting Mon 7 Sept 2026 at 7:30 pm AEST."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_3326cab1444bb462",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Agroup-belgium-australia?source=marquee&campaign=marquee_3326cab1444bb462",
+        "ratingWindow": {
+          "opensAt": "2026-09-07T12:30:00.000Z",
+          "closesAt": "2026-09-14T12:30:00.000Z"
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Belgium v Australian Opals, starting Mon 7 Sept 2026 at 7:30 pm AEST."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3326cab1444bb462-795b93fd5bac.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Belgium v Australian Opals, starting Mon 7 Sept 2026 at 7:30 pm AEST."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_8619243ddfd92e2a",
+      "campaignRevision": 1,
+      "contentHash": "82a3525ca6e231d60217e27825bdb99371b17c556ce18f76be7f4519513371d1",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:nrlw:2026:round-11-wests-tigers-raiders",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": "2026-09-11T07:40:00.000Z",
+        "fixtureDate": "2026-09-11"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": true,
+        "finish": "derived_from_live_window",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "2026-09-11T07:40:00.000Z",
+        "endTimeUtc": "2026-09-11T10:40:00.000Z",
+        "liveWindowHours": 3,
+        "endDerived": true,
+        "sydneyStart": {
+          "day": "Fri",
+          "weekday": "Friday",
+          "date": "Fri 11 Sept 2026",
+          "time": "5:40 pm",
+          "timezone": "AEST"
+        },
+        "sydneyFinish": {
+          "day": "Fri",
+          "weekday": "Friday",
+          "date": "Fri 11 Sept 2026",
+          "time": "8:40 pm",
+          "timezone": "AEST"
+        }
+      },
+      "source": {
+        "name": "2026 NRLW Telstra Women's Premiership schedule",
+        "url": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "Wests Tigers v Canberra Raiders",
+        "participants": [
+          "Wests Tigers",
+          "Canberra Raiders"
+        ],
+        "sport": "NRLW",
+        "competition": "early",
+        "startTimeUtc": "2026-09-11T07:40:00.000Z",
+        "endTimeUtc": "2026-09-11T10:40:00.000Z",
+        "venue": "Leichhardt Oval",
+        "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+        "stakes": 5,
+        "source": {
+          "name": "2026 NRLW Telstra Women's Premiership schedule",
+          "url": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "Wests Tigers v Canberra Raiders",
+        "matchupLabel": "Wests Tigers v Canberra Raiders",
+        "displayDate": "2026-09-11"
+      },
+      "identities": {
+        "code": {
+          "label": "NRLW",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Friday watch party: Wests Tigers v Canberra Raiders",
+        "hook": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
+        "kicker": "5/5 stakes · NRLW",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Wests Tigers v Canberra Raiders, starting Fri 11 Sept 2026 at 5:40 pm AEST."
+        }
+      },
+      "drafts": {
+        "hook": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE NRLW: Wests Tigers v Canberra Raiders. Fri 11 Sept 2026 at 5:40 pm AEST. 5/5 stakes. Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Wests Tigers v Canberra Raiders, starting Fri 11 Sept 2026 at 5:40 pm AEST.",
+          "image": {
+            "path": "/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Wests Tigers v Canberra Raiders, starting Fri 11 Sept 2026 at 5:40 pm AEST."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Wests Tigers v Canberra Raiders — Fri 5:40 pm",
+          "preheader": "Join the Wests Tigers v Canberra Raiders watch party, then rate it after the finish.",
+          "headline": "Friday watch party: Wests Tigers v Canberra Raiders",
+          "bodyParagraphs": [
+            "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season. A result at Leichhardt can alter both qualification and the first-week finals matchup.",
+            "Join us for the Wests Tigers v Canberra Raiders, on Fri at 5:40 pm AEST. Open the fixture for the watch party, live context and post-match rating."
+          ],
+          "timingLine": "Wests Tigers v Canberra Raiders starts Fri 11 Sept 2026 at 5:40 pm AEST at Leichhardt Oval. Expected finish: 8:40 pm AEST.",
+          "broadcastLine": "Watch in Australia on Nine / 9Now / Fox Sports / Kayo.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Around-11-wests-tigers-raiders?source=marquee&campaign=marquee_8619243ddfd92e2a"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Around-11-wests-tigers-raiders?source=marquee&campaign=marquee_8619243ddfd92e2a&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Around-11-wests-tigers-raiders?source=marquee&campaign=marquee_8619243ddfd92e2a",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Around-11-wests-tigers-raiders?source=marquee&campaign=marquee_8619243ddfd92e2a&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Wests Tigers v Canberra Raiders, starting Fri 11 Sept 2026 at 5:40 pm AEST."
+          }
+        },
+        "when": {
+          "day": "Fri",
+          "weekday": "Friday",
+          "date": "Fri 11 Sept 2026",
+          "time": "5:40 pm",
+          "timezone": "AEST"
+        },
+        "finish": {
+          "day": "Fri",
+          "weekday": "Friday",
+          "date": "Fri 11 Sept 2026",
+          "time": "8:40 pm",
+          "timezone": "AEST"
+        },
+        "live": {
+          "headline": "Friday watch party: Wests Tigers v Canberra Raiders",
+          "hook": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
+          "kicker": "5/5 stakes · NRLW",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Wests Tigers v Canberra Raiders, starting Fri 11 Sept 2026 at 5:40 pm AEST."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_8619243ddfd92e2a",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Around-11-wests-tigers-raiders?source=marquee&campaign=marquee_8619243ddfd92e2a",
+        "ratingWindow": {
+          "opensAt": "2026-09-11T10:40:00.000Z",
+          "closesAt": "2026-09-18T10:40:00.000Z"
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Wests Tigers v Canberra Raiders, starting Fri 11 Sept 2026 at 5:40 pm AEST."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8619243ddfd92e2a-82a3525ca6e2.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Wests Tigers v Canberra Raiders, starting Fri 11 Sept 2026 at 5:40 pm AEST."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_3812e1a173257603",
+      "campaignRevision": 1,
+      "contentHash": "fab5f71a56272002a2310fb6ba5f8a21cbaceaf0ff3876387146704109acfa0c",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:fiba-women:2026:bronze",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": "2026-09-13T14:30:00.000Z",
+        "fixtureDate": "2026-09-14"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": true,
+        "finish": "derived_from_live_window",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "2026-09-13T14:30:00.000Z",
+        "endTimeUtc": "2026-09-13T17:30:00.000Z",
+        "liveWindowHours": 3,
+        "endDerived": true,
+        "sydneyStart": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 14 Sept 2026",
+          "time": "12:30 am",
+          "timezone": "AEST"
+        },
+        "sydneyFinish": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 14 Sept 2026",
+          "time": "3:30 am",
+          "timezone": "AEST"
+        }
+      },
+      "source": {
+        "name": "FIBA Women's Basketball World Cup 2026 official schedule",
+        "url": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "FIBA Women's World Cup — bronze medal game",
+        "participants": [],
+        "sport": "FIBA Women",
+        "competition": "final",
+        "startTimeUtc": "2026-09-13T14:30:00.000Z",
+        "endTimeUtc": "2026-09-13T17:30:00.000Z",
+        "venue": "Uber Arena, Berlin",
+        "broadcaster": "ESPN via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "FIBA Women's Basketball World Cup 2026 official schedule",
+          "url": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "FIBA Women's World Cup — bronze medal game",
+        "matchupLabel": "",
+        "displayDate": "2026-09-14"
+      },
+      "identities": {
+        "code": {
+          "label": "FIBA Women",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Monday watch party: FIBA Women's World Cup — bronze medal game",
+        "hook": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
+        "kicker": "5/5 stakes · FIBA Women",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for FIBA Women's World Cup — bronze medal game, starting Mon 14 Sept 2026 at 12:30 am AEST."
+        }
+      },
+      "drafts": {
+        "hook": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE FIBA WOMEN: FIBA Women's World Cup — bronze medal game. Mon 14 Sept 2026 at 12:30 am AEST. 5/5 stakes. The semifinal losers have one final chance to leave Berlin with a World Cup medal. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for FIBA Women's World Cup — bronze medal game, starting Mon 14 Sept 2026 at 12:30 am AEST.",
+          "image": {
+            "path": "/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for FIBA Women's World Cup — bronze medal game, starting Mon 14 Sept 2026 at 12:30 am AEST."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: FIBA Women's World Cup — bronze medal game — Mon 12:30 am",
+          "preheader": "Join the FIBA Women's World Cup — bronze medal game watch party, then rate it after the finish.",
+          "headline": "Monday watch party: FIBA Women's World Cup — bronze medal game",
+          "bodyParagraphs": [
+            "The semifinal losers have one final chance to leave Berlin with a World Cup medal. The bronze game rewards the team that can reset fastest after missing the final.",
+            "Join us for the FIBA Women's World Cup — bronze medal game, on Mon at 12:30 am AEST. Open the fixture for the watch party, live context and post-match rating."
+          ],
+          "timingLine": "FIBA Women's World Cup — bronze medal game starts Mon 14 Sept 2026 at 12:30 am AEST at Uber Arena, Berlin. Expected finish: 3:30 am AEST.",
+          "broadcastLine": "Watch in Australia on ESPN via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Abronze?source=marquee&campaign=marquee_3812e1a173257603"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Abronze?source=marquee&campaign=marquee_3812e1a173257603&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Abronze?source=marquee&campaign=marquee_3812e1a173257603",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Abronze?source=marquee&campaign=marquee_3812e1a173257603&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for FIBA Women's World Cup — bronze medal game, starting Mon 14 Sept 2026 at 12:30 am AEST."
+          }
+        },
+        "when": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 14 Sept 2026",
+          "time": "12:30 am",
+          "timezone": "AEST"
+        },
+        "finish": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 14 Sept 2026",
+          "time": "3:30 am",
+          "timezone": "AEST"
+        },
+        "live": {
+          "headline": "Monday watch party: FIBA Women's World Cup — bronze medal game",
+          "hook": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
+          "kicker": "5/5 stakes · FIBA Women",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for FIBA Women's World Cup — bronze medal game, starting Mon 14 Sept 2026 at 12:30 am AEST."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_3812e1a173257603",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Abronze?source=marquee&campaign=marquee_3812e1a173257603",
+        "ratingWindow": {
+          "opensAt": "2026-09-13T17:30:00.000Z",
+          "closesAt": "2026-09-20T17:30:00.000Z"
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for FIBA Women's World Cup — bronze medal game, starting Mon 14 Sept 2026 at 12:30 am AEST."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_3812e1a173257603-fab5f71a5627.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for FIBA Women's World Cup — bronze medal game, starting Mon 14 Sept 2026 at 12:30 am AEST."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_8b33d6fa73e69c68",
+      "campaignRevision": 1,
+      "contentHash": "d73f5497aee664dcef100b4c46fd6fa0610ba4779c3414dfdb7dc0e5f47f4c48",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:fiba-women:2026:final",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": "2026-09-13T18:00:00.000Z",
+        "fixtureDate": "2026-09-14"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": true,
+        "finish": "derived_from_live_window",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "2026-09-13T18:00:00.000Z",
+        "endTimeUtc": "2026-09-13T21:00:00.000Z",
+        "liveWindowHours": 3,
+        "endDerived": true,
+        "sydneyStart": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 14 Sept 2026",
+          "time": "4:00 am",
+          "timezone": "AEST"
+        },
+        "sydneyFinish": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 14 Sept 2026",
+          "time": "7:00 am",
+          "timezone": "AEST"
+        }
+      },
+      "source": {
+        "name": "FIBA Women's Basketball World Cup 2026 official schedule",
+        "url": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "FIBA Women's Basketball World Cup final",
+        "participants": [],
+        "sport": "FIBA Women",
+        "competition": "final",
+        "startTimeUtc": "2026-09-13T18:00:00.000Z",
+        "endTimeUtc": "2026-09-13T21:00:00.000Z",
+        "venue": "Uber Arena, Berlin",
+        "broadcaster": "ESPN via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "FIBA Women's Basketball World Cup 2026 official schedule",
+          "url": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "FIBA Women's Basketball World Cup final",
+        "matchupLabel": "",
+        "displayDate": "2026-09-14"
+      },
+      "identities": {
+        "code": {
+          "label": "FIBA Women",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Monday watch party: FIBA Women's Basketball World Cup final",
+        "hook": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
+        "kicker": "5/5 stakes · FIBA Women",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for FIBA Women's Basketball World Cup final, starting Mon 14 Sept 2026 at 4:00 am AEST."
+        }
+      },
+      "drafts": {
+        "hook": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE FIBA WOMEN: FIBA Women's Basketball World Cup final. Mon 14 Sept 2026 at 4:00 am AEST. 5/5 stakes. Two teams remain for the Women's Basketball World Cup title in Berlin. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for FIBA Women's Basketball World Cup final, starting Mon 14 Sept 2026 at 4:00 am AEST.",
+          "image": {
+            "path": "/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for FIBA Women's Basketball World Cup final, starting Mon 14 Sept 2026 at 4:00 am AEST."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: FIBA Women's Basketball World Cup final — Mon 4:00 am",
+          "preheader": "Join the FIBA Women's Basketball World Cup final watch party, then rate it after the finish.",
+          "headline": "Monday watch party: FIBA Women's Basketball World Cup final",
+          "bodyParagraphs": [
+            "Two teams remain for the Women's Basketball World Cup title in Berlin. The tournament closes with forty minutes separating the finalists from a world championship.",
+            "Join us for the FIBA Women's Basketball World Cup final, on Mon at 4:00 am AEST. Open the fixture for the watch party, live context and post-match rating."
+          ],
+          "timingLine": "FIBA Women's Basketball World Cup final starts Mon 14 Sept 2026 at 4:00 am AEST at Uber Arena, Berlin. Expected finish: 7:00 am AEST.",
+          "broadcastLine": "Watch in Australia on ESPN via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Afinal?source=marquee&campaign=marquee_8b33d6fa73e69c68"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Afinal?source=marquee&campaign=marquee_8b33d6fa73e69c68&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Afinal?source=marquee&campaign=marquee_8b33d6fa73e69c68",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Afinal?source=marquee&campaign=marquee_8b33d6fa73e69c68&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for FIBA Women's Basketball World Cup final, starting Mon 14 Sept 2026 at 4:00 am AEST."
+          }
+        },
+        "when": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 14 Sept 2026",
+          "time": "4:00 am",
+          "timezone": "AEST"
+        },
+        "finish": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 14 Sept 2026",
+          "time": "7:00 am",
+          "timezone": "AEST"
+        },
+        "live": {
+          "headline": "Monday watch party: FIBA Women's Basketball World Cup final",
+          "hook": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
+          "kicker": "5/5 stakes · FIBA Women",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for FIBA Women's Basketball World Cup final, starting Mon 14 Sept 2026 at 4:00 am AEST."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_8b33d6fa73e69c68",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Afiba-women%3A2026%3Afinal?source=marquee&campaign=marquee_8b33d6fa73e69c68",
+        "ratingWindow": {
+          "opensAt": "2026-09-13T21:00:00.000Z",
+          "closesAt": "2026-09-20T21:00:00.000Z"
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for FIBA Women's Basketball World Cup final, starting Mon 14 Sept 2026 at 4:00 am AEST."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_8b33d6fa73e69c68-d73f5497aee6.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for FIBA Women's Basketball World Cup final, starting Mon 14 Sept 2026 at 4:00 am AEST."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_49c6b94d03dcacda",
+      "campaignRevision": 1,
+      "contentHash": "b4d23ab43dd1692b8889dcfc72d004bf56b8dd5fe9a50f2c834c8adb2e2f11ff",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:sailgp:2026:geneva-day-2",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": "2026-09-20T13:00:00.000Z",
+        "fixtureDate": "2026-09-20"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": true,
+        "finish": "derived_from_live_window",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "2026-09-20T13:00:00.000Z",
+        "endTimeUtc": "2026-09-20T16:00:00.000Z",
+        "liveWindowHours": 3,
+        "endDerived": true,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 20 Sept 2026",
+          "time": "11:00 pm",
+          "timezone": "AEST"
+        },
+        "sydneyFinish": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 21 Sept 2026",
+          "time": "2:00 am",
+          "timezone": "AEST"
+        }
+      },
+      "source": {
+        "name": "SailGP 2026 calendar",
+        "url": "https://sailgp.com/general/2026/calendar/",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "Geneva Sail Grand Prix — race day 2",
+        "participants": [],
+        "sport": "SailGP",
+        "competition": "all",
+        "startTimeUtc": "2026-09-20T13:00:00.000Z",
+        "endTimeUtc": "2026-09-20T16:00:00.000Z",
+        "venue": "Geneva, Switzerland",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "SailGP 2026 calendar",
+          "url": "https://sailgp.com/general/2026/calendar/",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "Geneva Sail Grand Prix — race day 2",
+        "matchupLabel": "",
+        "displayDate": "2026-09-20"
+      },
+      "identities": {
+        "code": {
+          "label": "SailGP",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Sunday watch party: Geneva Sail Grand Prix — race day 2",
+        "hook": "Geneva's final races turn European points into the qualification picture for the UAE finale.",
+        "kicker": "5/5 stakes · SailGP",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Geneva Sail Grand Prix — race day 2, starting Sun 20 Sept 2026 at 11:00 pm AEST."
+        }
+      },
+      "drafts": {
+        "hook": "Geneva's final races turn European points into the qualification picture for the UAE finale.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE SAILGP: Geneva Sail Grand Prix — race day 2. Sun 20 Sept 2026 at 11:00 pm AEST. 5/5 stakes. Geneva's final races turn European points into the qualification picture for the UAE finale. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Geneva Sail Grand Prix — race day 2, starting Sun 20 Sept 2026 at 11:00 pm AEST.",
+          "image": {
+            "path": "/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Geneva Sail Grand Prix — race day 2, starting Sun 20 Sept 2026 at 11:00 pm AEST."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Geneva Sail Grand Prix — race day 2 — Sun 11:00 pm",
+          "preheader": "Join the Geneva Sail Grand Prix — race day 2 watch party, then rate it after the finish.",
+          "headline": "Sunday watch party: Geneva Sail Grand Prix — race day 2",
+          "bodyParagraphs": [
+            "Geneva's final races turn European points into the qualification picture for the UAE finale. The event winner and championship positions are decided before the two-event finish in the Emirates.",
+            "Join us for the Geneva Sail Grand Prix — race day 2, on Sun at 11:00 pm AEST. Open the fixture for the watch party, live context and post-match rating."
+          ],
+          "timingLine": "Geneva Sail Grand Prix — race day 2 starts Sun 20 Sept 2026 at 11:00 pm AEST at Geneva, Switzerland. Expected finish: 2:00 am AEST.",
+          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Ageneva-day-2?source=marquee&campaign=marquee_49c6b94d03dcacda"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Ageneva-day-2?source=marquee&campaign=marquee_49c6b94d03dcacda&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Ageneva-day-2?source=marquee&campaign=marquee_49c6b94d03dcacda",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Ageneva-day-2?source=marquee&campaign=marquee_49c6b94d03dcacda&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Geneva Sail Grand Prix — race day 2, starting Sun 20 Sept 2026 at 11:00 pm AEST."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 20 Sept 2026",
+          "time": "11:00 pm",
+          "timezone": "AEST"
+        },
+        "finish": {
+          "day": "Mon",
+          "weekday": "Monday",
+          "date": "Mon 21 Sept 2026",
+          "time": "2:00 am",
+          "timezone": "AEST"
+        },
+        "live": {
+          "headline": "Sunday watch party: Geneva Sail Grand Prix — race day 2",
+          "hook": "Geneva's final races turn European points into the qualification picture for the UAE finale.",
+          "kicker": "5/5 stakes · SailGP",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Geneva Sail Grand Prix — race day 2, starting Sun 20 Sept 2026 at 11:00 pm AEST."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_49c6b94d03dcacda",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Ageneva-day-2?source=marquee&campaign=marquee_49c6b94d03dcacda",
+        "ratingWindow": {
+          "opensAt": "2026-09-20T16:00:00.000Z",
+          "closesAt": "2026-09-27T16:00:00.000Z"
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Geneva Sail Grand Prix — race day 2, starting Sun 20 Sept 2026 at 11:00 pm AEST."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_49c6b94d03dcacda-b4d23ab43dd1.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Geneva Sail Grand Prix — race day 2, starting Sun 20 Sept 2026 at 11:00 pm AEST."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
       "campaignId": "marquee_01bb48936c3ff875",
       "campaignRevision": 1,
       "contentHash": "eb8753a62c078f012e7c4262f09e2a0e55cbce9f9e9f2cb9996d32879755cdc5",
@@ -628,7 +1919,7 @@
         "name": "NRL — finals progression explainer",
         "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T14:45:18.023Z"
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
       },
       "material": {
         "title": "NRL Preliminary Finals",
@@ -835,7 +2126,7 @@
     {
       "campaignId": "marquee_cd38998faf633e9e",
       "campaignRevision": 1,
-      "contentHash": "82f59db8f4dfa2d43c383a52a31c9bc023dd414049633d8241c8b7f3101e43e2",
+      "contentHash": "567a41ae97332c24a0cc73d00cdf8e2d535ab8dbc9ca2d8d28c2b856498e3b4e",
       "state": "watching",
       "actionable": false,
       "late": false,
@@ -858,7 +2149,7 @@
         "confirmedUtcStart": true,
         "finish": "derived_from_live_window",
         "status": "upcoming",
-        "sourceCheckedAt": "2026-09-06T14:44:39.465Z"
+        "sourceCheckedAt": "2026-09-06T18:13:28.888Z"
       },
       "timing": {
         "startTimeUtc": "2026-09-26T04:30:00.000Z",
@@ -883,8 +2174,8 @@
       "source": {
         "name": "AFL",
         "url": "https://www.afl.com.au/afl/matches/9028",
-        "checkedAt": "2026-09-06T14:44:39.465Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T14:45:18.023Z"
+        "checkedAt": "2026-09-06T18:13:28.888Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
       },
       "material": {
         "title": "Winner of PF1 v Winner of PF2",
@@ -902,7 +2193,7 @@
         "source": {
           "name": "AFL",
           "url": "https://www.afl.com.au/afl/matches/9028",
-          "checkedAt": "2026-09-06T14:44:39.465Z"
+          "checkedAt": "2026-09-06T18:13:28.888Z"
         },
         "recognisableTitle": "Winner of PF1 v Winner of PF2",
         "matchupLabel": "Winner of PF1 v Winner of PF2",
@@ -936,8 +2227,8 @@
         },
         "animationPreset": "subtle",
         "hero": {
-          "path": "/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
+          "path": "/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -952,8 +2243,8 @@
           "caption": "UNMISSABLE AFL: Winner of PF1 v Winner of PF2. Sat 26 Sept 2026 at 2:30 pm AEST. 5/5 stakes. The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Winner of PF1 v Winner of PF2, starting Sat 26 Sept 2026 at 2:30 pm AEST.",
           "image": {
-            "path": "/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -987,8 +2278,8 @@
           "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Aafl%3Acd_m20260142901?source=marquee&campaign=marquee_cd38998faf633e9e",
           "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Aafl%3Acd_m20260142901?source=marquee&campaign=marquee_cd38998faf633e9e&intent=rate",
           "image": {
-            "path": "/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1026,8 +2317,8 @@
           },
           "animationPreset": "subtle",
           "hero": {
-            "path": "/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
@@ -1070,8 +2361,8 @@
       },
       "assets": {
         "fallbackHero": {
-          "path": "/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
+          "path": "/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
           "width": 1080,
           "height": 1350,
           "mimeType": "image/jpeg",
@@ -1080,13 +2371,270 @@
         },
         "suggestedHeroes": [
           {
-            "path": "/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-82f59db8f4df.jpg",
+            "path": "/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_cd38998faf633e9e-567a41ae9733.jpg",
             "width": 1080,
             "height": 1350,
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
             "altText": "Nothing Sport UNMISSABLE card for Winner of PF1 v Winner of PF2, starting Sat 26 Sept 2026 at 2:30 pm AEST."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_ff9103509fd2221f",
+      "campaignRevision": 1,
+      "contentHash": "20bee7a5273d372602fcee030a1f2ae85d59d37dfd95437e13b9be853a2f4b43",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:nrlw:2026:grand-final",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": null,
+        "fixtureDate": "2026-10-04"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 4 Oct 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "Official 2026 NRL and NRLW Grand Final",
+        "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "2026 NRLW Grand Final",
+        "participants": [],
+        "sport": "NRLW",
+        "competition": "final",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Accor Stadium",
+        "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+        "stakes": 5,
+        "source": {
+          "name": "Official 2026 NRL and NRLW Grand Final",
+          "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "2026 NRLW Grand Final",
+        "matchupLabel": "",
+        "displayDate": "2026-10-04"
+      },
+      "identities": {
+        "code": {
+          "label": "NRLW",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "2026 NRLW Grand Final: on the 5/5 watchlist",
+        "hook": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
+        "kicker": "5/5 stakes · NRLW",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+        }
+      },
+      "drafts": {
+        "hook": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE NRLW: 2026 NRLW Grand Final. Sun 4 Oct 2026; exact time TBC. 5/5 stakes. The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: 2026 NRLW Grand Final — Sun 4 Oct 2026 · time TBC",
+          "preheader": "Join the 2026 NRLW Grand Final watch party, then rate it after the finish.",
+          "headline": "2026 NRLW Grand Final: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
+            "Join us for the 2026 NRLW Grand Final. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "2026 NRLW Grand Final is listed for Sun 4 Oct 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Nine / 9Now / Fox Sports / Kayo.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?source=marquee&campaign=marquee_ff9103509fd2221f"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?source=marquee&campaign=marquee_ff9103509fd2221f&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?source=marquee&campaign=marquee_ff9103509fd2221f",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?source=marquee&campaign=marquee_ff9103509fd2221f&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 4 Oct 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        },
+        "live": {
+          "headline": "2026 NRLW Grand Final: on the 5/5 watchlist",
+          "hook": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
+          "kicker": "5/5 stakes · NRLW",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_ff9103509fd2221f",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Anrlw%3A2026%3Agrand-final?source=marquee&campaign=marquee_ff9103509fd2221f",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ff9103509fd2221f-20bee7a5273d.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for 2026 NRLW Grand Final, listed for Sun 4 Oct 2026 with the exact start time to be confirmed."
           }
         ],
         "uploadPolicy": "approved-media-only"
@@ -1144,7 +2692,7 @@
         "name": "NRL — 2026 top eight locked after Round 26",
         "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
         "checkedAt": "2026-08-29T19:30:00.000Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T14:45:18.023Z"
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
       },
       "material": {
         "title": "NRL Grand Final",
@@ -1349,6 +2897,2319 @@
       }
     },
     {
+      "campaignId": "marquee_6b005dad3cbeb12b",
+      "campaignRevision": 1,
+      "contentHash": "dbc681b35f2456d9cd6b76660894397eabc6e808d543626343cf10e558d3babe",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:motogp:2026:australia",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": null,
+        "fixtureDate": "2026-10-25"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 25 Oct 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "MotoGP 2026 calendar",
+        "url": "https://www.motogp.com/en/calendar/2026",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "Australian Motorcycle Grand Prix",
+        "participants": [],
+        "sport": "MotoGP",
+        "competition": "all",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Phillip Island Grand Prix Circuit",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "MotoGP 2026 calendar",
+          "url": "https://www.motogp.com/en/calendar/2026",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "Australian Motorcycle Grand Prix",
+        "matchupLabel": "",
+        "displayDate": "2026-10-25"
+      },
+      "identities": {
+        "code": {
+          "label": "MotoGP",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Australian Motorcycle Grand Prix: on the 5/5 watchlist",
+        "hook": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
+        "kicker": "5/5 stakes · MotoGP",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Australian Motorcycle Grand Prix, listed for Sun 25 Oct 2026 with the exact start time to be confirmed."
+        }
+      },
+      "drafts": {
+        "hook": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE MOTOGP: Australian Motorcycle Grand Prix. Sun 25 Oct 2026; exact time TBC. 5/5 stakes. MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Australian Motorcycle Grand Prix, listed for Sun 25 Oct 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Australian Motorcycle Grand Prix, listed for Sun 25 Oct 2026 with the exact start time to be confirmed."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Australian Motorcycle Grand Prix — Sun 25 Oct 2026 · time TBC",
+          "preheader": "Join the Australian Motorcycle Grand Prix watch party, then rate it after the finish.",
+          "headline": "Australian Motorcycle Grand Prix: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
+            "Join us for the Australian Motorcycle Grand Prix. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "Australian Motorcycle Grand Prix is listed for Sun 25 Oct 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aaustralia?source=marquee&campaign=marquee_6b005dad3cbeb12b"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aaustralia?source=marquee&campaign=marquee_6b005dad3cbeb12b&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aaustralia?source=marquee&campaign=marquee_6b005dad3cbeb12b",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aaustralia?source=marquee&campaign=marquee_6b005dad3cbeb12b&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Australian Motorcycle Grand Prix, listed for Sun 25 Oct 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 25 Oct 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        },
+        "live": {
+          "headline": "Australian Motorcycle Grand Prix: on the 5/5 watchlist",
+          "hook": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
+          "kicker": "5/5 stakes · MotoGP",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Australian Motorcycle Grand Prix, listed for Sun 25 Oct 2026 with the exact start time to be confirmed."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_6b005dad3cbeb12b",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aaustralia?source=marquee&campaign=marquee_6b005dad3cbeb12b",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Australian Motorcycle Grand Prix, listed for Sun 25 Oct 2026 with the exact start time to be confirmed."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6b005dad3cbeb12b-dbc681b35f24.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Australian Motorcycle Grand Prix, listed for Sun 25 Oct 2026 with the exact start time to be confirmed."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_e4073c6fcaa387c9",
+      "campaignRevision": 1,
+      "contentHash": "174b4659057e747a02b0af56df839cdc9d75af408598cb65c2bcb022e18b1752",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:motogp:2026:malaysia",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": null,
+        "fixtureDate": "2026-11-01"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 1 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "MotoGP 2026 calendar",
+        "url": "https://www.motogp.com/en/calendar/2026",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "MotoGP Malaysian Grand Prix",
+        "participants": [],
+        "sport": "MotoGP",
+        "competition": "all",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Petronas Sepang International Circuit",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "MotoGP 2026 calendar",
+          "url": "https://www.motogp.com/en/calendar/2026",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "MotoGP Malaysian Grand Prix",
+        "matchupLabel": "",
+        "displayDate": "2026-11-01"
+      },
+      "identities": {
+        "code": {
+          "label": "MotoGP",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "MotoGP Malaysian Grand Prix: on the 5/5 watchlist",
+        "hook": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
+        "kicker": "5/5 stakes · MotoGP",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Malaysian Grand Prix, listed for Sun 1 Nov 2026 with the exact start time to be confirmed."
+        }
+      },
+      "drafts": {
+        "hook": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE MOTOGP: MotoGP Malaysian Grand Prix. Sun 1 Nov 2026; exact time TBC. 5/5 stakes. Sepang keeps the MotoGP field in the heat as the available championship points shrink. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Malaysian Grand Prix, listed for Sun 1 Nov 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Malaysian Grand Prix, listed for Sun 1 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: MotoGP Malaysian Grand Prix — Sun 1 Nov 2026 · time TBC",
+          "preheader": "Join the MotoGP Malaysian Grand Prix watch party, then rate it after the finish.",
+          "headline": "MotoGP Malaysian Grand Prix: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "Sepang keeps the MotoGP field in the heat as the available championship points shrink. Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
+            "Join us for the MotoGP Malaysian Grand Prix. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "MotoGP Malaysian Grand Prix is listed for Sun 1 Nov 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Amalaysia?source=marquee&campaign=marquee_e4073c6fcaa387c9"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Amalaysia?source=marquee&campaign=marquee_e4073c6fcaa387c9&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Amalaysia?source=marquee&campaign=marquee_e4073c6fcaa387c9",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Amalaysia?source=marquee&campaign=marquee_e4073c6fcaa387c9&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Malaysian Grand Prix, listed for Sun 1 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 1 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        },
+        "live": {
+          "headline": "MotoGP Malaysian Grand Prix: on the 5/5 watchlist",
+          "hook": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
+          "kicker": "5/5 stakes · MotoGP",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Malaysian Grand Prix, listed for Sun 1 Nov 2026 with the exact start time to be confirmed."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_e4073c6fcaa387c9",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Amalaysia?source=marquee&campaign=marquee_e4073c6fcaa387c9",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Malaysian Grand Prix, listed for Sun 1 Nov 2026 with the exact start time to be confirmed."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_e4073c6fcaa387c9-174b4659057e.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Malaysian Grand Prix, listed for Sun 1 Nov 2026 with the exact start time to be confirmed."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_ac2c44bf73a89804",
+      "campaignRevision": 1,
+      "contentHash": "e4c0dcac171f53a167b3aef6dd56ba46897fa57322c36aeef21b1058bd1bbc37",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:motogp:2026:qatar",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": null,
+        "fixtureDate": "2026-11-08"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 8 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "MotoGP 2026 calendar",
+        "url": "https://www.motogp.com/en/calendar/2026",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "MotoGP Qatar Grand Prix",
+        "participants": [],
+        "sport": "MotoGP",
+        "competition": "all",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Lusail International Circuit",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "MotoGP 2026 calendar",
+          "url": "https://www.motogp.com/en/calendar/2026",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "MotoGP Qatar Grand Prix",
+        "matchupLabel": "",
+        "displayDate": "2026-11-08"
+      },
+      "identities": {
+        "code": {
+          "label": "MotoGP",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "MotoGP Qatar Grand Prix: on the 5/5 watchlist",
+        "hook": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
+        "kicker": "5/5 stakes · MotoGP",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Qatar Grand Prix, listed for Sun 8 Nov 2026 with the exact start time to be confirmed."
+        }
+      },
+      "drafts": {
+        "hook": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE MOTOGP: MotoGP Qatar Grand Prix. Sun 8 Nov 2026; exact time TBC. 5/5 stakes. Lusail's night race carries MotoGP into the final three rounds of 2026. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Qatar Grand Prix, listed for Sun 8 Nov 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Qatar Grand Prix, listed for Sun 8 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: MotoGP Qatar Grand Prix — Sun 8 Nov 2026 · time TBC",
+          "preheader": "Join the MotoGP Qatar Grand Prix watch party, then rate it after the finish.",
+          "headline": "MotoGP Qatar Grand Prix: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "Lusail's night race carries MotoGP into the final three rounds of 2026. Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
+            "Join us for the MotoGP Qatar Grand Prix. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "MotoGP Qatar Grand Prix is listed for Sun 8 Nov 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aqatar?source=marquee&campaign=marquee_ac2c44bf73a89804"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aqatar?source=marquee&campaign=marquee_ac2c44bf73a89804&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aqatar?source=marquee&campaign=marquee_ac2c44bf73a89804",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aqatar?source=marquee&campaign=marquee_ac2c44bf73a89804&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Qatar Grand Prix, listed for Sun 8 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 8 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        },
+        "live": {
+          "headline": "MotoGP Qatar Grand Prix: on the 5/5 watchlist",
+          "hook": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
+          "kicker": "5/5 stakes · MotoGP",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Qatar Grand Prix, listed for Sun 8 Nov 2026 with the exact start time to be confirmed."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_ac2c44bf73a89804",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aqatar?source=marquee&campaign=marquee_ac2c44bf73a89804",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Qatar Grand Prix, listed for Sun 8 Nov 2026 with the exact start time to be confirmed."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_ac2c44bf73a89804-e4c0dcac171f.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Qatar Grand Prix, listed for Sun 8 Nov 2026 with the exact start time to be confirmed."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_6fe221cb59607039",
+      "campaignRevision": 1,
+      "contentHash": "ed0ea226beaa5fb4d14b7bdc32578a2657c48d9ba87272befa24e1e6744e5b3f",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:sailgp:2026:dubai-day-1",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": null,
+        "fixtureDate": "2026-11-21"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sat",
+          "weekday": "Saturday",
+          "date": "Sat 21 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "SailGP 2026 calendar",
+        "url": "https://sailgp.com/general/2026/calendar/",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "Dubai Sail Grand Prix — race day 1",
+        "participants": [],
+        "sport": "SailGP",
+        "competition": "all",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Dubai, United Arab Emirates",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "SailGP 2026 calendar",
+          "url": "https://sailgp.com/general/2026/calendar/",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "Dubai Sail Grand Prix — race day 1",
+        "matchupLabel": "",
+        "displayDate": "2026-11-21"
+      },
+      "identities": {
+        "code": {
+          "label": "SailGP",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Dubai Sail Grand Prix — race day 1: on the 5/5 watchlist",
+        "hook": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
+        "kicker": "5/5 stakes · SailGP",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 1, listed for Sat 21 Nov 2026 with the exact start time to be confirmed."
+        }
+      },
+      "drafts": {
+        "hook": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE SAILGP: Dubai Sail Grand Prix — race day 1. Sat 21 Nov 2026; exact time TBC. 5/5 stakes. Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 1, listed for Sat 21 Nov 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 1, listed for Sat 21 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Dubai Sail Grand Prix — race day 1 — Sat 21 Nov 2026 · time TBC",
+          "preheader": "Join the Dubai Sail Grand Prix — race day 1 watch party, then rate it after the finish.",
+          "headline": "Dubai Sail Grand Prix — race day 1: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure. The penultimate event leaves the fleet only one weekend to repair any points damage.",
+            "Join us for the Dubai Sail Grand Prix — race day 1. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "Dubai Sail Grand Prix — race day 1 is listed for Sat 21 Nov 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-1?source=marquee&campaign=marquee_6fe221cb59607039"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-1?source=marquee&campaign=marquee_6fe221cb59607039&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-1?source=marquee&campaign=marquee_6fe221cb59607039",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-1?source=marquee&campaign=marquee_6fe221cb59607039&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 1, listed for Sat 21 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sat",
+          "weekday": "Saturday",
+          "date": "Sat 21 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        },
+        "live": {
+          "headline": "Dubai Sail Grand Prix — race day 1: on the 5/5 watchlist",
+          "hook": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
+          "kicker": "5/5 stakes · SailGP",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 1, listed for Sat 21 Nov 2026 with the exact start time to be confirmed."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_6fe221cb59607039",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-1?source=marquee&campaign=marquee_6fe221cb59607039",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 1, listed for Sat 21 Nov 2026 with the exact start time to be confirmed."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_6fe221cb59607039-ed0ea226beaa.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 1, listed for Sat 21 Nov 2026 with the exact start time to be confirmed."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_90f7eccd81244421",
+      "campaignRevision": 1,
+      "contentHash": "c28ee1cc09eea384b2984a55bdd51aec6b1dbcb1fb2ece89c59aa87ade2f0bfb",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:motogp:2026:portugal",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": null,
+        "fixtureDate": "2026-11-22"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 22 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "MotoGP 2026 calendar",
+        "url": "https://www.motogp.com/en/calendar/2026",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "MotoGP Portuguese Grand Prix",
+        "participants": [],
+        "sport": "MotoGP",
+        "competition": "all",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Algarve International Circuit",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "MotoGP 2026 calendar",
+          "url": "https://www.motogp.com/en/calendar/2026",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "MotoGP Portuguese Grand Prix",
+        "matchupLabel": "",
+        "displayDate": "2026-11-22"
+      },
+      "identities": {
+        "code": {
+          "label": "MotoGP",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "MotoGP Portuguese Grand Prix: on the 5/5 watchlist",
+        "hook": "Portimão's elevation changes host MotoGP's penultimate round.",
+        "kicker": "5/5 stakes · MotoGP",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Portuguese Grand Prix, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+        }
+      },
+      "drafts": {
+        "hook": "Portimão's elevation changes host MotoGP's penultimate round.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE MOTOGP: MotoGP Portuguese Grand Prix. Sun 22 Nov 2026; exact time TBC. 5/5 stakes. Portimão's elevation changes host MotoGP's penultimate round. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Portuguese Grand Prix, listed for Sun 22 Nov 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Portuguese Grand Prix, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: MotoGP Portuguese Grand Prix — Sun 22 Nov 2026 · time TBC",
+          "preheader": "Join the MotoGP Portuguese Grand Prix watch party, then rate it after the finish.",
+          "headline": "MotoGP Portuguese Grand Prix: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "Portimão's elevation changes host MotoGP's penultimate round. Only Valencia remains after Portugal, so every point has immediate championship consequence.",
+            "Join us for the MotoGP Portuguese Grand Prix. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "MotoGP Portuguese Grand Prix is listed for Sun 22 Nov 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aportugal?source=marquee&campaign=marquee_90f7eccd81244421"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aportugal?source=marquee&campaign=marquee_90f7eccd81244421&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aportugal?source=marquee&campaign=marquee_90f7eccd81244421",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aportugal?source=marquee&campaign=marquee_90f7eccd81244421&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Portuguese Grand Prix, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 22 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        },
+        "live": {
+          "headline": "MotoGP Portuguese Grand Prix: on the 5/5 watchlist",
+          "hook": "Portimão's elevation changes host MotoGP's penultimate round.",
+          "kicker": "5/5 stakes · MotoGP",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Portuguese Grand Prix, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_90f7eccd81244421",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Aportugal?source=marquee&campaign=marquee_90f7eccd81244421",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Portuguese Grand Prix, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_90f7eccd81244421-c28ee1cc09ee.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Portuguese Grand Prix, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_127ace7277cb370c",
+      "campaignRevision": 1,
+      "contentHash": "bcec83beacf1288ccf8e490b80f54721cdb8a0a4f53ad1dcd435c964035ebc33",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:sailgp:2026:dubai-day-2",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": null,
+        "fixtureDate": "2026-11-22"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 22 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "SailGP 2026 calendar",
+        "url": "https://sailgp.com/general/2026/calendar/",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "Dubai Sail Grand Prix — race day 2",
+        "participants": [],
+        "sport": "SailGP",
+        "competition": "all",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Dubai, United Arab Emirates",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "SailGP 2026 calendar",
+          "url": "https://sailgp.com/general/2026/calendar/",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "Dubai Sail Grand Prix — race day 2",
+        "matchupLabel": "",
+        "displayDate": "2026-11-22"
+      },
+      "identities": {
+        "code": {
+          "label": "SailGP",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Dubai Sail Grand Prix — race day 2: on the 5/5 watchlist",
+        "hook": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
+        "kicker": "5/5 stakes · SailGP",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 2, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+        }
+      },
+      "drafts": {
+        "hook": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE SAILGP: Dubai Sail Grand Prix — race day 2. Sun 22 Nov 2026; exact time TBC. 5/5 stakes. Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 2, listed for Sun 22 Nov 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 2, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Dubai Sail Grand Prix — race day 2 — Sun 22 Nov 2026 · time TBC",
+          "preheader": "Join the Dubai Sail Grand Prix — race day 2 watch party, then rate it after the finish.",
+          "headline": "Dubai Sail Grand Prix — race day 2: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi. A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
+            "Join us for the Dubai Sail Grand Prix — race day 2. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "Dubai Sail Grand Prix — race day 2 is listed for Sun 22 Nov 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-2?source=marquee&campaign=marquee_127ace7277cb370c"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-2?source=marquee&campaign=marquee_127ace7277cb370c&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-2?source=marquee&campaign=marquee_127ace7277cb370c",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-2?source=marquee&campaign=marquee_127ace7277cb370c&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 2, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 22 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        },
+        "live": {
+          "headline": "Dubai Sail Grand Prix — race day 2: on the 5/5 watchlist",
+          "hook": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
+          "kicker": "5/5 stakes · SailGP",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 2, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_127ace7277cb370c",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Adubai-day-2?source=marquee&campaign=marquee_127ace7277cb370c",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 2, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_127ace7277cb370c-bcec83beacf1.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dubai Sail Grand Prix — race day 2, listed for Sun 22 Nov 2026 with the exact start time to be confirmed."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_60bb801351c88fdb",
+      "campaignRevision": 1,
+      "contentHash": "7cffcaf5e2b642d8d879cfca8ef1306e37f6e0d773001464e133ec55bb7c2f65",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:sailgp:2026:abu-dhabi-day-1",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": null,
+        "fixtureDate": "2026-11-28"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sat",
+          "weekday": "Saturday",
+          "date": "Sat 28 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "SailGP 2026 calendar",
+        "url": "https://sailgp.com/general/2026/calendar/",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "Abu Dhabi Sail Grand Prix — race day 1",
+        "participants": [],
+        "sport": "SailGP",
+        "competition": "final",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Abu Dhabi, United Arab Emirates",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "SailGP 2026 calendar",
+          "url": "https://sailgp.com/general/2026/calendar/",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "Abu Dhabi Sail Grand Prix — race day 1",
+        "matchupLabel": "",
+        "displayDate": "2026-11-28"
+      },
+      "identities": {
+        "code": {
+          "label": "SailGP",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Abu Dhabi Sail Grand Prix — race day 1: on the 5/5 watchlist",
+        "hook": "The Abu Dhabi Grand Final opens with the season championship still alive.",
+        "kicker": "5/5 stakes · SailGP",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — race day 1, listed for Sat 28 Nov 2026 with the exact start time to be confirmed."
+        }
+      },
+      "drafts": {
+        "hook": "The Abu Dhabi Grand Final opens with the season championship still alive.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE SAILGP: Abu Dhabi Sail Grand Prix — race day 1. Sat 28 Nov 2026; exact time TBC. 5/5 stakes. The Abu Dhabi Grand Final opens with the season championship still alive. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — race day 1, listed for Sat 28 Nov 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — race day 1, listed for Sat 28 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Abu Dhabi Sail Grand Prix — race day 1 — Sat 28 Nov 2026 · time TBC",
+          "preheader": "Join the Abu Dhabi Sail Grand Prix — race day 1 watch party, then rate it after the finish.",
+          "headline": "Abu Dhabi Sail Grand Prix — race day 1: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "The Abu Dhabi Grand Final opens with the season championship still alive. Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
+            "Join us for the Abu Dhabi Sail Grand Prix — race day 1. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "Abu Dhabi Sail Grand Prix — race day 1 is listed for Sat 28 Nov 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-1?source=marquee&campaign=marquee_60bb801351c88fdb"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-1?source=marquee&campaign=marquee_60bb801351c88fdb&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-1?source=marquee&campaign=marquee_60bb801351c88fdb",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-1?source=marquee&campaign=marquee_60bb801351c88fdb&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — race day 1, listed for Sat 28 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sat",
+          "weekday": "Saturday",
+          "date": "Sat 28 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        },
+        "live": {
+          "headline": "Abu Dhabi Sail Grand Prix — race day 1: on the 5/5 watchlist",
+          "hook": "The Abu Dhabi Grand Final opens with the season championship still alive.",
+          "kicker": "5/5 stakes · SailGP",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — race day 1, listed for Sat 28 Nov 2026 with the exact start time to be confirmed."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_60bb801351c88fdb",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-1?source=marquee&campaign=marquee_60bb801351c88fdb",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — race day 1, listed for Sat 28 Nov 2026 with the exact start time to be confirmed."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_60bb801351c88fdb-7cffcaf5e2b6.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — race day 1, listed for Sat 28 Nov 2026 with the exact start time to be confirmed."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_d4197928ec0b8d7a",
+      "campaignRevision": 1,
+      "contentHash": "d0af936d0ccdcd90ec4e190a3ec9dafc26e0d1149d8e775098d7779e8f074132",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:motogp:2026:valencia",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": null,
+        "fixtureDate": "2026-11-29"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 29 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "MotoGP 2026 calendar",
+        "url": "https://www.motogp.com/en/calendar/2026",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "MotoGP Valencia Grand Prix",
+        "participants": [],
+        "sport": "MotoGP",
+        "competition": "final",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Circuit Ricardo Tormo",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "MotoGP 2026 calendar",
+          "url": "https://www.motogp.com/en/calendar/2026",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "MotoGP Valencia Grand Prix",
+        "matchupLabel": "",
+        "displayDate": "2026-11-29"
+      },
+      "identities": {
+        "code": {
+          "label": "MotoGP",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "MotoGP Valencia Grand Prix: on the 5/5 watchlist",
+        "hook": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
+        "kicker": "5/5 stakes · MotoGP",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Valencia Grand Prix, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+        }
+      },
+      "drafts": {
+        "hook": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE MOTOGP: MotoGP Valencia Grand Prix. Sun 29 Nov 2026; exact time TBC. 5/5 stakes. Valencia closes the 2026 MotoGP season and settles any championship still alive. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Valencia Grand Prix, listed for Sun 29 Nov 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Valencia Grand Prix, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: MotoGP Valencia Grand Prix — Sun 29 Nov 2026 · time TBC",
+          "preheader": "Join the MotoGP Valencia Grand Prix watch party, then rate it after the finish.",
+          "headline": "MotoGP Valencia Grand Prix: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "Valencia closes the 2026 MotoGP season and settles any championship still alive. The compact stadium circuit is the last chance for a rider to change the final standings.",
+            "Join us for the MotoGP Valencia Grand Prix. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "MotoGP Valencia Grand Prix is listed for Sun 29 Nov 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Avalencia?source=marquee&campaign=marquee_d4197928ec0b8d7a"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Avalencia?source=marquee&campaign=marquee_d4197928ec0b8d7a&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Avalencia?source=marquee&campaign=marquee_d4197928ec0b8d7a",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Avalencia?source=marquee&campaign=marquee_d4197928ec0b8d7a&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Valencia Grand Prix, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 29 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        },
+        "live": {
+          "headline": "MotoGP Valencia Grand Prix: on the 5/5 watchlist",
+          "hook": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
+          "kicker": "5/5 stakes · MotoGP",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Valencia Grand Prix, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_d4197928ec0b8d7a",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Amotogp%3A2026%3Avalencia?source=marquee&campaign=marquee_d4197928ec0b8d7a",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for MotoGP Valencia Grand Prix, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_d4197928ec0b8d7a-d0af936d0ccd.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for MotoGP Valencia Grand Prix, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
+      "campaignId": "marquee_1ee34ef38f7a2d90",
+      "campaignRevision": 1,
+      "contentHash": "80d41665ab88296b1a60e10fadbd02871f4e5a7ac1d339bf6aaa15fa3323b8ac",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "event:sailgp:2026:abu-dhabi-day-2",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "unconfirmed_utc_start",
+        "missing_finish_or_live_window",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": null,
+        "fixtureDate": "2026-11-29"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": false,
+        "finish": "unconfirmed",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-06T18:20:00.000Z"
+      },
+      "timing": {
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "liveWindowHours": 3,
+        "endDerived": false,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 29 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "sydneyFinish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        }
+      },
+      "source": {
+        "name": "SailGP 2026 calendar",
+        "url": "https://sailgp.com/general/2026/calendar/",
+        "checkedAt": "2026-09-06T18:20:00.000Z",
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
+      },
+      "material": {
+        "title": "Abu Dhabi Sail Grand Prix — championship day",
+        "participants": [],
+        "sport": "SailGP",
+        "competition": "final",
+        "startTimeUtc": "",
+        "endTimeUtc": "",
+        "venue": "Abu Dhabi, United Arab Emirates",
+        "broadcaster": "Fox Sports via Kayo / Foxtel",
+        "stakes": 5,
+        "source": {
+          "name": "SailGP 2026 calendar",
+          "url": "https://sailgp.com/general/2026/calendar/",
+          "checkedAt": "2026-09-06T18:20:00.000Z"
+        },
+        "recognisableTitle": "Abu Dhabi Sail Grand Prix — championship day",
+        "matchupLabel": "",
+        "displayDate": "2026-11-29"
+      },
+      "identities": {
+        "code": {
+          "label": "SailGP",
+          "path": "/assets/brand/web/nothingsport-app-icon.png",
+          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Abu Dhabi Sail Grand Prix — championship day: on the 5/5 watchlist",
+        "hook": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
+        "kicker": "5/5 stakes · SailGP",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — championship day, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+        }
+      },
+      "drafts": {
+        "hook": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE SAILGP: Abu Dhabi Sail Grand Prix — championship day. Sun 29 Nov 2026; exact time TBC. 5/5 stakes. SailGP's last race crowns the 2026 champion in Abu Dhabi. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — championship day, listed for Sun 29 Nov 2026 with the exact start time to be confirmed.",
+          "image": {
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — championship day, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Abu Dhabi Sail Grand Prix — championship day — Sun 29 Nov 2026 · time TBC",
+          "preheader": "Join the Abu Dhabi Sail Grand Prix — championship day watch party, then rate it after the finish.",
+          "headline": "Abu Dhabi Sail Grand Prix — championship day: on the 5/5 watchlist",
+          "bodyParagraphs": [
+            "SailGP's last race crowns the 2026 champion in Abu Dhabi. A full season of fleet racing ends in the championship's decisive final contest.",
+            "Join us for the Abu Dhabi Sail Grand Prix — championship day. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
+          ],
+          "timingLine": "Abu Dhabi Sail Grand Prix — championship day is listed for Sun 29 Nov 2026; the exact fixture and Sydney start time still need confirmation.",
+          "broadcastLine": "Watch in Australia on Fox Sports via Kayo / Foxtel.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-2?source=marquee&campaign=marquee_1ee34ef38f7a2d90"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-2?source=marquee&campaign=marquee_1ee34ef38f7a2d90&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-2?source=marquee&campaign=marquee_1ee34ef38f7a2d90",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-2?source=marquee&campaign=marquee_1ee34ef38f7a2d90&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — championship day, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 29 Nov 2026",
+          "time": "Time TBC",
+          "timezone": "Sydney time"
+        },
+        "finish": {
+          "date": "",
+          "time": "",
+          "day": "",
+          "timezone": "Sydney time"
+        },
+        "live": {
+          "headline": "Abu Dhabi Sail Grand Prix — championship day: on the 5/5 watchlist",
+          "hook": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
+          "kicker": "5/5 stakes · SailGP",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — championship day, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_1ee34ef38f7a2d90",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/event%3Asailgp%3A2026%3Aabu-dhabi-day-2?source=marquee&campaign=marquee_1ee34ef38f7a2d90",
+        "ratingWindow": {
+          "opensAt": null,
+          "closesAt": null
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — championship day, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1ee34ef38f7a2d90-80d41665ab88.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Abu Dhabi Sail Grand Prix — championship day, listed for Sun 29 Nov 2026 with the exact start time to be confirmed."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
       "campaignId": "marquee_e6d2378551d1f5e4",
       "campaignRevision": 1,
       "contentHash": "578f87f34ad6d7a682fa4c35bd7858a04f01a20629224b06e62ae1cf1d90a564",
@@ -1400,7 +5261,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T14:45:18.023Z"
+        "revision": "nothingsport-marquee-visibility-2026-08-03-v1@2026-09-06T18:14:21.394Z"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",

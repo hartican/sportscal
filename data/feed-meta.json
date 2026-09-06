@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-06T17:38:29.140Z",
+  "publishedAt": "2026-09-06T18:14:21.394Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -20,7 +20,11 @@
     "cricket",
     "premier-league",
     "aflw",
+    "sailgp",
+    "fiba-women",
     "tennis",
+    "nrlw",
+    "motogp",
     "wsl",
     "downhill-mtb",
     "big-wave",
@@ -121,10 +125,30 @@
         "firstEventDate": "2026-08-29",
         "lastEventDate": "2026-11-01"
       },
+      "sailgp": {
+        "count": 7,
+        "firstEventDate": "2026-09-06",
+        "lastEventDate": "2026-11-29"
+      },
+      "fiba-women": {
+        "count": 17,
+        "firstEventDate": "2026-09-06",
+        "lastEventDate": "2026-09-14"
+      },
       "tennis": {
         "count": 1,
         "firstEventDate": "2026-09-07",
         "lastEventDate": "2026-09-07"
+      },
+      "nrlw": {
+        "count": 7,
+        "firstEventDate": "2026-09-10",
+        "lastEventDate": "2026-10-04"
+      },
+      "motogp": {
+        "count": 9,
+        "firstEventDate": "2026-09-13",
+        "lastEventDate": "2026-11-29"
       },
       "wsl": {
         "count": 1,

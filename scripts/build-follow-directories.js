@@ -9,6 +9,7 @@ const MANIFEST_PATH = path.join(OUTPUT_DIR, "manifest.v1.json");
 const SUPPLEMENT_PATH = "data/canonical/follow-directory-supplement.v1.json";
 const TENNIS_WATCH_POOL_PATH = "data/canonical/tennis-watch-pool-2026.json";
 const CHAMPIONS_LEAGUE_PATH = "data/canonical/uefa-champions-league-2026-27.json";
+const REQUESTED_SPORTS_PATH = "data/canonical/fiba-women-sailgp-motogp-2026.json";
 
 function readJson(relativePath){
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -125,7 +126,14 @@ function main(){
   const nationalTeamIdentities = require(path.join(ROOT, "config/national-team-identities.js"));
   const exposedSports = taxonomy.exposedSportNodes.filter(entity => Number(entity.level) === 2 || entity.parentId === "sport:motorsport")
     .map(entity => ({ key:entity.id.replace(/^sport:/, ""), label:entity.label }));
-  if (!exposedSports.some(sport => sport.key === "aflw")) exposedSports.splice(exposedSports.findIndex(sport => sport.key === "afl") + 1, 0, { key:"aflw", label:"AFLW" });
+  [
+    { key:"aflw", label:"AFLW", after:"afl" },
+    { key:"nrlw", label:"NRLW", after:"nrl" },
+    { key:"motogp", label:"MotoGP", after:"motorsport" },
+  ].forEach(child => {
+    if (exposedSports.some(sport => sport.key === child.key)) return;
+    exposedSports.splice(exposedSports.findIndex(sport => sport.key === child.after) + 1, 0, { key:child.key, label:child.label });
+  });
   const sportsByKey = new Map(exposedSports.map(sport => [sport.key, sport]));
   const nationalSportLabels = { hockey:"Hockey", "multi-sport":"Multi-sport" };
   nationalTeamIdentities.allTeams.forEach(team => {
@@ -149,9 +157,11 @@ function main(){
   const supplement = readJson(SUPPLEMENT_PATH);
   const tennisWatchPool = readJson(TENNIS_WATCH_POOL_PATH);
   const championsLeague = readJson(CHAMPIONS_LEAGUE_PATH);
+  const requestedSports = readJson(REQUESTED_SPORTS_PATH);
   if (supplement.generatedAt) sourceGeneratedAt.push(supplement.generatedAt);
   if (tennisWatchPool.generatedAt) sourceGeneratedAt.push(tennisWatchPool.generatedAt);
   if (championsLeague.generatedAt) sourceGeneratedAt.push(championsLeague.generatedAt);
+  if (requestedSports.generatedAt) sourceGeneratedAt.push(requestedSports.generatedAt);
   const rankByParticipant = new Map();
   contexts.forEach(context => (context.ladderSnapshots || []).forEach(snapshot => (snapshot.entries || []).forEach(entry => {
     const rank = Number(entry.rank ?? entry.position);
@@ -190,6 +200,16 @@ function main(){
         sourceRefs:[...inheritedSources, ...recordSources],
       }));
     });
+  });
+  (requestedSports.participants || []).forEach(record => {
+    const key = String(record.sportKey || "");
+    if (!chunks.has(key)) return;
+    const sourceRefs = (record.sourceIds || []).map(sourceId => requestedSports.sources?.[sourceId]?.url).filter(Boolean);
+    chunks.get(key).set(record.id, normalizeRecord(record, {
+      countryBasis:"official-roster",
+      sourceCheckedAt:requestedSports.generatedAt,
+      sourceRefs,
+    }));
   });
   [
     ["afl", "data/canonical/afl-directory.v1.json"],

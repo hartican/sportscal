@@ -42,6 +42,15 @@ assert(
     < localSteps.findIndex(step => step[0] === "scripts/sync-wrc-to-feed.js"),
   "the WRC source context must refresh before it is projected into the Feed"
 );
+assert(localSteps.some(step => step[0] === "scripts/sync-requested-sports-to-feed.js"), "every canonical update must retain the requested NRLW, FIBA Women, SailGP and MotoGP schedule cards");
+assert(localSteps.some(step => step[0] === "scripts/validate-requested-sports.js"), "every canonical update must verify the requested sports across taxonomy, Follow, Feed and Code Inspector");
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/sync-requested-sports-to-feed.js")
+    < localSteps.findIndex(step => step[0] === "scripts/publish-feed.js")
+    && localSteps.findIndex(step => step[0] === "scripts/build-code-inspector.js")
+      < localSteps.findIndex(step => step[0] === "scripts/validate-requested-sports.js"),
+  "requested sports must sync before publication and validate after Code Inspector generation"
+);
 assert(localSteps.some(step => step[0] === "scripts/refresh-premier-league-context.js" && !step.includes("--check")), "every canonical update must refresh the official EPL league table");
 assert(localSteps.some(step => step[0] === "scripts/refresh-premier-league-context.js" && step.includes("--check")), "every canonical update must reject an incomplete published EPL snapshot");
 assert(localSteps.some(step => step[0] === "scripts/validate-premier-league-context.js"), "every canonical update must validate EPL identity mapping, offline transport and failed-refresh preservation");
@@ -77,7 +86,7 @@ assert(localSteps.some(step => step[0] === "scripts/validate-admin-console.js"),
 assert(localSteps.some(step => step[0] === "scripts/validate-admin-api.js"), "every canonical update must exercise owner-console approval, report independence and privacy through the API handlers");
 assert(localSteps.some(step => step[0] === "scripts/validate-mobile-feed-events-brand-pass.js"), "every canonical update must enforce the mobile provider, Events and brand reliability pass");
 assert(localSteps.some(step => step[0] === "scripts/validate-ui-foundation.js"), "every canonical update must enforce the shared site-wide UI foundation and progressive card contract");
-assert(localSteps.some(step => step[0] === "scripts/validate-feed-sport-reliability-pass.js"), "every canonical update must enforce Feed stability, nineteen-sport coverage and event reliability");
+assert(localSteps.some(step => step[0] === "scripts/validate-feed-sport-reliability-pass.js"), "every canonical update must enforce Feed stability, full sport coverage and event reliability");
 assert(
   localSteps.findIndex(step => step[0] === "scripts/refresh-f1-editorial.js")
     < localSteps.findIndex(step => step[0] === "scripts/apply-editorial-previews.js"),

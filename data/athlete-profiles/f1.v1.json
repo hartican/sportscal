@@ -1,7 +1,7 @@
 {
   "schemaVersion": "athlete-profile-chunk.v1",
   "sportKey": "f1",
-  "generatedAt": "2026-09-06T14:45:02.413Z",
+  "generatedAt": "2026-09-06T18:14:03.244Z",
   "profiles": [
     {
       "schemaVersion": "athlete-profile.v1",
@@ -15,7 +15,7 @@
       "competitionNumber": 10,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "biography": "Pierre Gasly races for Alpine in the 2026 Formula 1 World Championship. Born 07/02/1996 in Rouen, France, the official record lists 12 Grand Prix starts, 493 career points, a best finish of 1 (x1). The profile below separates the current-season championship record from career achievements and recent results.",
+      "biography": "Pierre Gasly races for Alpine in the 2026 Formula 1 World Championship. Born 07/02/1996 in Rouen, France, the official record lists 13 Grand Prix starts, 499 career points, a best finish of 1 (x1). The profile below separates the current-season championship record from career achievements and recent results.",
       "keyFacts": [
         {
           "label": "Date of Birth",
@@ -33,17 +33,17 @@
         },
         {
           "label": "Season Points",
-          "value": "35"
+          "value": "41"
         }
       ],
       "careerStats": [
         {
           "label": "Grand Prix Races",
-          "value": "12"
+          "value": "13"
         },
         {
           "label": "Grand Prix Points",
-          "value": "33"
+          "value": "39"
         },
         {
           "label": "Grand Prix Wins",
@@ -59,7 +59,7 @@
         },
         {
           "label": "Grand Prix Top 10s",
-          "value": "8"
+          "value": "9"
         },
         {
           "label": "Sprint Podiums",
@@ -67,7 +67,7 @@
         },
         {
           "label": "Career Points",
-          "value": "493"
+          "value": "499"
         }
       ],
       "recentFive": [
@@ -144,7 +144,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T14:45:02.413Z"
+      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -158,7 +158,7 @@
       "competitionNumber": 16,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "biography": "Charles Leclerc races for Ferrari in the 2026 Formula 1 World Championship. Born 16/10/1997 in Monte Carlo, Monaco, the official record lists 12 Grand Prix starts, 1827 career points, a best finish of 1 (x9). The profile below separates the current-season championship record from career achievements and recent results.",
+      "biography": "Charles Leclerc races for Ferrari in the 2026 Formula 1 World Championship. Born 16/10/1997 in Monte Carlo, Monaco, the official record lists 13 Grand Prix starts, 1827 career points, a best finish of 1 (x9). The profile below separates the current-season championship record from career achievements and recent results.",
       "keyFacts": [
         {
           "label": "Date of Birth",
@@ -182,7 +182,7 @@
       "careerStats": [
         {
           "label": "Grand Prix Races",
-          "value": "12"
+          "value": "13"
         },
         {
           "label": "Grand Prix Points",
@@ -287,7 +287,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T14:45:02.413Z"
+      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -301,7 +301,7 @@
       "competitionNumber": 44,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "biography": "Lewis Hamilton races for Ferrari in the 2026 Formula 1 World Championship. Born 07/01/1985 in Stevenage, England, the official record lists 12 Grand Prix starts, 5201.5 career points, a best finish of 1 (x106). The profile below separates the current-season championship record from career achievements and recent results.",
+      "biography": "Lewis Hamilton races for Ferrari in the 2026 Formula 1 World Championship. Born 07/01/1985 in Stevenage, England, the official record lists 13 Grand Prix starts, 5209.5 career points, a best finish of 1 (x106). The profile below separates the current-season championship record from career achievements and recent results.",
       "keyFacts": [
         {
           "label": "Date of Birth",
@@ -319,17 +319,17 @@
         },
         {
           "label": "Season Points",
-          "value": "183"
+          "value": "191"
         }
       ],
       "careerStats": [
         {
           "label": "Grand Prix Races",
-          "value": "12"
+          "value": "13"
         },
         {
           "label": "Grand Prix Points",
-          "value": "163"
+          "value": "171"
         },
         {
           "label": "Grand Prix Wins",
@@ -345,7 +345,7 @@
         },
         {
           "label": "Grand Prix Top 10s",
-          "value": "12"
+          "value": "13"
         },
         {
           "label": "Sprint Podiums",
@@ -353,7 +353,7 @@
         },
         {
           "label": "Career Points",
-          "value": "5201.5"
+          "value": "5209.5"
         }
       ],
       "recentFive": [
@@ -430,7 +430,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T14:45:02.413Z"
+      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -444,7 +444,7 @@
       "competitionNumber": 1,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "biography": "Lando Norris races for McLaren in the 2026 Formula 1 World Championship. Born 13/11/1999 in Bristol, England, the official record lists 12 Grand Prix starts, 1589 career points, a best finish of 1 (x13). The profile below separates the current-season championship record from career achievements and recent results.",
+      "biography": "Lando Norris races for McLaren in the 2026 Formula 1 World Championship. Born 13/11/1999 in Bristol, England, the official record lists 13 Grand Prix starts, 1601 career points, a best finish of 1 (x13). The profile below separates the current-season championship record from career achievements and recent results.",
       "keyFacts": [
         {
           "label": "Date of Birth",
@@ -462,17 +462,17 @@
         },
         {
           "label": "Season Points",
-          "value": "159"
+          "value": "171"
         }
       ],
       "careerStats": [
         {
           "label": "Grand Prix Races",
-          "value": "12"
+          "value": "13"
         },
         {
           "label": "Grand Prix Points",
-          "value": "127"
+          "value": "139"
         },
         {
           "label": "Grand Prix Wins",
@@ -488,7 +488,7 @@
         },
         {
           "label": "Grand Prix Top 10s",
-          "value": "9"
+          "value": "10"
         },
         {
           "label": "Sprint Podiums",
@@ -496,7 +496,7 @@
         },
         {
           "label": "Career Points",
-          "value": "1589"
+          "value": "1601"
         }
       ],
       "recentFive": [
@@ -573,7 +573,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T14:45:02.413Z"
+      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -587,7 +587,7 @@
       "competitionNumber": 81,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "biography": "Oscar Piastri races for McLaren in the 2026 Formula 1 World Championship. Born 06/04/2001 in Melbourne, Victoria, the official record lists 12 Grand Prix starts, 905 career points, a best finish of 1 (x9). The profile below separates the current-season championship record from career achievements and recent results.",
+      "biography": "Oscar Piastri races for McLaren in the 2026 Formula 1 World Championship. Born 06/04/2001 in Melbourne, Victoria, the official record lists 13 Grand Prix starts, 915 career points, a best finish of 1 (x9). The profile below separates the current-season championship record from career achievements and recent results.",
       "keyFacts": [
         {
           "label": "Date of Birth",
@@ -605,17 +605,17 @@
         },
         {
           "label": "Season Points",
-          "value": "106"
+          "value": "116"
         }
       ],
       "careerStats": [
         {
           "label": "Grand Prix Races",
-          "value": "12"
+          "value": "13"
         },
         {
           "label": "Grand Prix Points",
-          "value": "85"
+          "value": "95"
         },
         {
           "label": "Grand Prix Wins",
@@ -631,7 +631,7 @@
         },
         {
           "label": "Grand Prix Top 10s",
-          "value": "7"
+          "value": "8"
         },
         {
           "label": "Sprint Podiums",
@@ -639,7 +639,7 @@
         },
         {
           "label": "Career Points",
-          "value": "905"
+          "value": "915"
         }
       ],
       "recentFive": [
@@ -716,7 +716,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T14:45:02.413Z"
+      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -730,7 +730,7 @@
       "competitionNumber": 12,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "biography": "Kimi Antonelli races for Mercedes in the 2026 Formula 1 World Championship. Born 25/08/2006 in Bologna, Italy, the official record lists 12 Grand Prix starts, 392 career points, a best finish of 1 (x6). The profile below separates the current-season championship record from career achievements and recent results.",
+      "biography": "Kimi Antonelli races for Mercedes in the 2026 Formula 1 World Championship. Born 25/08/2006 in Bologna, Italy, the official record lists 13 Grand Prix starts, 417 career points, a best finish of 1 (x7). The profile below separates the current-season championship record from career achievements and recent results.",
       "keyFacts": [
         {
           "label": "Date of Birth",
@@ -748,25 +748,25 @@
         },
         {
           "label": "Season Points",
-          "value": "242"
+          "value": "267"
         }
       ],
       "careerStats": [
         {
           "label": "Grand Prix Races",
-          "value": "12"
+          "value": "13"
         },
         {
           "label": "Grand Prix Points",
-          "value": "216"
+          "value": "241"
         },
         {
           "label": "Grand Prix Wins",
-          "value": "6"
+          "value": "7"
         },
         {
           "label": "Grand Prix Podiums",
-          "value": "10"
+          "value": "11"
         },
         {
           "label": "Grand Prix Poles",
@@ -774,7 +774,7 @@
         },
         {
           "label": "Grand Prix Top 10s",
-          "value": "10"
+          "value": "11"
         },
         {
           "label": "Sprint Podiums",
@@ -782,10 +782,21 @@
         },
         {
           "label": "Career Points",
-          "value": "392"
+          "value": "417"
         }
       ],
       "recentFive": [
+        {
+          "label": "Italy · 06 Sep",
+          "opponent": null,
+          "result": "Position 1",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "25"
+            }
+          ]
+        },
         {
           "label": "Netherlands · 23 Aug",
           "opponent": null,
@@ -829,17 +840,6 @@
               "value": "8"
             }
           ]
-        },
-        {
-          "label": "Austria · 28 Jun",
-          "opponent": null,
-          "result": "Position 3",
-          "stats": [
-            {
-              "label": "Pts",
-              "value": "15"
-            }
-          ]
         }
       ],
       "selection": {
@@ -859,7 +859,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T14:45:02.413Z"
+      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -873,7 +873,7 @@
       "competitionNumber": 63,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "biography": "George Russell races for Mercedes in the 2026 Formula 1 World Championship. Born 15/02/1998 in King's Lynn, England, the official record lists 12 Grand Prix starts, 1216 career points, a best finish of 1 (x7). The profile below separates the current-season championship record from career achievements and recent results.",
+      "biography": "George Russell races for Mercedes in the 2026 Formula 1 World Championship. Born 15/02/1998 in King's Lynn, England, the official record lists 13 Grand Prix starts, 1234 career points, a best finish of 1 (x7). The profile below separates the current-season championship record from career achievements and recent results.",
       "keyFacts": [
         {
           "label": "Date of Birth",
@@ -891,17 +891,17 @@
         },
         {
           "label": "Season Points",
-          "value": "183"
+          "value": "201"
         }
       ],
       "careerStats": [
         {
           "label": "Grand Prix Races",
-          "value": "12"
+          "value": "13"
         },
         {
           "label": "Grand Prix Points",
-          "value": "149"
+          "value": "167"
         },
         {
           "label": "Grand Prix Wins",
@@ -909,7 +909,7 @@
         },
         {
           "label": "Grand Prix Podiums",
-          "value": "6"
+          "value": "7"
         },
         {
           "label": "Grand Prix Poles",
@@ -917,7 +917,7 @@
         },
         {
           "label": "Grand Prix Top 10s",
-          "value": "9"
+          "value": "10"
         },
         {
           "label": "Sprint Podiums",
@@ -925,7 +925,7 @@
         },
         {
           "label": "Career Points",
-          "value": "1216"
+          "value": "1234"
         }
       ],
       "recentFive": [
@@ -1002,7 +1002,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T14:45:02.413Z"
+      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1016,7 +1016,7 @@
       "competitionNumber": 30,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "biography": "Liam Lawson races for Racing Bulls in the 2026 Formula 1 World Championship. Born 11/02/2002 in Hastings, New Zealand, the official record lists 12 Grand Prix starts, 95 career points, a best finish of 5 (x2). The profile below separates the current-season championship record from career achievements and recent results.",
+      "biography": "Liam Lawson races for Racing Bulls in the 2026 Formula 1 World Championship. Born 11/02/2002 in Hastings, New Zealand, the official record lists 13 Grand Prix starts, 95 career points, a best finish of 5 (x2). The profile below separates the current-season championship record from career achievements and recent results.",
       "keyFacts": [
         {
           "label": "Date of Birth",
@@ -1040,7 +1040,7 @@
       "careerStats": [
         {
           "label": "Grand Prix Races",
-          "value": "12"
+          "value": "13"
         },
         {
           "label": "Grand Prix Points",
@@ -1145,7 +1145,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T14:45:02.413Z"
+      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1159,7 +1159,7 @@
       "competitionNumber": 3,
       "competitionNumberKind": "racing",
       "competitionNumberSeason": "2026",
-      "biography": "Max Verstappen races for Red Bull Racing in the 2026 Formula 1 World Championship. Born 30/09/1997 in Hasselt, Belgium, the official record lists 12 Grand Prix starts, 3556.5 career points, a best finish of 1 (x71). The profile below separates the current-season championship record from career achievements and recent results.",
+      "biography": "Max Verstappen races for Red Bull Racing in the 2026 Formula 1 World Championship. Born 30/09/1997 in Hasselt, Belgium, the official record lists 13 Grand Prix starts, 3571.5 career points, a best finish of 1 (x71). The profile below separates the current-season championship record from career achievements and recent results.",
       "keyFacts": [
         {
           "label": "Date of Birth",
@@ -1177,17 +1177,17 @@
         },
         {
           "label": "Season Points",
-          "value": "112"
+          "value": "127"
         }
       ],
       "careerStats": [
         {
           "label": "Grand Prix Races",
-          "value": "12"
+          "value": "13"
         },
         {
           "label": "Grand Prix Points",
-          "value": "100"
+          "value": "115"
         },
         {
           "label": "Grand Prix Wins",
@@ -1195,7 +1195,7 @@
         },
         {
           "label": "Grand Prix Podiums",
-          "value": "4"
+          "value": "5"
         },
         {
           "label": "Grand Prix Poles",
@@ -1203,7 +1203,7 @@
         },
         {
           "label": "Grand Prix Top 10s",
-          "value": "8"
+          "value": "9"
         },
         {
           "label": "Sprint Podiums",
@@ -1211,10 +1211,21 @@
         },
         {
           "label": "Career Points",
-          "value": "3556.5"
+          "value": "3571.5"
         }
       ],
       "recentFive": [
+        {
+          "label": "Italy · 06 Sep",
+          "opponent": null,
+          "result": "Position 3",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "15"
+            }
+          ]
+        },
         {
           "label": "Netherlands · 23 Aug",
           "opponent": null,
@@ -1258,17 +1269,6 @@
               "value": "3"
             }
           ]
-        },
-        {
-          "label": "Austria · 28 Jun",
-          "opponent": null,
-          "result": "Position 2",
-          "stats": [
-            {
-              "label": "Pts",
-              "value": "18"
-            }
-          ]
         }
       ],
       "selection": {
@@ -1288,7 +1288,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T14:45:02.413Z"
+      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1431,7 +1431,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T14:45:02.413Z"
+      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
     }
   ]
 }

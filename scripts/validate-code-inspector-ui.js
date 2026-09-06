@@ -9,6 +9,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 const manifestPath = path.join(ROOT, "data/code-inspector/manifest.json");
+const wrcContext = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/wrc-context-2026.json"), "utf8"));
 
 assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow']);
 assert(html.includes('Back to Follow')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
@@ -68,22 +69,43 @@ const wrcChunk = JSON.parse(fs.readFileSync(path.join(ROOT, wrcCode.chunkPath), 
 assert.equal(wrcChunk.fixtures.length, 14, "WRC Schedule must expose exactly fourteen championship rounds");
 assert.equal(wrcChunk.standings.length, 77, "WRC Standings must expose all three senior FIA tables");
 assert(wrcChunk.fixtures.every(fixture => fixture.dateOnly && fixture.endDate >= fixture.date), "WRC Schedule must preserve inclusive date-only ranges");
-assert.equal(wrcChunk.fixtures.filter(fixture => fixture.status === "completed").length, 11, "WRC Results / Replays must expose every completed round");
+const completedWrcRounds = wrcContext.events.filter(fixture => fixture.status === "completed");
+const officialWrcResults = completedWrcRounds.filter(fixture => fixture.result?.status === "official");
+assert.equal(wrcChunk.fixtures.filter(fixture => fixture.status === "completed").length, completedWrcRounds.length, "WRC Results / Replays must expose every completed round");
 assert(wrcChunk.fixtures.filter(fixture => fixture.status === "completed").every(fixture => fixture.replayUrl), "every completed WRC round must retain a replay destination");
-assert.equal(wrcChunk.fixtures.filter(fixture => fixture.resultStatus === "official" && fixture.resultScore).length, 10, "every available official FIA classification must be exposed to the spoiler-aware result renderer");
-assert.equal(wrcChunk.fixtures.find(fixture => fixture.roundNumber === 4)?.resultStatus, "pending", "Croatia must retain its fail-closed FIA classification state in Results / Replays");
+assert.equal(wrcChunk.fixtures.filter(fixture => fixture.resultStatus === "official" && fixture.resultScore).length, officialWrcResults.length, "every available official FIA classification must be exposed to the spoiler-aware result renderer");
+for (const pendingRound of completedWrcRounds.filter(fixture => fixture.result?.status !== "official")){
+  assert.equal(wrcChunk.fixtures.find(fixture => fixture.roundNumber === pendingRound.roundNumber)?.resultStatus, "pending", "completed WRC rounds without an official FIA classification must fail closed");
+}
 assert(html.includes('code.slug === "wrc" ? [["results", "Results / Replays"]] : []'), "the WRC Follow screen must expose Results / Replays beside Schedule and Standings");
 const canonicalCodes = [
   ...taxonomy.sportDomains.filter(code => code.isActive !== false),
   { id: "sport:aflw" },
   { id: "sport:wrc" },
+  { id: "sport:nrlw" },
   taxonomy.competitions.find(code => code.id === "competition:uefa-champions-league"),
+  taxonomy.competitions.find(code => code.id === "competition:motogp"),
+  taxonomy.competitions.find(code => code.id === "competition:sailgp"),
+  taxonomy.competitions.find(code => code.id === "competition:fiba-womens-world-cup"),
 ].filter(Boolean);
 assert.deepEqual(
   new Set(manifest.codes.map(code => code.id)),
   new Set(canonicalCodes.map(code => code.id)),
   "Follow Schedule must cover every active canonical code, including unfollowed codes"
 );
+for (const [codeId, minimumFixtures] of [
+  ["sport:nrlw", 7],
+  ["competition:fiba-womens-world-cup", 17],
+  ["competition:sailgp", 7],
+  ["competition:motogp", 9],
+]){
+  const code = manifest.codes.find(item => item.id === codeId);
+  assert(code, `${codeId}: requested code must be published`);
+  assert(code.fixtureCount >= minimumFixtures, `${codeId}: requested schedule is incomplete`);
+  assert.equal(code.coverageStatus, "complete", `${codeId}: requested schedule must not be labelled partial`);
+  const chunk = JSON.parse(fs.readFileSync(path.join(ROOT, code.chunkPath), "utf8"));
+  assert.equal(chunk.fixtures.length, code.fixtureCount, `${codeId}: manifest and chunk fixture counts must agree`);
+}
 
 const placeholder = {
   id: "event:test:final-1",

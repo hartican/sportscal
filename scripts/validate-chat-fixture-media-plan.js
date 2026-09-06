@@ -61,7 +61,7 @@ assert.match(gifReferenceMigration, /giphy\\\.\(com\|net\)/i, "external referenc
 assert.match(sql, /status[^\n]+closing/i);
 assert.match(html, /Game selfie/);
 assert.match(html, /Shift\+Enter|shiftKey/);
-assert.match(html, /25 NSC points/);
+assert.match(html, /25 Nothing Score points/);
 assert.match(html, /Saved game media/);
 assert.match(html, /refreshChatMessageStream\(\{ autoScroll:true, preserveScroll:false \}\)/, "optimistic sends must update only the message stream");
 

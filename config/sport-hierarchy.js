@@ -77,6 +77,10 @@
     ["event-series:goodwood-festival-of-speed", "Goodwood Festival of Speed", "event_series", "competition:motorsport-culture", ["Goodwood"]],
     ["event-series:le-mans-24-hours", "24 Hours of Le Mans", "event_series", "competition:world-endurance-championship", ["Le Mans"]],
 
+    ["sport:sailing", "Sailing", "sport"],
+    ["discipline:sailing:foiling", "Foiling", "discipline", "sport:sailing"],
+    ["competition:sailgp", "SailGP", "competition", "discipline:sailing:foiling"],
+
     ["sport:combat-sports", "Combat sports", "sport"],
     ["discipline:combat:boxing", "Boxing", "discipline", "sport:combat-sports"],
     ["discipline:combat:mma", "Mixed martial arts", "discipline", "sport:combat-sports", ["MMA"]],
@@ -125,7 +129,9 @@
 
     ["sport:basketball", "Basketball", "sport"],
     ["discipline:basketball:professional", "Professional basketball", "discipline", "sport:basketball"],
+    ["discipline:basketball:international", "International basketball", "discipline", "sport:basketball"],
     ["competition:nba", "National Basketball Association", "competition", "discipline:basketball:professional", ["NBA"]],
+    ["competition:fiba-womens-world-cup", "FIBA Women's Basketball World Cup", "competition", "discipline:basketball:international", ["FIBA Women's World Cup"]],
 
     ["sport:american-football", "American football", "sport"],
     ["discipline:american-football:professional", "Professional American football", "discipline", "sport:american-football"],
@@ -171,7 +177,10 @@
   const legacyIds = Object.freeze({
     "sport:afl": "sport:australian-football",
     "sport:nrl": "sport:rugby-league",
+    "sport:nrl-premiership": "competition:nrl-premiership",
+    "sport:nrlw": "competition:nrlw-premiership",
     "sport:f1": "competition:formula-one",
+    "sport:motogp": "competition:motogp",
     "sport:wrc": "competition:world-rally-championship",
     "sport:rally": "competition:world-rally-championship",
     "competition:world-rally": "competition:world-rally-championship",
@@ -181,6 +190,8 @@
     "sport:downhill-mtb": "competition:uci-mountain-bike",
     "sport:rugby": "sport:rugby-union",
     "sport:nba": "competition:nba",
+    "sport:fiba-women": "competition:fiba-womens-world-cup",
+    "sport:sailgp": "competition:sailgp",
     "sport:skiing": "sport:winter-sports",
     "sport:extreme": "sport:extreme-sports",
     "sport:surf": "sport:surfing",
@@ -195,6 +206,7 @@
     "competition:afl-premiership-2026": "competition:afl-premiership",
     "competition:aflw-2026": "competition:aflw",
     "competition:nrl-premiership-2026": "competition:nrl-premiership",
+    "competition:nrlw-premiership-2026": "competition:nrlw-premiership",
     "competition:uefa-champions-league:2026-27": "competition:uefa-champions-league",
     "competition:f1-drivers-2026": "competition:formula-one",
     "competition:f1-constructors-2026": "competition:formula-one",
@@ -203,6 +215,9 @@
     "competition:wrc-drivers-2026": "competition:world-rally-championship",
     "competition:wrc-co-drivers-2026": "competition:world-rally-championship",
     "competition:wrc-manufacturers-2026": "competition:world-rally-championship",
+    "competition:motogp-2026": "competition:motogp",
+    "competition:sailgp-2026": "competition:sailgp",
+    "competition:fiba-womens-world-cup-2026": "competition:fiba-womens-world-cup",
     "competition:atp-singles-2026": "competition:atp-tour",
     "competition:tour-de-france-stage-jerseys-2026": "event-series:tour-de-france",
     "competition:nba-eastern-conference-2025-26": "competition:nba",
@@ -212,6 +227,9 @@
 
   const legacySportKeys = Object.freeze({
     f1: "competition:formula-one",
+    motogp: "competition:motogp",
+    sailgp: "competition:sailgp",
+    "fiba-women": "competition:fiba-womens-world-cup",
     motorsport: "competition:motorsport-culture",
     extreme: "competition:extreme-world-events",
     wrc: "competition:world-rally-championship",
@@ -238,6 +256,7 @@
     "ligue-1": "competition:ligue-1",
     tdf: "event-series:tour-de-france",
     nrl: "competition:nrl-premiership",
+    nrlw: "competition:nrlw-premiership",
     afl: "competition:afl-premiership",
     aflw: "competition:aflw",
     cricket: "competition:cricket-international",

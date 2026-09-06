@@ -158,6 +158,8 @@
   // treating a governing body's protected trademark as the app's own identity.
   const sportMarks = Object.freeze({
     f1: sportMark("f1", "Formula One", "sport:motorsport", "F1"),
+    motogp: sportMark("motogp", "MotoGP", "sport:motorsport", "MGP"),
+    sailgp: sportMark("sailgp", "SailGP", "sport:sailing", "SGP"),
     motorsport: sportMark("motorsport", "Motorsport", "sport:motorsport"),
     wrc: sportMark("wrc", "FIA World Rally Championship", "sport:motorsport", "WRC"),
     rally: sportMark("rally", "Rally", "sport:motorsport"),
@@ -177,6 +179,7 @@
     cycling: sportMark("cycling", "Cycling", "sport:cycling"),
     tdf: sportMark("tdf", "Tour cycling", "sport:cycling"),
     rugby: sportMark("rugby", "Rugby", "sport:rugby", "RUG"),
+    nrlw: sportMark("nrlw", "NRLW", "sport:rugby", "NRLW"),
     tennis: sportMark("tennis", "Tennis", "sport:tennis"),
     fifa: sportMark("fifa", "Football", "sport:football"),
     football: sportMark("football", "Football", "sport:football"),
@@ -188,6 +191,7 @@
     cricket: sportMark("cricket", "Cricket", "sport:cricket", "CRK"),
     nba: sportMark("nba", "Basketball", "sport:basketball"),
     basketball: sportMark("basketball", "Basketball", "sport:basketball"),
+    "fiba-women": sportMark("fiba-women", "FIBA women's basketball", "sport:basketball"),
     masters: sportMark("masters", "Golf", "sport:golf"),
     golf: sportMark("golf", "Golf", "sport:golf"),
     nfl: sportMark("nfl", "American football", "sport:american-football"),

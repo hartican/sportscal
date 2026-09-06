@@ -12,14 +12,14 @@ function assert(condition, message){
 
 const expectedSportKeys = [
   "afl", "nrl", "motorsport", "extreme", "surf", "skiing", "rugby", "tennis", "football", "cycling",
-  "cricket", "nba", "golf", "american-football", "ice-hockey", "athletics", "swimming", "netball", "boxing",
+  "cricket", "nba", "fiba-women", "sailgp", "golf", "american-football", "ice-hockey", "athletics", "swimming", "netball", "boxing",
 ];
 
 assert(
   rightsAudit.schemaVersion === "australian-viewing-rights.v1"
     && rightsAudit.territory === "AU"
     && JSON.stringify(rightsAudit.sports.map(sport => sport.key)) === JSON.stringify(expectedSportKeys),
-  "Australian viewing-rights audit must cover the nineteen exposed Follow sport domains in manifest order",
+  "Australian viewing-rights audit must cover every exposed Follow sport domain in manifest order",
 );
 
 for (const audit of rightsAudit.sports){
@@ -46,8 +46,12 @@ const scenarios = [
   ["Rugby Union", { sport:"Rugby Union", key:"rugby", name:"Argentina v Australia" }, ["stan"]],
   ["NRL", { sportDomainId:"sport:nrl", competitionId:"competition:nrl-premiership-2026", key:"nrl", name:"Broncos v Storm" }, ["kayo", "foxtel"]],
   ["NRL Grand Final", { sportDomainId:"sport:nrl", competitionId:"competition:nrl-premiership-2026", key:"nrl", name:"NRL Grand Final", stage:"Grand Final" }, ["nine"]],
+  ["NRLW", { sportDomainId:"sport:nrl", competitionId:"competition:nrlw-premiership-2026", key:"nrlw", name:"Broncos v Roosters" }, ["nine", "kayo", "foxtel"]],
   ["Rugby League World Cup", { key:"nrl", majorEventId:"rugby-league-world-cup", name:"Australia v New Zealand — Rugby League World Cup" }, ["seven"]],
   ["Formula 1", { key:"f1", name:"Australian Grand Prix" }, ["kayo", "foxtel"]],
+  ["MotoGP", { key:"motogp", competitionId:"competition:motogp", name:"Australian Motorcycle Grand Prix" }, ["kayo", "foxtel"]],
+  ["SailGP", { key:"sailgp", competitionId:"competition:sailgp", name:"Australia Sail Grand Prix" }, ["kayo", "foxtel"]],
+  ["FIBA Women", { key:"fiba-women", competitionId:"competition:fiba-womens-world-cup", name:"Australia v Belgium" }, ["kayo", "foxtel"]],
   ["Premier League", { sportDomainId:"sport:football", competitionId:"competition:premier-league-2026-27", key:"premier-league" }, ["stan"]],
   ["Champions League", { sportDomainId:"sport:football", competitionId:"competition:uefa-champions-league-2026-27" }, ["stan"]],
   ["FIFA World Cup", { competitionId:"competition:fifa-world-cup-2026" }, ["sbs"]],

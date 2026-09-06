@@ -40,6 +40,7 @@
     }
     const domainGlyphs = {
       "sport:motorsport": "sport:motorsport",
+      "sport:sailing": "sport:sailing",
       "sport:extreme": "sport:extreme",
       "sport:surf": "sport:surf",
       "sport:skiing": "sport:skiing",
@@ -57,10 +58,13 @@
     ["sport:afl", "AFL", "parent", null, ["afl"], "sport:australian-football", "sport:australian-football", 10, ["sport:afl-premiership", "sport:aflw"]],
     ["sport:afl-premiership", "AFL Premiership", "child", "sport:afl", ["afl"], "competition:afl-premiership", "sport:australian-football", 11],
     ["sport:aflw", "AFLW", "child", "sport:afl", ["aflw"], "competition:aflw", "sport:australian-football", 12],
-    ["sport:nrl", "NRL", "sport", null, ["nrl"], "sport:rugby-league", "sport:rugby", 20],
-    ["sport:motorsport", "Motorsport", "parent", null, ["motorsport"], "sport:motorsport", "sport:motorsport", 30, ["sport:f1", "sport:wrc"]],
+    ["sport:nrl", "NRL", "parent", null, ["nrl"], "sport:rugby-league", "sport:rugby", 20, ["sport:nrl-premiership", "sport:nrlw"]],
+    ["sport:nrl-premiership", "NRL Premiership", "child", "sport:nrl", ["nrl"], "competition:nrl-premiership", "sport:rugby", 21],
+    ["sport:nrlw", "NRLW", "child", "sport:nrl", ["nrlw"], "competition:nrlw-premiership", "sport:rugby", 22],
+    ["sport:motorsport", "Motorsport", "parent", null, ["motorsport"], "sport:motorsport", "sport:motorsport", 30, ["sport:f1", "sport:motogp", "sport:wrc"]],
     ["sport:f1", "F1", "child", "sport:motorsport", ["f1"], "competition:formula-one", "sport:motorsport", 31],
-    ["sport:wrc", "WRC", "child", "sport:motorsport", ["wrc"], "competition:world-rally-championship", "sport:motorsport", 32],
+    ["sport:motogp", "MotoGP", "child", "sport:motorsport", ["motogp"], "competition:motogp", "sport:motorsport", 32],
+    ["sport:wrc", "WRC", "child", "sport:motorsport", ["wrc", "rally"], "competition:world-rally-championship", "sport:motorsport", 33],
     ["sport:extreme", "Extreme", "parent", null, ["extreme", "skateboard"], "sport:extreme-sports", "sport:extreme", 40, ["sport:downhill-mtb"]],
     ["sport:downhill-mtb", "MTB", "child", "sport:extreme", ["downhill-mtb", "mtb"], "competition:uci-mountain-bike", "sport:extreme", 41],
     ["sport:surf", "Surfing", "parent", null, ["surf", "wsl"], "sport:surfing", "sport:surf", 50, ["sport:big-wave"]],
@@ -75,6 +79,8 @@
     ["sport:cycling", "Cycling", "sport", null, ["cycling", "tdf"], "sport:cycling", "sport:cycling", 100],
     ["sport:cricket", "Cricket", "sport", null, ["cricket"], "sport:cricket", "sport:cricket", 110],
     ["sport:nba", "Basketball", "sport", null, ["nba", "basketball"], "sport:basketball", "sport:basketball", 120],
+    ["sport:fiba-women", "FIBA Women", "sport", null, ["fiba-women"], "competition:fiba-womens-world-cup", "sport:basketball", 121],
+    ["sport:sailgp", "SailGP", "sport", null, ["sailgp"], "competition:sailgp", "sport:sailing", 122],
     ["sport:golf", "Golf", "sport", null, ["golf", "masters"], "sport:golf", "sport:golf", 130],
     ["sport:american-football", "American Football", "sport", null, ["nfl", "american-football"], "sport:american-football", "sport:american-football", 140],
     ["sport:athletics", "Athletics", "sport", null, ["athletics"], "sport:athletics", "sport:athletics", 150],
@@ -113,6 +119,7 @@
       "sport:skiing": "Snow",
       "sport:football": "Football",
       "sport:afl": "AFL",
+      "sport:nrl": "NRL",
     })[parentId] || parentId;
   }
 

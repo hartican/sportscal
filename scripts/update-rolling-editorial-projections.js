@@ -10,6 +10,8 @@ const KNOWLEDGE_PATH = "data/editorial-knowledge.v1.json";
 const FEED_PATH = "feeds/incoming/events.json";
 const CONTEXT_PATH = "data/canonical/afl-nrl-2026.json";
 const F1_PATH = "data/canonical/f1-context-2026.json";
+const WRC_PATH = "data/canonical/wrc-context-2026.json";
+const REQUESTED_SPORTS_PATH = "data/canonical/fiba-women-sailgp-motogp-2026.json";
 
 function readJson(path){ return JSON.parse(fs.readFileSync(path, "utf8")); }
 function writeJson(path, value){ fs.writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`); }
@@ -114,6 +116,44 @@ function f1Narrative(event, context, reference){
     reference,
   };
 }
+function wrcNarrative(event, context, reference){
+  if (event.key !== "wrc") return null;
+  const sourceEvent = context.events.find(item => item.id === event.canonicalEventId);
+  const ladder = context.ladderSnapshots.find(item => item.competitionId === "competition:wrc-drivers-2026");
+  const participants = new Map(context.participants.map(item => [item.id, item]));
+  const leader = ladder?.entries?.[0];
+  const challenger = ladder?.entries?.[1];
+  if (!sourceEvent || !leader || !challenger) return null;
+  const leaderName = participants.get(leader.participantId)?.displayName || "the championship leader";
+  const challengerName = participants.get(challenger.participantId)?.displayName || "second place";
+  const lead = Number(leader.points) - Number(challenger.points);
+  const roundsAfter = Math.max(0, context.events.length - sourceEvent.roundNumber);
+  const calendarSource = context.sources.find(source => source.provider === "WRC");
+  const standingsSource = ladder.source || context.sources.find(source => source.provider === "FIA");
+  const broadcastSource = context.sources.find(source => source.provider === "Stan Sport");
+  if (!calendarSource || !standingsSource || !broadcastSource) return null;
+  const sourceIds = {
+    calendar:"source:rolling:wrc:calendar",
+    standings:"source:rolling:wrc:driver-standings",
+    broadcast:"source:rolling:wrc:stan-sport",
+  };
+  const sources = [
+    { id:sourceIds.calendar, name:"WRC official 2026 calendar", url:calendarSource.sourceUrl, sourceType:"official", checkedAt:calendarSource.checkedAt },
+    { id:sourceIds.standings, name:"FIA World Rally Championship driver standings", url:standingsSource.sourceUrl, sourceType:"official", checkedAt:standingsSource.checkedAt },
+    { id:sourceIds.broadcast, name:"Stan Sport WRC coverage", url:broadcastSource.sourceUrl, sourceType:"official", checkedAt:broadcastSource.checkedAt },
+  ];
+  const subjectId = "subject:rolling:wrc:2026";
+  const observedAt = ladder.snapshotTimeUtc || standingsSource.checkedAt || reference.toISOString();
+  const facts = [
+    { id:`fact:rolling:${slug(sourceEvent.id)}:schedule`, statement:`${sourceEvent.displayName} is Round ${sourceEvent.roundNumber} of 14, scheduled from ${sourceEvent.date} to ${sourceEvent.endDate} in ${sourceEvent.country}.`, dimension:"schedule", sourceIds:[sourceIds.calendar] },
+    { id:`fact:rolling:${slug(sourceEvent.id)}:standings`, statement:`${leaderName} leads the 2026 WRC drivers' championship on ${leader.points} points, ${lead} ahead of ${challengerName}.`, dimension:"form", sourceIds:[sourceIds.standings] },
+    { id:`fact:rolling:${slug(sourceEvent.id)}:path`, statement:`After ${sourceEvent.displayName}, ${roundsAfter} championship round${roundsAfter === 1 ? " remains" : "s remain"} in the official 14-round calendar.`, dimension:"path", sourceIds:[sourceIds.calendar] },
+    { id:`fact:rolling:${slug(sourceEvent.id)}:viewing`, statement:`Stan Sport lists live and replay coverage for the 2026 World Rally Championship in Australia.`, dimension:"format", sourceIds:[sourceIds.broadcast] },
+  ].map(fact => ({ ...fact, subjectIds:[subjectId], observedAt, expiresAt:null }));
+  const hook = `${leaderName} carries a ${lead}-point lead over ${challengerName} into ${sourceEvent.displayName}, Round ${sourceEvent.roundNumber} of 14.`;
+  const synopsis = `${sourceEvent.displayName} runs from ${sourceEvent.date} to ${sourceEvent.endDate} in ${sourceEvent.country}. ${leaderName} leads ${challengerName} by ${lead} points in the official FIA driver standings, and ${roundsAfter} round${roundsAfter === 1 ? " remains" : "s remain"} after this one. Stan Sport lists live and replay coverage in Australia.`;
+  return { sourceEvent, ladder, sources, facts, subjectId, threadId:"thread:rolling:wrc:2026", hook:fit(hook, 180), synopsis:fit(synopsis, 700), reference };
+}
 function bracketNarrative(event, reference){
   if (event.competitionId !== "competition:afl-premiership-2026" || !/grand final/i.test(event.roundLabel || "")) return null;
   const sourceId = "source:rolling:afl:finals-bracket";
@@ -137,9 +177,68 @@ function tennisTournamentNarrative(event, knowledge){
   if (!projection || projection.generationMode !== "researched") return null;
   return projection;
 }
-function build({ knowledge, feed, context, f1, reference }){
+function requestedSportNarrative(event, requestedSports, reference){
+  const sourceEvent = (requestedSports?.events || []).find(item => item.id === event.canonicalEventId);
+  if (!sourceEvent) return null;
+  const config = {
+    nrlw:{ label:"2026 NRLW Premiership", subjectKind:"competition", fieldSourceId:"nrlw-hub", contextSourceId:"nrlw-stats", fieldStatement:"The 2026 NRLW Premiership has twelve current clubs in the official competition." },
+    "fiba-women":{ label:"2026 FIBA Women's Basketball World Cup", subjectKind:"competition", fieldSourceId:"fiba-teams", contextSourceId:"fiba-broadcast-au", fieldStatement:"Sixteen national teams are listed in the official 2026 FIBA Women's Basketball World Cup field." },
+    sailgp:{ label:"2026 SailGP season", subjectKind:"series", fieldSourceId:"sailgp-teams", contextSourceId:"sailgp-broadcast-au", fieldStatement:"Thirteen national F50 teams are listed for the 2026 SailGP season." },
+    motogp:{ label:"2026 MotoGP season", subjectKind:"series", fieldSourceId:"motogp-riders", contextSourceId:"motogp-broadcast-au", fieldStatement:"Twenty-two riders are listed in the official 2026 MotoGP field." },
+  }[sourceEvent.sportKey];
+  if (!config) return null;
+  const sourceIds = Array.from(new Set([sourceEvent.sourceId, config.fieldSourceId, sourceEvent.broadcastSourceId, config.contextSourceId, sourceEvent.result?.sourceId].filter(Boolean)));
+  const sources = sourceIds.map(sourceId => {
+    const source = requestedSports.sources?.[sourceId];
+    if (!source) throw new Error(`${sourceEvent.id}: unknown requested-sport editorial source ${sourceId}`);
+    return {
+      id:`source:rolling:${sourceEvent.sportKey}:${sourceId}`,
+      name:source.name,
+      url:source.url,
+      sourceType:source.type === "reputable" ? "reputable" : "official",
+      checkedAt:requestedSports.generatedAt,
+    };
+  });
+  const sourceId = rawId => `source:rolling:${sourceEvent.sportKey}:${rawId}`;
+  const timeText = sourceEvent.timeTbc ? "with its start time still to be confirmed" : `at ${sourceEvent.time} Sydney time`;
+  const venueText = sourceEvent.venue ? ` at ${sourceEvent.venue}` : "";
+  const facts = [
+    { id:`fact:rolling:${slug(sourceEvent.id)}:schedule`, statement:`${sourceEvent.name} is scheduled for ${sourceEvent.date} ${timeText}${venueText}.`, dimension:"schedule", sourceIds:[sourceId(sourceEvent.sourceId)] },
+    { id:`fact:rolling:${slug(sourceEvent.id)}:field`, statement:config.fieldStatement, dimension:"format", sourceIds:[sourceId(config.fieldSourceId)] },
+    { id:`fact:rolling:${slug(sourceEvent.id)}:viewing`, statement:`Australian viewing for ${sourceEvent.name} is listed through ${event.broadcaster}.`, dimension:"format", sourceIds:[sourceId(sourceEvent.broadcastSourceId)] },
+    { id:`fact:rolling:${slug(sourceEvent.id)}:consequence`, statement:sourceEvent.context, dimension:"consequence", sourceIds:[sourceId(config.contextSourceId)] },
+    ...(sourceEvent.result ? [{
+      id:`fact:rolling:${slug(sourceEvent.id)}:result`,
+      statement:sourceEvent.result.status === "official"
+        ? `${sourceEvent.result.outcomeText}`
+        : `The official results page had not published a verified outcome for ${sourceEvent.name} at the latest check.`,
+      dimension:"consequence",
+      sourceIds:[sourceId(sourceEvent.result.sourceId)],
+    }] : []),
+  ].map(fact => ({ ...fact, subjectIds:[`subject:rolling:${sourceEvent.sportKey}:2026`], observedAt:requestedSports.generatedAt, expiresAt:null }));
+  const completed = event.status === "completed";
+  const spoilerSafeHook = `${sourceEvent.name} is complete; the key moments are protected until you choose to reveal them.`;
+  const spoilerSafeSynopsis = `${sourceEvent.name} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`;
+  const revealedHook = sourceEvent.result?.status === "official" ? sourceEvent.result.outcomeText : `${sourceEvent.name} is complete; the official outcome is still pending.`;
+  const revealedSynopsis = sourceEvent.result?.status === "official" ? sourceEvent.result.recapText : `${sourceEvent.name} is complete, but the official results page had not published a verified outcome at the latest check.`;
+  return {
+    label:config.label,
+    subjectKind:config.subjectKind,
+    subjectId:`subject:rolling:${sourceEvent.sportKey}:2026`,
+    threadId:`thread:rolling:${sourceEvent.sportKey}:2026`,
+    sources,
+    facts,
+    hook:fit(completed ? spoilerSafeHook : sourceEvent.hook, 180),
+    synopsis:fit(completed ? spoilerSafeSynopsis : `${sourceEvent.hook} ${sourceEvent.context}`, 700),
+    ...(completed ? { hookSpoilerOn:fit(revealedHook, 180), synopsisSpoilerOn:fit(revealedSynopsis, 700) } : {}),
+    reference,
+  };
+}
+function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }){
   const earliest = reference.getTime() - 7 * DAY_MS;
   const latest = reference.getTime() + 30 * DAY_MS;
+  const requestedLatest = reference.getTime() + 120 * DAY_MS;
+  const requestedEventIds = new Set((requestedSports?.events || []).map(event => event.id));
   // Rolling projections are derived, but published historical cards can still
   // reference them. Prune only generated projections whose target card has
   // actually left the feed; current targets are replaced below by stable ID.
@@ -151,7 +250,8 @@ function build({ knowledge, feed, context, f1, reference }){
   const targets = feed.events.filter(event => {
     const start = eventTime(event);
     const unresolvedUnverified = event?.editorialPreview?.status === "research-required" && event?.sourceTrust !== "verified";
-    return !unresolvedUnverified && stakesFor(event) >= 2 && Number.isFinite(start) && start >= earliest && start <= latest;
+    const eventLatest = requestedEventIds.has(event.canonicalEventId) ? requestedLatest : latest;
+    return !unresolvedUnverified && stakesFor(event) >= 2 && Number.isFinite(start) && start >= earliest && start <= eventLatest;
   });
   const unsupported = [];
   let generated = 0;
@@ -164,7 +264,11 @@ function build({ knowledge, feed, context, f1, reference }){
       const dimensions = new Set((existing.factIds || []).map(id => factIndex.get(id)?.dimension).filter(Boolean));
       const currentSnapshot = event.key === "f1"
         ? f1.ladderSnapshots.find(item => item.competitionId === "competition:f1-drivers-2026")
-        : context.ladderSnapshots.find(item => item.competitionId === event.competitionId);
+        : event.key === "wrc"
+          ? wrc.ladderSnapshots.find(item => item.competitionId === "competition:wrc-drivers-2026")
+          : requestedEventIds.has(event.canonicalEventId)
+            ? { snapshotTimeUtc:requestedSports.generatedAt }
+            : context.ladderSnapshots.find(item => item.competitionId === event.competitionId);
       const currentSnapshotAt = Date.parse(currentSnapshot?.snapshotTimeUtc || currentSnapshot?.source?.checkedAt || "");
       const existingResearchedAt = Date.parse(existing.researchedAt || "");
       const isCurrent = !Number.isFinite(currentSnapshotAt)
@@ -181,9 +285,11 @@ function build({ knowledge, feed, context, f1, reference }){
     }
     const team = teamNarrative(event, context, reference);
     const motor = team ? null : f1Narrative(event, f1, reference);
-    const bracket = team || motor ? null : bracketNarrative(event, reference);
-    const tournament = team || motor || bracket ? null : tennisTournamentNarrative(event, knowledge);
-    if (!team && !motor && !bracket && !tournament){
+    const rally = team || motor ? null : wrcNarrative(event, wrc, reference);
+    const bracket = team || motor || rally ? null : bracketNarrative(event, reference);
+    const tournament = team || motor || rally || bracket ? null : tennisTournamentNarrative(event, knowledge);
+    const requestedSport = team || motor || rally || bracket || tournament ? null : requestedSportNarrative(event, requestedSports, reference);
+    if (!team && !motor && !rally && !bracket && !tournament && !requestedSport){
       // Tournament overview cards without their own researched projection are
       // deliberately served by the disclosed crowd panel. Do not turn their
       // calendar, venue or broadcaster fields into editorial filler.
@@ -197,6 +303,7 @@ function build({ knowledge, feed, context, f1, reference }){
     let sourceIds;
     let hook;
     let synopsis;
+    let hookSpoilerOn;
     let synopsisSpoilerOn;
     if (team){
       upsert(knowledge.sources, { id:team.sourceId, name:`${team.source.provider} current ${team.competitionName} table`, url:team.source.sourceUrl, sourceType:team.source.sourceType === "reputable" ? "reputable" : "official", checkedAt:team.source.checkedAt });
@@ -257,6 +364,24 @@ function build({ knowledge, feed, context, f1, reference }){
       sourceIds = [motor.sourceId];
       hook = motor.safeHook;
       synopsis = motor.safeSynopsis;
+    } else if (rally) {
+      rally.sources.forEach(source => upsert(knowledge.sources, source));
+      upsert(knowledge.subjects, { id:rally.subjectId, kind:"series", name:"2026 FIA World Rally Championship" });
+      rally.facts.forEach(fact => upsert(knowledge.narrativeFacts, fact));
+      upsert(knowledge.narrativeThreads, {
+        id:rally.threadId,
+        subjectIds:[rally.subjectId],
+        title:"2026 WRC title pressure",
+        summary:"The official calendar, driver standings and Australian viewing source are carried across WRC round cards so each rally explains its place in the championship run-in.",
+        factIds:rally.facts.map(fact => fact.id),
+        status:"active",
+        updatedAt:rally.ladder.snapshotTimeUtc,
+      });
+      threadIds = [rally.threadId];
+      factIds = rally.facts.map(fact => fact.id);
+      sourceIds = rally.sources.map(source => source.id);
+      hook = rally.hook;
+      synopsis = rally.synopsis;
     } else if (bracket) {
       upsert(knowledge.sources, { id:bracket.sourceId, name:"AFL finals bracket", url:bracket.source.sourceUrl, sourceType:"official", checkedAt:bracket.source.checkedAt });
       upsert(knowledge.subjects, { id:"subject:rolling:afl-finals", kind:"series", name:"2026 AFL Finals Series" });
@@ -267,6 +392,26 @@ function build({ knowledge, feed, context, f1, reference }){
       sourceIds = [bracket.sourceId];
       hook = bracket.hook;
       synopsis = bracket.synopsis;
+    } else if (requestedSport) {
+      requestedSport.sources.forEach(source => upsert(knowledge.sources, source));
+      upsert(knowledge.subjects, { id:requestedSport.subjectId, kind:requestedSport.subjectKind, name:requestedSport.label });
+      requestedSport.facts.forEach(fact => upsert(knowledge.narrativeFacts, fact));
+      upsert(knowledge.narrativeThreads, {
+        id:requestedSport.threadId,
+        subjectIds:[requestedSport.subjectId],
+        title:`${requestedSport.label} — current path`,
+        summary:`The official schedule, field and Australian viewing sources are carried across ${requestedSport.label} cards so each event explains its sporting consequence without generic filler.`,
+        factIds:requestedSport.facts.map(fact => fact.id),
+        status:"active",
+        updatedAt:requestedSport.reference.toISOString(),
+      });
+      threadIds = [requestedSport.threadId];
+      factIds = requestedSport.facts.map(fact => fact.id);
+      sourceIds = requestedSport.sources.map(source => source.id);
+      hook = requestedSport.hook;
+      synopsis = requestedSport.synopsis;
+      hookSpoilerOn = requestedSport.hookSpoilerOn;
+      synopsisSpoilerOn = requestedSport.synopsisSpoilerOn;
     } else {
       threadIds = [...tournament.threadIds];
       factIds = [...tournament.factIds];
@@ -283,7 +428,7 @@ function build({ knowledge, feed, context, f1, reference }){
       hook,
       synopsis,
       ...(synopsisSpoilerOn ? {
-        hookSpoilerOn:fit(event.outcomeText || `${event.displayTitleCompact || event.name || "This fixture"} is complete.`, 180),
+        hookSpoilerOn:fit(hookSpoilerOn || event.outcomeText || `${event.displayTitleCompact || event.name || "This fixture"} is complete.`, 180),
         synopsisSpoilerOn,
       } : {}),
       threadIds,
@@ -305,7 +450,7 @@ function main(){
   const reference = new Date(process.env.NS_EDITORIAL_REFERENCE || Date.now());
   if (Number.isNaN(reference.getTime())) throw new Error("NS_EDITORIAL_REFERENCE must be valid");
   const knowledge = readJson(KNOWLEDGE_PATH);
-  const generated = build({ knowledge, feed:readJson(FEED_PATH), context:readJson(CONTEXT_PATH), f1:readJson(F1_PATH), reference });
+  const generated = build({ knowledge, feed:readJson(FEED_PATH), context:readJson(CONTEXT_PATH), f1:readJson(F1_PATH), wrc:readJson(WRC_PATH), requestedSports:readJson(REQUESTED_SPORTS_PATH), reference });
   const issues = validateKnowledge(knowledge);
   if (issues.length) throw new Error(`Rolling editorial invalid:\n- ${issues.join("\n- ")}`);
   if (write) writeJson(KNOWLEDGE_PATH, knowledge);

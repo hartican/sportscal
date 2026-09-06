@@ -21,7 +21,7 @@
     GHA: "GH", GRE: "GR", GUI: "GN", HAI: "HT", HKG: "HK", HUN: "HU", INA: "ID", IRL: "IE", ISL: "IS",
     ISR: "IL", ITA: "IT", JAM: "JM", JPN: "JP", KAZ: "KZ", KOR: "KR", LAT: "LV", MAR: "MA", MEX: "MX",
     MKD: "MK", MLI: "ML", MON: "MC", MOZ: "MZ", NED: "NL", NGA: "NG", NOR: "NO", NZL: "NZ", PAR: "PY",
-    PER: "PE", PHI: "PH", POL: "PL", POR: "PT", ROU: "RO", RUS: "RU", SEN: "SN", SLO: "SI", SRB: "RS",
+    PER: "PE", PHI: "PH", POL: "PL", POR: "PT", PRI: "PR", ROU: "RO", RUS: "RU", SEN: "SN", SLO: "SI", SRB: "RS",
     SUI: "CH", SVK: "SK", SWE: "SE", THA: "TH", TOG: "TG", TUN: "TN", TUR: "TR", UKR: "UA", URU: "UY",
     USA: "US", UZB: "UZ", VEN: "VE", ZAM: "ZM",
   });

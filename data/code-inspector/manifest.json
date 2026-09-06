@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-09-06T17:38:29.140Z",
+  "generatedAt": "2026-09-06T18:14:21.394Z",
   "codes": [
     {
       "id": "sport:afl",
@@ -9,7 +9,7 @@
       "fixtureCount": 221,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/afl.json"
     },
     {
@@ -19,7 +19,7 @@
       "fixtureCount": 109,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "parentSportId": "sport:afl",
       "chunkPath": "data/code-inspector/aflw.json"
     },
@@ -30,8 +30,19 @@
       "fixtureCount": 222,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/nrl.json"
+    },
+    {
+      "id": "sport:nrlw",
+      "slug": "nrlw",
+      "label": "NRLW",
+      "fixtureCount": 7,
+      "groupingMode": "round",
+      "coverageStatus": "complete",
+      "freshAt": "2026-09-06T18:14:21.394Z",
+      "parentSportId": "sport:nrl",
+      "chunkPath": "data/code-inspector/nrlw.json"
     },
     {
       "id": "sport:motorsport",
@@ -40,7 +51,7 @@
       "fixtureCount": 47,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -50,7 +61,7 @@
       "fixtureCount": 14,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-06T12:00:00.000Z",
+      "freshAt": "2026-09-06T18:13:35.668Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/wrc.json"
     },
@@ -61,7 +72,7 @@
       "fixtureCount": 0,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/extreme.json"
     },
     {
@@ -71,7 +82,7 @@
       "fixtureCount": 3,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/surf.json"
     },
     {
@@ -81,7 +92,7 @@
       "fixtureCount": 24,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/rugby-union.json"
     },
     {
@@ -91,7 +102,7 @@
       "fixtureCount": 713,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -101,7 +112,7 @@
       "fixtureCount": 401,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {
@@ -111,7 +122,7 @@
       "fixtureCount": 21,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/cycling.json"
     },
     {
@@ -121,7 +132,7 @@
       "fixtureCount": 16,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/cricket.json"
     },
     {
@@ -131,7 +142,7 @@
       "fixtureCount": 7,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/basketball.json"
     },
     {
@@ -141,7 +152,7 @@
       "fixtureCount": 4,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/golf.json"
     },
     {
@@ -151,7 +162,7 @@
       "fixtureCount": 321,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/american-football.json"
     },
     {
@@ -161,7 +172,7 @@
       "fixtureCount": 1493,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/ice-hockey.json"
     },
     {
@@ -171,7 +182,7 @@
       "fixtureCount": 0,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/skiing.json"
     },
     {
@@ -181,7 +192,7 @@
       "fixtureCount": 0,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/athletics.json"
     },
     {
@@ -191,7 +202,7 @@
       "fixtureCount": 0,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/swimming.json"
     },
     {
@@ -201,7 +212,7 @@
       "fixtureCount": 0,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/netball.json"
     },
     {
@@ -211,7 +222,7 @@
       "fixtureCount": 0,
       "groupingMode": "competition-date",
       "coverageStatus": "unavailable",
-      "freshAt": "2026-09-06T17:38:29.140Z",
+      "freshAt": "2026-09-06T18:14:21.394Z",
       "chunkPath": "data/code-inspector/boxing.json"
     },
     {
@@ -224,6 +235,39 @@
       "freshAt": "2026-08-29T23:56:41.761Z",
       "parentSportId": "sport:football",
       "chunkPath": "data/code-inspector/champions-league.json"
+    },
+    {
+      "id": "competition:motogp",
+      "slug": "motogp",
+      "label": "MotoGP",
+      "fixtureCount": 9,
+      "groupingMode": "round",
+      "coverageStatus": "complete",
+      "freshAt": "2026-09-06T18:14:21.394Z",
+      "parentSportId": "sport:motorsport",
+      "chunkPath": "data/code-inspector/motogp.json"
+    },
+    {
+      "id": "competition:sailgp",
+      "slug": "sailgp",
+      "label": "SailGP",
+      "fixtureCount": 7,
+      "groupingMode": "round",
+      "coverageStatus": "complete",
+      "freshAt": "2026-09-06T18:14:21.394Z",
+      "parentSportId": "sport:sailing",
+      "chunkPath": "data/code-inspector/sailgp.json"
+    },
+    {
+      "id": "competition:fiba-womens-world-cup",
+      "slug": "fiba-women",
+      "label": "FIBA Women",
+      "fixtureCount": 17,
+      "groupingMode": "round",
+      "coverageStatus": "complete",
+      "freshAt": "2026-09-06T18:14:21.394Z",
+      "parentSportId": "sport:basketball",
+      "chunkPath": "data/code-inspector/fiba-women.json"
     }
   ]
 }

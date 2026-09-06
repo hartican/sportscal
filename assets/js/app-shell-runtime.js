@@ -116,7 +116,7 @@
 
 ;
 
-;/* config/vector-assets.js sha256:f50032fa65513de98a132cc1f7896a500a396a518c4817cd6a680de449958e58 */
+;/* config/vector-assets.js sha256:d692204afb67f2eb29652748dc556759c86d2b7a30bb44eca734e8b6f9864b7d */
 (function attachVectorAssets(root, factory){
   const assets = factory();
   root.NOTHINGSPORTS_VECTOR_ASSETS = assets;
@@ -170,6 +170,7 @@
   };
 
   const customBodies = {
+    "sport:sailing": '<path d="M12 3v13M12 4l7 10h-7M11 7 5 15h6"/><path d="M3 18c3 2 6 2 9 0s6-2 9 0M3 21c3 2 6 2 9 0s6-2 9 0"/>',
     "sport:ice-hockey": '<path d="m17 3-7 15H3v3h9L21 3"/><ellipse cx="19" cy="20" rx="3" ry="1.5"/>',
     "sport:cricket": '<path d="m7 3 4 4-5 5-4-4z"/><path d="m9 5 10 10-4 4L5 9M17 4v8M21 4v8M15 4h8M15 12h8"/>',
     "sport:multi-sport": '<path d="M8 3h8v4a4 4 0 0 1-8 0zM12 11v4M8 21h8M9 15h6v6H9z"/><path d="M8 5H4v1a4 4 0 0 0 4 4M16 5h4v1a4 4 0 0 1-4 4"/>',
@@ -460,7 +461,7 @@
 
 ;
 
-;/* config/country-flags.js sha256:a26d41ce36d94dda93f5efd489b662f92e7a32d217457326be9dc9d366e2ec6d */
+;/* config/country-flags.js sha256:9a9e9586473c9c61e6b991456bc5fb4d7f663d0752b66d7c78463c01245cd447 */
 (function attachNothingSportsCountryFlags(root, factory){
   const api = factory();
   root.NOTHINGSPORTS_COUNTRY_FLAGS = api;
@@ -484,7 +485,7 @@
     GHA: "GH", GRE: "GR", GUI: "GN", HAI: "HT", HKG: "HK", HUN: "HU", INA: "ID", IRL: "IE", ISL: "IS",
     ISR: "IL", ITA: "IT", JAM: "JM", JPN: "JP", KAZ: "KZ", KOR: "KR", LAT: "LV", MAR: "MA", MEX: "MX",
     MKD: "MK", MLI: "ML", MON: "MC", MOZ: "MZ", NED: "NL", NGA: "NG", NOR: "NO", NZL: "NZ", PAR: "PY",
-    PER: "PE", PHI: "PH", POL: "PL", POR: "PT", ROU: "RO", RUS: "RU", SEN: "SN", SLO: "SI", SRB: "RS",
+    PER: "PE", PHI: "PH", POL: "PL", POR: "PT", PRI: "PR", ROU: "RO", RUS: "RU", SEN: "SN", SLO: "SI", SRB: "RS",
     SUI: "CH", SVK: "SK", SWE: "SE", THA: "TH", TOG: "TG", TUN: "TN", TUR: "TR", UKR: "UA", URU: "UY",
     USA: "US", UZB: "UZ", VEN: "VE", ZAM: "ZM",
   });
@@ -541,7 +542,7 @@
 
 ;
 
-;/* config/sport-domain-registry.js sha256:d08a6f7e2521cdb81856ca3a8d374ce083f4b57ff90f1ea652e38a26daf701e9 */
+;/* config/sport-domain-registry.js sha256:c1fa5fe2388043491c39d5278ade90ecdcfcde173ded1ed8d2fc7ffddb3395a0 */
 (function attachSportDomainRegistry(root, factory){
   const registry = factory();
   root.NOTHINGSPORTS_SPORT_DOMAIN_REGISTRY = registry;
@@ -552,6 +553,8 @@
   const narrativeProfiles = Object.freeze(Object.fromEntries(Object.entries({
     f1: { id: "narrative:motorsport-grand-prix", signals: [{ match: "record|milestone|all-time", label: "Record Chase", archetype: "quest" }, { match: "championship|decider", label: "Title Decider", archetype: "quest" }] },
     wrc: { id: "narrative:world-rally-championship", signals: [{ match: "stage|rally|finish|championship", label: "Title Decider", archetype: "quest" }, { match: "time|record|win", label: "Record Chase", archetype: "quest" }] },
+    motogp: { id: "narrative:motogp-grand-prix", signals: [{ match: "championship|title|decider|final", label: "Title Decider", archetype: "quest" }, { match: "rival|battle|duel", label: "Rivalry", archetype: "rivalry" }, { match: "record|lap|pole", label: "Record Chase", archetype: "quest" }] },
+    sailgp: { id: "narrative:sailgp-championship", signals: [{ match: "final|grand final|championship", label: "Title Decider", archetype: "quest" }, { match: "fleet|rival|match race", label: "Rivalry", archetype: "rivalry" }, { match: "speed|record|foil", label: "Record Chase", archetype: "quest" }] },
     rugby: { id: "narrative:rugby-test", signals: [{ match: "bledisloe|rival|derby", label: "Rivalry", archetype: "rivalry" }, { match: "final|decider", label: "Title Decider", archetype: "quest" }] },
     motorsport: { id: "narrative:motorsport-family", signals: [{ match: "stage|rally|endurance|finish|qualifying", label: "Title Decider", archetype: "quest" }, { match: "record|best lap|fastest", label: "Record Chase", archetype: "quest" }, { match: "podium|championship|winner", label: "Rivalry", archetype: "rivalry" }] },
     extreme: { id: "narrative:extreme-sport", signals: [{ match: "world cup|championship|title|final", label: "Title Decider", archetype: "quest" }, { match: "record|run|dirt|jump|crash", label: "Record Chase", archetype: "quest" }, { match: "trick|park|gravity", label: "Rivalry", archetype: "rivalry" }] },
@@ -571,10 +574,12 @@
     "champions-league": { id: "narrative:football-tournament", signals: [{ match: "final|decider|knockout", label: "Title Decider", archetype: "quest" }, { match: "rival|derby", label: "Rivalry", archetype: "rivalry" }, { match: "qualification|league phase|play-off", label: "Qualification Watch", archetype: "quest" }] },
     tdf: { id: "narrative:cycling-tour", signals: [{ match: "alpe d.huez|mountain|time trial", label: "Top pick", archetype: "quest" }, { match: "record", label: "Record Chase", archetype: "quest" }] },
     nrl: { id: "narrative:rugby-league-season", signals: [{ match: "grand final|decider", label: "Title Decider", archetype: "quest" }, { match: "rival|derby|state of origin", label: "Rivalry", archetype: "rivalry" }] },
+    nrlw: { id: "narrative:nrlw-season", signals: [{ match: "grand final|finals|decider", label: "Title Decider", archetype: "quest" }, { match: "rival|derby", label: "Rivalry", archetype: "rivalry" }] },
     afl: { id: "narrative:afl-season", signals: [{ match: "grand final|decider", label: "Title Decider", archetype: "quest" }, { match: "rival|derby|showdown", label: "Rivalry", archetype: "rivalry" }] },
     aflw: { id: "narrative:aflw-season", signals: [{ match: "grand final|decider", label: "Title Decider", archetype: "quest" }, { match: "rival|derby|pride|expansion cup", label: "Rivalry", archetype: "rivalry" }] },
     cricket: { id: "narrative:cricket-series", signals: [{ match: "ashes|border.gavaskar|rival", label: "Rivalry", archetype: "rivalry" }, { match: "final|decider", label: "Title Decider", archetype: "quest" }, { match: "record", label: "Record Chase", archetype: "quest" }] },
     nba: { id: "narrative:basketball-finals", signals: [{ match: "game 7|final", label: "Title Decider", archetype: "quest" }, { match: "rival|derby", label: "Rivalry", archetype: "rivalry" }] },
+    "fiba-women": { id: "narrative:fiba-womens-world-cup", signals: [{ match: "final|semifinal|quarterfinal|qualification", label: "Title Decider", archetype: "quest" }, { match: "opals|australia|rival", label: "Top pick", archetype: "quest" }, { match: "upset|underdog", label: "Upset Watch", archetype: "ragsToRiches" }] },
     masters: { id: "narrative:golf-major", signals: [{ match: "final round|sunday", label: "Title Decider", archetype: "quest" }, { match: "record", label: "Record Chase", archetype: "quest" }] },
     lemans: { id: "narrative:endurance-race", signals: [{ match: "finish|decider", label: "Title Decider", archetype: "quest" }, { match: "record", label: "Record Chase", archetype: "quest" }] },
     nfl: { id: "narrative:american-football-final", signals: [{ match: "super bowl|final", label: "Title Decider", archetype: "quest" }, { match: "rival|derby", label: "Rivalry", archetype: "rivalry" }] },
@@ -585,6 +590,7 @@
 
   const narrativeProfileKeyByDomainId = Object.freeze({
     "sport:motorsport": "motorsport",
+    "sport:sailing": "sailgp",
     "sport:extreme": "extreme",
     "sport:surf": "surf",
     "sport:rugby-union": "rugby",
@@ -611,6 +617,8 @@
   // derive from these records instead of requiring a bespoke UI branch.
   const domains = [
     { key: "f1", domainId: "sport:motorsport", label: "F1", selectorLabel: "F1", detail: "Qualifying, races, driver and constructor standings.", color: "var(--c-f1)", glyph: "sport:motorsport", sortOrder: 10, selector: true, supportsLadders: true, supportsNarrative: true },
+    { key: "motogp", domainId: "sport:motorsport", label: "MotoGP", selectorLabel: "MotoGP", detail: "Every remaining 2026 Grand Prix and the current rider field.", color: "#e10600", glyph: "sport:motorsport", sortOrder: 11, selector: false, supportsLadders: false, supportsNarrative: true },
+    { key: "sailgp", domainId: "sport:sailing", label: "SailGP", selectorLabel: "SailGP", detail: "The 2026 fleet, race weekends and championship run-in.", color: "#009fd9", glyph: "sport:sailing", sortOrder: 12, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "motorsport", domainId: "sport:motorsport", label: "Motorsport", selectorLabel: "Motorsport", detail: "Cross-discipline motorsport coverage spanning rally, endurance and performance events.", color: "var(--c-motorsport)", glyph: "sport:motorsport", sortOrder: 15, selector: true, supportsLadders: true, supportsNarrative: true },
     { key: "extreme", domainId: "sport:extreme", label: "Extreme", selectorLabel: "Extreme", detail: "Skateboarding, big drops and gravity sports.", color: "var(--c-extreme)", glyph: "sport:extreme", sortOrder: 17, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "wrc", domainId: "sport:motorsport", preferenceDomainId: "sport:wrc", label: "WRC", selectorLabel: "WRC", detail: "All 14 World Rally Championship rounds, senior standings, results and replays.", color: "var(--c-motorsport)", glyph: "sport:motorsport", sortOrder: 18, selector: true, supportsLadders: true, supportsNarrative: true },
@@ -633,8 +641,10 @@
     { key: "nrl", domainId: "sport:nrl", label: "NRL", selectorLabel: "Rugby League", detail: "Every premiership fixture, the live ladder, finals, and Grand Final.", color: "var(--c-nrl)", glyph: "sport:rugby", sortOrder: 60, selector: true, supportsLadders: true, supportsNarrative: true },
     { key: "afl", domainId: "sport:afl", label: "AFL", selectorLabel: "AFL", detail: "Every premiership fixture, the live ladder, and the finals series.", color: "var(--c-afl)", glyph: "sport:australian-football", sortOrder: 70, selector: true, supportsLadders: true, supportsNarrative: true },
     { key: "aflw", domainId: "sport:afl", label: "AFLW", selectorLabel: "AFLW", detail: "Every AFLW fixture, the live ladder, results and followed club or player stories.", color: "var(--c-afl)", glyph: "sport:australian-football", sortOrder: 71, selector: false, supportsLadders: true, supportsNarrative: true },
+    { key: "nrlw", domainId: "sport:nrl", label: "NRLW", selectorLabel: "NRLW", detail: "Every remaining 2026 NRLW fixture, the finals run and the current clubs.", color: "var(--c-nrl)", glyph: "sport:rugby", sortOrder: 72, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "cricket", domainId: "sport:cricket", label: "Cricket", selectorLabel: "Cricket", detail: "Australian Tests and summer headline matches.", color: "var(--c-cricket)", glyph: "sport:cricket", sortOrder: 80, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "nba", domainId: "sport:basketball", label: "NBA", selectorLabel: "NBA Finals", detail: "Finals games, team and top-competitor follows, and conference standings.", color: "var(--c-nba)", glyph: "sport:basketball", sortOrder: 90, selector: true, supportsLadders: true, supportsNarrative: true },
+    { key: "fiba-women", domainId: "sport:basketball", label: "FIBA Women", selectorLabel: "FIBA Women", detail: "The Women's Basketball World Cup, including every Opals fixture and knockout session.", color: "#ef7d00", glyph: "sport:basketball", sortOrder: 91, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "masters", domainId: "sport:golf", label: "Masters", selectorLabel: "Masters Golf", detail: "Augusta rounds and Sunday contention windows.", color: "var(--c-golf)", glyph: "sport:golf", sortOrder: 100, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "lemans", domainId: "sport:motorsport", label: "Le Mans", selectorLabel: "Le Mans", detail: "24 Hours start and finish windows.", color: "var(--c-lemans)", glyph: "sport:motorsport", sortOrder: 110, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "nfl", domainId: "sport:american-football", label: "Super Bowl", selectorLabel: "Super Bowl", detail: "The NFL championship event.", color: "var(--c-nfl)", glyph: "sport:american-football", sortOrder: 120, selector: true, supportsLadders: false, supportsNarrative: true },
@@ -699,7 +709,7 @@
 
 ;
 
-;/* config/canonical-sports-taxonomy.js sha256:35b0c5132c5982e82c1feb8a4a1b37e6c1756cd184a425860f166bbc1ecf0136 */
+;/* config/canonical-sports-taxonomy.js sha256:c3692828b88bcbe0495ed7d686aee5e262343eac6f8cb94c6d03ff5695090762 */
 (function attachCanonicalSportsTaxonomy(root, factory){
   const taxonomy = factory();
   root.NOTHINGSPORTS_CANONICAL_TAXONOMY = taxonomy;
@@ -752,6 +762,21 @@
       supportsCompetitors: true,
       defaultTemplateId: "template:like",
       metadata: { region: "global", neutralGlyph: "sport:motorsport" },
+    },
+    {
+      id: "sport:sailing",
+      slug: "sailing",
+      name: "Sailing",
+      kind: "sport",
+      sortOrder: 32,
+      isActive: false,
+      supportsLadders: false,
+      supportsAllFixtures: false,
+      supportsNarrative: true,
+      supportsTeams: true,
+      supportsCompetitors: true,
+      defaultTemplateId: "template:like",
+      metadata: { region: "global", neutralGlyph: "sport:sailing" },
     },
     {
       id: "sport:extreme",
@@ -1079,6 +1104,17 @@
       isActive: true,
     },
     {
+      id: "family:nrlw-premiership",
+      sportDomainId: "sport:nrl",
+      slug: "nrlw-premiership",
+      name: "NRLW Premiership",
+      familyType: "league",
+      sortOrder: 21,
+      isActive: true,
+      surfaceClassification: "code",
+      classificationReason: "recurring-single-code-competition",
+    },
+    {
       id: "family:premier-league",
       sportDomainId: "sport:football",
       slug: "premier-league",
@@ -1117,6 +1153,28 @@
       isActive: true,
     },
     {
+      id: "family:motogp-world-championship",
+      sportDomainId: "sport:motorsport",
+      slug: "motogp-world-championship",
+      name: "MotoGP World Championship",
+      familyType: "championship",
+      sortOrder: 32,
+      isActive: true,
+      surfaceClassification: "code",
+      classificationReason: "recurring-single-code-competition",
+    },
+    {
+      id: "family:sailgp",
+      sportDomainId: "sport:sailing",
+      slug: "sailgp",
+      name: "SailGP",
+      familyType: "championship",
+      sortOrder: 33,
+      isActive: true,
+      surfaceClassification: "code",
+      classificationReason: "recurring-single-code-competition",
+    },
+    {
       id: "family:atp-tour",
       sportDomainId: "sport:tennis",
       slug: "atp-tour",
@@ -1151,6 +1209,17 @@
       familyType: "championship",
       sortOrder: 60,
       isActive: true,
+    },
+    {
+      id: "family:fiba-womens-world-cup",
+      sportDomainId: "sport:basketball",
+      slug: "fiba-womens-world-cup",
+      name: "FIBA Women's Basketball World Cup",
+      familyType: "tournament",
+      sortOrder: 61,
+      isActive: true,
+      surfaceClassification: "code",
+      classificationReason: "recurring-single-code-competition",
     },
     {
       id: "family:glasgow-2026-commonwealth-games",
@@ -1224,6 +1293,28 @@
         provider: "NRL Match Centre / Champion Data",
         competitionId: 12999,
         sourceUrl: "https://www.nrl.com/draw",
+      },
+    },
+    {
+      id: "competition:nrlw-premiership-2026",
+      sportDomainId: "sport:nrl",
+      preferenceDomainId: "sport:nrlw",
+      competitionFamilyId: "family:nrlw-premiership",
+      slug: "nrlw-premiership-2026",
+      name: "2026 NRL Telstra Women's Premiership",
+      competitionType: "seasonLeague",
+      seasonLabel: "2026",
+      region: "AU",
+      gender: "womens",
+      supportsLadder: false,
+      supportsTeams: true,
+      supportsCompetitors: true,
+      isSpecialEvent: false,
+      surfaceClassification: "code",
+      classificationReason: "recurring-single-code-competition",
+      source: {
+        provider: "NRL",
+        sourceUrl: "https://www.nrl.com/draw/?competition=161",
       },
     },
     {
@@ -1404,6 +1495,72 @@
       source: { provider: "FIA", sourceUrl: "https://api.fia.com/events/world-rally-championship/season-2026/standings" },
     },
     {
+      id: "competition:motogp",
+      sportDomainId: "sport:motorsport",
+      preferenceDomainId: "sport:motogp",
+      competitionFamilyId: "family:motogp-world-championship",
+      slug: "motogp",
+      name: "MotoGP",
+      competitionType: "seasonChampionship",
+      seasonLabel: "2026",
+      region: "global",
+      gender: "open",
+      supportsLadder: false,
+      supportsTeams: true,
+      supportsCompetitors: true,
+      isSpecialEvent: false,
+      surfaceClassification: "code",
+      classificationReason: "recurring-single-code-competition",
+      source: {
+        provider: "MotoGP",
+        sourceUrl: "https://www.motogp.com/en/calendar/2026",
+      },
+    },
+    {
+      id: "competition:sailgp",
+      sportDomainId: "sport:sailing",
+      preferenceDomainId: "sport:sailgp",
+      competitionFamilyId: "family:sailgp",
+      slug: "sailgp",
+      name: "SailGP",
+      competitionType: "seasonChampionship",
+      seasonLabel: "2026",
+      region: "global",
+      gender: "mixed",
+      supportsLadder: false,
+      supportsTeams: true,
+      supportsCompetitors: true,
+      isSpecialEvent: false,
+      surfaceClassification: "code",
+      classificationReason: "recurring-single-code-competition",
+      source: {
+        provider: "SailGP",
+        sourceUrl: "https://sailgp.com/general/2026/calendar/",
+      },
+    },
+    {
+      id: "competition:fiba-womens-world-cup",
+      sportDomainId: "sport:basketball",
+      preferenceDomainId: "sport:fiba-women",
+      competitionFamilyId: "family:fiba-womens-world-cup",
+      slug: "fiba-womens-world-cup",
+      name: "FIBA Women's Basketball World Cup",
+      competitionType: "tournament",
+      seasonLabel: "2026",
+      region: "global",
+      gender: "womens",
+      supportsLadder: false,
+      supportsTeams: true,
+      supportsCompetitors: true,
+      isSpecialEvent: false,
+      surfaceClassification: "code",
+      classificationReason: "recurring-single-code-competition",
+      source: {
+        provider: "FIBA",
+        sourceUrl: "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+      },
+    },
+    {
       id: "competition:atp-singles-2026",
       sportDomainId: "sport:tennis",
       preferenceDomainId: "sport:tennis",
@@ -1554,7 +1711,7 @@
 
 ;
 
-;/* config/sport-hierarchy.js sha256:66faef6b18c577d88c9fb894f34a114d6bf952b6c1f4c8a34af3f2eaa21ed2d3 */
+;/* config/sport-hierarchy.js sha256:8dad3827ccd58527e6d87a4c6cd6fb2957d2edcb9a46119940f21cb5d92dc8b5 */
 (function attachNothingSportsHierarchy(root, factory){
   const hierarchy = factory();
   root.NOTHINGSPORTS_SPORT_HIERARCHY = hierarchy;
@@ -1634,6 +1791,10 @@
     ["event-series:goodwood-festival-of-speed", "Goodwood Festival of Speed", "event_series", "competition:motorsport-culture", ["Goodwood"]],
     ["event-series:le-mans-24-hours", "24 Hours of Le Mans", "event_series", "competition:world-endurance-championship", ["Le Mans"]],
 
+    ["sport:sailing", "Sailing", "sport"],
+    ["discipline:sailing:foiling", "Foiling", "discipline", "sport:sailing"],
+    ["competition:sailgp", "SailGP", "competition", "discipline:sailing:foiling"],
+
     ["sport:combat-sports", "Combat sports", "sport"],
     ["discipline:combat:boxing", "Boxing", "discipline", "sport:combat-sports"],
     ["discipline:combat:mma", "Mixed martial arts", "discipline", "sport:combat-sports", ["MMA"]],
@@ -1682,7 +1843,9 @@
 
     ["sport:basketball", "Basketball", "sport"],
     ["discipline:basketball:professional", "Professional basketball", "discipline", "sport:basketball"],
+    ["discipline:basketball:international", "International basketball", "discipline", "sport:basketball"],
     ["competition:nba", "National Basketball Association", "competition", "discipline:basketball:professional", ["NBA"]],
+    ["competition:fiba-womens-world-cup", "FIBA Women's Basketball World Cup", "competition", "discipline:basketball:international", ["FIBA Women's World Cup"]],
 
     ["sport:american-football", "American football", "sport"],
     ["discipline:american-football:professional", "Professional American football", "discipline", "sport:american-football"],
@@ -1728,7 +1891,10 @@
   const legacyIds = Object.freeze({
     "sport:afl": "sport:australian-football",
     "sport:nrl": "sport:rugby-league",
+    "sport:nrl-premiership": "competition:nrl-premiership",
+    "sport:nrlw": "competition:nrlw-premiership",
     "sport:f1": "competition:formula-one",
+    "sport:motogp": "competition:motogp",
     "sport:wrc": "competition:world-rally-championship",
     "sport:rally": "competition:world-rally-championship",
     "competition:world-rally": "competition:world-rally-championship",
@@ -1738,6 +1904,8 @@
     "sport:downhill-mtb": "competition:uci-mountain-bike",
     "sport:rugby": "sport:rugby-union",
     "sport:nba": "competition:nba",
+    "sport:fiba-women": "competition:fiba-womens-world-cup",
+    "sport:sailgp": "competition:sailgp",
     "sport:skiing": "sport:winter-sports",
     "sport:extreme": "sport:extreme-sports",
     "sport:surf": "sport:surfing",
@@ -1752,6 +1920,7 @@
     "competition:afl-premiership-2026": "competition:afl-premiership",
     "competition:aflw-2026": "competition:aflw",
     "competition:nrl-premiership-2026": "competition:nrl-premiership",
+    "competition:nrlw-premiership-2026": "competition:nrlw-premiership",
     "competition:uefa-champions-league:2026-27": "competition:uefa-champions-league",
     "competition:f1-drivers-2026": "competition:formula-one",
     "competition:f1-constructors-2026": "competition:formula-one",
@@ -1760,6 +1929,9 @@
     "competition:wrc-drivers-2026": "competition:world-rally-championship",
     "competition:wrc-co-drivers-2026": "competition:world-rally-championship",
     "competition:wrc-manufacturers-2026": "competition:world-rally-championship",
+    "competition:motogp-2026": "competition:motogp",
+    "competition:sailgp-2026": "competition:sailgp",
+    "competition:fiba-womens-world-cup-2026": "competition:fiba-womens-world-cup",
     "competition:atp-singles-2026": "competition:atp-tour",
     "competition:tour-de-france-stage-jerseys-2026": "event-series:tour-de-france",
     "competition:nba-eastern-conference-2025-26": "competition:nba",
@@ -1769,6 +1941,9 @@
 
   const legacySportKeys = Object.freeze({
     f1: "competition:formula-one",
+    motogp: "competition:motogp",
+    sailgp: "competition:sailgp",
+    "fiba-women": "competition:fiba-womens-world-cup",
     motorsport: "competition:motorsport-culture",
     extreme: "competition:extreme-world-events",
     wrc: "competition:world-rally-championship",
@@ -1795,6 +1970,7 @@
     "ligue-1": "competition:ligue-1",
     tdf: "event-series:tour-de-france",
     nrl: "competition:nrl-premiership",
+    nrlw: "competition:nrlw-premiership",
     afl: "competition:afl-premiership",
     aflw: "competition:aflw",
     cricket: "competition:cricket-international",
@@ -2577,7 +2753,7 @@
 
 ;
 
-;/* config/follow-first.js sha256:ac92e4bb6933649b2a2fd40bed96ae2c45ad814054ecc83d3f2f6d2a4970effc */
+;/* config/follow-first.js sha256:5c20d911fcfe2afccdca10418059f68dbb73242ca455448b7d50f4ef6152ea0d */
 (function attachNothingSportsFollowFirst(root, factory){
   const competitionClassification = root.NOTHINGSPORTS_COMPETITION_CLASSIFICATION
     || (typeof require === "function" ? require("./competition-classification.js") : null);
@@ -2599,13 +2775,17 @@
   const STARTUP_SPORTS = Object.freeze([
     { id:"afl", selectorId:"sport:afl", label:"AFL" },
     { id:"nrl", selectorId:"sport:nrl", label:"NRL" },
+    { id:"nrlw", selectorId:"sport:nrlw", label:"NRLW" },
     { id:"cricket", selectorId:"sport:cricket", label:"Cricket" },
     { id:"football", selectorId:"sport:football", label:"Football" },
     { id:"tennis", selectorId:"sport:tennis", label:"Tennis" },
     { id:"f1", selectorId:"sport:f1", label:"Formula 1" },
     { id:"wrc", selectorId:"sport:wrc", label:"WRC" },
+    { id:"motogp", selectorId:"sport:motogp", label:"MotoGP" },
+    { id:"sailgp", selectorId:"sport:sailgp", label:"SailGP" },
     { id:"rugby", selectorId:"sport:rugby", label:"Rugby Union" },
     { id:"nba", selectorId:"sport:nba", label:"Basketball" },
+    { id:"fiba-women", selectorId:"sport:fiba-women", label:"FIBA Women" },
     { id:"american-football", selectorId:"sport:american-football", label:"American Football" },
     { id:"ice-hockey", selectorId:"sport:ice-hockey", label:"Ice Hockey" },
     { id:"swimming", selectorId:"sport:swimming", label:"Swimming" },
@@ -2625,7 +2805,7 @@
   ]);
 
   const INTERNATIONAL_AUSTRALIA_SPORT_IDS = Object.freeze([
-    "cricket", "football", "tennis", "f1", "wrc", "rugby", "nba", "motorsport",
+    "cricket", "football", "tennis", "f1", "wrc", "motogp", "sailgp", "fiba-women", "rugby", "nba", "nrlw", "motorsport", "rally",
     "extreme", "skateboard", "surf", "wsl", "big-wave", "cycling", "tdf", "basketball",
     "golf", "masters", "ski", "alpine", "freestyle", "telemark", "cwg",
     "athletics", "swimming", "netball", "boxing",
@@ -2680,9 +2860,13 @@
     "competition:tennis:us-open":viewingRights(["competition:tennis:us-open", "us-open"], ["stan"], "https://www.stan.com.au/watch/sport/tennis/us-open", { sourceIsProvider:true }),
     "competition:afl":viewingRights(["competition:afl"], ["kayo", "foxtel", "seven", "watch-afl"], "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights", { liveOrReplay:"live", grandFinalProviderIds:Object.freeze(["seven"]) }),
     "competition:nrl":viewingRights(["competition:nrl"], ["kayo", "foxtel"], null, { grandFinalProviderIds:Object.freeze(["nine"]) }),
+    "competition:nrlw-premiership":viewingRights(["competition:nrlw-premiership", "competition:nrlw-premiership-2026", "nrlw"], ["nine", "kayo", "foxtel"], "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z", matchPriority:2 }),
     "competition:rugby-league-world-cup":viewingRights(["competition:rugby-league-world-cup", "rlwc2026"], ["seven"], null, { matchPriority:1 }),
     "sport:rugby-union":viewingRights(["sport:rugby-union", "rugby"], ["stan"], "https://www.stan.com.au/watch/sport/rugby", { rightsScope:"sport", sourceIsProvider:true }),
     "competition:formula-one":viewingRights(["competition:formula-one", "f1"], ["kayo", "foxtel"], null),
+    "competition:motogp":viewingRights(["competition:motogp", "competition:motogp-2026", "motogp"], ["kayo", "foxtel"], "https://www.motogp.com.au/fan-zone/how-to-watch-motogp-live-on-tv-and-stream-in-australia", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
+    "competition:sailgp":viewingRights(["competition:sailgp", "competition:sailgp-2026", "sailgp"], ["kayo", "foxtel"], "https://sailgp.com/news/26/sailgp-confirms-global-broadcast-lineup-2026-season/", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
+    "competition:fiba-womens-world-cup":viewingRights(["competition:fiba-womens-world-cup", "competition:fiba-womens-world-cup-2026", "fiba-women"], ["kayo", "foxtel"], "https://www.techradar.com/how-to-watch/basketball/fiba-womens-basketball-world-cup-2026-free", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
     "competition:cricket-australia":viewingRights(["competition:cricket-australia", "boxing-day-test", "new-year-s-test", "the-ashes"], ["kayo", "foxtel", "seven"], null),
     "competition:icc-cricket":viewingRights(["competition:icc", "icc-world-cup", "icc-champions-trophy"], ["prime-video"], null),
     "competition:nba":viewingRights(["competition:nba"], ["nba-pass"], null),
@@ -6804,7 +6988,7 @@
 
 ;
 
-;/* config/venue-registry.js sha256:dd7daac4f0b06a5c22f9a63df5c870da7bcdde8f736461964abc1acc6af194e9 */
+;/* config/venue-registry.js sha256:b4d18e5e791e163abe71e9bd6c9f24dec1044aa37c791c1d871d371e452cbb45 */
 (function attachNothingSportsVenueRegistry(root, factory){
   const api = factory();
   root.NOTHINGSPORTS_VENUE_REGISTRY = api;
@@ -6812,7 +6996,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsVenueRegistry(){
   "use strict";
 
-  const VERSION = "venue-registry.v2";
+  const VERSION = "venue-registry.v3";
   const ENTRIES = Object.freeze([
     ["stadium-australia", "Stadium Australia", "Accor Stadium", ["Accor Stadium", "Accor Stadium, Sydney"]],
     ["sydney-football-stadium", "Sydney Football Stadium", "Allianz Stadium", ["Allianz Stadium", "Allianz Stadium, Sydney"]],
@@ -6931,6 +7115,22 @@
     ["tottenham-hotspur-stadium", "Tottenham Hotspur Stadium", "Tottenham Hotspur Stadium", ["Tottenham Hotspur Stadium"]],
     ["villa-park", "Villa Park", "Villa Park", ["Villa Park"]],
     ["vitality-stadium", "Vitality Stadium", "Vitality Stadium", ["Vitality Stadium"]],
+    ["leichhardt-oval", "Leichhardt Oval", "Leichhardt Oval", ["Leichhardt Oval"]],
+    ["totally-workwear-stadium", "Totally Workwear Stadium", "Totally Workwear Stadium", ["Totally Workwear Stadium"]],
+    ["uber-arena-berlin", "Uber Arena", "Uber Arena", ["Uber Arena, Berlin"]],
+    ["algarve-international-circuit", "Algarve International Circuit", "Algarve International Circuit", ["Algarve International Circuit"]],
+    ["circuit-ricardo-tormo", "Circuit Ricardo Tormo", "Circuit Ricardo Tormo", ["Circuit Ricardo Tormo"]],
+    ["lusail-international-circuit", "Lusail International Circuit", "Lusail International Circuit", ["Lusail International Circuit"]],
+    ["misano-world-circuit", "Misano World Circuit", "Misano World Circuit Marco Simoncelli", ["Misano World Circuit Marco Simoncelli"]],
+    ["mobility-resort-motegi", "Motegi", "Mobility Resort Motegi", ["Mobility Resort Motegi"]],
+    ["mandalika-international-circuit", "Mandalika", "Pertamina Mandalika International Circuit", ["Pertamina Mandalika International Circuit"]],
+    ["sepang-international-circuit", "Sepang", "Petronas Sepang International Circuit", ["Petronas Sepang International Circuit"]],
+    ["phillip-island-grand-prix-circuit", "Phillip Island", "Phillip Island Grand Prix Circuit", ["Phillip Island Grand Prix Circuit"]],
+    ["red-bull-ring", "Red Bull Ring", "Red Bull Ring", ["Red Bull Ring"]],
+    ["abu-dhabi-sailgp", "Abu Dhabi", "Abu Dhabi, United Arab Emirates", ["Abu Dhabi, United Arab Emirates"]],
+    ["dubai-sailgp", "Dubai", "Dubai, United Arab Emirates", ["Dubai, United Arab Emirates"]],
+    ["geneva-sailgp", "Geneva", "Geneva, Switzerland", ["Geneva, Switzerland"]],
+    ["valencia-sailgp", "Valencia", "Valencia, Spain", ["Valencia, Spain"]],
   ].map(([id, displayName, officialName, aliases]) => Object.freeze({ id, displayName, officialName, aliases: Object.freeze(aliases) })));
 
   const CONTEXTUAL_ALIASES = Object.freeze({
@@ -6947,13 +7147,28 @@
     "the arena": Object.freeze({ id: "glasgow-international-arena", keys: Object.freeze(["cwg"]) }),
     "scottish event campus": Object.freeze({ id: "sec-centre", keys: Object.freeze(["cwg"]) }),
     "etihad stadium": Object.freeze({ id: "etihad-stadium-manchester", keys: Object.freeze(["premier-league"]) }),
+    "berlin germany": Object.freeze({ id: "uber-arena-berlin", keys: Object.freeze(["fiba-women"]) }),
   });
 
   const REVIEW_DISPOSITIONS = Object.freeze({
     "2026 nba finals": "competition_placeholder",
     "belfort": "place_or_route",
     "chalon sur saone": "place_or_route",
+    "chile": "place_or_route",
+    "croatia": "place_or_route",
+    "estonia": "place_or_route",
+    "finland": "place_or_route",
+    "greece": "place_or_route",
+    "italy": "place_or_route",
+    "japan": "place_or_route",
+    "kenya": "place_or_route",
     "le markstein": "place_or_route",
+    "monaco": "place_or_route",
+    "paraguay": "place_or_route",
+    "portugal": "place_or_route",
+    "saudi arabia": "place_or_route",
+    "spain": "place_or_route",
+    "sweden": "place_or_route",
     "tour de france 2026": "competition_placeholder",
     "davos switzerland": "quarantine_conflicting_fixture",
     "marrakech to ouarzazate": "quarantine_conflicting_fixture",
@@ -9385,7 +9600,7 @@
 
 ;
 
-;/* config/selector-taxonomy.js sha256:cecfc4566c85b451c185db99317401f32c0284a26f7c364b9c7c0d792f4ab0f4 */
+;/* config/selector-taxonomy.js sha256:ae8d5caef3cf1a7fea3c9fe285fcdcbafb44187cf53ce8616b481222869c3f19 */
 (function attachSelectorTaxonomy(root, factory){
   const taxonomy = factory();
   root.NOTHINGSPORTS_SELECTOR_TAXONOMY = taxonomy;
@@ -9428,6 +9643,7 @@
     }
     const domainGlyphs = {
       "sport:motorsport": "sport:motorsport",
+      "sport:sailing": "sport:sailing",
       "sport:extreme": "sport:extreme",
       "sport:surf": "sport:surf",
       "sport:skiing": "sport:skiing",
@@ -9445,10 +9661,13 @@
     ["sport:afl", "AFL", "parent", null, ["afl"], "sport:australian-football", "sport:australian-football", 10, ["sport:afl-premiership", "sport:aflw"]],
     ["sport:afl-premiership", "AFL Premiership", "child", "sport:afl", ["afl"], "competition:afl-premiership", "sport:australian-football", 11],
     ["sport:aflw", "AFLW", "child", "sport:afl", ["aflw"], "competition:aflw", "sport:australian-football", 12],
-    ["sport:nrl", "NRL", "sport", null, ["nrl"], "sport:rugby-league", "sport:rugby", 20],
-    ["sport:motorsport", "Motorsport", "parent", null, ["motorsport"], "sport:motorsport", "sport:motorsport", 30, ["sport:f1", "sport:wrc"]],
+    ["sport:nrl", "NRL", "parent", null, ["nrl"], "sport:rugby-league", "sport:rugby", 20, ["sport:nrl-premiership", "sport:nrlw"]],
+    ["sport:nrl-premiership", "NRL Premiership", "child", "sport:nrl", ["nrl"], "competition:nrl-premiership", "sport:rugby", 21],
+    ["sport:nrlw", "NRLW", "child", "sport:nrl", ["nrlw"], "competition:nrlw-premiership", "sport:rugby", 22],
+    ["sport:motorsport", "Motorsport", "parent", null, ["motorsport"], "sport:motorsport", "sport:motorsport", 30, ["sport:f1", "sport:motogp", "sport:wrc"]],
     ["sport:f1", "F1", "child", "sport:motorsport", ["f1"], "competition:formula-one", "sport:motorsport", 31],
-    ["sport:wrc", "WRC", "child", "sport:motorsport", ["wrc"], "competition:world-rally-championship", "sport:motorsport", 32],
+    ["sport:motogp", "MotoGP", "child", "sport:motorsport", ["motogp"], "competition:motogp", "sport:motorsport", 32],
+    ["sport:wrc", "WRC", "child", "sport:motorsport", ["wrc", "rally"], "competition:world-rally-championship", "sport:motorsport", 33],
     ["sport:extreme", "Extreme", "parent", null, ["extreme", "skateboard"], "sport:extreme-sports", "sport:extreme", 40, ["sport:downhill-mtb"]],
     ["sport:downhill-mtb", "MTB", "child", "sport:extreme", ["downhill-mtb", "mtb"], "competition:uci-mountain-bike", "sport:extreme", 41],
     ["sport:surf", "Surfing", "parent", null, ["surf", "wsl"], "sport:surfing", "sport:surf", 50, ["sport:big-wave"]],
@@ -9463,6 +9682,8 @@
     ["sport:cycling", "Cycling", "sport", null, ["cycling", "tdf"], "sport:cycling", "sport:cycling", 100],
     ["sport:cricket", "Cricket", "sport", null, ["cricket"], "sport:cricket", "sport:cricket", 110],
     ["sport:nba", "Basketball", "sport", null, ["nba", "basketball"], "sport:basketball", "sport:basketball", 120],
+    ["sport:fiba-women", "FIBA Women", "sport", null, ["fiba-women"], "competition:fiba-womens-world-cup", "sport:basketball", 121],
+    ["sport:sailgp", "SailGP", "sport", null, ["sailgp"], "competition:sailgp", "sport:sailing", 122],
     ["sport:golf", "Golf", "sport", null, ["golf", "masters"], "sport:golf", "sport:golf", 130],
     ["sport:american-football", "American Football", "sport", null, ["nfl", "american-football"], "sport:american-football", "sport:american-football", 140],
     ["sport:athletics", "Athletics", "sport", null, ["athletics"], "sport:athletics", "sport:athletics", 150],
@@ -9501,6 +9722,7 @@
       "sport:skiing": "Snow",
       "sport:football": "Football",
       "sport:afl": "AFL",
+      "sport:nrl": "NRL",
     })[parentId] || parentId;
   }
 
@@ -9584,7 +9806,7 @@
 
 ;
 
-;/* config/discovery-catalogue.js sha256:13976840517159ebdc0245ea2ff292c21df56f48db70f15cd7bf995b0b3cd5a7 */
+;/* config/discovery-catalogue.js sha256:45fb3fe953670e48b7d548d87b6999e147e29fdea4ae5a6e8199c93cc6cdd1df */
 (function attachDiscoveryCatalogue(root, factory){
   const selectorTaxonomy = root.NOTHINGSPORTS_SELECTOR_TAXONOMY
     || (typeof require === "function" ? require("./selector-taxonomy.js") : null);
@@ -9629,10 +9851,18 @@
     "category:special-events": internalEventTags.flatMap(node => node.underlyingSportIds || []),
     "sport:australian-football": ["sport:afl-premiership"],
     "sport:rugby-league": ["sport:nrl"],
+    "competition:nrlw-premiership": ["sport:nrlw"],
+    "competition:nrlw-premiership-2026": ["sport:nrlw"],
     "sport:extreme-sports": ["sport:extreme"],
     "sport:surfing": ["sport:surf"],
     "sport:winter-sports": ["sport:skiing"],
     "sport:basketball": ["sport:nba"],
+    "competition:fiba-womens-world-cup": ["sport:fiba-women"],
+    "competition:fiba-womens-world-cup-2026": ["sport:fiba-women"],
+    "competition:motogp": ["sport:motogp"],
+    "competition:motogp-2026": ["sport:motogp"],
+    "competition:sailgp": ["sport:sailgp"],
+    "competition:sailgp-2026": ["sport:sailgp"],
     "sport:wsl": ["sport:surf"],
     "sport:big-wave": ["sport:big-wave"],
     "sport:ski": ["sport:alpine"],
@@ -9678,7 +9908,11 @@
     masters: ["sport:golf"],
     lemans: ["sport:motorsport"],
     nfl: ["sport:american-football"],
+    motogp: ["sport:motogp"],
+    sailgp: ["sport:sailgp"],
+    "fiba-women": ["sport:fiba-women"],
     cwg: ["sport:multi-sport"],
+    nrlw: ["sport:nrlw"],
   });
 
   const sportKeyById = Object.freeze(Object.fromEntries(sportNodes.map(node => [node.id, node.canonicalSportKeys?.[0] || node.id.replace(/^sport:/, "")])));
@@ -10406,7 +10640,7 @@
 
 ;
 
-;/* config/card-identities.js sha256:ee5d2f640d74b0c2fcd1225ca41ce715cada76f156acd2c5d9e758706f494f14 */
+;/* config/card-identities.js sha256:5405ea8946e75422991e32abd8c33fbeebf55547c0bb15c2c00434436a1f8b7b */
 (function attachNothingSportsCardIdentities(root, factory){
   const nodeNationalTeamIdentities = typeof module !== "undefined" && module.exports ? require("./national-team-identities.js") : null;
   const api = factory(() => root.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES || nodeNationalTeamIdentities);
@@ -10567,6 +10801,8 @@
   // treating a governing body's protected trademark as the app's own identity.
   const sportMarks = Object.freeze({
     f1: sportMark("f1", "Formula One", "sport:motorsport", "F1"),
+    motogp: sportMark("motogp", "MotoGP", "sport:motorsport", "MGP"),
+    sailgp: sportMark("sailgp", "SailGP", "sport:sailing", "SGP"),
     motorsport: sportMark("motorsport", "Motorsport", "sport:motorsport"),
     wrc: sportMark("wrc", "FIA World Rally Championship", "sport:motorsport", "WRC"),
     rally: sportMark("rally", "Rally", "sport:motorsport"),
@@ -10586,6 +10822,7 @@
     cycling: sportMark("cycling", "Cycling", "sport:cycling"),
     tdf: sportMark("tdf", "Tour cycling", "sport:cycling"),
     rugby: sportMark("rugby", "Rugby", "sport:rugby", "RUG"),
+    nrlw: sportMark("nrlw", "NRLW", "sport:rugby", "NRLW"),
     tennis: sportMark("tennis", "Tennis", "sport:tennis"),
     fifa: sportMark("fifa", "Football", "sport:football"),
     football: sportMark("football", "Football", "sport:football"),
@@ -10597,6 +10834,7 @@
     cricket: sportMark("cricket", "Cricket", "sport:cricket", "CRK"),
     nba: sportMark("nba", "Basketball", "sport:basketball"),
     basketball: sportMark("basketball", "Basketball", "sport:basketball"),
+    "fiba-women": sportMark("fiba-women", "FIBA women's basketball", "sport:basketball"),
     masters: sportMark("masters", "Golf", "sport:golf"),
     golf: sportMark("golf", "Golf", "sport:golf"),
     nfl: sportMark("nfl", "American football", "sport:american-football"),

@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsVenueRegistry(){
   "use strict";
 
-  const VERSION = "venue-registry.v2";
+  const VERSION = "venue-registry.v3";
   const ENTRIES = Object.freeze([
     ["stadium-australia", "Stadium Australia", "Accor Stadium", ["Accor Stadium", "Accor Stadium, Sydney"]],
     ["sydney-football-stadium", "Sydney Football Stadium", "Allianz Stadium", ["Allianz Stadium", "Allianz Stadium, Sydney"]],
@@ -124,6 +124,22 @@
     ["tottenham-hotspur-stadium", "Tottenham Hotspur Stadium", "Tottenham Hotspur Stadium", ["Tottenham Hotspur Stadium"]],
     ["villa-park", "Villa Park", "Villa Park", ["Villa Park"]],
     ["vitality-stadium", "Vitality Stadium", "Vitality Stadium", ["Vitality Stadium"]],
+    ["leichhardt-oval", "Leichhardt Oval", "Leichhardt Oval", ["Leichhardt Oval"]],
+    ["totally-workwear-stadium", "Totally Workwear Stadium", "Totally Workwear Stadium", ["Totally Workwear Stadium"]],
+    ["uber-arena-berlin", "Uber Arena", "Uber Arena", ["Uber Arena, Berlin"]],
+    ["algarve-international-circuit", "Algarve International Circuit", "Algarve International Circuit", ["Algarve International Circuit"]],
+    ["circuit-ricardo-tormo", "Circuit Ricardo Tormo", "Circuit Ricardo Tormo", ["Circuit Ricardo Tormo"]],
+    ["lusail-international-circuit", "Lusail International Circuit", "Lusail International Circuit", ["Lusail International Circuit"]],
+    ["misano-world-circuit", "Misano World Circuit", "Misano World Circuit Marco Simoncelli", ["Misano World Circuit Marco Simoncelli"]],
+    ["mobility-resort-motegi", "Motegi", "Mobility Resort Motegi", ["Mobility Resort Motegi"]],
+    ["mandalika-international-circuit", "Mandalika", "Pertamina Mandalika International Circuit", ["Pertamina Mandalika International Circuit"]],
+    ["sepang-international-circuit", "Sepang", "Petronas Sepang International Circuit", ["Petronas Sepang International Circuit"]],
+    ["phillip-island-grand-prix-circuit", "Phillip Island", "Phillip Island Grand Prix Circuit", ["Phillip Island Grand Prix Circuit"]],
+    ["red-bull-ring", "Red Bull Ring", "Red Bull Ring", ["Red Bull Ring"]],
+    ["abu-dhabi-sailgp", "Abu Dhabi", "Abu Dhabi, United Arab Emirates", ["Abu Dhabi, United Arab Emirates"]],
+    ["dubai-sailgp", "Dubai", "Dubai, United Arab Emirates", ["Dubai, United Arab Emirates"]],
+    ["geneva-sailgp", "Geneva", "Geneva, Switzerland", ["Geneva, Switzerland"]],
+    ["valencia-sailgp", "Valencia", "Valencia, Spain", ["Valencia, Spain"]],
   ].map(([id, displayName, officialName, aliases]) => Object.freeze({ id, displayName, officialName, aliases: Object.freeze(aliases) })));
 
   const CONTEXTUAL_ALIASES = Object.freeze({
@@ -140,13 +156,28 @@
     "the arena": Object.freeze({ id: "glasgow-international-arena", keys: Object.freeze(["cwg"]) }),
     "scottish event campus": Object.freeze({ id: "sec-centre", keys: Object.freeze(["cwg"]) }),
     "etihad stadium": Object.freeze({ id: "etihad-stadium-manchester", keys: Object.freeze(["premier-league"]) }),
+    "berlin germany": Object.freeze({ id: "uber-arena-berlin", keys: Object.freeze(["fiba-women"]) }),
   });
 
   const REVIEW_DISPOSITIONS = Object.freeze({
     "2026 nba finals": "competition_placeholder",
     "belfort": "place_or_route",
     "chalon sur saone": "place_or_route",
+    "chile": "place_or_route",
+    "croatia": "place_or_route",
+    "estonia": "place_or_route",
+    "finland": "place_or_route",
+    "greece": "place_or_route",
+    "italy": "place_or_route",
+    "japan": "place_or_route",
+    "kenya": "place_or_route",
     "le markstein": "place_or_route",
+    "monaco": "place_or_route",
+    "paraguay": "place_or_route",
+    "portugal": "place_or_route",
+    "saudi arabia": "place_or_route",
+    "spain": "place_or_route",
+    "sweden": "place_or_route",
     "tour de france 2026": "competition_placeholder",
     "davos switzerland": "quarantine_conflicting_fixture",
     "marrakech to ouarzazate": "quarantine_conflicting_fixture",

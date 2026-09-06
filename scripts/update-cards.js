@@ -133,6 +133,7 @@ function buildSteps({ localOnly = false } = {}) {
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "feeds/incoming/events.json", "feeds/incoming/events.json"]]
   ), discoverCanonicalFixtureBundles()),
+  ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/refresh-premier-league-cards.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/enrich-legacy-cards.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/apply-representative-metadata.js", "feeds/incoming/events.json"],
@@ -181,6 +182,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/prepare-nsc-forecasts.js"],
   ["scripts/build-code-inspector.js"],
   ["scripts/validate-feed-coverage-resilience.js"],
+  ["scripts/validate-requested-sports.js"],
   ["scripts/validate-fixture-editorial-resolution.js"],
   ["scripts/validate-national-team-identities.js"],
   ["scripts/build-marquee-candidates.js"],

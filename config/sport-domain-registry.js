@@ -8,6 +8,8 @@
   const narrativeProfiles = Object.freeze(Object.fromEntries(Object.entries({
     f1: { id: "narrative:motorsport-grand-prix", signals: [{ match: "record|milestone|all-time", label: "Record Chase", archetype: "quest" }, { match: "championship|decider", label: "Title Decider", archetype: "quest" }] },
     wrc: { id: "narrative:world-rally-championship", signals: [{ match: "stage|rally|finish|championship", label: "Title Decider", archetype: "quest" }, { match: "time|record|win", label: "Record Chase", archetype: "quest" }] },
+    motogp: { id: "narrative:motogp-grand-prix", signals: [{ match: "championship|title|decider|final", label: "Title Decider", archetype: "quest" }, { match: "rival|battle|duel", label: "Rivalry", archetype: "rivalry" }, { match: "record|lap|pole", label: "Record Chase", archetype: "quest" }] },
+    sailgp: { id: "narrative:sailgp-championship", signals: [{ match: "final|grand final|championship", label: "Title Decider", archetype: "quest" }, { match: "fleet|rival|match race", label: "Rivalry", archetype: "rivalry" }, { match: "speed|record|foil", label: "Record Chase", archetype: "quest" }] },
     rugby: { id: "narrative:rugby-test", signals: [{ match: "bledisloe|rival|derby", label: "Rivalry", archetype: "rivalry" }, { match: "final|decider", label: "Title Decider", archetype: "quest" }] },
     motorsport: { id: "narrative:motorsport-family", signals: [{ match: "stage|rally|endurance|finish|qualifying", label: "Title Decider", archetype: "quest" }, { match: "record|best lap|fastest", label: "Record Chase", archetype: "quest" }, { match: "podium|championship|winner", label: "Rivalry", archetype: "rivalry" }] },
     extreme: { id: "narrative:extreme-sport", signals: [{ match: "world cup|championship|title|final", label: "Title Decider", archetype: "quest" }, { match: "record|run|dirt|jump|crash", label: "Record Chase", archetype: "quest" }, { match: "trick|park|gravity", label: "Rivalry", archetype: "rivalry" }] },
@@ -27,10 +29,12 @@
     "champions-league": { id: "narrative:football-tournament", signals: [{ match: "final|decider|knockout", label: "Title Decider", archetype: "quest" }, { match: "rival|derby", label: "Rivalry", archetype: "rivalry" }, { match: "qualification|league phase|play-off", label: "Qualification Watch", archetype: "quest" }] },
     tdf: { id: "narrative:cycling-tour", signals: [{ match: "alpe d.huez|mountain|time trial", label: "Top pick", archetype: "quest" }, { match: "record", label: "Record Chase", archetype: "quest" }] },
     nrl: { id: "narrative:rugby-league-season", signals: [{ match: "grand final|decider", label: "Title Decider", archetype: "quest" }, { match: "rival|derby|state of origin", label: "Rivalry", archetype: "rivalry" }] },
+    nrlw: { id: "narrative:nrlw-season", signals: [{ match: "grand final|finals|decider", label: "Title Decider", archetype: "quest" }, { match: "rival|derby", label: "Rivalry", archetype: "rivalry" }] },
     afl: { id: "narrative:afl-season", signals: [{ match: "grand final|decider", label: "Title Decider", archetype: "quest" }, { match: "rival|derby|showdown", label: "Rivalry", archetype: "rivalry" }] },
     aflw: { id: "narrative:aflw-season", signals: [{ match: "grand final|decider", label: "Title Decider", archetype: "quest" }, { match: "rival|derby|pride|expansion cup", label: "Rivalry", archetype: "rivalry" }] },
     cricket: { id: "narrative:cricket-series", signals: [{ match: "ashes|border.gavaskar|rival", label: "Rivalry", archetype: "rivalry" }, { match: "final|decider", label: "Title Decider", archetype: "quest" }, { match: "record", label: "Record Chase", archetype: "quest" }] },
     nba: { id: "narrative:basketball-finals", signals: [{ match: "game 7|final", label: "Title Decider", archetype: "quest" }, { match: "rival|derby", label: "Rivalry", archetype: "rivalry" }] },
+    "fiba-women": { id: "narrative:fiba-womens-world-cup", signals: [{ match: "final|semifinal|quarterfinal|qualification", label: "Title Decider", archetype: "quest" }, { match: "opals|australia|rival", label: "Top pick", archetype: "quest" }, { match: "upset|underdog", label: "Upset Watch", archetype: "ragsToRiches" }] },
     masters: { id: "narrative:golf-major", signals: [{ match: "final round|sunday", label: "Title Decider", archetype: "quest" }, { match: "record", label: "Record Chase", archetype: "quest" }] },
     lemans: { id: "narrative:endurance-race", signals: [{ match: "finish|decider", label: "Title Decider", archetype: "quest" }, { match: "record", label: "Record Chase", archetype: "quest" }] },
     nfl: { id: "narrative:american-football-final", signals: [{ match: "super bowl|final", label: "Title Decider", archetype: "quest" }, { match: "rival|derby", label: "Rivalry", archetype: "rivalry" }] },
@@ -41,6 +45,7 @@
 
   const narrativeProfileKeyByDomainId = Object.freeze({
     "sport:motorsport": "motorsport",
+    "sport:sailing": "sailgp",
     "sport:extreme": "extreme",
     "sport:surf": "surf",
     "sport:rugby-union": "rugby",
@@ -67,6 +72,8 @@
   // derive from these records instead of requiring a bespoke UI branch.
   const domains = [
     { key: "f1", domainId: "sport:motorsport", label: "F1", selectorLabel: "F1", detail: "Qualifying, races, driver and constructor standings.", color: "var(--c-f1)", glyph: "sport:motorsport", sortOrder: 10, selector: true, supportsLadders: true, supportsNarrative: true },
+    { key: "motogp", domainId: "sport:motorsport", label: "MotoGP", selectorLabel: "MotoGP", detail: "Every remaining 2026 Grand Prix and the current rider field.", color: "#e10600", glyph: "sport:motorsport", sortOrder: 11, selector: false, supportsLadders: false, supportsNarrative: true },
+    { key: "sailgp", domainId: "sport:sailing", label: "SailGP", selectorLabel: "SailGP", detail: "The 2026 fleet, race weekends and championship run-in.", color: "#009fd9", glyph: "sport:sailing", sortOrder: 12, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "motorsport", domainId: "sport:motorsport", label: "Motorsport", selectorLabel: "Motorsport", detail: "Cross-discipline motorsport coverage spanning rally, endurance and performance events.", color: "var(--c-motorsport)", glyph: "sport:motorsport", sortOrder: 15, selector: true, supportsLadders: true, supportsNarrative: true },
     { key: "extreme", domainId: "sport:extreme", label: "Extreme", selectorLabel: "Extreme", detail: "Skateboarding, big drops and gravity sports.", color: "var(--c-extreme)", glyph: "sport:extreme", sortOrder: 17, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "wrc", domainId: "sport:motorsport", preferenceDomainId: "sport:wrc", label: "WRC", selectorLabel: "WRC", detail: "All 14 World Rally Championship rounds, senior standings, results and replays.", color: "var(--c-motorsport)", glyph: "sport:motorsport", sortOrder: 18, selector: true, supportsLadders: true, supportsNarrative: true },
@@ -89,8 +96,10 @@
     { key: "nrl", domainId: "sport:nrl", label: "NRL", selectorLabel: "Rugby League", detail: "Every premiership fixture, the live ladder, finals, and Grand Final.", color: "var(--c-nrl)", glyph: "sport:rugby", sortOrder: 60, selector: true, supportsLadders: true, supportsNarrative: true },
     { key: "afl", domainId: "sport:afl", label: "AFL", selectorLabel: "AFL", detail: "Every premiership fixture, the live ladder, and the finals series.", color: "var(--c-afl)", glyph: "sport:australian-football", sortOrder: 70, selector: true, supportsLadders: true, supportsNarrative: true },
     { key: "aflw", domainId: "sport:afl", label: "AFLW", selectorLabel: "AFLW", detail: "Every AFLW fixture, the live ladder, results and followed club or player stories.", color: "var(--c-afl)", glyph: "sport:australian-football", sortOrder: 71, selector: false, supportsLadders: true, supportsNarrative: true },
+    { key: "nrlw", domainId: "sport:nrl", label: "NRLW", selectorLabel: "NRLW", detail: "Every remaining 2026 NRLW fixture, the finals run and the current clubs.", color: "var(--c-nrl)", glyph: "sport:rugby", sortOrder: 72, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "cricket", domainId: "sport:cricket", label: "Cricket", selectorLabel: "Cricket", detail: "Australian Tests and summer headline matches.", color: "var(--c-cricket)", glyph: "sport:cricket", sortOrder: 80, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "nba", domainId: "sport:basketball", label: "NBA", selectorLabel: "NBA Finals", detail: "Finals games, team and top-competitor follows, and conference standings.", color: "var(--c-nba)", glyph: "sport:basketball", sortOrder: 90, selector: true, supportsLadders: true, supportsNarrative: true },
+    { key: "fiba-women", domainId: "sport:basketball", label: "FIBA Women", selectorLabel: "FIBA Women", detail: "The Women's Basketball World Cup, including every Opals fixture and knockout session.", color: "#ef7d00", glyph: "sport:basketball", sortOrder: 91, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "masters", domainId: "sport:golf", label: "Masters", selectorLabel: "Masters Golf", detail: "Augusta rounds and Sunday contention windows.", color: "var(--c-golf)", glyph: "sport:golf", sortOrder: 100, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "lemans", domainId: "sport:motorsport", label: "Le Mans", selectorLabel: "Le Mans", detail: "24 Hours start and finish windows.", color: "var(--c-lemans)", glyph: "sport:motorsport", sortOrder: 110, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "nfl", domainId: "sport:american-football", label: "Super Bowl", selectorLabel: "Super Bowl", detail: "The NFL championship event.", color: "var(--c-nfl)", glyph: "sport:american-football", sortOrder: 120, selector: true, supportsLadders: false, supportsNarrative: true },

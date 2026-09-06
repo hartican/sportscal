@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-06T14:45:02.413Z",
+  "generatedAt": "2026-09-06T18:14:03.244Z",
   "sports": [
     {
       "key": "afl",
@@ -27,6 +27,14 @@
       "scriptUrl": "data/follow-directory/nrl.v1.js"
     },
     {
+      "key": "nrlw",
+      "label": "NRLW",
+      "status": "available",
+      "recordCount": 12,
+      "jsonUrl": "data/follow-directory/nrlw.v1.json",
+      "scriptUrl": "data/follow-directory/nrlw.v1.js"
+    },
+    {
       "key": "motorsport",
       "label": "Motorsport",
       "status": "available",
@@ -41,6 +49,14 @@
       "recordCount": 33,
       "jsonUrl": "data/follow-directory/f1.v1.json",
       "scriptUrl": "data/follow-directory/f1.v1.js"
+    },
+    {
+      "key": "motogp",
+      "label": "MotoGP",
+      "status": "available",
+      "recordCount": 22,
+      "jsonUrl": "data/follow-directory/motogp.v1.json",
+      "scriptUrl": "data/follow-directory/motogp.v1.js"
     },
     {
       "key": "wrc",
@@ -121,6 +137,22 @@
       "recordCount": 47,
       "jsonUrl": "data/follow-directory/nba.v1.json",
       "scriptUrl": "data/follow-directory/nba.v1.js"
+    },
+    {
+      "key": "fiba-women",
+      "label": "FIBA Women",
+      "status": "available",
+      "recordCount": 16,
+      "jsonUrl": "data/follow-directory/fiba-women.v1.json",
+      "scriptUrl": "data/follow-directory/fiba-women.v1.js"
+    },
+    {
+      "key": "sailgp",
+      "label": "SailGP",
+      "status": "available",
+      "recordCount": 13,
+      "jsonUrl": "data/follow-directory/sailgp.v1.json",
+      "scriptUrl": "data/follow-directory/sailgp.v1.js"
     },
     {
       "key": "golf",
