@@ -9,6 +9,10 @@ DEPLOY_SHA="$(git rev-parse "${DEPLOY_REF}^{commit}")"
 VERCEL_SCOPE="${NS_VERCEL_SCOPE:-harticans-projects}"
 PROJECT_LINK="$PROJECT_ROOT/.vercel/project.json"
 SECRET_PATH="planning-sportscal/Archive/supabase_keys.txt"
+VERCEL_AUTH_ARGS=()
+if [[ -n "${VERCEL_TOKEN:-}" ]]; then
+  VERCEL_AUTH_ARGS=(--token "$VERCEL_TOKEN")
+fi
 
 NS_DEPLOY_ROOT="$(mktemp -d /tmp/nothingsport-deploy.XXXXXX)"
 NS_DEPLOY_DIR="$NS_DEPLOY_ROOT/snapshot"
@@ -48,7 +52,7 @@ if [[ ! -f "$PROJECT_LINK" ]]; then
   exit 1
 fi
 
-if ! NS_VERCEL_ENV_NAMES="$(XDG_CACHE_HOME=/tmp vercel env ls production --scope "$VERCEL_SCOPE" 2>&1)"; then
+if ! NS_VERCEL_ENV_NAMES="$(XDG_CACHE_HOME=/tmp vercel env ls production --scope "$VERCEL_SCOPE" "${VERCEL_AUTH_ARGS[@]}" 2>&1)"; then
   echo "Error: unable to verify the Vercel Production environment before release." >&2
   exit 1
 fi
@@ -63,4 +67,5 @@ cp "$PROJECT_LINK" "$NS_DEPLOY_DIR/.vercel/project.json"
 XDG_CACHE_HOME=/tmp vercel deploy "$NS_DEPLOY_DIR" --prod --yes \
   --scope "$VERCEL_SCOPE" \
   --meta "releaseGitSha=$DEPLOY_SHA" \
-  --meta "releaseGitRef=$DEPLOY_REF"
+  --meta "releaseGitRef=$DEPLOY_REF" \
+  "${VERCEL_AUTH_ARGS[@]}"

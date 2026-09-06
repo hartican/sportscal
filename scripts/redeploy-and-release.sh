@@ -167,7 +167,7 @@ run_push() {
 ensure_vercel_auth() {
   if [[ -n "${VERCEL_TOKEN:-}" ]]; then
     export VERCEL_TOKEN
-    if vercel whoami >/dev/null 2>&1; then
+    if vercel whoami --token "$VERCEL_TOKEN" >/dev/null 2>&1; then
       return
     fi
     echo "Saved VERCEL_TOKEN is not authorized; falling back to the authenticated Vercel CLI session." >&2
@@ -300,7 +300,11 @@ log "Deploying immutable origin/main snapshot $DEPLOY_SHA."
 NS_DEPLOY_REF=origin/main ./scripts/deploy-current-commit.sh
 
 DEPLOYMENT_LIST_FILE="$(mktemp)"
-if ! vercel list sportscal --meta "releaseGitSha=$DEPLOY_SHA" --status READY --json > "$DEPLOYMENT_LIST_FILE"; then
+VERCEL_LIST_AUTH_ARGS=()
+if [[ -n "${VERCEL_TOKEN:-}" ]]; then
+  VERCEL_LIST_AUTH_ARGS=(--token "$VERCEL_TOKEN")
+fi
+if ! vercel list sportscal --meta "releaseGitSha=$DEPLOY_SHA" --status READY --json "${VERCEL_LIST_AUTH_ARGS[@]}" > "$DEPLOYMENT_LIST_FILE"; then
   rm -f "$DEPLOYMENT_LIST_FILE"
   log "Unable to verify the READY deployment metadata for $DEPLOY_SHA."
   exit 1

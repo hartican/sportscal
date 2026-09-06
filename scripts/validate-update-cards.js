@@ -239,6 +239,8 @@ assert.doesNotMatch(releaseScript, /rsync -a/, "the release must never stage the
 assert.match(releaseScript, /git config --local --get http\.https:\/\/github\.com\/\.extraheader[^]*git --git-dir="\$push_git_dir" config http\.https:\/\/github\.com\/\.extraheader/, "the isolated release push must inherit the checkout-scoped GitHub Actions credential without logging or persisting it");
 assert.match(releaseScript, /NS_DEPLOY_REF=origin\/main \.\/scripts\/deploy-current-commit\.sh/, "the release must deploy the fetched origin\/main commit");
 assert.match(releaseScript, /vercel list sportscal --meta "releaseGitSha=\$DEPLOY_SHA" --status READY --json/, "the release must query READY deployments by immutable source commit");
+assert.match(releaseScript, /vercel whoami --token "\$VERCEL_TOKEN"/, "CI must pass the saved access token explicitly to Vercel CLI authentication");
+assert.match(releaseScript, /VERCEL_LIST_AUTH_ARGS=\(--token "\$VERCEL_TOKEN"\)/, "deployment verification must pass the saved token explicitly to Vercel CLI");
 assert.match(releaseScript, /item\.target === "production"/, "the release metadata check must require the production target");
 assert.match(releaseScript, /validate-live-editorial-render-coverage\.js/, "every production release must prove that live data remains visible through the live browser predicate");
 assert.match(releaseScript, /"data\/canonical\/contexts\.js"/, "the release commit must include the regenerated direct-file context bundle");
@@ -260,6 +262,7 @@ const materializerSource = fs.readFileSync(path.join(projectRoot, "scripts/mater
 assert.match(materializerSource, /gitBlobOid\(content\) === entry\.oid/, "working-tree bytes may be reused only after exact Git blob identity verification");
 assert.match(materializerSource, /execFileSync\("git", \["cat-file", "blob", entry\.oid\]/, "changed working-tree files must fall back to immutable Git object reads");
 assert.match(snapshotScript, /releaseGitSha=\$DEPLOY_SHA/, "the Vercel deployment must record its source commit");
+assert.match(snapshotScript, /VERCEL_AUTH_ARGS=\(--token "\$VERCEL_TOKEN"\)/, "environment checks and immutable deployment must pass the saved token explicitly to Vercel CLI");
 assert.equal(vercelConfig.git?.deploymentEnabled, false, "Vercel Git auto-deploys must remain disabled so the reviewed immutable CLI release is the only production deployment path");
 
 function runTournamentGate(probeJson){
