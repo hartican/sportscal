@@ -7,6 +7,7 @@ const fs = require("node:fs");
 const root = `${__dirname}/..`;
 const sql = fs.readFileSync(`${root}/supabase/nothingscore.sql`, "utf8");
 const registeredRatingMigration = fs.readFileSync(`${root}/supabase/migrations/20260906030000_open_registered_nsc_and_seal_ratings.sql`, "utf8");
+const rewardSecurityMigration = fs.readFileSync(`${root}/supabase/migrations/20260906130445_secure_nsc_reward_sync.sql`, "utf8");
 const handlerSource = fs.readFileSync(`${root}/lib/nothingscore-handler.js`, "utf8");
 const serverSource = fs.readFileSync(`${root}/lib/nothingscore-server.js`, "utf8");
 
@@ -37,6 +38,15 @@ assert.match(registeredRatingMigration, /basePointsAwarded[\s\S]+settlementBonus
   "one-tap receipts must distinguish immediate participation from later foresight settlement");
 assert.doesNotMatch(handlerSource, /requirePilot|pilotFor\(user\.id\)/,
   "registered contribution must not depend on the retired pilot allowlist");
+assert.match(rewardSecurityMigration,
+  /create or replace function private\.nothingsports_nsc_sync_rewards[\s\S]+security definer[\s\S]+set search_path=''/i,
+  "the auth.users lookup must run in a private fixed-search-path definer function");
+assert.match(rewardSecurityMigration,
+  /create or replace function public\.nothingsports_nsc_sync_rewards[\s\S]+security invoker[\s\S]+perform private\.nothingsports_nsc_sync_rewards/i,
+  "the exposed RPC must remain an invoker wrapper around the private reconciliation function");
+assert.match(rewardSecurityMigration,
+  /revoke all on function private\.nothingsports_nsc_sync_rewards\(uuid\)[\s\S]+from public, anon, authenticated[\s\S]+grant execute[\s\S]+to service_role/i,
+  "only service_role may execute the privileged reward reconciliation");
 
 function responseCapture(){
   return {
