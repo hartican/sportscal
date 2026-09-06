@@ -1,7 +1,7 @@
 {
   "schemaVersion": "athlete-profile-chunk.v1",
   "sportKey": "afl",
-  "generatedAt": "2026-09-04T19:39:01.162Z",
+  "generatedAt": "2026-09-06T02:05:12.902Z",
   "profiles": [
     {
       "schemaVersion": "athlete-profile.v1",
@@ -220,7 +220,7 @@
           "url": "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/"
         }
       ],
-      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+      "sourceCheckedAt": "2026-09-06T02:05:12.902Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -256,7 +256,7 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 23
+          "value": 24
         },
         {
           "label": "Disposals avg",
@@ -268,25 +268,25 @@
         },
         {
           "label": "Tackles avg",
-          "value": 4.1
+          "value": 4
         },
         {
           "label": "Clearances avg",
-          "value": 5.7
+          "value": 5.9
         },
         {
           "label": "Marks avg",
-          "value": 4.2
+          "value": 4.1
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 281
+          "value": 282
         },
         {
           "label": "Disposals",
-          "value": 6838
+          "value": 6865
         },
         {
           "label": "Goals",
@@ -294,18 +294,41 @@
         },
         {
           "label": "Tackles",
-          "value": 1444
+          "value": 1447
         },
         {
           "label": "Clearances",
-          "value": 1488
+          "value": 1498
         },
         {
           "label": "Marks",
-          "value": 1116
+          "value": 1118
         }
       ],
       "recentFive": [
+        {
+          "label": "Qualifying & Elimination Finals",
+          "opponent": "Adelaide Crows",
+          "result": "L 68-90",
+          "stats": [
+            {
+              "label": "D",
+              "value": 27
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 10
+            }
+          ]
+        },
         {
           "label": "Wildcard Finals",
           "opponent": "Collingwood",
@@ -397,29 +420,6 @@
               "value": 2
             }
           ]
-        },
-        {
-          "label": "Round 20",
-          "opponent": "Richmond",
-          "result": "W 105-48",
-          "stats": [
-            {
-              "label": "D",
-              "value": 29
-            },
-            {
-              "label": "G",
-              "value": 2
-            },
-            {
-              "label": "T",
-              "value": 2
-            },
-            {
-              "label": "C",
-              "value": 3
-            }
-          ]
         }
       ],
       "selection": {
@@ -439,7 +439,7 @@
           "url": "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/"
         }
       ],
-      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+      "sourceCheckedAt": "2026-09-06T02:05:12.902Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -658,7 +658,7 @@
           "url": "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/"
         }
       ],
-      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+      "sourceCheckedAt": "2026-09-06T02:05:12.902Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -694,11 +694,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 23
+          "value": 24
         },
         {
           "label": "Disposals avg",
-          "value": 28.7
+          "value": 28.4
         },
         {
           "label": "Goals avg",
@@ -706,7 +706,7 @@
         },
         {
           "label": "Tackles avg",
-          "value": 3.4
+          "value": 3.5
         },
         {
           "label": "Clearances avg",
@@ -714,17 +714,17 @@
         },
         {
           "label": "Marks avg",
-          "value": 5.1
+          "value": 4.9
         }
       ],
       "careerStats": [
         {
           "label": "Matches",
-          "value": 81
+          "value": 82
         },
         {
           "label": "Disposals",
-          "value": 2089
+          "value": 2110
         },
         {
           "label": "Goals",
@@ -732,11 +732,11 @@
         },
         {
           "label": "Tackles",
-          "value": 269
+          "value": 276
         },
         {
           "label": "Clearances",
-          "value": 383
+          "value": 389
         },
         {
           "label": "Marks",
@@ -744,6 +744,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Qualifying & Elimination Finals",
+          "opponent": "Sydney Swans",
+          "result": "L 88-141",
+          "stats": [
+            {
+              "label": "D",
+              "value": 21
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 7
+            },
+            {
+              "label": "C",
+              "value": 6
+            }
+          ]
+        },
         {
           "label": "Round 24",
           "opponent": "Collingwood",
@@ -835,29 +858,6 @@
               "value": 8
             }
           ]
-        },
-        {
-          "label": "Round 20",
-          "opponent": "Port Adelaide",
-          "result": "W 126-67",
-          "stats": [
-            {
-              "label": "D",
-              "value": 30
-            },
-            {
-              "label": "G",
-              "value": 2
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 5
-            }
-          ]
         }
       ],
       "selection": {
@@ -877,7 +877,7 @@
           "url": "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/"
         }
       ],
-      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+      "sourceCheckedAt": "2026-09-06T02:05:12.902Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -963,6 +963,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Qualifying & Elimination Finals",
+          "opponent": "Carlton",
+          "result": "W 107-74",
+          "stats": [
+            {
+              "label": "D",
+              "value": 27
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 6
+            },
+            {
+              "label": "C",
+              "value": 3
+            }
+          ]
+        },
         {
           "label": "Round 24",
           "opponent": "Richmond",
@@ -1054,29 +1077,6 @@
               "value": 9
             }
           ]
-        },
-        {
-          "label": "Round 20",
-          "opponent": "Melbourne",
-          "result": "W 117-97",
-          "stats": [
-            {
-              "label": "D",
-              "value": 28
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 5
-            }
-          ]
         }
       ],
       "selection": {
@@ -1096,7 +1096,7 @@
           "url": "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/"
         }
       ],
-      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+      "sourceCheckedAt": "2026-09-06T02:05:12.902Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1315,7 +1315,7 @@
           "url": "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/"
         }
       ],
-      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+      "sourceCheckedAt": "2026-09-06T02:05:12.902Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1401,6 +1401,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Qualifying & Elimination Finals",
+          "opponent": "Geelong Cats",
+          "result": "L 74-107",
+          "stats": [
+            {
+              "label": "D",
+              "value": 24
+            },
+            {
+              "label": "G",
+              "value": 1
+            },
+            {
+              "label": "T",
+              "value": 2
+            },
+            {
+              "label": "C",
+              "value": 11
+            }
+          ]
+        },
         {
           "label": "Wildcard Finals",
           "opponent": "Melbourne",
@@ -1492,29 +1515,6 @@
               "value": 6
             }
           ]
-        },
-        {
-          "label": "Round 21",
-          "opponent": "Brisbane Lions",
-          "result": "W 154-78",
-          "stats": [
-            {
-              "label": "D",
-              "value": 18
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 3
-            },
-            {
-              "label": "C",
-              "value": 8
-            }
-          ]
         }
       ],
       "selection": {
@@ -1534,7 +1534,7 @@
           "url": "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/"
         }
       ],
-      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+      "sourceCheckedAt": "2026-09-06T02:05:12.902Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1570,23 +1570,23 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 20
+          "value": 21
         },
         {
           "label": "Disposals avg",
-          "value": 26.3
+          "value": 26.4
         },
         {
           "label": "Goals avg",
-          "value": 1.1
+          "value": 1
         },
         {
           "label": "Tackles avg",
-          "value": 5.7
+          "value": 5.6
         },
         {
           "label": "Clearances avg",
-          "value": 4.4
+          "value": 4.2
         },
         {
           "label": "Marks avg",
@@ -1596,11 +1596,11 @@
       "careerStats": [
         {
           "label": "Matches",
-          "value": 176
+          "value": 177
         },
         {
           "label": "Disposals",
-          "value": 4021
+          "value": 4049
         },
         {
           "label": "Goals",
@@ -1608,18 +1608,41 @@
         },
         {
           "label": "Tackles",
-          "value": 830
+          "value": 835
         },
         {
           "label": "Clearances",
-          "value": 413
+          "value": 414
         },
         {
           "label": "Marks",
-          "value": 910
+          "value": 915
         }
       ],
       "recentFive": [
+        {
+          "label": "Qualifying & Elimination Finals",
+          "opponent": "Western Bulldogs",
+          "result": "W 90-68",
+          "stats": [
+            {
+              "label": "D",
+              "value": 28
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 5
+            },
+            {
+              "label": "C",
+              "value": 1
+            }
+          ]
+        },
         {
           "label": "Round 24",
           "opponent": "GWS GIANTS",
@@ -1711,29 +1734,6 @@
               "value": 9
             }
           ]
-        },
-        {
-          "label": "Round 20",
-          "opponent": "Collingwood",
-          "result": "L 74-108",
-          "stats": [
-            {
-              "label": "D",
-              "value": 22
-            },
-            {
-              "label": "G",
-              "value": 1
-            },
-            {
-              "label": "T",
-              "value": 7
-            },
-            {
-              "label": "C",
-              "value": 5
-            }
-          ]
         }
       ],
       "selection": {
@@ -1753,7 +1753,7 @@
           "url": "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/"
         }
       ],
-      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+      "sourceCheckedAt": "2026-09-06T02:05:12.902Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1789,11 +1789,11 @@
       "seasonStats": [
         {
           "label": "Matches",
-          "value": 21
+          "value": 22
         },
         {
           "label": "Disposals avg",
-          "value": 20.5
+          "value": 20.2
         },
         {
           "label": "Goals avg",
@@ -1805,7 +1805,7 @@
         },
         {
           "label": "Clearances avg",
-          "value": 6.4
+          "value": 6.3
         },
         {
           "label": "Marks avg",
@@ -1815,11 +1815,11 @@
       "careerStats": [
         {
           "label": "Matches",
-          "value": 263
+          "value": 264
         },
         {
           "label": "Disposals",
-          "value": 4648
+          "value": 4662
         },
         {
           "label": "Goals",
@@ -1827,18 +1827,41 @@
         },
         {
           "label": "Tackles",
-          "value": 1074
+          "value": 1077
         },
         {
           "label": "Clearances",
-          "value": 1166
+          "value": 1170
         },
         {
           "label": "Marks",
-          "value": 840
+          "value": 842
         }
       ],
       "recentFive": [
+        {
+          "label": "Qualifying & Elimination Finals",
+          "opponent": "Brisbane Lions",
+          "result": "W 141-88",
+          "stats": [
+            {
+              "label": "D",
+              "value": 14
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 3
+            },
+            {
+              "label": "C",
+              "value": 4
+            }
+          ]
+        },
         {
           "label": "Round 24",
           "opponent": "North Melbourne",
@@ -1930,29 +1953,6 @@
               "value": 7
             }
           ]
-        },
-        {
-          "label": "Round 19",
-          "opponent": "Adelaide Crows",
-          "result": "L 71-87",
-          "stats": [
-            {
-              "label": "D",
-              "value": 17
-            },
-            {
-              "label": "G",
-              "value": 0
-            },
-            {
-              "label": "T",
-              "value": 0
-            },
-            {
-              "label": "C",
-              "value": 5
-            }
-          ]
         }
       ],
       "selection": {
@@ -1972,7 +1972,7 @@
           "url": "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/"
         }
       ],
-      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+      "sourceCheckedAt": "2026-09-06T02:05:12.902Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2191,7 +2191,7 @@
           "url": "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/"
         }
       ],
-      "sourceCheckedAt": "2026-09-04T19:39:01.162Z"
+      "sourceCheckedAt": "2026-09-06T02:05:12.902Z"
     }
   ]
 }

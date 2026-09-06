@@ -75,8 +75,8 @@ assert.match(html, /mainDiv\.appendChild\(buildNothingscoreSummary\(ev\)\)/, "Fe
 const peerUi = html.slice(html.indexOf("function buildNothingscorePeerResults"),html.indexOf("function openNothingscoreLeaderboard"));
 assert.match(peerUi,/snapshot\?\.peerResults/);
 assert.doesNotMatch(peerUi,/snapshot\?\.(aggregate|crowdEditorial|earlyPanel)/,"peer UI must never use blended/modelled aggregates");
-assert.match(html, /buildEventWhyItMatters\(ev\)[\s\S]{0,1800}buildEventNothingscoreAction\(ev\)/, "Feed cards must keep the voluntary contribution action beneath sourced Why it matters copy and any in-flow editorial disclosure");
-assert.match(html, /const editorialHook = buildEditorialL0Hook\(editorialNarrativeHookForDisplay\(editorialRecord\), editorialConsequenceForDisplay\(editorialRecord\)\);[\s\S]{0,220}buildEventNothingscoreAction\(crowdEvent\)/, "Events child cards must keep the voluntary contribution action beneath sourced Why it matters copy");
+assert(html.includes("buildInlineCrowdRating(ev,snapshot)"), "Feed cards expose the one-tap rating input");
+assert(!html.includes("row.appendChild(buildEventNothingscoreAction(crowdEvent));"), "Events child cards exclude rating inputs");
 assert.doesNotMatch(html, /if \(crowdHook\)[\s\S]{0,120}else/, "crowd availability must never suppress sourced editorial");
 assert.doesNotMatch(html, /labelText:"Independent context"/);
 assert.doesNotMatch(html, /statistically significant/i);

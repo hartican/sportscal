@@ -32,12 +32,11 @@ check("chat state is normalised at every ownership boundary", () => {
   ["pendingAttachments", "messages", "rooms", "capabilities"].forEach(key => assert.match(factory, new RegExp(`${key}:`)));
 });
 
-check("traffic-light Expand is the single reversible disclosure affordance", () => {
-  const controls = html.slice(html.indexOf("function buildEventCardControls"), html.indexOf("function eventMajorEventId"));
-  const card = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
-  assert.match(controls, /visibleLabel\.className\s*=\s*"traffic-light-label"/);
-  assert.match(controls, /setCardState\(viewStateEvent, opening \? "opened" : "compact"\)/);
-  assert.doesNotMatch(card, /card-expand-control|Read more|Show less/);
+check("card content cycles while overlay dismiss stays independent", () => {
+ const controls=html.slice(html.indexOf("function buildEventCardControls"),html.indexOf("function eventMajorEventId"));
+ assert(controls.includes("card-dismiss")&&controls.includes("event.stopPropagation()"));
+ assert(!controls.includes("traffic-light"));assert(html.includes("function bindCardCycle"));
+ assert(html.includes("window.getSelection()?.toString()"));
 });
 
 check("stakes flames have a contrast plate", () => {
@@ -61,7 +60,7 @@ check("reversible actions use rollback; immutable ratings use a receipt lock", (
   const reminder = html.slice(html.indexOf("async function toggleQuickReminder"), html.indexOf("function codeIdForEvent"));
   const reaction = html.slice(html.indexOf("async function toggleChatReaction"), html.indexOf("function buildChatReactionSummary"));
   const attachment = html.slice(html.indexOf("async function saveChatAttachment"), html.indexOf("function chatMessageElement"));
-  const nsc = html.slice(html.indexOf("async function submitNothingscoreAction"), html.indexOf("function buildNothingscoreChoices"));
+  const nsc = html.slice(html.indexOf("async function submitNothingscoreAction"), html.indexOf("function buildNothingscorePanel"));
   [reminder, reaction, attachment].forEach(source => assert.match(source, /runOptimisticMutation\(/));
   assert.match(nsc,/nothingscoreSubmissionStore\.begin\(key,command\)/);
   assert.match(nsc,/nothingscoreSubmissionRequests\.has\(key\)/);

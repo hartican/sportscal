@@ -17,7 +17,7 @@ inputs.forEach(input => {
     const major = isMajorCard(event);
     const status = lifecycleFor(event);
     const participants = major ? participantsFor(event) : undefined;
-    const storyline = major ? storylineFor(event) : event.storyline;
+    const storyline = major || status === "completed" ? storylineFor(event) : event.storyline;
     const safeRoot = spoilerSafeRootCopy(event, storyline);
     const next = {
       ...event,

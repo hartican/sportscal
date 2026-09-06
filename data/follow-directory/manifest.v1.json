@@ -1,12 +1,12 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-04T19:39:01.162Z",
+  "generatedAt": "2026-09-06T02:05:36.9327891Z",
   "sports": [
     {
       "key": "afl",
       "label": "AFL",
       "status": "available",
-      "recordCount": 839,
+      "recordCount": 835,
       "jsonUrl": "data/follow-directory/afl.v1.json",
       "scriptUrl": "data/follow-directory/afl.v1.js"
     },

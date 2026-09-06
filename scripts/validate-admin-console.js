@@ -90,7 +90,7 @@ assert.match(legacy,/location\.replace\("\/admin\/comms"\)/);
 assert.match(serverSync,/adminUsersRequest/);
 assert.match(serverSync,/adminReportsRequest/);
 assert.match(serverSync,/adminPanelRequest/);
-assert.match(worker,/nothingsport-shell-v232/);
+assert(worker.includes(`nothingsport-shell-v${fs.readFileSync("index.html","utf8").match(/name="app-shell-version" content="(\d+)"/)?.[1]}`));
 assert.match(worker,/"\/admin\.html"/);
 assert.match(worker,/"\/config\/admin-comms-workspace\.js\?v=218"/);
 assert.match(worker,/\^\\\/admin\\\/\(\?:users\|reports\|comms\)\$[\s\S]+new Request\("\/admin\.html"\)/,"installed PWAs must route every owner-console tab to the cached admin shell");

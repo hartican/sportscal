@@ -30,57 +30,14 @@ function assertOrder(source, markers, message){
   });
 }
 
-// Cards expose real peer summaries; the drawer owns durable receipts and the breakdown.
-const cardSummary = section(html, "function buildNothingscoreSummary(ev)", "function openNothingscoreLeaderboard");
-assert.match(cardSummary, /currentUser\?\.submissions\?\.\[snapshot\.phase\]/);
-assert.match(cardSummary, /snapshot\?\.peerResults/);
-assert.match(cardSummary, /View results/);
-assert.match(cardSummary, /No other ratings yet/);
-assert.match(cardSummary, /Early responses/);
-for (const retiredCardMeta of ["nsc-compact-strip", "snapshot.aggregate", "snapshot.earlyPanel", "Watching Now"]){
-  assert(!cardSummary.includes(retiredCardMeta), `NSC card summary must not contain ${retiredCardMeta}`);
-}
-const receipt = section(html, "function buildNothingscoreReceipt(receipt, phaseName)", "function nothingscoreStatus");
-assert.match(receipt, /Submitted ✓/);
-assert.match(receipt, /receipt\?\.rating/);
-assert.match(receipt, /receipt\?\.tags/);
-assert.match(receipt, /View results/);
-
-// Heat/Impact selections are local drafts. Only Submit writes; Pulse retains its immediate mutable action.
-const choices = section(html, "function buildNothingscoreChoices(ev, snapshot, panel)", "function buildNothingscoreContributors");
-assert.match(choices, /let draftRating = Number\(submission\.draft\?\.rating/);
-assert.match(choices, /if \(snapshot\.phase === "pulse"\)[\s\S]*?action:"pulse"[\s\S]*?return;/);
-assert.match(choices, /draftRating = value/);
-assert.match(choices, /submit\.disabled = false/);
-assert.equal((choices.match(/action:"submit"/g) || []).length, 1, "Heat/Impact must have one explicit submission path");
-assert.doesNotMatch(choices, /action:"(?:rate|tag)"/, "draft score and tag changes must not write");
-assertOrder(choices, [
-  'submit.addEventListener("click"',
-  'snapshot.phase === "impact" ? prepareNothingscoreAudio() : null',
-  "submitNothingscoreAction({",
-  'action:"submit"',
-  'phase:snapshot.phase',
-], "Impact submission gesture");
-
-// Sound defaults on, prepares synchronously from the click, and never replays for an idempotent retry.
-const soundPreference = section(html, "function nothingscoreSoundEnabled()", "function prepareNothingscoreAudio");
-assert.match(soundPreference, /getItem\(NOTHINGSCORE_SOUND_KEY\) !== "off"/);
-assert.match(soundPreference, /catch\(_error\)\{ return true; \}/);
-const submitAction = section(html, "async function submitNothingscoreAction", "function buildNothingscoreChoices");
-assertOrder(submitAction, [
-  "await serverSyncClient.nothingscoreRequest",
-  "nothingscoreSubmissionStore.confirm(key,receipt)",
-  "result.replayed === false",
-  "playNothingscoreImpactSound(preparedAudio)",
-], "new Impact receipt and sound");
-assert.match(submitAction, /submittedPhase === "impact" && result\.replayed === false/, "the server-confirmed Impact phase must drive the cue");
-assert.match(submitAction, /\[submittedPhase\]:receipt/, "the server-confirmed phase must own the durable receipt");
-assert.equal((submitAction.match(/playNothingscoreImpactSound/g) || []).length, 1, "submission must play at most one cue");
-const drawer = section(html, "function renderNothingscoreDrawer()", "async function loadNothingscoreLeaderboard");
-assert.match(drawer, /Impact sound<\/strong>On by default/);
-assert.match(drawer, /soundInput\.addEventListener\("change", async \(\) =>/);
-assert.match(drawer, /playNothingscoreImpactSound\(prepareNothingscoreAudio\(\)\)/, "enabling sound must play a preview");
-assert.match(drawer, /Tap to enable sound/);
+// Standard cards submit a one-tap rating; all Events feed surfaces omit inputs.
+const cardSummary=section(html,"function buildNothingscorePeerResults", "function openNothingscoreLeaderboard");
+for(const marker of ["buildInlineCrowdRating", "inlineRatingRequests.has(id)", "pointsAwarded", "paint(chosen)", "Early ratings", "No ratings yet"]){assert(cardSummary.includes(marker), marker);}
+for(const tip of ["Rate how you think it'll go", "Rate how it's going", "Rate how it went"]){assert(cardSummary.includes(tip),tip);}
+assert(cardSummary.includes("activeTab==='events'&&!inDrawer"),'Events feed must omit ratings');
+assert(cardSummary.includes("phase==='pulse'?'pulse':'submit'"),'all phases use the server-owned one-tap contract');
+assert(cardSummary.includes("prefers-reduced-motion: reduce"),'points animation respects reduced motion');
+assert(!cardSummary.includes('draftRating'),'one-tap ratings need no draft or separate Submit');
 
 // Sounds, system alerts, sporting reminders and badges default on while explicit false values survive migration.
 const defaults = section(preferences, "function defaultFollowFirst()", "function normalizeCollectionFollows");

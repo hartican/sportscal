@@ -136,7 +136,7 @@ assert(fs.existsSync("api/_nsc-modelled-panel.js"),"the model must use Vercel's 
 assert.match(serverSource,/Early panel · includes modelled responses\./);
 assert.doesNotMatch(html,/Independent context/);
 assert.doesNotMatch(html,/nsc-demo-badge|>Demo</,"modelled personas must never appear as named public contributors");
-assert.match(html,/no simulated ratings or Like weighting/);
+assert(serverSource.includes('includesModelled=internalDemo &&'), 'public crowd must exclude simulated responses');
 assert.doesNotMatch(html,/dataset\.modelledExposure/,"peer summaries must not expose a blended modelled crowd");
 assert.match(html,/loadDeferredScript\("config\/nsc-visual\.js\?v=218"\)/,"the graph renderer must stay off the critical startup path");
 assert.match(visualSource,/createElementNS\("http:\/\/www\.w3\.org\/2000\/svg"/);

@@ -892,6 +892,17 @@ const results = {
   ),
 };
 
+// Rugby Australia match report, verified 6 September 2026.
+results["rugby-argentina-australia-mendoza-2026-09-06"]={
+ sourceName:"Rugby Australia — Mendoza match report",sourceType:"official",
+ sourceUrl:"https://www.rugby.com.au/news/argentina-wallabies-mendoza-match-report-scores-reaction-rugby-union-202695",
+ sourceCheckedAt:"2026-09-06T02:33:00.000Z",lastReviewedAt:"2026-09-06T02:33:00.000Z",resultPublishedAt:"2026-09-05T23:22:00.000Z",
+ homeScore:28,awayScore:28,score:"Argentina 28–28 Australia",
+ outcomeText:"Argentina and Australia drew 28–28 in Mendoza.",
+ recapText:"A 28–28 draw in Mendoza gave Australia its first away series win in Argentina, following its first-Test victory.",
+ resultLabels:["Draw","Australia series win","Official result"],
+};
+
 const feed = JSON.parse(fs.readFileSync(inputPath, "utf8"));
 const found = new Set();
 

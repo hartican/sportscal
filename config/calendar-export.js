@@ -10,7 +10,7 @@
   }
   const validDay = value => /^\d{4}-\d{2}-\d{2}$/.test(value || '') && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0,10)===value;
   function eventStart(event){
-    if(event.dateStatus==='tbc' || event.timeTbc || event.startTimeTbc || event.dateOnly)return null;
+    if(event.dateStatus==='tbc' || event.timePrecision==='follows' || event.timeTbc || event.startTimeTbc || event.dateOnly)return null;
     const explicit = event.startTimeUtc || event.startsAt;
     if (explicit && Number.isFinite(Date.parse(explicit))) return new Date(explicit);
     const date = event.date || event.startDate;
@@ -60,7 +60,7 @@
         const end=new Date(`${event.endDate || date}T00:00:00Z`);end.setUTCDate(end.getUTCDate()+1);
         lines.push(`DTSTART;VALUE=DATE:${date.replace(/-/g,'')}`,`DTEND;VALUE=DATE:${end.toISOString().slice(0,10).replace(/-/g,'')}`);
       }
-      lines.push(`SUMMARY:${escape(event.calendarTemplate?.title || event.name || event.title)}`,`LOCATION:${escape(event.venue || event.location)}`,`DESCRIPTION:${escape([event.broadcaster, 'Nothing Sport'].filter(Boolean).join('\n'))}`);
+      lines.push(`SUMMARY:${escape(event.calendarTemplate?.title || event.name || event.title)}`,`LOCATION:${escape(event.venue || event.location)}`,`DESCRIPTION:${escape([event.timePrecision==='follows'?'Start follows the prior match; exact time is unconfirmed.':null,event.broadcaster, 'Nothing Sport'].filter(Boolean).join('\n'))}`);
       const updated=event.updatedAt || event.sourceCheckedAt;
       if (updated && Number.isFinite(Date.parse(updated))) lines.push(`LAST-MODIFIED:${stamp(updated)}`);
       if (/cancelled|canceled/i.test(event.status || event.lifecycleStatus || '')) lines.push('STATUS:CANCELLED');

@@ -1,42 +1,9 @@
 {
   "schemaVersion": "nothingsport.f1-editorial-digest.v1",
-  "generatedAt": "2026-09-04T19:39:38.005Z",
+  "generatedAt": "2026-09-06T02:33:51.358Z",
   "promptVersion": "f1-editorial.v1",
-  "fingerprint": "69d7d03b84fdf669929edf83435a6d8241dfc92b1f290f7265d1273e2e3c6375",
+  "fingerprint": "fc04cf832036a00f3dda1abab1d63df6ae256f384c64462849e214e63eae756b",
   "entries": [
-    {
-      "eventId": "evt_26",
-      "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R13 Italian GP Qualifying.",
-      "fullSpiel": "R13 Italian GP Qualifying is scheduled for 2026-09-06 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
-      "contextSignals": [
-        "fixture-specific",
-        "current-championship-standings",
-        "grid-setting"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/drivers",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/team",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/races",
-          "sourceType": "official"
-        }
-      ],
-      "sourceName": "Formula 1 official source",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceType": "official",
-      "sourceCheckedAt": "2026-09-04T19:39:38.005Z",
-      "generationMode": "factual-fallback"
-    },
     {
       "eventId": "evt_27",
       "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R13 Italian GP Race.",
@@ -67,7 +34,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-04T19:39:38.005Z",
+      "sourceCheckedAt": "2026-09-06T02:33:51.358Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -100,7 +67,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-04T19:39:38.005Z",
+      "sourceCheckedAt": "2026-09-06T02:33:51.358Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -133,7 +100,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-04T19:39:38.005Z",
+      "sourceCheckedAt": "2026-09-06T02:33:51.358Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -166,7 +133,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-04T19:39:38.005Z",
+      "sourceCheckedAt": "2026-09-06T02:33:51.358Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -199,7 +166,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-04T19:39:38.005Z",
+      "sourceCheckedAt": "2026-09-06T02:33:51.358Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -232,7 +199,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-04T19:39:38.005Z",
+      "sourceCheckedAt": "2026-09-06T02:33:51.358Z",
       "generationMode": "factual-fallback"
     },
     {
@@ -265,7 +232,7 @@
       "sourceName": "Formula 1 official source",
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceType": "official",
-      "sourceCheckedAt": "2026-09-04T19:39:38.005Z",
+      "sourceCheckedAt": "2026-09-06T02:33:51.358Z",
       "generationMode": "factual-fallback"
     }
   ]

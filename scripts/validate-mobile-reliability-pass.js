@@ -32,7 +32,7 @@ const providerMarkSource = html.match(/function buildViewingProviderMark\(viewin
 assert(providerMarkSource.includes('className = "provider-action-logo"') && providerMarkSource.includes("mark.appendChild(image)"), "providers with bundled marks must render the logo only");
 assert(providerMarkSource.includes('fallback.textContent = viewing.actionLabel || viewing.label') && providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider text must appear only when a logo is unavailable or fails");
 assert(html.includes("flex-wrap:nowrap") && html.includes('const label = active ? "Reminder ON" : "Remind"') && html.includes('chat.textContent = "Chat"'), "fixture quick actions must remain on one compact row with approved labels");
-assert(html.includes('return "Submitted ✓"') && html.includes("submission.receipt || null"), "submitted ratings must show a receipt; the card action stays available for peer results");
+assert(html.includes("buildInlineCrowdRating") && html.includes("inlineRatingRequests") && html.includes("buildNothingscorePeerResults"), "one-tap ratings retain pending protection and independent peer results");
 assert(fs.existsSync("assets/providers/kayo-sports-negative.svg") && fs.existsSync("assets/providers/stan-sport.jpg"), "Kayo and Stan Sport provider marks must be committed locally");
 assert(worker.includes("/assets/providers/kayo-sports-negative.svg") && worker.includes("/assets/providers/stan-sport.jpg"), "provider marks must be available in the installed offline shell");
 assert(html.includes('function eventMajorEventId('), "all event routing must share one major-event ID resolver");
@@ -41,8 +41,8 @@ assert(/buildEventCompactFooter[\s\S]{0,2200}buildSpoilerOverrideButton[\s\S]{0,
 
 assert(html.includes('card.dataset.cardLevel = isMinimised ? "L0" : cardLevelForState(state)'), "Events cards must expose L0, L1 and L2 levels while respecting Minimise");
 assert(html.includes('level: cardLevelForState(state)') && html.includes('MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST()'), "Events L0/L1/L2 must show the profile-filtered bounded around-Now timeline and complete two-day L2 window");
-assert(/inspect\.addEventListener\("click"[\s\S]{0,500}setCardState\(record, "opened"\)[\s\S]{0,500}focusMajorEventTimetable/.test(html), "Timetable must open the corresponding Event at L2 instead of routing by sport");
-assert(html.includes('className = "code-inspector-status-stamp"'), "Finished and Time TBC must render as inline status stamps");
+assert(/inspect\.addEventListener\("click"[\s\S]{0,500}setCardState\(record, "opened"\)[\s\S]{0,500}focusMajorEventSchedule/.test(html), "Schedule must open the corresponding Event at L2 instead of routing by sport");
+assert(html.includes("status:inspectorFixtureIsResult(fixture)?'finished'") && html.includes('if (ev.timeTbc) return "Time TBC"'), "Schedule retains canonical completion and unknown-time states in shared cards");
 
 assert(/headers\.has\("range"\)[\s\S]{0,450}fetch\(event\.request\)/i.test(worker), "service worker byte-range requests must bypass Cache Storage");
 assert(/pathname\.startsWith\("\/assets\/audio\/"\)[\s\S]{0,450}fetch\(event\.request\)/.test(worker), "audio requests must bypass the whole-file asset cache");

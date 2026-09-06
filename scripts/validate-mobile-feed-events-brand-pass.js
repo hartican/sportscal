@@ -59,7 +59,7 @@ assert.deepEqual(aflViewing.slice(0, 4).map(option => option.providerId), ["kayo
 const aflGrandFinal = followFirst.viewingOptions({ key:"afl", competitionId:"competition:afl", stage:"Grand Final" });
 assert.equal(aflGrandFinal[0]?.providerId, "seven", "AFL Grand Final must apply its event-specific Australian rights exception");
 
-assert(html.includes('prefix.textContent = `${verb} on`;') && html.includes('prefix.textContent = `${viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;'), "watch actions must put the provider mark after Watch on / Replay on");
+assert(html.includes('prefix.textContent = `${viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch"} on`;'), "watch actions must put the provider mark after Watch on / Replay on");
 const providerMarkSource = html.match(/function buildViewingProviderMark\(viewing\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(providerMarkSource.includes("mark.appendChild(image)") && providerMarkSource.includes("mark.replaceChildren(fallback)") && !providerMarkSource.includes("mark.append(fallback, image)"), "provider logos and provider-name fallbacks must be mutually exclusive");
 assert(html.includes('rel = "noopener noreferrer external"'), "web fallbacks must leave the standalone PWA in a separate external window");

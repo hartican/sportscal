@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-09-04T19:39:39.642Z",
+  "generatedAt": "2026-09-06T02:33:53.319Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
@@ -9,7 +9,7 @@
   },
   "consequenceMigration": {
     "covered": 1,
-    "queued": 116
+    "queued": 109
   },
   "entries": [
     {
@@ -165,132 +165,6 @@
       "consequenceResearchRequired": true,
       "priority": "marquee",
       "refreshDeadline": "2026-10-01T00:00:00.000Z"
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:nrl:129992604",
-      "title": "Titans v Rabbitohs",
-      "stakes": 2,
-      "startsAt": "2026-08-29T05:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:event-nrl-129992604",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:nrl:129992605",
-      "title": "Roosters v Dolphins",
-      "stakes": 2,
-      "startsAt": "2026-08-29T07:30:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:event-nrl-129992605",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:nrl:129992606",
-      "title": "Cowboys v Wests Tigers",
-      "stakes": 2,
-      "startsAt": "2026-08-29T09:30:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:event-nrl-129992606",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:afl:cd_m20260142501",
-      "title": "Melbourne v Carlton",
-      "stakes": 4,
-      "startsAt": "2026-08-29T09:35:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:event-afl-cd-m20260142501",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:premier-league:128939",
-      "title": "Liverpool v Nottingham Forest",
-      "stakes": 3,
-      "startsAt": "2026-08-29T11:30:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:epl-2026-27-128939",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:premier-league:128934",
-      "title": "Bournemouth v Everton",
-      "stakes": 3,
-      "startsAt": "2026-08-29T14:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:epl-2026-27-128934",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:premier-league:128936",
-      "title": "Coventry City v Hull City",
-      "stakes": 3,
-      "startsAt": "2026-08-29T14:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:epl-2026-27-128936",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "event:premier-league:128942",
-      "title": "Tottenham Hotspur v Newcastle United",
-      "stakes": 3,
-      "startsAt": "2026-08-29T16:30:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:rolling:epl-2026-27-128942",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
-    },
-    {
-      "targetType": "feed-event",
-      "targetId": "rugby-argentina-australia-jujuy-2026-08-30",
-      "title": "Argentina v Australia",
-      "stakes": 3,
-      "startsAt": "2026-08-29T19:00:00.000Z",
-      "reason": "rolling-stakes-2-plus",
-      "projectionId": "projection:feed:argentina-australia-jujuy-2026",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "priority": "rolling",
-      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -892,7 +766,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-09-04T19:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "major-event-child",
@@ -948,7 +822,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-09-05T05:15:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -990,7 +864,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-09-05T09:35:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -1004,7 +878,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-09-05T11:30:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -1018,7 +892,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-09-05T14:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -1032,7 +906,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-09-05T14:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -1046,7 +920,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-09-05T14:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -1060,7 +934,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-09-05T14:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -1074,7 +948,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-09-05T14:00:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -1144,7 +1018,7 @@
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
       "priority": "rolling",
-      "refreshDeadline": "2026-09-05T16:30:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",
@@ -1260,6 +1134,20 @@
     },
     {
       "targetType": "feed-event",
+      "targetId": "event:afl:cd_m20260142701",
+      "title": "Fremantle v Geelong Cats",
+      "stakes": 4,
+      "startsAt": "2026-09-11T10:10:00.000Z",
+      "reason": "rolling-stakes-2-plus",
+      "projectionId": "projection:rolling:event-afl-cd-m20260142701",
+      "coverage": "covered",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": true,
+      "priority": "rolling",
+      "refreshDeadline": "2026-09-11T10:10:00.000Z"
+    },
+    {
+      "targetType": "feed-event",
       "targetId": "evt_81",
       "title": "NRL Finals Week 1",
       "stakes": 4,
@@ -1271,6 +1159,20 @@
       "consequenceResearchRequired": true,
       "priority": "rolling",
       "refreshDeadline": "2026-09-07T12:00:00.000Z"
+    },
+    {
+      "targetType": "feed-event",
+      "targetId": "event:afl:cd_m20260142702",
+      "title": "Brisbane Lions v Adelaide Crows",
+      "stakes": 4,
+      "startsAt": "2026-09-12T09:35:00.000Z",
+      "reason": "rolling-stakes-2-plus",
+      "projectionId": "projection:rolling:event-afl-cd-m20260142702",
+      "coverage": "covered",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": true,
+      "priority": "rolling",
+      "refreshDeadline": "2026-09-12T09:35:00.000Z"
     },
     {
       "targetType": "feed-event",

@@ -120,10 +120,10 @@ assert(eventSchema.$defs.editorialNarrative.properties.schemaVersion.enum.includ
 assert(majorSchema.$defs.event.properties.editorialNarrative, "the major-event schema must publish the event editorial projection contract");
 
 const html = fs.readFileSync("index.html", "utf8");
-assert.match(html, /const whyItMatters = isMinimised \? null : buildEventWhyItMatters\(ev\);[^]*if \(whyItMatters\) mainDiv\.appendChild\(whyItMatters\);[^]*if \(!isMinimised && state === "opened"\)[^]*secondaryActions\.appendChild\(buildEventNothingscoreAction\(ev\)\);/, "Feed cards must place the contribution action beneath validated Why it matters copy only after Expand");
+assert(html.includes("mainDiv.appendChild(whyItMatters)") && html.includes("buildInlineCrowdRating(ev,snapshot)"), "Feed retains editorial alongside the standard one-tap rating input");
 assert.doesNotMatch(html, /labelText:"Independent context"/, "expanded cards must not repeat editorial in a second metadata box");
 assert.doesNotMatch(html, /editorialNarrativeCopyForDisplay\(/, "selected and opened cards must not repeat a second synopsis block beneath Why it matters");
-assert.match(html, /if \(editorialHook\) row\.appendChild\(editorialHook\);\s+row\.appendChild\(buildNothingscoreSummary\(crowdEvent\)\);\s+row\.appendChild\(buildEventNothingscoreAction\(crowdEvent\)\);/, "real Events fixtures must keep peer feedback below their own validated editorial");
+assert(html.includes("if (editorialHook) row.appendChild(editorialHook);") && !html.includes("row.appendChild(buildEventNothingscoreAction(crowdEvent));"), "Events fixtures retain editorial without rating inputs");
 assert.match(html, /completed && isSpoilerVisible\(record\)[^]*spoilerOnSentence[^]*previewSentence/, "completed spoiler-on cards must prefer sourced result consequences while spoiler-off retains preview copy");
 assert.doesNotMatch(html, /buildEditorialL0Hook\((?:selectedSentenceForDisplay\(ev\)|record\.summary)/, "schedule and structural fallback copy must never be relabelled Why it matters");
 assert.match(html, /editorial-l0-hook-label[^]*Why it matters/, "L0 hooks need a visible editorial label");

@@ -609,7 +609,7 @@
       async adminPanelRequest(command = null){
         return authenticatedRequest("/api/admin/panel", command ? { method:"POST", body:JSON.stringify(command) } : {});
       },
-      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "" } = {}, command = null){
+      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, rewards = false } = {}, command = null){
         if (command){
           return authenticatedRequest("/api/nothingscore", { method:"POST", body:JSON.stringify(command) });
         }
@@ -617,6 +617,8 @@
         if (Array.isArray(ids) && ids.length) params.set("ids", ids.slice(0, 50).join(","));
         if (eventId) params.set("eventId", eventId);
         if (leaderboard) params.set("leaderboard", leaderboard);
+        if(rewards)params.set("rewards","1");
+        if(rankings){params.set("rankings","1");Object.entries(rankings).forEach(([key,value])=>{if(value!==null&&value!==undefined)params.set(key,String(value));});}
         const target = `/api/nothingscore?${params.toString()}`;
         return session || restoreStoredSession() ? authenticatedRequest(target) : jsonRequest(target);
       },

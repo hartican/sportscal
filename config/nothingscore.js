@@ -17,7 +17,7 @@
   const IMPACT_LOW_TAGS = Object.freeze(["Boring", "Standard", "Mediocre", "Underwhelming", "One-sided", "Disappointing"]);
   const POINT_RULES = Object.freeze({ heat:2, first_like:1, watching:1, pulse:1, pulse_15m:1, impact:3, valid_tags:1 });
   const PULSE_BUCKET_MS = 5 * 60 * 1000;
-  const PULSE_FRESH_MS = 10 * 60 * 1000;
+  const PULSE_FRESH_MS = 15 * 60 * 1000;
   const PRESENCE_TTL_MS = 150 * 1000;
 
   function clamp(value, minimum, maximum){ return Math.max(minimum, Math.min(maximum, Number(value) || 0)); }

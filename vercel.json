@@ -9,6 +9,9 @@
     },
     "api/user-state.js": {
       "includeFiles": "data/code-inspector/*.json"
+    },
+    "api/participation.js": {
+      "includeFiles": "data/{code-inspector/*.json,nsc-forecasts.json}"
     }
   },
   "redirects": [

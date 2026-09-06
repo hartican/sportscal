@@ -1,21 +1,21 @@
 {
   "schemaVersion": "afl-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-09-04T19:38:59.201Z",
+  "generatedAt": "2026-09-06T02:05:10.293Z",
   "sources": [
     {
       "id": "source:afl:teams",
       "provider": "AFL",
       "url": "https://www.afl.com.au/teams",
       "sourceType": "official",
-      "checkedAt": "2026-09-04T19:38:59.201Z"
+      "checkedAt": "2026-09-06T02:05:10.293Z"
     },
     {
       "id": "source:afl:players",
       "provider": "AFL",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-09-04T19:38:59.201Z"
+      "checkedAt": "2026-09-06T02:05:10.293Z"
     }
   ],
   "leagues": [
@@ -14271,8 +14271,8 @@
       "profileRef": "profile:afl:max-beattie",
       "dateOfBirth": "2003-11-18",
       "heightInCm": 175,
-      "recruitedFrom": "Wodonga Raiders JFC/Eagles (SANFL)",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {

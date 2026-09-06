@@ -67,10 +67,8 @@ assert.equal(refreshPolicy.classify({ status:429, code:"too_many_requests" }), "
 assert.equal(refreshPolicy.classify({ status:400, code:"refresh_token_not_found" }), "terminal");
 assert.equal(refreshPolicy.classify({ status:400, code:"refresh_token_already_used" }), "terminal");
 
-assert.match(html, /control\("minimise", "Minimise"/);
-assert.match(html, /control\("expand", "Expand"/);
-assert.match(html, /expand\.setAttribute\("aria-expanded", String\(expanded\)\)/);
-assert.match(html, /recordEventFeedAction\(ev, "open", \{ surface:"card-control" \}\)/);
+assert(html.includes('card-dismiss')&&html.includes('bindCardCycle')&&html.includes('nextCardState'), 'overlay dismiss and shared content expansion remain accessible');
+assert(html.includes('recordEventFeedAction(ev, "open", { surface:"card-content" })'), 'content expansion records the existing open action');
 assert.doesNotMatch(html, /Read more/);
 assert.doesNotMatch(html, /Show less/);
 assert.doesNotMatch(html, /Less of this|More of this/);

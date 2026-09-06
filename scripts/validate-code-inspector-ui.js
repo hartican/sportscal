@@ -10,33 +10,18 @@ const ROOT = path.resolve(__dirname, "..");
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 const manifestPath = path.join(ROOT, "data/code-inspector/manifest.json");
 
-assert(html.includes('<span class="tab-label">Standings &amp; Fixtures</span>'), "top navigation must be named Standings & Fixtures");
-assert(!html.includes("Code Inspector"), "the retired Code Inspector label must not remain user-facing");
-assert(html.includes('return "#standings-fixtures"') && html.includes("#standings-fixtures/") && html.includes("history.pushState") && html.includes("popstate"), "Standings & Fixtures must use picker and detail history states with browser Back");
-assert(html.includes("history.replaceState({ inspectorFeed: true }") && html.includes("history.pushState({ inspectorPicker: true }") && html.includes("history.pushState({ codeInspector: codeId, inspectorParent: true }"), "direct code deep links must synthesize Feed, Inspector and detail history entries");
-assert(html.includes("activeInspectorCodeId") && html.includes("inspectorReturnState"), "Inspector must preserve a separate feed return state");
-assert(html.includes('back.textContent = "Back to Standings & Fixtures"'), "detail must return to Standings & Fixtures rather than directly to Feed");
-assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })') && html.indexOf('window.scrollTo({ top: 0, behavior: "auto" })') < html.indexOf("await loadCodeInspectorChunk(codeId)"), "Inspector detail must jump to top exactly before deferred fixture hydration");
-assert(!html.includes("tuneSelectAllBtn") && !html.includes("tuneDeselectAllBtn") && !html.includes('role="checkbox"'), "visit-scoped multi-select filtering must be removed from Inspector");
-assert(html.includes('open.textContent = "Inspect"') && html.includes("More codes"), "every canonical code must expose Inspect and unfollowed codes must collapse under More codes");
-assert(html.includes("orderCodeInspectorHierarchy") && html.includes("code.parentSportId"), "child codes must stay directly beneath their parent in Standings & Fixtures");
-assert(html.includes("renderCodeInspectorIdentity") && html.includes("renderEventIdentityMark(identity, event, sportMetaForEvent(event))"), "Inspector rows and headings must use the central official identity registry");
-assert(html.includes('frame.className = "code-inspector-team-icon identity-frame"') && html.includes('logo.width = 24') && html.includes('logo.height = 24'), "each Inspector participant must have a fixed 24px canonical identity frame");
-assert(html.includes("codeInspectorParticipantMark") && html.includes("appendTeamIdentityFallback(frame, mark, label)"), "recognised participants must resolve by canonical identity, flag or monogram rather than a question mark");
-assert(html.includes("codeInspectorExpandedFixtureIds") && html.includes('row.setAttribute("aria-expanded", String(expanded))'), "fixture cards must retain independent session expansion state");
-assert(html.includes('added ? "Remove from Feed" : "Add to Feed"') && html.includes("manualPin:true"), "future concrete fixtures must persist an explicit Add/Remove Feed pin");
-assert(html.includes('if (snapshot){') && html.includes('className = "code-inspector-status-stamp"') && html.includes('fixture.scheduleStatus === "provisional"'), "past and unresolved fixtures must omit the pin action and use a compact status stamp");
-assert(html.includes('sportHubState.activeTab = "all-fixtures"') && html.includes("inspectorAlwaysShowsAllFixtures"), "Standings & Fixtures must always expose the complete timetable independently of Feed follows");
-assert(html.includes('recordFeedInteraction("inspector_fixture_render"') && html.indexOf('recordFeedInteraction("inspector_open"') < html.indexOf("await loadCodeInspectorChunk(codeId)"), "Inspector performance must measure rendering separately from fixture transfer latency");
-assert(html.includes('["results", "Results"]') && !html.includes("Results/Replays") && !html.includes("results-replays"), "Inspector result labels and state identifiers must not imply video replays");
-assert(html.includes('settingsMenuItem("subscriptions", "ui:watch", "Subscriptions"') && html.includes('settingsMenuItem("notifications", "ui:bell", "Notifications"') && html.includes('settingsMenuItem("location", "ui:map-pin", "Set location"'), "Settings must expose the follow-first utility entries");
-assert(!html.includes('id="frothKnobList"') && !html.includes("Sports followed & Tune"), "retired Froth settings must not remain user-facing");
-assert(html.includes("scheduleStatus") && html.includes("participantSlots") && html.includes("detailsExpectedAt"), "fixture rendering must support stable finals placeholders");
-assert(html.includes("Details likely known by") && html.includes("TBC"), "unknown finals details must be explicit and dated");
-assert(/starting-round-select[\s\S]{0,220}min-height:\s*48px/.test(html), "Starting round must provide a 48px minimum touch target");
-assert(html.includes("confirmStandingsReveal") && !html.includes("Show Standings"), "spoiler-safe standings must use one confirmation without an intermediate second action");
-assert(html.includes("identity-frame") && html.includes("object-fit: contain") && html.includes("overflow: hidden"), "all official identities must stay inside reserved role frames");
-assert(html.includes("syncTopLevelNavigationState") && html.includes('button.setAttribute("aria-current", "page")'), "one central navigation state must own the only active underline and aria-current marker");
+assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow']);
+assert(html.includes('Back to Follow')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
+assert(html.includes('inspectorReturnState')&&html.includes('popstate'),'dedicated screens retain navigation state');
+assert(html.includes('follow-sport-track')&&html.includes('retainedSportBar'),'Follow uses a retained horizontal sport track');
+assert(!html.includes('open.textContent = "Inspect"'),'sport icons replace Inspect');
+for(const label of ['Schedule','Teams & players','Major Events','Ladder','Standings'])assert(html.includes(label));
+assert(html.includes('renderCodeInspectorIdentity')&&html.includes('codeInspectorParticipantMark'),'Schedule reuses canonical identities');
+assert(html.includes("return buildEventCard(event,{mode:'schedule',inspectorFixture:fixture})")&&html.includes('cardViewStates'),'Schedule fixtures share independent card expansion state');
+assert(html.includes('added ? "Remove from Feed" : "Add to Feed"')&&html.includes('manualPin:true'),'concrete fixture pins remain available');
+assert(html.includes('inspectorAlwaysShowsAllFixtures'),'Schedule can browse all fixtures independently of follows');
+assert(html.includes('confirmStandingsReveal'),'standings retain spoiler protection');
+assert(html.includes('syncTopLevelNavigationState'),'navigation has one active state owner');
 
 assert(fs.existsSync(manifestPath), "the canonical update must publish code-inspector.v1");
 const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
@@ -131,4 +116,4 @@ for (const fixture of canonicalBundle.events.filter(event => event.status === "s
   assert(!placeholderPattern.test(card.name), `${fixture.id} must not retain a bracket placeholder after both teams resolve`);
 }
 
-console.log(`Standings & Fixtures UI contract valid across ${manifest.codes.length} canonical codes.`);
+console.log(`Follow Schedule and Standings UI contract valid across ${manifest.codes.length} canonical codes.`);

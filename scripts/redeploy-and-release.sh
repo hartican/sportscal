@@ -5,6 +5,18 @@ set -euo pipefail
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 CARD_OUTPUT_FILES=(
+  "data/feed"
+  "data/code-inspector"
+  "data/nsc-forecasts.json"
+  "data/athlete-profiles"
+  "data/follow-directory"
+  "data/follow-sources"
+  "data/canonical"
+  "data/editorial-knowledge.v1.json"
+  "data/editorial-research-queue.v1.json"
+  "data/f1-editorial-digest.json"
+  "feeds/editorial-preview-overrides.json"
+  "feeds/provider-exports/tennis"
   "data/canonical/afl-nrl-2026.json"
   "data/canonical/contexts.js"
   "data/canonical/joint-tennis-tournament-2026.js"

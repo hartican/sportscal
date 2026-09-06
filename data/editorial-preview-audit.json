@@ -1,19 +1,19 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-04T19:39:45.098Z",
+  "generatedAt": "2026-09-06T02:34:00.407Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 10,
-    "passed": 10,
+    "due": 7,
+    "passed": 7,
     "failed": 0
   },
   "cards": [
     {
-      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-05",
+      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-06",
       "name": "US Open — Grand Slam",
       "sport": "Tennis",
-      "date": "2026-09-05",
+      "date": "2026-09-06",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
@@ -24,83 +24,6 @@
         "narrative:history"
       ],
       "sourceUrl": "https://www.usopen.org/en_US/about/eventschedule.html",
-      "issues": []
-    },
-    {
-      "id": "event-nrl-129992704",
-      "name": "Warriors v Sea Eagles",
-      "sport": "NRL",
-      "date": "2026-09-05",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "issues": []
-    },
-    {
-      "id": "event-afl-cd_m20260142602",
-      "name": "Sydney Swans v Brisbane Lions",
-      "sport": "AFL",
-      "date": "2026-09-05",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "issues": []
-    },
-    {
-      "id": "event-nrl-129992705",
-      "name": "Cowboys v Raiders",
-      "sport": "NRL",
-      "date": "2026-09-05",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "issues": []
-    },
-    {
-      "id": "event-nrl-129992706",
-      "name": "Sharks v Storm",
-      "sport": "NRL",
-      "date": "2026-09-05",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/ladder",
-      "issues": []
-    },
-    {
-      "id": "event-afl-cd_m20260142604",
-      "name": "Adelaide Crows v Western Bulldogs",
-      "sport": "AFL",
-      "date": "2026-09-05",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.afl.com.au/ladder",
       "issues": []
     },
     {
@@ -150,6 +73,22 @@
       "issues": []
     },
     {
+      "id": "event-afl-cd_m20260142701",
+      "name": "Fremantle v Geelong Cats",
+      "sport": "AFL",
+      "date": "2026-09-11",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:form",
+        "narrative:path",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.afl.com.au/ladder",
+      "issues": []
+    },
+    {
       "id": "evt_81",
       "name": "NRL Finals Week 1",
       "sport": "NRL",
@@ -163,6 +102,22 @@
         "narrative:history"
       ],
       "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
+      "issues": []
+    },
+    {
+      "id": "event-afl-cd_m20260142702",
+      "name": "Brisbane Lions v Adelaide Crows",
+      "sport": "AFL",
+      "date": "2026-09-12",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:venue",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.afl.com.au/ladder",
       "issues": []
     }
   ]

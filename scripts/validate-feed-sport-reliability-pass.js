@@ -77,7 +77,7 @@ assert(!/CARD_RETRACTION_SCROLL_IDLE_MS/.test(html), "the delayed scroll retract
 assert(html.includes("warmNextFeedPageDuringIdle"), "the next Feed page must warm without rebuilding the visible page");
 assert(html.includes("decodeIdentityImageInPlace"), "identity images must reveal only after decode without rerendering their card");
 assert(html.includes("loading-indicator-overlay"), "the top-bar loader must use an overlay that cannot displace date/time chrome");
-assert(html.includes('code-inspector-viewing-action') && html.includes('configureProviderLaunch(watch, viewing)'), "expanded Standings & Fixtures cards must expose the same verified provider action as other fixture surfaces");
+assert(html.includes("return buildEventCard(event,{mode:'schedule',inspectorFixture:fixture})") && html.includes("configureProviderLaunch"), "Schedule shares the canonical card and verified provider action");
 
 const viewing = followFirst.viewingLink({
   key:"tennis",

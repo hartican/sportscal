@@ -28,7 +28,7 @@ assert.deepEqual(nsc.PULSE_LABELS, ["Flat","Solid","Strong","Exceptional","Unfor
 assert.deepEqual(nsc.HEAT_TAGS, ["Box office","Big stakes","Rivalry","Star power","National interest","Great storyline"]);
 assert.deepEqual(nsc.IMPACT_TAGS, ["Thrilling","Eye-popping","Mind-blowing","Emotional","Electric atmosphere","Pure chaos"]);
 assert.equal(nsc.PULSE_BUCKET_MS, 5 * 60 * 1000);
-assert.equal(nsc.PULSE_FRESH_MS, 10 * 60 * 1000);
+assert.equal(nsc.PULSE_FRESH_MS, 15 * 60 * 1000);
 assert.equal(nsc.PRESENCE_TTL_MS, 150 * 1000);
 
 const twoPilotRows = [
@@ -119,7 +119,7 @@ assert.doesNotMatch(api, /targetUserId/);
 assert.match(api, /visibility==="deleted"/);
 assert.match(api, /profile-visibility/);
 assert.match(api, /first_fixture_like/);
-assert.match(api, /pulse_15m/);
+assert.match(read("lib/nsc-rewards.js"), /nothingsports_nsc_rate_current/, "live ratings and points use the idempotent server transaction");
 assert.match(api, /watching_two_heartbeats/);
 assert.match(server, /profileId:profile\.profile_id/);
 assert.match(server, /Hidden contributor/);
@@ -154,8 +154,8 @@ assert.deepEqual(Array.from(browserNsc.tagsFor("impact", 3)), Array.from(nsc.tag
 assert.deepEqual({...browserNsc.blendHeatWithStakes(1,5,25)}, nsc.blendHeatWithStakes(1,5,25));
 assert.equal(browserNsc.labelFor("impact",5), nsc.labelFor("impact",5));
 assert.match(html, /summary\.classList\.add\("nsc-summary"\)/);
-assert.match(html, /buildNothingscoreContributors/);
-assert.match(html, /name\.textContent = contributor\.displayName/);
+assert.match(html, /buildInlineCrowdRating/);
+assert.match(read("assets/js/nsc-rankings-ui.js"), /identity\.textContent=ev\.name/);
 assert.doesNotMatch(html, /nsc-contributor[^\n]+innerHTML/);
 assert.doesNotMatch(html, /publishPositiveNothingscoreLike/);
 assert.match(html, /nothingscorePollFailures >= 3/);
@@ -166,13 +166,13 @@ assert.match(html, /NOTHINGSCORE_SOUND_KEY/);
 assert.match(html, /prefers-reduced-motion: reduce/);
 assert.match(html, /This week/);
 assert.match(html, /All time/);
-assert.match(html, /Report username/);
+assert.match(api, /invalid_username_report/, "the owner-protected reporting API remains available");
 assert.doesNotMatch(html, /NSC building/, "cards must not expose aggregate-building metadata");
 assert.match(html, /Submitted ✓/, "submitted cards must confirm success and retain access to results");
-assert.match(html, /action:"submit"/, "Heat and Impact must use the explicit submission action");
-assert.match(worker, /nothingsport-shell-v232/);
+assert(html.includes("phase==='pulse'?'pulse':'submit'"), "Heat and Impact use the server submission action");
+assert(worker.includes(`nothingsport-shell-v${html.match(/name="app-shell-version" content="(\d+)"/)?.[1]}`));
 assert.doesNotMatch(worker, /"\/config\/nothingscore\.js"/);
-assert.equal(html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1], "232");
+assert(html.match(/<meta name="app-shell-version" content="(\d+)">/)?.[1]);
 
 const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/)?.[1];
 assert(inlineScript);

@@ -203,7 +203,11 @@ fi
 
 ensure_clean_origin_main_checkout
 
-SKIP_RELEASE=1 "$NODE_BIN" scripts/update-cards.js -p --local-only
+if [[ "${QUICK_RESULTS:-0}" == "1" ]]; then
+  SKIP_RELEASE=1 "$NODE_BIN" scripts/update-cards.js --quick --local-only
+else
+  SKIP_RELEASE=1 "$NODE_BIN" scripts/update-cards.js -p --local-only
+fi
 LOCAL_EVENTS_HASH_AFTER="$(read_file_sha256 data/events.json)"
 LOCAL_HOME_HASH_AFTER="$(read_file_sha256 index.html)"
 LOCAL_META_HASH_AFTER="$(read_file_sha256 data/feed-meta.json)"
@@ -238,6 +242,10 @@ if [[ "${SKIP_RELEASE:-0}" == "1" ]]; then
   REMOTE_SERVICE_WORKER_HASH="skipped"
   RELEASE_CONTENT_MATCH="SKIPPED"
 else
+  if [[ "${QUICK_RESULTS:-0}" == "1" ]] && git diff --quiet -- data feeds; then
+    echo "Quick refresh found no content changes; no deployment required."
+    exit 0
+  fi
   ./scripts/redeploy-and-release.sh "${RELEASE_COMMIT_MESSAGE:-Automated card refresh and redeploy}"
 
   check_browser_deployment

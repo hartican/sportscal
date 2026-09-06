@@ -11,8 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="235">
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=235" as="script">
+<meta name="app-shell-version" content="236">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=236" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6815,13 +6815,6 @@ body.header-compact-3 .brand .slogan{ display:none; }
 }
 .event-card-control:hover{ background:color-mix(in srgb,var(--soft-fill) 78%,transparent); }
 .event-card-control:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
-.traffic-light-dot{ width:14px; height:14px; border:1px solid rgba(0,0,0,.22); border-radius:999px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 1px 2px rgba(0,0,0,.2); }
-.traffic-dismiss .traffic-light-dot{ background:var(--traffic-dismiss); }
-.traffic-minimise .traffic-light-dot{ background:var(--traffic-minimise); }
-.traffic-expand .traffic-light-dot{ background:var(--traffic-expand); }
-.event-card-control[aria-pressed="true"] .traffic-light-dot{ box-shadow:inset 0 0 0 3px rgba(0,0,0,.22),0 0 0 2px color-mix(in srgb,var(--text) 18%,transparent); }
-.traffic-light-tooltip{ position:absolute; top:38px; left:50%; z-index:20; width:max-content; max-width:130px; padding:5px 7px; border:1px solid var(--border); border-radius:6px; background:var(--panel); color:var(--text); box-shadow:0 5px 16px rgba(0,0,0,.22); opacity:0; pointer-events:none; transform:translate(-50%,-3px); transition:opacity .12s ease,transform .12s ease; }
-.event-card-control:hover .traffic-light-tooltip,.event-card-control:focus-visible .traffic-light-tooltip{ opacity:1; transform:translate(-50%,0); }
 .event-card-control.restore{ display:inline-flex; width:auto; min-width:88px; padding:8px 12px; border:1px solid color-mix(in srgb,var(--accent) 55%,var(--border)); border-radius:999px; background:var(--soft-fill); color:var(--accent); }
 .event-card-primary-actions,
 .major-event-navigation-row{
@@ -6901,8 +6894,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=235">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=235">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=236">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=236">
 </head>
 <body>
 
@@ -6940,7 +6933,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show results"><span class="spoiler-home-label">Show/Hide Results:</span><span class="spoiler-home-state">OFF</span></button>
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost" id="activeChatsBtn" type="button" aria-haspopup="dialog" aria-controls="chatDrawer" aria-label="Active chats" hidden><span data-vector-glyph="ui:message"></span> <span class="full-label">Chats</span><span class="active-chat-count" id="activeChatCount">0</span></button>
-      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-haspopup="dialog" aria-controls="nothingscoreDrawer" aria-label="Top Contributors"><span aria-hidden="true">NSC</span> <span class="full-label">Top Contributors</span></button>
+      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-haspopup="dialog" aria-controls="nothingscoreDrawer" aria-label="Crowd fixture rankings"><span aria-hidden="true">NSC</span> <span class="full-label">Crowd rankings</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
         <div class="loading-indicator-overlay" id="headerProgressRing" hidden></div>
         <time class="header-date-badge" id="calendarDateBadge"><span>MON</span><strong>24AUG</strong></time>
@@ -7192,7 +7185,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=235"></script>
+<script src="assets/js/app-shell-runtime.js?v=236"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -8259,7 +8252,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=235",
+  moduleScriptUrl: "config/major-events.js?v=236",
   url: "data/major-events.v1.json",
 });
 
@@ -9243,7 +9236,7 @@ function loadPreferences(){
   return defaults;
 }
 
-function savePreferences(next){
+function savePreferences(next,{viewOnly=false}={}){
   const priorFollowState = JSON.stringify({
     entities:(userPreferences?.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
     collections:(userPreferences?.followFirst?.collectionFollows || []).slice().sort(),
@@ -9269,7 +9262,7 @@ function savePreferences(next){
     collections:(clean.followFirst?.collectionFollows || []).slice().sort(),
   });
   queueServerStateSync();
-  if (document.readyState !== "loading" && clean.followFirst?.notifications?.enabled){
+  if (!viewOnly && document.readyState !== "loading" && clean.followFirst?.notifications?.enabled){
     void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   }
   if (priorFollowState !== nextFollowState && typeof activeEvents !== "undefined") void requestFeedRebuildAfterFollowChange();
@@ -12713,6 +12706,7 @@ function eventLocationLabel(ev){
 }
 
 function eventTimeLabel(ev){
+  if(ev.timePrecision==="follows")return "Follows prior match";
   if (ev.displayTimeLabel) return ev.displayTimeLabel;
   if (ev.timeTbc) return "Time TBC";
   return `${fmtTime12(ev.time)} · ${eventLocationLabel(ev)}`;
@@ -14823,7 +14817,7 @@ function calendarSetSelected(event,selected){
   else{calendarChoice.included.delete(id);calendarChoice.excluded.add(id);}
 }
 function appendCalendarChoice(card,input){
-  if(!calendarChoice.active)return;
+  if(!calendarChoice.active || activeTab!=='feed' || activeInspectorCodeId)return;
   const event=calendarEvent(input),id=NOTHINGSPORTS_CALENDAR.idFor(event);
   calendarChoice.refs.set(id,event);
   const label=document.createElement('label');label.className='calendar-select-label';
@@ -14853,7 +14847,7 @@ function refreshCalendarChoiceCounts(){
   document.querySelectorAll('[data-calendar-id]').forEach(node=>{const event=calendarChoice.refs.get(node.dataset.calendarId);if(event)node.checked=calendarIsSelected(event);});
 }
 function renderCalendarSelectionToolbar(container){
-  if(!calendarChoice.active)return;
+  if(!calendarChoice.active || activeTab!=='feed' || activeInspectorCodeId)return;
   const bar=document.createElement('div');bar.className='calendar-selection-toolbar';bar.setAttribute('aria-label','Calendar selection');
   const count=document.createElement('span');count.dataset.calendarCount='';count.setAttribute('role','status');bar.appendChild(count);
   for(const [label,selected] of [['Select all matching',true],['Unselect all matching',false]]){
@@ -14880,7 +14874,7 @@ async function showCalendarDialog(){
   if(calendarChoice.owner!==owner){calendarChoice.owner=owner;calendarChoice.subscription=null;calendarChoice.included.clear();calendarChoice.excluded.clear();calendarChoice.refs.clear();calendarChoice.mode='import';}
   document.getElementById('calendarSyncDialog')?.remove();
   const dialog=document.createElement('dialog');dialog.id='calendarSyncDialog';dialog.className='calendar-dialog';dialog.setAttribute('aria-labelledby','calendarSyncTitle');
-  dialog.innerHTML='<h2 id="calendarSyncTitle">Calendar sync</h2><p>Choose games from Feed, Events or a sport’s Schedule. Dates TBC cannot be added.</p>';
+  dialog.innerHTML='<h2 id="calendarSyncTitle">Calendar sync</h2><p>Choose games from Feed. Dates TBC cannot be added.</p>';
   const actions=document.createElement('div');actions.className='calendar-actions';
   const status=document.createElement('p');status.setAttribute('role','status');
   function button(label,action,primary=false){const b=document.createElement('button');b.type='button';b.className=`btn ${primary?'primary':'ghost'}`;b.textContent=label;b.onclick=async()=>{b.disabled=true;try{await action();}catch(error){status.textContent=error.message || 'Calendar request failed. Please retry.';}finally{b.disabled=false;}};actions.appendChild(b);return b;}
@@ -14897,7 +14891,7 @@ async function showCalendarDialog(){
     const info=document.createElement('p');info.textContent=calendarChoice.mode==='subscription'?'Followed fixtures are included automatically. Select or exclude individual games without changing follows. Your private URL stays the same when choices change. Calendar apps apply updates and removals when they refresh.':'One-off import downloads an ICS file. Imported entries do not receive later time changes or cancellations.';options.appendChild(info);
     const count=document.createElement('p');count.dataset.calendarCount='';options.appendChild(count);
     const controls=document.createElement('div');controls.className='calendar-actions';options.appendChild(controls);
-    const choose=document.createElement('button');choose.type='button';choose.className='btn primary';choose.textContent='Select fixtures';choose.onclick=()=>{calendarChoice.active=true;dialog.close();renderAll({preserveViewport:true});};controls.appendChild(choose);
+    const choose=document.createElement('button');choose.type='button';choose.className='btn primary';choose.textContent='Select fixtures';choose.onclick=()=>{calendarChoice.active=true;activeTab='feed';activeInspectorCodeId=null;activeView='list';dialog.close();renderAll({preserveViewport:true});};controls.appendChild(choose);
     const save=document.createElement('button');save.type='button';save.className='btn primary';save.textContent=calendarChoice.mode==='subscription'?'Save subscription':'Download ICS';
     save.onclick=async()=>{
       save.disabled=true;try{
@@ -14937,24 +14931,36 @@ function bindCardCycle(card, activate){
     if(event.target.closest('a,button,input,select,textarea,label,summary,[contenteditable="true"],[role="button"]'))return;
     if(window.getSelection()?.toString())return;
     if(pointer && (Math.abs(event.clientX-pointer.x)>8 || Math.abs(event.clientY-pointer.y)>8 || Math.abs(window.scrollY-pointer.scroll)>8))return;
+    const selection=event.currentTarget.querySelector('[data-calendar-id]');
+    if(calendarChoice.active&&activeTab==='feed'&&selection){if(!selection.disabled)selection.click();return;}
     event.currentTarget._activateCard?.();
   });
   card.addEventListener('keydown',event=>{
     if(event.target!==event.currentTarget || !['Enter',' '].includes(event.key))return;
-    event.preventDefault();event.currentTarget._activateCard?.({restoreFocus:true});
+    event.preventDefault();
+    const selection=event.currentTarget.querySelector('[data-calendar-id]');
+    if(calendarChoice.active&&activeTab==='feed'&&selection){if(!selection.disabled)selection.click();return;}
+    event.currentTarget._activateCard?.({restoreFocus:true});
   });
+}
+function compactFixtureName(ev){
+  let short = ev.displayTitleCompact || ev.shortName || spoilerSafeDisplayTitle(ev);
+  if(ev.key==='tennis')short=short.split(/ v /).map(name=>name.trim().split(/\s+/).slice(-1)[0]).join(' v ');
+  return short.replace(/Manchester City/g,'Manc. City').replace(/Manchester United/g,'Man United')
+    .replace(/Coventry City/g,'Coventry').replace(/Brighton & Hove Albion/g,'Brighton').replace(/Leeds United/g,'Leeds').replace(/Nottingham Forest/g,'Nottm Forest').replace(/Tottenham Hotspur/g,'Spurs').replace(/Paris Saint-Germain/g,'PSG')
+    .replace(/Australian Grand Prix/g,'Aus GP').replace(/Grand Prix/g,'GP')
+    .replace(/Alexander Zverev/g,'Zverev').replace(/Alejandro Tabilo/g,'Tabilo');
 }
 function buildCompactCardSummary(ev){
   const summary=document.createElement('div');summary.className='compact-card-summary';
-  const icon=document.createElement('span');icon.className='compact-card-icon';
-  renderEventIdentityMark(icon,ev,sportMetaForEvent(ev));
-  const text=document.createElement('div');text.className='compact-card-copy';
-  const title=document.createElement('strong');title.textContent=spoilerSafeDisplayTitle(ev);
-  const time=document.createElement('span');time.textContent=`${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
-  const stakes=document.createElement('span');stakes.className='compact-card-stakes';stakes.setAttribute('aria-label',`Stakes ${Number(ev.stakesScore)||0} of 5`);
-  stakes.innerHTML=Array.from({length:Math.min(5,Math.max(0,Number(ev.stakesScore)||0))},()=>glyphMarkup('ui:flame',{preferImage:true})).join('');
-  text.append(title,time);summary.append(icon,text,stakes);return summary;
+  const title=document.createElement('span');title.className='compact-card-name';title.textContent=compactFixtureName(ev);
+  const time=document.createElement('span');time.className='compact-card-time';
+  const start=ev.timePrecision==='follows'?null:FEED_CONTROLS.eventStart(ev);
+  time.textContent=ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start) : `${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
+  summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${time.textContent}`);summary.title=summary.getAttribute('aria-label');
+  summary.append(title,time);return summary;
 }
+
 function feedClockKey(){
   return `${NOTHINGSPORTS_CALENDAR.sydneyDay()}|${activeEvents.map(ev=>`${ev.eventId || ev.id}:${getEventStatus(ev)}`).join('|')}`;
 }
@@ -14971,13 +14977,21 @@ function buildFeedNowMarker(){
 function renderFeedViewActions(container){
   const bar=document.createElement('div');bar.className='feed-view-actions';
   const compact=document.createElement('button');compact.type='button';compact.className='btn ghost';compact.textContent='Compact';compact.setAttribute('aria-pressed',String(Boolean(userPreferences.feedCompact)));
-  compact.onclick=()=>{const next=clonePreferences(userPreferences);next.feedCompact=!next.feedCompact;cardViewStates={};savePreferences(next);renderAll({preserveViewport:true});};
+  compact.onclick=()=>setFeedCompact(!userPreferences.feedCompact);
   const now=document.createElement('button');now.type='button';now.className='btn ghost';now.textContent='Now';now.setAttribute('aria-label','Jump to Now');
   now.onclick=()=>{const anchor=document.getElementById('calendarNowAnchor');if(anchor)window.scrollTo({top:Math.max(0,window.scrollY+anchor.getBoundingClientRect().top-stickyFeedChromeHeight()-14),behavior:'smooth'});};
   const today=document.createElement('button');today.type='button';today.className='btn ghost';today.textContent='Today';today.setAttribute('aria-label','Jump to Today');today.onclick=()=>scrollActiveFeedToInitialAnchor({behavior:'smooth'});
   bar.setAttribute('aria-label','Feed view and timeline controls');bar.append(compact,today,now);container.appendChild(bar);
 }
 
+let compactPersistTimer=null,compactRenderFrame=null;
+function setFeedCompact(value){
+  userPreferences.feedCompact=Boolean(value);cardViewStates={};
+  document.querySelectorAll('.feed-view-actions [aria-pressed]').forEach(node=>node.setAttribute('aria-pressed',String(value)));
+  if(compactRenderFrame!==null)cancelAnimationFrame(compactRenderFrame);
+  compactRenderFrame=requestAnimationFrame(()=>{compactRenderFrame=null;if(activeTab!=='feed')return;const anchor=captureViewportRenderAnchor();mutateWithScrollContinuity(anchor?.card,()=>renderListView(),{anchorStrategy:'target',interactionName:'compact-toggle'});});
+  clearTimeout(compactPersistTimer);compactPersistTimer=setTimeout(()=>savePreferences(clonePreferences(userPreferences),{viewOnly:true}),300);
+}
 function nextCardState(current){
   if (current === "compact") return "selected";
   if (current === "selected") return "opened";
@@ -14993,11 +15007,12 @@ function cardLevelForState(state){
 }
 
 function cardStateForEvent(ev){
-  return cardViewStates[ev.eventId || ev.id] || (userPreferences.feedCompact && activeTab === "feed" ? "compact" : "selected");
+  return calendarChoice.active && activeTab === "feed" ? "compact" : cardViewStates[ev.eventId || ev.id] || (userPreferences.feedCompact && activeTab === "feed" ? "compact" : "selected");
 }
 
 function setCardState(ev, state){
   const eventId = ev.eventId || ev.id;
+  if(state === "opened")sessionOpenedEventIds.add(eventId);
   const next = { ...cardViewStates };
   next[eventId] = state;
   cardViewStates = next;
@@ -15954,64 +15969,12 @@ function restoreEventCardControlFocus(card, controlName){
   });
 }
 
-function buildEventCardControls(ev, { card = null, eventsOnly = activeTab === "events", displayLabel = null, viewStateEvent = ev } = {}){
-  const action = getEventAction(ev);
-  const controls = document.createElement("div");
-  controls.className = "event-card-controls";
-  controls.setAttribute("role", "group");
-  controls.setAttribute("aria-label", "Card controls");
-  const control = (name, label, pressed, activate) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `event-card-control traffic-${name}`;
-    button.dataset.cardControl = name;
-    button.title = label;
-    button.setAttribute("aria-label", `${label}${displayLabel ? ` ${displayLabel}` : ""}`);
-    if (pressed !== null) button.setAttribute("aria-pressed", String(Boolean(pressed)));
-    const dot = document.createElement("span");
-    dot.className = "traffic-light-dot";
-    dot.setAttribute("aria-hidden", "true");
-    const visibleLabel = document.createElement("span");
-    visibleLabel.className = "traffic-light-label";
-    visibleLabel.setAttribute("aria-hidden", "true");
-    visibleLabel.textContent = label;
-    button.append(dot, visibleLabel);
-    button.addEventListener("click", event => {
-      event.stopPropagation();
-      activate();
-    });
-    return button;
-  };
-  const dismiss = control("dismiss", "Dismiss", null, () => {
-    const previousAction = storedEventAction(ev);
-    dismissEventCard(ev, {
-      previousAction:previousAction ? { ...previousAction } : null,
-      card,
-      eventsOnly,
-      displayLabel,
-    });
-  });
-  const minimise = control("minimise", "Minimise", action.isMinimised, () => {
-    const nextMinimised = !Boolean(getEventAction(ev).isMinimised);
-    updateEventAction(ev, { isMinimised:nextMinimised });
-    if (nextMinimised) setCardState(viewStateEvent, "compact");
-    restoreEventCardControlFocus(card, "minimise");
-  });
-  const expanded = !action.isMinimised && cardStateForEvent(viewStateEvent) === "opened";
-  const expand = control("expand", expanded ? "Collapse" : "Maximise", expanded, () => {
-    const opening = cardStateForEvent(viewStateEvent) !== "opened";
-    if (opening){
-      const eventId = String(ev.eventId || ev.id);
-      if (!sessionOpenedEventIds.has(eventId)) recordEventFeedAction(ev, "open", { surface:"card-control" });
-      sessionOpenedEventIds.add(eventId);
-    }
-    updateEventAction(ev, { isMinimised:false });
-    setCardState(viewStateEvent, opening ? "opened" : "selected");
-    restoreEventCardControlFocus(card, "expand");
-  });
-  expand.setAttribute("aria-expanded", String(expanded));
-  controls.append(dismiss, minimise, expand);
-  return controls;
+function buildEventCardControls(ev, {card=null,eventsOnly=activeTab==='events',displayLabel=null}={}){
+  const controls=document.createElement('div');controls.className='event-card-controls';
+  const dismiss=document.createElement('button');dismiss.type='button';dismiss.className='event-card-control card-dismiss';
+  dismiss.dataset.cardControl='dismiss';dismiss.textContent='×';dismiss.setAttribute('aria-label',`Dismiss ${displayLabel || ev.name || 'fixture'}`);
+  dismiss.onclick=event=>{event.stopPropagation();const previous=storedEventAction(ev);dismissEventCard(ev,{previousAction:previous?{...previous}:null,card,eventsOnly,displayLabel});};
+  controls.appendChild(dismiss);return controls;
 }
 
 function eventMajorEventId(ev){
@@ -16051,7 +16014,7 @@ function nothingscoreQueueRender(){
       // Scores patch only their live regions and preserve the fixture being read.
       document.querySelectorAll(".nsc-summary").forEach(node => {
         const ev = nothingscoreEventRefs.get(node.dataset.nscEventId);
-        if (!ev) return;
+        if (!ev || inlineRatingRequests.has(nothingscoreEventId(ev))) return;
         const replacement = buildNothingscoreSummary(ev);
         if (node.outerHTML !== replacement.outerHTML) node.replaceWith(replacement);
       });
@@ -16066,7 +16029,7 @@ function nothingscoreQueueRender(){
         const ev = nothingscoreEventRefs.get(panel.dataset.nscPanel);
         const snapshot = ev && nothingscoreSnapshotFor(ev);
         if (!snapshot) return;
-        if (snapshot.peerResults && !snapshot.peerResults.distribution) void loadNothingscoreDetail(ev);
+        if(inlineRatingRequests.has(nothingscoreEventId(ev)))return;
         const peers = panel.querySelector(".nsc-peer-results");
         if (peers){
           const replacement = buildNothingscorePeerResults(ev, snapshot, {detail:true});
@@ -16203,55 +16166,44 @@ function buildNothingscoreSummary(ev){
   return summary;
 }
 
-function buildNothingscorePeerResults(ev, snapshot, {detail = false} = {}){
-  const root = document.createElement("section");
-  root.className = "nsc-peer-results";
-  const peers = snapshot?.peerResults;
-  const summary = document.createElement("p");
-  summary.className = "nsc-peer-summary";
-  summary.textContent = !peers
-    ? (nothingscoreLoadErrors.has(nothingscoreEventId(ev)) ? "Community ratings unavailable · Tap View results to retry" : "Community ratings loading…")
-    : !peers.count ? "No other ratings yet" : `${Number(peers.average).toFixed(1)}/5 from ${peers.count} other ${peers.count === 1 ? "fan" : "fans"}${peers.early ? " · Early responses" : ""}`;
-  root.appendChild(summary);
-  if (!detail){
-    const open = document.createElement("button");
-    open.type = "button"; open.className = "nsc-results-link"; open.textContent = "View results";
-    open.addEventListener("click", event => { event.stopPropagation(); void openNothingscoreContribution(ev, {showResults:true}); });
-    root.appendChild(open);
-    return root;
+function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false}={}){
+  const root=document.createElement('section');root.className='nsc-peer-results';
+  if(activeTab==='events'&&!inDrawer)return root;
+  const peers=snapshot?.peerResults, summary=document.createElement('p');summary.className='nsc-peer-summary';
+  summary.textContent=!peers?'Crowd ratings loading…':!peers.count?(snapshot.phase==='pulse'?'No recent ratings':'No ratings yet'):`Crowd ${Number(peers.average).toFixed(1)}/5 · ${peers.count} ratings${peers.early?' · Early ratings':''}`;
+  root.appendChild(summary);root.appendChild(buildInlineCrowdRating(ev,snapshot));return root;
+}
+const inlineRatingRequests=new Map();
+function buildInlineCrowdRating(ev,snapshot){
+  const root=document.createElement('div');root.className='nsc-inline-rating';
+  const phase=snapshot?.phase;if(!phase)return root;
+  const label=document.createElement('span');label.textContent='Your rating';root.appendChild(label);
+  const group=document.createElement('div');group.className='nsc-rating-blocks';group.setAttribute('role','group');group.setAttribute('aria-label','Your rating out of five');
+  const help=document.createElement('button');help.type='button';help.className='nsc-rating-help';help.textContent='?';
+  const tip=phase==='heat'?"Rate how you think it'll go":phase==='pulse'?"Rate how it's going":"Rate how it went";
+  help.title=tip;help.setAttribute('aria-label',tip);
+  const status=document.createElement('span');status.className='nsc-rating-status';status.setAttribute('role','status');help.onclick=()=>{status.textContent=status.textContent===tip?'':tip;};
+  const id=nothingscoreEventId(ev),owner=serverPersistence.user?.id;
+  let chosen=Number(snapshot.currentUser?.contribution?.rating || snapshot.currentUser?.submissions?.[phase]?.rating)||0;
+  const paint=value=>group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.setAttribute('aria-pressed',String(i+1===value));});
+  for(let value=1;value<=5;value++){
+    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5`);
+    b.onclick=async()=>{
+      if(!serverSyncClient?.sessionSubject()){status.textContent='Sign in to rate this fixture.';openSettings({section:'account'});return;}
+      if(inlineRatingRequests.has(id))return;
+      paint(value);status.textContent='Saving…';group.querySelectorAll('button').forEach(x=>x.disabled=true);
+      const task=serverSyncClient.nothingscoreRequest({}, {action:phase==='pulse'?'pulse':'submit',eventId:id,phase,rating:value,tags:[]});inlineRatingRequests.set(id,task);
+      try{
+        const receipt=await task;if(owner!==(serverPersistence.user?.id))return;chosen=value;
+        status.textContent=receipt.pointsAwarded?`+${receipt.pointsAwarded} points`:'Rating saved';
+        if(receipt.pointsAwarded&&!matchMedia('(prefers-reduced-motion: reduce)').matches)status.animate([{opacity:0,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:300});
+        const prior=nothingscoreSnapshots.get(id)||snapshot;mergeNothingscoreSnapshot({...prior,currentUser:{...prior.currentUser,contribution:{rating:value},submissions:{...prior.currentUser?.submissions,[phase]:receipt}}});
+        const fresh=await serverSyncClient.nothingscoreRequest({eventId:id});if(owner===(serverPersistence.user?.id)&&fresh.detail){mergeNothingscoreSnapshot(fresh.detail);const p=root.parentElement?.querySelector('.nsc-peer-summary'),c=fresh.detail.peerResults;if(p&&c?.count)p.textContent=`Crowd ${Number(c.average).toFixed(1)}/5 · ${c.count} ratings${c.early?' · Early ratings':''}`;}
+      }catch(error){status.textContent=`${error.message || 'Could not save.'} Tap to retry.`;paint(chosen);}
+      finally{inlineRatingRequests.delete(id);group.querySelectorAll('button').forEach(x=>x.disabled=false);}
+    };group.appendChild(b);
   }
-  const details = document.createElement("details");
-  details.open = Boolean(snapshot?.currentUser?.submissions?.[snapshot.phase]);
-  const toggle = document.createElement("summary"); toggle.textContent = "View results";
-  details.appendChild(toggle);
-  if (peers?.distribution){
-    const chart = document.createElement("div"); chart.className = "nsc-peer-distribution";
-    peers.distribution.forEach(bin => {
-      const row = document.createElement("div"); row.className = "nsc-peer-bin";
-      const label = document.createElement("span"); label.textContent = `${bin.rating}/5`;
-      const bar = document.createElement("meter"); bar.min = 0; bar.max = Math.max(1, peers.count); bar.value = bin.count;
-      bar.setAttribute("aria-label", `${bin.rating} out of 5: ${bin.count} ratings`);
-      const count = document.createElement("span"); count.textContent = `${bin.count} · ${bin.percent}%`;
-      row.append(label,bar,count); chart.appendChild(row);
-    });
-    details.appendChild(chart);
-    if (peers.tags?.length){
-      const tags = document.createElement("p"); tags.className = "nsc-note";
-      tags.textContent = peers.tags.map(item => `${item.tag} (${item.count})`).join(" · "); details.appendChild(tags);
-    }
-    if (peers.comparison){
-      const comparison = document.createElement("p"); comparison.className = "nsc-note";
-      const delta = peers.comparison.difference;
-      comparison.textContent = `Your ${peers.comparison.rating}/5 is ${delta === 0 ? "level with" : `${Math.abs(delta).toFixed(1)} ${delta > 0 ? "above" : "below"}`} the peer average. ${peers.comparison.sameRatingCount} chose the same score.`;
-      details.appendChild(comparison);
-    }
-  } else {
-    const note = document.createElement("p"); note.className = "nsc-note"; note.textContent = !peers ? "Ratings could not be confirmed yet." : peers.count ? "Loading the breakdown…" : "Be the first to share your take."; details.appendChild(note);
-  }
-  const disclosure = document.createElement("p"); disclosure.className = "nsc-note";
-  disclosure.textContent = `Real fan ratings for ${nothingscorePhaseCopy(snapshot?.phase).name}. Your rating is excluded; no simulated ratings or Like weighting.`;
-  details.appendChild(disclosure); root.appendChild(details);
-  return root;
+  paint(chosen);root.append(group,help,status);return root;
 }
 
 function openNothingscoreLeaderboard(){
@@ -16450,236 +16402,13 @@ function buildNothingscorePending(ev,phase){
   row.appendChild(retry); return row;
 }
 
-function buildNothingscoreChoices(ev, snapshot, panel){
-  const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
-  const current = snapshot.currentUser?.contribution || null;
-  const submissionKey = nothingscoreSubmissionKey(nothingscoreEventId(ev),snapshot.phase);
-  const submission = nothingscoreSubmissionStore.get(submissionKey);
-  const receipt = snapshot.currentUser?.submissions?.[snapshot.phase] || submission.receipt || null;
-  if (receipt && ["heat", "impact"].includes(snapshot.phase)){
-    panel.insertBefore(buildNothingscoreReceipt(receipt, phaseCopy.submissionLabel || phaseCopy.name),panel.querySelector(".nsc-peer-results"));
-    return;
-  }
-  if (["pending","uncertain"].includes(submission.status)){
-    panel.appendChild(buildNothingscorePending(ev,snapshot.phase));
-    return;
-  }
-  const form = document.createElement("div");
-  form.className = "nsc-contribution-form";
-  panel.appendChild(form);
-  const pulsePromptReady = snapshot.phase !== "pulse" || Date.now() >= Date.parse(snapshot.timing?.startTimeUtc || "") + 5 * 60_000 || Boolean(current);
-  let draftRating = Number(submission.draft?.rating || (snapshot.phase === "pulse" ? current?.rating : 0) || 0);
-  let draftTags = submission.draft?.tags || [];
-  let renderTags = null;
-  const choices = document.createElement("div");
-  choices.className = "nsc-choice-row";
-  choices.setAttribute("aria-label", `${phaseCopy.name} rating`);
-  for (let value = 1; value <= 5; value += 1){
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "nsc-choice";
-    button.setAttribute("aria-pressed", String(draftRating === value));
-    button.disabled = !pulsePromptReady;
-    if (snapshot.phase === "pulse"){
-      const wave = document.createElement("span");
-      wave.className = "nsc-wave";
-      wave.setAttribute("aria-hidden", "true");
-      wave.innerHTML = "<i></i><i></i><i></i><i></i><i></i>";
-      button.appendChild(wave);
-    }
-    const number = document.createElement("strong");
-    number.textContent = String(value);
-    const label = document.createElement("span");
-    label.textContent = phaseCopy.labels[value - 1];
-    button.append(number, label);
-    button.addEventListener("click", () => {
-      if (snapshot.phase === "pulse"){
-        void submitNothingscoreAction({ action:"pulse", eventId:nothingscoreEventId(ev), rating:value, tags:[] }, panel, {
-          success:"Pulse updated. Come back in another five-minute beat.",
-        });
-        return;
-      }
-      draftRating = value;
-      draftTags = [];
-      nothingscoreSubmissionStore.draft(submissionKey,{rating:draftRating,tags:draftTags});
-      choices.querySelectorAll(".nsc-choice").forEach((choice, index) => choice.setAttribute("aria-pressed", String(index + 1 === draftRating)));
-      if (renderTags) renderTags();
-      const submit = panel.querySelector(".nsc-submit");
-      if (submit) submit.disabled = false;
-      nothingscoreStatus(panel, `${phaseCopy.name} ${draftRating}/5 selected. Tap Submit when ready.`);
-    });
-    choices.appendChild(button);
-  }
-  form.appendChild(choices);
-  if (!pulsePromptReady){
-    const note = document.createElement("p");
-    note.className = "nsc-note";
-    note.textContent = "Pulse opens about five minutes into the live window.";
-    form.appendChild(note);
-  }
-  if (["heat", "impact"].includes(snapshot.phase)){
-    const tags = document.createElement("div");
-    tags.className = "nsc-tags";
-    tags.hidden = true;
-    renderTags = () => {
-      tags.replaceChildren();
-      const allowed = NOTHINGSCORE.tagsFor(snapshot.phase, draftRating);
-      tags.hidden = !allowed.length;
-      allowed.forEach(tag => {
-        const label = document.createElement("label");
-        label.className = "nsc-tag";
-        const input = document.createElement("input");
-        input.type = "checkbox";
-        input.value = tag;
-        input.checked = draftTags.includes(tag);
-        const copy = document.createElement("span");
-        copy.textContent = tag;
-        label.append(input, copy);
-        input.addEventListener("change", () => {
-          const selected = [...tags.querySelectorAll("input:checked")].slice(0, 3);
-          tags.querySelectorAll("input:checked").forEach(item => { if (!selected.includes(item)) item.checked = false; });
-          draftTags = selected.map(input => input.value);
-          nothingscoreSubmissionStore.draft(submissionKey,{rating:draftRating,tags:draftTags});
-        });
-        tags.appendChild(label);
-      });
-    };
-    form.appendChild(tags);
-    const note = document.createElement("p");
-    note.className = "nsc-note";
-    note.textContent = "Choose a rating to add up to three reasons.";
-    form.appendChild(note);
-    const submit = document.createElement("button");
-    submit.type = "button";
-    submit.className = "btn primary nsc-submit";
-    submit.textContent = "Submit";
-    submit.disabled = !draftRating;
-    if (draftRating) renderTags();
-    submit.addEventListener("click", () => {
-      if (!draftRating) return;
-      const preparedAudio = snapshot.phase === "impact" ? prepareNothingscoreAudio() : null;
-      const selectedTags = [...tags.querySelectorAll("input:checked")].map(input => input.value);
-      void submitNothingscoreAction({
-        action:"submit",
-        phase:snapshot.phase,
-        eventId:nothingscoreEventId(ev),
-        rating:draftRating,
-        tags:selectedTags,
-      }, panel, {
-        success:`${phaseCopy.name} submitted.`,
-        preparedAudio,
-        event:ev,
-      });
-    });
-    form.appendChild(submit);
-  }
-}
-
-let nothingscoreVisualLoad = null;
-function ensureNothingscoreVisual(){
-  if (globalThis.NOTHINGSPORTS_NSC_VISUAL) return Promise.resolve(globalThis.NOTHINGSPORTS_NSC_VISUAL);
-  if (!nothingscoreVisualLoad) nothingscoreVisualLoad = loadDeferredScript("config/nsc-visual.js?v=218").then(() => globalThis.NOTHINGSPORTS_NSC_VISUAL);
-  return nothingscoreVisualLoad;
-}
-function buildNothingscoreVisual(snapshot){
-  const visual = globalThis.NOTHINGSPORTS_NSC_VISUAL;
-  if (!visual){ void ensureNothingscoreVisual().then(nothingscoreQueueRender); return null; }
-  return visual.build(snapshot, { phaseName:nothingscorePhaseCopy(snapshot?.phase).name });
-}
-
-function buildNothingscoreContributors(snapshot, panel){
-  const contributors = document.createElement("div");
-  contributors.className = "nsc-contributors";
-  const title = document.createElement("strong");
-  title.textContent = "Contributors";
-  contributors.appendChild(title);
-  if (snapshot.contributors === undefined){
-    const loading = document.createElement("p");
-    loading.className = "nsc-note";
-    loading.textContent = "Loading names…";
-    contributors.appendChild(loading);
-  } else if (!snapshot.contributors.length){
-    const empty = document.createElement("p");
-    empty.className = "nsc-note";
-    empty.textContent = "No public contributors yet. A first take gives the next viewer something useful to build on.";
-    contributors.appendChild(empty);
-  } else {
-    snapshot.contributors.forEach(contributor => {
-      const row = document.createElement("div");
-      row.className = "nsc-contributor";
-      const copy = document.createElement("div");
-      copy.className = "nsc-contributor-copy";
-      const name = document.createElement("strong");
-      name.textContent = contributor.displayName;
-      const details = document.createElement("span");
-      details.textContent = [contributor.handle, `${Number(contributor.rating).toFixed(1)}/5`, ...(contributor.tags || [])].filter(Boolean).join(" · ");
-      copy.append(name, details);
-      row.appendChild(copy);
-      if (contributor.profileId && nothingscoreViewer.signedIn && contributor.profileId !== nothingscoreViewer.profile?.profileId){
-        const reportWrap = document.createElement("div");
-        reportWrap.className = "nsc-actions";
-        const reason = document.createElement("select");
-        reason.setAttribute("aria-label", `Reason to report ${contributor.displayName}`);
-        [["offensive","Offensive"],["impersonation","Impersonation"],["misleading","Misleading"],["privacy","Privacy"],["other_fixed","Other"]].forEach(([value,label]) => {
-          const option = document.createElement("option"); option.value = value; option.textContent = label; reason.appendChild(option);
-        });
-        const report = document.createElement("button");
-        report.type = "button";
-        report.className = "nsc-report";
-        report.textContent = "Report username";
-        report.addEventListener("click", () => { void submitNothingscoreAction({ action:"report", targetProfileId:contributor.profileId, reason:reason.value }, panel, { success:"Username report received." }); });
-        reportWrap.append(reason, report);
-        row.appendChild(reportWrap);
-      }
-      contributors.appendChild(row);
-    });
-  }
-  panel.appendChild(contributors);
-}
-
-function buildNothingscorePanel(ev, snapshot, state){
-  void state;
-  const panel = document.createElement("section");
-  panel.className = "nsc-panel";
-  panel.dataset.nscPanel = nothingscoreEventId(ev);
-  const phaseCopy = nothingscorePhaseCopy(snapshot.phase);
-  const head = document.createElement("div");
-  head.className = "nsc-panel-head";
-  const heading = document.createElement("div");
-  const title = document.createElement("h4");
-  title.textContent = phaseCopy.name;
-  heading.appendChild(title);
-  head.appendChild(heading);
-  panel.appendChild(head);
-
-  const status = document.createElement("p");
-  status.className = "nsc-status";
-  status.setAttribute("role", "status");
-  status.setAttribute("aria-live", "polite");
-  panel.appendChild(status);
-  panel.appendChild(buildNothingscorePeerResults(ev, snapshot, {detail:true}));
-
-  if (!nothingscoreViewer.signedIn){
-    const note = document.createElement("p");
-    note.className = "nsc-note";
-    note.textContent = serverPersistence.user ? "Checking your pilot access…" : "Everyone can read Nothingscore. Sign in to take part in the closed pilot.";
-    panel.appendChild(note);
-  } else if (!nothingscoreViewer.pilot){
-    const note = document.createElement("p");
-    note.className = "nsc-note";
-    note.textContent = "This account can view the score. Contributions are limited to approved pilot members.";
-    panel.appendChild(note);
-  } else if (!nothingscoreViewer.profile || nothingscoreViewer.profile.visibility === "deleted"){
-    const create = document.createElement("button");
-    create.type = "button";
-    create.className = "btn primary";
-    create.textContent = "Create Public Profile";
-    create.addEventListener("click", () => { settingsSection = "account"; openSettings(); });
-    panel.appendChild(create);
-  } else {
-    buildNothingscoreChoices(ev, snapshot, panel);
-  }
-  return panel;
+function buildNothingscorePanel(ev,snapshot){
+ const panel=document.createElement('section');panel.className='nsc-panel';panel.dataset.nscPanel=nothingscoreEventId(ev);
+ const back=document.createElement('button');back.type='button';back.className='btn ghost';back.textContent='Back to rankings';back.onclick=()=>{activeNothingscoreContributionEvent=null;renderCrowdRankings();};
+ const timing=document.createElement('p');timing.textContent=ev.startTimeUtc?new Date(ev.startTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney'}):'Time TBC';
+ panel.append(back,timing,buildNothingscorePeerResults(ev,snapshot,{inDrawer:true}));
+ const incentive=document.createElement('p');incentive.className='nsc-note';incentive.textContent='Call it early. Earn more when you’re right against the crowd.';panel.appendChild(incentive);
+ return panel;
 }
 
 function visiblePulseNothingscoreIds(){
@@ -16759,29 +16488,10 @@ function nothingscoreSubmissionIsSealed(ev){
 }
 
 function nothingscoreActionLabelForEvent(ev){
-  const status = getEventStatus(ev);
-  if (nothingscoreSubmissionIsSealed(ev)) return "Submitted ✓";
-  if (status === "live") return "Add live Pulse";
-  if (status === "past" || ev?.status === "completed") return "How did it land?";
-  return "How do you think it'll go?";
+  const phase=nothingscoreSnapshots.get(nothingscoreEventId(ev))?.phase;
+  return phase==='pulse'?'Live crowd rating':phase==='impact'?'Past crowd rating':'Upcoming crowd rating';
 }
 
-function buildEventNothingscoreAction(ev){
-  const button = document.createElement("button");
-  const eventId = nothingscoreEventId(ev);
-  const submitted = nothingscoreSubmissionIsSealed(ev);
-  nothingscoreEventRefs.set(eventId,ev);
-  button.type = "button";
-  button.className = "btn ghost nsc-card-action";
-  button.dataset.nscEventId = eventId;
-  button.classList.toggle("is-submitted", submitted);
-  button.disabled = submitted;
-  button.setAttribute("aria-pressed", String(submitted));
-  button.setAttribute("aria-live", "polite");
-  button.textContent = nothingscoreActionLabelForEvent(ev);
-  button.addEventListener("click", event => { event.stopPropagation(); void openNothingscoreContribution(ev); });
-  return button;
-}
 
 function buildEventCard(ev, options = {}){
   const meta = sportMetaForEvent(ev);
@@ -16809,7 +16519,7 @@ function buildEventCard(ev, options = {}){
   const localGame = isLocalGame(ev);
   const recommendationProfile = eventRecommendationProfile(ev);
   const action = getEventAction(ev);
-  const isMinimised = Boolean(action.isMinimised);
+  const isMinimised = activeTab!=="feed" && Boolean(action.isMinimised);
   const card = document.createElement("article");
   const interactionCard = options.interactionCard || card;
   appendCalendarChoice(card,ev);
@@ -16853,7 +16563,9 @@ function buildEventCard(ev, options = {}){
   }
   if (expandable) bindCardCycle(card, ({restoreFocus=false}={}) => {
     updateEventAction(ev, {isMinimised:false});
-    setCardState(ev, nextCardState(cardStateForEvent(ev)));
+    const nextState=nextCardState(cardStateForEvent(ev));
+    if(nextState==="opened")recordEventFeedAction(ev, "open", { surface:"card-content" });
+    setCardState(ev, nextState);
     refreshExpandableCard(interactionCard, buildEventCard(ev, {...options, interactionCard}), {restoreFocus,focusTarget:interactionCard});
   });
   card.dataset.cardLevel = cardLevelForState(state);
@@ -16921,7 +16633,7 @@ function buildEventCard(ev, options = {}){
   topRow.appendChild(nameWrap);
 
   mainDiv.appendChild(topRow);
-  if (!isMinimised) mainDiv.appendChild(buildNothingscoreSummary(ev));
+  if (!isMinimised && activeTab!=="events") mainDiv.appendChild(buildNothingscoreSummary(ev));
   const whyItMatters = isMinimised ? null : buildEventWhyItMatters(ev);
   if (whyItMatters) mainDiv.appendChild(whyItMatters);
   if (!isMinimised && state === "opened"){
@@ -16938,7 +16650,7 @@ function buildEventCard(ev, options = {}){
       tickets.addEventListener("click", evt => evt.stopPropagation());
       secondaryActions.appendChild(tickets);
     }
-    secondaryActions.appendChild(buildEventNothingscoreAction(ev));
+    /* Ratings are inline on the standard card. */
     mainDiv.appendChild(secondaryActions);
     mainDiv.appendChild(activeTab === "feed" && !options.archived ? buildFeedStakesRow(ev) : buildStakesMeter(ev));
   } else if (!isMinimised){
@@ -19697,6 +19409,7 @@ async function openFollowScreen(section){
 }
 function renderFollowView(){
   const container=document.getElementById('listView');
+  const retainedSportBar=container.querySelector('.follow-sport-bar');
   container.replaceChildren();container.className='follow-view';container.dataset.scrollList='follow';
   const state=followBrowseState();
   const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2));
@@ -19711,11 +19424,12 @@ function renderFollowView(){
     const label=document.createElement('span');label.textContent=entity.label;button.append(mark,label);
     button.addEventListener('click',()=>{saveFollowBrowse({sportId:entity.id,categoryId:'',section:'teams-players',page:track.scrollLeft});renderFollowView();});track.appendChild(button);
   });
-  previous.onclick=()=>track.scrollBy({left:-track.clientWidth,behavior:'smooth'});
-  next.onclick=()=>track.scrollBy({left:track.clientWidth,behavior:'smooth'});
-  track.addEventListener('scroll',()=>{clearTimeout(track.saveTimer);track.saveTimer=setTimeout(()=>saveFollowBrowse({page:track.scrollLeft}),200);},{passive:true});
+  previous.onclick=()=>track.scrollBy({left:-Math.max(76,Math.floor(track.clientWidth/84)*84),behavior:'smooth'});
+  next.onclick=()=>track.scrollBy({left:Math.max(76,Math.floor(track.clientWidth/84)*84),behavior:'smooth'});
+  track.addEventListener('scroll',()=>{clearTimeout(track.saveTimer);track.saveTimer=setTimeout(()=>sessionStorage.setItem('followTrackPosition',String(track.scrollLeft)),200);},{passive:true});
   bar.append(previous,track,next);container.appendChild(bar);
-  requestAnimationFrame(()=>{track.scrollLeft=state.page || 0;});
+  if(retainedSportBar){bar.replaceWith(retainedSportBar);retainedSportBar.querySelectorAll('[data-follow-sport]').forEach(button=>{const selected=button.dataset.followSport===state.sportId;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));});}
+  else requestAnimationFrame(()=>{track.scrollLeft=Number(sessionStorage.getItem('followTrackPosition') || state.page || 0);});
   const root=selectorEntityById(state.sportId) || sports[0];
   const children=(root.childIds || []).map(selectorEntityById).filter(Boolean);
   if (children.length){
@@ -20294,8 +20008,7 @@ function buildMajorEventSchedule(record, { level = "L2", headingText = "Publishe
     row.append(copy, button);
     const editorialHook = buildEditorialL0Hook(editorialNarrativeHookForDisplay(editorialRecord), editorialConsequenceForDisplay(editorialRecord));
     if (editorialHook) row.appendChild(editorialHook);
-    row.appendChild(buildNothingscoreSummary(crowdEvent));
-    row.appendChild(buildEventNothingscoreAction(crowdEvent));
+    /* Events have no ratings input or summary. */
     list.appendChild(row);
   });
   if (level === "L2" && timeline.hasOlder && !includeOlder){
@@ -20447,6 +20160,7 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   const advanceState = ({ restoreFocus = false } = {}) => {
     updateEventAction(actionEvent, {isMinimised:false});
     activeMajorEventNowId = record.id;
+    if(nextCardState(cardStateForEvent(record))==="opened")recordEventFeedAction(actionEvent, "open", { surface:"card-content" });
     setCardState(record, nextCardState(cardStateForEvent(record)));
     refreshExpandableCard(eventCard, (eventCard.classList.contains("ticket-sale-card") ? buildTicketSaleCard : buildMajorEventCard)(record, { interactionCard:eventCard }), {
       restoreFocus,
@@ -21065,6 +20779,8 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
       interactionName:"preserved-render",
     });
   }
+  if(activeTab!=='feed'||activeInspectorCodeId)calendarChoice.active=false;
+  const calendarButton=document.getElementById('calendarSyncBtn');if(calendarButton)calendarButton.hidden=activeTab!=='feed'||Boolean(activeInspectorCodeId);
   syncTopLevelNavigationState();
   renderHomeSpoilerToggle();
   renderSoundtrackToggle();
@@ -24695,6 +24411,7 @@ function setNothingscoreDrawerOpen(open){
 }
 
 function openNothingscoreDrawer(){
+  nscMyView=false;
   activeNothingscoreContributionEvent = null;
   setNothingscoreDrawerOpen(true);
   void refreshNothingscoreDrawer();
@@ -24798,7 +24515,28 @@ async function setNothingscoreProfileVisibility(visibility){
   nothingscoreQueueRender();
 }
 
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyView&&document.getElementById('nothingscoreBackdrop')?.classList.contains('show'))renderCrowdRankings();});
+let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
+const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
+async function renderCrowdRankings(){
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=236");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Crowd rankings could not load. Close and reopen to retry.';}
+}
+async function renderMyForesight(body){
+  if(!serverSyncClient?.sessionSubject())return;
+  const section=document.createElement('section');section.className='nsc-rewards';section.textContent='Loading your foresight rewards…';body.prepend(section);
+  try{const result=await serverSyncClient.nothingscoreRequest({rewards:true});if(!section.isConnected)return;section.replaceChildren();
+    const title=document.createElement('h3');title.textContent=`${result.points} points`;section.appendChild(title);
+    for(const item of result.settlements || []){const row=document.createElement('p');row.className='nsc-reward-row';row.textContent=`${item.name || item.event_id}: you called ${item.prediction}/5 · ${item.outcome===null?(item.result==='cancelled'?'Cancelled — participation points retained':'Not enough ratings to score'):`crowd ${Number(item.outcome).toFixed(1)}/5`} · +${item.bonus} foresight points`;section.appendChild(row);}
+    const progress=document.createElement('p');progress.textContent=result.nextPrivilege?`${result.nextPrivilege.remaining} points to ${result.nextPrivilege.label}`:'No new privileges announced.';section.appendChild(progress);
+    for(const privilege of result.privileges || []){const row=document.createElement('p');row.textContent=`Unlocked: ${privilege.label}`;section.appendChild(row);}
+    for(const entry of result.entries || []){const row=document.createElement('p');row.textContent=`${entry.label}: ${entry.entries} prize draw entries`;section.appendChild(row);}
+    if(!result.entries?.length){const note=document.createElement('p');note.textContent='No active prize draws.';section.appendChild(note);}
+  }catch(error){section.textContent=error.message || 'Rewards unavailable.';}
+}
+
 function renderNothingscoreDrawer(){
+  if(!activeNothingscoreContributionEvent && !nscMyView){renderCrowdRankings();return;}
   const body = document.getElementById("nothingscoreBody");
   body.replaceChildren();
   const drawerTitle = document.getElementById("nothingscoreTitle");
@@ -24857,6 +24595,8 @@ function renderNothingscoreDrawer(){
     }
   });
   body.appendChild(sound);
+  const backToCrowd=document.createElement("button");backToCrowd.type="button";backToCrowd.className="btn ghost";backToCrowd.textContent="Back to fixture rankings";backToCrowd.onclick=()=>{nscMyView=false;renderNothingscoreDrawer();};body.prepend(backToCrowd);
+  void renderMyForesight(body);
   if (nothingscoreAudioBlocked){
     const enable = document.createElement("button");
     enable.type = "button";

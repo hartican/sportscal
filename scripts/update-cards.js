@@ -136,6 +136,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/apply-approved-coverage.js", "--write"],
   ["scripts/apply-approved-coverage.js", "--check"],
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "feeds/incoming/events.json"],
+  ["scripts/refresh-f1-results.js"],
   ["scripts/refresh-f1-editorial.js", "feeds/incoming/events.json"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
@@ -146,6 +147,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/enrich-editorial-consequences.js", "--write"],
   ["scripts/update-editorial-audience-memory.js", "--write"],
   ["scripts/apply-editorial-narratives.js", "--write"],
+  ["scripts/prepare-result-editorial.js"],
   ["scripts/validate-major-events.js"],
   ["scripts/build-editorial-research-queue.js", "--write"],
   ...canonicalStepSet(canonicalBundlePath => (
@@ -172,6 +174,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-follow-fixtures.js"],
   ["scripts/build-follow-fixtures.js", "--check"],
   ["scripts/build-paged-feed.js"],
+  ["scripts/prepare-nsc-forecasts.js"],
   ["scripts/build-code-inspector.js"],
   ["scripts/validate-fixture-editorial-resolution.js"],
   ["scripts/validate-national-team-identities.js"],
@@ -224,6 +227,11 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-events-fixture-ux.js"],
   ["scripts/validate-ui-foundation.js"],
   ["scripts/validate-interaction-card-reliability.js"],
+  ["scripts/validate-crowd-foresight.js"],
+  ["scripts/validate-nothingscore.js"],
+  ["scripts/validate-nsc-alert-editorial-ui.js"],
+  ["scripts/validate-calendar-rework.js"],
+  ["scripts/validate-calendar-api.js"],
   ["scripts/validate-card-chat-viewport-release.js"],
   ["scripts/validate-optimistic-actions.js"],
   ["scripts/validate-event-now-follow-affinity.js"],
@@ -242,7 +250,10 @@ function buildSteps({ localOnly = false } = {}) {
 
 function main() {
   const options = parseOptions();
-  const steps = buildSteps(options);
+  const quick=process.argv.includes("--quick");
+  let steps = quick ? [["scripts/snapshot-active-follows.js"],["scripts/quick-results.js",...process.argv.filter(arg=>["--offline","--rebuild"].includes(arg))]] : buildSteps(options);
+  const resumeIndex=process.argv.indexOf('--resume-from');
+  if(resumeIndex>=0){const target=process.argv[resumeIndex+1],index=steps.findIndex(step=>step[0]===target);if(index<0)throw new Error('Unknown canonical resume step');steps=[['scripts/snapshot-active-follows.js'],...steps.slice(index)];}
   const snapshotDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-follow-snapshot-"));
   fs.chmodSync(snapshotDirectory, 0o700);
   process.env.FOLLOW_SNAPSHOT_PATH = path.join(snapshotDirectory, "active-follows.enc.json");
@@ -255,6 +266,7 @@ function main() {
       runStep(args);
     }
 
+    if(quick){console.log("Quick results refresh complete.");return;}
     console.log(`\nCards, ladders and standings update complete${options.localOnly ? " (local only)" : ""}: canonical ranking data refreshed and validated, followed fixtures recomputed from the current server snapshot, curated previews applied, future high-stakes cards queued, and both feeds passed editorial, spoiler and schema QA.`);
   } finally {
     delete process.env.FOLLOW_SNAPSHOT_PATH;

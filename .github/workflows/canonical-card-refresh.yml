@@ -3,7 +3,7 @@ name: Canonical card refresh
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 0,3,6,9,12,15,18,21 * * *"
+    - cron: "0 3 * * *"
       timezone: Australia/Sydney
 
 permissions:
@@ -27,13 +27,7 @@ jobs:
             exit 0
           fi
 
-          sydney_date="$(TZ=Australia/Sydney date +%F)"
-          sydney_hour="$(TZ=Australia/Sydney date +%H)"
-          if [[ "$sydney_date" < "2026-09-15" || "$sydney_hour" == "09" || "$sydney_hour" == "12" || "$sydney_hour" == "21" ]]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-          fi
+          echo "run=true" >> "$GITHUB_OUTPUT"
 
       - name: Check out main
         if: steps.cadence.outputs.run == 'true'

@@ -33,16 +33,18 @@ const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8765';
   for(const expected of ['opened','compact','selected']){
    await align();const before=await rect();await card.locator(expected==='selected'?'.compact-card-summary':'.event-date-line').click();await page.waitForTimeout(150);const after=await rect();assert.equal(after.state,expected);assert(Math.abs(after.top-before.top)<=2,`tap drift ${width}: ${after.top-before.top}`);deltas.push(after.top-before.top);
   }
-  await align();let before=await rect();await card.locator('[data-card-control="expand"]').click();await page.waitForTimeout(150);let after=await rect();assert.equal(after.state,'opened');assert(Math.abs(after.top-before.top)<=2,`green expansion drift ${after.top-before.top}`);deltas.push(after.top-before.top);
-  await align();before=await rect();await card.locator('[data-card-control="expand"]').click();await page.waitForTimeout(150);after=await rect();assert.equal(after.state,'selected');assert(Math.abs(after.top-before.top)<=2,`green collapse drift ${after.top-before.top}`);deltas.push(after.top-before.top);
+  let before,after;
   await page.getByRole('button',{name:'Calendar sync',exact:true}).click();await page.getByRole('button',{name:'Select fixtures',exact:true}).click();
-  const checkbox=card.locator('[data-calendar-id]');await checkbox.check();assert.equal(await card.getAttribute('data-card-state'),'selected');
+  const checkbox=card.locator('[data-calendar-id]');await checkbox.check();assert.equal(await card.getAttribute('data-card-state'),'compact');
   await page.getByRole('button',{name:'Review calendar',exact:true}).click();const downloaded=page.waitForEvent('download');await page.getByRole('button',{name:'Download ICS',exact:true}).click();const download=await downloaded;const fs=require('node:fs');const ics=fs.readFileSync(await download.path(),'utf8');assert(ics.includes('UID:qa-4@')&&ics.includes('BEGIN:VCALENDAR'));
   await page.getByRole('button',{name:'Close',exact:true}).click();await page.getByRole('button',{name:'Done selecting',exact:true}).click();
-  await page.getByRole('button',{name:'Compact',exact:true}).click();assert.equal(await card.getAttribute('data-card-state'),'compact');
-  await page.getByRole('button',{name:'Compact',exact:true}).click();
+  await page.getByRole('button',{name:'Compact',exact:true}).click();await page.waitForFunction(()=>compactRenderFrame===null);assert.equal(await card.getAttribute('data-card-state'),'compact');
+  await page.getByRole('button',{name:'Compact',exact:true}).click();await page.waitForFunction(()=>compactRenderFrame===null);
   await align();before=await rect();await page.clock.fastForward(60000);await page.waitForTimeout(150);after=await rect();assert(Math.abs(after.top-before.top)<=2,`minute drift ${after.top-before.top}`);
   await align();before=await rect();await page.evaluate(()=>{activeEvents.slice(0,5).forEach(ev=>nothingscoreLoadErrors.set(nothingscoreEventId(ev),Date.now()));nothingscoreQueueRender();});await page.waitForTimeout(150);after=await rect();assert(Math.abs(after.top-before.top)<=2,`Nothingscore update drift ${after.top-before.top}`);deltas.push(after.top-before.top);
+  await align();before=await rect();await page.clock.setSystemTime(new Date('2026-09-05T02:05:00Z'));await page.evaluate(()=>window.dispatchEvent(new Event('focus')));await page.waitForTimeout(150);after=await rect();assert(Math.abs(after.top-before.top)<=2,`resume drift ${after.top-before.top}`);deltas.push(after.top-before.top);
+  await page.route('**/qa-delayed-logo.svg',async route=>{await new Promise(resolve=>setTimeout(resolve,150));await route.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><rect width="800" height="400" fill="green"/></svg>'});});
+  await align();before=await rect();const delayedImage=page.locator('[data-event-id="qa-0"] img').first();assert(await delayedImage.count(),'a real identity frame must exist above the reading anchor');await delayedImage.evaluate(image=>{image.loading='eager';image.src='/qa-delayed-logo.svg';});await delayedImage.evaluate(image=>image.decode());await page.waitForTimeout(150);after=await rect();assert(Math.abs(after.top-before.top)<=2,`delayed image drift ${after.top-before.top}`);deltas.push(after.top-before.top);
   const viewing=await page.evaluate(()=>{
    const base={key:'football',date:'2026-09-05',time:'05:00',stakesScore:2};
    const host=document.createElement('section');host.id='provider-qa';document.getElementById('listView').append(host);

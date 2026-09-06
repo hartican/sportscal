@@ -127,7 +127,7 @@ function storylineFor(event, now = new Date()) {
   }
   return {
     ...base,
-    ...(manualOverride || {}),
+    ...(status === "completed" ? {} : manualOverride || {}),
     ...(MANUAL_STORYLINE_OVERRIDES[event.id] ? { lastReviewedAt: MANUAL_STORYLINE_OVERRIDES[event.id].reviewedAt } : {}),
     // Lifecycle is canonical. A stale manual override must never turn a
     // completed recap back into preview copy (or vice versa).
