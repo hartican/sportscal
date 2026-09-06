@@ -9,6 +9,7 @@ const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8765';
  try{for(const width of [390,768,1280]){
   const page=await browser.newPage({viewport:{width,height:900},serviceWorkers:'block',acceptDownloads:true});
   debugPage=page;page.setDefaultTimeout(10000);
+  if(process.env.QA_HTML_PATH)await page.route(`${base}/?acceptance=*`,route=>route.fulfill({path:process.env.QA_HTML_PATH,contentType:'text/html'}));
   await page.addInitScript(()=>localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,followedSports:['afl'],selectedSelectorEntityIds:['sport:afl-premiership']})));
   await page.clock.install({time:new Date('2026-09-05T02:00:00Z')});
   await page.goto(`${base}/?acceptance=${width}`);
@@ -23,7 +24,7 @@ const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8765';
   const header=await page.evaluate(()=>{const a=document.getElementById('calendarSyncBtn').getBoundingClientRect(),b=document.getElementById('shareAppBtn').getBoundingClientRect();return {gap:b.left-a.right,h:a.height};});
   assert(header.gap>=0&&header.gap<=12&&header.h>=44);
   const card=page.locator('[data-event-id="qa-4"]');
-  const align=async()=>{await card.evaluate(node=>window.scrollTo({top:window.scrollY+node.getBoundingClientRect().top-stickyFeedChromeHeight()-25,behavior:'instant'}));await page.waitForTimeout(100);};
+  const align=async()=>{for(let attempt=0;attempt<3;attempt++){await card.evaluate(node=>window.scrollTo({top:window.scrollY+node.getBoundingClientRect().top-stickyFeedChromeHeight()-25,behavior:'instant'}));await page.waitForTimeout(100);if(await card.evaluate(node=>Math.abs(node.getBoundingClientRect().top-stickyFeedChromeHeight()-25)<=2))return;}assert.fail('The measured card could not be positioned at the visible reading anchor');};
   const rect=()=>card.evaluate(node=>({top:node.getBoundingClientRect().top,state:node.dataset.cardState,scroll:scrollY,max:document.documentElement.scrollHeight-innerHeight}));
   const deltas=[];
   for(const expected of ['opened','compact','selected']){

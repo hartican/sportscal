@@ -11,8 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="234">
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=234" as="script">
+<meta name="app-shell-version" content="235">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=235" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6901,8 +6901,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=234">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=234">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=235">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=235">
 </head>
 <body>
 
@@ -7192,7 +7192,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=234"></script>
+<script src="assets/js/app-shell-runtime.js?v=235"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -8259,7 +8259,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=234",
+  moduleScriptUrl: "config/major-events.js?v=235",
   url: "data/major-events.v1.json",
 });
 
@@ -15249,11 +15249,13 @@ function captureViewportRenderAnchor(){
   const viewportTop = stickyFeedChromeHeight() + 12;
   const keyed = Array.from(document.querySelectorAll("[data-scroll-key]"));
   const visible = keyed.filter(element => element.getBoundingClientRect().bottom > viewportTop);
-  const anchorCard = visible.find(element => !visible.some(candidate => (
+  const leafCards = visible.filter(element => !visible.some(candidate => (
     candidate !== element
     && element.contains(candidate)
     && candidate.getBoundingClientRect().bottom > viewportTop
   )));
+  const anchorCard = leafCards.find(element => element.getBoundingClientRect().top >= viewportTop)
+    || leafCards[0];
   return {
     card: anchorCard || null,
     scrollKey: scrollKeyForElement(anchorCard),
