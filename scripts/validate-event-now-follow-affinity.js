@@ -133,18 +133,18 @@ const seededSportOrder = followFirst.sortCodesByAffinity([
 assert.deepEqual(seededSportOrder.map(code => code.id), ["sport:afl", "sport:ice-hockey"], "a current related-sport follow contributes its three-point affinity even without a historic gesture");
 
 const watchPool = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/tennis-watch-pool-2026.json"), "utf8"));
-assert.equal(watchPool.players.length, 50, "Tennis must publish exactly fifty additional watch-pool players");
-assert.equal(new Set(watchPool.players.map(player => player.id)).size, 50, "watch-pool identities must be unique");
-for (const name of ["Roger Federer", "Serena Williams", "Nick Kyrgios", "Alex de Minaur", "Bernard Tomic", "Cruz Hewitt"]){
+assert.equal(watchPool.players.length, 51, "Tennis must publish the expanded additional watch-pool players");
+assert.equal(new Set(watchPool.players.map(player => player.id)).size, 51, "watch-pool identities must be unique");
+for (const name of ["Stefanos Tsitsipas", "Rafael Nadal", "Roger Federer", "Serena Williams", "Nick Kyrgios", "Alex de Minaur", "Bernard Tomic", "Cruz Hewitt"]){
   assert(watchPool.players.some(player => player.displayName === name), `${name} must be discoverable`);
 }
 assert(watchPool.players.every(player => player.countryCode && player.genderCategory && player.sourceUrl && player.sourceCheckedAt));
-assert.equal(watchPool.collections.length, 6);
+assert.equal(watchPool.collections.length, 8);
 assert(!Number.isNaN(Date.parse(watchPool.sourceReviewAfter)), "watch-pool evidence requires a dated review boundary");
-assert(watchPool.collections.every(collection => collection.parentId === "sport:tennis" && collection.memberIds.length));
+assert(watchPool.collections.every(collection => collection.parentId === "sport:tennis" && (collection.memberIds.length || collection.includeTour)), "static and tour-expanded collections require an explicit membership basis");
 
 const tennisDirectory = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/tennis.v1.json"), "utf8"));
-assert.equal(tennisDirectory.collections.length, 6, "the lazy Tennis directory must publish six hierarchical collections");
+assert.equal(tennisDirectory.collections.length, 8, "the lazy Tennis directory must publish the original groups plus ATP/WTA watch lists");
 assert.equal(tennisDirectory.collections.find(item => item.id === "collection:tennis:mens-top-10").memberIds.length, 10);
 assert.equal(tennisDirectory.collections.find(item => item.id === "collection:tennis:womens-top-10").memberIds.length, 10);
 

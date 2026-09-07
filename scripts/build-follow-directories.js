@@ -265,11 +265,29 @@ function main(){
     tennisByName.set(nameKey, merged);
   });
 
-  const tennisCollections = (tennisWatchPool.collections || []).map(collection => ({
-    ...collection,
-    memberIds:Array.from(new Set(collection.memberIds || [])),
-    sourceGeneratedAt:tennisWatchPool.generatedAt,
-  }));
+  const tennisContext = contexts.find(context => (context.participants || []).some(participant => String(participant.sportDomainId || "").startsWith("sport:tennis:")));
+  const tennisCollections = (tennisWatchPool.collections || []).map(collection => {
+    const memberIds = new Set(collection.memberIds || []);
+    if (collection.includeTour){
+      (tennisContext?.participants || [])
+        .filter(participant => String(participant.sportDomainId || "").toLowerCase() === `sport:tennis:${String(collection.includeTour).toLowerCase()}`)
+        .forEach(participant => memberIds.add(tennisByName.get(normalizedNameKey(participant.displayName))?.id || participant.id));
+    }
+    if (collection.includeWatchPoolGender){
+      (tennisWatchPool.players || [])
+        .filter(player => player.genderCategory === collection.includeWatchPoolGender)
+        .forEach(player => memberIds.add(player.id));
+    }
+    return {
+      ...collection,
+      memberIds:Array.from(memberIds).map(memberId => {
+        if (tennisChunk.has(memberId)) return memberId;
+        const alias = String(memberId).match(/^competitor:tennis:(?:atp|wta):(.+)$/)?.[1];
+        return alias && tennisChunk.has(`athlete:tennis:${alias}`) ? `athlete:tennis:${alias}` : memberId;
+      }),
+      sourceGeneratedAt:tennisWatchPool.generatedAt,
+    };
+  });
   tennisChunk.forEach((record, recordId) => {
     const collectionIds = tennisCollections.filter(collection => collection.memberIds.includes(recordId)).map(collection => collection.id);
     if (collectionIds.length) tennisChunk.set(recordId, { ...record, collectionIds:Array.from(new Set([...(record.collectionIds || []), ...collectionIds])) });

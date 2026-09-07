@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "generatedAt": "2026-09-07T00:38:48.0840711Z",
   "sports": [
     {
       "key": "afl",
@@ -102,7 +102,7 @@
       "key": "tennis",
       "label": "Tennis",
       "status": "available",
-      "recordCount": 251,
+      "recordCount": 252,
       "jsonUrl": "data/follow-directory/tennis.v1.json",
       "scriptUrl": "data/follow-directory/tennis.v1.js"
     },

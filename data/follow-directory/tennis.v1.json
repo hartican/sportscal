@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "tennis",
   "label": "Tennis",
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "generatedAt": "2026-09-07T00:38:48.0840711Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -35,7 +35,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:womens-top-10"
+        "collection:tennis:womens-top-10",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -69,7 +70,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:mens-top-10"
+        "collection:tennis:mens-top-10",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -103,7 +105,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:mens-top-10"
+        "collection:tennis:mens-top-10",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -137,7 +140,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:womens-top-10"
+        "collection:tennis:womens-top-10",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -171,7 +175,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:mens-top-10"
+        "collection:tennis:mens-top-10",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -205,7 +210,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:womens-top-10"
+        "collection:tennis:womens-top-10",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -239,7 +245,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:womens-top-10"
+        "collection:tennis:womens-top-10",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -273,7 +280,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:mens-top-10"
+        "collection:tennis:mens-top-10",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -307,7 +315,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:womens-top-10"
+        "collection:tennis:womens-top-10",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -344,7 +353,8 @@
       "statusCategory": "achievement-watch",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:mens-top-10"
+        "collection:tennis:mens-top-10",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -378,7 +388,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:mens-top-10"
+        "collection:tennis:mens-top-10",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -412,7 +423,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:womens-top-10"
+        "collection:tennis:womens-top-10",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -449,7 +461,8 @@
       "statusCategory": "current",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:mens-top-10"
+        "collection:tennis:mens-top-10",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -483,7 +496,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:womens-top-10"
+        "collection:tennis:womens-top-10",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -517,7 +531,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:mens-top-10"
+        "collection:tennis:mens-top-10",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -551,7 +566,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:womens-top-10"
+        "collection:tennis:womens-top-10",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -585,7 +601,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:mens-top-10"
+        "collection:tennis:mens-top-10",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -619,7 +636,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:womens-top-10"
+        "collection:tennis:womens-top-10",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -653,7 +671,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:womens-top-10"
+        "collection:tennis:womens-top-10",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -687,7 +706,8 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [
-        "collection:tennis:mens-top-10"
+        "collection:tennis:mens-top-10",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
@@ -720,7 +740,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -752,7 +774,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -784,7 +808,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -816,7 +842,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -848,7 +876,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -880,7 +910,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -912,7 +944,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -944,7 +978,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -976,7 +1012,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1008,7 +1046,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1040,7 +1080,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1072,7 +1114,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1104,7 +1148,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1136,7 +1182,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1168,7 +1216,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1200,7 +1250,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1232,7 +1284,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1264,7 +1318,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1296,7 +1352,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1328,7 +1386,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1360,7 +1420,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1392,7 +1454,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1424,7 +1488,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1456,7 +1522,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1488,7 +1556,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1520,7 +1590,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1552,7 +1624,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1584,7 +1658,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1616,7 +1692,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1648,7 +1726,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1680,7 +1760,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1712,7 +1794,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1744,7 +1828,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1776,7 +1862,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1808,7 +1896,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1840,7 +1930,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1872,7 +1964,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1904,7 +1998,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1936,7 +2032,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -1968,7 +2066,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2000,7 +2100,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2032,7 +2134,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2064,7 +2168,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2096,7 +2202,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2128,7 +2236,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2160,7 +2270,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2192,7 +2304,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2224,7 +2338,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2256,7 +2372,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2288,7 +2406,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2320,7 +2440,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2352,7 +2474,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2384,7 +2508,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2416,7 +2542,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2448,7 +2576,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2480,7 +2610,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2512,7 +2644,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2544,7 +2678,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2576,7 +2712,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2608,7 +2746,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2640,7 +2780,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2672,7 +2814,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2704,7 +2848,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2736,7 +2882,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2768,7 +2916,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2800,7 +2950,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2832,7 +2984,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2864,7 +3018,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2896,7 +3052,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2928,7 +3086,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2960,7 +3120,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -2992,7 +3154,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3024,7 +3188,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3056,7 +3222,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3088,7 +3256,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3120,7 +3290,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3152,7 +3324,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3184,7 +3358,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3216,7 +3392,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3248,7 +3426,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3280,7 +3460,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3315,7 +3497,8 @@
       "watchPoolMember": true,
       "statusCategory": "emerging",
       "collectionIds": [
-        "collection:tennis:aussie-wildcards-emerging"
+        "collection:tennis:aussie-wildcards-emerging",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3351,7 +3534,8 @@
       "watchPoolMember": true,
       "statusCategory": "current",
       "collectionIds": [
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3387,7 +3571,8 @@
       "watchPoolMember": true,
       "statusCategory": "wildcard-watch",
       "collectionIds": [
-        "collection:tennis:aussie-wildcards-emerging"
+        "collection:tennis:aussie-wildcards-emerging",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3423,7 +3608,8 @@
       "watchPoolMember": true,
       "statusCategory": "emerging",
       "collectionIds": [
-        "collection:tennis:aussie-wildcards-emerging"
+        "collection:tennis:aussie-wildcards-emerging",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3459,7 +3645,8 @@
       "watchPoolMember": true,
       "statusCategory": "emerging",
       "collectionIds": [
-        "collection:tennis:aussie-wildcards-emerging"
+        "collection:tennis:aussie-wildcards-emerging",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3495,7 +3682,8 @@
       "watchPoolMember": true,
       "statusCategory": "emerging",
       "collectionIds": [
-        "collection:tennis:aussie-wildcards-emerging"
+        "collection:tennis:aussie-wildcards-emerging",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3531,7 +3719,8 @@
       "watchPoolMember": true,
       "statusCategory": "current",
       "collectionIds": [
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3564,7 +3753,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3600,7 +3791,8 @@
       "statusCategory": "return-watch",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3636,7 +3828,8 @@
       "watchPoolMember": true,
       "statusCategory": "current",
       "collectionIds": [
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3669,7 +3862,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3704,7 +3899,8 @@
       "watchPoolMember": true,
       "statusCategory": "emerging",
       "collectionIds": [
-        "collection:tennis:aussie-wildcards-emerging"
+        "collection:tennis:aussie-wildcards-emerging",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3740,7 +3936,8 @@
       "watchPoolMember": true,
       "statusCategory": "current",
       "collectionIds": [
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3773,7 +3970,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3808,7 +4007,8 @@
       "watchPoolMember": true,
       "statusCategory": "wildcard-watch",
       "collectionIds": [
-        "collection:tennis:aussie-wildcards-emerging"
+        "collection:tennis:aussie-wildcards-emerging",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3841,7 +4041,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3877,7 +4079,8 @@
       "statusCategory": "return-watch",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3914,7 +4117,8 @@
       "statusCategory": "return-watch",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -3947,7 +4151,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -3979,7 +4185,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4014,7 +4222,8 @@
       "watchPoolMember": true,
       "statusCategory": "emerging",
       "collectionIds": [
-        "collection:tennis:aussie-wildcards-emerging"
+        "collection:tennis:aussie-wildcards-emerging",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -4047,7 +4256,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4079,7 +4290,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4111,7 +4324,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4146,7 +4361,8 @@
       "watchPoolMember": true,
       "statusCategory": "current",
       "collectionIds": [
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -4179,7 +4395,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4211,7 +4429,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4246,7 +4466,8 @@
       "watchPoolMember": true,
       "statusCategory": "emerging",
       "collectionIds": [
-        "collection:tennis:aussie-wildcards-emerging"
+        "collection:tennis:aussie-wildcards-emerging",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -4279,7 +4500,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4311,7 +4534,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4343,7 +4568,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4379,7 +4606,8 @@
       "statusCategory": "return-watch",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -4412,7 +4640,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4444,7 +4674,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4476,7 +4708,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4508,7 +4742,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4544,7 +4780,8 @@
       "statusCategory": "return-watch",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -4577,7 +4814,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4609,7 +4848,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4641,7 +4882,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4673,7 +4916,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4705,7 +4950,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4737,7 +4984,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4769,7 +5018,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4801,7 +5052,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4833,7 +5086,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4865,7 +5120,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4897,7 +5154,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4929,7 +5188,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4961,7 +5222,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -4993,7 +5256,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5025,7 +5290,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5057,7 +5324,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5089,7 +5358,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5125,7 +5396,8 @@
       "statusCategory": "return-watch",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -5158,7 +5430,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5190,7 +5464,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5222,7 +5498,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5254,7 +5532,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5290,7 +5570,8 @@
       "statusCategory": "return-watch",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -5323,7 +5604,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5355,7 +5638,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5387,7 +5672,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5419,7 +5706,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5451,7 +5740,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5483,7 +5774,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5515,7 +5808,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5547,7 +5842,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5579,7 +5876,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5611,7 +5910,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5643,7 +5944,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5675,7 +5978,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5707,7 +6012,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5739,7 +6046,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5771,7 +6080,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5803,7 +6114,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5835,7 +6148,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5867,7 +6182,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5899,7 +6216,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5931,7 +6250,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5963,7 +6284,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -5995,7 +6318,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6027,7 +6352,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6059,7 +6386,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6091,7 +6420,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6123,7 +6454,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6155,7 +6488,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6187,7 +6522,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6219,7 +6556,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6251,7 +6590,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6283,7 +6624,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6315,7 +6658,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6347,7 +6692,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6379,7 +6726,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6411,7 +6760,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6443,7 +6794,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6475,7 +6828,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6507,7 +6862,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6539,7 +6896,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6571,7 +6930,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6603,7 +6964,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6635,7 +6998,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6667,7 +7032,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6699,7 +7066,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6731,7 +7100,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6763,7 +7134,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6795,7 +7168,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6827,7 +7202,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6859,7 +7236,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6891,7 +7270,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6923,7 +7304,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6955,7 +7338,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -6987,7 +7372,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -7019,7 +7406,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -7051,7 +7440,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -7083,7 +7474,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -7115,7 +7508,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -7147,7 +7542,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -7180,7 +7577,8 @@
       "watchPoolMember": true,
       "statusCategory": "achievement-watch",
       "collectionIds": [
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7215,7 +7613,8 @@
       "statusCategory": "retired-exhibition",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7250,7 +7649,8 @@
       "statusCategory": "retired-exhibition",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7285,7 +7685,8 @@
       "statusCategory": "retired-exhibition",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7321,7 +7722,8 @@
       "collectionIds": [
         "collection:tennis:all-time-greats",
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7354,7 +7756,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:wta-womens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -7387,7 +7791,8 @@
       "watchPoolMember": true,
       "statusCategory": "achievement-watch",
       "collectionIds": [
-        "collection:tennis:all-time-greats"
+        "collection:tennis:all-time-greats",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7421,7 +7826,8 @@
       "watchPoolMember": true,
       "statusCategory": "achievement-watch",
       "collectionIds": [
-        "collection:tennis:all-time-greats"
+        "collection:tennis:all-time-greats",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7455,7 +7861,8 @@
       "watchPoolMember": true,
       "statusCategory": "achievement-watch",
       "collectionIds": [
-        "collection:tennis:all-time-greats"
+        "collection:tennis:all-time-greats",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7490,7 +7897,8 @@
       "statusCategory": "return-watch",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7524,7 +7932,8 @@
       "watchPoolMember": true,
       "statusCategory": "wildcard-watch",
       "collectionIds": [
-        "collection:tennis:aussie-wildcards-emerging"
+        "collection:tennis:aussie-wildcards-emerging",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7559,7 +7968,8 @@
       "statusCategory": "achievement-watch",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7592,7 +8002,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -7625,7 +8037,8 @@
       "watchPoolMember": true,
       "statusCategory": "achievement-watch",
       "collectionIds": [
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7660,7 +8073,8 @@
       "statusCategory": "retired-exhibition",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7695,7 +8109,8 @@
       "statusCategory": "retired-exhibition",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7731,7 +8146,8 @@
       "collectionIds": [
         "collection:tennis:all-time-greats",
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7766,7 +8182,8 @@
       "statusCategory": "achievement-watch",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7801,7 +8218,8 @@
       "statusCategory": "retired-exhibition",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7835,7 +8253,8 @@
       "watchPoolMember": true,
       "statusCategory": "achievement-watch",
       "collectionIds": [
-        "collection:tennis:all-time-greats"
+        "collection:tennis:all-time-greats",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7870,7 +8289,8 @@
       "statusCategory": "achievement-watch",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7904,7 +8324,8 @@
       "watchPoolMember": true,
       "statusCategory": "achievement-watch",
       "collectionIds": [
-        "collection:tennis:all-time-greats"
+        "collection:tennis:all-time-greats",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7939,7 +8360,8 @@
       "statusCategory": "retired-exhibition",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -7974,7 +8396,8 @@
       "statusCategory": "achievement-watch",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:aussie-heroes"
+        "collection:tennis:aussie-heroes",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -8009,7 +8432,8 @@
       "statusCategory": "retired-exhibition",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:atp-mens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -8042,7 +8466,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
@@ -8076,7 +8502,8 @@
       "statusCategory": "retired-exhibition",
       "collectionIds": [
         "collection:tennis:aussie-heroes",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -8111,7 +8538,8 @@
       "statusCategory": "retired-exhibition",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -8144,9 +8572,46 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:tennis:stefanos-tsitsipas",
+      "displayName": "Stefanos Tsitsipas",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "GR",
+      "countryBasis": "official-player-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": null,
+      "position": null,
+      "identityId": "athlete:tennis:stefanos-tsitsipas",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.atptour.com/en/players/stefanos-tsitsipas/te51/overview"
+      ],
+      "watchPoolMember": true,
+      "statusCategory": "current-watch",
+      "collectionIds": [
+        "collection:tennis:all-time-greats",
+        "collection:tennis:atp-mens-watch"
+      ],
+      "sourceCheckedAt": "2026-09-07T00:00:00.000Z",
+      "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
     },
     {
       "id": "athlete:tennis:steffi-graf",
@@ -8177,7 +8642,8 @@
       "watchPoolMember": true,
       "statusCategory": "achievement-watch",
       "collectionIds": [
-        "collection:tennis:all-time-greats"
+        "collection:tennis:all-time-greats",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -8212,7 +8678,8 @@
       "statusCategory": "return-watch",
       "collectionIds": [
         "collection:tennis:all-time-greats",
-        "collection:tennis:return-exhibition-watch"
+        "collection:tennis:return-exhibition-watch",
+        "collection:tennis:wta-womens-watch"
       ],
       "sourceCheckedAt": "2026-08-26T02:00:00.000Z",
       "sourceReviewAfter": "2026-11-26T00:00:00.000Z"
@@ -8245,7 +8712,9 @@
       "sourceRefs": [],
       "watchPoolMember": false,
       "statusCategory": null,
-      "collectionIds": [],
+      "collectionIds": [
+        "collection:tennis:atp-mens-watch"
+      ],
       "sourceCheckedAt": null,
       "sourceReviewAfter": null
     }
@@ -8261,6 +8730,7 @@
         "athlete:tennis:serena-williams",
         "athlete:tennis:venus-williams",
         "athlete:tennis:rafael-nadal",
+        "athlete:tennis:stefanos-tsitsipas",
         "athlete:tennis:andy-murray",
         "athlete:tennis:ash-barty",
         "athlete:tennis:lleyton-hewitt",
@@ -8279,7 +8749,7 @@
         "athlete:tennis:pat-rafter",
         "athlete:tennis:margaret-court"
       ],
-      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+      "sourceGeneratedAt": "2026-09-07T00:00:00.000Z"
     },
     {
       "id": "collection:tennis:aussie-heroes",
@@ -8297,7 +8767,7 @@
         "athlete:tennis:thanasi-kokkinakis",
         "athlete:tennis:bernard-tomic"
       ],
-      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+      "sourceGeneratedAt": "2026-09-07T00:00:00.000Z"
     },
     {
       "id": "collection:tennis:aussie-wildcards-emerging",
@@ -8316,7 +8786,7 @@
         "athlete:tennis:kimberly-birrell",
         "athlete:tennis:priscilla-hon"
       ],
-      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+      "sourceGeneratedAt": "2026-09-07T00:00:00.000Z"
     },
     {
       "id": "collection:tennis:return-exhibition-watch",
@@ -8338,7 +8808,7 @@
         "athlete:tennis:thanasi-kokkinakis",
         "athlete:tennis:bernard-tomic"
       ],
-      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+      "sourceGeneratedAt": "2026-09-07T00:00:00.000Z"
     },
     {
       "id": "collection:tennis:mens-top-10",
@@ -8357,7 +8827,7 @@
         "competitor:tennis:atp:ben-shelton",
         "competitor:tennis:atp:taylor-fritz"
       ],
-      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+      "sourceGeneratedAt": "2026-09-07T00:00:00.000Z"
     },
     {
       "id": "collection:tennis:womens-top-10",
@@ -8376,7 +8846,281 @@
         "competitor:tennis:wta:elina-svitolina",
         "competitor:tennis:wta:amanda-anisimova"
       ],
-      "sourceGeneratedAt": "2026-08-26T02:00:00.000Z"
+      "sourceGeneratedAt": "2026-09-07T00:00:00.000Z"
+    },
+    {
+      "id": "collection:tennis:atp-mens-watch",
+      "parentId": "sport:tennis",
+      "label": "ATP players & men's watch list",
+      "sortOrder": 70,
+      "includeTour": "ATP",
+      "includeWatchPoolGender": "male",
+      "memberIds": [
+        "competitor:tennis:atp:jannik-sinner",
+        "competitor:tennis:atp:alexander-zverev",
+        "competitor:tennis:atp:carlos-alcaraz",
+        "competitor:tennis:atp:felix-auger-aliassime",
+        "athlete:tennis:novak-djokovic",
+        "competitor:tennis:atp:flavio-cobolli",
+        "athlete:tennis:alex-de-minaur",
+        "competitor:tennis:atp:daniil-medvedev",
+        "competitor:tennis:atp:ben-shelton",
+        "competitor:tennis:atp:taylor-fritz",
+        "competitor:tennis:atp:arthur-fils",
+        "competitor:tennis:atp:frances-tiafoe",
+        "competitor:tennis:atp:rafael-jodar",
+        "competitor:tennis:atp:lorenzo-musetti",
+        "competitor:tennis:atp:learner-tien",
+        "competitor:tennis:atp:alexander-bublik",
+        "competitor:tennis:atp:brandon-nakashima",
+        "competitor:tennis:atp:jakub-mensik",
+        "competitor:tennis:atp:jiri-lehecka",
+        "competitor:tennis:atp:casper-ruud",
+        "competitor:tennis:atp:tommy-paul",
+        "competitor:tennis:atp:luciano-darderi",
+        "competitor:tennis:atp:valentin-vacherot",
+        "competitor:tennis:atp:andrey-rublev",
+        "competitor:tennis:atp:francisco-cerundolo",
+        "competitor:tennis:atp:joao-fonseca",
+        "competitor:tennis:atp:alejandro-davidovich-fokina",
+        "competitor:tennis:atp:alejandro-tabilo",
+        "competitor:tennis:atp:arthur-rinderknech",
+        "competitor:tennis:atp:ignacio-buse",
+        "competitor:tennis:atp:ugo-humbert",
+        "competitor:tennis:atp:tomas-martin-etcheverry",
+        "competitor:tennis:atp:arthur-fery",
+        "competitor:tennis:atp:alexander-blockx",
+        "competitor:tennis:atp:cameron-norrie",
+        "competitor:tennis:atp:matteo-arnaldi",
+        "competitor:tennis:atp:zizou-bergs",
+        "competitor:tennis:atp:raphael-collignon",
+        "competitor:tennis:atp:daniel-merida",
+        "competitor:tennis:atp:luca-van-assche",
+        "competitor:tennis:atp:nuno-borges",
+        "competitor:tennis:atp:thiago-agustin-tirante",
+        "competitor:tennis:atp:matteo-berrettini",
+        "competitor:tennis:atp:jan-lennard-struff",
+        "competitor:tennis:atp:juan-manuel-cerundolo",
+        "competitor:tennis:atp:alex-michelsen",
+        "competitor:tennis:atp:hubert-hurkacz",
+        "competitor:tennis:atp:denis-shapovalov",
+        "competitor:tennis:atp:mariano-navone",
+        "competitor:tennis:atp:karen-khachanov",
+        "athlete:tennis:james-duckworth",
+        "athlete:tennis:rinky-hijikata",
+        "athlete:tennis:adam-walton",
+        "athlete:tennis:aleksandar-vukic",
+        "athlete:tennis:christopher-oconnell",
+        "competitor:tennis:atp:dane-sweeny",
+        "athlete:tennis:alexei-popyrin",
+        "competitor:tennis:atp:alex-bolt",
+        "athlete:tennis:bernard-tomic",
+        "competitor:tennis:atp:tristan-schoolkate",
+        "competitor:tennis:atp:james-mccabe",
+        "competitor:tennis:atp:matthew-dellavedova",
+        "athlete:tennis:jordan-thompson",
+        "competitor:tennis:atp:edward-winter",
+        "competitor:tennis:atp:philip-sekulic",
+        "athlete:tennis:cruz-hewitt",
+        "competitor:tennis:atp:jake-delaney",
+        "competitor:tennis:atp:marc-polmans",
+        "competitor:tennis:atp:omar-jasika",
+        "athlete:tennis:thanasi-kokkinakis",
+        "competitor:tennis:atp:moerani-bouzige",
+        "athlete:tennis:jason-kubler",
+        "competitor:tennis:atp:blake-ellis",
+        "competitor:tennis:atp:enzo-aguiard",
+        "competitor:tennis:atp:tai-sach",
+        "competitor:tennis:atp:li-tu",
+        "competitor:tennis:atp:pavle-marinkov",
+        "competitor:tennis:atp:jacob-bradshaw",
+        "competitor:tennis:atp:chase-ferguson",
+        "competitor:tennis:atp:thomas-fancutt",
+        "competitor:tennis:atp:joshua-charlton",
+        "competitor:tennis:atp:matt-hulme",
+        "competitor:tennis:atp:scott-jones",
+        "athlete:tennis:max-purcell",
+        "competitor:tennis:atp:sam-ryan-ziegann",
+        "athlete:tennis:nick-kyrgios",
+        "competitor:tennis:atp:benjamin-o-connell",
+        "competitor:tennis:atp:duje-markovina",
+        "competitor:tennis:atp:stefan-vujic",
+        "competitor:tennis:atp:lachlan-james-mcfadzean",
+        "competitor:tennis:atp:kody-pearson",
+        "competitor:tennis:atp:mustafa-ege-sik",
+        "competitor:tennis:atp:chen-dong",
+        "competitor:tennis:atp:jesse-delaney",
+        "competitor:tennis:atp:zack-viiala",
+        "competitor:tennis:atp:oliver-anderson",
+        "competitor:tennis:atp:ethan-cook",
+        "competitor:tennis:atp:ashton-mcleod",
+        "competitor:tennis:atp:jeremy-zhang",
+        "competitor:tennis:atp:ymerali-ibraimi",
+        "competitor:tennis:atp:ty-host",
+        "competitor:tennis:atp:daniel-jovanovski",
+        "competitor:tennis:atp:stefan-storch",
+        "competitor:tennis:atp:arjun-mehrotra",
+        "competitor:tennis:atp:hayden-jones",
+        "competitor:tennis:atp:jake-dembo",
+        "competitor:tennis:atp:adrian-arcon",
+        "competitor:tennis:atp:jeremy-beale",
+        "competitor:tennis:atp:zane-stevens",
+        "competitor:tennis:atp:harrison-satara",
+        "competitor:tennis:atp:noah-brownrigg",
+        "competitor:tennis:atp:jack-bruce-smith",
+        "competitor:tennis:atp:lawrence-bataljin",
+        "competitor:tennis:atp:charlie-pade",
+        "competitor:tennis:atp:derek-pham",
+        "competitor:tennis:atp:taiki-takizawa",
+        "competitor:tennis:atp:nikita-volonski",
+        "competitor:tennis:atp:lachlan-vickery",
+        "competitor:tennis:atp:zac-hamill",
+        "competitor:tennis:atp:thomas-nicholas-gadecki",
+        "competitor:tennis:atp:zaharije-zak-talic",
+        "competitor:tennis:atp:zachary-adam-gedge",
+        "competitor:tennis:atp:zachary-svajda",
+        "competitor:tennis:atp:roman-safiullin",
+        "competitor:tennis:atp:shintaro-mochizuki",
+        "competitor:tennis:atp:grigor-dimitrov",
+        "athlete:tennis:roger-federer",
+        "athlete:tennis:rafael-nadal",
+        "athlete:tennis:stefanos-tsitsipas",
+        "athlete:tennis:andy-murray",
+        "athlete:tennis:lleyton-hewitt",
+        "athlete:tennis:andre-agassi",
+        "athlete:tennis:andy-roddick",
+        "athlete:tennis:john-mcenroe",
+        "athlete:tennis:pete-sampras",
+        "athlete:tennis:bjorn-borg",
+        "athlete:tennis:rod-laver",
+        "athlete:tennis:pat-rafter",
+        "athlete:tennis:mark-philippoussis",
+        "athlete:tennis:john-millman"
+      ],
+      "sourceGeneratedAt": "2026-09-07T00:00:00.000Z"
+    },
+    {
+      "id": "collection:tennis:wta-womens-watch",
+      "parentId": "sport:tennis",
+      "label": "WTA players & women's watch list",
+      "sortOrder": 80,
+      "includeTour": "WTA",
+      "includeWatchPoolGender": "female",
+      "memberIds": [
+        "competitor:tennis:wta:aryna-sabalenka",
+        "competitor:tennis:wta:elena-rybakina",
+        "competitor:tennis:wta:jessica-pegula",
+        "competitor:tennis:wta:coco-gauff",
+        "competitor:tennis:wta:mirra-andreeva",
+        "competitor:tennis:wta:linda-noskova",
+        "competitor:tennis:wta:karolina-muchova",
+        "competitor:tennis:wta:iga-swiatek",
+        "competitor:tennis:wta:elina-svitolina",
+        "competitor:tennis:wta:amanda-anisimova",
+        "competitor:tennis:wta:marta-kostyuk",
+        "competitor:tennis:wta:belinda-bencic",
+        "competitor:tennis:wta:naomi-osaka",
+        "competitor:tennis:wta:iva-jovic",
+        "competitor:tennis:wta:victoria-mboko",
+        "competitor:tennis:wta:diana-shnaider",
+        "competitor:tennis:wta:sorana-cirstea",
+        "competitor:tennis:wta:alexandra-eala",
+        "competitor:tennis:wta:ekaterina-alexandrova",
+        "competitor:tennis:wta:elise-mertens",
+        "competitor:tennis:wta:jasmine-paolini",
+        "competitor:tennis:wta:maja-chwalinska",
+        "competitor:tennis:wta:anna-kalinskaya",
+        "competitor:tennis:wta:madison-keys",
+        "competitor:tennis:wta:anastasia-potapova",
+        "competitor:tennis:wta:marie-bouzkova",
+        "competitor:tennis:wta:emma-navarro",
+        "competitor:tennis:wta:ann-li",
+        "competitor:tennis:wta:barbora-krejcikova",
+        "competitor:tennis:wta:sara-bejlek",
+        "competitor:tennis:wta:diane-parry",
+        "competitor:tennis:wta:jelena-ostapenko",
+        "competitor:tennis:wta:leylah-fernandez",
+        "competitor:tennis:wta:nikola-bartunkova",
+        "competitor:tennis:wta:maria-sakkari",
+        "competitor:tennis:wta:janice-tjen",
+        "competitor:tennis:wta:hailey-baptiste",
+        "competitor:tennis:wta:clara-tauson",
+        "competitor:tennis:wta:donna-vekic",
+        "competitor:tennis:wta:cristina-bucsa",
+        "competitor:tennis:wta:magdalena-frech",
+        "competitor:tennis:wta:katerina-siniakova",
+        "competitor:tennis:wta:xinyu-wang",
+        "competitor:tennis:wta:jaqueline-cristian",
+        "competitor:tennis:wta:daria-snigur",
+        "competitor:tennis:wta:oleksandra-oliynykova",
+        "competitor:tennis:wta:liudmila-samsonova",
+        "competitor:tennis:wta:tamara-korpatsch",
+        "competitor:tennis:wta:lilli-tagger",
+        "competitor:tennis:wta:tereza-valentova",
+        "competitor:tennis:wta:daria-kasatkina",
+        "athlete:tennis:talia-gibson",
+        "athlete:tennis:kimberly-birrell",
+        "athlete:tennis:maya-joint",
+        "competitor:tennis:wta:taylah-preston",
+        "athlete:tennis:ajla-tomljanovic",
+        "athlete:tennis:emerson-jones",
+        "competitor:tennis:wta:maddison-inglis",
+        "athlete:tennis:priscilla-hon",
+        "athlete:tennis:storm-hunter",
+        "athlete:tennis:olivia-gadecki",
+        "competitor:tennis:wta:elena-micic",
+        "competitor:tennis:wta:lizette-cabrera",
+        "competitor:tennis:wta:tina-smith",
+        "competitor:tennis:wta:alana-subasic",
+        "competitor:tennis:wta:arina-rodionova",
+        "competitor:tennis:wta:tahlia-kokkinis",
+        "competitor:tennis:wta:sarah-rokusek",
+        "competitor:tennis:wta:melisa-ercan",
+        "competitor:tennis:wta:belle-thompson",
+        "competitor:tennis:wta:gabriella-da-silva-fick",
+        "competitor:tennis:wta:stefani-webb",
+        "competitor:tennis:wta:laquisa-khan",
+        "competitor:tennis:wta:amy-stevens",
+        "competitor:tennis:wta:jizelle-sibai",
+        "competitor:tennis:wta:astra-sharma",
+        "competitor:tennis:wta:ashleigh-simes",
+        "competitor:tennis:wta:cara-korhonen",
+        "competitor:tennis:wta:alicia-smith",
+        "competitor:tennis:wta:alexandra-osborne",
+        "competitor:tennis:wta:eva-lopez",
+        "competitor:tennis:wta:ava-beck",
+        "competitor:tennis:wta:ava-monet-sycamore",
+        "competitor:tennis:wta:tori-russell",
+        "competitor:tennis:wta:renee-alame",
+        "competitor:tennis:wta:sarah-mildren",
+        "competitor:tennis:wta:naomi-mckenzie",
+        "competitor:tennis:wta:rianna-alame",
+        "competitor:tennis:wta:lily-taylor",
+        "competitor:tennis:wta:elizabeth-ivanov",
+        "competitor:tennis:wta:tenika-mcgiffin",
+        "competitor:tennis:wta:audrey-aulia",
+        "competitor:tennis:wta:angela-cui",
+        "competitor:tennis:wta:gurmanat-kaur-sandhu",
+        "competitor:tennis:wta:caitlin-baker",
+        "competitor:tennis:wta:larisa-arnautovic",
+        "competitor:tennis:wta:petra-hule",
+        "competitor:tennis:wta:ashlyn-krueger",
+        "athlete:tennis:serena-williams",
+        "athlete:tennis:venus-williams",
+        "athlete:tennis:ash-barty",
+        "athlete:tennis:steffi-graf",
+        "athlete:tennis:martina-navratilova",
+        "athlete:tennis:billie-jean-king",
+        "athlete:tennis:chris-evert",
+        "athlete:tennis:evonne-goolagong-cawley",
+        "athlete:tennis:margaret-court",
+        "athlete:tennis:samantha-stosur",
+        "athlete:tennis:alicia-molik",
+        "athlete:tennis:jelena-dokic",
+        "athlete:tennis:daria-saville",
+        "athlete:tennis:destanee-aiava"
+      ],
+      "sourceGeneratedAt": "2026-09-07T00:00:00.000Z"
     }
   ]
 }

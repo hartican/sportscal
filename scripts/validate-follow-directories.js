@@ -51,12 +51,29 @@ const lucas = football.records.find(record => record.displayName === "Lucas Herr
 assert.ok(lucas, "Lucas Herrington must remain in the current Football directory");
 assert.ok(Number.isFinite(runtime.searchMatchScore(lucas, "Harrington")), "one-character Football search variants must match");
 const tennis = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/tennis.v1.json"), "utf8"));
-assert.equal(tennis.records.filter(record => record.watchPoolMember).length, 50, "Tennis must expose exactly fifty watch-pool players");
-assert.equal(tennis.collections.length, 6, "Tennis must expose the six hierarchical collections");
+assert.equal(tennis.records.filter(record => record.watchPoolMember).length, 51, "Tennis must expose the expanded watch-pool players");
+assert.equal(tennis.collections.length, 8, "Tennis must expose the original groups plus ATP/WTA watch lists");
 assert.equal(new Set(tennis.records.map(record => record.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())).size, tennis.records.length, "Tennis player rows must be deduplicated by name");
 for (const collectionId of ["collection:tennis:mens-top-10", "collection:tennis:womens-top-10"]){
   assert.equal(tennis.collections.find(collection => collection.id === collectionId)?.memberIds.length, 10, `${collectionId}: current top ten must contain ten players`);
 }
+const tennisRecordsById = new Map(tennis.records.map(record => [record.id, record]));
+const mensWatch = tennis.collections.find(collection => collection.id === "collection:tennis:atp-mens-watch");
+const womensWatch = tennis.collections.find(collection => collection.id === "collection:tennis:wta-womens-watch");
+assert(mensWatch && womensWatch, "Tennis must publish separate ATP/mens and WTA/womens watch lists");
+assert(mensWatch.memberIds.every(id => tennisRecordsById.has(id)), "every ATP/mens watch-list member must resolve to a rendered player");
+assert(womensWatch.memberIds.every(id => tennisRecordsById.has(id)), "every WTA/womens watch-list member must resolve to a rendered player");
+assert(tennis.records.filter(record => record.genderCategory === "male" && Number.isFinite(record.ranking)).every(record => mensWatch.memberIds.includes(record.id)), "the ATP/mens watch list must retain every ranked man already in the directory");
+assert(tennis.records.filter(record => record.genderCategory === "female" && Number.isFinite(record.ranking)).every(record => womensWatch.memberIds.includes(record.id)), "the WTA/womens watch list must retain every ranked woman already in the directory");
+for (const name of ["Stefanos Tsitsipas", "Rafael Nadal", "Roger Federer"]){
+  const record = tennis.records.find(item => item.displayName === name);
+  assert(record && mensWatch.memberIds.includes(record.id), `${name} must remain in the ATP/mens watch list without requiring a rank`);
+}
+const serena = tennis.records.find(record => record.displayName === "Serena Williams");
+assert(serena && womensWatch.memberIds.includes(serena.id), "Serena Williams must remain in the WTA/womens watch list without requiring a rank");
+assert(["Rafael Nadal", "Roger Federer", "Serena Williams"].every(name => tennis.records.find(record => record.displayName === name)?.ranking === null), "watch-list membership must not require an ATP or WTA ranking");
+const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+assert(html.includes('buildDirectorySelect("List", filters.collectionId') && html.includes("selectedCollectionMemberIds.has(record.id)"), "the Tennis directory must expose collection membership as a working List filter");
 for (const sportKey of ["afl", "aflw", "f1"]){
   const chunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${sportKey}.v1.json`), "utf8"));
   const athletes = chunk.records.filter(record => record.entityType === "athlete");

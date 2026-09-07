@@ -71,6 +71,15 @@ assert.deepEqual(
 );
 const mutedDjokovicState = collectionState(["collection:tennis:mens-top-10"], follow("athlete:tennis:novak-djokovic", "mute"));
 assert(!expandedFollowEntityIds(mutedDjokovicState).has("athlete:tennis:novak-djokovic"), "an explicit Djokovic mute must override the inherited top-10 follow");
+const mensWatchState = collectionState(["collection:tennis:atp-mens-watch"]);
+const mensWatchIds = expandedFollowEntityIds(mensWatchState);
+assert(mensWatchIds.has("athlete:tennis:jannik-sinner"), "the ATP/mens watch list must inherit the existing ranked ATP directory");
+for (const id of ["athlete:tennis:stefanos-tsitsipas", "athlete:tennis:rafael-nadal", "athlete:tennis:roger-federer"]){
+  assert(mensWatchIds.has(id), `${id} must remain watched even without appearing in the current ATP ranking export`);
+}
+const womensWatchIds = expandedFollowEntityIds(collectionState(["collection:tennis:wta-womens-watch"]));
+assert(womensWatchIds.has("athlete:tennis:aryna-sabalenka"), "the WTA/womens watch list must inherit the existing ranked WTA directory");
+assert(womensWatchIds.has("athlete:tennis:serena-williams"), "Serena Williams must remain watched without a current WTA ranking");
 
 const nflPlayerState = state(follow("athlete:nfl:5084939"));
 nflPlayerState.preferences.preferenceGraph.domainPreferences = [{

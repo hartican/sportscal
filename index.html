@@ -11,8 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="240">
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=240" as="script">
+<meta name="app-shell-version" content="241">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=241" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6903,8 +6903,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=240">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=240">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=241">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=241">
 </head>
 <body>
 
@@ -7194,7 +7194,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=240"></script>
+<script src="assets/js/app-shell-runtime.js?v=241"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -8294,7 +8294,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=240",
+  moduleScriptUrl: "config/major-events.js?v=241",
   url: "data/major-events.v1.json",
 });
 
@@ -18525,6 +18525,7 @@ function directoryFilters(sportKey = readStandingsDirectorySession().directorySp
     prominenceTier: ["marquee", "established", "emerging"].includes(raw.prominenceTier) ? raw.prominenceTier : "",
     sortMode: ["table", "value", "alpha"].includes(raw.sortMode) ? raw.sortMode : "table",
     genderCategory: ["male", "female", "mixed", "unknown"].includes(raw.genderCategory) ? raw.genderCategory : "",
+    collectionId: typeof raw.collectionId === "string" ? raw.collectionId.slice(0, 120) : "",
     entityType: raw.entityType === "team" ? "team" : "athlete",
     query: typeof raw.query === "string" ? raw.query.slice(0, 80) : "",
     expandedTeamIds,
@@ -19241,8 +19242,11 @@ function renderLegacyParticipantDirectory(container, sportKey){
     rosterCountries.set(record.currentTeamId, countries);
   });
   const motorsportDirectory = ["motorsport", "f1", "wrc"].includes(sportKey);
+  const collectionsById = new Map((chunk.collections || []).map(collection => [collection.id, collection]));
+  const selectedCollectionMemberIds = new Set(collectionsById.get(filters.collectionId)?.memberIds || []);
   const records = allRecords
     .filter(record => !motorsportDirectory || record.entityType === filters.entityType)
+    .filter(record => !filters.collectionId || selectedCollectionMemberIds.has(record.id))
     .filter(record => !filters.birthCountryCode || record.countryCode === filters.birthCountryCode)
     .filter(record => !filters.genderCategory || record.genderCategory === filters.genderCategory)
     .filter(record => Number.isFinite(footballDirectoryApi.searchMatchScore(record, filters.query)))
@@ -19302,6 +19306,14 @@ function renderLegacyParticipantDirectory(container, sportKey){
   });
   field.appendChild(search);
   toolbar.appendChild(field);
+  if (sportKey === "tennis" && collectionsById.size){
+    const listOptions = [["", "All players"], ...Array.from(collectionsById.values())
+      .sort((first, second) => Number(first.sortOrder || 0) - Number(second.sortOrder || 0))
+      .map(collection => [collection.id, collection.label])];
+    toolbar.appendChild(buildDirectorySelect("List", filters.collectionId, listOptions, collectionId => {
+      updateDirectoryFilters(sportKey, { collectionId }); renderStandingsContext();
+    }));
+  }
   const countries = Array.from(new Set(allRecords.map(record => record.countryCode).filter(Boolean)))
     .sort((first, second) => COUNTRY_FLAGS.countryName(first).localeCompare(COUNTRY_FLAGS.countryName(second)));
   if (countries.length){
@@ -19377,9 +19389,9 @@ function renderLegacyParticipantDirectory(container, sportKey){
       if (flag) name.insertAdjacentHTML("afterbegin", `${flag} `);
     }
     const detail = document.createElement("span");
-    const rankLabel = record.rank !== null ? ` · Rank ${record.rank}` : "";
+    const rankLabel = record.rank !== null ? ` · Rank ${record.rank}` : sportKey === "tennis" && record.watchPoolMember ? " · Watch list · Unranked" : "";
     const competitionNumber = Number(record.competitionNumber || 0);
-    const numberLabel = athlete && !isWrcRecord ? ` · ${competitionNumber > 0 ? `No. ${competitionNumber}` : "No. TBC"}` : "";
+    const numberLabel = athlete && !isWrcRecord && record.competitionNumberKind ? ` · ${competitionNumber > 0 ? `No. ${competitionNumber}` : "No. TBC"}` : "";
     const wrcRole = ({ driver:"Driver", "co-driver":"Co-driver", manufacturer:"Manufacturer" })[record.position];
     detail.textContent = `${isWrcRecord ? wrcRole || (athlete ? "Competitor" : "Manufacturer") : motorsportDirectory ? (athlete ? "Driver" : "Constructor") : record.sectionLabel || FOLLOW_FIRST?.directoryEntityLabel?.(record) || "Selection"}${numberLabel}${rankLabel}`;
     copy.append(name, detail);
@@ -19408,7 +19420,9 @@ function renderLegacyParticipantDirectory(container, sportKey){
     empty.className = "football-directory-empty";
     empty.textContent = chunk.status === "unavailable"
       ? `No current source-backed ${SPORT_META[sportKey]?.label || sportKey} directory is published yet.`
-      : `No current ${SPORT_META[sportKey]?.label || sportKey} teams or players match these filters.`;
+      : sportKey === "tennis"
+        ? "No Tennis players match these filters."
+        : `No current ${SPORT_META[sportKey]?.label || sportKey} teams or players match these filters.`;
     list.appendChild(empty);
   }
   directory.appendChild(list);
@@ -24750,7 +24764,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=240");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=241");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Crowd rankings could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
