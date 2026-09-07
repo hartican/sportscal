@@ -303,8 +303,11 @@ function codeStandings(code){
   }));
 }
 
-function build(){
-  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
+  const previous=codeSlugs && fs.existsSync(path.join(outputDir,'manifest.json'))
+    ? JSON.parse(fs.readFileSync(path.join(outputDir,'manifest.json'),'utf8')) : null;
+  const retained=new Map((previous?.codes || []).map(code=>[code.slug,code]));
+  fs.mkdirSync(outputDir, { recursive: true });
   const championsLeagueCode = taxonomy.competitions.find(competition => competition.id === "competition:uefa-champions-league");
   if (!championsLeagueCode) throw new Error("The canonical Champions League Code is missing from the taxonomy.");
   const aflwCompetition = taxonomy.competitions.find(competition => competition.id === "competition:aflw-2026");
@@ -345,6 +348,8 @@ function build(){
     ...requestedCompetitionCodes,
   ];
   const codes = codeDefinitions.map(code => {
+    if(codeSlugs && !codeSlugs.includes(code.slug) && retained.has(code.slug)
+      && fs.existsSync(path.join(outputDir,`${code.slug}.json`)))return retained.get(code.slug);
     const fixtures = codeFixtures(code);
     const fileName = `${code.slug}.json`;
     const coverageStatus = fixtures.length === 0
@@ -352,7 +357,7 @@ function build(){
       : ["sport:afl", "sport:aflw", "sport:nrl", "sport:nrlw", "sport:wrc", "sport:american-football", "sport:ice-hockey", "competition:motogp", "competition:sailgp", "competition:fiba-womens-world-cup"].includes(code.id) ? "complete" : "partial";
     const freshAt = code.id === "competition:uefa-champions-league" ? canonicalChampionsLeague.generatedAt : code.id === "sport:wrc" ? canonicalWrc.generatedAt : feed.publishedAt || null;
     const parentSportId = code.parentSportId || (code.id === "competition:uefa-champions-league" ? code.sportDomainId : null);
-    fs.writeFileSync(path.join(OUTPUT_DIR, fileName), `${JSON.stringify({
+    fs.writeFileSync(path.join(outputDir, fileName), `${JSON.stringify({
       schemaVersion: "code-inspector-chunk.v1",
       code: { id: code.id, slug: code.slug, name: code.name, ...(parentSportId ? { parentSportId } : {}) },
       coverageStatus,
@@ -375,14 +380,15 @@ function build(){
   });
   const expected = new Set(codes.map(code => `${code.slug}.json`));
   fs.readdirSync(OUTPUT_DIR).filter(name => name.endsWith(".json") && name !== "manifest.json" && !expected.has(name))
-    .forEach(name => fs.unlinkSync(path.join(OUTPUT_DIR, name)));
+    .forEach(name => fs.unlinkSync(path.join(outputDir, name)));
   const manifest = { schemaVersion: "code-inspector.v1", generatedAt: feed.publishedAt || null, codes };
-  fs.writeFileSync(path.join(OUTPUT_DIR, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
+  fs.writeFileSync(path.join(outputDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
   return manifest;
 }
 
 if (require.main === module){
-  const manifest = build();
+  const scope=process.argv.find(arg=>arg.startsWith('--codes='));
+  const manifest = build({codeSlugs:scope?scope.slice(8).split(',').filter(Boolean):null});
   console.log(`Code Inspector built: ${manifest.codes.length} codes, ${manifest.codes.reduce((total, code) => total + code.fixtureCount, 0)} fixtures.`);
 }
 

@@ -1,0 +1,41 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const base=process.env.QA_BASE_URL || 'http://127.0.0.1:8887';
+(async()=>{const browser=await chromium.launch({headless:true});
+try{
+ const page=await browser.newPage({viewport:{width:390,height:844},serviceWorkers:'block'});
+ await page.clock.setFixedTime(new Date('2026-09-07T02:30:00Z'));
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.addInitScript(()=>{if(!localStorage.getItem('ns_preferences_v1'))localStorage.setItem('ns_preferences_v1',JSON.stringify({onboardingComplete:true,feedCompact:true,followedSports:['nrl','nrlw','afl'],selectedSelectorEntityIds:['sport:afl-premiership','sport:nrl'],followFirst:{collectionFollows:['collection:tennis:mens-top-10']},followBrowse:{sportId:'sport:tennis',categoryId:'',section:'teams-players',page:2}}));});
+ await page.goto(base);await page.waitForFunction(()=>startupFunnelFinished&&!startupCoordinator.isHydrating());await page.waitForTimeout(500);
+ const ids=()=>page.locator('.event-card').evaluateAll(cards=>cards.map(c=>c.dataset.eventId).sort());
+ const initial=await ids();assert(initial.length>20);
+ let release;const gate=new Promise(resolve=>release=resolve);let delayed=0;
+ await page.route('**/data/**/*.json',async route=>{delayed++;await gate;await route.abort('failed');});
+ await page.reload({waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>startupFunnelFinished&&!startupCoordinator.isHydrating(),null,{timeout:10000});
+ assert(delayed>0,'The test must actually hold fresh source requests');
+ assert.deepEqual(await ids(),initial,'Cached Feed must become usable before held requests finish');
+ await page.getByRole('button',{name:'Follow',exact:true}).click();
+ const track=await page.locator('.follow-sport-track').elementHandle();
+ const browse=await page.evaluate(()=>JSON.parse(JSON.stringify(userPreferences.followBrowse)));
+ // Server restoration changes account data, not this device's browsing position.
+ await page.evaluate(()=>applyServerState({preferences:{...userPreferences,followBrowse:{sportId:'sport:afl',page:0,section:'major-events'},feedCompact:false},eventUserState:eventActions,ratings}));
+ assert.deepEqual(await page.evaluate(()=>JSON.parse(JSON.stringify(userPreferences.followBrowse))),browse);
+ assert.equal(await page.evaluate(()=>userPreferences.feedCompact),true);
+ assert.equal(await track.evaluate(e=>e.isConnected),true);
+ release();await page.waitForTimeout(500);
+ await page.getByRole('button',{name:'Feed',exact:true}).click();
+ assert.deepEqual(await ids(),initial,'Failed revalidation must retain eligible fixtures');
+ await page.unrouteAll({behavior:'wait'});
+ // A normal refresh of the same release must retain pages the reader opened.
+ await page.evaluate(()=>loadNextFeedPage());
+ const paged=await page.evaluate(()=>({ids:activeEvents.map(e=>e.eventId).sort(),cursor:publicFeedNextPageIndex}));
+ await page.evaluate(()=>refreshRemoteFeed({quiet:true}));
+ const refreshed=await page.evaluate(()=>({ids:activeEvents.map(e=>e.eventId).sort(),cursor:publicFeedNextPageIndex}));
+ assert(refreshed.cursor>=paged.cursor&&paged.ids.every(id=>refreshed.ids.includes(id)),'Revalidation must preserve loaded pages; the scroll sentinel may append another page');
+ assert.deepEqual(errors,[]);
+ console.log(JSON.stringify({cachedFixtures:initial.length,heldThenFailedRequests:delayed,accountBrowsePreserved:true,retainedTrack:true}));
+ await page.unrouteAll({behavior:'wait'});
+}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

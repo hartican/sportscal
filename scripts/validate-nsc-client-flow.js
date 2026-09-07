@@ -44,6 +44,10 @@ async function main(){
   const resultsContext=harness(async()=>detail());
   let resultsOpened=false;
   resultsContext.nothingscoreLoadErrors=new Map();
+  resultsContext.nscDetailEvents=new Map();
+  resultsContext.nscRankingState={};
+  resultsContext.history={pushState(){}};
+  resultsContext.document.body={classList:{contains:()=>false}};
   resultsContext.nothingscoreEventId=()=>"alias";
   resultsContext.setNothingscoreDrawerOpen=()=>{};
   resultsContext.document.getElementById=()=>({classList:{contains:()=>true},querySelector:()=>({setAttribute:name=>{if(name==="open")resultsOpened=true;}})});

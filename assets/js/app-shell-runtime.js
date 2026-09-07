@@ -4031,7 +4031,7 @@
 
 ;
 
-;/* config/loading-progress.js sha256:200b359a25279e1d6bd161647a312a72995ebdcf4d495679ffcafe4b61f22a12 */
+;/* config/loading-progress.js sha256:2220f3f10225f5894a83f75ab2f6619c06ae09e58ecd310fe76ebdedc03f8991 */
 (function attachNothingSportsLoadingProgress(root, factory){
   const api = factory();
   root.NOTHINGSPORTS_LOADING_PROGRESS = api;
@@ -4046,9 +4046,9 @@
     "first-viewport": 15,
     "account-state": 10,
   });
-  const STARTUP_MIN_MS = 3000;
+  const STARTUP_MIN_MS = 0;
   const STARTUP_MAX_MS = 6000;
-  const FUNNEL_DURATION_MS = 1000;
+  const FUNNEL_DURATION_MS = 0;
   const INDICATOR_DELAY_MS = 150;
   const INDICATOR_MIN_VISIBLE_MS = 300;
   const LOADING_AUDIO_CONSENT_KEY = "ns_loading_audio_consent_v1";

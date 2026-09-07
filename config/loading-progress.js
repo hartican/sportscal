@@ -12,9 +12,9 @@
     "first-viewport": 15,
     "account-state": 10,
   });
-  const STARTUP_MIN_MS = 3000;
+  const STARTUP_MIN_MS = 0;
   const STARTUP_MAX_MS = 6000;
-  const FUNNEL_DURATION_MS = 1000;
+  const FUNNEL_DURATION_MS = 0;
   const INDICATOR_DELAY_MS = 150;
   const INDICATOR_MIN_VISIBLE_MS = 300;
   const LOADING_AUDIO_CONSENT_KEY = "ns_loading_audio_consent_v1";

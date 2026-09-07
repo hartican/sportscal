@@ -17,6 +17,25 @@ function patchKnown(events,updates){
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{Origin:'https://www.afl.com.au',Referer:'https://www.afl.com.au/'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.json();}
 function run(file,...args){const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit'});if(result.status!==0)throw new Error(`${file} failed`);}
+// Keep unrelated projections byte-for-byte intact. Source ingestion and the
+// atomic preservation boundary remain independent of deployment credentials.
+function projectionSteps(changes,{rebuild=false}={}){
+ if(!changes.length&&!rebuild)return [];
+ const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL'));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Premier League|F1)/.test(change));
+ const codes=new Set();
+ if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
+ if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
+ if(changes.some(change=>change.startsWith('F1')))codes.add('motorsport');
+ if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
+ const steps=[];
+ if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/refresh-major-events-from-canonical.js']);}
+ if(feedChanged){steps.push(['scripts/enrich-storyline-cards.js','--write'],['scripts/select-result-editorial.js'],['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--replace']);}
+ steps.push(['scripts/build-follow-fixtures.js']);
+ if(feedChanged)steps.push(['scripts/build-paged-feed.js']);
+ steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
+ return steps;
+}
 async function refresh({now=new Date(),offline=false}={}){
  const changes=[],failures=[],bundlePath='data/canonical/afl-nrl-2026.json',bundle=read(bundlePath);
  const near=ev=>{const start=Date.parse(ev.startTimeUtc||'');return Number.isFinite(start)&&Math.abs(start-+now)<=7*86400000;};
@@ -44,15 +63,8 @@ async function refresh({now=new Date(),offline=false}={}){
    if(known.length){const fixtures=await pl.loadFixtures();const cards=fixtures.map(f=>pl.cardForFixture(f,now.toISOString()));const result=patchKnown(doc.events,cards.filter(near));if(result.count){write('feeds/incoming/events.json',{...doc,events:result.events});changes.push(`Premier League ${result.count}`);}}
  }catch(error){failures.push(`Premier League: ${error.message}`);}
  if(!offline)try{const doc=read('feeds/incoming/events.json'),updates=await require('./refresh-f1-results').updatesFor(doc.events,now),patched=patchKnown(doc.events,updates);if(patched.count){write('feeds/incoming/events.json',{...doc,events:patched.events});changes.push(`F1 ${patched.count}`);}}catch(error){failures.push(`F1: ${error.message}`);}
- if(changes.length||process.argv.includes('--rebuild')){
-   run('scripts/enrich-storyline-cards.js','--write');
-   run('scripts/sync-canonical-fixtures-to-feed.js',bundlePath,'feeds/incoming/events.json','feeds/incoming/events.json');
-   run('scripts/refresh-major-events-from-canonical.js');
-   run('scripts/select-result-editorial.js');
-   run('scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--replace');
-   run('scripts/build-follow-fixtures.js');run('scripts/build-paged-feed.js');run('scripts/build-code-inspector.js');
-   run('scripts/validate-feed-coverage-resilience.js');run('scripts/validate-feed.js','data/events.json');run('scripts/validate-crowd-foresight.js');
- }
+ for(const [file,...args] of projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}))run(file,...args);
+
  if(process.env.SUPABASE_SERVICE_ROLE_KEY||process.env.SUPABASE_SECRET_KEY)run('scripts/settle-nsc-foresight.js');
  console.log(JSON.stringify({mode:'quick',changed:changes,failures,aiCalls:0}));
  if(failures.length&&!changes.length&&!offline)throw new Error('Quick sources failed; preserved last-known-good data.');
@@ -64,4 +76,4 @@ async function atomicRefresh(options){
  try{return await refresh(options);}catch(error){const after=new Map(files);files.clear();collect('data');collect('feeds');for(const name of files.keys())if(!after.has(name))fs.unlinkSync(name);for(const [name,content] of after)fs.writeFileSync(name,content);throw error;}
 }
 if(require.main===module)atomicRefresh({offline:process.argv.includes('--offline')}).catch(error=>{console.error(error.message);process.exitCode=1;});
-module.exports={patchKnown,refresh,KEYS};
+module.exports={patchKnown,refresh,projectionSteps,KEYS};

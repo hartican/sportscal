@@ -30,9 +30,9 @@ assert.equal(controller.snapshot().percent, 100);
 assert.equal(controller.snapshot().phase, "complete");
 assert(percentages.every((value, index) => !index || value >= percentages[index - 1]), "subscriber progress must be monotonic");
 
-assert.deepEqual(loading.startupTiming({ readyAfterMs: 1000 }), { funnelStartAfterMs: 3000, funnelDurationMs: 1000 });
-assert.deepEqual(loading.startupTiming({ readyAfterMs: 4500 }), { funnelStartAfterMs: 4500, funnelDurationMs: 1000 });
-assert.deepEqual(loading.startupTiming({ readyAfterMs: 8000 }), { funnelStartAfterMs: 6000, funnelDurationMs: 1000 });
+assert.deepEqual(loading.startupTiming({ readyAfterMs: 1000 }), { funnelStartAfterMs: 1000, funnelDurationMs: 0 });
+assert.deepEqual(loading.startupTiming({ readyAfterMs: 4500 }), { funnelStartAfterMs: 4500, funnelDurationMs: 0 });
+assert.deepEqual(loading.startupTiming({ readyAfterMs: 8000 }), { funnelStartAfterMs: 6000, funnelDurationMs: 0 });
 assert.deepEqual(loading.startupTiming({ readyAfterMs: 8000, reducedMotion: true }), { funnelStartAfterMs: 0, funnelDurationMs: 0 });
 
 const failed = loading.createController();
@@ -73,7 +73,7 @@ for (const label of ["Loading Events", "Loading Standings", "Loading Schedule", 
 }
 assert(worker.includes('"/config/loading-progress.js"'), "the loading controller must be available offline");
 
-console.log("Loading progress valid: weighted milestones, monotonic percentage, dynamic 3–6 second reveal and accessible ring passed.");
+console.log("Loading progress valid: weighted milestones, monotonic percentage, immediate usable-content reveal and accessible ring passed.");
 })().catch(error => {
   console.error(error.stack || error.message);
   process.exit(1);

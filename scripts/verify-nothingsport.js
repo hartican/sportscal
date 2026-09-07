@@ -282,7 +282,7 @@ assert(html.includes("openFollowScreen") && html.includes("backFromCodeInspector
 assert(html.includes("activeInspectorCodeId") && html.includes("inspectorReturnState") && html.includes("#follow/"), "Follow drill-down must keep a separate history-aware return state");
 assert(!html.includes('id="feedFilterVisibilityBtn"') && !html.includes('id="feedFilterDock"'), "the retired Hide/Show filter rail must not remain exposed");
 assert(html.includes("function stickyFeedChromeHeight()"), "focused-view offsets must continue to account for pinned app chrome");
-assert(html.includes("function scheduleFirstCardViewportFit()") && html.includes('"header-compact-1", "header-compact-2", "header-compact-3"'), "the phone opening must progressively compact the branded header around the first card");
+assert(html.includes("function scheduleFirstCardViewportFit()") && !html.includes("body.header-compact-1"), "header geometry must stay consistent across card levels and scroll positions");
 assert(html.includes('id="quickAddModal"'), "new sports must offer Quick add versus Customise without rerunning onboarding");
 assert(html.includes('const ONBOARDING_SECTIONS = ["startup"]'), "first login must use the idempotent lightweight startup metadata screen");
 assert(html.includes('id="startupSportsGrid"') && html.includes('id="startupEventsGrid"'), "startup must collect a limited sport and major-event selection");
@@ -354,7 +354,7 @@ assert(preferenceSystemSource.includes('["calibration", "feed", "tune"]') && htm
 assert(html.includes('eventName: "swipe"') && html.includes('eventName: "tune_prompt"'), "swipe and Tune prompt interactions must use the fixed pilot event contract");
 assert(html.includes("learningPreference: graph.learning || null"), "local profile reloads must retain learning separately from canonical truth");
 assert(preferenceSystemSource.includes("function mergeLearning"), "preference migrations must retain a bounded learning merge helper");
-assert(html.includes("userPreferences = mergePreferences(state.preferences || {})"), "sign-in must hydrate the latest cloud preferences before tracking new session changes");
+assert(html.includes("userPreferences = mergePreferences({...state.preferences,followBrowse:localBrowse,feedCompact:localCompact})"), "sign-in must hydrate the latest cloud preferences before tracking new session changes");
 assert(!html.includes('settingsMenuItem("tune"') && !html.includes('id="frothKnobList"'), "Tune and Froth knobs must remain absent from user-facing Settings");
 assert(html.includes("function renderFollowView") && html.includes("setDirectoryEntityFollow") && html.includes("saveFollowSport"), "Follow must own direct sport, team and player preference updates");
 assert(preferenceSystemSource.includes("MEANINGFUL_TUNING_INTERACTIONS = 8") && preferenceSystemSource.includes("MEANINGFUL_TUNING_SESSIONS = 2"), "meaningful tuning must use the canonical interaction or completed-session thresholds");
@@ -533,7 +533,7 @@ assert(eventCardSource.includes("preferImage: true"), "event cards must use stab
 assert((eventCardSource.match(/preferImage: true/g) || []).length >= 1, "interactive ticket glyphs must use the stable image-backed path");
 assert(eventCardSource.includes('secondaryActions.className = "event-card-secondary-actions"') && eventCardSource.includes("buildCardDisclosureControl") && !eventCardSource.includes("card-expand-control"), "event-card expansion must defer secondary actions behind the direct Maximise control");
 assert(eventCardSource.includes('mode !== "premium-rail"'), "horizontally scrolling premium-rail cards must not capture the same gesture for swipe-to-rate");
-assert(eventCardSource.includes("compactStakes.className='event-action-stakes'") && eventCardSource.includes("primaryActions.querySelector('.event-quick-actions')?.appendChild(compactStakes)"), "standard Feed cards must keep a compact unlabelled stakes meter inside the action rail");
+assert(html.includes("stakes.className='event-action-stakes'") && eventCardSource.includes("primaryActions.querySelector('.event-quick-actions')?.appendChild(buildCardActionStakes(ev))"), "standard Feed cards must keep a compact unlabelled stakes meter inside the action rail");
 assert(!eventCardSource.includes("buildEventCompactFooter(ev"), "card expansion must not duplicate the one centred stakes and feedback unit");
 assert(!eventCardSource.includes('label.className = "new-tag"') && !eventCardSource.includes('label.textContent = "New"'), "cards must not expose the temporary New metadata tag");
 assert(html.includes('function spoilerOutcomeCopy(outcome)'), "empty or structured outcome data must not break revealed PAST cards");
@@ -1487,14 +1487,14 @@ const incompleteEmptyProfile = app.mergePreferences({
   selectedSelectorEntityIds: [],
   followedSports: [],
 });
-assert.deepEqual(Array.from(incompleteEmptyProfile.followedSports), ["nrl", "afl"], "incomplete empty profiles must migrate to the seeded league defaults");
+assert.deepEqual(Array.from(incompleteEmptyProfile.followedSports), ["nrl", "nrlw", "afl"], "incomplete empty profiles must migrate to the seeded league defaults");
 const completedEmptyProfile = app.mergePreferences({
   version: 8,
   onboardingComplete: true,
   selectedSelectorEntityIds: [],
   followedSports: [],
 });
-assert.deepEqual(Array.from(completedEmptyProfile.followedSports), ["nrl", "afl"], "completed empty v8 profiles must migrate to the seeded league defaults");
+assert.deepEqual(Array.from(completedEmptyProfile.followedSports), ["nrl", "nrlw", "afl"], "completed empty v8 profiles must migrate to the seeded league defaults");
 const currentExplicitEmptyProfile = app.mergePreferences({
   version: 10,
   onboardingComplete: true,

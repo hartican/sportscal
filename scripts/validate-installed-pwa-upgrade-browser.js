@@ -6,10 +6,10 @@ const http = require("node:http");
 const os = require("node:os");
 const path = require("node:path");
 const { execFileSync } = require("node:child_process");
-const { chromium } = require("playwright");
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
 
 const projectRoot = path.resolve(__dirname, "..");
-const baselineSha = process.env.PWA_BASELINE_SHA || "c3c01292129a62d193f0a18c4a7a0a1d8619ff3e";
+const baselineSha = process.env.PWA_BASELINE_SHA || "7ae4d93c3bcae95bcec7d2c3549f8b07c9ade3b7";
 const baselineRoot = fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-pwa-baseline-"));
 const profileRoot = fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-pwa-profile-"));
 const candidateHtml = fs.readFileSync(path.join(projectRoot, "index.html"), "utf8");
@@ -52,17 +52,8 @@ function fileForRequest(root, requestUrl){
       cwd:projectRoot,
       stdio:"ignore",
     });
-    // Build a previous-version fixture from the same lifecycle implementation.
-    // This verifies the v237 -> v238 protocol rather than retesting legacy v236
-    // behaviour that could not know about the new page-worker handshake.
-    fs.writeFileSync(
-      path.join(baselineRoot, "index.html"),
-      candidateHtml.replaceAll(`content="${candidateVersion}"`, `content="${Number(candidateVersion) - 1}"`).replaceAll(`v=${candidateVersion}`, `v=${Number(candidateVersion) - 1}`),
-    );
-    fs.writeFileSync(
-      path.join(baselineRoot, "service-worker.js"),
-      candidateWorker.replaceAll(`v${candidateVersion}`, `v${Number(candidateVersion) - 1}`).replaceAll(`v=${candidateVersion}`, `v=${Number(candidateVersion) - 1}`),
-    );
+    // Use the actual previous release. Do not substitute candidate code and
+    // merely relabel it as an older shell: that masks upgrade regressions.
     const baselineHtml = fs.readFileSync(path.join(baselineRoot, "index.html"), "utf8");
     const baselineVersion = baselineHtml.match(/name="app-shell-version" content="(\d+)"/)?.[1];
     assert(baselineVersion, "baseline shell version");
@@ -102,8 +93,8 @@ function fileForRequest(root, requestUrl){
     assert.equal(await page.evaluate(() => Boolean(navigator.serviceWorker.controller)), true, "baseline relaunch must be controlled by the installed worker");
     await page.close();
 
-    // The v237 worker is still installed. Its network-first navigation must
-    // fetch v238 on the first launch after release, before any manual reload.
+    // The previous release worker is still installed. Its navigation must
+    // fetch the candidate on the first launch after release, before any manual reload.
     activeRoot = projectRoot;
     const freshPage = await browser.newPage();
     await freshPage.goto(`${origin}/?first-navigation-after-release=1`, { waitUntil:"domcontentloaded" });

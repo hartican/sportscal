@@ -11,8 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="241">
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=241" as="script">
+<meta name="app-shell-version" content="242">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=242" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6300,16 +6300,6 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .joint-reporting-item a{ color:var(--text); text-decoration:underline; text-decoration-color:rgba(255,255,255,0.25); text-underline-offset:2px; }
 .joint-overview{ padding:18px 16px; color:var(--text-dim); font-size:0.78rem; line-height:1.5; }
 
-body.header-compact-1 header.top{
-  padding-top:calc(9px + env(safe-area-inset-top));
-  padding-bottom:7px;
-}
-body.header-compact-1 .tabs{ margin-top:8px; }
-body.header-compact-1 .tab-btn{ padding-top:7px; padding-bottom:7px; }
-body.header-compact-2 .header-brand-logo{ width:clamp(78px, 7vw, 88px); }
-body.header-compact-2 .header-actions .btn{ padding-top:7px; padding-bottom:7px; }
-body.header-compact-3 .brand .slogan{ display:none; }
-
 @media (max-width: 640px){
   .standings-inner-tabs{ gap:6px; padding:5px; }
   .standings-inner-tab{
@@ -6338,7 +6328,6 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .football-player-tier{ display:none; }
   .joint-match{ grid-template-columns:64px minmax(0, 1fr); }
   .joint-match-actions{ grid-column:1 / -1; justify-content:flex-end; }
-  body.header-compact-2 .header-brand-logo{ width:70px; }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -6903,8 +6892,8 @@ body.header-compact-3 .brand .slogan{ display:none; }
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=241">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=241">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=242">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=242">
 </head>
 <body>
 
@@ -6942,7 +6931,7 @@ body.header-compact-3 .brand .slogan{ display:none; }
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Show results"><span class="spoiler-home-label">Show/Hide Results:</span><span class="spoiler-home-state">OFF</span></button>
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost" id="activeChatsBtn" type="button" aria-haspopup="dialog" aria-controls="chatDrawer" aria-label="Active chats" hidden><span data-vector-glyph="ui:message"></span> <span class="full-label">Chats</span><span class="active-chat-count" id="activeChatCount">0</span></button>
-      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-haspopup="dialog" aria-controls="nothingscoreDrawer" aria-label="Nothing Score rankings"><span class="nothing-score-label" aria-hidden="true">Nothing<br>Score</span></button>
+      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-controls="nothingscoreDrawer" aria-label="Nothing Score rankings"><span class="nothing-score-label" aria-hidden="true">Nothing<br>Score</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
         <div class="loading-indicator-overlay" id="headerProgressRing" hidden></div>
         <time class="header-date-badge" id="calendarDateBadge"><span>MON</span><strong>24AUG</strong></time>
@@ -7182,19 +7171,19 @@ body.header-compact-3 .brand .slogan{ display:none; }
 </div>
 
 <div class="chat-backdrop nsc-backdrop" id="nothingscoreBackdrop" aria-hidden="true">
-  <aside class="chat-drawer nsc-drawer" id="nothingscoreDrawer" role="dialog" aria-modal="true" aria-labelledby="nothingscoreTitle" aria-describedby="nothingscoreSubtitle">
+  <aside class="chat-drawer nsc-drawer" id="nothingscoreDrawer" role="region" aria-labelledby="nothingscoreTitle" aria-describedby="nothingscoreSubtitle">
     <header class="chat-head">
       <div class="chat-head-copy">
         <h2 id="nothingscoreTitle">Nothing Score</h2>
         <p id="nothingscoreSubtitle">How the crowd ranks upcoming, live and past fixtures.</p>
       </div>
-      <button class="chat-close" id="closeNothingscoreBtn" type="button" aria-label="Close Nothing Score">×</button>
+      <button class="chat-close" id="closeNothingscoreBtn" type="button" aria-label="Back">‹ Back</button>
     </header>
     <div class="chat-body" id="nothingscoreBody"></div>
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=241"></script>
+<script src="assets/js/app-shell-runtime.js?v=242"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -7446,6 +7435,10 @@ function finishStartupLogoLaunch(overlay, flight = null){
 function beginStartupLogoFunnel(){
   if (startupFunnelStarted) return;
   startupFunnelStarted = true;
+  if (!LOADING_PROGRESS?.FUNNEL_DURATION_MS){
+    finishStartupLogoLaunch(document.getElementById("startupLaunch"));
+    return;
+  }
   void loadingAudioPlayer?.playFunnel?.();
   window.clearTimeout(startupLaunchTimer);
   const overlay = document.getElementById("startupLaunch");
@@ -7735,7 +7728,8 @@ function renderEventIdentityMark(container, ev, meta){
   const placeholder = document.createElement("span");
   placeholder.className = "event-sport-mark identity-image-placeholder";
   placeholder.innerHTML = glyphMarkup(meta.glyph, { label:meta.label, preferImage:true });
-  container.replaceChildren(placeholder, image);
+  if(container.classList.contains('compact-card-icon')) container.replaceChildren(image);
+  else container.replaceChildren(placeholder, image);
 }
 
 const INITIAL_CARD_IMAGE_BUDGET = 4;
@@ -8294,7 +8288,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=241",
+  moduleScriptUrl: "config/major-events.js?v=242",
   url: "data/major-events.v1.json",
 });
 
@@ -8632,6 +8626,8 @@ let jointTournamentNavigationOpen = false;
 let jointTournamentDrilldownPanel = null;
 let majorEventsDocument = null;
 let majorEventsLoading = false;
+let majorEventsRequest = null;
+let majorEventsReadyRequest = null;
 let majorEventsError = null;
 let pendingMajorEventFocusId = null;
 let pendingTicketAlertFocusId = null;
@@ -9310,7 +9306,7 @@ function savePreferences(next,{viewOnly=false}={}){
     entities:(clean.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
     collections:(clean.followFirst?.collectionFollows || []).slice().sort(),
   });
-  queueServerStateSync();
+  if (!viewOnly) queueServerStateSync();
   if (!viewOnly && document.readyState !== "loading" && clean.followFirst?.notifications?.enabled){
     void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   }
@@ -10194,8 +10190,10 @@ function applyServerState(state){
   if (!state) return false;
   serverSyncApplying = true;
   try{
-    userPreferences = mergePreferences(state.preferences || {});
-    void ensureFollowCollectionDirectories(userPreferences).then(() => {
+    const localBrowse=userPreferences.followBrowse;
+    const localCompact=userPreferences.feedCompact;
+    userPreferences = mergePreferences({...state.preferences,followBrowse:localBrowse,feedCompact:localCompact});
+    void ensureFeedSourceReadiness(userPreferences).then(() => {
       rebuildDerivedCardCache(activeEvents);
       renderAll({ preserveViewport:true });
     }).catch(() => {});
@@ -10527,34 +10525,41 @@ async function loadFollowDirectoryManifest(){
   return followDirectoryManifestLoading;
 }
 
+async function fetchFollowDirectoryChunk(record){
+  let chunk;
+  if(globalThis.location?.protocol!=='file:'){
+    try{chunk=await fetchJson(record.jsonUrl,{cache:'no-cache'});}catch{}
+  }
+  if(!chunk){await loadDeferredScript(record.scriptUrl);chunk=globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS?.[record.key];}
+  if(!chunk||chunk.sportKey!==record.key)throw new Error(`${record.key} Follow directory chunk was invalid`);
+  return chunk;
+}
+function retainFollowDirectoryChunk(sportKey,record,chunk){
+  followDirectoryChunks.set(sportKey,chunk);followDirectoryChunkErrors.delete(sportKey);
+  disposableStore?.set(`follow-directory:${sportKey}`,{record,chunk});
+  void disposableStore?.flush?.();
+}
 async function loadFollowDirectoryChunk(sportKey){
-  if (followDirectoryChunks.has(sportKey)) return followDirectoryChunks.get(sportKey);
-  if (followDirectoryChunkLoading.has(sportKey)) return followDirectoryChunkLoading.get(sportKey);
-  const loading = (async () => {
-    const manifest = await loadFollowDirectoryManifest();
-    const record = manifest.sports.find(item => item.key === sportKey);
-    if (!record) throw new Error(`${sportKey} is not in the Follow directory manifest`);
-    let chunk;
-    if (globalThis.location?.protocol === "file:"){
-      await loadDeferredScript(record.scriptUrl);
-      chunk = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS?.[sportKey];
-    } else {
-      try { chunk = await fetchJson(record.jsonUrl, { cache:"no-cache" }); }
-      catch (_error){
-        await loadDeferredScript(record.scriptUrl);
-        chunk = globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS?.[sportKey];
-      }
+  if(followDirectoryChunks.has(sportKey))return followDirectoryChunks.get(sportKey);
+  if(followDirectoryChunkLoading.has(sportKey))return followDirectoryChunkLoading.get(sportKey);
+  const loading=(async()=>{
+    const saved=await disposableStore?.hydrate?.(`follow-directory:${sportKey}`,null);
+    if(saved?.chunk?.sportKey===sportKey&&saved.record?.key===sportKey){
+      followDirectoryChunks.set(sportKey,saved.chunk);
+      void fetchFollowDirectoryChunk(saved.record).then(chunk=>{
+        const changed=JSON.stringify(chunk)!==JSON.stringify(saved.chunk);
+        retainFollowDirectoryChunk(sportKey,saved.record,chunk);
+        if(changed){rebuildDerivedCardCache(activeEvents);queueScrollIdleMutation(()=>renderAll({preserveViewport:true}));}
+      }).catch(error=>console.warn(`Using saved ${sportKey} directory`,error));
+      return saved.chunk;
     }
-    if (!chunk || chunk.sportKey !== sportKey) throw new Error(`${sportKey} Follow directory chunk was invalid`);
-    followDirectoryChunks.set(sportKey, chunk);
-    followDirectoryChunkErrors.delete(sportKey);
-    return chunk;
-  })().catch(error => {
-    followDirectoryChunkErrors.set(sportKey, error);
-    throw error;
-  }).finally(() => followDirectoryChunkLoading.delete(sportKey));
-  followDirectoryChunkLoading.set(sportKey, loading);
-  return loading;
+    const manifest=await loadFollowDirectoryManifest();
+    const record=manifest.sports.find(item=>item.key===sportKey);
+    if(!record)throw new Error(`${sportKey} is not in the Follow directory manifest`);
+    const chunk=await fetchFollowDirectoryChunk(record);
+    retainFollowDirectoryChunk(sportKey,record,chunk);return chunk;
+  })().catch(error=>{followDirectoryChunkErrors.set(sportKey,error);throw error;}).finally(()=>followDirectoryChunkLoading.delete(sportKey));
+  followDirectoryChunkLoading.set(sportKey,loading);return loading;
 }
 
 function ensureAthleteProfileUi(){
@@ -10881,10 +10886,16 @@ async function loadJointTournamentData(){
   return jointTournamentData;
 }
 
-async function loadMajorEventsData(){
-  if (majorEventsDocument) return majorEventsDocument;
-  if (majorEventsLoading) return null;
-  const hydration = startupFunnelFinished ? beginInSessionLoading("Loading Events") : null;
+function loadMajorEventsData(options={}){
+  if (majorEventsRequest) return options.cacheFirst?majorEventsReadyRequest:majorEventsRequest;
+  if (majorEventsDocument) return Promise.resolve(majorEventsDocument);
+  let ready;
+  majorEventsReadyRequest=new Promise(resolve=>{ready=resolve;});
+  majorEventsRequest=fetchMajorEventsData({...options,onReady:ready}).then(document=>{ready(document);return document;}).finally(()=>{majorEventsRequest=null;});
+  return options.cacheFirst?majorEventsReadyRequest:majorEventsRequest;
+}
+async function fetchMajorEventsData({quiet=false,onReady=()=>{}}={}){
+  const hydration = startupFunnelFinished && !quiet ? beginInSessionLoading("Loading Events") : null;
   majorEventsLoading = true;
   majorEventsError = null;
   const moduleRequest = MAJOR_EVENTS ? Promise.resolve(MAJOR_EVENTS) : loadDeferredScript(MAJOR_EVENTS_CONFIG.moduleScriptUrl).then(() => {
@@ -10893,10 +10904,14 @@ async function loadMajorEventsData(){
     return MAJOR_EVENTS;
   });
   const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url);
-  renderAll({ preserveViewport: true });
+  // Attach a handler immediately while the runtime module is loading.
+  networkRequest.catch(()=>{});
   let loadJointSchedule = false;
   try{
     await moduleRequest;
+    const cached=readStorage(STORAGE_KEYS.majorEventsCatalogue,null);
+    const cachedDocument=MAJOR_EVENTS?.usableDocument?.(cached,{reference:nowAEST(),verifiedTicketUrl:TICKETING?.verifiedSellerUrl})?.document;
+    if(cachedDocument){majorEventsDocument=cachedDocument;onReady(cachedDocument);rebuildDerivedCardCache(activeEvents);queueScrollIdleMutation(()=>renderAll({preserveViewport:true}));}
     let payload;
     let loadedFromStorage = false;
     let networkFailure = null;
@@ -10957,7 +10972,8 @@ async function loadMajorEventsData(){
     console.warn("Major events catalogue unavailable", error);
   }finally{
     majorEventsLoading = false;
-    renderAll({ preserveViewport: true });
+    rebuildDerivedCardCache(activeEvents);
+    queueScrollIdleMutation(()=>renderAll({ preserveViewport: true }));
     if (!majorEventsError) hydration?.complete();
   }
   if (loadJointSchedule) void loadJointTournamentData();
@@ -11099,7 +11115,19 @@ function applyServerFeed(payload){
   };
 }
 
-async function loadPublicFeedFirstPage(){
+const PUBLIC_FEED_SNAPSHOT_KEY='ns_public_feed_snapshot_v1';
+async function loadPublicFeedFirstPage({cacheFirst=false}={}){
+  if(cacheFirst){
+    const saved=readStorage(PUBLIC_FEED_SNAPSHOT_KEY,null);
+    if(saved?.manifest?.schemaVersion==='public-feed.v2'&&saved.manifest.pages?.length){
+      const events=coerceEventList(saved.payload);
+      if(events.length){
+        publicFeedManifest=saved.manifest;publicFeedNextPageIndex=1;
+        const rendered=applyFeedEvents(events,{version:saved.manifest.sourceVersion,publishedAt:saved.manifest.sourcePublishedAt});
+        return {source:'cache',eventCount:events.length,cardCount:derivedCardCache.derivedCards.length,rendered};
+      }
+    }
+  }
   if (globalThis.location?.protocol === "file:"){
     const events = await loadLatestBundledEvents();
     const rendered = applyFeedEvents(events);
@@ -11107,12 +11135,16 @@ async function loadPublicFeedFirstPage(){
   }
   const manifest = await fetchJson(FEED_CONFIG.manifestUrl, { cache:"default" });
   if (manifest?.schemaVersion !== "public-feed.v2" || !manifest.pages?.length) throw new Error("Published feed manifest is unsupported");
-  publicFeedManifest = manifest;
-  publicFeedNextPageIndex = 1;
   const payload = await fetchJson(manifest.pages[0].path, { cache:"default" });
   const events = coerceEventList(payload);
   if (!events.length) throw new Error("Remote feed did not contain usable events");
-  const rendered = applyFeedEvents(events, { version:manifest.sourceVersion, publishedAt:manifest.sourcePublishedAt });
+  // Revalidation of the same release must not discard pages already read.
+  const sameRelease=publicFeedManifest?.sourceVersion===manifest.sourceVersion;
+  const retainedPageCount=sameRelease?publicFeedNextPageIndex:1;
+  const nextEvents=sameRelease&&retainedPageCount>1?mergeCanonicalEventPages(activeEvents,events):events;
+  publicFeedManifest=manifest;publicFeedNextPageIndex=Math.max(1,retainedPageCount);
+  writeStorage(PUBLIC_FEED_SNAPSHOT_KEY,{manifest,payload});
+  const rendered = applyFeedEvents(nextEvents, { version:manifest.sourceVersion, publishedAt:manifest.sourcePublishedAt });
   warmNextFeedPageDuringIdle();
   return { source:"remote", eventCount:events.length, cardCount:derivedCardCache.derivedCards.length, rendered };
 }
@@ -11166,6 +11198,12 @@ async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
         state: "error",
         message: "Your local copy is active. The central feed rebuild is temporarily unavailable.",
       });
+    }
+    // A failed request is not a new catalogue. Keep the last validated pages
+    // and their cursor; switching sources here silently changed Feed membership.
+    if(activeEvents.length && derivedCardCache?.derivedCards?.length){
+      if(!quiet)showToast('Refresh unavailable. Your saved fixtures are still available.');
+      return {source:'last-valid',eventCount:activeEvents.length,cardCount:derivedCardCache.derivedCards.length,rendered:false};
     }
     let fallbackEvents = EVENTS.slice();
     try{
@@ -11312,7 +11350,7 @@ async function refreshFeedOnFirstLoad(){
   }
   if (!initialFeed){
     feedPerformanceMetrics.startupCacheOutcome = sessionUserId ? "miss" : "signed-out";
-    try{ initialFeed = await loadPublicFeedFirstPage(); }
+    try{ initialFeed = await loadPublicFeedFirstPage({cacheFirst:true}); }
     catch(error){
       const events = await loadLatestBundledEvents().catch(() => EVENTS.slice());
       if (!events.length) throw error;
@@ -12827,7 +12865,8 @@ function stickyFeedChromeHeight(){
   const headerHeight = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0;
   const filterDock = document.getElementById("feedFilterDock");
   const filterHeight = activeTab === "feed" && filterDock ? filterDock.getBoundingClientRect().height : 0;
-  return headerHeight + filterHeight;
+  const toolbar=activeTab==='feed'?document.querySelector('.feed-view-actions,.calendar-selection-toolbar'):null;
+  return headerHeight + filterHeight + (toolbar?.getBoundingClientRect().height || 0);
 }
 
 function feedFilterCandidateEntities(preferences = userPreferences){
@@ -13587,6 +13626,7 @@ async function syncCodeInspectorFromLocation(){
 }
 
 async function syncAppRouteFromLocation(){
+  if(syncNscPageFromHistory())return;
   const inspectorRoute = Boolean(codeInspectorCodeFromLocation() || [inspectorPickerHash(), "#inspector"].includes(window.location.hash));
   if (inspectorRoute){
     await syncCodeInspectorFromLocation();
@@ -13868,7 +13908,7 @@ function appendSchedulePin(container,fixture,card){
   pin.setAttribute('aria-pressed',String(added));pin.textContent=added?'Remove from Feed':'Add to Feed';
   pin.onclick=event=>{event.stopPropagation();if(!setCodeInspectorFixtureAdded(fixture,!added))return;
     if(!added)recordCodeAffinity(fixture.codeId,'pin');
-    mutateWithScrollContinuity(card,renderCodeInspector,{anchorStrategy:'target'});
+    mutateWithScrollContinuity(pin.closest('.event-card') || card,renderCodeInspector,{anchorStrategy:'target'});
   };
   container.appendChild(pin);
 }
@@ -15095,11 +15135,25 @@ function bindCardCycle(card, activate){
 }
 function compactFixtureName(ev){
   let short = ev.displayTitleCompact || ev.shortName || spoilerSafeDisplayTitle(ev);
-  if(ev.key==='tennis')short=short.split(/ v /).map(name=>name.trim().split(/\s+/).slice(-1)[0]).join(' v ');
+  if(ev.key==='tennis' && short.includes(' v '))short=short.split(' v ').map(side=>side.split(/\s+\/\s+/).map(name=>name.trim().split(/\s+/).slice(-1)[0]).join('/')).join(' v ');
   return short.replace(/Manchester City/g,'Manc. City').replace(/Manchester United/g,'Man United')
-    .replace(/Coventry City/g,'Coventry').replace(/Brighton & Hove Albion/g,'Brighton').replace(/Leeds United/g,'Leeds').replace(/Nottingham Forest/g,'Nottm Forest').replace(/Tottenham Hotspur/g,'Spurs').replace(/Paris Saint-Germain/g,'PSG')
+    .replace(/Wests Tigers/g,'Wests').replace(/Canberra Raiders/g,'Raiders').replace(/Penrith Panthers/g,'Panthers').replace(/Melbourne Storm/g,'Storm').replace(/Brisbane Broncos/g,'Broncos').replace(/South Sydney Rabbitohs/g,'Rabbitohs').replace(/Manly Warringah Sea Eagles/g,'Manly').replace(/Gold Coast Titans/g,'Titans').replace(/Sydney Roosters/g,'Roosters').replace(/North Queensland Cowboys/g,'Cowboys').replace(/Newcastle Knights/g,'Knights').replace(/Cronulla(?:-Sutherland)? Sharks/g,'Sharks').replace(/Canterbury(?:-Bankstown)? Bulldogs/g,'Bulldogs').replace(/Parramatta Eels/g,'Eels').replace(/Coventry City/g,'Coventry').replace(/Brighton & Hove Albion/g,'Brighton').replace(/Leeds United/g,'Leeds').replace(/Nottingham Forest/g,'Nottm Forest').replace(/Tottenham Hotspur/g,'Spurs').replace(/Paris Saint-Germain/g,'PSG')
     .replace(/Australian Grand Prix/g,'Aus GP').replace(/Grand Prix/g,'GP')
     .replace(/Alexander Zverev/g,'Zverev').replace(/Alejandro Tabilo/g,'Tabilo');
+}
+function compactFallbackTiming(ev){
+  const shortDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(String(value||''))
+    ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short'}).format(new Date(`${value}T00:00:00Z`)).replace(/Sept/g,'Sep').replace(/, /g,' ') : 'Date TBC';
+  const date=shortDate(ev.date||ev.startDate);
+  if(ev.endDate&&ev.endDate!==(ev.date||ev.startDate))return `${date}–${shortDate(ev.endDate)}`;
+  if(ev.dateOnly||ev.timePrecision==='date-only')return date;
+  const time=!ev.timeTbc&&/^\d{1,2}:\d{2}/.test(String(ev.time||''))?fmtTime12(ev.time):'Time TBC';
+  return `${date} ${time}`.replace(/ (am|pm)/g,'$1');
+}
+function buildCardActionStakes(ev){
+  const stakes=document.createElement('span');stakes.className='event-action-stakes';stakes.setAttribute('aria-label',`Stakes ${Math.max(0,Math.min(5,Number(ev.stakesScore)||0))} out of 5`);
+  for(let index=1;index<=5;index++){const block=document.createElement('i');if(index<=Number(ev.stakesScore||0))block.className='is-filled';stakes.appendChild(block);}
+  return stakes;
 }
 function buildCompactCardSummary(ev){
   const summary=document.createElement('div');summary.className='compact-card-summary';
@@ -15107,7 +15161,7 @@ function buildCompactCardSummary(ev){
   const title=document.createElement('span');title.className='compact-card-name';title.textContent=compactFixtureName(ev);
   const time=document.createElement('span');time.className='compact-card-time';
   const start=ev.timePrecision==='follows'?null:FEED_CONTROLS.eventStart(ev);
-  time.textContent=ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start) : `${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
+  time.textContent=ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev);
   summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${time.textContent}`);summary.title=summary.getAttribute('aria-label');
   const stakes=document.createElement('span');stakes.className='compact-card-stakes';stakes.setAttribute('aria-label',`Stakes ${Math.max(0,Math.min(5,Number(ev.stakesScore)||0))} out of 5`);
   for(let index=1;index<=5;index++){const block=document.createElement('i');if(index<=Number(ev.stakesScore||0))block.className='is-filled';stakes.appendChild(block);}
@@ -15150,7 +15204,12 @@ function setFeedCompact(value){
     userPreferences.feedCompact=target;cardViewStates={};
     if(activeTab==='feed'){
       const anchor=captureViewportRenderAnchor();
-      mutateWithScrollContinuity(anchor?.card,()=>renderListView(),{anchorStrategy:'target',interactionName:'compact-toggle'});
+      mutateWithScrollContinuity(anchor?.card,()=>{
+        const cards=[...document.querySelectorAll('#listView .event-card')];
+        if(cards.length&&cards.every(card=>typeof card._rebuildCard==='function')){
+          for(const card of cards)patchElementInPlace(card,card._rebuildCard());
+        }else renderListView();
+      },{anchorStrategy:'target',interactionName:'compact-toggle',local:true});
     }
     clearTimeout(compactPersistTimer);compactPersistTimer=setTimeout(()=>savePreferences(clonePreferences(userPreferences),{viewOnly:true}),300);
   });
@@ -15244,7 +15303,11 @@ function patchElementInPlace(element, replacement){
   if (!element || !replacement || element.tagName !== replacement.tagName) return false;
   preserveStableDescendants(element, replacement);
   syncElementAttributes(element, replacement);
+  // Retained DOM nodes must own the new handlers' mutable card reference.
+  // Otherwise a cached/reconciled card patches the detached replacement.
+  if(replacement._retargetCard){replacement._retargetCard(element);element._retargetCard=replacement._retargetCard;}
   if (replacement._activateCard) element._activateCard = replacement._activateCard;
+  if (replacement._rebuildCard) element._rebuildCard = replacement._rebuildCard;
   element.replaceChildren(...replacement.childNodes);
   finalizeLoadedIdentityImages(element);
   return true;
@@ -15306,15 +15369,15 @@ function lockNativeScrollAnchoring(){
   };
 }
 
-function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focusTarget = null, anchorStrategy = "auto", interactionName = "anchored-mutation" } = {}){
+function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focusTarget = null, anchorStrategy = "auto", interactionName = "anchored-mutation", local = false } = {}){
   if (typeof mutate !== "function") return false;
   const anchor = scrollContinuityAnchorFor(target, anchorStrategy);
   const anchorKey = scrollKeyForElement(anchor);
   const anchorTop = anchor?.getBoundingClientRect?.().top;
-  const previousNodes = captureKeyedScrollNodes();
+  const previousNodes = local ? null : captureKeyedScrollNodes();
   const releaseNativeAnchor = lockNativeScrollAnchoring();
   mutate();
-  reconcileKeyedScrollNodes(previousNodes);
+  if(previousNodes) reconcileKeyedScrollNodes(previousNodes);
   let lastCorrectionAt = -Infinity;
   const restoreAnchor = () => {
     const currentAnchor = anchor?.isConnected
@@ -15378,7 +15441,7 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
     scheduleRestore();
     if (restoreFocus){
       const requestedFocus = typeof focusTarget === "string"
-        ? document.querySelector(focusTarget)
+        ? target?.querySelector?.(focusTarget) || document.querySelector(focusTarget)
         : focusTarget?.isConnected
           ? focusTarget
           : target?.isConnected
@@ -16138,7 +16201,7 @@ function buildEventCardControls(ev, {card=null,eventsOnly=activeTab==='events',d
   const controls=document.createElement('div');controls.className='event-card-controls';
   const dismiss=document.createElement('button');dismiss.type='button';dismiss.className='event-card-control card-dismiss';
   dismiss.dataset.cardControl='dismiss';dismiss.textContent='×';dismiss.setAttribute('aria-label',`Dismiss ${displayLabel || ev.name || 'fixture'}`);
-  dismiss.onclick=event=>{event.stopPropagation();const previous=storedEventAction(ev);dismissEventCard(ev,{previousAction:previous?{...previous}:null,card,eventsOnly,displayLabel});};
+  dismiss.onclick=event=>{event.stopPropagation();const previous=storedEventAction(ev);dismissEventCard(ev,{previousAction:previous?{...previous}:null,card:event.currentTarget.closest('.event-card') || card,eventsOnly,displayLabel});};
   controls.appendChild(dismiss);return controls;
 }
 
@@ -16163,6 +16226,7 @@ function refreshExpandableCard(card, replacement, { restoreFocus = false, focusT
   return mutateWithScrollContinuity(anchorTarget || card, () => patchElementInPlace(card, replacement), {
     restoreFocus,
     focusTarget:focusTarget || card,
+    local:true,
     anchorStrategy:"target",
     interactionName,
   });
@@ -16352,7 +16416,11 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
 const inlineRatingRequests=new Map();
 function buildInlineCrowdRating(ev,snapshot){
   const root=document.createElement('div');root.className='nsc-inline-rating';
-  const phase=snapshot?.phase;if(!phase)return root;
+  const phase=snapshot?.phase || ({upcoming:'heat',live:'pulse',past:'impact'})[getEventStatus(ev)];
+  if(!phase)return root;
+  // Reserve the real control while a signed-in user's sealed state is checked.
+  // Server responses remain authoritative for eligibility and phase.
+  const awaitingViewer=Boolean(serverSyncClient?.sessionSubject())&&!snapshot;
   const group=document.createElement('div');group.className='nsc-rating-blocks';group.setAttribute('role','group');group.setAttribute('aria-label','Your rating out of five');
   const exactTiming=Boolean(ev?.startTimeUtc)&&(!ev?.timePrecision||ev.timePrecision==='exact');
   const tip=phase==='heat'?"How do you think it'll go?":phase==='pulse'?"How do you think it's going?":"How do you think it went?";
@@ -16360,11 +16428,11 @@ function buildInlineCrowdRating(ev,snapshot){
   const prompt=document.createElement('span');prompt.className='nsc-rating-prompt';
   const status=document.createElement('span');status.className='nsc-rating-status';status.setAttribute('role','status');
   const id=nothingscoreEventId(ev),owner=serverPersistence.user?.id;
-  let chosen=Number(snapshot.currentUser?.contribution?.rating || snapshot.currentUser?.submissions?.[phase]?.rating)||0;
+  let chosen=Number(snapshot?.currentUser?.contribution?.rating || snapshot?.currentUser?.submissions?.[phase]?.rating)||0;
   const sealed=phase!=='pulse'&&chosen>0;
   const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?labels[value-1]:tip;prompt.dataset.rating=String(value||0);};
   for(let value=1;value<=5;value++){
-    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${labels[value-1]}`);b.disabled=sealed;
+    const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${labels[value-1]}`);b.disabled=sealed||awaitingViewer;
     b.onclick=async()=>{
       if(!serverSyncClient?.sessionSubject()){status.textContent='Sign in to rate this fixture.';openSettings({section:'account'});return;}
       if(phase!=='pulse'&&chosen){status.textContent='This rating is sealed.';return;}
@@ -16373,6 +16441,7 @@ function buildInlineCrowdRating(ev,snapshot){
       const task=serverSyncClient.nothingscoreRequest({}, {action:phase==='pulse'?'pulse':'submit',eventId:id,phase,rating:value,tags:[]});inlineRatingRequests.set(id,task);
       try{
         const receipt=await task;if(owner!==(serverPersistence.user?.id))return;chosen=value;
+        window.NOTHINGSPORTS_CROWD_RANKINGS?.clear?.();
         status.textContent=receipt.pointsAwarded?`+${receipt.pointsAwarded} points`:'Rating saved';
         if(receipt.pointsAwarded&&!matchMedia('(prefers-reduced-motion: reduce)').matches)status.animate([{opacity:0,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:300});
         if(value===5){root.classList.add('is-epic-burst');setTimeout(()=>root.classList.remove('is-epic-burst'),700);}
@@ -16382,6 +16451,7 @@ function buildInlineCrowdRating(ev,snapshot){
       finally{inlineRatingRequests.delete(id);group.querySelectorAll('button').forEach(x=>x.disabled=phase!=='pulse'&&chosen>0);}
     };group.appendChild(b);
   }
+  if(awaitingViewer)status.textContent='Checking your rating…';
   paint(chosen);root.append(group,prompt);
   if(phase==='heat'&&!exactTiming){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent='Start time unconfirmed · opinion only, no foresight points';root.appendChild(timing);}
   root.appendChild(status);return root;
@@ -16702,7 +16772,9 @@ function buildEventCard(ev, options = {}){
   const action = getEventAction(ev);
   const isMinimised = activeTab!=="feed" && Boolean(action.isMinimised);
   const card = document.createElement("article");
-  const interactionCard = options.interactionCard || card;
+  let interactionCard = options.interactionCard || card;
+  card._retargetCard=target=>{interactionCard=target;};
+  card._rebuildCard=()=>buildEventCard(ev,{...options,interactionCard});
   appendCalendarChoice(card,ev);
   card.className = [
     "event-card",
@@ -16743,7 +16815,7 @@ function buildEventCard(ev, options = {}){
     }));
   }
   const renderCardState=(nextState,{restoreFocus=false,focusTarget=interactionCard}={})=>{
-    updateEventAction(ev, {isMinimised:false});
+    if(getEventAction(ev).isMinimised) updateEventAction(ev, {isMinimised:false});
     if(nextState==="opened")recordEventFeedAction(ev, "open", { surface:"card-content" });
     setCardState(ev, nextState);
     refreshExpandableCard(interactionCard, buildEventCard(ev, {...options, interactionCard}), {restoreFocus,focusTarget});
@@ -16789,9 +16861,7 @@ function buildEventCard(ev, options = {}){
   primaryActions.className = "event-card-primary-actions";
   const ticketOffer = preferredTicketOfferForEvent(ev, { surface: "fixture", localVenueMatched: localGame });
   appendEventQuickActions(primaryActions, ev);
-  const compactStakes=document.createElement('span');compactStakes.className='event-action-stakes';compactStakes.setAttribute('aria-label',`Stakes ${Math.max(0,Math.min(5,Number(ev.stakesScore)||0))} out of 5`);
-  for(let index=1;index<=5;index++){const block=document.createElement('i');if(index<=Number(ev.stakesScore||0))block.className='is-filled';compactStakes.appendChild(block);}
-  primaryActions.querySelector('.event-quick-actions')?.appendChild(compactStakes);
+  primaryActions.querySelector('.event-quick-actions')?.appendChild(buildCardActionStakes(ev));
   if(options.inspectorFixture)appendSchedulePin(primaryActions,options.inspectorFixture,interactionCard);
 
   const nameLine = document.createElement("div");
@@ -17659,6 +17729,15 @@ function renderListView(){
 }
 
 function renderStartupFeedLoading(){
+  // A refresh must never replace a usable snapshot with skeletons.
+  if (activeEvents.length && mergeMainFeedSpecialEvents(getFilteredEvents()).length){
+    renderListView();
+    const notice=document.createElement('p');notice.className='feed-refresh-status';notice.setAttribute('role','status');
+    notice.textContent=startupFeedState.phase==='failed'?'Showing saved fixtures. Refresh unavailable.':'Updating fixtures…';
+    document.getElementById('listView').prepend(notice);
+    scheduleStartupLogoFunnel({feedReady:true});
+    return;
+  }
   const container = document.getElementById("listView");
   const failure = startupFeedState.phase === "failed";
   container.innerHTML = failure
@@ -19201,6 +19280,7 @@ function renderFootballDirectory(container, {
   container.appendChild(directory);
 }
 
+const followDirectoryBatchLimits=new Map();
 function renderLegacyParticipantDirectory(container, sportKey){
   const chunk = followDirectoryChunks.get(sportKey);
   if (!footballDirectoryApi || !chunk){
@@ -19339,7 +19419,9 @@ function renderLegacyParticipantDirectory(container, sportKey){
   const list = document.createElement("div");
   list.className = "football-club-list";
   list.dataset.scrollList = `directory-participants:${sportKey}`;
-  records.forEach(record => {
+  const batchKey=JSON.stringify([sportKey,filters]);
+  const limit=followDirectoryBatchLimits.get(batchKey)||40;
+  records.slice(0,limit).forEach(record => {
     const row = document.createElement("div");
     row.className = "football-club-head follow-directory-row";
     const icon = document.createElement("span");
@@ -19426,6 +19508,12 @@ function renderLegacyParticipantDirectory(container, sportKey){
     list.appendChild(empty);
   }
   directory.appendChild(list);
+  if(records.length>limit){
+    const more=document.createElement('button');more.type='button';more.className='btn ghost directory-load-more';
+    more.textContent=`Show more (${Math.min(limit,records.length)} of ${records.length})`;
+    more.onclick=()=>{followDirectoryBatchLimits.set(batchKey,limit+40);const anchor=captureViewportRenderAnchor();renderStandingsContext();restoreViewportRenderAnchor(anchor);};
+    directory.appendChild(more);
+  }
   container.appendChild(directory);
 }
 
@@ -19592,7 +19680,7 @@ function followBrowseState(){
 function saveFollowBrowse(patch){
   const next=clonePreferences(userPreferences);
   next.followBrowse={...followBrowseState(),...patch};
-  savePreferences(next);
+  savePreferences(next,{viewOnly:true});
 }
 function followSelectedEntity(){
   const state=followBrowseState();
@@ -19629,12 +19717,15 @@ async function openFollowScreen(section){
 }
 function renderFollowView(){
   const container=document.getElementById('listView');
-  container.replaceChildren();container.className='follow-view';container.dataset.scrollList='follow';
+  const retainedBar=container.querySelector(':scope > .follow-sport-bar');
+  for(const child of [...container.children])if(child!==retainedBar)child.remove();
+  container.className='follow-view';container.dataset.scrollList='follow';
   const state=followBrowseState();
   const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2));
   const pageSize=window.innerWidth<=600?4:window.innerWidth<=1000?6:8;
   const pageCount=Math.max(1,Math.ceil(sports.length/pageSize));
   let page=Math.max(0,Math.min(pageCount-1,Number(state.page)||0));
+  if(!retainedBar){
   const bar=document.createElement('nav');bar.className='follow-sport-bar';bar.setAttribute('aria-label','Choose sport');
   bar.style.setProperty('--follow-page-size',String(pageSize));
   const previous=document.createElement('button');previous.className='btn ghost';previous.type='button';previous.textContent='‹';previous.setAttribute('aria-label','Previous sports');
@@ -19651,7 +19742,7 @@ function renderFollowView(){
   const dots=document.createElement('div');dots.className='follow-sport-pages';dots.setAttribute('aria-label','Sport pages');
   const paintPager=()=>{
     previous.disabled=page===0;next.disabled=page===pageCount-1;track.setAttribute('aria-label',`Sports, page ${page+1} of ${pageCount}`);
-    dots.querySelectorAll('button').forEach((dot,index)=>{dot.classList.toggle('active',index===page);dot.setAttribute('aria-current',index===page?'page':'false');});
+    dots.querySelectorAll('span').forEach((dot,index)=>{dot.classList.toggle('active',index===page);dot.setAttribute('aria-current',index===page?'page':'false');});
   };
   const updatePager=({persist=false}={})=>{
     page=Math.max(0,Math.min(pageCount-1,Math.round(track.scrollLeft/Math.max(1,track.clientWidth))));
@@ -19659,13 +19750,16 @@ function renderFollowView(){
     if(persist)saveFollowBrowse({page});
   };
   for(let index=0;index<pageCount;index++){
-    const dot=document.createElement('button');dot.type='button';dot.setAttribute('aria-label',`Sport page ${index+1}`);dot.onclick=()=>{page=index;paintPager();saveFollowBrowse({page});track.scrollTo({left:page*track.clientWidth,behavior:'smooth'});};dots.appendChild(dot);
+    const dot=document.createElement('span');dot.setAttribute('aria-hidden','true');dots.appendChild(dot);
   }
   const go=direction=>{page=Math.max(0,Math.min(pageCount-1,page+direction));paintPager();saveFollowBrowse({page});track.scrollTo({left:page*track.clientWidth,behavior:'smooth'});};
   previous.onclick=()=>go(-1);next.onclick=()=>go(1);
   track.addEventListener('scroll',()=>{clearTimeout(track.saveTimer);track.saveTimer=setTimeout(()=>{if(track.isConnected)updatePager({persist:true});},140);},{passive:true});
   pager.append(track,dots);bar.append(previous,pager,next);container.appendChild(bar);
   requestAnimationFrame(()=>{track.scrollLeft=page*track.clientWidth;updatePager();});
+  } else {
+    retainedBar.querySelectorAll('[data-follow-sport]').forEach(button=>{const selected=button.dataset.followSport===state.sportId;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));});
+  }
   const root=selectorEntityById(state.sportId) || sports[0];
   const children=(root.childIds || []).map(selectorEntityById).filter(Boolean);
   if (children.length){
@@ -19924,7 +20018,7 @@ function archivedEvents(){
   return Array.from(byId.values());
 }
 
-// Calendar export and subscription sync were removed. Reminders use Web Push.
+// Calendar import and subscriptions share canonical fixture IDs; reminders use Web Push.
 function formatFeedbackTimestamp(date = new Date()){
   return new Intl.DateTimeFormat("en-AU", {
     timeZone: "Australia/Sydney",
@@ -20372,7 +20466,9 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   const isMinimised = Boolean(eventAction.isMinimised);
   const state = cardStateForEvent(record);
   const card = document.createElement("article");
-  const eventCard = interactionCard || card;
+  let eventCard = interactionCard || card;
+  card._retargetCard=target=>{eventCard=target;};
+  card._rebuildCard=()=> (eventCard.classList.contains("ticket-sale-card")?buildTicketSaleCard:buildMajorEventCard)(record,{interactionCard:eventCard});
   appendCalendarChoice(card,record);
   card.className = [
     "event-card",
@@ -20394,17 +20490,25 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   card.setAttribute("aria-label", `${record.name}. ${isMinimised ? "Minimised view" : state === "compact" ? "Compact view" : state === "selected" ? "Summary view" : "Full detail view"}.`);
   card.style.setProperty("--sport-color", meta.color);
 
-  const advanceState = ({ restoreFocus = false } = {}) => {
-    updateEventAction(actionEvent, {isMinimised:false});
+  const renderMajorState = (nextState,{ restoreFocus = false,focusTarget=eventCard } = {}) => {
+    if(getEventAction(actionEvent).isMinimised)updateEventAction(actionEvent, {isMinimised:false});
     activeMajorEventNowId = record.id;
-    if(nextCardState(cardStateForEvent(record))==="opened")recordEventFeedAction(actionEvent, "open", { surface:"card-content" });
-    setCardState(record, nextCardState(cardStateForEvent(record)));
+    if(nextState==="opened")recordEventFeedAction(actionEvent, "open", { surface:"card-content" });
+    setCardState(record, nextState);
     refreshExpandableCard(eventCard, (eventCard.classList.contains("ticket-sale-card") ? buildTicketSaleCard : buildMajorEventCard)(record, { interactionCard:eventCard }), {
       restoreFocus,
-      focusTarget:`[data-scroll-key="major-event:${CSS.escape(record.id)}"] .major-event-timetable`,
+      focusTarget,
     });
   };
-  bindCardCycle(card, advanceState);
+  bindCardCycle(card, options=>renderMajorState(nextCardState(cardStateForEvent(record)),options));
+  card.appendChild(buildEventCardControls(actionEvent,{card:eventCard,eventsOnly:true,displayLabel:record.name}));
+  if(isMinimised || state==='compact'){
+    card.classList.add('is-compact-row');
+    const summary=buildCompactCardSummary({...record,key:record.sportKey,date:record.startDate,time:null});
+    summary.querySelector('.compact-card-time').textContent=record.startDate?compactFallbackTiming(record):'Dates TBC';
+    card.appendChild(summary);return card;
+  }
+  card.appendChild(buildCardDisclosureControl(record.name,state,renderMajorState));
 
   const ticketRow = document.createElement("div");
   ticketRow.className = "major-event-ticket-row event-card-primary-actions";
@@ -20413,7 +20517,7 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   const primaryTimeline = MAJOR_EVENTS.phaseTimeline({ ...record, subEvents:visibleMajorEventSubEvents(record) }, nowAEST(), { level:"L0", timeZone:"Australia/Sydney" });
   const primaryItem = primaryTimeline.upcoming[0] || primaryTimeline.recent.at(-1) || null;
   const primaryFixture = (primaryItem ? majorEventFixtureSnapshot(primaryItem.subEvent, record) : null) || majorEventActionEvent(record);
-  appendEventQuickActions(ticketRow, primaryFixture, { viewing:false });
+  appendEventQuickActions(ticketRow, primaryFixture);
 
   const navigationRow = document.createElement("div");
   navigationRow.className = "major-event-navigation-row";
@@ -20429,7 +20533,7 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
     toggleMajorEventFollow(familyId);
   });
   navigationRow.appendChild(familyFollow);
-  appendEventQuickActions(navigationRow, primaryFixture, { reminder:false, chat:false });
+
   const inspect = document.createElement("button");
   inspect.type = "button";
   inspect.className = "event-quick-action major-event-timetable";
@@ -20467,23 +20571,19 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
     next.textContent = `${primaryTimeline.upcoming.length ? "Next" : "Latest"}: ${spoilerSafeDisplayTitle(primaryFixture)} · ${eventDateLabel(primaryFixture)} · ${eventTimeLabel(primaryFixture)}`;
     identity.appendChild(next);
   }
-  if (!isMinimised){
+  if (!isMinimised && state === "opened"){
     const whyItMatters = buildEventWhyItMatters(record);
     if (whyItMatters) identity.appendChild(whyItMatters);
     identity.appendChild(buildStakesMeter(record));
   }
 
-  card.append(
-    buildEventCardControls(actionEvent, { card:eventCard, eventsOnly:true, displayLabel:record.name, viewStateEvent:record }),
-    identity,
-    ticketRow,
-    navigationRow
-  );
+  ticketRow.append(...navigationRow.children,buildCardActionStakes(record));
+  card.append(identity,ticketRow);
   if (!isMinimised && state === "opened"){
     const draw = buildMajorEventDraw(record);
     if (draw) card.appendChild(draw);
   }
-  if (!isMinimised){
+  if (!isMinimised && state === "opened"){
     const immediateSchedule = buildMajorEventSchedule(record, {
       level: cardLevelForState(state),
       headingText: state === "opened" ? "Published timeline" : state === "selected" ? "Around now" : "Next match or line-up",
@@ -20502,17 +20602,7 @@ function buildMajorEventCard(record, { interactionCard = null } = {}){
   if (!isMinimised && state === "opened"){
     card.dataset.editorialProvenance = record.editorialNarrative ? "validated" : "structural";
   }
-  if(isMinimised || state==='compact'){
-    card.classList.add('is-compact-row');
-    const choice=card.querySelector('.calendar-select-label');
-    const controls=card.querySelector('.event-card-controls');
-    card.replaceChildren();if(choice)card.appendChild(choice);if(controls)card.appendChild(controls);
-    const compactEvent={...record,key:record.sportKey,date:record.startDate,time:null};
-    const summary=buildCompactCardSummary(compactEvent);
-    const compactTime=summary.querySelector('.compact-card-time');
-    if(compactTime)compactTime.textContent=majorEventDateLabel(record);
-    card.appendChild(summary);
-  }
+
   return card;
 }
 
@@ -20641,6 +20731,7 @@ function buildMajorEventMarker(event){
   card.id = `feed-major-event-${record.id.replace(/[^a-z0-9_-]/gi, "-")}`;
   card.classList.add("feed-major-event-card");
   card.dataset.majorEventMarker = event.majorEventId;
+  card._rebuildCard=()=>buildMajorEventMarker(event);
   const action = document.createElement("button");
   action.type = "button";
   action.className = "event-quick-action major-event-marker-open";
@@ -20951,7 +21042,7 @@ function currentFeedPresentationFingerprint(){
 }
 
 function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
-  if (startupCoordinator.isHydrating()) return false;
+  if (startupCoordinator.isHydrating()){renderAll({preserveViewport});return true;}
   if (scrollMomentumActive){
     queueScrollIdleMutation(() => renderFeedIfPresentationChanged({ preserveViewport }));
     return true;
@@ -21111,28 +21202,8 @@ function firstCardResidualScroll(){
 }
 
 function scheduleFirstCardViewportFit(){
-  if (headerCompactionFrame !== null) window.cancelAnimationFrame(headerCompactionFrame);
-  headerCompactionFrame = window.requestAnimationFrame(() => {
-    headerCompactionFrame = null;
-    const anchor = firstNormalFeedCard();
-    mutateWithScrollContinuity(anchor, () => {
-      document.body.classList.remove("header-compact-1", "header-compact-2", "header-compact-3");
-      delete document.body.dataset.firstCardResidualScroll;
-      if (activeTab !== "feed" || activeView !== "list" || window.innerWidth > 420 || window.scrollY > 64){
-        syncFeedFilterDockOffset();
-        return;
-      }
-      const levels = ["header-compact-1", "header-compact-2", "header-compact-3"];
-      let residual = firstCardResidualScroll();
-      for (const level of levels){
-        if (residual === null || residual <= 0) break;
-        document.body.classList.add(level);
-        residual = firstCardResidualScroll();
-      }
-      if (residual !== null) document.body.dataset.firstCardResidualScroll = String(residual);
-      syncFeedFilterDockOffset();
-    });
-  });
+  // Header geometry is fixed across card states and scroll positions.
+  syncFeedFilterDockOffset();
 }
 
 function clonePreferences(prefs){
@@ -24618,6 +24689,8 @@ function syncNothingscoreSessionState(previousOwnerId, nextOwnerId){
   nothingscoreLoadedAt.clear();
   nothingscoreLoadErrors.clear();
   nothingscorePendingIds.clear();
+  window.NOTHINGSPORTS_CROWD_RANKINGS?.clear?.();
+  ++nscRankingGeneration;
   nothingscoreViewer = { signedIn:false, ratingEligible:false, profile:null };
   if (!nextOwnerId){
     nothingscoreWatching.clear();
@@ -24638,31 +24711,55 @@ async function refreshNothingscoreViewer(){
   return payload.viewer || null;
 }
 
+let nscReturnPosition=null;
+let nscOpenedFromRankings=false;
+const nscDetailEvents=new Map();
 function setNothingscoreDrawerOpen(open){
-  const backdrop = document.getElementById("nothingscoreBackdrop");
-  backdrop.classList.toggle("show", open);
-  backdrop.setAttribute("aria-hidden", open ? "false" : "true");
-  document.body.classList.toggle("nsc-open", open);
-  if (open){
-    nothingscorePreviousFocus = document.activeElement;
+  const backdrop=document.getElementById('nothingscoreBackdrop');
+  const wasOpen=backdrop.classList.contains('show');
+  backdrop.classList.toggle('show',open);backdrop.setAttribute('aria-hidden',String(!open));
+  document.body.classList.toggle('nsc-open',open);
+  document.getElementById('mainContent').inert=open;
+  document.querySelector('header.top').inert=open;
+  if(open){
+    if(!wasOpen){nscReturnPosition=captureViewportRenderAnchor();nothingscorePreviousFocus=document.activeElement;}
     renderNothingscoreDrawer();
-    document.getElementById("closeNothingscoreBtn").focus();
-  } else {
-    nothingscorePreviousFocus?.focus?.();
-    nothingscorePreviousFocus = null;
-    activeNothingscoreContributionEvent = null;
-    activeNothingscoreContributionError = "";
+    document.getElementById('closeNothingscoreBtn').focus({preventScroll:true});
+  }else{
+    ++nscRankingGeneration;clearTimeout(nscRankingTimer);
+    activeNothingscoreContributionEvent=null;activeNothingscoreContributionError='';
+    if(nscReturnPosition)restoreViewportRenderAnchor(nscReturnPosition);
+    nothingscorePreviousFocus?.focus?.({preventScroll:true});nothingscorePreviousFocus=null;
   }
 }
-
+function syncNscPageFromHistory(){
+  const route=history.state?.nscPage;
+  if(route || location.hash==='#nsc'){
+    nscMyView=route?.view==='mine';
+    activeNothingscoreContributionEvent=route?.eventId?nscDetailEvents.get(route.eventId)||null:null;
+    setNothingscoreDrawerOpen(true);return true;
+  }
+  if(document.body.classList.contains('nsc-open')){setNothingscoreDrawerOpen(false);return true;}
+  return false;
+}
 function openNothingscoreDrawer(){
-  nscMyView=false;
-  activeNothingscoreContributionEvent = null;
+  nscMyView=false;nscOpenedFromRankings=true;activeNothingscoreContributionEvent=null;
+  if(!document.body.classList.contains('nsc-open'))history.pushState({nscPage:{view:'rankings'}},'', '#nsc');
   setNothingscoreDrawerOpen(true);
-  void refreshNothingscoreDrawer();
+}
+function nscPageBack(){
+  if(history.state?.nscPage){history.back();return;}
+  if(activeNothingscoreContributionEvent&&nscOpenedFromRankings){activeNothingscoreContributionEvent=null;nscMyView=false;renderNothingscoreDrawer();return;}
+  setNothingscoreDrawerOpen(false);
 }
 
 async function openNothingscoreContribution(ev, {showResults = false} = {}){
+  const id=nothingscoreEventId(ev);nscDetailEvents.set(id,ev);
+  if(activeNothingscoreContributionEvent!==ev){
+    nscOpenedFromRankings=document.body.classList.contains('nsc-open');
+    if(nscOpenedFromRankings)nscRankingState.scrollTop=document.getElementById('nothingscoreBody').scrollTop;
+    history.pushState({nscPage:{view:'fixture',eventId:id}},'', '#nsc');
+  }
   activeNothingscoreContributionEvent = ev;
   activeNothingscoreContributionError = "";
   setNothingscoreDrawerOpen(true);
@@ -24764,7 +24861,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=241");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=242");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Crowd rankings could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -24781,6 +24878,7 @@ async function renderMyForesight(body){
 }
 
 function renderNothingscoreDrawer(){
+  document.getElementById('nscMyAccountBtn')?.remove();
   if(!activeNothingscoreContributionEvent && !nscMyView){renderCrowdRankings();return;}
   const body = document.getElementById("nothingscoreBody");
   body.replaceChildren();
@@ -24984,6 +25082,7 @@ async function loadNothingscoreLeaderboard(){
 }
 
 async function refreshNothingscoreDrawer(){
+  if (!activeNothingscoreContributionEvent && !nscMyView){renderCrowdRankings();return;}
   if (activeNothingscoreContributionEvent){
     await openNothingscoreContribution(activeNothingscoreContributionEvent);
     return;
@@ -24995,7 +25094,7 @@ async function refreshNothingscoreDrawer(){
 }
 
 document.getElementById("nothingscoreBtn").addEventListener("click", openNothingscoreDrawer);
-document.getElementById("closeNothingscoreBtn").addEventListener("click", () => setNothingscoreDrawerOpen(false));
+document.getElementById("closeNothingscoreBtn").addEventListener("click", nscPageBack);
 document.getElementById("nothingscoreBackdrop").addEventListener("click", event => {
   if (event.target.id === "nothingscoreBackdrop") setNothingscoreDrawerOpen(false);
 });
@@ -25004,7 +25103,7 @@ document.addEventListener("keydown", event => {
   if (!backdrop.classList.contains("show")) return;
   if (event.key === "Escape"){
     event.preventDefault();
-    setNothingscoreDrawerOpen(false);
+    nscPageBack();
     return;
   }
   if (event.key !== "Tab") return;
@@ -25088,7 +25187,7 @@ function setUtilityModalOpen(id, open){
   modal.setAttribute("aria-hidden", open ? "false" : "true");
 }
 
-// Calendar export and subscription sync were removed. Reminders use Web Push.
+// Calendar import and subscriptions share canonical fixture IDs; reminders use Web Push.
 function updateFeedbackPreview(){
   const category = document.getElementById("feedbackCategory");
   const message = document.getElementById("feedbackMessage");
@@ -25108,16 +25207,23 @@ function submitFeedbackForm(evt){
   window.location.href = buildFeedbackSmsUrl(category, message);
 }
 
-// Calendar export and subscription sync were removed. Reminders use Web Push.
+// Calendar import and subscriptions share canonical fixture IDs; reminders use Web Push.
 function startupFeedTaskDescriptors(){
   return [
-    { name:"published feed", run:() => refreshFeedOnFirstLoad(), valid:value => Boolean(value && Number(value.eventCount) > 0) },
+    { name:"published feed", run:async() => {
+      const [feed]=await Promise.all([refreshFeedOnFirstLoad(),ensureFeedSourceReadiness()]);
+      return feed;
+    }, valid:value => Boolean(value && Number(value.eventCount) > 0) },
   ];
 }
 
+// The Feed and all browsing routes share these dependencies. Opening another
+// screen cannot be a prerequisite for resolving a saved follow collection.
+async function ensureFeedSourceReadiness(preferences=userPreferences){
+  await Promise.allSettled([ensureFollowCollectionDirectories(preferences),loadMajorEventsData({quiet:true,cacheFirst:true})]);
+  rebuildDerivedCardCache(activeEvents);
+}
 function loadDeferredStartupContext(){
-  // Canonical seasons, directories and extra fixture bundles are intentionally
-  // loaded only by the Settings, Standings or Inspector surfaces that need them.
   return disposableStore?.evictExpired?.() || Promise.resolve(0);
 }
 
