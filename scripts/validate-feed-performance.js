@@ -7,12 +7,12 @@ const zlib = require("node:zlib");
 const crypto = require("node:crypto");
 const {execFileSync} = require("node:child_process");
 const ROOT = path.resolve(__dirname,"..");
-// Compare this release against the freshly fetched origin/main snapshot it extends.
-const BASELINE = "5a35299466f2feb1d5433e2b69bf06139388573f";
+// Compare this release against the verified origin/main snapshot it extends.
+const BASELINE = "878c253e654c8cef9c1bc799c5084a7ca052f8b6";
 const MAX_CRITICAL_GZIP_GROWTH_PERCENT = 1.25;
 function localScriptPaths(html){
   return Array.from(html.matchAll(/<script[^>]+src="([^"]+)"/g),m=>m[1])
-    .filter(source=>!/^https?:/i.test(source)).map(source=>source.split(/[?#]/,1)[0]);
+    .filter(source=>!/^https?:/i.test(source)).map(source=>source.split(/[?#]/,1)[0].replace(/^\//,""));
 }
 function readAtRef(ref,file){
   try { return execFileSync("git",["show",ref+":"+file],{cwd:ROOT,maxBuffer:10*1024*1024,stdio:["ignore","pipe","ignore"]}); }
@@ -42,7 +42,7 @@ function median(values){
 function sourceFingerprint(){
   // Runtime measurements explicitly bypass SW. Bind the executed/rendered UI
   // bytes; the separate startup-budget/lifecycle suites validate the worker.
-  const files=["index.html","assets/js/app-shell-runtime.js","assets/styles/nothingsport-foundation.css","config/athlete-profile-ui.js"];
+  const files=["index.html","assets/js/app-update.js","assets/js/app-shell-runtime.js","assets/styles/nothingsport-foundation.css","config/athlete-profile-ui.js"];
   const hash=crypto.createHash("sha256");
   files.forEach(file=>hash.update(file).update(fs.readFileSync(path.join(ROOT,file))));
   return hash.digest("hex");

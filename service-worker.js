@@ -1,5 +1,7 @@
-const CACHE_NAME = "nothingsport-shell-v243";
+const CACHE_NAME = "nothingsport-shell-v244";
+const SHELL_VERSION = "244";
 const APP_SHELL = [
+  "/assets/js/app-update.js?v=244",
   // Navigations already share /index.html below; do not download/cache its
   // million-byte HTML a second time under the root alias during installation.
   "/index.html",
@@ -9,11 +11,11 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=243",
-  "/assets/js/app-shell-runtime.js?v=243",
-  "/assets/js/nsc-rankings-ui.js?v=243",
+  "/assets/styles/nothingsport-foundation.css?v=244",
+  "/assets/js/app-shell-runtime.js?v=244",
+  "/assets/js/nsc-rankings-ui.js?v=244",
   "/assets/identities/events/le-mans-24-hours.png",
-  "/styles/follow-feed-rework.css?v=243",
+  "/styles/follow-feed-rework.css?v=244",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/brand-copy.js",
@@ -47,8 +49,8 @@ const APP_SHELL = [
   "/config/follow-first.js?v=222",
   "/config/feed-controls.js",
   "/config/ticketing.js",
-  "/config/major-events.js?v=243",
-  "/config/follow-feed-policy.js?v=243",
+  "/config/major-events.js?v=244",
+  "/config/follow-feed-policy.js?v=244",
   "/config/football-directory.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",
@@ -175,24 +177,70 @@ const DEFERRED_IDENTITY_ASSETS = new Set([
   "/assets/identities/national/aflw/ireland-state-harp.svg",
 ]);
 
+// Optional logos, data and utility screens cache on use. A failed optional
+// download must not hold an installed app on an obsolete shell indefinitely.
+const REQUIRED_SHELL = APP_SHELL.filter(url => ["/index.html", "/privacy.html", "/terms.html", "/manifest.webmanifest"].includes(url) || /\.(?:js|css)(?:\?|$)/.test(url));
 self.addEventListener("install", event => {
-  self.skipWaiting();
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(REQUIRED_SHELL)).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("message", event => {
+  if (event.data?.type === "nothingsport-worker-version"){
+    event.ports?.[0]?.postMessage({ version:SHELL_VERSION });
+  }
   if (event.data?.type === "nothingsport-activate-update"){
     event.waitUntil(self.skipWaiting());
   }
 });
 
+const checkingClients = new Map();
+const confirmedClients = new Set();
+async function recoverInstalledClient(client){
+  if (!client || confirmedClients.has(client.id)) return;
+  const url = new URL(client.url);
+  if (url.origin !== self.location.origin || !["/", "/index.html"].includes(url.pathname)) return;
+  if (checkingClients.has(client.id)) return checkingClients.get(client.id);
+  const checking = (async () => {
+    const reply = await new Promise(resolve => {
+      const channel = new MessageChannel();
+      const done = value => { clearTimeout(timer); channel.port1.close(); resolve(value); };
+      const timer = setTimeout(() => done(null), 2500);
+      channel.port1.onmessage = event => done(event.data);
+      try { client.postMessage({ type:"nothingsport-shell-probe", version:SHELL_VERSION }, [channel.port2]); }
+      catch (_) { done(null); }
+    });
+    if (reply?.protocol === 1){
+      // Modern pages own persistence and defer reloads until writes finish.
+      confirmedClients.add(client.id);
+      return;
+    }
+    // Pre-handshake releases intentionally ignored controllerchange. Updating
+    // their worker alone cannot replace the old document. Navigate once using
+    // the newly installed worker; same-origin storage and URL stay intact.
+    const current = await self.clients.get(client.id);
+    if (!current) return;
+    const cache = await caches.open(CACHE_NAME);
+    const guard = new Request(self.location.origin + "/__shell_recovery__/" + encodeURIComponent(client.id));
+    if (await cache.match(guard)) return;
+    await cache.put(guard, new Response("1"));
+    // Do not await navigation during activate: its fetch may itself be waiting
+    // for this activation event to finish. The browser owns the navigation.
+    current.navigate(current.url).then(() => confirmedClients.add(client.id))
+      .catch(() => cache.delete(guard));
+  })().finally(() => checkingClients.delete(client.id));
+  checkingClients.set(client.id, checking);
+  return checking;
+}
+
 self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(async keys => {
-      await Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key)));
-      await self.clients.claim();
-    })
-  );
+  event.waitUntil((async () => {
+    await self.clients.claim();
+    const clients = await self.clients.matchAll({ type:"window", includeUncontrolled:true });
+    await Promise.allSettled(clients.map(recoverInstalledClient));
+    // Cache deletion never touches preferences, login, calendar URLs or drafts.
+    const keys = await caches.keys();
+    await Promise.all(keys.filter(key => key.startsWith("nothingsport-shell-") && key !== CACHE_NAME).map(key => caches.delete(key)));
+  })());
 });
 
 async function staleWhileRevalidate(request, event, cacheKey = request){
@@ -233,6 +281,13 @@ self.addEventListener("fetch", event => {
   const requestUrl = new URL(event.request.url);
   const cacheKey = new Request(event.request.url, { method: "GET" });
   if (requestUrl.origin !== self.location.origin) return;
+  if (requestUrl.pathname === "/app-version.json"){
+    event.respondWith(fetch(event.request, { cache:"no-store" }));
+    return;
+  }
+  if (event.clientId && event.request.mode !== "navigate"){
+    event.waitUntil(self.clients.get(event.clientId).then(recoverInstalledClient).catch(() => {}));
+  }
   // Safari requests HTML media in byte ranges. Partial responses cannot be
   // stored in Cache Storage and must retain the original Range header.
   if (event.request.headers.has("range") || requestUrl.pathname.startsWith("/assets/audio/")){

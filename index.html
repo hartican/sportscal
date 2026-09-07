@@ -11,8 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="243">
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=243" as="script">
+<meta name="app-shell-version" content="244">
+<script src="/assets/js/app-update.js?v=244" defer></script>
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=244" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6892,8 +6893,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=243">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=243">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=244">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=244">
 </head>
 <body>
 
@@ -7183,7 +7184,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=243"></script>
+<script src="assets/js/app-shell-runtime.js?v=244"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -7246,7 +7247,9 @@ let startupReloadRestoreState = (() => {
     return value?.savedAt && Date.now() - Number(value.savedAt) < 120_000 ? value : null;
   }catch(_error){ return null; }
 })();
-function reloadForUpdatedServiceWorker(){
+async function reloadForUpdatedServiceWorker(){
+  persistCurrentChatDraft();
+  await flushDisposableStore();
   try{
     sessionStorage.setItem(SERVICE_WORKER_RELOAD_STATE_KEY, JSON.stringify({
       href:location.href,
@@ -8288,7 +8291,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=243",
+  moduleScriptUrl: "config/major-events.js?v=244",
   url: "data/major-events.v1.json",
 });
 
@@ -22226,6 +22229,25 @@ function renderSettingsMenu(body){
     ${settingsMenuItem("hidden", "ui:archive", "Hidden events", `${hiddenCount} dismissed card${hiddenCount === 1 ? "" : "s"}`)}
     ${settingsMenuItem("feedback", "ui:message", "Feedback", "Send feedback to Nothing Sport")}
   </div><div class="filter-panel"><h3>Feed refresh and recovery</h3><p class="preference-help">The published feed refreshes automatically when the app opens. Use this recovery action if cards appear stale or incomplete.</p><p class="preference-help" id="derivedFeedCacheSummary">${derivedCardCache?.derivedCards?.length || 0} derived cards are cached on this device. Completed cards stay active for 7 days, remain recoverable through day 14, then disappear unless you archived or saved them.</p><button class="btn ghost" type="button" id="refreshAndRebuildFeedBtn" aria-describedby="refreshAndRebuildFeedStatus">Refresh and rebuild feed</button><p class="preference-help" id="refreshAndRebuildFeedStatus" role="status" aria-live="polite"></p></div>`;
+  const updates = globalThis.NOTHINGSPORTS_APP_UPDATE;
+  if (updates){
+    const section = document.createElement("section");
+    section.className = "filter-panel";
+    section.innerHTML = '<h3>App updates</h3><p class="preference-help" id="appVersionStatus" role="status" aria-live="polite"></p><button class="btn ghost" type="button" id="checkAppUpdateBtn">Check for updates</button>';
+    body.appendChild(section);
+    const status = section.querySelector("#appVersionStatus");
+    const button = section.querySelector("button");
+    const render = state => {
+      const messages = { idle:"", checking:"Checking for updates…", current:"Up to date.", updating:"Update available. Applying when your current action is saved…", offline:"Offline. Your saved app is available; reconnect to check for updates.", error:"Couldn’t confirm the latest version. Try again when connected." };
+      status.textContent = "Version " + state.version + " · " + (messages[state.phase] || "");
+      button.disabled = state.phase === "checking";
+    };
+    render(updates.snapshot());
+    const unsubscribe = updates.subscribe(state => { if (section.isConnected) render(state); });
+    const observer = new MutationObserver(() => { if (!section.isConnected){ unsubscribe(); observer.disconnect(); } });
+    observer.observe(body, { childList:true });
+    button.addEventListener("click", () => void updates.check({ force:true }));
+  }
   bindSettingsMenuNavigation(body);
   document.getElementById("refreshAndRebuildFeedBtn").addEventListener("click", async () => {
     const button = document.getElementById("refreshAndRebuildFeedBtn");
@@ -24887,7 +24909,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=243");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=244");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Crowd rankings could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -25414,13 +25436,14 @@ document.addEventListener("visibilitychange", () => {
   if (!weeklyPulseWasHidden) return;
   weeklyPulseWasHidden = false;
   void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
-  installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
   if (weeklyPulseHiddenAt && Date.now() - weeklyPulseHiddenAt >= 30 * 60 * 1000) registerWeeklyPulseAppOpen();
   weeklyPulseHiddenAt = null;
 });
+window.addEventListener("DOMContentLoaded", () => {
+  globalThis.NOTHINGSPORTS_APP_UPDATE?.configure(reloadForUpdatedServiceWorker);
+}, { once:true });
 window.addEventListener("pagehide", () => { loadingAudioPlayer?.stop?.(); dismissWeeklyPulsePrompt(); }, { passive:true });
 window.addEventListener("online", () => {
-  installedServiceWorkerRegistration?.update().catch(error => console.warn("Service worker update check failed", error));
   void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   if (followFeedRefreshPending) void requestFeedRebuildAfterFollowChange();
 });
@@ -25440,27 +25463,6 @@ if (userPreferences.followFirst?.location?.mode === "automatic" && navigator.per
     }, () => {}, { enableHighAccuracy:false, maximumAge:300000, timeout:10000 });
   }).catch(() => {});
 }
-function watchServiceWorkerUpdate(registration){
-  if (!registration) return;
-  const requestActivation = worker => {
-    if (!worker || worker.state !== "installed") return false;
-    worker.postMessage({ type:"nothingsport-activate-update" });
-    return true;
-  };
-  requestActivation(registration.waiting);
-  registration.addEventListener("updatefound", () => {
-    const worker = registration.installing;
-    if (!worker) return;
-    worker.addEventListener("statechange", () => requestActivation(worker));
-  });
-  let attempts = 0;
-  const detectWaitingWorker = () => {
-    if (requestActivation(registration.waiting) || attempts >= 240) return;
-    attempts += 1;
-    setTimeout(detectWaitingWorker, 250);
-  };
-  detectWaitingWorker();
-}
 if ("serviceWorker" in navigator){
   navigator.serviceWorker.addEventListener("message", event => {
     if (event.data?.type !== "nothingsport-notification-received" || event.data?.kind !== "test" || !event.data?.testId) return;
@@ -25470,22 +25472,7 @@ if ("serviceWorker" in navigator){
       .then(() => refreshNotificationDiagnosticsStatus())
       .catch(() => null);
   });
-  navigator.serviceWorker.addEventListener("controllerchange", () => {
-    startupCoordinator.controllerChanged();
-  });
-  const registerInstalledServiceWorker = () => {
-    navigator.serviceWorker.register("/service-worker.js")
-      .then(registration => {
-        installedServiceWorkerRegistration = registration;
-        watchServiceWorkerUpdate(registration);
-        return registration.update();
-      })
-      .catch(err => {
-        console.warn("Service worker registration failed", err);
-      });
-  };
-  if (document.readyState === "complete") registerInstalledServiceWorker();
-  else window.addEventListener("load", registerInstalledServiceWorker, { once:true });
+
 }
 
 

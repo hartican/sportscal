@@ -420,9 +420,11 @@ assert(serviceWorkerSource.includes('"/config/feed-refresh-lifecycle.js"'), "the
 assert(!serviceWorkerSource.includes('"/data/canonical/contexts.js"') && !serviceWorkerSource.includes('"/data/canonical/joint-tennis-tournament-2026.js"'), "large optional canonical transports must not delay shell installation");
 assert(serviceWorkerSource.includes("self.skipWaiting()"), "an updated home-screen app worker must activate without waiting for every old app window to close");
 assert(serviceWorkerSource.includes("self.clients.claim()"), "an updated home-screen app worker must take control of existing app windows");
-assert(serviceWorkerSource.includes("keys.filter(key => key !== CACHE_NAME)"), "the worker must remove superseded shell caches during activation");
-assert(!serviceWorkerSource.includes("client.navigate(client.url)"), "worker activation must not navigate a live Home Screen app during startup");
-assert(html.includes("controllerchange") && html.includes("registration.update()"), "the installed app must detect a new controller while checking for a worker update");
+assert(serviceWorkerSource.includes('keys.filter(key => key.startsWith("nothingsport-shell-") && key !== CACHE_NAME)'), "the worker must remove only superseded app-shell caches during activation");
+assert(serviceWorkerSource.includes('reply?.protocol === 1') && serviceWorkerSource.includes("current.navigate(current.url)"), "legacy pages need a guarded navigation while modern pages own persistence and reload timing");
+const appUpdateSource = fs.readFileSync("assets/js/app-update.js", "utf8");
+assert(appUpdateSource.includes("controllerchange") && appUpdateSource.includes("bounded(reg.update())"), "the installed app must detect a new controller while checking for a worker update");
+assert.equal(JSON.parse(fs.readFileSync("app-version.json", "utf8")).version, shellVersion, "the uncached version probe must match the HTML and worker");
 assert(serviceWorkerSource.includes('event.respondWith(networkFirst(event.request, event, new Request("/index.html")))'), "generic app navigation must be network-first with the current shell as its offline fallback");
 assert(html.includes("SERVICE_WORKER_RELOAD_STATE_KEY") && html.includes("reloadForUpdatedServiceWorker") && html.includes("startupReloadRestoreState"), "a controller update must preserve route/UI position and perform one guarded current-shell reload");
 assert(html.includes('id="startupFeedLoading"') && html.includes("startupCoordinator.isHydrating()"), "the interactive framework must use a stable loading surface until card hydration completes");
