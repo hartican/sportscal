@@ -34,7 +34,7 @@ assert.match(transaction, /requestAnimationFrame/, "the transaction must measure
 assert.match(transaction, /restoreFrame !== null[\s\S]*requestAnimationFrame\(\(\) => \{[\s\S]*restoreAnchor\(\)/, "competing late-layout callbacks must coalesce into one correction per frame");
 assert.match(transaction, /scheduleRestore\(\);[\s\S]*requestAnimationFrame\(\(\) => \{[\s\S]*scheduleRestore\(\)/, "the transaction must recheck the anchor after the browser's post-layout focus frame");
 assert.match(transaction, /lastCorrectionAt < 40/, "post-layout callbacks must not duplicate a correction before the prior frame settles");
-assert.match(transaction, /scrollTo\(\{ top:window\.scrollY \+ correction, behavior:"instant" \}\)/, "the transaction must apply an immediate measured anchor correction");
+assert.match(transaction, /expectedCorrectionScrollY = window\.scrollY \+ correction;[\s\S]*scrollTo\(\{ top:expectedCorrectionScrollY, behavior:"instant" \}\)/, "the transaction must apply an immediate measured anchor correction");
 assert.match(transaction, /preventScroll:\s*true/, "the transaction must restore focus without scrolling");
 assert.match(transaction, /maxScrollY/, "the transaction must clamp compensation at the document end");
 const anchorSelection = sourceOf("scrollContinuityAnchorFor");

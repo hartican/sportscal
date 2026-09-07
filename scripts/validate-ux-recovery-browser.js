@@ -73,6 +73,9 @@ const base=process.env.QA_BASE_URL||'http://127.0.0.1:8887';
  for(let i=0;i<100;i++){
   const toggle=page.locator('.feed-compact-toggle');
   await toggle.click();
+  // Actual published pagination can finish during a gesture. This is the
+  // same entry point used by the scroll sentinel, with no synthetic cards.
+  if([5,20,45].includes(i))await page.evaluate(()=>{void loadNextFeedPage();});
   await page.waitForTimeout(100);
   const state=await page.evaluate(()=>({compact:userPreferences.feedCompact,levels:[...document.querySelectorAll('.event-card')].map(c=>c.dataset.cardLevel)}));
   assert(state.levels.every(level=>level===(state.compact?'L0':'L1')),'Compact/Expand mixed card levels');

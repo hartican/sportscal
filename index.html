@@ -11,8 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="242">
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=242" as="script">
+<meta name="app-shell-version" content="243">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=243" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6892,8 +6892,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=242">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=242">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=243">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=243">
 </head>
 <body>
 
@@ -7183,7 +7183,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=242"></script>
+<script src="assets/js/app-shell-runtime.js?v=243"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -8288,7 +8288,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=242",
+  moduleScriptUrl: "config/major-events.js?v=243",
   url: "data/major-events.v1.json",
 });
 
@@ -12153,10 +12153,11 @@ function selectedMajorEventFixtures(){
 function automaticallyFollowedMajorEventFixtures(reference = nowAEST()){
   if (!majorEventsDocument?.events?.length) return [];
   const fixtures = new Map();
+  const followContext=buildFollowEligibilityContext();
   majorEventsDocument.events.filter(record => record.kind !== "ticket_sale").forEach(parent => {
     majorEventSubEvents(parent).forEach(subEvent => {
       const fixture = majorEventFixtureSnapshot(subEvent, parent);
-      const followReason = fixture ? automaticEventFollowReason(fixture) : null;
+      const followReason = fixture ? automaticEventFollowReason(fixture,followContext) : null;
       const followed = Boolean(followReason);
       const decision = FOLLOW_FEED_POLICY.followedFixtureDecision(fixture, {
         followed,
@@ -14253,7 +14254,20 @@ function followedParticipantLabel(participantId){
     || String(participantId || "").split(":").at(-1).replace(/-/g, " ");
 }
 
-function automaticEventFollowReason(ev){
+function buildFollowEligibilityContext(){
+  const playerTeams = new Map([
+    ...(directoryFollowIndex().players || []),
+    ...(footballDirectoryData?.players || []),
+    ...Object.values(leagueDirectoryState).flatMap(state => state.data?.players || []),
+  ].map(player => [player.id, player.currentTeamId]));
+  const participantsById=new Map();
+  cardIdentityParticipants().forEach(participant=>{
+    const matches=participantsById.get(participant.id)||[];matches.push(participant);participantsById.set(participant.id,matches);
+  });
+  return {playerTeams,participantsById,collectionsById:followCollectionsById()};
+}
+
+function automaticEventFollowReason(ev, context=buildFollowEligibilityContext()){
   const eventParticipantIds = Array.from(new Set([
     ...(Array.isArray(ev?.participantIds) ? ev.participantIds : []),
     ...(Array.isArray(ev?.matchupSides) ? ev.matchupSides.flatMap(side => (side.players || []).map(player => player.id)) : []),
@@ -14262,11 +14276,7 @@ function automaticEventFollowReason(ev){
     ev?.awayParticipantId,
   ].filter(Boolean)));
   const eventParticipantIdSet = new Set(eventParticipantIds);
-  const playerTeams = new Map([
-    ...(directoryFollowIndex().players || []),
-    ...(footballDirectoryData?.players || []),
-    ...Object.values(leagueDirectoryState).flatMap(state => state.data?.players || []),
-  ].map(player => [player.id, player.currentTeamId]));
+  const {playerTeams,participantsById,collectionsById}=context;
   const directlyFollowedPlayer = (userPreferences.preferenceGraph?.entityFollows || []).find(follow => (
     !String(follow.participantId || "").startsWith("team:")
     && ["follow", "priority"].includes(follow.followLevel)
@@ -14284,12 +14294,12 @@ function automaticEventFollowReason(ev){
   const eligibilityEvent = {
     ...ev,
     participantIds:eventParticipantIds,
-    participantCountryCodes:[...(ev.participantCountryCodes || []), ...cardIdentityParticipants().filter(p=>eventParticipantIdSet.has(p.id)).flatMap(p=>[p.countryCode,p.nationalityCode,p.isAustralian?'AU':null,p.metadata?.countryCode])].filter(Boolean),
+    participantCountryCodes:[...(ev.participantCountryCodes || []), ...eventParticipantIds.flatMap(id=>participantsById.get(id)||[]).flatMap(p=>[p.countryCode,p.nationalityCode,p.isAustralian?'AU':null,p.metadata?.countryCode])].filter(Boolean),
     stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(ev)),
   };
   return FOLLOW_FIRST?.reasonForEvent?.(eligibilityEvent, userPreferences, {
     participantLabel:followedParticipantLabel,
-    collectionsById:followCollectionsById(),
+    collectionsById,
   }) || null;
 }
 
@@ -14299,7 +14309,7 @@ function followFeedPolicySource(reason){
     : "sport";
 }
 
-function eventFollowReason(ev){
+function eventFollowReason(ev, context){
   if (getEventAction(ev).addedToFixtures || ev?.manualPin === true){
     return {
       type:"manualPin",
@@ -14311,7 +14321,7 @@ function eventFollowReason(ev){
   }
   const followLevels = eventParticipantFollowLevels(ev);
   if (followLevels.includes("mute")) return null;
-  const automaticReason = automaticEventFollowReason(ev);
+  const automaticReason = automaticEventFollowReason(ev,context);
   if (automaticReason){
     const decision=FOLLOW_FEED_POLICY.followedFixtureDecision(ev,{followed:true,followSource:followFeedPolicySource(automaticReason),now:nowAEST()});
     if(decision.include)return automaticReason;
@@ -14566,7 +14576,8 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
     && eventMatchesTennisFilters(ev)
     && eventMatchesFifaFilters(ev)
   ));
-  list = list.filter(eventFollowReason);
+  const followContext=buildFollowEligibilityContext();
+  list = list.filter(event=>eventFollowReason(event,followContext));
   if (activeTab === "feed" && activeFilter !== "all") list = list.filter(event => feedFilterMatchesEvent(activeFilter, event));
   return list;
 }
@@ -15459,11 +15470,22 @@ function mutateWithScrollContinuity(target, mutate, { restoreFocus = false, focu
   return true;
 }
 
+let inputPaintPendingUntil = 0;
+function noteInputPaint(){
+  inputPaintPendingUntil=performance.now()+100;
+  noteScrollMomentum();
+}
+
 let scrollMomentumActive = false;
 let scrollMomentumIdleTimer = null;
 let pendingScrollIdleMutation = null;
 
 function flushScrollIdleMutation(){
+  if(performance.now()<inputPaintPendingUntil){
+    if(scrollMomentumIdleTimer!==null)window.clearTimeout(scrollMomentumIdleTimer);
+    scrollMomentumIdleTimer=window.setTimeout(flushScrollIdleMutation,150);
+    return;
+  }
   scrollMomentumActive = false;
   if (scrollMomentumIdleTimer !== null) window.clearTimeout(scrollMomentumIdleTimer);
   scrollMomentumIdleTimer = null;
@@ -17562,7 +17584,8 @@ function appendFeedPageToCurrentList(incomingEvents){
   if (!container || !Array.isArray(incomingEvents)) return false;
   const incomingIds = new Set(incomingEvents.map(event => event?.canonicalEventId || event?.eventId || event?.id).filter(Boolean));
   const todayStr = formatDateKey(nowAEST());
-  const additions = mergeMainFeedSpecialEvents(getFilteredEvents()).filter(event => {
+  const eligible = mergeMainFeedSpecialEvents(getFilteredEvents());
+  const additions = eligible.filter(event => {
     const id = event?.canonicalEventId || event?.eventId || event?.id;
     return incomingIds.has(id) && !getEventAction(event).archived && !getEventAction(event).dismissed && !eventIsAutoArchived(event);
   });
@@ -17587,7 +17610,7 @@ function appendFeedPageToCurrentList(incomingEvents){
         .find(group => String(group.dataset.feedDate || "") > dateStr);
       container.insertBefore(groupDiv, laterGroup || container.querySelector(".feed-page-sentinel"));
     }
-    const reconciledDay = orderCuratedDayEvents(mergeMainFeedSpecialEvents(getFilteredEvents()).filter(event => event.date === dateStr));
+    const reconciledDay = orderCuratedDayEvents(eligible.filter(event => event.date === dateStr));
     const desiredKeys = new Set(reconciledDay.map(mainFeedFixtureSemanticKey).filter(Boolean));
     Array.from(grid.querySelectorAll("[data-fixture-semantic-key]")).forEach(existing => {
       const key = existing.dataset.fixtureSemanticKey;
@@ -20080,6 +20103,9 @@ window.addEventListener("scroll", () => {
   if (cardImageLoadingUnlocked && typeof IntersectionObserver !== "function") observeDeferredCardImages();
 }, { passive:true });
 window.addEventListener("scrollend", flushScrollIdleMutation, { passive:true });
+window.addEventListener("pointerdown", noteInputPaint, {capture:true,passive:true});
+window.addEventListener("pointerup", noteInputPaint, {capture:true,passive:true});
+window.addEventListener("keydown", noteInputPaint, {capture:true,passive:true});
 
 function majorEventDateLabel(record){
   if (!record?.startDate || record.dateStatus === "tbc") return "Dates TBC";
@@ -24861,7 +24887,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=242");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=243");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Crowd rankings could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -24875,6 +24901,63 @@ async function renderMyForesight(body){
     for(const entry of result.entries || []){const row=document.createElement('p');row.textContent=`${entry.label}: ${entry.entries} prize draw entries`;section.appendChild(row);}
     if(!result.entries?.length){const note=document.createElement('p');note.textContent='No active prize draws.';section.appendChild(note);}
   }catch(error){section.textContent=error.message || 'Rewards unavailable.';}
+}
+
+function buildMyNscAccountSection(){
+  const profileSection = document.createElement("section");
+  if (!serverPersistence.user){
+    const copy = document.createElement("p");
+    copy.className = "chat-disclosure";
+    copy.textContent = "Nothing Score is public to read. Sign in to rate; a public handle is optional.";
+    const signIn = document.createElement("button");
+    signIn.type = "button";
+    signIn.className = "btn primary";
+    signIn.textContent = "Open sign in";
+    signIn.addEventListener("click", () => { setNothingscoreDrawerOpen(false); settingsSection = "account"; openSettings(); });
+    profileSection.append(copy, signIn);
+  } else if (!nothingscoreViewer.signedIn){
+    const copy = document.createElement("p");
+    copy.className = "chat-disclosure";
+    copy.textContent = "Checking this account…";
+    profileSection.appendChild(copy);
+  } else {
+    const profile = nothingscoreViewer.profile;
+    const summary = document.createElement("div");
+    summary.className = "chat-disclosure public-profile-summary";
+    const name = document.createElement("strong");
+    name.textContent = profile && profile.visibility !== "deleted" ? profile.displayName : "Rating privately";
+    const handle = document.createElement("span");
+    handle.textContent = profile && profile.visibility !== "deleted"
+      ? `${profile.handle || "No handle"}${profile.visibility === "hidden" ? " · Hidden from public Nothing Score" : ""}`
+      : "A public handle is optional for ratings and leaderboards.";
+    summary.append(name, handle);
+    const edit = document.createElement("button");
+    edit.type = "button";
+    edit.className = "btn ghost";
+    edit.textContent = profile && profile.visibility !== "deleted" ? "Edit in Settings" : "Create in Settings";
+    edit.addEventListener("click", () => { setNothingscoreDrawerOpen(false); settingsSection = "account"; openSettings(); });
+    profileSection.append(summary, edit);
+    if (nothingscoreViewer.ratingEligible === false){
+      const copy = document.createElement("p");
+      copy.className = "nsc-note";
+      copy.textContent = "This account is currently paused from contributing.";
+      profileSection.appendChild(copy);
+    }
+  }
+  return profileSection;
+
+}
+
+function refreshMyNscAccountSection(section){
+  if(!serverPersistence.user || nothingscoreViewer.signedIn)return;
+  void refreshNothingscoreViewer().then(()=>{
+    if(section.isConnected)section.replaceWith(buildMyNscAccountSection());
+  }).catch(()=>{
+    if(!section.isConnected)return;
+    section.textContent="Account details could not load. ";
+    const retry=document.createElement("button");retry.type="button";retry.className="btn ghost";retry.textContent="Retry";
+    retry.onclick=()=>{retry.disabled=true;refreshMyNscAccountSection(section);};section.appendChild(retry);
+  });
 }
 
 function renderNothingscoreDrawer(){
@@ -24938,7 +25021,6 @@ function renderNothingscoreDrawer(){
     }
   });
   body.appendChild(sound);
-  const backToCrowd=document.createElement("button");backToCrowd.type="button";backToCrowd.className="btn ghost";backToCrowd.textContent="Back to fixture rankings";backToCrowd.onclick=()=>{nscMyView=false;renderNothingscoreDrawer();};body.prepend(backToCrowd);
   void renderMyForesight(body);
   if (nothingscoreAudioBlocked){
     const enable = document.createElement("button");
@@ -24951,47 +25033,9 @@ function renderNothingscoreDrawer(){
     body.appendChild(enable);
   }
 
-  const profileSection = document.createElement("section");
-  if (!serverPersistence.user){
-    const copy = document.createElement("p");
-    copy.className = "chat-disclosure";
-    copy.textContent = "Nothing Score is public to read. Sign in to rate; a public handle is optional.";
-    const signIn = document.createElement("button");
-    signIn.type = "button";
-    signIn.className = "btn primary";
-    signIn.textContent = "Open sign in";
-    signIn.addEventListener("click", () => { setNothingscoreDrawerOpen(false); settingsSection = "account"; openSettings(); });
-    profileSection.append(copy, signIn);
-  } else if (!nothingscoreViewer.signedIn){
-    const copy = document.createElement("p");
-    copy.className = "chat-disclosure";
-    copy.textContent = "Checking this account…";
-    profileSection.appendChild(copy);
-  } else {
-    const profile = nothingscoreViewer.profile;
-    const summary = document.createElement("div");
-    summary.className = "chat-disclosure public-profile-summary";
-    const name = document.createElement("strong");
-    name.textContent = profile && profile.visibility !== "deleted" ? profile.displayName : "Rating privately";
-    const handle = document.createElement("span");
-    handle.textContent = profile && profile.visibility !== "deleted"
-      ? `${profile.handle || "No handle"}${profile.visibility === "hidden" ? " · Hidden from public Nothing Score" : ""}`
-      : "A public handle is optional for ratings and leaderboards.";
-    summary.append(name, handle);
-    const edit = document.createElement("button");
-    edit.type = "button";
-    edit.className = "btn ghost";
-    edit.textContent = profile && profile.visibility !== "deleted" ? "Edit in Settings" : "Create in Settings";
-    edit.addEventListener("click", () => { setNothingscoreDrawerOpen(false); settingsSection = "account"; openSettings(); });
-    profileSection.append(summary, edit);
-    if (nothingscoreViewer.ratingEligible === false){
-      const copy = document.createElement("p");
-      copy.className = "nsc-note";
-      copy.textContent = "This account is currently paused from contributing.";
-      profileSection.appendChild(copy);
-    }
-  }
+  const profileSection=buildMyNscAccountSection();
   body.appendChild(profileSection);
+  refreshMyNscAccountSection(profileSection);
 
   const communitySnapshots = [...nothingscoreSnapshots.values()]
     .filter(snapshot => snapshot?.peerResults?.count > 0)
@@ -25034,7 +25078,7 @@ function renderNothingscoreDrawer(){
     button.type = "button";
     button.className = `btn ${nothingscoreLeaderboardPeriod === period ? "primary" : "ghost"}`;
     button.textContent = label;
-    button.addEventListener("click", () => { nothingscoreLeaderboardPeriod = period; renderNothingscoreDrawer(); void loadNothingscoreLeaderboard(); });
+    button.addEventListener("click", () => { nothingscoreLeaderboardPeriod = period; renderNothingscoreDrawer(); });
     tabs.appendChild(button);
   });
   const board = document.createElement("div");
@@ -25042,6 +25086,7 @@ function renderNothingscoreDrawer(){
   board.id = "nothingscoreLeaderboard";
   board.textContent = "Loading leaderboard…";
   body.append(heading, tabs, board);
+  void loadNothingscoreLeaderboard();
 }
 
 async function loadNothingscoreLeaderboard(){
@@ -25090,7 +25135,6 @@ async function refreshNothingscoreDrawer(){
   try{ await refreshNothingscoreViewer(); }catch(_error){ /* Read-only leaderboard still remains available. */ }
   if (!document.getElementById("nothingscoreBackdrop").classList.contains("show")) return;
   renderNothingscoreDrawer();
-  await loadNothingscoreLeaderboard();
 }
 
 document.getElementById("nothingscoreBtn").addEventListener("click", openNothingscoreDrawer);

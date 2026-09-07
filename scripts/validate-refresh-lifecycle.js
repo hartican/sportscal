@@ -162,11 +162,13 @@ async function validateServiceWorkerRevalidation(){
 }
 
 function validateScrollIdleMutationQueue(){
-  const queueSource = html.match(/let scrollMomentumActive = false;[\s\S]*?function queueScrollIdleMutation\(mutation\)\{[\s\S]*?\n\}/);
+  const queueSource = html.match(/let inputPaintPendingUntil = 0;[\s\S]*?function queueScrollIdleMutation\(mutation\)\{[\s\S]*?\n\}/);
   assert(queueSource, "the scroll-idle mutation queue must remain independently testable");
   let idleTask = null;
   const applied = [];
+  let inputClock=0;
   const sandbox = {
+    performance:{now:()=>inputClock},
     window: {
       clearTimeout(){ idleTask = null; },
       setTimeout(callback, delay){
@@ -177,7 +179,7 @@ function validateScrollIdleMutationQueue(){
     },
   };
   vm.createContext(sandbox);
-  vm.runInContext(`${queueSource[0]}\nglobalThis.__note = noteScrollMomentum; globalThis.__queue = queueScrollIdleMutation;`, sandbox, { filename: "index.html" });
+  vm.runInContext(`${queueSource[0]}\nglobalThis.__note = noteScrollMomentum; globalThis.__queue = queueScrollIdleMutation; globalThis.__input = noteInputPaint; globalThis.__flush = flushScrollIdleMutation;`, sandbox, { filename: "index.html" });
   sandbox.__note();
   sandbox.__queue(() => applied.push("stale"));
   sandbox.__queue(() => applied.push("latest"));
@@ -185,6 +187,11 @@ function validateScrollIdleMutationQueue(){
   assert.equal(typeof idleTask, "function", "the latest mutation must remain queued until scrolling settles");
   idleTask();
   assert.deepEqual(applied, ["latest"], "only the latest background mutation may flush after scrolling settles");
+  sandbox.__input();sandbox.__queue(()=>applied.push("after-input"));
+  sandbox.__flush();
+  assert.deepEqual(applied,["latest"],"layout scrollend cannot flush before input paints");
+  inputClock=150;idleTask();
+  assert.deepEqual(applied,["latest","after-input"],"background update resumes after the input window");
 }
 
 async function validateDirectFileBundleReload(){

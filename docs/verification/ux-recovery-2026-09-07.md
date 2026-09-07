@@ -1,6 +1,6 @@
 # UX recovery verification — 7 September 2026
 
-Implemented from `7ae4d93c3bcae95bcec7d2c3549f8b07c9ade3b7` on an isolated `codex/` worktree. The older primary checkout and its unrelated files were preserved. Shell version: 242.
+Implemented from `7ae4d93c3bcae95bcec7d2c3549f8b07c9ade3b7` on an isolated `codex/` worktree. The older primary checkout and its unrelated files were preserved. Shell version: 243.
 
 ## Changes and causes
 
@@ -31,9 +31,15 @@ The new `validate-ux-recovery-*` scripts use published fixture data. The main jo
 | Delayed real identity asset, public NSC response, minute/resume updates | Anchor movement within 2px |
 | Calendar | Real ICS download; select/unselect all across 30 pages; absent from Events |
 | NSC | Full-screen; delayed public rankings; one request across detail/Back; Feed position restored |
-| Installed Chromium PWA | Actual v241 release upgraded to v242 on first navigation; route retained |
+| Installed Chromium PWA | Actual v241 and v242 releases upgraded on first navigation; route retained |
 
 One local run observed card transitions in 17–33ms, maximum toggle acknowledgement of 44ms, and 0px anchor movement. Measurements record a changed visual state by the second animation frame, not just handler duration. They are not physical-display or iPhone measurements.
+
+## Live audit follow-up
+
+The first production audit caught an intermittent 261ms toggle acknowledgement. A controlled reproduction with actual published page arrivals reached 393ms. Page reconciliation rebuilt all tournament children, constructed duplicate locale formatters and rebuilt participant lookup maps per fixture. The correction reuses the formatter and per-pass participant indexes, reconciles each page catalogue once, and prevents layout-generated scrollend from flushing background work before input paints. All 702 published child fixture projections remain exactly equal to the preceding implementation. The 100-interaction test now includes three real page arrivals; the final local audit passed at 46ms maximum and 0px anchor movement (card changes 21–31ms).
+
+My NSC now loads the restored account independently of opening a rated Feed card, updates only its account section and uses the header Back path. Its controlled-account journey makes no production writes.
 
 ## Repository checks
 

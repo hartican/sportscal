@@ -387,8 +387,7 @@
     };
   }
 
-  function editorialRecordForSubEvent(subEvent, parent, feedEvents = []){
-    const fixture = fixtureFromSubEvent(subEvent, parent);
+  function editorialRecordForSubEvent(subEvent, parent, feedEvents = [], fixture = fixtureFromSubEvent(subEvent, parent)){
     const baseRecord = fixture || {
       ...subEvent,
       key:parent?.sportKey,
@@ -418,7 +417,7 @@
   function editorialFixtureFromSubEvent(subEvent, parent, feedEvents = []){
     const fixture = fixtureFromSubEvent(subEvent, parent);
     if (!fixture) return null;
-    return editorialRecordForSubEvent(subEvent, parent, feedEvents);
+    return editorialRecordForSubEvent(subEvent, parent, feedEvents, fixture);
   }
 
   function fixturePinReconciliationPlan(document, actions){
@@ -451,6 +450,12 @@
     return plan;
   }
 
+  // Reuse the locale formatter across hundreds of children; constructing it
+  // twice per fixture blocked Feed page arrivals on the main thread.
+  const fixtureSydneyFormatter = new Intl.DateTimeFormat("en-AU", {
+    timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23",
+  });
+
   function fixtureFromSubEvent(subEvent, parent){
     const precision=subEvent?.timePrecision==="session-start" ? "exact" : subEvent?.timePrecision==="unpublished" ? "tbc" : subEvent?.timePrecision || (subEvent?.startTimeUtc ? "exact" : "follows");
     const directTime = precision==="exact" ? new Date(subEvent?.startTimeUtc || "").getTime() : NaN;
@@ -464,9 +469,7 @@
       : follows ? sessionTime + Math.max(0, Number(subEvent?.sequenceInSession) || 0) * 1000 : NaN;
     if (!subEvent?.id || !Number.isFinite(timelineTime)) return null;
     const instant = new Date(timelineTime);
-    const parts = Object.fromEntries(new Intl.DateTimeFormat("en-AU", {
-      timeZone: "Australia/Sydney", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
-    }).formatToParts(instant).map(part => [part.type, part.value]));
+    const parts = Object.fromEntries(fixtureSydneyFormatter.formatToParts(instant).map(part => [part.type, part.value]));
     const matchupSides = Array.isArray(subEvent.matchupSides) ? subEvent.matchupSides : [];
     const matchupPlayers = matchupSides.flatMap(side => Array.isArray(side.players) ? side.players : []);
     const sideLabels = matchupSideLabels(subEvent);

@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v242";
+const CACHE_NAME = "nothingsport-shell-v243";
 const APP_SHELL = [
   // Navigations already share /index.html below; do not download/cache its
   // million-byte HTML a second time under the root alias during installation.
@@ -9,11 +9,11 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=242",
-  "/assets/js/app-shell-runtime.js?v=242",
-  "/assets/js/nsc-rankings-ui.js?v=242",
+  "/assets/styles/nothingsport-foundation.css?v=243",
+  "/assets/js/app-shell-runtime.js?v=243",
+  "/assets/js/nsc-rankings-ui.js?v=243",
   "/assets/identities/events/le-mans-24-hours.png",
-  "/styles/follow-feed-rework.css?v=242",
+  "/styles/follow-feed-rework.css?v=243",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/brand-copy.js",
@@ -47,8 +47,8 @@ const APP_SHELL = [
   "/config/follow-first.js?v=222",
   "/config/feed-controls.js",
   "/config/ticketing.js",
-  "/config/major-events.js?v=242",
-  "/config/follow-feed-policy.js?v=242",
+  "/config/major-events.js?v=243",
+  "/config/follow-feed-policy.js?v=243",
   "/config/football-directory.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",
