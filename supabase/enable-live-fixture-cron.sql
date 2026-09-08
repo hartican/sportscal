@@ -2,8 +2,16 @@
 -- Create fixture_refresh_url and fixture_refresh_secret in Vault first.
 -- The URL must be the HTTPS production /api/fixture-refresh endpoint.
 -- The secret must match server-only FIXTURE_REFRESH_SECRET (at least 32 chars).
-create extension if not exists pg_net with schema extensions;
-create extension if not exists pg_cron;
+-- Avoid issuing CREATE EXTENSION for an existing installation: Supabase's
+-- extension access event trigger can otherwise reapply conflicting grants.
+do $$ begin
+  if not exists (select 1 from pg_extension where extname='pg_net') then
+    create extension pg_net with schema extensions;
+  end if;
+  if not exists (select 1 from pg_extension where extname='pg_cron') then
+    create extension pg_cron;
+  end if;
+end; $$;
 do $$
 declare endpoint text; token text;
 begin

@@ -2,11 +2,13 @@
 
 Implementation: 8 September 2026, `codex/followed-fixture-reliability`, based on `5a5ffe6809c80aefdd256ca22996c6a6dbf0b8f7`. Shell 246. See the [approved plan](followed-fixture-reliability-plan.md), [phase 1 history](followed-fixture-reliability-phase-1.md) and [source research](source-coverage-research-2026-09-08.md).
 
-This is an implementation and local-verification record, not proof of production activation. The user authorised GitHub push and Vercel deployment; production versus preview was not specified. The safe release target is the feature branch and a preview. Main, production secrets and the live database remain unchanged until production activation is authorised.
+This records implementation, local verification and the subsequently authorised production activation. The initial release stopped at a feature-branch preview; the user's subsequent confirmation explicitly authorised main, production secrets, the live database and scheduler.
 
 ### Subsequent authorised activation
 
-The user subsequently authorised main, database and production activation. Main was fast-forwarded to `2b79e21`; both migrations applied successfully and the production-candidate ladder returned the three existing public profiles. The first protected source refresh succeeded for eight sources but exposed AFL/AFLW round discovery assuming a `roundNumber` absent from published cards. The live alias was held while this was corrected: resolve saved labels against official round metadata and include the official current round neighbourhood. Canonical AFL/AFLW/NRL outputs also explicitly retain their Feed sport key, display name and live scores. A new public-adapter regression is wired into the canonical validator list; real read-only source probes returned 8 AFL, 27 AFLW and 204 NRL records. Final deployment/alias and scheduler results must still be verified independently.
+The user subsequently authorised main, database and production activation. Main was fast-forwarded to `2b79e21`; both migrations applied successfully and the production-candidate ladder returned the three existing public profiles. The first protected source refresh succeeded for eight sources but exposed AFL/AFLW round discovery assuming a `roundNumber` absent from published cards. The live alias was held while this was corrected in `2825a3f`: resolve saved labels against official round metadata and include the official current round neighbourhood. Canonical AFL/AFLW/NRL outputs also explicitly retain their Feed sport key, display name and live scores. A new public-adapter regression is wired into the canonical validator list; real read-only source probes returned 8 AFL, 27 AFLW and 204 NRL records.
+
+The corrected production build was verified READY with matching `releaseGitSha`, then promoted to `nothingsport.vercel.app`. All ten configured sources now have retained snapshots, with zero source failures and no missing fixture sport keys or names. Isolated read-only production browser checks passed at 390 and 1280 pixels: shell 246, Monza present, three real ladder profiles, initial ladder scroll at the top, no horizontal overflow and no uncaught errors. The public fixture API returned 200, a repeated ETag request returned 304, the public ladder returned 200, and an unauthorised refresh returned 401. No real votes, profiles or account state were changed for QA.
 
 ## Delivered in this pass
 
@@ -34,17 +36,21 @@ The installed-browser regression passed shell 244→246 with saved follows/displ
 
 Critical initial requests remain five, compressed growth about 1.0% against the actual parent (unchanged 1.25% cap); precache is 2.99 MB (3 MB cap). No new device load-time or physical iPhone/push-delivery result is inferred. This pass ran the canonical coverage mode, not the complete all-sport editorial refresh pipeline.
 
-## Activation still required
+## Production activation and scheduler evidence
 
-The following files are prepared and tested but have **not** been applied to the live Supabase project:
+Applied to the live NothingSport Supabase project (`jljgtodyviwpslprxaao`):
 
 1. `supabase/migrations/20260908093906_live_fixture_snapshots.sql` (applied; filename matches the live migration history)
 2. `supabase/migrations/20260908093940_nothing_score_ladder.sql` (applied; filename matches the live migration history)
-3. `supabase/enable-live-fixture-cron.sql`, after securely configuring the protected endpoint URL and secret in Vault.
+3. `supabase/enable-live-fixture-cron.sql`, recorded remotely as `20260908100249_enable_live_fixture_cron`, after securely configuring the protected endpoint URL and matching secret in Vault and Vercel Production.
 
-Vercel inspection found service/backend secrets in Production only. `FIXTURE_REFRESH_SECRET` is not configured. A preview therefore verifies packaging/UI, not live ladder data or automatic fixture freshness. Do not copy production secrets into Preview, run live DDL, create Vault entries, enable Cron, merge main or promote production merely to make preview tests pass.
+The server-only refresh secret is sensitive and Production-only; no production secrets were copied into Preview. Source/snapshot tables have forced RLS, public access denied and service-role access verified. The ladder view uses invoker security and the service-only function returns a public projection, not private account identifiers. Existing vote and points ledgers remain intact. All 91 pre-existing votes lack the new rules version, so historical efficiency remains unavailable instead of guessing maximum points.
 
-After production authority: recheck main for intervening work, review/apply the two new migrations with the Supabase migration API, configure a strong refresh secret in the target Vercel environment and Vault without logging it, deploy an immutable Git snapshot, then enable the minute Cron. Verify service-only permissions, protected refresh rejection, actual successful scheduler executions, a changed source revision arriving in the browser without deployment, read-only ladder access and exact READY deployment `releaseGitSha`/alias. Existing NSC vote functions were inspected read-only and already match the current participation rules; no speculative reapplication of older SQL is required.
+Cron job 10, `nothingsport-live-fixtures`, is active every minute. The existing two chat maintenance jobs were preserved. Its first two autonomous executions at 10:03 and 10:04 UTC on 8 September 2026 both produced actual `pg_net` HTTP 200 responses, no timeouts and empty failed-source lists. Cricket checked-at timestamps advanced; the US Open content revision advanced from 13 to 14 without a deployment. This is actual scheduled HTTP execution, not merely a successful `cron.schedule` call. Source-specific due intervals remain 60 seconds live, five minutes near start and hourly otherwise; the scheduler may pick a source up on the following minute tick.
+
+The first scheduler migration rolled back because `CREATE EXTENSION IF NOT EXISTS pg_cron` re-fired Supabase's extension-access grants against an existing installation. The corrected release SQL checks `pg_extension` before issuing extension DDL; it succeeded without altering existing privileges or disabling event triggers. The same correction is retained in the repository for repeatable setup. Existing NSC vote functions were inspected read-only and already match the current participation rules; no speculative reapplication of older SQL was performed.
+
+Security advisors still report pre-existing anonymous-access policies and disabled leaked-password protection. These were not broadened or changed as part of fixture/ladder activation. New service-only tables intentionally have no anonymous policies; effective grants were independently checked.
 
 ## Honest coverage limits
 
