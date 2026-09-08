@@ -1,0 +1,1877 @@
+{
+  "schemaVersion": "source-coverage.v1",
+  "generatedAt": "2026-09-08T09:20:11.566Z",
+  "coverageStatus": "partial",
+  "events": [
+    {
+      "id": "fixture:cricket:CA:39460",
+      "eventId": "fixture:cricket:CA:39460",
+      "canonicalEventId": "fixture:cricket:CA:39460",
+      "sourceFixtureId": "CA:39460",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4503",
+      "competitionName": "County Championship 2026",
+      "competitionScope": "domestic",
+      "isInternational": false,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Yorkshire Men v Essex Men",
+      "roundLabel": "Division 1",
+      "startTimeUtc": "2026-09-08T09:30:00.000Z",
+      "endTimeUtc": "2026-09-11T00:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Headingley, Leeds",
+      "participantIds": [
+        "team:cricket:ca-45",
+        "team:cricket:ca-32"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:ca-45",
+          "name": "Yorkshire Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:ca-32",
+          "name": "Essex Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [],
+      "homeParticipantId": "team:cricket:ca-45",
+      "awayParticipantId": "team:cricket:ca-32",
+      "status": "live",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "First Class Domestic",
+      "numberOfDays": 4,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Yorkshire Men v Essex Men",
+      "date": "2026-09-08",
+      "time": "19:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:39461",
+      "eventId": "fixture:cricket:CA:39461",
+      "canonicalEventId": "fixture:cricket:CA:39461",
+      "sourceFixtureId": "CA:39461",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4503",
+      "competitionName": "County Championship 2026",
+      "competitionScope": "domestic",
+      "isInternational": false,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Glamorgan Men v Warwickshire Men",
+      "roundLabel": "Division 1",
+      "startTimeUtc": "2026-09-08T09:30:00.000Z",
+      "endTimeUtc": "2026-09-11T00:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Sophia Gardens, Cardiff",
+      "participantIds": [
+        "team:cricket:ca-39",
+        "team:cricket:ca-33"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:ca-39",
+          "name": "Glamorgan Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:ca-33",
+          "name": "Warwickshire Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [],
+      "homeParticipantId": "team:cricket:ca-39",
+      "awayParticipantId": "team:cricket:ca-33",
+      "status": "live",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "First Class Domestic",
+      "numberOfDays": 4,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Glamorgan Men v Warwickshire Men",
+      "date": "2026-09-08",
+      "time": "19:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:39462",
+      "eventId": "fixture:cricket:CA:39462",
+      "canonicalEventId": "fixture:cricket:CA:39462",
+      "sourceFixtureId": "CA:39462",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4503",
+      "competitionName": "County Championship 2026",
+      "competitionScope": "domestic",
+      "isInternational": false,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Sussex Men v Surrey Men",
+      "roundLabel": "Division 1",
+      "startTimeUtc": "2026-09-08T09:30:00.000Z",
+      "endTimeUtc": "2026-09-11T00:00:00Z",
+      "timePrecision": "exact",
+      "venue": "County Ground, Hove",
+      "participantIds": [
+        "team:cricket:ca-35",
+        "team:cricket:ca-48"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:ca-35",
+          "name": "Sussex Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:ca-48",
+          "name": "Surrey Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [],
+      "homeParticipantId": "team:cricket:ca-35",
+      "awayParticipantId": "team:cricket:ca-48",
+      "status": "live",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "First Class Domestic",
+      "numberOfDays": 4,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Sussex Men v Surrey Men",
+      "date": "2026-09-08",
+      "time": "19:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:39463",
+      "eventId": "fixture:cricket:CA:39463",
+      "canonicalEventId": "fixture:cricket:CA:39463",
+      "sourceFixtureId": "CA:39463",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4503",
+      "competitionName": "County Championship 2026",
+      "competitionScope": "domestic",
+      "isInternational": false,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Nottinghamshire Men v Hampshire Men",
+      "roundLabel": "Division 1",
+      "startTimeUtc": "2026-09-08T09:30:00.000Z",
+      "endTimeUtc": "2026-09-11T00:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Trent Bridge, Nottingham",
+      "participantIds": [
+        "team:cricket:ca-44",
+        "team:cricket:ca-43"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:ca-44",
+          "name": "Nottinghamshire Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:ca-43",
+          "name": "Hampshire Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [],
+      "homeParticipantId": "team:cricket:ca-44",
+      "awayParticipantId": "team:cricket:ca-43",
+      "status": "live",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "First Class Domestic",
+      "numberOfDays": 4,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Nottinghamshire Men v Hampshire Men",
+      "date": "2026-09-08",
+      "time": "19:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:39464",
+      "eventId": "fixture:cricket:CA:39464",
+      "canonicalEventId": "fixture:cricket:CA:39464",
+      "sourceFixtureId": "CA:39464",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4503",
+      "competitionName": "County Championship 2026",
+      "competitionScope": "domestic",
+      "isInternational": false,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Leicestershire Men v Somerset Men",
+      "roundLabel": "Division 1",
+      "startTimeUtc": "2026-09-08T09:30:00.000Z",
+      "endTimeUtc": "2026-09-11T00:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Grace Road, Leicester",
+      "participantIds": [
+        "team:cricket:ca-42",
+        "team:cricket:ca-31"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:ca-42",
+          "name": "Leicestershire Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:ca-31",
+          "name": "Somerset Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [],
+      "homeParticipantId": "team:cricket:ca-42",
+      "awayParticipantId": "team:cricket:ca-31",
+      "status": "live",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "First Class Domestic",
+      "numberOfDays": 4,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Leicestershire Men v Somerset Men",
+      "date": "2026-09-08",
+      "time": "19:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:39465",
+      "eventId": "fixture:cricket:CA:39465",
+      "canonicalEventId": "fixture:cricket:CA:39465",
+      "sourceFixtureId": "CA:39465",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4503",
+      "competitionName": "County Championship 2026",
+      "competitionScope": "domestic",
+      "isInternational": false,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Durham Men v Middlesex Men",
+      "roundLabel": "Division 2",
+      "startTimeUtc": "2026-09-08T09:30:00.000Z",
+      "endTimeUtc": "2026-09-11T00:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Riverside Ground, Chester-le-Street",
+      "participantIds": [
+        "team:cricket:ca-40",
+        "team:cricket:ca-38"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:ca-40",
+          "name": "Durham Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:ca-38",
+          "name": "Middlesex Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [],
+      "homeParticipantId": "team:cricket:ca-40",
+      "awayParticipantId": "team:cricket:ca-38",
+      "status": "live",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "First Class Domestic",
+      "numberOfDays": 4,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Durham Men v Middlesex Men",
+      "date": "2026-09-08",
+      "time": "19:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:39466",
+      "eventId": "fixture:cricket:CA:39466",
+      "canonicalEventId": "fixture:cricket:CA:39466",
+      "sourceFixtureId": "CA:39466",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4503",
+      "competitionName": "County Championship 2026",
+      "competitionScope": "domestic",
+      "isInternational": false,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Lancashire Men v Gloucestershire Men",
+      "roundLabel": "Division 2",
+      "startTimeUtc": "2026-09-08T09:30:00.000Z",
+      "endTimeUtc": "2026-09-11T00:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Old Trafford, Manchester",
+      "participantIds": [
+        "team:cricket:ca-50",
+        "team:cricket:ca-34"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:ca-50",
+          "name": "Lancashire Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:ca-34",
+          "name": "Gloucestershire Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [],
+      "homeParticipantId": "team:cricket:ca-50",
+      "awayParticipantId": "team:cricket:ca-34",
+      "status": "live",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "First Class Domestic",
+      "numberOfDays": 4,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Lancashire Men v Gloucestershire Men",
+      "date": "2026-09-08",
+      "time": "19:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:39467",
+      "eventId": "fixture:cricket:CA:39467",
+      "canonicalEventId": "fixture:cricket:CA:39467",
+      "sourceFixtureId": "CA:39467",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4503",
+      "competitionName": "County Championship 2026",
+      "competitionScope": "domestic",
+      "isInternational": false,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Derbyshire Men v Kent Men",
+      "roundLabel": "Division 2",
+      "startTimeUtc": "2026-09-08T09:30:00.000Z",
+      "endTimeUtc": "2026-09-11T00:00:00Z",
+      "timePrecision": "exact",
+      "venue": "The County Ground, Derby",
+      "participantIds": [
+        "team:cricket:ca-36",
+        "team:cricket:ca-41"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:ca-36",
+          "name": "Derbyshire Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:ca-41",
+          "name": "Kent Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [],
+      "homeParticipantId": "team:cricket:ca-36",
+      "awayParticipantId": "team:cricket:ca-41",
+      "status": "live",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "First Class Domestic",
+      "numberOfDays": 4,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Derbyshire Men v Kent Men",
+      "date": "2026-09-08",
+      "time": "19:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:39468",
+      "eventId": "fixture:cricket:CA:39468",
+      "canonicalEventId": "fixture:cricket:CA:39468",
+      "sourceFixtureId": "CA:39468",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4503",
+      "competitionName": "County Championship 2026",
+      "competitionScope": "domestic",
+      "isInternational": false,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Worcestershire Men v Northamptonshire Men",
+      "roundLabel": "Division 2",
+      "startTimeUtc": "2026-09-08T09:30:00.000Z",
+      "endTimeUtc": "2026-09-11T00:00:00Z",
+      "timePrecision": "exact",
+      "venue": "New Roads, Worcester",
+      "participantIds": [
+        "team:cricket:ca-46",
+        "team:cricket:ca-37"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:ca-46",
+          "name": "Worcestershire Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:ca-37",
+          "name": "Northamptonshire Men",
+          "countryCode": null,
+          "teamKind": "club",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [],
+      "homeParticipantId": "team:cricket:ca-46",
+      "awayParticipantId": "team:cricket:ca-37",
+      "status": "live",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "First Class Domestic",
+      "numberOfDays": 4,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Worcestershire Men v Northamptonshire Men",
+      "date": "2026-09-08",
+      "time": "19:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:40954",
+      "eventId": "fixture:cricket:CA:40954",
+      "canonicalEventId": "fixture:cricket:CA:40954",
+      "sourceFixtureId": "CA:40954",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4710",
+      "competitionName": "Asia Cup 2026 - Women",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "women",
+      "name": "Bangladesh Women v United Arab Emirates Women",
+      "roundLabel": "Bangladesh W v UAE W",
+      "startTimeUtc": "2026-09-08T14:30:00.000Z",
+      "endTimeUtc": "2026-09-08T19:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Dubai International Stadium, Dubai",
+      "participantIds": [
+        "team:cricket:bangladesh-women",
+        "team:cricket:united-arab-emirates-women"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:bangladesh-women",
+          "name": "Bangladesh Women",
+          "countryCode": "BD",
+          "teamKind": "national",
+          "genderCategory": "female"
+        },
+        {
+          "id": "team:cricket:united-arab-emirates-women",
+          "name": "United Arab Emirates Women",
+          "countryCode": "AE",
+          "teamKind": "national",
+          "genderCategory": "female"
+        }
+      ],
+      "participantCountryCodes": [
+        "BD",
+        "AE"
+      ],
+      "homeParticipantId": "team:cricket:bangladesh-women",
+      "awayParticipantId": "team:cricket:united-arab-emirates-women",
+      "status": "scheduled",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": null,
+      "numberOfDays": 1,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Bangladesh Women v United Arab Emirates Women",
+      "date": "2026-09-09",
+      "time": "00:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:40955",
+      "eventId": "fixture:cricket:CA:40955",
+      "canonicalEventId": "fixture:cricket:CA:40955",
+      "sourceFixtureId": "CA:40955",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4711",
+      "competitionName": "Namibia v South Africa ODIs 2026 - Men",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Namibia Men v South Africa Men",
+      "roundLabel": "1st ODI",
+      "startTimeUtc": "2026-09-09T07:30:00.000Z",
+      "endTimeUtc": "2026-09-09T16:00:00Z",
+      "timePrecision": "exact",
+      "venue": "FNB Namibia Cricket Ground, Windhoek",
+      "participantIds": [
+        "team:cricket:namibia",
+        "team:cricket:south-africa"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:namibia",
+          "name": "Namibia Men",
+          "countryCode": "NA",
+          "teamKind": "national",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:south-africa",
+          "name": "South Africa Men",
+          "countryCode": "ZA",
+          "teamKind": "national",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [
+        "NA",
+        "ZA"
+      ],
+      "homeParticipantId": "team:cricket:namibia",
+      "awayParticipantId": "team:cricket:south-africa",
+      "status": "scheduled",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "ODI",
+      "numberOfDays": 1,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Namibia Men v South Africa Men",
+      "date": "2026-09-09",
+      "time": "17:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:24494",
+      "eventId": "fixture:cricket:CA:24494",
+      "canonicalEventId": "fixture:cricket:CA:24494",
+      "sourceFixtureId": "CA:24494",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:3206",
+      "competitionName": "England v Pakistan Tests 2026 - Men",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "men",
+      "name": "England Men v Pakistan Men",
+      "roundLabel": "3rd Test",
+      "startTimeUtc": "2026-09-09T10:00:00.000Z",
+      "endTimeUtc": "2026-09-13T11:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Edgbaston, Birmingham",
+      "participantIds": [
+        "team:cricket:england",
+        "team:cricket:pakistan"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:england",
+          "name": "England Men",
+          "countryCode": "GB",
+          "teamKind": "national",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:pakistan",
+          "name": "Pakistan Men",
+          "countryCode": "PK",
+          "teamKind": "national",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [
+        "GB",
+        "PK"
+      ],
+      "homeParticipantId": "team:cricket:england",
+      "awayParticipantId": "team:cricket:pakistan",
+      "status": "scheduled",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "Test",
+      "numberOfDays": 5,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "England Men v Pakistan Men",
+      "date": "2026-09-09",
+      "time": "20:00",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:40956",
+      "eventId": "fixture:cricket:CA:40956",
+      "canonicalEventId": "fixture:cricket:CA:40956",
+      "sourceFixtureId": "CA:40956",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4710",
+      "competitionName": "Asia Cup 2026 - Women",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "women",
+      "name": "India Women v TBC",
+      "roundLabel": "Semi-Final",
+      "startTimeUtc": "2026-09-10T14:30:00.000Z",
+      "endTimeUtc": "2026-09-10T19:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Dubai International Stadium, Dubai",
+      "participantIds": [
+        "team:cricket:india-women"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:india-women",
+          "name": "India Women",
+          "countryCode": "IN",
+          "teamKind": "national",
+          "genderCategory": "female"
+        }
+      ],
+      "participantCountryCodes": [
+        "IN"
+      ],
+      "homeParticipantId": "team:cricket:india-women",
+      "status": "scheduled",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": null,
+      "numberOfDays": 1,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "India Women v TBC",
+      "date": "2026-09-11",
+      "time": "00:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [
+        {
+          "label": "Knockout",
+          "confidence": 0.9,
+          "sourceUrls": [
+            "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women"
+          ],
+          "method": "published-schedule.v1"
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:CA:40957",
+      "eventId": "fixture:cricket:CA:40957",
+      "canonicalEventId": "fixture:cricket:CA:40957",
+      "sourceFixtureId": "CA:40957",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4711",
+      "competitionName": "Namibia v South Africa ODIs 2026 - Men",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Namibia Men v South Africa Men",
+      "roundLabel": "2nd ODI",
+      "startTimeUtc": "2026-09-11T07:30:00.000Z",
+      "endTimeUtc": "2026-09-11T16:00:00Z",
+      "timePrecision": "exact",
+      "venue": "FNB Namibia Cricket Ground, Windhoek",
+      "participantIds": [
+        "team:cricket:namibia",
+        "team:cricket:south-africa"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:namibia",
+          "name": "Namibia Men",
+          "countryCode": "NA",
+          "teamKind": "national",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:cricket:south-africa",
+          "name": "South Africa Men",
+          "countryCode": "ZA",
+          "teamKind": "national",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [
+        "NA",
+        "ZA"
+      ],
+      "homeParticipantId": "team:cricket:namibia",
+      "awayParticipantId": "team:cricket:south-africa",
+      "status": "scheduled",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": "ODI",
+      "numberOfDays": 1,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Namibia Men v South Africa Men",
+      "date": "2026-09-11",
+      "time": "17:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:cricket:CA:40958",
+      "eventId": "fixture:cricket:CA:40958",
+      "canonicalEventId": "fixture:cricket:CA:40958",
+      "sourceFixtureId": "CA:40958",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4710",
+      "competitionName": "Asia Cup 2026 - Women",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "women",
+      "name": "Sri Lanka Women v Pakistan Women",
+      "roundLabel": "Semi-Final",
+      "startTimeUtc": "2026-09-11T14:30:00.000Z",
+      "endTimeUtc": "2026-09-11T19:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Dubai International Stadium, Dubai",
+      "participantIds": [
+        "team:cricket:sri-lanka-women",
+        "team:cricket:pakistan-women"
+      ],
+      "participants": [
+        {
+          "id": "team:cricket:sri-lanka-women",
+          "name": "Sri Lanka Women",
+          "countryCode": "LK",
+          "teamKind": "national",
+          "genderCategory": "female"
+        },
+        {
+          "id": "team:cricket:pakistan-women",
+          "name": "Pakistan Women",
+          "countryCode": "PK",
+          "teamKind": "national",
+          "genderCategory": "female"
+        }
+      ],
+      "participantCountryCodes": [
+        "LK",
+        "PK"
+      ],
+      "homeParticipantId": "team:cricket:sri-lanka-women",
+      "awayParticipantId": "team:cricket:pakistan-women",
+      "status": "scheduled",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": null,
+      "numberOfDays": 1,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Sri Lanka Women v Pakistan Women",
+      "date": "2026-09-12",
+      "time": "00:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [
+        {
+          "label": "Knockout",
+          "confidence": 0.9,
+          "sourceUrls": [
+            "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women"
+          ],
+          "method": "published-schedule.v1"
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:CA:40960",
+      "eventId": "fixture:cricket:CA:40960",
+      "canonicalEventId": "fixture:cricket:CA:40960",
+      "sourceFixtureId": "CA:40960",
+      "key": "cricket",
+      "sport": "Cricket",
+      "sportDomainId": "sport:cricket",
+      "competitionId": "competition:cricket:4710",
+      "competitionName": "Asia Cup 2026 - Women",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "women",
+      "name": "TBC v TBC",
+      "roundLabel": "Final",
+      "startTimeUtc": "2026-09-13T14:30:00.000Z",
+      "endTimeUtc": "2026-09-13T19:00:00Z",
+      "timePrecision": "exact",
+      "venue": "Dubai International Stadium, Dubai",
+      "participantIds": [],
+      "participants": [],
+      "participantCountryCodes": [],
+      "status": "scheduled",
+      "scoreDisplay": null,
+      "innings": [],
+      "format": null,
+      "numberOfDays": 1,
+      "sourceName": "Cricket Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "TBC v TBC",
+      "date": "2026-09-14",
+      "time": "00:30",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": [
+        {
+          "label": "Final",
+          "confidence": 0.9,
+          "sourceUrls": [
+            "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women"
+          ],
+          "method": "published-schedule.v1"
+        }
+      ]
+    },
+    {
+      "id": "fixture:rugby:ra:949461",
+      "eventId": "fixture:rugby:ra:949461",
+      "canonicalEventId": "fixture:rugby:ra:949461",
+      "sourceFixtureId": "949461",
+      "key": "rugby",
+      "sport": "Rugby Union",
+      "sportDomainId": "sport:rugby-union",
+      "competitionId": "competition:rugby:ra:3",
+      "competitionName": "International",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "men",
+      "name": "South Africa v New Zealand",
+      "round": "Round 1",
+      "roundLabel": null,
+      "startTimeUtc": "2026-09-05T15:10:00.000Z",
+      "timePrecision": "exact",
+      "venue": "FNB Stadium",
+      "participantIds": [
+        "team:rugby:springboks",
+        "team:rugby:all-blacks"
+      ],
+      "participants": [
+        {
+          "id": "team:rugby:springboks",
+          "name": "South Africa",
+          "role": "home",
+          "countryCode": "ZA",
+          "teamKind": "national",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:rugby:all-blacks",
+          "name": "New Zealand",
+          "role": "away",
+          "countryCode": "NZ",
+          "teamKind": "national",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [
+        "ZA",
+        "NZ"
+      ],
+      "homeParticipantId": "team:rugby:springboks",
+      "awayParticipantId": "team:rugby:all-blacks",
+      "status": "completed",
+      "homeScore": "29",
+      "awayScore": "24",
+      "scoreDisplay": "29–24",
+      "sourceName": "Rugby Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949461",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949461",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "South Africa v New Zealand",
+      "date": "2026-09-06",
+      "time": "01:10",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "rugby-argentina-australia-mendoza-2026-09-06",
+      "eventId": "rugby-argentina-australia-mendoza-2026-09-06",
+      "canonicalEventId": "rugby-argentina-australia-mendoza-2026-09-06",
+      "sourceFixtureId": "949624",
+      "key": "rugby",
+      "sport": "Rugby Union",
+      "sportDomainId": "sport:rugby-union",
+      "competitionId": "competition:rugby:ra:3",
+      "competitionName": "International",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "men",
+      "name": "Argentina v Wallabies",
+      "round": "Round 1",
+      "roundLabel": null,
+      "startTimeUtc": "2026-09-05T21:00:00.000Z",
+      "timePrecision": "exact",
+      "venue": "Estadio Malvinas Argentinas",
+      "participantIds": [
+        "team:rugby:argentina",
+        "team:rugby:wallabies"
+      ],
+      "participants": [
+        {
+          "id": "team:rugby:argentina",
+          "name": "Argentina",
+          "role": "home",
+          "countryCode": "AR",
+          "teamKind": "national",
+          "genderCategory": "male"
+        },
+        {
+          "id": "team:rugby:wallabies",
+          "name": "Wallabies",
+          "role": "away",
+          "countryCode": "AU",
+          "teamKind": "national",
+          "genderCategory": "male"
+        }
+      ],
+      "participantCountryCodes": [
+        "AR",
+        "AU"
+      ],
+      "homeParticipantId": "team:rugby:argentina",
+      "awayParticipantId": "team:rugby:wallabies",
+      "status": "completed",
+      "homeScore": "28",
+      "awayScore": "28",
+      "scoreDisplay": "28–28",
+      "sourceName": "Rugby Australia",
+      "sourceType": "official",
+      "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949624",
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
+      "timingProvenance": {
+        "kind": "official",
+        "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949624",
+        "checkedAt": "2026-09-08T09:20:11.566Z"
+      },
+      "displayTitleCompact": "Argentina v Wallabies",
+      "date": "2026-09-06",
+      "time": "07:00",
+      "broadcaster": "",
+      "participantSlots": [],
+      "representativeCountryCodes": [],
+      "broadcastOptions": [],
+      "broadcasterIds": [],
+      "broadcasts": [],
+      "viewingOptions": [],
+      "consensusTags": []
+    },
+    {
+      "id": "fixture:rugby:sa-nz-women:2026-09-05",
+      "eventId": "fixture:rugby:sa-nz-women:2026-09-05",
+      "key": "rugby",
+      "sportDomainId": "sport:rugby-union",
+      "name": "South Africa Women v New Zealand Women",
+      "competitionId": "competition:rugbys-greatest-rivalry-women-2026",
+      "competitionScope": "international",
+      "isInternational": true,
+      "gender": "female",
+      "date": "2026-09-05",
+      "startTimeUtc": "2026-09-05T11:30:00Z",
+      "timePrecision": "exact",
+      "status": "completed",
+      "venue": "DHL Stadium, Cape Town",
+      "resultText": "South Africa Women 20–52 New Zealand Women",
+      "homeScore": 20,
+      "awayScore": 52,
+      "participantIds": [
+        "team:rugby:south-africa-women",
+        "team:rugby:new-zealand-women"
+      ],
+      "participantCountryCodes": [
+        "ZA",
+        "NZ"
+      ],
+      "participants": [
+        {
+          "id": "team:rugby:south-africa-women",
+          "name": "South Africa Women",
+          "displayName": "South Africa Women",
+          "countryCode": "ZA",
+          "teamKind": "national",
+          "genderCategory": "female"
+        },
+        {
+          "id": "team:rugby:new-zealand-women",
+          "name": "New Zealand Women",
+          "displayName": "New Zealand Women",
+          "countryCode": "NZ",
+          "teamKind": "national",
+          "genderCategory": "female"
+        }
+      ],
+      "sourceUrl": "https://www.allblacks.com/news/black-ferns/remaining-black-ferns-2026-fixtures-confirmed",
+      "resultSourceUrl": "https://www.allblacks.com/?url=https%3A%2F%2Fwww.allblacks.com%2Ffixtures%2Fall-blacks",
+      "sourceCheckedAt": "2026-09-08",
+      "sourceType": "official"
+    }
+  ],
+  "participants": [
+    {
+      "id": "team:cricket:ca-45",
+      "name": "Yorkshire Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Yorkshire Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-32",
+      "name": "Essex Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Essex Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-39",
+      "name": "Glamorgan Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Glamorgan Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-33",
+      "name": "Warwickshire Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Warwickshire Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-35",
+      "name": "Sussex Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Sussex Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-48",
+      "name": "Surrey Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Surrey Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-44",
+      "name": "Nottinghamshire Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Nottinghamshire Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-43",
+      "name": "Hampshire Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Hampshire Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-42",
+      "name": "Leicestershire Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Leicestershire Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-31",
+      "name": "Somerset Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Somerset Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-40",
+      "name": "Durham Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Durham Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-38",
+      "name": "Middlesex Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Middlesex Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-50",
+      "name": "Lancashire Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Lancashire Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-34",
+      "name": "Gloucestershire Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Gloucestershire Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-36",
+      "name": "Derbyshire Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Derbyshire Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-41",
+      "name": "Kent Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Kent Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-46",
+      "name": "Worcestershire Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Worcestershire Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:ca-37",
+      "name": "Northamptonshire Men",
+      "countryCode": null,
+      "teamKind": "club",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Northamptonshire Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4503",
+      "competitionScope": "domestic",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:bangladesh-women",
+      "name": "Bangladesh Women",
+      "countryCode": "BD",
+      "teamKind": "national",
+      "genderCategory": "female",
+      "type": "team",
+      "displayName": "Bangladesh Women",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4710",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:united-arab-emirates-women",
+      "name": "United Arab Emirates Women",
+      "countryCode": "AE",
+      "teamKind": "national",
+      "genderCategory": "female",
+      "type": "team",
+      "displayName": "United Arab Emirates Women",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4710",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:namibia",
+      "name": "Namibia Men",
+      "countryCode": "NA",
+      "teamKind": "national",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Namibia Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4711",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:south-africa",
+      "name": "South Africa Men",
+      "countryCode": "ZA",
+      "teamKind": "national",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "South Africa Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4711",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:england",
+      "name": "England Men",
+      "countryCode": "GB",
+      "teamKind": "national",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "England Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:3206",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:pakistan",
+      "name": "Pakistan Men",
+      "countryCode": "PK",
+      "teamKind": "national",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Pakistan Men",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:3206",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:india-women",
+      "name": "India Women",
+      "countryCode": "IN",
+      "teamKind": "national",
+      "genderCategory": "female",
+      "type": "team",
+      "displayName": "India Women",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4710",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:sri-lanka-women",
+      "name": "Sri Lanka Women",
+      "countryCode": "LK",
+      "teamKind": "national",
+      "genderCategory": "female",
+      "type": "team",
+      "displayName": "Sri Lanka Women",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4710",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:cricket:pakistan-women",
+      "name": "Pakistan Women",
+      "countryCode": "PK",
+      "teamKind": "national",
+      "genderCategory": "female",
+      "type": "team",
+      "displayName": "Pakistan Women",
+      "sportDomainId": "sport:cricket",
+      "leagueId": "competition:cricket:4710",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:rugby:springboks",
+      "name": "South Africa",
+      "role": "home",
+      "countryCode": "ZA",
+      "teamKind": "national",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "South Africa",
+      "sportDomainId": "sport:rugby-union",
+      "leagueId": "competition:rugby:ra:3",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.rugby.com.au/match-centre/3/2026/949461"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:rugby:all-blacks",
+      "name": "New Zealand",
+      "role": "away",
+      "countryCode": "NZ",
+      "teamKind": "national",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "New Zealand",
+      "sportDomainId": "sport:rugby-union",
+      "leagueId": "competition:rugby:ra:3",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.rugby.com.au/match-centre/3/2026/949461"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:rugby:argentina",
+      "name": "Argentina",
+      "role": "home",
+      "countryCode": "AR",
+      "teamKind": "national",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Argentina",
+      "sportDomainId": "sport:rugby-union",
+      "leagueId": "competition:rugby:ra:3",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.rugby.com.au/match-centre/3/2026/949624"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:rugby:wallabies",
+      "name": "Wallabies",
+      "role": "away",
+      "countryCode": "AU",
+      "teamKind": "national",
+      "genderCategory": "male",
+      "type": "team",
+      "displayName": "Wallabies",
+      "sportDomainId": "sport:rugby-union",
+      "leagueId": "competition:rugby:ra:3",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.rugby.com.au/match-centre/3/2026/949624"
+      ],
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "team:rugby:south-africa-women",
+      "name": "South Africa Women",
+      "displayName": "South Africa Women",
+      "countryCode": "ZA",
+      "teamKind": "national",
+      "genderCategory": "female",
+      "type": "team",
+      "sportDomainId": "sport:rugby-union",
+      "leagueId": "competition:rugbys-greatest-rivalry-women-2026",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.allblacks.com/news/black-ferns/remaining-black-ferns-2026-fixtures-confirmed"
+      ],
+      "sourceCheckedAt": "2026-09-08"
+    },
+    {
+      "id": "team:rugby:new-zealand-women",
+      "name": "New Zealand Women",
+      "displayName": "New Zealand Women",
+      "countryCode": "NZ",
+      "teamKind": "national",
+      "genderCategory": "female",
+      "type": "team",
+      "sportDomainId": "sport:rugby-union",
+      "leagueId": "competition:rugbys-greatest-rivalry-women-2026",
+      "competitionScope": "international",
+      "sourceRefs": [
+        "https://www.allblacks.com/news/black-ferns/remaining-black-ferns-2026-fixtures-confirmed"
+      ],
+      "sourceCheckedAt": "2026-09-08"
+    }
+  ],
+  "sources": [
+    {
+      "id": "cricket-ca-current",
+      "status": "ok",
+      "checkedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "cricket-ca-4710",
+      "status": "ok",
+      "checkedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "rugby-ra-949461",
+      "status": "ok",
+      "checkedAt": "2026-09-08T09:20:11.566Z"
+    },
+    {
+      "id": "rugby-ra-949624",
+      "status": "ok",
+      "checkedAt": "2026-09-08T09:20:11.566Z"
+    }
+  ]
+}

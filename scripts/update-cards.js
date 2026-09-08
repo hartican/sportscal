@@ -61,6 +61,8 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
 function buildSteps({ localOnly = false } = {}) {
   const steps = [
   ["scripts/snapshot-active-follows.js"],
+  ["scripts/refresh-source-coverage.js"],
+  ["scripts/build-athlete-participation.js"],
   ["scripts/refresh-canonical-sports.js"],
   ["scripts/refresh-wrc-context.js"],
   ["scripts/refresh-wrc-context.js", "--check"],
@@ -158,7 +160,7 @@ function buildSteps({ localOnly = false } = {}) {
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]
   ), discoverCanonicalFixtureBundles()),
-  ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--replace"],
+  ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
   ["scripts/validate-editorial-narratives.js"],
@@ -182,6 +184,9 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/prepare-nsc-forecasts.js"],
   ["scripts/build-code-inspector.js"],
   ["scripts/validate-feed-coverage-resilience.js"],
+  ["scripts/validate-fixture-snapshot.js"],
+  ["scripts/validate-fixture-visibility.js"],
+  ["scripts/validate-all-sport-visibility.js"],
   ["scripts/validate-requested-sports.js"],
   ["scripts/validate-fixture-editorial-resolution.js"],
   ["scripts/validate-national-team-identities.js"],
@@ -248,6 +253,13 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-australian-viewing-rights.js"],
   ["scripts/validate-feed-ui-geometry.js"],
   ["scripts/validate-follow-first.js"],
+  ["scripts/validate-follow-policy-parity.js"],
+  ["scripts/validate-source-coverage.js"],
+  ["scripts/validate-live-fixtures.js"],
+  ["scripts/validate-live-fixture-api.js"],
+  ["scripts/validate-calendar-selection.js"],
+  ["scripts/validate-fixture-timing.js"],
+  ["scripts/validate-us-open-fail-soft.js"],
   ["scripts/validate-mobile-feed-events-brand-pass.js"],
   ["scripts/validate-feed-sport-reliability-pass.js"],
   ["scripts/audit-followed-fixture-coverage.js"],
@@ -256,8 +268,26 @@ function buildSteps({ localOnly = false } = {}) {
   return steps;
 }
 
-function main() {
+async function main() {
   const options = parseOptions();
+  if(process.argv.includes("--live")){
+    const {refreshDueSources}=require("../lib/live-fixtures");
+    const {liveSources}=require("../lib/live-source-adapters");
+    const result=await refreshDueSources({sources:liveSources()});
+    console.log(JSON.stringify({mode:"live",...result}));
+    if(result.failed.length)process.exitCode=1;
+    return;
+  }
+  if(process.argv.includes("--coverage")){
+    await require("./refresh-source-coverage").refreshCoverage();
+    runStep(["scripts/refresh-us-open-events.js"]);
+    runStep(["scripts/refresh-us-open-events.js","--check"]);
+    runStep(["scripts/build-athlete-participation.js"]);
+    runStep(["scripts/build-code-inspector.js","--codes=cricket,rugby-union,motorsport,f1,tennis"]);
+    runStep(["scripts/build-follow-directories.js"]);
+    runStep(["scripts/validate-source-coverage.js"]);
+    return;
+  }
   const quick=process.argv.includes("--quick");
   let steps = quick ? [["scripts/snapshot-active-follows.js"],["scripts/quick-results.js",...process.argv.filter(arg=>["--offline","--rebuild"].includes(arg))]] : buildSteps(options);
   const resumeIndex=process.argv.indexOf('--resume-from');
@@ -275,7 +305,7 @@ function main() {
     }
 
     if(quick){console.log("Quick results refresh complete.");return;}
-    console.log(`\nCards, ladders and standings update complete${options.localOnly ? " (local only)" : ""}: canonical ranking data refreshed and validated, followed fixtures recomputed from the current server snapshot, curated previews applied, future high-stakes cards queued, and both feeds passed editorial, spoiler and schema QA.`);
+    console.log(`\nCards, ladders and standings update complete${options.localOnly ? " (local only)" : ""}: canonical ranking data refreshed and validated, followed fixtures recomputed from the current server snapshot, curated previews applied, fixture research queued, and both feeds passed editorial, spoiler and schema QA.`);
   } finally {
     delete process.env.FOLLOW_SNAPSHOT_PATH;
     delete process.env.FOLLOW_SNAPSHOT_KEY;
@@ -284,11 +314,10 @@ function main() {
 }
 
 if (require.main === module) {
-  try { main(); }
-  catch (error) {
+  main().catch(error => {
     console.error(error.message);
     process.exitCode = error.exitCode || 1;
-  }
+  });
 }
 
 module.exports = {

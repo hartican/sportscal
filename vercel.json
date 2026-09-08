@@ -14,6 +14,7 @@
       "includeFiles": "data/{code-inspector/*.json,nsc-forecasts.json}"
     },
     "api/feed.js": {
+      "maxDuration": 60,
       "includeFiles": "data/{code-inspector/*.json,events.json,follow-fixtures.v1.json,major-events.v1.json}"
     }
   },
@@ -35,6 +36,8 @@
     }
   ],
   "rewrites": [
+    {"source":"/api/fixtures","destination":"/api/feed?route=fixtures"},
+    {"source":"/api/fixture-refresh","destination":"/api/feed?route=fixture-refresh"},
     {
       "source": "/api/calendar",
       "destination": "/api/user-state?route=calendar"

@@ -74,7 +74,7 @@ async function run(){
   assert.equal(schema.properties.schemaVersion.const, "server-feed.v3");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");
   assert(schema.required.includes("sourcePublishedAt"), "server feeds must distinguish canonical publication time from per-user generation time");
-  assert.equal(feedPipeline.SERVER_FEED_BUILD_VERSION, "direct-entity-follow.v4");
+  assert.equal(feedPipeline.SERVER_FEED_BUILD_VERSION, "follow-policy.v6");
   assert.match(
     fs.readFileSync("api/feed.js", "utf8"),
     /buildVersion:\s*SERVER_FEED_BUILD_VERSION/,
@@ -393,6 +393,7 @@ async function run(){
         schema_version: "user-state.v1",
         profile: {},
         ...userState,
+        preferences:{...userState.preferences,followedSports:[...(userState.preferences.followedSports || []),"f1"]},
         event_spoiler_state: {},
         archived_events: [],
         ratings: {},

@@ -21,8 +21,7 @@
 
   function scoreLine(event, displayTitle, result){
     const structured = structuredScore(event);
-    if (structured) return structured;
-    const original = String(result?.score || result?.outcome || "").trim();
+    const original = String(structured || result?.score || result?.outcome || "").trim();
     if (!original) return null;
     const titleParticipants = String(displayTitle || "")
       .split(/\s+v\.?\s+/i)

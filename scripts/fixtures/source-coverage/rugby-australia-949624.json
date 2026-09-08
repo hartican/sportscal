@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "source-coverage-sample.v1",
+  "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949624",
+  "checkedAt": "2026-09-08T07:26:51.303Z",
+  "extractionPath": "props.pageProps.matchData.getFixtureItem",
+  "getFixtureItem": {
+    "__typename": "FixtureItem",
+    "id": "949624",
+    "compId": "3",
+    "compName": "International",
+    "dateTime": "2026-09-05T21:00:00+0000",
+    "group": "1",
+    "isLive": false,
+    "isBye": false,
+    "round": "Round 1",
+    "roundType": "1",
+    "roundLabel": null,
+    "season": "2026",
+    "status": "Result",
+    "venue": "Estadio Malvinas Argentinas",
+    "sourceType": "1",
+    "matchLabel": null,
+    "homeTeam": {
+      "__typename": "Team",
+      "id": "949624-800",
+      "name": "Argentina",
+      "teamId": "800",
+      "score": "28",
+      "crest": "https://d26phqdbpt0w91.cloudfront.net/NonVideo/0d879300-8bf6-4f95-b91e-ea8b69723b75.png"
+    },
+    "awayTeam": {
+      "__typename": "Team",
+      "id": "949624-100",
+      "name": "Wallabies",
+      "teamId": "100",
+      "score": "28",
+      "crest": "https://d26phqdbpt0w91.cloudfront.net/NonVideo/929920ed-8900-40f0-8402-4563c0006eec.png"
+    },
+    "fixtureMeta": null
+  }
+}

@@ -25,6 +25,8 @@ const {
 } = require("../lib/server-feed-pipeline");
 const { resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
 const { catalogue } = require("../lib/calendar-catalogue");
+const {readLiveSnapshots,overlaySnapshots}=require("../lib/live-fixtures");
+const liveHandler=require("../lib/live-fixture-handler").createLiveFixtureHandler();
 
 const canonicalSportContext = sportContext.mergeCanonicalBundles(canonicalSports, f1Context, wrcContext, tennisContext, cyclingContext, nbaContext, cwgContext);
 const contextualEvents = sportContext.applyContextToEvents(catalogue(), canonicalSportContext);
@@ -43,6 +45,8 @@ function setPrivateResponseHeaders(response){
 }
 
 module.exports = async function feedHandler(request, response){
+  const route=new URL(request.url || "/api/feed","https://nothingsport.local");
+  if(["/api/fixtures","/api/fixture-refresh"].includes(route.pathname)||["fixtures","fixture-refresh"].includes(route.searchParams.get("route")||request.query?.route))return liveHandler(request,response);
   setPrivateResponseHeaders(response);
   try{
     if ((request.method || "GET") !== "GET"){
@@ -63,6 +67,7 @@ module.exports = async function feedHandler(request, response){
     const requestedLimit = request.url
       ? Math.min(50, Math.max(1, Number(requestUrl.searchParams.get("limit") || 20)))
       : eventFeed.events.length;
+    const live=await readLiveSnapshots().catch(()=>null);
     const resolved = resolveUserFollowFixtures({
       events:[...contextualEvents, ...selectedFixtureEvents(userState)],
       userState,
@@ -73,16 +78,17 @@ module.exports = async function feedHandler(request, response){
       ...participant,
     }));
     const feed = buildServerFeed({
-      events: resolved.events,
+      events: overlaySnapshots(resolved.events,live?.sources),
       userId: user.id,
       userState,
       participants: Array.from(feedParticipants.values()),
-      sourceVersion: eventFeed.version,
+      sourceVersion: live ? `${eventFeed.version}:${live.revision}` : eventFeed.version,
       sourcePublishedAt: eventFeed.publishedAt,
       cursor: requestUrl.searchParams.get("cursor") || 0,
       limit: requestedLimit,
     });
     const etagSeed = {
+      fixtureRevision:live?.revision || null,
       sourceVersion: eventFeed.version,
       sourcePublishedAt: eventFeed.publishedAt,
       userId: user.id,

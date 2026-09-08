@@ -26,7 +26,7 @@ const neutralContext = {
 };
 
 assert.equal(engine.SCHEMA_VERSION, "enriched-event.v2");
-assert.equal(engine.RANKING_VERSION, "premium-ranking.v1");
+assert.equal(engine.RANKING_VERSION, "follow-chronology.v1");
 assert.equal(overrides.SCHEMA_VERSION, "storyline-overrides.v1");
 assert(Object.values(overrides.overrides).every(override => override.reviewedAt && override.reviewedBy && override.note), "every editorial override needs review provenance");
 assert(Object.values(overrides.ruleOverrides).every(override => override.reviewedAt && override.reviewedBy && override.note), "every rule-based editorial override needs review provenance");
@@ -47,15 +47,15 @@ const defining = engine.enrichEvent({
   time: "20:00",
   expected: 10,
 }, neutralContext);
-assert(defining.mustWatchScore > routine.mustWatchScore, "high stakes must outrank routine fixtures without explicit follows");
-assert.equal(routine.cardVariant, "plain", "routine catalogue breadth must remain visually quiet");
-assert.equal(defining.cardVariant, "marquee", "defining events need marquee treatment");
+assert.equal(defining.mustWatchScore,routine.mustWatchScore,"stakes no longer affect prominence");
+assert.equal(routine.cardVariant, "standard", "uniform fixture treatment");
+assert.equal(defining.cardVariant, "standard", "uniform fixture treatment");
 
 const surfaces = engine.selectPremiumSurfaces(events, neutralContext);
 const mustWatchIds = surfaces.mustWatch.map(item => item.enrichment.canonicalEventId);
 const storylineIds = surfaces.topStorylines.map(item => item.enrichment.canonicalEventId);
 if (activeWta1000) {
-  assert(mustWatchIds.includes(activeWta1000.id), "the current reviewed WTA 1000 flagship must enter Must Watch");
+  assert.equal(mustWatchIds.length,0, "editorial cannot create a premium feed rail");
   assert.equal(overrides.forEvent(activeWta1000)?.forceSurface, "homeMustWatch", "the current active WTA 1000 tournament must inherit the reviewed flagship rule");
 }
 assert(mustWatchIds.length <= engine.PREMIUM_SURFACE_POLICY.mustWatchLimit, "Must Watch must stay capped");
@@ -65,8 +65,8 @@ assert([...surfaces.mustWatch, ...surfaces.topStorylines].every(item => item.enr
 
 assert(!html.includes('function appendManualMustWatchQueue') && !html.includes("appendPremiumSurfaces(container, filtered)"), "editorial scoring must not split cards out of the chronological feed");
 assert(!html.includes('const displayLabel = enrichment.storyline.visibleLabel === "Must Watch"') && !html.includes('? "Top pick"'), "legacy editorial labels must remain ranking inputs without rendering Top pick tags");
-assert(html.includes('return activeTodayAnchorId();'), "the initial feed jump must land at Today");
-assert(html.includes('label.textContent = `STAKES ${score}/5`'), "visible stakes must not be mislabeled storyline intensity");
+assert(html.includes("document.getElementById('calendarNowAnchor')?'calendarNowAnchor':activeTodayAnchorId()"), "the initial feed jump prefers Now");
+assert(!html.includes('label.textContent = `STAKES ${score}/5`'), "visible stakes have been retired");
 assert(!html.includes("Editorially reviewed ·"), "opened flagship cards must not expose editorial-review metadata");
 
 console.log(`Phase 5 editorial ranking valid: ${mustWatchIds.length} top picks and ${storylineIds.length} storyline events scored without splitting the chronological feed.`);

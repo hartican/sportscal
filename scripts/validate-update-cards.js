@@ -11,6 +11,10 @@ const releaseStep = "scripts/redeploy-and-release.sh";
 const defaultSteps = buildSteps(parseOptions([], {}));
 const localSteps = buildSteps(parseOptions(["-p", "--local-only"], {}));
 const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" }));
+assert(localSteps.find(step=>step[0] === "scripts/publish-feed.js").includes("--preserve-known"),"canonical publication must preserve omitted known fixtures");
+for (const script of ["validate-fixture-snapshot","validate-fixture-visibility","validate-all-sport-visibility"]){
+  assert(localSteps.some(step=>step[0] === `scripts/${script}.js`),`${script} must guard every canonical refresh`);
+}
 
 assert(defaultSteps.some(step => step[0] === releaseStep), "the scheduled canonical flow must retain its reviewed release step");
 assert(!localSteps.some(step => step[0] === releaseStep), "local-only updates must never commit, push, or deploy");

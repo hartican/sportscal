@@ -1,0 +1,176 @@
+{
+  "schemaVersion": "source-coverage-sample.v1",
+  "sourceUrl": "https://www.cricket.com.au/matches/series/CA:4710/asia-cup-2026-women",
+  "checkedAt": "2026-09-08T07:26:50.885Z",
+  "extractionPath": "window.FIXTURES_DATA",
+  "FIXTURES_DATA": [
+    {
+      "id": 40954,
+      "name": "Bangladesh W v UAE W",
+      "startDateTime": "2026-09-08T14:30:00Z",
+      "endDateTime": "2026-09-08T19:00:00Z",
+      "gameTypeId": 38,
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 1,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": true,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4710,
+        "name": "Asia Cup 2026 - Women"
+      },
+      "venue": {
+        "id": 481,
+        "name": "Dubai International Stadium",
+        "location": "Dubai"
+      },
+      "homeTeam": {
+        "id": 73,
+        "name": "Bangladesh Women",
+        "shortName": "BAN"
+      },
+      "awayTeam": {
+        "id": 1198,
+        "name": "United Arab Emirates Women",
+        "shortName": "UAE"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "20",
+      "streamCount": 0
+    },
+    {
+      "id": 40956,
+      "name": "Semi-Final",
+      "startDateTime": "2026-09-10T14:30:00Z",
+      "endDateTime": "2026-09-10T19:00:00Z",
+      "gameTypeId": 38,
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 1,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": true,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4710,
+        "name": "Asia Cup 2026 - Women"
+      },
+      "venue": {
+        "id": 481,
+        "name": "Dubai International Stadium",
+        "location": "Dubai"
+      },
+      "homeTeam": {
+        "id": 76,
+        "name": "India Women",
+        "shortName": "IND"
+      },
+      "awayTeam": {
+        "id": 12,
+        "name": "TBC",
+        "shortName": "TBC"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "20",
+      "streamCount": 0
+    },
+    {
+      "id": 40958,
+      "name": "Semi-Final",
+      "startDateTime": "2026-09-11T14:30:00Z",
+      "endDateTime": "2026-09-11T19:00:00Z",
+      "gameTypeId": 38,
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 1,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": true,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4710,
+        "name": "Asia Cup 2026 - Women"
+      },
+      "venue": {
+        "id": 481,
+        "name": "Dubai International Stadium",
+        "location": "Dubai"
+      },
+      "homeTeam": {
+        "id": 77,
+        "name": "Sri Lanka Women",
+        "shortName": "SL"
+      },
+      "awayTeam": {
+        "id": 70,
+        "name": "Pakistan Women",
+        "shortName": "PAK"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "20",
+      "streamCount": 0
+    },
+    {
+      "id": 40960,
+      "name": "Final",
+      "startDateTime": "2026-09-13T14:30:00Z",
+      "endDateTime": "2026-09-13T19:00:00Z",
+      "gameTypeId": 38,
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 1,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": true,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4710,
+        "name": "Asia Cup 2026 - Women"
+      },
+      "venue": {
+        "id": 481,
+        "name": "Dubai International Stadium",
+        "location": "Dubai"
+      },
+      "homeTeam": {
+        "id": 12,
+        "name": "TBC",
+        "shortName": "TBC"
+      },
+      "awayTeam": {
+        "id": 12,
+        "name": "TBC",
+        "shortName": "TBC"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "20",
+      "streamCount": 0
+    }
+  ]
+}

@@ -11,12 +11,7 @@ const DAY_MS = 86400000;
 const OUTPUT_PATH = path.resolve("data/editorial-research-queue.v1.json");
 function readJson(filePath){ return JSON.parse(fs.readFileSync(filePath, "utf8")); }
 function writeJson(filePath, value){ fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`); }
-function stakesFor(record){
-  const stored = Number(record?.storyline?.stakes || record?.stakesScore || 0);
-  if (stored) return stored;
-  const expected = Number(record?.expected || 0);
-  return expected >= 10 ? 5 : expected >= 8 ? 4 : expected >= 6 ? 3 : expected >= 4 ? 2 : 1;
-}
+const {researchDepthFor}=require('./lib/editorial-research-depth');
 function idFor(record){ return String(record?.canonicalEventId || record?.eventId || record?.id || ""); }
 function eventTime(record){
   if (record?.startDate && !record?.date) return Date.parse(`${record.startDate}T00:00:00+10:00`);
@@ -29,20 +24,20 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
   const latest = now + 30 * DAY_MS;
   const rolling = (feed.events || []).filter(record => {
     const start = eventTime(record);
-    return stakesFor(record) >= 2 && Number.isFinite(start) && start >= earliest && start <= latest;
-  }).map(record => ({ targetType:"feed-event", record, reason:"rolling-stakes-2-plus" }));
+    return researchDepthFor(record) >= 2 && Number.isFinite(start) && start >= earliest && start <= latest;
+  }).map(record => ({ targetType:"feed-event", record, reason:"rolling-published-fixtures" }));
   const feedMarquees = (feed.events || [])
-    .filter(record => stakesFor(record) === 5 && record.status !== "completed")
-    .map(record => ({ targetType:"feed-event", record, reason:"surfaced-stakes-5" }));
+    .filter(record => researchDepthFor(record) === 5 && record.status !== "completed")
+    .map(record => ({ targetType:"feed-event", record, reason:"classified-marquee" }));
   const majorMarquees = (majorEvents.events || [])
-    .filter(record => record.stakesScore === 5 && record.lifecycleStatus !== "retired" && record.kind !== "ticket_sale")
-    .map(record => ({ targetType:"major-event", record, reason:"surfaced-stakes-5" }));
+    .filter(record => record.lifecycleStatus !== "retired" && record.kind !== "ticket_sale")
+    .map(record => ({ targetType:"major-event", record, reason:"classified-marquee" }));
   const majorChildren = (majorEvents.events || [])
     .filter(record => record.lifecycleStatus !== "retired" && record.kind !== "ticket_sale")
     .flatMap(parent => (parent.subEvents || []).map(record => ({ parent, record })))
     .filter(({ record }) => {
       const start = eventTime(record);
-      return stakesFor(record) >= 3 && Number.isFinite(start) && start >= earliest && start <= latest;
+      return researchDepthFor(record) >= 3 && Number.isFinite(start) && start >= earliest && start <= latest;
     })
     .map(({ parent, record }) => ({
       targetType:"major-event-child",
@@ -81,14 +76,14 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
       targetType,
       targetId:idFor(record),
       title:record.name,
-      stakes:stakesFor(record),
+      researchDepth:researchDepthFor(record),
       startsAt:Number.isFinite(start) ? new Date(start).toISOString() : null,
       reason,
       projectionId:projection?.id || null,
       coverage:projection ? "covered" : queuedUnverified ? "queued-unverified" : "missing",
       consequenceCoverage:projection?.consequence ? "covered" : "missing",
       consequenceResearchRequired:Boolean(projection && !projection.consequence),
-      priority:pulseUrgent ? "urgent-post-event" : anticipationPriority ? "audience-accelerated" : stakesFor(record) === 5 ? "marquee" : "rolling",
+      priority:pulseUrgent ? "urgent-post-event" : anticipationPriority ? "audience-accelerated" : researchDepthFor(record) === 5 ? "marquee" : "rolling",
       refreshDeadline:acceleratedDeadline,
     };
   }).sort((left, right) => {
@@ -100,7 +95,7 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
     schemaVersion:"editorial-research-queue.v1",
     generatedAt:reference.toISOString(),
     timeZone:"Australia/Sydney",
-    rollingWindow:{ previousDays:7, nextDays:30, minimumStakes:2 },
+    rollingWindow:{ previousDays:7, nextDays:30, minimumResearchDepth:2 },
     consequenceMigration:{ covered:consequenceCovered, queued:entries.length - consequenceCovered },
     entries,
   };
@@ -127,4 +122,4 @@ function main(){
 }
 
 if (require.main === module){ try { main(); } catch (error){ console.error(error.message); process.exitCode = 1; } }
-module.exports = { buildQueue, eventTime, stakesFor };
+module.exports = { buildQueue, eventTime, researchDepthFor };

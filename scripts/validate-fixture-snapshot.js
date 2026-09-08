@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+"use strict";
+const assert = require("node:assert/strict");
+const {mergeFixtureSnapshot} = require("../lib/fixture-snapshot");
+const fs = require("node:fs"), os = require("node:os"), path = require("node:path");
+const {spawnSync} = require("node:child_process");
+const a = {id:"race",name:"Italian GP Race",date:"2026-09-06",time:"23:00",participantIds:[]};
+const b = {id:"qualifying",name:"Italian GP Qualifying",date:"2026-09-06",time:"00:00"};
+const previous = [a,b];
+assert.deepEqual(mergeFixtureSnapshot(previous,[]).events,previous,"an empty successful source response is not a deletion");
+const partial = mergeFixtureSnapshot(previous,[{...a,status:"postponed",time:null},null,{garbage:true}]);
+assert.equal(partial.events.length,2,"partial and malformed source records cannot erase previously published fixtures");
+assert.equal(partial.events.find(event => event.id === "race").status,"postponed");
+assert.equal(partial.events.find(event => event.id === "race").time,null,"explicitly unconfirmed time must not retain a stale exact time");
+assert.equal(partial.invalid,2,"source defects must be observable");
+const statusOnly=mergeFixtureSnapshot([{...a,key:'f1'}],[{id:a.id,status:'postponed',time:null}]).events[0];
+assert.equal(statusOnly.key,'f1','status-only source updates preserve the followed sport identity');
+assert.equal(statusOnly.name,a.name,'missing optional source fields preserve the known fixture name');
+assert.equal(statusOnly.time,null,'an explicit null still clears stale timing');
+assert.equal(mergeFixtureSnapshot(previous,[{...a,id:"new-race",canonicalEventId:"race"}]).events.length,2,"canonical ID aliases update one fixture");
+assert.equal(mergeFixtureSnapshot(previous,[{id:"sprint",name:a.name,date:a.date}]).events.length,3,"similar titles are not proof that another session was deleted");
+assert.equal(mergeFixtureSnapshot(previous,[{...a,published:false}]).events.find(event => event.id === a.id).published,false,"explicit withdrawals remain authoritative");
+assert.deepEqual(previous,[a,b],"reconciliation must not mutate its input snapshot");
+assert.throws(() => mergeFixtureSnapshot(previous,{events:[]}),/array/i,"invalid response structure must fail without replacing the previous snapshot");
+const directory = fs.mkdtempSync(path.join(os.tmpdir(),"ns-fixture-snapshot-"));
+try {
+  const source = require("../data/events.json");
+  const fixtures = source.events.filter(event => ["evt_26","evt_27"].includes(event.id));
+  assert.equal(fixtures.length,2);
+  const incoming = path.join(directory,"incoming.json"), output = path.join(directory,"published.json");
+  const args = ["scripts/publish-feed.js",incoming,output,path.join(directory,"meta.json"),path.join(directory,"events.js"),"--preserve-known"];
+  fs.writeFileSync(output,JSON.stringify({...source,events:fixtures}));
+  fs.writeFileSync(incoming,JSON.stringify({...source,events:[fixtures[0]]}));
+  const result = spawnSync(process.execPath,args,{encoding:"utf8"});
+  assert.equal(result.status,0,result.stderr);
+  assert.deepEqual(new Set(JSON.parse(fs.readFileSync(output)).events.map(event => event.id)),new Set(fixtures.map(event => event.id)),"the actual publication path must not delete the race after a truncated response");
+  const before = fs.readFileSync(output,"utf8");
+  fs.writeFileSync(incoming,JSON.stringify({...source,events:[{...fixtures[0],name:null}]}));
+  assert.notEqual(spawnSync(process.execPath,args,{encoding:"utf8"}).status,0,"malformed publication must be rejected");
+  assert.equal(fs.readFileSync(output,"utf8"),before,"a rejected publish must leave last-known-good bytes intact");
+} finally {fs.rmSync(directory,{recursive:true,force:true});}
+console.log("Fixture snapshots preserve known cards through empty, partial and malformed responses, while retaining explicit updates.");

@@ -57,6 +57,7 @@
   }
 
   function flagMarkup(countryCode, { className = "", label = "" } = {}){
+    if(alpha2(countryCode)==='RU')return '';
     const path = assetPath(countryCode);
     if (!path) return "";
     const name = label || countryName(countryCode);

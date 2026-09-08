@@ -1,0 +1,645 @@
+{
+  "schemaVersion": "source-coverage-sample.v1",
+  "sourceUrl": "https://www.cricket.com.au/matches/",
+  "checkedAt": "2026-09-08T07:26:50.881Z",
+  "extractionPath": "window.FIXTURES_DATA",
+  "FIXTURES_DATA": [
+    {
+      "id": 39460,
+      "legacyFixtureId": 66565,
+      "name": "Division 1",
+      "startDateTime": "2026-09-08T09:30:00Z",
+      "endDateTime": "2026-09-11T00:00:00Z",
+      "gameTypeId": 4,
+      "gameType": "First Class Domestic",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 4,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4503,
+        "name": "County Championship 2026",
+        "legacyCompetitionId": 3814
+      },
+      "venue": {
+        "id": 403,
+        "name": "Headingley",
+        "location": "Leeds"
+      },
+      "homeTeam": {
+        "id": 45,
+        "name": "Yorkshire Men",
+        "shortName": "YRK"
+      },
+      "awayTeam": {
+        "id": 32,
+        "name": "Essex Men",
+        "shortName": "ESS"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "",
+      "streamCount": 0
+    },
+    {
+      "id": 39461,
+      "legacyFixtureId": 66566,
+      "name": "Division 1",
+      "startDateTime": "2026-09-08T09:30:00Z",
+      "endDateTime": "2026-09-11T00:00:00Z",
+      "gameTypeId": 4,
+      "gameType": "First Class Domestic",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 4,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4503,
+        "name": "County Championship 2026",
+        "legacyCompetitionId": 3814
+      },
+      "venue": {
+        "id": 442,
+        "name": "Sophia Gardens",
+        "location": "Cardiff"
+      },
+      "homeTeam": {
+        "id": 39,
+        "name": "Glamorgan Men",
+        "shortName": "GLA"
+      },
+      "awayTeam": {
+        "id": 33,
+        "name": "Warwickshire Men",
+        "shortName": "WAR"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "",
+      "streamCount": 0
+    },
+    {
+      "id": 39462,
+      "legacyFixtureId": 66567,
+      "name": "Division 1",
+      "startDateTime": "2026-09-08T09:30:00Z",
+      "endDateTime": "2026-09-11T00:00:00Z",
+      "gameTypeId": 4,
+      "gameType": "First Class Domestic",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 4,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4503,
+        "name": "County Championship 2026",
+        "legacyCompetitionId": 3814
+      },
+      "venue": {
+        "id": 430,
+        "name": "County Ground",
+        "location": "Hove"
+      },
+      "homeTeam": {
+        "id": 35,
+        "name": "Sussex Men",
+        "shortName": "SSX"
+      },
+      "awayTeam": {
+        "id": 48,
+        "name": "Surrey Men",
+        "shortName": "SRY"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "",
+      "streamCount": 0
+    },
+    {
+      "id": 39463,
+      "legacyFixtureId": 66568,
+      "name": "Division 1",
+      "startDateTime": "2026-09-08T09:30:00Z",
+      "endDateTime": "2026-09-11T00:00:00Z",
+      "gameTypeId": 4,
+      "gameType": "First Class Domestic",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 4,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4503,
+        "name": "County Championship 2026",
+        "legacyCompetitionId": 3814
+      },
+      "venue": {
+        "id": 402,
+        "name": "Trent Bridge",
+        "location": "Nottingham"
+      },
+      "homeTeam": {
+        "id": 44,
+        "name": "Nottinghamshire Men",
+        "shortName": "NOT"
+      },
+      "awayTeam": {
+        "id": 43,
+        "name": "Hampshire Men",
+        "shortName": "HAM"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "",
+      "streamCount": 0
+    },
+    {
+      "id": 39464,
+      "legacyFixtureId": 66569,
+      "name": "Division 1",
+      "startDateTime": "2026-09-08T09:30:00Z",
+      "endDateTime": "2026-09-11T00:00:00Z",
+      "gameTypeId": 4,
+      "gameType": "First Class Domestic",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 4,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4503,
+        "name": "County Championship 2026",
+        "legacyCompetitionId": 3814
+      },
+      "venue": {
+        "id": 435,
+        "name": "Grace Road",
+        "location": "Leicester"
+      },
+      "homeTeam": {
+        "id": 42,
+        "name": "Leicestershire Men",
+        "shortName": "LEI"
+      },
+      "awayTeam": {
+        "id": 31,
+        "name": "Somerset Men",
+        "shortName": "SOM"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "",
+      "streamCount": 0
+    },
+    {
+      "id": 39465,
+      "legacyFixtureId": 66624,
+      "name": "Division 2",
+      "startDateTime": "2026-09-08T09:30:00Z",
+      "endDateTime": "2026-09-11T00:00:00Z",
+      "gameTypeId": 4,
+      "gameType": "First Class Domestic",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 4,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4503,
+        "name": "County Championship 2026",
+        "legacyCompetitionId": 3814
+      },
+      "venue": {
+        "id": 429,
+        "name": "Riverside Ground",
+        "location": "Chester-le-Street"
+      },
+      "homeTeam": {
+        "id": 40,
+        "name": "Durham Men",
+        "shortName": "DUR"
+      },
+      "awayTeam": {
+        "id": 38,
+        "name": "Middlesex Men",
+        "shortName": "MSX"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "",
+      "streamCount": 0
+    },
+    {
+      "id": 39466,
+      "legacyFixtureId": 66625,
+      "name": "Division 2",
+      "startDateTime": "2026-09-08T09:30:00Z",
+      "endDateTime": "2026-09-11T00:00:00Z",
+      "gameTypeId": 4,
+      "gameType": "First Class Domestic",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 4,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4503,
+        "name": "County Championship 2026",
+        "legacyCompetitionId": 3814
+      },
+      "venue": {
+        "id": 408,
+        "name": "Old Trafford",
+        "location": "Manchester"
+      },
+      "homeTeam": {
+        "id": 50,
+        "name": "Lancashire Men",
+        "shortName": "LAN"
+      },
+      "awayTeam": {
+        "id": 34,
+        "name": "Gloucestershire Men",
+        "shortName": "GLO"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "",
+      "streamCount": 0
+    },
+    {
+      "id": 39467,
+      "legacyFixtureId": 66626,
+      "name": "Division 2",
+      "startDateTime": "2026-09-08T09:30:00Z",
+      "endDateTime": "2026-09-11T00:00:00Z",
+      "gameTypeId": 4,
+      "gameType": "First Class Domestic",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 4,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4503,
+        "name": "County Championship 2026",
+        "legacyCompetitionId": 3814
+      },
+      "venue": {
+        "id": 405,
+        "name": "The County Ground",
+        "location": "Derby"
+      },
+      "homeTeam": {
+        "id": 36,
+        "name": "Derbyshire Men",
+        "shortName": "DBY"
+      },
+      "awayTeam": {
+        "id": 41,
+        "name": "Kent Men",
+        "shortName": "KEN"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "",
+      "streamCount": 0
+    },
+    {
+      "id": 39468,
+      "legacyFixtureId": 66627,
+      "name": "Division 2",
+      "startDateTime": "2026-09-08T09:30:00Z",
+      "endDateTime": "2026-09-11T00:00:00Z",
+      "gameTypeId": 4,
+      "gameType": "First Class Domestic",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 4,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4503,
+        "name": "County Championship 2026",
+        "legacyCompetitionId": 3814
+      },
+      "venue": {
+        "id": 432,
+        "name": "New Roads",
+        "location": "Worcester"
+      },
+      "homeTeam": {
+        "id": 46,
+        "name": "Worcestershire Men",
+        "shortName": "WOR"
+      },
+      "awayTeam": {
+        "id": 37,
+        "name": "Northamptonshire Men",
+        "shortName": "NOR"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "",
+      "streamCount": 0
+    },
+    {
+      "id": 40954,
+      "name": "Bangladesh W v UAE W",
+      "startDateTime": "2026-09-08T14:30:00Z",
+      "endDateTime": "2026-09-08T19:00:00Z",
+      "gameTypeId": 38,
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 1,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": true,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4710,
+        "name": "Asia Cup 2026 - Women"
+      },
+      "venue": {
+        "id": 481,
+        "name": "Dubai International Stadium",
+        "location": "Dubai"
+      },
+      "homeTeam": {
+        "id": 73,
+        "name": "Bangladesh Women",
+        "shortName": "BAN"
+      },
+      "awayTeam": {
+        "id": 1198,
+        "name": "United Arab Emirates Women",
+        "shortName": "UAE"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "20",
+      "streamCount": 0
+    },
+    {
+      "id": 40955,
+      "name": "1st ODI",
+      "startDateTime": "2026-09-09T07:30:00Z",
+      "endDateTime": "2026-09-09T16:00:00Z",
+      "gameTypeId": 2,
+      "gameType": "ODI",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 1,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4711,
+        "name": "Namibia v South Africa ODIs 2026 - Men"
+      },
+      "venue": {
+        "id": 1037,
+        "name": "FNB Namibia Cricket Ground",
+        "location": "Windhoek"
+      },
+      "homeTeam": {
+        "id": 753,
+        "name": "Namibia Men",
+        "shortName": "NAM"
+      },
+      "awayTeam": {
+        "id": 21,
+        "name": "South Africa Men",
+        "shortName": "SA"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "50",
+      "streamCount": 0
+    },
+    {
+      "id": 24494,
+      "legacyFixtureId": 65356,
+      "name": "3rd Test",
+      "startDateTime": "2026-09-09T10:00:00Z",
+      "endDateTime": "2026-09-13T11:00:00Z",
+      "gameTypeId": 1,
+      "gameType": "Test",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 5,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 3206,
+        "name": "England v Pakistan Tests 2026 - Men",
+        "legacyCompetitionId": 3743
+      },
+      "venue": {
+        "id": 398,
+        "name": "Edgbaston",
+        "location": "Birmingham"
+      },
+      "homeTeam": {
+        "id": 1,
+        "name": "England Men",
+        "shortName": "ENG"
+      },
+      "awayTeam": {
+        "id": 11,
+        "name": "Pakistan Men",
+        "shortName": "PAK"
+      },
+      "channels": [
+        {
+          "id": 78,
+          "channelLogo": "https://resources.cricket-australia.pulselive.com/cricket-australia/photo/2023/08/01/96d65d2e-1959-4efa-a4e8-951009b8404d/foxtel.png",
+          "channelName": "Foxtel",
+          "channelURL": "",
+          "channelType": "TVChannel",
+          "registrationUrl": ""
+        },
+        {
+          "id": 77,
+          "channelLogo": "https://resources.cricket-australia.pulselive.com/cricket-australia/photo/2023/08/01/c9c5adcf-0a55-434f-a40a-0c72e7e07336/kayo.png",
+          "channelName": "Kayo",
+          "channelURL": "",
+          "channelType": "TVChannel",
+          "registrationUrl": ""
+        }
+      ],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "90",
+      "streamCount": 0
+    },
+    {
+      "id": 40956,
+      "name": "Semi-Final",
+      "startDateTime": "2026-09-10T14:30:00Z",
+      "endDateTime": "2026-09-10T19:00:00Z",
+      "gameTypeId": 38,
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 1,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": true,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4710,
+        "name": "Asia Cup 2026 - Women"
+      },
+      "venue": {
+        "id": 481,
+        "name": "Dubai International Stadium",
+        "location": "Dubai"
+      },
+      "homeTeam": {
+        "id": 76,
+        "name": "India Women",
+        "shortName": "IND"
+      },
+      "awayTeam": {
+        "id": 12,
+        "name": "TBC",
+        "shortName": "TBC"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "20",
+      "streamCount": 0
+    },
+    {
+      "id": 40957,
+      "name": "2nd ODI",
+      "startDateTime": "2026-09-11T07:30:00Z",
+      "endDateTime": "2026-09-11T16:00:00Z",
+      "gameTypeId": 2,
+      "gameType": "ODI",
+      "isLive": false,
+      "isCompleted": false,
+      "isDuckworthLewis": false,
+      "numberOfDays": 1,
+      "resultText": "Teams will be announced at the toss",
+      "tossResult": "",
+      "tossDecision": "",
+      "ticketUrl": "",
+      "isWomensMatch": false,
+      "oversRemaining": "",
+      "ticketsLabel": "",
+      "competition": {
+        "id": 4711,
+        "name": "Namibia v South Africa ODIs 2026 - Men"
+      },
+      "venue": {
+        "id": 1037,
+        "name": "FNB Namibia Cricket Ground",
+        "location": "Windhoek"
+      },
+      "homeTeam": {
+        "id": 753,
+        "name": "Namibia Men",
+        "shortName": "NAM"
+      },
+      "awayTeam": {
+        "id": 21,
+        "name": "South Africa Men",
+        "shortName": "SA"
+      },
+      "channels": [],
+      "innings": [],
+      "isInProgress": false,
+      "totalOvers": "50",
+      "streamCount": 0
+    }
+  ]
+}

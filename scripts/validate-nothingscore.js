@@ -81,14 +81,12 @@ const baseEvent = {
 };
 const noSupport = enrichment.enrichEvent({...baseEvent,nothingscoreSnapshot:{phase:"heat",aggregate:{score:5,support:2},aggregates:{heat:{score:5,support:2}}}});
 const highSupport = enrichment.enrichEvent({...baseEvent,nothingscoreSnapshot:{phase:"heat",aggregate:{score:5,support:25},aggregates:{heat:{score:5,support:25}}}});
-assert.equal(noSupport.stakesScore, 1, "canonical editorial Stakes must remain untouched");
-assert.equal(noSupport.surfacingStakesScore, 1, "sub-threshold Heat must not alter eligibility");
-assert.equal(highSupport.surfacingStakesScore, 4, "eligible Heat may influence surfacing by at most 75 percent");
-assert.equal(highSupport.stakesScore, 1, "blending must not rewrite the canonical Stakes field");
+assert.equal(noSupport.stakesScore, undefined, "stakes are absent from active enrichment");
+assert.deepEqual(highSupport,noSupport,"ratings cannot alter fixture surfacing or card size");
 const noReplay = enrichment.enrichEvent({...baseEvent,nothingscoreSnapshot:{phase:"impact",aggregate:{score:5,support:30},aggregates:{heat:{score:1,support:0},impact:{score:5,support:30}}}});
-assert.equal(noReplay.surfacingStakesScore, 1, "Impact cannot promote a future/non-replay fixture");
+assert.equal(noReplay.surfacingStakesScore, undefined, "Impact cannot promote a fixture");
 const replay = enrichment.enrichEvent({...baseEvent,replayEligible:true,nothingscoreSnapshot:{phase:"impact",aggregate:{score:5,support:30},aggregates:{heat:{score:1,support:0},impact:{score:5,support:30}}}});
-assert.equal(replay.surfacingStakesScore, 5, "supported Impact may promote an eligible replay/highlight surface");
+assert.equal(replay.surfacingStakesScore, undefined, "replays use the same follow-only policy");
 
 const tieRank = enrichment.rankEvents([
   {...baseEvent,id:"quiet",nothingscoreSnapshot:{phase:"pulse",aggregate:{score:4},watchingCount:2}},
@@ -155,7 +153,7 @@ assert.deepEqual({...browserNsc.blendHeatWithStakes(1,5,25)}, nsc.blendHeatWithS
 assert.equal(browserNsc.labelFor("impact",5), nsc.labelFor("impact",5));
 assert.match(html, /summary\.classList\.add\("nsc-summary"\)/);
 assert.match(html, /buildInlineCrowdRating/);
-assert.match(read("assets/js/nsc-rankings-ui.js"), /identity\.textContent=ev\.name/);
+assert.match(read("assets/js/nsc-rankings-ui.js"), /identity\.append\(node\('strong',entry\.name/,'ladder shows the public contributor name');
 assert.doesNotMatch(html, /nsc-contributor[^\n]+innerHTML/);
 assert.doesNotMatch(html, /publishPositiveNothingscoreLike/);
 assert.match(html, /nothingscorePollFailures >= 3/);

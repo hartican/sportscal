@@ -364,7 +364,7 @@ function daysApart(first, second) {
 }
 
 function isSupersededEvent(retained, incoming) {
-  if (retained.id === incoming.id || retained.eventId === incoming.eventId) return true;
+  if ((retained.id && retained.id === incoming.id) || (retained.eventId && retained.eventId === incoming.eventId)) return true;
   if (retained.canonicalEventId && incoming.canonicalEventId) return retained.canonicalEventId === incoming.canonicalEventId;
   if (retained.key !== incoming.key || daysApart(retained, incoming) > 1) return false;
   if (incoming.sourceName === "Bundled nothingsport seed data") return false;

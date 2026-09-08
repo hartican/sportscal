@@ -19,7 +19,7 @@ assert(!html.includes('open.textContent = "Inspect"'),'sport icons replace Inspe
 for(const label of ['Schedule','Teams & players','Major Events','Ladder','Standings'])assert(html.includes(label));
 assert(html.includes('renderCodeInspectorIdentity')&&html.includes('codeInspectorParticipantMark'),'Schedule reuses canonical identities');
 assert(html.includes("return buildEventCard(event,{mode:'schedule',inspectorFixture:fixture})")&&html.includes('cardViewStates'),'Schedule fixtures share independent card expansion state');
-assert(html.includes('added ? "Remove from Feed" : "Add to Feed"')&&html.includes('manualPin:true'),'concrete fixture pins remain available');
+assert(html.includes("pin.textContent=added?'Remove from Feed':'Add to Feed'")&&html.includes('manualPin:true'),'concrete fixture pins remain available');
 assert(html.includes('inspectorAlwaysShowsAllFixtures'),'Schedule can browse all fixtures independently of follows');
 assert(html.includes('confirmStandingsReveal'),'standings retain spoiler protection');
 assert(html.includes('syncTopLevelNavigationState'),'navigation has one active state owner');
@@ -82,6 +82,7 @@ const canonicalCodes = [
   ...taxonomy.sportDomains.filter(code => code.isActive !== false),
   { id: "sport:aflw" },
   { id: "sport:wrc" },
+  { id: "sport:f1" },
   { id: "sport:nrlw" },
   taxonomy.competitions.find(code => code.id === "competition:uefa-champions-league"),
   taxonomy.competitions.find(code => code.id === "competition:motogp"),

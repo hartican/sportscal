@@ -6,7 +6,7 @@
   "use strict";
 
   const SCHEMA_VERSION = "enriched-event.v2";
-  const RANKING_VERSION = "premium-ranking.v1";
+  const RANKING_VERSION = "follow-chronology.v1";
   const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
   const PREMIUM_SURFACE_POLICY = Object.freeze({
     mustWatchThreshold: 78,
@@ -469,56 +469,20 @@
     const canonicalEventId = String(event.canonicalEventId || event.eventId || event.id || "");
     if (!canonicalEventId) throw new Error("enrichEvent requires a canonical event id");
     const override = editorialOverrideFor(event);
-    const stakes = numericStakes(event, override);
-    const nothingscore = typeof context.nothingscoreForEvent === "function"
-      ? context.nothingscoreForEvent(event)
-      : event.nothingscoreSnapshot || null;
-    const heat = nothingscore?.aggregates?.heat || (nothingscore?.phase === "heat" ? nothingscore.aggregate : null);
-    const impact = nothingscore?.aggregates?.impact || (nothingscore?.phase === "impact" ? nothingscore.aggregate : null);
-    const heatBlend = NOTHINGSCORE?.blendHeatWithStakes?.(stakes, heat?.score, heat?.support) || { score:stakes, heatWeight:0, stakesWeight:1 };
-    const impactEligible = nothingscore?.phase === "impact"
-      && Number(impact?.support || 0) >= 10
-      && Boolean(event.replayEligible || event.highlightEligible);
-    const surfacingStakes = impactEligible ? Math.max(heatBlend.score, Number(impact?.score || 0)) : heatBlend.score;
-    const intensity = numericIntensity(event, stakes, override);
+    // Eligibility belongs to Follow. Editorial, ratings and historical stakes
+    // cannot change a fixture's card size, admission or chronological position.
+    const intensity = 0;
     const interest = clamp(userInterestScore(event, context), 0, 5);
     const follows = clamp(followBoost(event, context.preferenceGraph), 0, 5);
     const followContext = followContextForEvent(event, context);
     const broadcaster = clamp(broadcasterFitScore(event, context), 0, 5);
     const availability = clamp(availabilityScore(event, context), 0, 5);
     const australia = clamp(australianRelevanceScore(event), 0, 5);
-    const timeWindow = clamp(timeWindowFitScore(event, context, stakes), 0, 5);
-    const editorialBoost = override ? 5 : 0;
-    const mustWatchScore = Math.round(clamp(
-      surfacingStakes * 12
-      + intensity * 4
-      + interest * 4
-      + follows * 2
-      + australia * 2
-      + availability
-      + timeWindow
-      + editorialBoost,
-      0,
-      100
-    ));
-    const scoreReasons = [
-      heatBlend.heatWeight
-        ? `Pre-fixture crowd scoring blended ${Math.round(heatBlend.heatWeight * 100)}% with Stakes for surfacing; canonical Stakes remains ${stakes}/5.`
-        : `Stakes ${stakes}/5 contributed ${stakes * 12} points.`,
-      `Storyline intensity ${intensity}/5 contributed ${intensity * 4} points.`,
-      interest ? `Your sport or competition interest added ${interest * 4} points.` : "No explicit sport or competition interest boost applied.",
-      follows ? `A followed participant added ${follows * 2} points.` : "No followed-participant boost applied.",
-      australia ? `Australian relevance added ${australia * 2} points.` : "No Australian-relevance boost applied.",
-      availability === 5 ? "Free or selected-provider availability added 5 points." : availability === 4 ? "Included subscription availability added 4 points." : availability <= 1 ? "Premium access limits the availability boost." : "Availability is still being confirmed.",
-      timeWindow === 5 ? "Fits your viewing window." : timeWindow === 3 ? "High stakes triggered your late-night override." : "Falls outside your viewing window.",
-    ];
-    if (override) scoreReasons.push(`Editorial review added ${editorialBoost} points.`);
+    const timeWindow = clamp(timeWindowFitScore(event, context, 0), 0, 5);
+    const editorialBoost = 0, mustWatchScore = 0;
+    const scoreReasons = ["Included by Follow rules; displayed chronologically."];
     const storyline = {
-      stakes: stakesLabel(stakes),
-      arcStage: arcStage(event, stakes, override),
       narrativeHook: event.storyline?.narrativeHook || event.storyline?.hookSpoilerOff || event.selectedSentence || undefined,
-      intensity,
-      intensitySource: Number.isFinite(Number(override?.intensity ?? event.storyline?.intensity)) ? "manual" : "computed",
       scoreReasons,
     };
     const archetype = archetypeFor(event, context, override);
@@ -536,18 +500,14 @@
       followBoost: follows,
       followContext,
       broadcasterFitScore: broadcaster,
-      stakesScore: stakes,
-      surfacingStakesScore: surfacingStakes,
-      nothingscoreBlend:heatBlend,
-      nothingscoreProminence:nothingscore?.phase === "pulse" ? Number(nothingscore.aggregate?.score || 0) * 1000 + Number(nothingscore.watchingCount || 0) : impactEligible ? Number(impact?.score || 0) * 100 : 0,
       australiaRelevanceScore: australia,
       availabilityScore: availability,
       timeWindowFitScore: timeWindow,
       editorialBoost,
       mustWatchScore,
       intensity,
-      cardVariant: variantForSignificance(surfacingStakes, intensity, mustWatchScore, override),
-      premiumSurface: override?.forceSurface || (mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold ? "homeMustWatch" : surfacingStakes >= 4 ? "topStorylines" : "sportFeed"),
+      cardVariant: "standard",
+      premiumSurface: "sportFeed",
       editorialOverride: override ? {
         reviewedAt: override.reviewedAt,
         reviewedBy: override.reviewedBy,
@@ -563,45 +523,16 @@
       enrichment: enrichEvent(event, typeof context.contextForEvent === "function" ? context.contextForEvent(event) : context),
     }))
       .sort((first, second) => {
-        const scoreDifference = second.enrichment.mustWatchScore - first.enrichment.mustWatchScore;
-        if (scoreDifference) return scoreDifference;
-        const socialDifference = Number(second.enrichment.nothingscoreProminence || 0) - Number(first.enrichment.nothingscoreProminence || 0);
-        if (socialDifference) return socialDifference;
-        const affinityDifference = (second.enrichment.userInterestScore + second.enrichment.followBoost)
-          - (first.enrichment.userInterestScore + first.enrichment.followBoost);
-        if (affinityDifference) return affinityDifference;
         const timeDifference = (eventDate(first.event)?.getTime() || 0) - (eventDate(second.event)?.getTime() || 0);
         if (timeDifference) return timeDifference;
         return first.enrichment.canonicalEventId.localeCompare(second.enrichment.canonicalEventId);
       });
   }
 
-  function selectPremiumSurfaces(events, context = {}, options = {}){
-    const now = context.now instanceof Date ? context.now : new Date(context.now || Date.now());
-    const horizonDays = Number(options.horizonDays ?? PREMIUM_SURFACE_POLICY.horizonDays);
-    const horizon = new Date(now.getTime() + horizonDays * 24 * 60 * 60 * 1000);
-    const ranked = rankEvents((Array.isArray(events) ? events : []).filter(event => {
-      const start = eventDate(event);
-      const status = eventStatus(event, now);
-      return start
-        && start <= horizon
-        && (start >= now || status === "live")
-        && !["completed", "past", "cancelled", "abandoned"].includes(status);
-    }), context);
-    const mustWatchLimit = Number(options.mustWatchLimit ?? PREMIUM_SURFACE_POLICY.mustWatchLimit);
-    const topStorylineLimit = Number(options.topStorylineLimit ?? PREMIUM_SURFACE_POLICY.topStorylineLimit);
-    const mustWatch = ranked.filter(item => (
-      item.enrichment.premiumSurface === "homeMustWatch"
-      || item.enrichment.mustWatchScore >= PREMIUM_SURFACE_POLICY.mustWatchThreshold
-    )).slice(0, mustWatchLimit);
-    const selectedIds = new Set(mustWatch.map(item => item.enrichment.canonicalEventId));
-    const topStorylines = ranked.filter(item => (
-      !selectedIds.has(item.enrichment.canonicalEventId)
-      && item.enrichment.surfacingStakesScore >= PREMIUM_SURFACE_POLICY.topStorylineMinimumStakes
-    )).slice(0, topStorylineLimit);
-    return { mustWatch, topStorylines };
+  function selectPremiumSurfaces(){
+    // Legacy caller contract only. Followed fixtures stay in one chronology.
+    return {mustWatch:[],topStorylines:[]};
   }
-
   return Object.freeze({
     SCHEMA_VERSION,
     RANKING_VERSION,

@@ -392,6 +392,14 @@ async function main(){
     console.warn(`Official follow sources temporarily unavailable; preserving ${payload.events.length} validated fixtures.`);
     return;
   }
+  if (fs.existsSync(OUTPUT_PATH)){
+    const previous = validateArtifact(JSON.parse(fs.readFileSync(OUTPUT_PATH,"utf8")));
+    const merged = require("../lib/fixture-snapshot").mergeFixtureSnapshot(previous.events,payload.events);
+    payload.events = merged.events;
+    payload.sources = [...new Map([...previous.sources,...payload.sources].map(source => [source.sourceUrl,source])).values()];
+    console.log(`Official fixture preservation: ${merged.retained} retained, ${merged.updated} updated.`);
+  }
+  validateArtifact(payload);
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive:true });
   fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(payload, null, 2)}\n`);
   console.log(`Official follow sources refreshed: ${payload.events.length} fixtures from ${payload.sources.length} API-selectable bundles.`);

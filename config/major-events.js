@@ -109,7 +109,6 @@
     const parents = records.filter(record => competitionClassification?.belongsInEvents?.(record) !== false
       && record.kind !== "ticket_sale"
       && record.lifecycleStatus !== "retired"
-      && record.stakesScore === 5
       && (
         followed(record, followedInput)
         || followedEventFamilyIds.has(eventFamilyId(record))
@@ -156,6 +155,9 @@
   }
 
   function timelineDisplayTime(subEvent, timeZone){
+    if (subEvent?.timePrecision === "estimated" && Number.isFinite(Date.parse(subEvent.estimatedStartTimeUtc))){
+      return `Approx. ${new Intl.DateTimeFormat("en-AU", {timeZone,hour:"numeric",minute:"2-digit",hour12:true}).format(new Date(subEvent.estimatedStartTimeUtc)).replace(/\s/g, "").toLowerCase()}`;
+    }
     if (subEvent?.timePrecision === "follows"){
       const session = new Date(subEvent?.sessionStartTimeUtc || "").getTime();
       if (!Number.isFinite(session)) return "Follows";
@@ -190,8 +192,7 @@
     const upcomingAll = retained.filter(item => item.sortTime >= referenceTime && !["completed", "awaiting-result"].includes(item.effectiveStatus));
     const recent = level === "L1"
       ? recentAll.slice()
-        .sort((first, second) => Number(second.subEvent?.previewPriority || 0) - Number(first.subEvent?.previewPriority || 0)
-          || second.sortTime - first.sortTime
+        .sort((first, second) => second.sortTime - first.sortTime
           || second.sourceOrder - first.sourceOrder)
         .slice(0, 2)
         .sort((first, second) => first.sortTime - second.sortTime || first.sourceOrder - second.sourceOrder)
@@ -231,7 +232,8 @@
   }
 
   function subEventIsMarquee(subEvent){
-    return subEvent?.marquee === true || subEvent?.isMarquee === true || subEvent?.cardVariant === "marquee";
+    const policy=globalThis.NOTHINGSPORTS_FOLLOW_FEED_POLICY || (typeof require==='function'?require('./follow-feed-policy'):null);
+    return Boolean(policy?.isMarquee(subEvent));
   }
 
   function subEventMatchesFollow(subEvent, { followedParticipantIds = [], followedParticipantNames = [] } = {}){
@@ -243,7 +245,6 @@
 
   function subEventMeetsDisplayPolicy(subEvent, followedInput = {}){
     return subEventMatchesFollow(subEvent, followedInput)
-      || Number(subEvent?.stakesScore || 0) >= 4
       || subEventIsMarquee(subEvent);
   }
 
@@ -492,10 +493,12 @@
       roundLabel: subEvent.roundLabel || subEvent.stage || null,
       stage: subEvent.stage || subEvent.roundLabel || null,
       matchType:subEvent.matchType || null,
+      eventType:subEvent.eventType || subEvent.matchType || null,
+      eventCode:subEvent.eventCode || null,
+      bestOf:subEvent.bestOf || null,
       court:subEvent.court || null,
       majorEventId: parent.id,
       majorEventParentId: parent.id,
-      manualPin: true,
       name: displayName,
       displayTitleCompact: displayName,
       date: `${parts.year}-${parts.month}-${parts.day}`,
@@ -505,14 +508,15 @@
       sessionStartTimeUtc:subEvent.sessionStartTimeUtc || null,
       sequenceInSession:Number(subEvent.sequenceInSession) || 0,
       timePrecision:precision || (Number.isFinite(directTime) ? "exact" : "follows"),
+      estimatedStartTimeUtc:subEvent.estimatedStartTimeUtc || null,
+      timingProvenance:subEvent.timingProvenance || null,
       timingSource:subEvent.timingSource || null,
-      ...(follows ? { displayTimeLabel:timelineDisplayTime(subEvent, "Australia/Sydney") } : {}),
+      ...(follows || precision === "estimated" ? { displayTimeLabel:timelineDisplayTime(subEvent, "Australia/Sydney") } : {}),
       venue: subEvent.venue || parent.venue,
       status: subEvent.status || "scheduled",
       scheduleStatus:subEvent.scheduleStatus || "confirmed",
       result:subEvent.result || null,
       ...(subEvent.scoreDisplay ? { scoreDisplay: subEvent.scoreDisplay, score: subEvent.scoreDisplay } : {}),
-      stakesScore: Number(subEvent.stakesScore || parent.stakesScore || 5),
       expected: Number(subEvent.expected || 8),
       matchupSides,
       participants: subEvent.participants || matchupPlayers.map(player => ({ id:player.id, name:player.name, displayName:player.name, nationalityCode:player.nationalityCode, rank:player.rank, seed:player.seed })),
@@ -530,7 +534,6 @@
       ...(subEvent.editorialNarrative ? {
         editorialNarrative:{ ...subEvent.editorialNarrative },
         storyline:{
-          stakes:Number(subEvent.stakesScore || parent.stakesScore || 5),
           hookSpoilerOff:subEvent.editorialNarrative.hook,
           hookSpoilerOn:subEvent.editorialNarrative.hook,
           synopsisSpoilerOff:subEvent.editorialNarrative.synopsis,
@@ -547,7 +550,7 @@
     const latest = addMonths(today, FORWARD_WINDOW_MONTHS);
     return MARKERS
       .filter(marker => competitionClassification?.belongsInEvents?.(marker) !== false
-        && marker.stakesScore === 5 && followed(marker, followedSports) && marker.startDate >= earliest && marker.startDate <= latest)
+        && followed(marker, followedSports) && marker.startDate >= earliest && marker.startDate <= latest)
       .map(marker => ({
         ...marker,
         eventId: marker.id,
@@ -582,7 +585,6 @@
       if (competitionClassification?.belongsInEvents?.(record) === false) errors.push(`${record?.id}: code-classified competitions are forbidden in Events`);
       if (!["tournament", "major_event", "ticket_sale"].includes(record?.kind)) errors.push(`${record?.id}: unsupported kind`);
       if (record?.kind !== "ticket_sale" && (!record.eventFamilyId || !record.editionId || !record.phaseId)) errors.push(`${record?.id}: event family, edition and phase identities are required`);
-      if (record?.stakesScore !== 5) errors.push(`${record?.id}: stakes must be 5/5`);
       if (!Array.isArray(record?.sources) || !record.sources.length) errors.push(`${record?.id}: official evidence is required`);
       if (record?.lifecycleStatus === "retired"){
         if (!record.retiredReason || !Number.isFinite(new Date(record.retiredAt || "").getTime()) || record.retiredDeepLinkBehaviour !== "safe-tombstone"){
@@ -618,8 +620,7 @@
       (record?.subEvents || []).forEach(subEvent => {
         if (!subEvent?.id || childIds.has(subEvent.id) || allEventIds.has(subEvent.id)) errors.push(`${record?.id}: duplicate or missing child id`);
         childIds.add(subEvent?.id);
-        if (!subEvent?.name || !subEvent?.venue || !Number.isFinite(Number(subEvent?.stakesScore))) errors.push(`${subEvent?.id}: incomplete child fixture`);
-        if (!Number.isInteger(subEvent?.stakesScore) || subEvent.stakesScore < 1 || subEvent.stakesScore > 5) errors.push(`${subEvent?.id}: child stakes must be an integer from 1 to 5`);
+        if (!subEvent?.name) errors.push(`${subEvent?.id}: incomplete child fixture`);
         if (Object.prototype.hasOwnProperty.call(subEvent || {}, "marquee") && typeof subEvent.marquee !== "boolean") errors.push(`${subEvent?.id}: marquee must be boolean when published`);
         if (!Object.prototype.hasOwnProperty.call(subEvent || {}, "startTimeUtc")) errors.push(`${subEvent?.id}: child start time state is required`);
         if (subEvent?.startTimeUtc && !Number.isFinite(new Date(subEvent.startTimeUtc).getTime())) errors.push(`${subEvent?.id}: invalid UTC start time`);
@@ -627,7 +628,7 @@
         if (Array.isArray(subEvent?.matchupSides) && subEvent.matchupSides.length){
           if (subEvent.matchupSides.length !== 2) errors.push(`${subEvent?.id}: announced matchups require exactly two grouped sides`);
           subEvent.matchupSides.forEach(side => (side.players || []).forEach(player => {
-            if (!player?.id || !player?.name || !player?.nationalityCode) errors.push(`${subEvent?.id}: announced individual players require canonical IDs, names and nationality codes`);
+            if (!player?.id || !player?.name) errors.push(`${subEvent?.id}: announced individual players require canonical IDs and names`);
           }));
         }
       });

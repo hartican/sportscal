@@ -9,6 +9,7 @@ const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_DIR = path.join(ROOT, "data/code-inspector");
 const taxonomy = require("../config/canonical-sports-taxonomy");
 const followFirst = require("../config/follow-first");
+const fixtureIdentity = require("../config/fixture-identity");
 const nationalTeamIdentities = require("../config/national-team-identities");
 const feed = require("../data/events.json");
 const canonicalAflNrl = require("../data/canonical/afl-nrl-2026.json");
@@ -18,6 +19,8 @@ const canonicalIceHockey = require("../data/canonical/ice-hockey-directory.v1.js
 const canonicalChampionsLeague = require("../data/canonical/uefa-champions-league-2026-27.json");
 const canonicalFinals = require("../data/canonical/afl-nrl-finals-2026.json");
 const majorEvents = require("../data/major-events.v1.json");
+const coverage = require("../data/follow-sources/coverage.v1.json");
+const crossDisciplineFixtures=require('../lib/athlete-participation').materializeParticipation(require('../data/canonical/athlete-participation.v1.json'));
 const canonicalParticipantNames = new Map((canonicalAflNrl.participants || []).map(participant => [
   participant.id,
   participant.displayName || participant.canonicalName || participant.shortName || null,
@@ -40,6 +43,7 @@ const CODE_KEYS = Object.freeze({
   "sport:aflw": ["aflw"],
   "sport:nrl": ["nrl"],
   "sport:motorsport": ["f1", "wrc", "motorsport", "motogp", "lemans", "goodwood", "bathurst"],
+  "sport:f1": ["f1"],
   "sport:wrc": ["wrc"],
   "sport:nrlw": ["nrlw"],
   "competition:motogp": ["motogp"],
@@ -102,6 +106,7 @@ function childCodeId(event){
 }
 
 function eventMatchesCode(event, code){
+  if((event.participantIds || []).some(id=>id.startsWith("team:nrl:")) && code.id==="sport:rugby-union")return false;
   const childId = childCodeId(event);
   if (childId) return code.id === childId;
   if (event?.sportDomainId === code.id || event?.competitionId === code.id || event?.codeId === code.id) return true;
@@ -158,6 +163,8 @@ function sydneyPartsFromUtc(iso){
 }
 
 function normalizeFixture(event, codeId, extra = {}){
+  event=fixtureIdentity.normalizeCore(event);
+  const key = fixtureIdentity.sportKey(event, codeId);
   const slots = participantSlots(event);
   const sydney = sydneyPartsFromUtc(event.startTimeUtc);
   const timeTbc = event.timeTbc === true || event.scheduleStatus === "tbc";
@@ -167,6 +174,9 @@ function normalizeFixture(event, codeId, extra = {}){
   return {
     id: stableId(event),
     codeId,
+    key,
+    ...(event.published === false ? {published:false} : {}),
+    ...(event.identityRef ? {identityRef:event.identityRef} : {}),
     competitionId: event.competitionId || extra.competitionId || null,
     name: event.name || event.displayName || "TBC",
     date: event.date || sydney?.date || extra.date || null,
@@ -178,10 +188,17 @@ function normalizeFixture(event, codeId, extra = {}){
         ? { timeTbc:true, timePrecision:"tbc" }
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
+    ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','actualEndTimeUtc'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     venue: (event.venue || event.venueName) && !/tbc/i.test(event.venue || event.venueName) ? (event.venue || event.venueName) : null,
     status: event.status || "upcoming",
     scheduleStatus: timeTbc ? "tbc" : (event.scheduleStatus || (event.startTimeUtc && confirmedParticipants ? "confirmed" : "provisional")),
     participantSlots: slots,
+    participantIds:Array.isArray(event.participantIds)?event.participantIds:slots.map(slot=>slot.participantId).filter(Boolean),
+    participants:event.participants.length?event.participants:(event.matchupSides||[]).flatMap(side=>side.players||[]),
+    participantCountryCodes:[...new Set([...(event.participantCountryCodes||[]),...(event.matchupSides||[]).flatMap(side=>(side.players||[]).map(player=>player.nationalityCode))].filter(Boolean))],
+    ...(event.participantsConfirmed===true?{participantsConfirmed:true}:{}),
+    ...(event.excludedParticipantIds?.length?{excludedParticipantIds:event.excludedParticipantIds}:{}),
+    ...(event.estimatedStartTimeUtc?{estimatedStartTimeUtc:event.estimatedStartTimeUtc,timelineSortTimeUtc:event.timelineSortTimeUtc,timingProvenance:event.timingProvenance}:{}),
     detailsExpectedAt: event.detailsExpectedAt || extra.detailsExpectedAt || null,
     schedulingWindow: event.schedulingWindow || extra.schedulingWindow || null,
     roundNumber: Number.isInteger(event.roundNumber) ? event.roundNumber : null,
@@ -276,7 +293,8 @@ function codeFixtures(code){
         : code.id === "sport:wrc"
           ? canonicalWrc.events || []
         : [];
-  return mergeFixtureRecords(placeholders, [...canonical, ...published], code.id, new Set(canonical));
+  const sourced=[...crossDisciplineFixtures,...(coverage.events || [])].filter(event=>eventMatchesCode(event,code));
+  return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced], code.id, new Set([...canonical,...sourced]));
 }
 
 function groupingMode(fixtures){
@@ -324,6 +342,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
     name:"WRC",
     parentSportId:"sport:motorsport",
   };
+  const f1Code = {id:"sport:f1",slug:"f1",name:"F1",parentSportId:"sport:motorsport"};
   const nrlwCompetition = taxonomy.competitions.find(competition => competition.id === "competition:nrlw-premiership-2026");
   if (!nrlwCompetition) throw new Error("The canonical NRLW competition is missing from the taxonomy.");
   const nrlwCode = { id:"sport:nrlw", slug:"nrlw", name:"NRLW", parentSportId:"sport:nrl" };
@@ -342,6 +361,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
         if (code.id === aflwCode.parentSportId) childCodes.push(aflwCode);
         if (code.id === nrlwCode.parentSportId) childCodes.push(nrlwCode);
         if (code.id === wrcCode.parentSportId) childCodes.push(wrcCode);
+        if (code.id === f1Code.parentSportId) childCodes.push(f1Code);
         return [code, ...childCodes];
       }),
     championsLeagueCode,

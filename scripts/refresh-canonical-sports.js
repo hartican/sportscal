@@ -911,14 +911,12 @@ async function main(){
     code:"aflw", competitionId:"competition:aflw-2026", discoverySportId:"sport:aflw",
   }));
   const nrlRecords = nrlMatches.map(match => buildNrlEvent(match, checkedAt, createdAtById));
-  const preservedParticipants = (existingBundle?.participants || []).filter(participant => (
-    !["sport:afl", "sport:nrl"].includes(participant.sportDomainId)
-  ));
+  const preservedParticipants = existingBundle?.participants || [];
   const participants = uniqueParticipants([
-    ...[...aflRecords, ...aflwRecords, ...nrlRecords].map(record => record.participants),
     preservedParticipants,
+    ...[...aflRecords, ...aflwRecords, ...nrlRecords].map(record => record.participants),
   ]);
-  const events = sortedEvents([...aflRecords, ...aflwRecords, ...nrlRecords].map(record => record.event));
+  const events = sortedEvents([...aflRecords,...aflwRecords,...nrlRecords].map(record => record.event));
   const nrlLadder = buildNrlLadder(nrlRecords.map(record => record.event), participants, checkedAt);
   const independentNrlStandings = parseEspnNrlStandings(
     await fetchJson(ESPN_NRL_STANDINGS_URL),
@@ -961,7 +959,7 @@ async function main(){
     competitionFamilies: taxonomy.competitionFamilies,
     competitions: taxonomy.competitions,
     participants,
-    events,
+    events:sortedEvents(require("../lib/fixture-snapshot").mergeFixtureSnapshot(existingBundle?.events || [],events).events),
     ladderSnapshots,
   };
 

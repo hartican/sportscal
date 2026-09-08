@@ -18,12 +18,7 @@ function writeJson(path, value){ fs.writeFileSync(path, `${JSON.stringify(value,
 function idFor(record){ return String(record?.eventId || record?.id || record?.canonicalEventId || ""); }
 function slug(value){ return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 function eventTime(record){ return Date.parse(record?.startTimeUtc || `${record?.date || ""}T${record?.time || "00:00"}:00+10:00`); }
-function stakesFor(record){
-  const stored = Number(record?.storyline?.stakes || record?.stakesScore || 0);
-  if (stored) return stored;
-  const expected = Number(record?.expected || 0);
-  return expected >= 10 ? 5 : expected >= 8 ? 4 : expected >= 6 ? 3 : expected >= 4 ? 2 : 1;
-}
+const {researchDepthFor}=require('./lib/editorial-research-depth');
 function ordinal(value){
   const number = Number(value);
   const suffix = number % 100 >= 11 && number % 100 <= 13 ? "th" : ({ 1:"st", 2:"nd", 3:"rd" }[number % 10] || "th");
@@ -251,7 +246,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
     const start = eventTime(event);
     const unresolvedUnverified = event?.editorialPreview?.status === "research-required" && event?.sourceTrust !== "verified";
     const eventLatest = requestedEventIds.has(event.canonicalEventId) ? requestedLatest : latest;
-    return !unresolvedUnverified && stakesFor(event) >= 2 && Number.isFinite(start) && start >= earliest && start <= eventLatest;
+    return !unresolvedUnverified && researchDepthFor(event) >= 2 && Number.isFinite(start) && start >= earliest && start <= eventLatest;
   });
   const unsupported = [];
   let generated = 0;
@@ -259,7 +254,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
     const existing = projectionForTarget(knowledge, "feed-event", event);
     if (existing && !existing.id.startsWith("projection:rolling:")) return;
     if (existing && existing.id.startsWith("projection:rolling:")){
-      const requirement = { 2:[1, 1, 1], 3:[2, 1, 1], 4:[3, 2, 2], 5:[4, 3, 3] }[stakesFor(event)];
+      const requirement = { 2:[1, 1, 1], 3:[2, 1, 1], 4:[3, 2, 2], 5:[4, 3, 3] }[researchDepthFor(event)];
       const factIndex = new Map((knowledge.narrativeFacts || []).map(fact => [fact.id, fact]));
       const dimensions = new Set((existing.factIds || []).map(id => factIndex.get(id)?.dimension).filter(Boolean));
       const currentSnapshot = event.key === "f1"
@@ -275,7 +270,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
         || (Number.isFinite(existingResearchedAt) && existingResearchedAt >= currentSnapshotAt);
       if (requirement
         && isCurrent
-        && Number(existing.stakes) >= stakesFor(event)
+        && Number(existing.researchDepth || existing.stakes) >= researchDepthFor(event)
         && (existing.factIds || []).length >= requirement[0]
         && (existing.sourceIds || []).length >= requirement[1]
         && dimensions.size >= requirement[2]){
@@ -329,7 +324,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
       threadIds = team.teams.map(entry => `thread:rolling:${slug(entry.id)}`);
       factIds = [...team.teamFacts.map(fact => fact.id), consequenceFact.id];
       sourceIds = [team.sourceId, eventSourceId];
-      if (stakesFor(event) >= 5){
+      if (researchDepthFor(event) >= 5){
         const rulesSourceId = `source:rolling:${slug(event.competitionId)}:finals-format`;
         const rulesUrl = event.competitionId?.includes("nrl")
           ? "https://www.nrl.com/operations/the-game/structure-of-the-nrl/"
@@ -424,7 +419,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
       id:projectionId,
       targetType:"feed-event",
       targetIds:[idFor(event)],
-      stakes:stakesFor(event),
+      researchDepth:researchDepthFor(event),
       hook,
       synopsis,
       ...(synopsisSpoilerOn ? {
@@ -457,4 +452,4 @@ function main(){
   console.log(`${write ? "Updated" : "Validated"} rolling editorial: ${generated} event-specific projections refreshed.`);
 }
 if (require.main === module){ try { main(); } catch (error){ console.error(error.message); process.exitCode = 1; } }
-module.exports = { build, stakesFor };
+module.exports = { build, researchDepthFor };

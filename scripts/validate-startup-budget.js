@@ -7,6 +7,10 @@ const fs = require("node:fs");
 
 const serviceWorker = fs.readFileSync("service-worker.js", "utf8");
 const html = fs.readFileSync("index.html", "utf8");
+const releaseVersion=JSON.parse(fs.readFileSync('app-version.json','utf8')).version;
+assert.equal(html.match(/name="app-shell-version" content="(\d+)"/)?.[1],releaseVersion,'HTML must match the release marker');
+assert.equal(serviceWorker.match(/const SHELL_VERSION = "(\d+)"/)?.[1],releaseVersion,'worker version replies must match the release marker, not just the cache name');
+assert(serviceWorker.includes(`nothingsport-shell-v${releaseVersion}`),'cache identity must match the release marker');
 const shellBlock = serviceWorker.match(/const APP_SHELL = \[([\s\S]*?)\n\];/)?.[1] || "";
 const assets = [...shellBlock.matchAll(/"([^"]+)"/g)].map(match => match[1]);
 const bytes = assets.reduce((total, asset) => {

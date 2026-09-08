@@ -142,7 +142,13 @@
     const onKey = event => { if (event.key === "Escape") dismiss(); };
     close.addEventListener("click", dismiss); backdrop.addEventListener("click", event => { if (event.target === backdrop) dismiss(); }); document.addEventListener("keydown", onKey); close.focus();
     try{
-      const profile = await loadProfile(record.profileRef, sportKey);
+      let profile = await loadProfile(record.profileRef, sportKey);
+      let cross;
+      try{
+        if(!globalThis.NOTHINGSPORTS_ATHLETE_PARTICIPATION)await loadScript('data/canonical/athlete-participation.v1.js');
+        cross=globalThis.NOTHINGSPORTS_ATHLETE_PARTICIPATION?.athletes.find(athlete=>athlete.id===record.id);
+      }catch(error){/* Optional experience must not remove the existing athlete profile. */}
+      if(!profile&&cross)profile={...record,biography:'Source-backed athlete history. Current season statistics are not published for this profile.'};
       if (!profile){
         body.innerHTML = `<div class="athlete-profile-hero"><div></div><div><h2></h2><p>Detailed statistics are currently available for the published top 10 in this code and the complete GWS AFLW experiment.</p></div></div>`;
         body.querySelector("h2").textContent = record.displayName;
@@ -154,6 +160,15 @@
       const titleWrap = document.createElement("div"), title = document.createElement("h2"), sub = document.createElement("p"); title.textContent = profile.displayName; sub.textContent = `${profile.teamName || "Athlete"}${profile.competitionNumber ? ` · No. ${profile.competitionNumber}` : ""}${profile.selection?.topTen ? ` · Top 10 #${profile.selection.rank}` : ""}`;
       titleWrap.append(title, sub); hero.append(image, titleWrap); body.appendChild(hero);
       const bio = document.createElement("section"); bio.className = "athlete-profile-section"; bio.innerHTML = "<h3>Biography</h3>"; const bioText = document.createElement("p"); bioText.textContent = profile.biography; bio.appendChild(bioText); body.appendChild(bio);
+      if(cross?.history.length){
+        const section=document.createElement('section');section.className='athlete-profile-section';
+        const heading=document.createElement('h3');heading.textContent='Other disciplines & experience';section.appendChild(heading);
+        for(const item of cross.history){
+          const row=document.createElement('p');row.textContent=`${item.date} · ${item.discipline} · ${item.kind==='test'?'Test / experience':'Race'} — ${item.description} `;
+          const link=document.createElement('a');link.textContent='Source';link.href=item.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';row.appendChild(link);section.appendChild(row);
+        }
+        body.appendChild(section);
+      }
       [["Key facts", profile.keyFacts], ["2026 season", profile.seasonStats], ["Career", profile.careerStats]].forEach(([heading, rows]) => {
         if (!rows?.length) return; const section = document.createElement("section"); section.className = "athlete-profile-section"; const h = document.createElement("h3"); h.textContent = heading; section.append(h, statGrid(rows)); body.appendChild(section);
       });

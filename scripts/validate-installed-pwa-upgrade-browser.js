@@ -64,7 +64,7 @@ const server=http.createServer((req,res)=>{
     await page.reload({waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>typeof userPreferences!=='undefined' && !startupCoordinator.isHydrating(),null,{timeout:60000});
     const savedSelection=await page.evaluate(()=>{
-      const next=clonePreferences(userPreferences);next.feedCompact=true;next.theme='day';next.selectedSelectorEntityIds=['sport:nrl','sport:tennis'];next.followedSports=canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
+      const next=clonePreferences(userPreferences);next.feedCompact=true;next.theme='day';next.selectedSelectorEntityIds=['sport:nrl','sport:tennis','sport:f1'];next.followedSports=canonicalSportKeysForSelectorIds(next.selectedSelectorEntityIds);
       savePreferences(next);
       sessionStorage.setItem('ns_chat_draft_v2:upgrade-test',JSON.stringify({body:'Preserve this unsent draft'}));
       return {sports:userPreferences.followedSports,selectors:userPreferences.selectedSelectorEntityIds};

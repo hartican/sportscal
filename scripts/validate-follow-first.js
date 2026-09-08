@@ -53,9 +53,10 @@ assert.equal(australiaReason.entityKind, "national-representation");
 assert.equal(australiaReason.displayTag, false);
 assert.equal(followFirst.reasonForEvent({ key:"football", majorEventId:"fifa-world-cup", venue:"Leeds" }, { ...followed, followedSports:["football"] }, { locationMatches:true }), null, "sport, event and location metadata must not independently make a Feed card eligible");
 const fiveOfFive = { key:"rugby", eventId:"fixture:five", date:"2026-09-01", time:"19:30", stakesScore:5, cardKind:"fixture" };
-assert.equal(followFirst.reasonForEvent(fiveOfFive, followed)?.type, "sport-high-stakes", "a followed sport must surface concrete 5/5 fixtures");
+assert.equal(followFirst.reasonForEvent(fiveOfFive, followed),null,"legacy stakes must not confer eligibility");
+assert.equal(followFirst.reasonForEvent({...fiveOfFive,round:"Grand Final"}, followed)?.type,"sport-marquee","explicit finals qualify without numeric stakes");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, tournamentParent:true }, followed), null, "tournament parents must never qualify through a sport follow");
-assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false } }), null, "the global switch suppresses Australia-specific and high-stakes automatic eligibility");
+assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false } })?.type, "sport-marquee", "disabling extra Australian discovery must not unfollow a senior international");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"], participantIds:["team:direct"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false }, preferenceGraph:{ entityFollows:[{ participantId:"team:direct", followLevel:"follow" }] } })?.entityKind, "team", "direct follows override the global Australia switch");
 assert.equal(followFirst.stageLabel({ stage:"Wildcard Final" }), "Wildcard");
 assert.equal(followFirst.stageLabel({ stage:"Preliminary Final" }), "Prelim");
@@ -137,7 +138,7 @@ assert(html.includes('window.scrollTo({ top: 0, behavior: "auto" })'), "tab and 
 const settingsMenu = html.match(/function renderSettingsMenu\(body\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert.deepEqual(
   Array.from(settingsMenu.matchAll(/settingsMenuItem\("[^"]+",\s*"[^"]+",\s*"([^"]+)"/g), match => match[1]),
-  ["Account", "About", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
+  ["Account", "All Followed", "About", "Appearance", "Subscriptions", "Notifications", "Set location", "Hidden events", "Feedback"],
 );
 assert(!settingsMenu.includes("Froth") && !settingsMenu.includes("Tune") && !settingsMenu.includes("Local venues"));
 assert(html.includes('id="calendarSyncBtn"') && html.includes("function showCalendarDialog"));
@@ -147,9 +148,9 @@ assert.match(fs.readFileSync("vercel.json","utf8"), /"source": "\/api\/calendar"
 
 assert(html.includes('className = "matchup-stage-badge"') && html.includes("FOLLOW_FIRST?.stageLabel"));
 assert(followFirstSource.includes("Because you follow") && html.includes("function automaticEventFollowReason"), "follow context must remain available to eligibility without becoming card metadata");
-assert(html.includes('type:"sport-tuned"') && !html.includes('if (ev.key === "aflw" && userPreferences.selectedSelectorEntityIds'), "AFLW sport-only follows must use the shared tuning policy instead of bypassing it");
+assert(!html.includes('type:"sport-tuned"') && !html.includes('if (ev.key === "aflw" && userPreferences.selectedSelectorEntityIds'), "AFLW must use the same Follow policy as every other sport");
 assert(!eventCardSource.includes("follow-reason-tag"), "Feed cards must not render follow-reason labels");
-assert(html.includes("stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(ev))"), "raw feed cards must derive their 5/5 sporting stakes before follow eligibility is evaluated");
+assert(!html.includes("stakesScore:Number(ev?.stakesScore || stakesScoreForEvent(ev))"), "raw follow eligibility must not derive numeric stakes");
 assert(html.includes("toggleAustraliaInternationals") && html.includes("australiaInternationalsEnabled"), "Follow must expose one global Australia-in-internationals switch");
 assert(html.includes("australiansOnlySportIds") && html.includes("Follow Australians"), "Follow must provide a per-sport Australian restriction");
 assert(!html.includes("<span>AU interest</span>"), "Australia eligibility must stay hidden on Feed cards");

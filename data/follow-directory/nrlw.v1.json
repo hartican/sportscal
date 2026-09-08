@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "nrlw",
   "label": "NRLW",
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "generatedAt": "2026-09-07T00:00:00.000Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -35,7 +35,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -67,7 +67,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -99,7 +99,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -131,7 +131,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -163,7 +163,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -195,7 +195,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -227,7 +227,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -259,7 +259,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -291,7 +291,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -323,7 +323,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -355,7 +355,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     },
     {
@@ -387,7 +387,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceReviewAfter": null
     }
   ]

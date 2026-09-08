@@ -203,8 +203,8 @@ function validateKnowledge(document){
       if (projectionTargets.has(targetKey)) issues.push(`${targetKey} has more than one editorial projection.`);
       projectionTargets.add(targetKey);
     });
-    const requirement = TIER_REQUIREMENTS[projection.stakes];
-    if (!requirement) issues.push(`${projection.id}.stakes must be 2, 3, 4 or 5.`);
+    const requirement = TIER_REQUIREMENTS[(projection.researchDepth || projection.stakes)];
+    if (!requirement) issues.push(`${projection.id}.researchDepth must be 2, 3, 4 or 5.`);
     if (!nonEmpty(projection.hook) || projection.hook.length < 20 || projection.hook.length > 180) issues.push(`${projection.id}.hook must be 20-180 characters.`);
     if (!nonEmpty(projection.synopsis) || projection.synopsis.length < 80 || projection.synopsis.length > 700) issues.push(`${projection.id}.synopsis must be 80-700 characters.`);
     if (GENERIC_COPY.test(`${projection.hook}\n${projection.synopsis}`)) issues.push(`${projection.id} contains generic fixture filler instead of an editorial angle.`);
@@ -214,9 +214,9 @@ function validateKnowledge(document){
     (projection.sourceIds || []).forEach(id => { if (!sources.has(id)) issues.push(`${projection.id} references unknown source ${id}.`); });
     const dimensions = unique((projection.factIds || []).map(id => facts.get(id)?.dimension).filter(Boolean));
     const factSourceIds = unique((projection.factIds || []).flatMap(id => facts.get(id)?.sourceIds || []));
-    if (requirement && (projection.factIds || []).length < requirement.facts) issues.push(`${projection.id} needs at least ${requirement.facts} facts for stakes ${projection.stakes}.`);
-    if (requirement && (projection.sourceIds || []).length < requirement.sources) issues.push(`${projection.id} needs at least ${requirement.sources} sources for stakes ${projection.stakes}.`);
-    if (requirement && dimensions.length < requirement.dimensions) issues.push(`${projection.id} needs at least ${requirement.dimensions} narrative dimensions for stakes ${projection.stakes}.`);
+    if (requirement && (projection.factIds || []).length < requirement.facts) issues.push(`${projection.id} needs at least ${requirement.facts} facts for research depth ${(projection.researchDepth || projection.stakes)}.`);
+    if (requirement && (projection.sourceIds || []).length < requirement.sources) issues.push(`${projection.id} needs at least ${requirement.sources} sources for research depth ${(projection.researchDepth || projection.stakes)}.`);
+    if (requirement && dimensions.length < requirement.dimensions) issues.push(`${projection.id} needs at least ${requirement.dimensions} narrative dimensions for research depth ${(projection.researchDepth || projection.stakes)}.`);
     if (!dimensions.some(dimension => SUBSTANTIVE_DIMENSIONS.has(dimension))) issues.push(`${projection.id} needs at least one path, form, matchup, history or consequence fact.`);
     factSourceIds.forEach(id => { if (!(projection.sourceIds || []).includes(id)) issues.push(`${projection.id}.sourceIds must include fact source ${id}.`); });
     if (!isIsoDateTime(projection.researchedAt)) issues.push(`${projection.id}.researchedAt must be an ISO UTC date-time.`);
@@ -269,7 +269,7 @@ function editorialNarrativeFor(projection, indexes){
   return {
     schemaVersion:projection.consequence ? "editorial-narrative.v3" : "editorial-narrative.v2",
     projectionId:projection.id,
-    researchTier:projection.stakes === 5 ? "marquee" : projection.stakes === 4 ? "featured" : "standard",
+    researchTier:(projection.researchDepth || projection.stakes) === 5 ? "marquee" : (projection.researchDepth || projection.stakes) === 4 ? "featured" : "standard",
     hook:projection.hook,
     synopsis:projection.synopsis,
     ...(projection.hookSpoilerOn ? { hookSpoilerOn:projection.hookSpoilerOn } : {}),
@@ -317,7 +317,7 @@ function applyToFeedEvent(event, projection, indexes){
     },
     storyline:{
       ...(event.storyline || {}),
-      stakes:projection.stakes,
+      researchDepth:(projection.researchDepth || projection.stakes),
       arcStage:completed ? "recap" : "preview",
       hookSpoilerOff:projection.hook,
       hookSpoilerOn:completed ? completedHook : projection.hookSpoilerOn || projection.hook,

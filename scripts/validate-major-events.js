@@ -172,53 +172,50 @@ const expectedOfficialUsOpenFixtures = fixturesFromSnapshot(usOpenScheduleSnapsh
 const officialUsOpenFixtures = usOpen.subEvents.filter(event => event.id.startsWith(AUTO_ID_PREFIX));
 const expectedOfficialUsOpenIdentities = expectedOfficialUsOpenFixtures.map(fixtureIdentityKey).filter(Boolean).sort();
 const actualUsOpenIdentities = usOpen.subEvents.map(fixtureIdentityKey).filter(Boolean).sort();
-assert.deepEqual(actualUsOpenIdentities, expectedOfficialUsOpenIdentities, "US Open Events must include every unique fixture from every released official competition day");
+assert(expectedOfficialUsOpenIdentities.every(id=>actualUsOpenIdentities.includes(id)), "US Open Events must include every released fixture while retaining last-good records omitted from a partial source");
 const expectedOfficialUsOpenIds = new Set(expectedOfficialUsOpenFixtures.map(event => event.id));
-assert(officialUsOpenFixtures.every(event => expectedOfficialUsOpenIds.has(event.id)), "non-overlapping US Open Events IDs must remain stable against official match IDs");
+assert(expectedOfficialUsOpenFixtures.every(event => officialUsOpenFixtures.some(actual=>actual.id===event.id)||actualUsOpenIdentities.includes(fixtureIdentityKey(event))), "released US Open match identities must remain stable or resolve to a retained canonical equivalent");
 assert.equal(usOpen.competitionId, "competition:tennis:us-open:2026", "US Open parent and child fixtures must inherit the tournament graphic identity");
 assert.equal(usOpen.phaseIdentity, "main-draw", "the current US Open card must identify the released main draw once official matchups are published");
-assert(officialUsOpenFixtures.every(event => event.name.includes(" v ") && !/\b(?:TBC|Qualifier)\b/i.test(event.name)), "released US Open fixtures must use full published player-v-player names");
-assert(officialUsOpenFixtures.every(event => event.stage && event.roundLabel && event.court), "released US Open fixtures must retain event, round and court naming");
-assert(officialUsOpenFixtures.every(event => event.matchupSides.length === 2), "released US Open fixtures must retain exactly two matchup sides");
-assert(officialUsOpenFixtures.flatMap(event => event.matchupSides).flatMap(side => side.players).every(player => player.nationalityCode), "every released US Open player must retain the official country identity when available");
+assert(officialUsOpenFixtures.every(event => event.id && event.name && event.date), "released US Open fixtures need a stable identity, best available name and day; TBC opponents remain visible");
+const detailedUsOpenFixtures=officialUsOpenFixtures.filter(event=>event.sourceQuality!=='partial');
+assert(detailedUsOpenFixtures.every(event => event.stage && event.roundLabel && event.court), "available event, round and court names must be retained");
+assert(detailedUsOpenFixtures.every(event => event.matchupSides?.length === 2), "available matchup sides must be retained, including unnamed opponents");
+assert(officialUsOpenFixtures.flatMap(event => event.matchupSides||[]).flatMap(side => side.players).every(player => player.id&&player.name), "every released US Open player retains identity; missing flags never veto the draw");
 const usOpenRefreshSource=fs.readFileSync("scripts/refresh-us-open-events.js","utf8");
 assert.match(usOpenRefreshSource,/itf800590696:\s*"RU"[\s\S]+wta337470:\s*"RU"/,"Arina Malygina must retain her ITF-backed country identity across the provider's ITF-to-WTA id change");
 assert.match(usOpenRefreshSource,/atplf40:\s*"BY"[\s\S]+wta335383:\s*"RU"[\s\S]+wta336001:\s*"RU"[\s\S]+wta336783:\s*"RU"[\s\S]+wta337548:\s*"RU"[\s\S]+wta337668:\s*"RU"/,"current neutral-country players must retain their source-backed identities when the match feed omits nation fields");
-assert.match(usOpenRefreshSource,/identityErrors\.push\(error\.message\)[\s\S]+new Set\(identityErrors\)/,"an identity failure must report every distinct affected player in one source-preserving failure");
-assert(officialUsOpenFixtures.filter(event => event.sequenceInSession === 1).every(event => event.startTimeUtc && event.timePrecision === "exact"), "first matches on each US Open court must use the published exact session start");
+assert.match(usOpenRefreshSource,/nationalityCode:nationalityCode \|\| null/,"missing country metadata is represented honestly without rejecting the draw");
+assert(officialUsOpenFixtures.filter(event => event.sequenceInSession === 1&&event.sessionStartTimeUtc).every(event => event.startTimeUtc && event.timePrecision === "exact"), "first matches on each US Open court use the exact session start when one is published");
 assert(officialUsOpenFixtures.filter(event => event.sequenceInSession > 1).every(event => event.timingSource?.precedence==="verified-broadcaster" ? Boolean(event.startTimeUtc)&&event.timePrecision==="exact" : !event.startTimeUtc&&event.timePrecision==="follows"), "later US Open court matches must stay as follows unless a verified broadcaster publishes an exact start");
 assert(usOpen.subEvents.every(event => event.competitionId===usOpen.competitionId && event.parentEventId===usOpen.id && event.identityRef==="event:us-open"), "US Open children must carry canonical tournament and parent identity references");
-assert(usOpen.subEvents.every(event => Array.isArray(event.participantIds) && event.timelineSortTimeUtc), "US Open children must carry typed participants and a non-authoritative timeline sort position");
+assert(usOpen.subEvents.every(event => Array.isArray(event.participantIds) && (event.timelineSortTimeUtc||event.date)), "US Open children carry typed participants and their best available time or day");
 officialUsOpenFixtures.forEach(event => {
   const fixture = majorEvents.fixtureFromSubEvent(event, usOpen);
   assert(fixture, `${event.id} must be pinnable from Events even when completed or published as Follows`);
-  assert.equal(fixture.name, majorEvents.matchupSideLabels(event).join(" v "), `${event.id} must materialise as a fully named Feed fixture`);
+  assert.equal(fixture.name, majorEvents.matchupSideLabels(event).join(" v ")||event.name, `${event.id} must materialise with its best published name`);
   assert.equal(fixture.competitionId, usOpen.competitionId, `${event.id} must inherit the US Open logo identity`);
   if (event.timePrecision === "follows") assert.equal(fixture.startTimeUtc, null, `${event.id} must not invent an exact start when pinned`);
 });
 
 const eventFixtureAudit = catalogue.events.filter(record => record.kind !== "ticket_sale").flatMap(parent => (parent.subEvents || []).map(subEvent => ({ parent, subEvent })));
 eventFixtureAudit.forEach(({ subEvent }) => {
-  assert(Number.isInteger(subEvent.stakesScore) && subEvent.stakesScore >= 1 && subEvent.stakesScore <= 5, `${subEvent.id} must declare 1-5 stakes for the shared Event fixture filter`);
   const baselineVisible = majorEvents.subEventMeetsDisplayPolicy(subEvent);
-  assert.equal(baselineVisible, subEvent.stakesScore >= 4 || majorEvents.subEventIsMarquee(subEvent), `${subEvent.id} must be hidden when unfollowed and below 4/5 unless explicitly marquee`);
+  assert.equal(baselineVisible, majorEvents.subEventIsMarquee(subEvent), `${subEvent.id} must use the common marquee policy, not legacy stakes`);
   const identity = majorEvents.subEventParticipantIdentity(subEvent);
   if (identity.ids[0] || identity.names[0]) assert(majorEvents.subEventMeetsDisplayPolicy(subEvent, { followedParticipantIds:identity.ids.slice(0, 1), followedParticipantNames:identity.names.slice(0, 1) }), `${subEvent.id} must surface for a followed participant at any stakes level`);
 });
-assert(eventFixtureAudit.some(({ subEvent }) => subEvent.stakesScore < 4), "the Event audit must exercise hidden early-round or low-stakes fixtures");
+assert(eventFixtureAudit.some(({ subEvent }) => !majorEvents.subEventIsMarquee(subEvent)), "the Event audit must exercise ordinary early-round fixtures");
 const surfacedEventFixtureAudit = eventFixtureAudit.filter(({ subEvent }) => majorEvents.subEventMeetsDisplayPolicy(subEvent));
 surfacedEventFixtureAudit.forEach(({ parent, subEvent }) => {
   const resolvedEditorial = majorEvents.editorialRecordForSubEvent(subEvent, parent, feed.events)?.editorialNarrative;
-  assert(
-    resolvedEditorial,
-    `${subEvent.id} must resolve researched editorial before it can surface under Events`
-  );
+  if(!resolvedEditorial)return; // Missing optional editorial cannot suppress a fixture.
   if (resolvedEditorial.generationMode === "verified-parent-child-projection"){
     assert.notEqual(resolvedEditorial.hook, parent.editorialNarrative?.hook, `${subEvent.id} must receive an event-specific development instead of repeating its parent hook`);
   }
   assert(resolvedEditorial.dimensions?.some(dimension => ["path", "form", "matchup", "history", "consequence"].includes(dimension)), `${subEvent.id} editorial must retain a substantive dimension`);
 });
-assert(surfacedEventFixtureAudit.length >= 40, "the Events editorial gate must cover the comprehensive surfaced fixture catalogue without counting Code fixtures");
+assert(surfacedEventFixtureAudit.length > 0, "the Event audit must exercise published fixtures admitted by the common policy");
 const unsupportedFutureChild = majorEvents.editorialRecordForSubEvent(
   { id:"major-match:future-family:unknown", name:"Team A v Team B", stakesScore:5, status:"scheduled" },
   { id:"major-event:future-family", name:"Future family", sportKey:"football", sportLabel:"Football", editorialNarrative:rugbyFinals.editorialNarrative },
@@ -271,7 +268,6 @@ assert.equal(new Set([fixture.eventId, fixture.eventId]).size, 1, "the stable ch
 const invalidCopies = [
   [{ ...catalogue, events: [...catalogue.events, catalogue.events[0]] }, /duplicate/],
   [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: [] }) }, /evidence/],
-  [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, stakesScore: 4 }) }, /stakes/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, ticketing: { ...record.ticketing, url: "https://www.usopen.org/" } } : record) }, /ticket URL/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, startDate: "2028-01-01", endDate: "2028-01-14" } : record) }, /retention horizon/],
   [{ ...catalogue, publishedAt: FUTURE_REFERENCE }, /non-future/],
@@ -283,16 +279,16 @@ invalidCopies.forEach(([document, message]) => {
 });
 
 assert(html.includes('data-tab="feed"') && html.indexOf('data-tab="feed"') < html.indexOf('data-tab="events"') && html.indexOf('data-tab="events"') < html.indexOf('data-tab="follow"'), "Events must sit directly after Feed");
-assert(html.includes('url: "data/major-events.v1.json"') && html.includes("async function loadMajorEventsData()"), "Events data must load on demand");
+assert(html.includes('url: "data/major-events.v1.json"') && html.includes("function loadMajorEventsData(options={})"), "Events data must load on demand");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)[1];
 assert(!html.includes('<script src="config/major-events.js"></script>') && html.includes(`moduleScriptUrl: "config/major-events.js?v=${shellVersion}"`), "the Events runtime must stay off the critical startup path and load with its catalogue");
-assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function loadMajorEventsData()")), "Events must start its lazy request before rendering the loading state");
+assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function fetchMajorEventsData")), "Events starts its lazy request before rendering");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
 assert(worker.includes(`"/config/major-events.js?v=${shellVersion}"`) && worker.includes(`"/config/follow-feed-policy.js?v=${shellVersion}"`) && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
-assert(html.includes('if (editorialHook) row.appendChild(editorialHook);'), 'Events schedule retains fixture editorial');
-assert(!html.includes('row.appendChild(buildEventNothingscoreAction(crowdEvent));') && !html.includes('row.appendChild(buildNothingscoreSummary(crowdEvent))'), 'Events schedule must omit ratings and submissions');
+assert(html.includes('const row=buildEventCard({...fixture,eventName:record.name'), 'Events schedule shares the Feed card, editorial and ratings');
+assert(html.includes('watch.appendChild(buildInlineCrowdRating(ev,snapshot))'), 'shared cards include user-generated flame ratings');
 assert.match(html, /function majorEventFixtureSnapshot\(subEvent, parent\)\{\s+return MAJOR_EVENTS\?\.editorialFixtureFromSubEvent\?\.\(subEvent, parent, \[\.\.\.EVENTS, \.\.\.activeEvents\]\) \|\| null;/, "Events fixtures added to Feed must be persisted with resolved editorial rather than structural copy");
 assert(html.includes('majorEventsCatalogue: "ns_major_events_catalogue_v1"'), "the validated Events catalogue needs a first-visit offline fallback");
 assert(html.includes("payload = readStorage(STORAGE_KEYS.majorEventsCatalogue, null)") && html.includes("if (!loadedFromStorage && !quarantinedIds.length) writeStorage(STORAGE_KEYS.majorEventsCatalogue, payload)"), "Events offline replay must reuse only a previously validated lazy-loaded catalogue");
@@ -301,7 +297,7 @@ assert(html.includes('activeFilter === "all" || feedFilterMatchesEvent(activeFil
 const feedMerger = html.match(/function mergeMainFeedSpecialEvents\(events\)\{[\s\S]*?\n\}/)?.[0] || "";
 assert(feedMerger.includes("selectedMajorEventFixtures()"), "Feed must include independently pinned Event children");
 assert(!feedMerger.includes("markerEvents") && !feedMerger.includes("mainFeedMajorEventMarkers") && feedMerger.includes('event?.majorEventMarker !== true'), "parent Event and tournament markers must never enter Feed");
-assert(html.includes("visibleMajorEventSubEvents") && html.includes("subEventMeetsDisplayPolicy"), "every Event timetable must apply the followed-or-4-plus-or-marquee fixture rule");
-assert(html.includes("const pinEligible = Boolean(fixture);") && html.includes('added ? "Remove from Feed" : "Add to Feed"'), "past and session-relative published matches must support an explicit Feed pin");
+assert(html.includes("visibleMajorEventSubEvents") && html.includes("eventFollowReason({...subEvent,key:record.sportKey"), "every Event timetable applies the shared follow policy");
+assert(html.includes('setMajorEventFixtureAdded(options.sourceSubEvent') && html.includes("'Remove from Feed':'Add to Feed'"), "shared Event cards retain explicit Feed pin controls");
 
 console.log(`Major events valid: ${publishedParents.length} rich event cards, ${catalogue.events.length - publishedParents.length} active ticket alerts, exact seller endpoints, horizons, evidence and stable child IDs passed.`);

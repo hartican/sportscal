@@ -9,6 +9,7 @@
   const MAX_TIMER_MS = 24 * 24 * 60 * 60 * 1000;
 
   function eventStart(event){
+    if(event.timePrecision==='estimated'&&Number.isFinite(Date.parse(event.estimatedStartTimeUtc)))return new Date(event.estimatedStartTimeUtc);
     if (event.startTimeUtc){
       const parsed = new Date(event.startTimeUtc);
       if (!Number.isNaN(parsed.getTime())) return parsed;

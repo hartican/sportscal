@@ -270,9 +270,9 @@ assert.deepEqual(
   "a 1/5 followed fixture must remain manual-only even on match day",
 );
 assert.deepEqual(
-  followFeedPolicy.followedFixtureDecision({ ...lowStakesTomorrow, stage:"Elimination Final" }, { followed:true }),
+  followFeedPolicy.followedFixtureDecision({ ...lowStakesTomorrow, key:"nrl", stage:"Elimination Final" }, { followed:true }),
   { mode:"immediate", include:true, label:"In Feed via follow" },
-  "every finals or knockout fixture in a followed competition must enter Feed",
+  "a rugby league elimination final qualifies through the sport-appropriate round rule",
 );
 const djokovicFixture = resolvedTennis.events.find(event => (
   event.id === DJOKOVIC_US_OPEN_ID
@@ -341,7 +341,7 @@ assert.match(
   /function automaticallyFollowedMajorEventFixtures[^]*FOLLOW_FEED_POLICY\.followedFixtureDecision[^]*const specialEvents = \[\.\.\.automaticallyFollowedMajorEventFixtures\(\), \.\.\.selectedMajorEventFixtures\(\)\]/,
   "released Major Event fixtures must share the automatic follow policy instead of requiring Add to Feed",
 );
-assert(html.includes("automaticDecision.label"), "Events must render the same followed-fixture policy label used by Feed");
+assert(html.includes("const row=buildEventCard({...fixture,eventName:record.name"), "Events uses the same fixture renderer as Feed");
 assert(html.includes("ensureFollowCollectionDirectories(userPreferences)"), "cloud-restored collection follows must load their membership directory after every shell update");
 
 console.log("Followed Liverpool and inherited top-10 Djokovic fixtures stay on page one around play.");

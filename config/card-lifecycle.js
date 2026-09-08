@@ -149,6 +149,35 @@
     };
   }
 
+  function fallbackEnrichment(event){
+    return {
+      canonicalEventId:eventId(event), rankingVersion:"fixture-fallback.v1",
+      mustWatchScore:0, australiaRelevanceScore:0,
+      availabilityScore:0, editorialBoost:0, intensity:1, cardVariant:"plain",
+      premiumSurface:"sportFeed", followContext:[], storyline:{scoreReasons:[]},
+      presentationFallback:true,
+    };
+  }
+
+  function safeEnrichment(event, enrich, onError = () => {}){
+    const fallback = fallbackEnrichment(event);
+    try {
+      const value = enrich(event);
+      if (!value || typeof value !== "object" || Array.isArray(value)) return fallback;
+      const result = {...fallback, ...value};
+      for (const key of ["mustWatchScore", "australiaRelevanceScore", "availabilityScore", "editorialBoost"]){
+        result[key] = Number.isFinite(Number(value[key])) ? Number(value[key]) : fallback[key];
+      }
+      result.intensity = Number.isInteger(value.intensity) && value.intensity >= 1 && value.intensity <= 5 ? value.intensity : 1;
+      result.cardVariant = ["plain", "compact", "standard", "marquee"].includes(value.cardVariant) ? value.cardVariant : "plain";
+      result.presentationFallback = value.presentationFallback === true || !value.cardVariant;
+      return result;
+    } catch (error){
+      onError(error, eventId(event));
+      return fallback;
+    }
+  }
+
   function createDerivedCard(event, enrichment, {
     profileId,
     surface = "sportFeed",
@@ -171,12 +200,12 @@
       intensity: enrichment.intensity,
       rank,
       renderPayload: {
-        displayTitle: event.displayTitleCompact || event.name,
+        displayTitle: event.displayTitleCompact || event.name || event.competitionName || "Scheduled fixture",
+        presentationFallback:enrichment.presentationFallback === true,
         date: event.date,
         time: event.time,
         rankingVersion: enrichment.rankingVersion,
         mustWatchScore: enrichment.mustWatchScore,
-        stakesScore: enrichment.stakesScore,
         australiaRelevanceScore: enrichment.australiaRelevanceScore,
         availabilityScore: enrichment.availabilityScore,
         editorialBoost: enrichment.editorialBoost,
@@ -224,7 +253,7 @@
         };
       })
       .filter(item => item.retention.state === "active" || item.retention.state === "saved")
-      .map(item => ({ ...item, enrichment: enrich(item.event) }))
+      .map(item => ({ ...item, enrichment: safeEnrichment(item.event, enrich) }))
       .sort((first, second) => {
         const score = second.enrichment.mustWatchScore - first.enrichment.mustWatchScore;
         return score || eventId(first.event).localeCompare(eventId(second.event));
@@ -311,6 +340,8 @@
     shouldAutoArchive,
     sydneyEndOfDay,
     createDerivedCard,
+    fallbackEnrichment,
+    safeEnrichment,
     materialize,
     purgeExpired,
     archiveReference,

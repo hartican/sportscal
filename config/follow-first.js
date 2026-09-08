@@ -1,10 +1,10 @@
 (function attachNothingSportsFollowFirst(root, factory){
   const competitionClassification = root.NOTHINGSPORTS_COMPETITION_CLASSIFICATION
     || (typeof require === "function" ? require("./competition-classification.js") : null);
-  const api = factory(competitionClassification);
+  const api = factory(root, competitionClassification);
   root.NOTHINGSPORTS_FOLLOW_FIRST = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(competitionClassification){
+})(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(root, competitionClassification){
   "use strict";
 
   const SCHEMA_VERSION = "follow-first.v6";
@@ -471,8 +471,12 @@
 
   function reasonForEvent(event, preferences, { participantLabel = id => id, collectionsById = {} } = {}){
     const next = migratePreferences(preferences);
+    const followPolicy = root.NOTHINGSPORTS_FOLLOW_FEED_POLICY
+      || (typeof require === "function" ? require("./follow-feed-policy.js") : null);
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
-    for (const id of participantIds(event)){
+    const participants = followPolicy.participantIds(event);
+    if (participants.some(id => effectiveParticipantFollow(id,next,collectionsById).source === "mute")) return null;
+    for (const id of participants){
       const follow = follows.get(id);
       if (follow && ["follow", "priority"].includes(follow.followLevel)){
         const entityKind = id.startsWith("team:") ? "team" : "athlete";
@@ -485,6 +489,7 @@
         };
       }
       const inherited = effectiveParticipantFollow(id, next, collectionsById);
+      if(inherited.source==="explicit")return {type:id.startsWith("team:")?"team":"athlete",entityKind:id.startsWith("team:")?"team":"athlete",id,label:`Because you follow ${participantLabel(id)}`,displayTag:!id.startsWith("team:")};
       if (inherited.source === "collection"){
         return { type:"collection", entityKind:"athlete", id, label:null, displayTag:false, collectionIds:inherited.collectionIds };
       }
@@ -497,7 +502,7 @@
       ski:"telemark", skiing:"telemark", alpine:"telemark", freestyle:"telemark",
       skateboard:"extreme", wsl:"surf", "big-wave":"surf",
     };
-    const sourceSportId = String(event?.representativeSportKey || event?.sportId || event?.key || "").replace(/^sport:/, "");
+    const sourceSportId = followPolicy.sportKey(event);
     const sportId = sportAliases[sourceSportId] || sourceSportId;
     const representativeCountryCodes = Array.from(new Set([
       ...(Array.isArray(event?.representativeCountryCodes) ? event.representativeCountryCodes : []),
@@ -506,13 +511,18 @@
     const representsAustralia = representativeCountryCodes.some(code => ["AU", "AUS"].includes(code));
     const international = event?.isInternational === true || event?.competitionScope === "international";
     const followedSportIds = new Set((next.followedSports || []).map(String));
-    const sportFollowed = followedSportIds.has(sourceSportId) || followedSportIds.has(sportId);
+    const catalogue = root.NOTHINGSPORTS_DISCOVERY_CATALOGUE || (typeof require === "function" ? require("./discovery-catalogue.js") : null);
+    const nodeId = catalogue?.eventNodeId(event);
+    const matchesNode = id => id === `sport:${sourceSportId}` || id === `sport:${sportId}` || (nodeId && catalogue?.familyIds(id)?.includes(nodeId));
+    const graph = next.preferenceGraph || {};
+    const domains = (graph.domainPreferences || []).filter(domain => matchesNode(domain.sportDomainId));
+    const competitionPreference = (graph.competitionPreferences || []).find(item => item.competitionId === event.competitionId);
+    const sportFollowed = followedSportIds.has(sourceSportId) || followedSportIds.has(sportId)
+      || domains.some(domain => domain.enabled !== false) || (next.selectedSelectorEntityIds || []).some(matchesNode);
     const concreteSportingCard = Boolean(
-      event?.date
-      && event?.time
+      followPolicy?.hasPublishedFixture(event)
       && event?.majorEventMarker !== true
       && event?.tournamentParent !== true
-      && event?.dateOnly !== true
       && event?.cardKind !== "event"
       && event?.kind !== "tournament"
       && event?.kind !== "major_event"
@@ -520,9 +530,14 @@
     );
     const australianScope = new Set(next.followFirst.australiansOnlySportIds || []);
     const scopedSportIds = [sourceSportId,sportId,sourceSportId === 'afl' ? 'afl-premiership' : '',sourceSportId === 'f1' ? 'motorsport' : ''].filter(Boolean).map(id=>`sport:${id}`);
-    if (sportFollowed && scopedSportIds.some(id=>australianScope.has(id))){
-      const codes=[...representativeCountryCodes,...(event.participantCountryCodes || []),...(event.participants || []).flatMap(p=>[p.countryCode,p.nationalityCode,p.isAustralian?'AU':null])].map(code=>String(code || '').toUpperCase());
-      return codes.some(code=>['AU','AUS'].includes(code)) ? {type:'australians',entityKind:'sport',id:sportId,label:'Australian participants',displayTag:false} : null;
+    const families = new Set(next.followFirst.followedMajorEventIds || []);
+    const eventFamily = String(event?.eventFamilyId || event?.majorEventId || event?.parentEventId || "").replace(/^(?:major-event|major|event):/, "").replace(/-\d{4}.*$/, "");
+    if (concreteSportingCard && families.has(eventFamily) && followPolicy.eligibleForFollow(event,{explicitEventFollow:true})){
+      return {type:"event",entityKind:"event",id:eventFamily,label:null,displayTag:false};
+    }
+    if (competitionPreference?.enabled === false || domains.some(domain => domain.enabled === false)) return null;
+    if (sportFollowed && scopedSportIds.some(id=>australianScope.has(id)) && followPolicy.australiansFilterUseful(event)){
+      return followPolicy.eligibleForFollow(event,{competitionFollow:true,australiansOnly:true}) ? {type:'australians',entityKind:'sport',id:sportId,label:'Australian participants',displayTag:false} : null;
     }
     if (next.followFirst.australiaInternationalsEnabled && sportFollowed && international && representsAustralia){
       return { type:"australians", entityKind:"national-representation", id:sportId, label:"Australia in international competition", displayTag:false };
@@ -530,13 +545,13 @@
     if (
       sportFollowed
       && concreteSportingCard
-      && Number(event?.stakesScore) >= 5
-      && !(international && representsAustralia && next.followFirst.australiaInternationalsEnabled === false)
+      && followPolicy.eligibleForFollow(event,{competitionFollow:true})
     ){
-      return { type:"sport-high-stakes", entityKind:"sport", id:sportId, label:null, displayTag:false };
+      return { type:"sport-marquee", entityKind:"sport", id:sportId, label:null, displayTag:false };
     }
     return null;
   }
+
 
   function stageLabel(event){
     const value = `${event?.stage || ""} ${event?.roundLabel || ""} ${event?.round || ""}`.toLowerCase();
@@ -649,21 +664,26 @@
   }
 
   function competitionRightsForEvent(event){
+    const normalizeToken = value => String(value || "").trim().toLowerCase().replace(/^(?:competition|sport):/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     const tokens = [event?.competitionId, event?.majorEventId, event?.sportDomainId, event?.sportId, event?.key, event?.competition, event?.competitionName, event?.name]
-      .map(value => String(value || "").trim().toLowerCase().replace(/^(?:competition|sport):/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""))
+      .map(normalizeToken)
       .filter(Boolean);
     const eventTime = Date.parse(event?.startsAt || event?.sportingStartsAt || event?.start || event?.date || "");
     const eventKey = String(event?.key || "").toLowerCase();
-    return [...Object.values(COMPETITION_VIEWING_RIGHTS)]
+    const candidates = [...Object.values(COMPETITION_VIEWING_RIGHTS)]
       .sort((left, right) => (Number(right.matchPriority) || 0) - (Number(left.matchPriority) || 0))
-      .find(rights => {
+      .filter(rights => {
         if (rights.eventKeys && eventKey && !rights.eventKeys.includes(eventKey)) return false;
         if (Number.isFinite(eventTime) && ((rights.notBefore && eventTime < Date.parse(rights.notBefore)) || (rights.notAfter && eventTime > Date.parse(rights.notAfter)))) return false;
-        return rights.competitionAliases.some(rawAlias => {
-          const alias = String(rawAlias || "").toLowerCase().replace(/^(?:competition|sport):/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-          return tokens.some(token => token === alias || (alias.length >= 3 && token.startsWith(`${alias}-`)) || (alias.length >= 4 && token.includes(alias)));
-        });
-      }) || null;
+        return true;
+      });
+    const matches = (rights, values) => rights.competitionAliases.some(rawAlias => {
+      const alias = normalizeToken(rawAlias);
+      return values.some(token => token === alias || (alias.length >= 3 && token.startsWith(`${alias}-`)) || (alias.length >= 4 && token.includes(alias)));
+    });
+    // Exact competition provenance outranks generic sport/key/name matches.
+    return candidates.find(rights => matches(rights, [normalizeToken(event?.competitionId)].filter(Boolean)))
+      || candidates.find(rights => matches(rights, tokens)) || null;
   }
 
   function providerIdForOption(option){
@@ -773,6 +793,7 @@
     migratePreferences,
     setCollectionFollow,
     effectiveParticipantFollow,
+    participantFollowIdentityKey,
     recordCodeInteraction,
     codeAffinityScore,
     sortCodesByAffinity,

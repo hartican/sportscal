@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "source-coverage-sample.v1",
+  "sourceUrl": "https://www.rugby.com.au/match-centre/3/2026/949461",
+  "checkedAt": "2026-09-08T07:26:51.302Z",
+  "extractionPath": "props.pageProps.matchData.getFixtureItem",
+  "getFixtureItem": {
+    "__typename": "FixtureItem",
+    "id": "949461",
+    "compId": "3",
+    "compName": "International",
+    "dateTime": "2026-09-05T15:10:00+0000",
+    "group": "1",
+    "isLive": false,
+    "isBye": false,
+    "round": "Round 1",
+    "roundType": "1",
+    "roundLabel": null,
+    "season": "2026",
+    "status": "Result",
+    "venue": "FNB Stadium",
+    "sourceType": "1",
+    "matchLabel": null,
+    "homeTeam": {
+      "__typename": "Team",
+      "id": "949461-900",
+      "name": "South Africa",
+      "teamId": "900",
+      "score": "29",
+      "crest": "https://d26phqdbpt0w91.cloudfront.net/NonVideo/bedf129f-471d-4442-b7ad-fdf07c516630.png"
+    },
+    "awayTeam": {
+      "__typename": "Team",
+      "id": "949461-850",
+      "name": "New Zealand",
+      "teamId": "850",
+      "score": "24",
+      "crest": "https://d26phqdbpt0w91.cloudfront.net/NonVideo/ee15004c-14d4-4535-95c0-d76cc2008942.png"
+    },
+    "fixtureMeta": null
+  }
+}

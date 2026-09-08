@@ -68,6 +68,7 @@
   }
 
   function expandedFollowLevels(event, graph, index){
+    const excluded = new Set(event?.excludedParticipantIds || []);
     const eventParticipants = new Set([
       ...(Array.isArray(event?.participantIds) ? event.participantIds : []),
       event?.homeParticipantId,
@@ -75,7 +76,9 @@
     ].filter(Boolean));
     const playerTeams = playerTeamMap(index);
     return (graph?.entityFollows || []).filter(follow => {
+      if (excluded.has(follow.participantId)) return false;
       if (eventParticipants.has(follow.participantId)) return true;
+      if (event?.participantsConfirmed === true) return false;
       if (!isDirectoryPlayerId(follow.participantId)) return false;
       if (follow.followLevel === "mute") return false;
       return eventParticipants.has(playerTeams.get(follow.participantId));
@@ -171,6 +174,24 @@
     return { teams: visibleTeams.slice().sort(compare), players: players.slice().sort(compare), playerTeamIds: Array.from(playerTeamIds) };
   }
 
+  function competitionGroup(record){
+    return record?.teamKind==='national'||record?.competitionScope==='international'?'International':record?.teamKind==='club'||record?.competitionScope==='domestic'?'Domestic':'Open competition';
+  }
+
+  function followOrder(records,preferences,collections={}){
+    const follow=globalThis.NOTHINGSPORTS_FOLLOW_FIRST || require('./follow-first');
+    const identity=follow.participantFollowIdentityKey,levels=new Map();
+    for(const item of preferences?.preferenceGraph?.entityFollows || []){
+      const key=identity(item.participantId);
+      if(levels.get(key)!=='mute')levels.set(key,item.followLevel);
+    }
+    for(const id of preferences?.followFirst?.collectionFollows || [])for(const member of collections[id]?.memberIds || []){
+      if(!levels.has(identity(member)))levels.set(identity(member),'follow');
+    }
+    const followed=record=>Number(['follow','priority'].includes(levels.get(identity(record.id))));
+    return records.slice().sort((a,b)=>competitionGroup(a).localeCompare(competitionGroup(b))||followed(b)-followed(a));
+  }
+
   return Object.freeze({
     SCHEMA_VERSION,
     SESSION_SCHEMA_VERSION,
@@ -187,5 +208,7 @@
     boundedEditDistance,
     searchMatchScore,
     filteredDirectory,
+    competitionGroup,
+    followOrder,
   });
 });

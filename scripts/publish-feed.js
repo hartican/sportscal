@@ -13,8 +13,9 @@ const {
   writeJson,
 } = require("./lib/feed-utils");
 
-const args = process.argv.slice(2).filter(arg => arg !== "--replace");
+const args = process.argv.slice(2).filter(arg => !["--replace","--preserve-known"].includes(arg));
 const replaceExisting = process.argv.includes("--replace");
+const preserveKnown = process.argv.includes("--preserve-known");
 const inputPath = args[0] || "feeds/incoming/events.json";
 const eventsOutPath = args[1] || "data/events.json";
 const metaOutPath = args[2] || "data/feed-meta.json";
@@ -47,7 +48,10 @@ if (replaceExisting) {
     if (existingErrors.length) {
       throw new Error(existingErrors.join("; "));
     }
-    mergeSummary = mergeFeedEvents(feed.events, existing.events);
+    if (preserveKnown){
+      const retained = require("../lib/fixture-snapshot").mergeFixtureSnapshot(existing.events,protectVerifiedEventFacts(feed.events,existing.events));
+      mergeSummary = {...retained,preserved:retained.retained,overridden:retained.updated,added:retained.events.length-existing.events.length};
+    } else mergeSummary = mergeFeedEvents(feed.events, existing.events);
     publishedFeed = { ...feed, events: mergeSummary.events };
   } catch (error) {
     if (error.code !== "ENOENT") throw error;

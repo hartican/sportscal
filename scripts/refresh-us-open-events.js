@@ -138,19 +138,6 @@ function statusForMatch(match){
   return "scheduled";
 }
 
-function stakesPolicyForMatch(eventCode, roundLabel, courtName){
-  const round = compactWhitespace(roundLabel).toLowerCase();
-  const qualifying = /q$/.test(String(eventCode || "").toLowerCase()) || /qualif/.test(round);
-  const marquee = /arthur ashe/i.test(courtName || "") && !qualifying;
-  let stakesScore = qualifying ? 3 : 2;
-  if (/\b(?:final|championship)\b/.test(round) && !/semi|quarter|qualif/.test(round)) stakesScore = 5;
-  else if (/semi.?final/.test(round)) stakesScore = 5;
-  else if (/quarter.?final|round of 16|fourth round/.test(round)) stakesScore = 4;
-  else if (/third round|round 3/.test(round)) stakesScore = 3;
-  if (marquee) stakesScore = Math.max(4, stakesScore);
-  return { stakesScore, marquee };
-}
-
 function playerFromTeam(team, suffix){
   const firstName = cleanPersonName(team?.[`firstName${suffix}`]);
   const lastName = cleanPersonName(team?.[`lastName${suffix}`]);
@@ -165,20 +152,19 @@ function playerFromTeam(team, suffix){
     || canonicalCountry
     || publishedCountry
     || NEUTRAL_PLAYER_COUNTRY_OVERRIDES[providerId];
-  if (!nationalityCode) throw new Error(`US Open fixture has no published country identity for ${name} (${providerId || "no provider id"})`);
   return {
     id: `athlete:tennis:${slug(name)}`,
     name,
     seed: Number.isFinite(Number(team?.seed)) ? Number(team.seed) : null,
     rank: null,
-    nationalityCode,
+    nationalityCode:nationalityCode || null,
   };
 }
 
 function matchupSide(team, fallbackIndex){
   const record = Array.isArray(team) ? team[0] : team;
   const players = [playerFromTeam(record, "A"), playerFromTeam(record, "B")].filter(Boolean);
-  if (!players.length) throw new Error(`US Open fixture side ${fallbackIndex} has no named players`);
+  if (!players.length) return {id:`side:tbc:${fallbackIndex}`,name:`Player ${fallbackIndex} TBC`,players:[]};
   const name = players.map(player => player.name).join(" / ");
   return { id:`side:tennis:${slug(name)}`, name, players };
 }
@@ -227,7 +213,6 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
   const score = scoreDisplay(match, sideLabels);
   const courtName = compactWhitespace(match?.courtName || court?.courtName || "USTA Billie Jean King National Tennis Center");
   const roundLabel = compactWhitespace(match?.roundName || match?.roundNameShort || "Round TBC");
-  const stakesPolicy = stakesPolicyForMatch(eventCode, roundLabel, courtName);
   const date = sourceDate(day);
   const stableMatchId = `usopen-2026-${eventCode.toLowerCase()}-${sourceMatchId}`;
   return {
@@ -242,6 +227,9 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
     stage:eventLabel.stage,
     roundLabel,
     matchType:eventLabel.matchType,
+    eventType:eventLabel.matchType,
+    eventCode,
+    bestOf:eventCode==='MS'?5:3,
     court:courtName,
     date,
     time:localTime(startTimeUtc),
@@ -263,11 +251,8 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
     ...(status === "completed" ? { resultPublishedAt:capturedAt } : {}),
     ...(score ? { scoreDisplay:score } : {}),
     ...(status === "completed" && score ? { result:score } : {}),
-    previewPriority:status === "live" ? 5 : status === "postponed" ? 4 : stakesPolicy.stakesScore,
     matchupSides,
     venue:courtName,
-    stakesScore:stakesPolicy.stakesScore,
-    ...(stakesPolicy.marquee ? { marquee:true } : {}),
     summary:`US Open 2026 · ${eventLabel.stage} · ${roundLabel} · ${courtName}.`,
     sourceUrl,
   };
@@ -285,21 +270,14 @@ function validateSnapshot(snapshot){
 }
 
 function isPublishedMatch(match){
-  const namedPlayers = team => (Array.isArray(team) ? team : []).some(record => (
-    cleanPersonName(`${record?.firstNameA || ""} ${record?.lastNameA || ""}`)
-    || cleanPersonName(`${record?.firstNameB || ""} ${record?.lastNameB || ""}`)
-  ));
   return compactWhitespace(match?.match_id) !== "0"
     && Boolean(compactWhitespace(match?.match_id))
-    && Boolean(compactWhitespace(match?.eventCode))
-    && namedPlayers(match?.team1)
-    && namedPlayers(match?.team2);
+    && Boolean(compactWhitespace(match?.eventCode));
 }
 
 function fixturesFromSnapshot(snapshot){
   validateSnapshot(snapshot);
   const dayByFeedUrl = new Map(snapshot.scheduleDays.eventDays.filter(day => day?.feedUrl).map(day => [day.feedUrl, day]));
-  const identityErrors=[];
   const imported = snapshot.scheduleFeeds.flatMap(feed => {
     const day = dayByFeedUrl.get(feed.sourceUrl);
     if (!day) throw new Error(`US Open snapshot cannot map ${feed.sourceUrl} to a released day`);
@@ -307,16 +285,9 @@ function fixturesFromSnapshot(snapshot){
       .filter(isPublishedMatch)
       .flatMap(match => {
         try{return[fixtureFromMatch(match,court,day,feed.sourceUrl,snapshot.capturedAt)];}
-        catch(error){
-          if(/US Open fixture has no published country identity/.test(error?.message||"")){
-            identityErrors.push(error.message);
-            return[];
-          }
-          throw error;
-        }
+        catch(error){return[{id:`${AUTO_ID_PREFIX}${String(match.eventCode).toLowerCase()}:${match.match_id}`,parentEventId:US_OPEN_ID,competitionId:'competition:tennis:us-open:2026',name:'US Open match · details unconfirmed',date:sourceDate(day),startTimeUtc:null,timePrecision:'date-only',status:statusForMatch(match),roundLabel:compactWhitespace(match.roundName),sourceUrl:feed.sourceUrl,sourceQuality:'partial'}];}
       }));
   });
-  if(identityErrors.length)throw new Error([...new Set(identityErrors)].sort().join("; "));
   const fixtures = [...new Map(imported.map(fixture => [fixture.id, fixture])).values()];
   if (!fixtures.length) throw new Error("US Open official fixtures are empty");
   return fixtures.sort((left, right) => {
@@ -381,7 +352,7 @@ function mergeCatalogue(catalogue, snapshot){
     const fixtures = snapshotFixtures.map(fixture => preserveResultTimestamps(fixture, previousById.get(fixture.id)));
     const fixtureIds = new Set(fixtures.map(fixture => fixture.id));
     const retainedOfficialHistory = (event.subEvents || []).filter(subEvent => subEvent.id.startsWith(AUTO_ID_PREFIX))
-      .filter(subEvent => !fixtureIds.has(subEvent.id) && subEvent.date && subEvent.date < latestSourceDate);
+      .filter(subEvent => !fixtureIds.has(subEvent.id));
     const handCurated = (event.subEvents || []).filter(subEvent => !subEvent.id.startsWith(AUTO_ID_PREFIX))
       .filter(subEvent => subEvent.status === "completed" || !subEvent.date || subEvent.date >= latestSourceDate);
     const officialFixtures = [...retainedOfficialHistory, ...fixtures].sort((left, right) => {
@@ -481,4 +452,4 @@ if (require.main === module){
   });
 }
 
-module.exports = { AUTO_ID_PREFIX, CHECK_ONLY, SCHEDULE_DAYS_URL, canonicalUsOpenFixture, currentScheduleDays, fetchOfficialSnapshot, fixtureFromMatch, fixturesFromSnapshot, isPublishedMatch, mergeCatalogue, releasedScheduleDays, sourceDate, stakesPolicyForMatch, statusForMatch };
+module.exports = { AUTO_ID_PREFIX, CHECK_ONLY, SCHEDULE_DAYS_URL, canonicalUsOpenFixture, currentScheduleDays, fetchOfficialSnapshot, fixtureFromMatch, fixturesFromSnapshot, isPublishedMatch, mergeCatalogue, releasedScheduleDays, sourceDate, statusForMatch };

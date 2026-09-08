@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "rugby",
   "label": "Rugby Union",
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "generatedAt": "2026-09-08T09:20:11.566Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -24,7 +24,7 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": null,
+      "leagueId": "competition:rugby:ra:3",
       "teamKind": "national",
       "position": null,
       "identityId": "team:rugby:all-blacks",
@@ -34,13 +34,13 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.allblacks.com/team/all-blacks",
-        "catalogue:rugby"
+        "https://www.rugby.com.au/match-centre/3/2026/949461",
+        "https://www.allblacks.com/team/all-blacks"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": null,
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
       "sourceReviewAfter": null
     },
     {
@@ -60,7 +60,7 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": null,
+      "leagueId": "competition:rugby:ra:3",
       "teamKind": "national",
       "position": null,
       "identityId": "team:rugby:argentina",
@@ -70,13 +70,13 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://uar.com.ar/identidad/",
-        "catalogue:rugby"
+        "https://www.rugby.com.au/match-centre/3/2026/949624",
+        "https://uar.com.ar/identidad/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": null,
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
       "sourceReviewAfter": null
     },
     {
@@ -313,7 +313,7 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": null,
+      "leagueId": "competition:rugby:ra:3",
       "teamKind": "national",
       "position": null,
       "identityId": "team:rugby:springboks",
@@ -323,13 +323,13 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://springboks.rugby/",
-        "catalogue:rugby"
+        "https://www.rugby.com.au/match-centre/3/2026/949461",
+        "https://springboks.rugby/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": null,
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
       "sourceReviewAfter": null
     },
     {
@@ -386,7 +386,7 @@
       "ladderPosition": 0,
       "marketValue": null,
       "currentTeamId": null,
-      "leagueId": null,
+      "leagueId": "competition:rugby:ra:3",
       "teamKind": "national",
       "position": null,
       "identityId": "team:rugby:wallabies",
@@ -396,13 +396,13 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://wallabies.rugby/",
-        "catalogue:rugby"
+        "https://www.rugby.com.au/match-centre/3/2026/949624",
+        "https://wallabies.rugby/"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": null,
+      "sourceCheckedAt": "2026-09-08T09:20:11.566Z",
       "sourceReviewAfter": null
     },
     {
@@ -610,6 +610,38 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:rugby:new-zealand-women",
+      "displayName": "New Zealand Women",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "NZ",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:rugbys-greatest-rivalry-women-2026",
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:rugby:new-zealand-women",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.allblacks.com/news/black-ferns/remaining-black-ferns-2026-fixtures-confirmed"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-08",
+      "sourceReviewAfter": null
+    },
+    {
       "id": "team:rugby:rebels",
       "displayName": "Rebels",
       "shortName": null,
@@ -677,6 +709,38 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:rugby:south-africa-women",
+      "displayName": "South Africa Women",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "ZA",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:rugbys-greatest-rivalry-women-2026",
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:rugby:south-africa-women",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.allblacks.com/news/black-ferns/remaining-black-ferns-2026-fixtures-confirmed"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-08",
       "sourceReviewAfter": null
     },
     {

@@ -1,0 +1,13 @@
+{
+  "schemaVersion":"verified-source-fixtures.v1",
+  "checkedAt":"2026-09-08",
+  "events":[{
+    "id":"fixture:rugby:sa-nz-women:2026-09-05","eventId":"fixture:rugby:sa-nz-women:2026-09-05","key":"rugby","sportDomainId":"sport:rugby-union",
+    "name":"South Africa Women v New Zealand Women","competitionId":"competition:rugbys-greatest-rivalry-women-2026","competitionScope":"international","isInternational":true,"gender":"female",
+    "date":"2026-09-05","startTimeUtc":"2026-09-05T11:30:00Z","timePrecision":"exact","status":"completed","venue":"DHL Stadium, Cape Town","resultText":"South Africa Women 20–52 New Zealand Women","homeScore":20,"awayScore":52,
+    "participantIds":["team:rugby:south-africa-women","team:rugby:new-zealand-women"],"participantCountryCodes":["ZA","NZ"],
+    "participants":[{"id":"team:rugby:south-africa-women","name":"South Africa Women","displayName":"South Africa Women","countryCode":"ZA","teamKind":"national","genderCategory":"female"},{"id":"team:rugby:new-zealand-women","name":"New Zealand Women","displayName":"New Zealand Women","countryCode":"NZ","teamKind":"national","genderCategory":"female"}],
+    "sourceUrl":"https://www.allblacks.com/news/black-ferns/remaining-black-ferns-2026-fixtures-confirmed",
+    "resultSourceUrl":"https://www.allblacks.com/?url=https%3A%2F%2Fwww.allblacks.com%2Ffixtures%2Fall-blacks","sourceCheckedAt":"2026-09-08","sourceType":"official"
+  }]
+}

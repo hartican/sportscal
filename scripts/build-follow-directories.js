@@ -18,6 +18,8 @@ function readJson(relativePath){
 function writeIfChanged(filePath, content, checkOnly){
   const current = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : null;
   if (current === content) return false;
+  const withoutBuildClock=value=>value?.replace(/"generatedAt"\s*:\s*"[^"]+"/g,'"generatedAt":""');
+  if(current&&withoutBuildClock(current)===withoutBuildClock(content))return false;
   if (checkOnly) throw new Error(`${path.relative(ROOT, filePath)} is stale; run node scripts/build-follow-directories.js`);
   fs.mkdirSync(path.dirname(filePath), { recursive:true });
   fs.writeFileSync(filePath, content);
@@ -158,6 +160,7 @@ function main(){
   const tennisWatchPool = readJson(TENNIS_WATCH_POOL_PATH);
   const championsLeague = readJson(CHAMPIONS_LEAGUE_PATH);
   const requestedSports = readJson(REQUESTED_SPORTS_PATH);
+  const coverage = readJson("data/follow-sources/coverage.v1.json");
   if (supplement.generatedAt) sourceGeneratedAt.push(supplement.generatedAt);
   if (tennisWatchPool.generatedAt) sourceGeneratedAt.push(tennisWatchPool.generatedAt);
   if (championsLeague.generatedAt) sourceGeneratedAt.push(championsLeague.generatedAt);
@@ -200,6 +203,10 @@ function main(){
         sourceRefs:[...inheritedSources, ...recordSources],
       }));
     });
+  });
+  (coverage.participants || []).forEach(record=>{
+    const key=sportKeyForParticipant(record);if(!chunks.has(key))return;
+    chunks.get(key).set(record.id,normalizeRecord(record,{genderCategory:record.genderCategory,sourceRefs:record.sourceRefs,sourceCheckedAt:record.sourceCheckedAt}));
   });
   (requestedSports.participants || []).forEach(record => {
     const key = String(record.sportKey || "");
@@ -345,7 +352,7 @@ function main(){
       (first.ranking ?? first.ladderPosition ?? Number.MAX_SAFE_INTEGER) - (second.ranking ?? second.ladderPosition ?? Number.MAX_SAFE_INTEGER)
       || first.displayName.localeCompare(second.displayName, "en-AU", { sensitivity:"base" })
     ));
-    const payloadGeneratedAt = ["motorsport", "wrc"].includes(sport.key) ? manifestGeneratedAt : generatedAt;
+    const payloadGeneratedAt = ["cricket","rugby"].includes(sport.key) ? coverage.generatedAt || generatedAt : ["motorsport", "wrc"].includes(sport.key) ? manifestGeneratedAt : generatedAt;
     const payload = {
       schemaVersion:"follow-directory-chunk.v1",
       sportKey:sport.key,

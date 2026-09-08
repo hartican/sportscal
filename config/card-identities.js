@@ -479,6 +479,8 @@
     Object.freeze({ id: "australian-open", pattern: /\b(?:australian open|aus open)\b/i }),
   ]);
   const competitionMarks = Object.freeze({
+    "competition:formula-one":eventMarks.f1,
+    "competition:wrc":sportMarks.wrc,
     "competition:premier-league": eventMarks["premier-league"],
     "competition:bundesliga": eventMarks.bundesliga,
     "competition:la-liga": eventMarks["la-liga"],
@@ -512,6 +514,8 @@
   function markForCompetitionId(competitionId){
     const id = String(competitionId || "");
     if (competitionMarks[id]) return competitionMarks[id];
+    if (/^competition:wrc(?:[-:]|$)/.test(id)) return sportMarks.wrc;
+    if (/^competition:formula-one(?:[-:]|$)/.test(id)) return eventMarks.f1;
     const versionlessId = id.replace(/:(?:19|20)\d{2}(?:-\d{2})?(?::.*)?$/, "");
     if (competitionMarks[versionlessId]) return competitionMarks[versionlessId];
     if (/^competition:uefa-champions-league(?::|$)/.test(id)) return eventMarks["uefa-champions-league"];

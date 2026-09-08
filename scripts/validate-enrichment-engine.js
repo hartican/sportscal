@@ -58,9 +58,9 @@ const defining = engine.enrichEvent({
   }],
 });
 
-assert.equal(routine.cardVariant, "plain", "routine fixtures must derive a plain card");
-assert.equal(defining.cardVariant, "marquee", "defining events must derive a marquee card");
-assert(defining.mustWatchScore > routine.mustWatchScore, "high stakes and follows must outrank routine fixtures");
+assert.equal(routine.cardVariant, "standard", "followed fixtures use uniform cards");
+assert.equal(defining.cardVariant, "standard", "legacy stakes cannot change card size");
+assert.equal(defining.mustWatchScore, routine.mustWatchScore, "legacy scores no longer rank the Feed");
 assert.equal(defining.followBoost, 5, "priority follows must produce an explainable boost");
 assert.deepEqual(defining.followContext, [{
   participantId: "participant:australia",
@@ -68,16 +68,16 @@ assert.deepEqual(defining.followContext, [{
   displayName: "Australia",
   followLevel: "priority",
 }], "enrichment must carry resolved followed-entity context into derived presentation");
-assert.equal(defining.timeWindowFitScore, 3, "critical events may use the late-night override");
+assert.equal(defining.timeWindowFitScore, 0, "stakes cannot override the viewing window");
 assert.equal(defining.storyline.visibleLabel, "Title Decider");
-assert.equal(defining.storyline.arcStage, "climax");
-assert.equal(defining.storyline.intensitySource, "manual");
+assert.equal(defining.storyline.arcStage, undefined);
+assert.equal(defining.storyline.intensitySource, undefined);
 assert.equal(defining.schemaVersion, "enriched-event.v2");
-assert.equal(defining.rankingVersion, "premium-ranking.v1");
-assert.equal(defining.stakesScore, 5);
+assert.equal(defining.rankingVersion, "follow-chronology.v1");
+assert.equal(defining.stakesScore, undefined);
 assert.equal(defining.australiaRelevanceScore, 5);
-assert.equal(defining.premiumSurface, "homeMustWatch");
-assert(defining.storyline.scoreReasons.length >= 7);
+assert.equal(defining.premiumSurface, "sportFeed");
+assert.deepEqual(defining.storyline.scoreReasons,["Included by Follow rules; displayed chronologically."]);
 
 const similarStakesFollowed = engine.enrichEvent({
   id: "followed-similar-stakes",
@@ -108,7 +108,7 @@ const similarStakesDiscovery = engine.enrichEvent({
   expected: 8,
   storyline: { stakes: 4, intensity: 4 },
 }, { preferenceGraph: graph });
-assert(similarStakesFollowed.mustWatchScore > similarStakesDiscovery.mustWatchScore, "followed events must outrank discovery at similar stakes");
+assert.equal(similarStakesFollowed.mustWatchScore, similarStakesDiscovery.mustWatchScore, "additive follows do not reorder fixtures");
 
 const toronto = engine.enrichEvent({
   id: "tennis-tournament-wta-toronto-806-2026-2026-08-13",
@@ -121,8 +121,8 @@ const toronto = engine.enrichEvent({
   time: "09:00",
   expected: 8,
 }, { preferenceGraph: graph });
-assert.equal(toronto.cardVariant, "marquee", "editorial overrides must support flagship card treatment");
-assert.equal(toronto.premiumSurface, "homeMustWatch");
+assert.equal(toronto.cardVariant, "standard", "editorial overrides cannot change uniform card treatment");
+assert.equal(toronto.premiumSurface, "sportFeed");
 assert.equal(toronto.editorialOverride.reviewedBy, "Nothing Sport editorial");
 
 const competitorGraph = preferences.setEntityFollow(
@@ -204,7 +204,7 @@ const ranked = engine.rankEvents([
   { id: "b", key: "fifa", name: "Routine B", expected: 3, time: "20:00", broadcasterIds: ["stan"] },
   { id: "a", key: "rugby", name: "World Cup Final", expected: 10, time: "20:00", broadcasterIds: ["stan"] },
 ], { preferenceGraph: graph });
-assert.equal(ranked[0].event.id, "a", "ranking must deterministically surface the highest score first");
+assert.equal(ranked[0].event.id, "a", "unknown times fall back to stable identity, not stakes");
 
 const surfaces = engine.selectPremiumSurfaces([
   { id: "routine-1", key: "fifa", name: "Routine fixture", date: "2026-08-15", time: "20:00", expected: 3 },
@@ -212,8 +212,8 @@ const surfaces = engine.selectPremiumSurfaces([
   { id: "must-1", key: "rugby", name: "World Cup Final", date: "2026-08-16", time: "20:00", expected: 10, storyline: { stakes: 5, intensity: 5 } },
   { id: "outside-horizon", key: "rugby", name: "Later World Cup Final", date: "2026-08-25", time: "20:00", expected: 10, storyline: { stakes: 5, intensity: 5 } },
 ], { preferenceGraph: graph, now: new Date("2026-08-13T00:00:00+10:00") });
-assert.deepEqual(surfaces.mustWatch.map(item => item.event.id), ["must-1"]);
-assert.deepEqual(surfaces.topStorylines.map(item => item.event.id), ["story-1"]);
+assert.deepEqual(surfaces.mustWatch.map(item => item.event.id), []);
+assert.deepEqual(surfaces.topStorylines.map(item => item.event.id), []);
 assert(!surfaces.mustWatch.some(item => item.event.id === "routine-1"), "routine breadth must not enter premium rails");
 
 console.log("Enrichment engine validation passed.");

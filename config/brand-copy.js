@@ -1,6 +1,6 @@
 (function attachNothingSportsBrand(root){
   const brand = Object.freeze({
-    version: "nothingsport-brand.v11",
+    version: "nothingsport-brand.v12",
     name: "Nothing Sport",
     officialName: "Nothing Sport",
     stylisedName: "nothing SPORT",
@@ -14,11 +14,11 @@
     descriptor: "Live sport, nothing missed.",
     loadingDescriptor: "Live sport, nothing missed.",
     hero: "Live sport, nothing missed.",
-    about: "Nothing Sport is a live sports curator, tailored to your tastes. Your Feed is built from the sports, teams and players you follow, plus Australian representatives in international competition when that global setting is on. Dismiss removes that exact card without changing your follows. A Like appears only on a high-stakes suggestion that did not come from a follow. Open Events to choose special fixtures early, or Follow for each sport’s Schedule, Ladder and Standings.",
+    about: "Nothing Sport is a live sports curator, tailored to your tastes. Follow a sport for its finals and marquee fixtures, or a team or athlete for all their known fixtures. Australian discovery adds fixtures with Australian participants where that filter is useful. Ratings never decide whether a followed fixture appears. Dismiss removes that exact card without changing your follows. Open Events for tournaments, Follow for each sport’s Schedule, Ladder and Standings, or Settings for All Followed.",
     countryAcknowledgement: "Nothing Sport acknowledges the Yuin Nation, the Traditional Custodians of the land on which this app was built. Always was, always will be Aboriginal land. Voice. Treaty. Truth.",
     metadataDescription: "Live sport, nothing missed.",
     onboardingDescription: "Choose your sports and Australia-in-internationals seed once, then refine teams and players in Follow.",
-    emptyStateDescription: "Nothing in your current filter deserves your time right now.",
+    emptyStateDescription: "No known fixtures match your current follows and filters.",
     timezoneDescription: "Built around AEST/AEDT by default, with other time zones supported as your profile travels.",
   });
 

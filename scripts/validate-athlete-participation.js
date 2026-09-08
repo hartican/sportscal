@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+"use strict";
+const assert=require('node:assert/strict');
+const {materializeParticipation}=require('../lib/athlete-participation');
+const document=require('../data/canonical/athlete-participation.v1.json');
+const follow=require('../config/follow-first');
+const {buildServerFeed}=require('../lib/server-feed-pipeline');
+const fixtures=materializeParticipation(document);
+assert.equal(document.athletes.length,5,'the pilot is fixed, not derived from mutable standings');
+const preferences={preferenceGraph:{entityFollows:[{participantId:'competitor:f1:max-verstappen',followLevel:'follow'}]}};
+assert(follow.reasonForEvent(fixtures.find(event=>event.id==='fixture:nls:2025:9'),preferences));
+assert.equal(follow.reasonForEvent(fixtures.find(event=>event.id==='fixture:nls:2026:8'),preferences),null,'past race participation does not establish a future entry');
+assert(!fixtures.some(event=>event.participantIds.includes('competitor:f1:lewis-hamilton')),'machinery tests are profile experience, not race entries');
+assert(!buildServerFeed({events:fixtures,userId:'qa',userState:{preferences},now:new Date('2026-09-08T00:00:00Z')}).events.length,'past history stays out of the current Feed');
+assert.throws(()=>materializeParticipation({...document,entries:[{...document.entries[0],participationStatus:'owner'}]}),/Unverified/);
+const forthcoming={...document,entries:[...document.entries,{participantId:'competitor:f1:max-verstappen',eventId:'fixture:nls:2026:8',participationStatus:'confirmed',sourceUrl:'https://example.com/official-test-entry',checkedAt:'2026-09-08'}]};
+const forthcomingFixture=materializeParticipation(forthcoming).find(event=>event.id==='fixture:nls:2026:8');
+assert(follow.reasonForEvent(forthcomingFixture,preferences),'a source-confirmed later entry surfaces outside F1');
+forthcoming.entries.push({...forthcoming.entries.at(-1),participationStatus:'withdrawn'});
+assert.equal(follow.reasonForEvent(materializeParticipation(forthcoming).find(event=>event.id==='fixture:nls:2026:8'),preferences),null,'a withdrawal supersedes the earlier entry');
+const other={schemaVersion:document.schemaVersion,athletes:[{id:'competitor:cricket:qa',displayName:'QA athlete',countryCode:'AU'}],fixtures:[{id:'other-code',key:'rugby',date:'2026-09-09'}],entries:[{participantId:'competitor:cricket:qa',eventId:'other-code',participationStatus:'confirmed',sourceUrl:'https://example.com/official-test-entry',checkedAt:'2026-09-08'}]};
+assert(follow.reasonForEvent(materializeParticipation(other)[0],{preferenceGraph:{entityFollows:[{participantId:'competitor:cricket:qa',followLevel:'follow'}]}}),'the participation contract is not hard-coded to motorsport');
+const schedule=require('../data/code-inspector/motorsport.json');
+assert(schedule.fixtures.some(event=>event.id==='fixture:nls:2026:8'));
+assert(schedule.fixtures.find(event=>event.id==='fixture:nls:2025:9').participantIds.includes('competitor:f1:max-verstappen'));
+console.log('Athlete participation: fixed pilot, history, library, confirmed cross-code entries and withdrawals passed.');

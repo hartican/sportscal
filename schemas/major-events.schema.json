@@ -74,7 +74,7 @@
     "subEvent": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "name", "startTimeUtc", "venue", "stakesScore"],
+      "required": ["id", "name"],
       "properties": {
         "id": { "type": "string", "minLength": 1 },
         "sessionId": { "type": "string", "minLength": 1 },
@@ -82,7 +82,7 @@
         "sequenceInSession": { "type": "integer", "minimum": 0 },
         "previewPriority": { "type": "integer", "minimum": 0 },
         "marquee": { "type": "boolean" },
-        "timePrecision": { "enum": ["exact", "follows", "date-only", "tbc"] },
+        "timePrecision": { "enum": ["exact", "estimated", "follows", "date-only", "tbc", "unknown"] },
         "timelineSortTimeUtc": { "type": ["string", "null"], "format": "date-time" },
         "timingSource": {
           "type": "object",
@@ -110,6 +110,10 @@
         "isFinalRegularSeasonRound": { "type": "boolean" },
         "stakesFloor": { "type": "integer", "minimum": 1, "maximum": 5 },
         "matchType": { "type": ["string", "null"] },
+        "eventType": { "type": ["string", "null"] },
+        "eventCode": { "type": ["string", "null"] },
+        "bestOf": { "type": "integer", "enum": [3,5] },
+        "sourceQuality": { "type": "string" },
         "court": { "type": ["string", "null"] },
         "scheduleStatus": { "enum": ["confirmed", "provisional", "tbc"] },
         "result": { "type": ["string", "object", "null"] },
@@ -139,7 +143,7 @@
         "storyline": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["stakes", "hookSpoilerOff", "hookSpoilerOn", "synopsisSpoilerOff", "synopsisSpoilerOn", "arcStage"],
+          "required": ["hookSpoilerOff", "hookSpoilerOn", "synopsisSpoilerOff", "synopsisSpoilerOn", "arcStage"],
           "properties": {
             "stakes": { "type": "integer", "minimum": 1, "maximum": 5 },
             "hookSpoilerOff": { "type": "string", "minLength": 1 },
@@ -154,7 +158,7 @@
     "event": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "kind", "name", "sportKey", "sportKeys", "sportLabel", "stakesScore", "dateStatus", "season", "summary", "details", "sources"],
+      "required": ["id", "kind", "name", "sportKey", "sportKeys", "sportLabel", "dateStatus", "season", "summary", "details", "sources"],
       "properties": {
         "id": { "type": "string", "minLength": 1 },
         "eventFamilyId": { "type": "string", "minLength": 1 },

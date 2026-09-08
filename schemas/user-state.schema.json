@@ -67,7 +67,7 @@
                     { "type": "string", "format": "date-time" }
                   ]
                 },
-                "timePrecision": { "enum": ["exact", "session-start", "follows", "date-only", "unpublished"] },
+                "timePrecision": { "enum": ["exact", "session-start", "estimated", "follows", "date-only", "unpublished", "tbc", "unknown"] },
                 "sessionStartTimeUtc": {
                   "anyOf": [
                     { "type": "null" },
