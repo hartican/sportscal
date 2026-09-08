@@ -48,7 +48,7 @@ Object.values(vectorAssets.openUse).filter(entry => entry.render === "mask").for
   assert.match(fs.readFileSync(entry.path, "utf8"), /<svg\b/i, `${entry.path} must be an SVG`);
   assert(serviceWorker.includes(`/${entry.path}`), `${entry.path} must be available offline`);
 });
-assert(serviceWorker.includes('/config/vector-assets.js') && serviceWorker.includes('/config/sport-domain-registry.js'), "the configuration-led asset system must be part of the offline shell");
+assert(require("./offline-shell-module")("config/vector-assets.js") && require("./offline-shell-module")("config/sport-domain-registry.js"), "the configuration-led asset system must be part of the offline shell");
 assert(fs.existsSync("assets/licenses/SPORTICON-APACHE-2.0.txt"), "Sporticon Apache 2.0 notice must ship");
 assert(fs.existsSync("assets/licenses/LUCIDE-ISC.txt"), "Lucide ISC notice must ship");
 assert(fs.existsSync("assets/licenses/SIMPLE-ICONS-CC0-1.0.txt"), "Simple Icons provenance and trademark caveats must ship");

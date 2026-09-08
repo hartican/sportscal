@@ -130,6 +130,6 @@ const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)?.[1]
 assert(shellVersion && serviceWorker.includes(`const CACHE_NAME = "nothingsport-shell-v${shellVersion}"`));
 assert(html.includes("button.setAttribute('aria-label','Jump to Now')") && html.includes("scrollActiveFeedToInitialAnchor"), "the shared timeline control must jump to Now");
 assert(!html.includes('scrollActiveFeedToMustWatch'), "the removed queue must have no jump target");
-assert(serviceWorker.includes('"/config/feed-controls.js"') && serviceWorker.includes('"/config/personalised-feed.js"') && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));
+assert(require("./offline-shell-module")("config/feed-controls.js") && require("./offline-shell-module")("config/personalised-feed.js") && serviceWorker.includes('"/schemas/feed-controls.schema.json"'));
 
 console.log("Feed controls valid: follow-first UI, Sydney timing, availability, legacy mix compatibility, and weighted feedback metadata passed.");

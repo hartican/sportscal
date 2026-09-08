@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="250">
-<script src="/assets/js/app-update.js?v=250" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=250" as="script">
+<meta name="app-shell-version" content="251">
+<script src="/assets/js/app-update.js?v=251" defer></script>
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=251" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6892,8 +6892,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=250">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=250">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=251">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=251">
 </head>
 <body>
 
@@ -7186,7 +7186,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=250"></script>
+<script src="assets/js/app-shell-runtime.js?v=251"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8314,7 +8314,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=250",
+  moduleScriptUrl: "config/major-events.js?v=251",
   url: "data/major-events.v1.json",
 });
 
@@ -8517,7 +8517,7 @@ function saveActiveProfileSections(sections){
 
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
-const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v8";
+const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v9";
 const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 const PERSONALISED_FEED_CACHE_MAX_STALE_MS = 7 * 24 * 60 * 60 * 1000;
 let publicFeedManifest = null;
@@ -9314,6 +9314,8 @@ function loadPreferences(){
 
 function savePreferences(next,{viewOnly=false}={}){
   const priorFollowState = JSON.stringify({
+    events:userPreferences?.followFirst?.followedMajorEventIds,
+    excludedEvents:userPreferences?.followFirst?.excludedMajorEventIds,
     sports:(userPreferences?.followedSports || []).slice().sort(),
     entities:(userPreferences?.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
     collections:(userPreferences?.followFirst?.collectionFollows || []).slice().sort(),
@@ -9335,6 +9337,8 @@ function savePreferences(next,{viewOnly=false}={}){
   });
   userPreferences = clean;
   const nextFollowState = JSON.stringify({
+    events:clean.followFirst?.followedMajorEventIds,
+    excludedEvents:clean.followFirst?.excludedMajorEventIds,
     sports:(clean.followedSports || []).slice().sort(),
     entities:(clean.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
     collections:(clean.followFirst?.collectionFollows || []).slice().sort(),
@@ -13978,8 +13982,10 @@ function appendSchedulePin(container,fixture,card){
   const snapshot=codeInspectorFixtureSnapshot(fixture);
   if(!snapshot)return;
   const added=Boolean(getEventAction(snapshot).addedToFixtures);
+  const canonical=canonicalFeedFixtureForInspector(fixture) || {...snapshot,manualPin:false};
+  const automatic=Boolean(automaticEventFollowReason(canonical)) && !getEventAction(canonical).dismissed && !getEventAction(canonical).archived;
   const pin=document.createElement('button');pin.type='button';pin.className='event-quick-action code-inspector-feed-action';
-  pin.setAttribute('aria-pressed',String(added));pin.textContent=added?'Remove from Feed':'Add to Feed';
+  pin.setAttribute('aria-pressed',String(added || automatic));pin.textContent=automatic?'In Feed':added?'Remove from Feed':'Add to Feed';pin.disabled=automatic;
   pin.onclick=event=>{event.stopPropagation();if(!setCodeInspectorFixtureAdded(fixture,!added))return;
     if(!added)recordCodeAffinity(fixture.codeId,'pin');
     mutateWithScrollContinuity(pin.closest('.event-card') || card,renderCodeInspector,{anchorStrategy:'target'});
@@ -19637,8 +19643,10 @@ function toggleAustraliaInternationals(){
 function toggleMajorEventFollow(eventId){
   const next = clonePreferences(userPreferences);
   const selected = new Set(next.followFirst.followedMajorEventIds || []);
-  if (selected.has(eventId)) selected.delete(eventId);
-  else selected.add(eventId);
+  const excluded = new Set(next.followFirst.excludedMajorEventIds || []);
+  if (selected.has(eventId)){ selected.delete(eventId); excluded.add(eventId); }
+  else { selected.add(eventId); excluded.delete(eventId); }
+  next.followFirst.excludedMajorEventIds = Array.from(excluded);
   next.followFirst.followedMajorEventIds = Array.from(selected);
   savePreferences(next);
   if (activeTab === "follow" && followViewSection === "major-events"){
@@ -24897,7 +24905,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=250");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=251");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

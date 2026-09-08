@@ -285,7 +285,7 @@ assert(!html.includes('<script src="config/major-events.js"></script>') && html.
 assert(html.indexOf("const networkRequest = fetchJson(MAJOR_EVENTS_CONFIG.url)") < html.indexOf("renderAll({ preserveViewport: true })", html.indexOf("async function fetchMajorEventsData")), "Events starts its lazy request before rendering");
 assert(html.includes("if (shouldLoadEvents) void loadMajorEventsData();"), "opening Events must not serialise a separate render before its lazy request");
 assert(!worker.includes('"/data/major-events.v1.json"'), "major events must not be fetched by the startup app shell");
-assert(worker.includes(`"/config/major-events.js?v=${shellVersion}"`) && worker.includes(`"/config/follow-feed-policy.js?v=${shellVersion}"`) && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
+assert(require("./offline-shell-module")("config/major-events.js") && require("./offline-shell-module")("config/follow-feed-policy.js") && worker.includes('"/schemas/major-events.schema.json"'), "Events logic, followed-fixture policy and schema must remain offline-capable");
 assert.match(html, /const date = ev\.date \|\| ev\.startDate;/, "major-event editorial display must resolve startDate records without crashing Events rendering");
 assert(html.includes('const row=buildEventCard({...fixture,eventName:record.name'), 'Events schedule shares the Feed card, editorial and ratings');
 assert(html.includes('watch.appendChild(buildInlineCrowdRating(ev,snapshot))'), 'shared cards include user-generated flame ratings');

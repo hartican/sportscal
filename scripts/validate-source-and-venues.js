@@ -69,7 +69,7 @@ assert.equal(venues.resolve("Berlin, Germany").audited, false, "Berlin must not 
 assert.equal(venues.resolve("Phillip Island Grand Prix Circuit").id, "phillip-island-grand-prix-circuit");
 assert.equal(venues.resolve("Geneva, Switzerland").id, "geneva-sailgp");
 ["config/source-trust.js","config/venue-registry.js"].forEach(file => require("./app-shell-test-utils").assertShellModule(html,file));
-assert(worker.includes('"/config/source-trust.js"') && worker.includes('"/config/venue-registry.js"'), "the source trust and venue models must remain available in the offline shell");
+assert(require("./offline-shell-module")("config/source-trust.js") && require("./offline-shell-module")("config/venue-registry.js"), "the source trust and venue models must remain available in the offline shell");
 const audit = venues.audit(feed.events);
 assert.equal(audit.total, new Set(feed.events.map(event => event.venue).filter(Boolean)).size, "the venue audit must inspect every currently published venue");
 assert(audit.audited >= 87, "the registry must contain the researched venue aliases and context-specific identities");

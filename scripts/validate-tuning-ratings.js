@@ -96,6 +96,6 @@ assert(html.includes("ensureSessionRatingPrompt(filtered)") && html.includes("se
 assert(html.includes("suppressSessionRatingPrompt();") && html.includes("if (showTunePrompt) suppressSessionRatingPrompt()"), "Follow refinement and rating prompts must never stack");
 assert(shellVersion, "the HTML shell version must be declared");
 assert.equal(workerVersion, shellVersion, "the service-worker cache must match the HTML shell version");
-assert(worker.includes('"/config/fine-tuning.js"') && worker.includes('"/config/rating-system.js"'));
+assert(require("./offline-shell-module")("config/fine-tuning.js") && require("./offline-shell-module")("config/rating-system.js"));
 
 console.log("Feedback and ratings valid: Follow-first thumb metadata, compatible five-star ratings, and bounded prompts passed.");

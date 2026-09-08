@@ -71,7 +71,7 @@
   }
 
   function eventFamilyId(record){
-    return String(record?.eventFamilyId || record?.familyId || record?.id || "")
+    return String(record?.eventFamilyId || record?.familyId || (record?.kind === "ticket_sale" ? record?.parentEventId : null) || record?.id || "")
       .replace(/^major-event:/, "")
       .replace(/:\d{4}(?:-\d{2})?.*$/, "")
       .replace(/-\d{4}(?:-\d{2})?.*$/, "");
@@ -498,6 +498,7 @@
       sport: parent.sportLabel,
       competitionId: parent.competitionId,
       parentEventId: parent.id,
+      eventFamilyId: eventFamilyId(parent),
       identityRef: subEvent.identityRef || `event:${String(parent.id || "").replace(/^major-event:/,"").replace(/-\d{4}(?::.*)?$/,"")}`,
       stableMatchId: subEvent.stableMatchId || null,
       legacyEventIds: Array.isArray(subEvent.legacyEventIds) ? [...subEvent.legacyEventIds] : [],

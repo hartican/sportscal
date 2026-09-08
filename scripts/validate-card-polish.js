@@ -69,7 +69,7 @@ const persistedFixture = userStateSchema.$defs.eventAction.properties.addedFixtu
 assert(persistedFixture.required.includes("startTimeUtc"), "persisted child fixtures must retain an explicit exact-time state");
 assert(persistedFixture.properties.startTimeUtc.anyOf.some(branch => branch.type === "null"), "session-relative Follows fixtures must persist without an invented exact UTC start");
 assert(persistedFixture.properties.timePrecision.enum.includes("follows") && persistedFixture.properties.sessionStartTimeUtc, "persisted child fixtures must retain their published session-relative timing contract");
-assert(worker.includes('"/config/card-results.js"') && worker.includes('"/config/ticketing.js"'), "score and ticket policy must work offline");
+assert(require("./offline-shell-module")("config/card-results.js") && require("./offline-shell-module")("config/ticketing.js"), "score and ticket policy must work offline");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)?.[1];
 assert(shellVersion && worker.includes(`nothingsport-shell-v${shellVersion}`), "the polished card UI must ship in a matching offline shell version");
 

@@ -71,7 +71,7 @@ assert(html.includes("LOADING_PROGRESS?.INDICATOR_DELAY_MS || 150") && html.incl
 for (const label of ["Loading Events", "Loading Standings", "Loading Schedule", "Refreshing Feed", "Saving settings"]){
   assert(html.includes(`beginInSessionLoading(\"${label}\")`), `${label} must use the shared loading ring`);
 }
-assert(worker.includes('"/config/loading-progress.js"'), "the loading controller must be available offline");
+assert(require("./offline-shell-module")("config/loading-progress.js"), "the loading controller must be available offline");
 
 console.log("Loading progress valid: weighted milestones, monotonic percentage, immediate usable-content reveal and accessible ring passed.");
 })().catch(error => {

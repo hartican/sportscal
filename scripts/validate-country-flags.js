@@ -19,7 +19,7 @@ assert(fs.existsSync(countryFlags.ASSET_SOURCE.noticePath), "the bundled flag li
 require("./app-shell-test-utils").assertShellModule(html,"config/country-flags.js");
 assert(html.includes("buildAthleteName(player") && html.includes("COUNTRY_FLAGS.flagMarkup(player.birthCountryCode"), "tournament matches and the central player directory must both render country flags");
 assert(html.includes('buildAthleteName(participant, { className: "standings-athlete" })'), "competitor ranking tables must render country flags");
-assert(serviceWorker.includes('"/config/country-flags.js"'), "the flag mapping must be available offline");
+assert(require("./offline-shell-module")("config/country-flags.js"), "the flag mapping must be available offline");
 assert(serviceWorker.includes(`"/${countryFlags.ASSET_SOURCE.noticePath}"`), "the flag licence notice must be available offline");
 assert(!serviceWorker.includes('"/assets/flags/4x3/au.svg"'), "the app shell must not eagerly download every flag before it is needed");
 

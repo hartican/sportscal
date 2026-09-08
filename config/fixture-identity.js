@@ -99,6 +99,9 @@
       const ids=aliases(event);if(!ids.length)continue;
       const key=semanticKey(event),match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined)??(key?semanticIndexes.get(key):undefined),index=match??result.length;
       const base=result[index];
+      // A cached draw placeholder cannot erase a subsequently published fixture.
+      // Real postponements, cancellations and live results still use the normal path.
+      if(base?.date && (base.time || base.startTimeUtc) && event.scheduleStatus==='provisional' && !event.date && !event.startTimeUtc && !event.time && !['postponed','cancelled','abandoned','live','finished'].includes(event.status))continue;
       result[index]=event.enrichmentOnly?applyEnrichment(base,event):normalizeCore({...base,...event,...(base?{id:base.id,eventId:base.eventId||base.id,canonicalEventId:base.canonicalEventId||base.id,sourceEventIds:[...new Set([...aliases(base),...ids])]}:{})});
       ids.forEach(id=>indexes.set(id,index));if(key)semanticIndexes.set(key,index);
     }

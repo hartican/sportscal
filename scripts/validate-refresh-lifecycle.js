@@ -104,7 +104,7 @@ assert(html.includes("Promise.allSettled(startupTasks)") && html.includes("task.
 assert(!/requestAnimationFrame\(\(\) => \{\s*startupCoordinator\.markHydrationComplete\(\)/.test(html), "startup must not reveal cards on the first animation frame");
 assert(html.includes("const alreadyAvailable = coerceEventList(globalThis.NOTHINGSPORTS_EVENTS || [])")
   && html.includes("if (alreadyAvailable.length) return Promise.resolve(alreadyAvailable)"), "direct-file recovery must preserve the last successfully loaded global bundle before requesting the offline script fallback");
-assert(worker.includes("/config/feed-refresh-lifecycle.js"), "the refresh lifecycle helper must work offline");
+assert(require("./offline-shell-module")("config/feed-refresh-lifecycle.js"), "the refresh lifecycle helper must work offline");
 
 async function validateServiceWorkerActivation(){
   const handlers = {};

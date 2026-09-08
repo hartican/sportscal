@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildFollowFeedPolicy(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-feed-policy.v6";
+  const SCHEMA_VERSION = "follow-feed-policy.v7";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
 
   function dateKey(value, timeZone = SYDNEY_TIME_ZONE){
@@ -55,11 +55,30 @@
     return /women|female|\bwbb[l]\b|\bwpl\b/i.test([event.gender,event.genderCategory,event.competitionGender,event.competitionId,event.competitionName,event.name].filter(Boolean).join(" "));
   }
 
+  function premiershipDomainId(event){
+    const key=sportKey(event);
+    return ["afl","nrl"].includes(key) && (!event.competitionId || event.competitionId===key || new RegExp(`^competition:${key}[:-]premiership(?:[:-]|$)`).test(event.competitionId)) ? `sport:${key}-premiership` : null;
+  }
+
+  function effectiveDomainPreferences(event, preferences){
+    const domains=preferences?.preferenceGraph?.domainPreferences || [];
+    const child=premiershipDomainId(event);
+    // The old parent switch was derived as off when its premiership child was
+    // selected. That broad switch does not cancel a specific explicit choice.
+    return child && (preferences?.selectedSelectorEntityIds || []).includes(child)
+      ? domains.filter(p=>p.sportDomainId!==`sport:${sportKey(event)}`) : domains;
+  }
+
+  function eventFamilyIds(event){
+    return [event?.eventFamilyId,event?.majorEventId,event?.parentEventId,event?.eventSeriesId,event?.competitionId].filter(Boolean).map(id=>String(id).replace(/^(?:major-event|major|event|event-series):/, "").replace(/^(?:competition|tournament):/, "").replace(/[:-]\d{4}.*$/, "").split(":").at(-1));
+  }
+
   function explicitlyExcluded(event, preferences){
     const graph = preferences?.preferenceGraph || {};
     const key = sportKey(event);
-    return (graph.competitionPreferences || []).some(p => p.competitionId === event.competitionId && p.enabled === false)
-      || (graph.domainPreferences || []).some(p => [event.sportDomainId, `sport:${key}`].filter(Boolean).includes(p.sportDomainId) && p.enabled === false);
+    return (preferences?.followFirst?.excludedMajorEventIds || []).some(id=>eventFamilyIds(event).includes(id))
+      || (graph.competitionPreferences || []).some(p => p.competitionId === event.competitionId && p.enabled === false)
+      || effectiveDomainPreferences(event,preferences).some(p => [event.sportDomainId, `sport:${key}`, premiershipDomainId(event)].filter(Boolean).includes(p.sportDomainId) && p.enabled === false);
   }
 
   function sportingFixture(event){
@@ -177,5 +196,5 @@
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, aggregateEvent, explicitCompetitionRequired, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
 });

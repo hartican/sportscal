@@ -7,7 +7,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(root, competitionClassification){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v8";
+  const SCHEMA_VERSION = "follow-first.v9";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -147,6 +147,10 @@
     return Array.from(new Set((Array.isArray(values) ? values : [])
       .map(value => String(value || "").trim())
       .filter(value => allowed.has(value))));
+  }
+
+  function eventFamilyChoices(values){
+    return [...new Set((Array.isArray(values)?values:[]).filter(id=>typeof id==='string' && /^[a-z][a-z0-9-]{0,119}$/.test(id)))];
   }
 
   function roundCoordinate(value){
@@ -294,11 +298,12 @@
       ...(Array.isArray(rawStartupMeta?.majorEvents) ? rawStartupMeta.majorEvents : []),
       ...legacySelectorCodeFollows,
     ]) || { codeSelectorIds:[], retainedEventFamilyIds:[] };
-    const followedMajorEventIds = uniqueAllowed([
+    const excludedMajorEventIds = eventFamilyChoices(prior.excludedMajorEventIds);
+    const followedMajorEventIds = eventFamilyChoices([
       ...legacyCodeFollows.retainedEventFamilyIds,
       ...startupMeta.majorEvents,
       ...(followedCommonwealthGames ? ["commonwealth-games"] : []),
-    ], MAJOR_EVENT_FAMILIES);
+    ]).filter(id=>!excludedMajorEventIds.includes(id));
     const selectedSelectorEntityIds = Array.from(new Set([
       ...(Array.isArray(source.selectedSelectorEntityIds) ? source.selectedSelectorEntityIds : []),
       ...legacyCodeFollows.codeSelectorIds,
@@ -321,6 +326,7 @@
         australiaInternationalsEnabled:prior.australiaInternationalsEnabled !== false,
         australiansOnlySportIds:Array.from(new Set((Array.isArray(prior.australiansOnlySportIds) ? prior.australiansOnlySportIds : []).filter(id => typeof id === "string" && id.startsWith("sport:")))),
         followedMajorEventIds,
+        excludedMajorEventIds,
         collectionFollows:normalizeCollectionFollows(prior.collectionFollows),
         codeInteractions:normalizeCodeInteractions(prior.codeInteractions),
         location:normalizeLocation(prior.location || startupMeta.location),
@@ -525,7 +531,7 @@
       return id===`sport:${sourceSportId}` || id===`sport:${sportId}` || (nodeId && catalogue?.familyIds(id)?.includes(nodeId));
     };
     const graph = next.preferenceGraph || {};
-    const domains = (graph.domainPreferences || []).filter(domain => matchesNode(domain.sportDomainId));
+    const domains = followPolicy.effectiveDomainPreferences(event,next).filter(domain => matchesNode(domain.sportDomainId));
     const competitionPreference = (graph.competitionPreferences || []).find(item => item.competitionId === event.competitionId);
     const explicitSelectors = new Set(next.selectedSelectorEntityIds || []);
     const explicitCompetition = competitionPreference?.enabled === true;

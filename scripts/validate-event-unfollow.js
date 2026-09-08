@@ -1,0 +1,33 @@
+'use strict';
+const assert=require('node:assert/strict');
+const follow=require('../config/follow-first'),policy=require('../config/follow-feed-policy');
+const {buildServerFeed}=require('../lib/server-feed-pipeline');
+const event=require('../lib/competition-fixtures').fixtures().find(e=>e.key==='tennis'&&e.parentEventId==='major-event:us-open-2026'&&e.date>='2026-09-08');assert(event);
+const preferences={followFirst:{followedMajorEventIds:['us-open'],startupMeta:{majorEvents:['us-open']}},preferenceGraph:{entityFollows:[{participantId:event.participantIds[0],followLevel:'follow'}]}};
+assert(follow.reasonForEvent(event,preferences));
+const blocked={...preferences,followFirst:{...preferences.followFirst,followedMajorEventIds:[],excludedMajorEventIds:['us-open']}};
+const normalized=follow.migratePreferences(blocked);
+assert(!normalized.followFirst.followedMajorEventIds.includes('us-open'),'old onboarding seed must not undo unfollow');
+assert.equal(follow.reasonForEvent(event,blocked),null,'event exclusion overrides followed players');
+const saved={preferences:blocked,eventUserState:{[event.id]:{addedToFixtures:true,reminderRequested:true}},ratings:{[event.id]:5}};
+const before=JSON.stringify(saved);
+assert(!buildServerFeed({events:[{...event,manualPin:true}],userId:'event-unfollow',userState:saved,now:new Date('2026-09-09')}).events.length,'server exclusion overrides pin');
+assert.equal(JSON.stringify(saved),before,'saved card state is not deleted');
+for(const extra of [{parentEventId:event.parentEventId},{eventSeriesId:'event-series:us-open'},{competitionId:'competition:tennis:us-open:2026'}])assert(policy.explicitlyExcluded({id:'child',key:'tennis',...extra},blocked),'canonical family aliases');
+assert.equal(policy.explicitlyExcluded({...event,parentEventId:'major-event:australian-open-2026',majorEventId:null,eventSeriesId:null,competitionId:'competition:tennis:australian-open:2026'},blocked),false,'other events unaffected');
+const restored={...blocked,followFirst:{...blocked.followFirst,excludedMajorEventIds:[],followedMajorEventIds:['us-open']}};
+assert(follow.reasonForEvent(event,restored),'refollow restores participant admission');
+console.log('Event unfollow exclusion, aliases, migration, server pin precedence and retained state passed.');
+const major=require('../config/major-events');
+for(const parent of require('../data/major-events.v1.json').events){
+ const family=major.eventFamilyId(parent);
+ const p={followFirst:{followedMajorEventIds:[family],excludedMajorEventIds:[]}};
+ assert(follow.migratePreferences(p).followFirst.followedMajorEventIds.includes(family),'every Events card can retain its explicit follow: '+family);
+ p.followFirst.followedMajorEventIds=[];p.followFirst.excludedMajorEventIds=[family];
+ const normalized=follow.migratePreferences(p);
+ assert(normalized.followFirst.excludedMajorEventIds.includes(family),'every Events card retains exclusion: '+family);
+ const children=(parent.subEvents||[]).map(e=>major.fixtureFromSubEvent(e,parent)).filter(Boolean);
+ if(!children.length)children.push({id:'future-child',eventFamilyId:family,parentEventId:parent.parentEventId||parent.id,competitionId:parent.competitionId});
+ for(const child of children)assert(policy.explicitlyExcluded(child,normalized),'linked child excluded for '+family);
+}
+console.log('All published Events families, including non-onboarding events and ticket parent links, share the process.');
