@@ -14,19 +14,19 @@ function included(event, preferences, expected, description){
 }
 const rugby={followedSports:["rugby"]};
 included(fixture("ordinary",{key:"rugby",stakesScore:5,storyline:{stakes:5}}),rugby,false,"stakes never confer eligibility");
-included(fixture("women-test",{key:"rugby",competitionScope:"international",gender:"women",stakesScore:1}),rugby,true,"all senior women's internationals");
+included(fixture("women-test",{key:"rugby",competitionScope:"international",gender:"women",stakesScore:1}),rugby,false,"women internationals require explicit follows");
 included(fixture("u20-test",{key:"rugby",competitionScope:"international",ageGroup:"U20"}),rugby,false,"age-group fixtures are not senior internationals");
-included(fixture("domestic-final",{key:"rugby",round:"Grand Final",stakesScore:1}),rugby,true,"finals do not depend on rating or stakes");
+included(fixture("domestic-final",{key:"rugby",round:"Grand Final",stakesScore:1}),rugby,false,"rugby finals require explicit team or competition follows");
 included(fixture('motogp-gp',{key:'motogp',name:'San Marino Grand Prix Race'}),{followedSports:['motogp']},true,'premier Grand Prix races remain marquee without stakes');
 included(fixture('sailgp-meet',{key:'sailgp',name:'Sydney Sail Grand Prix'}),{followedSports:['sailgp']},true,'premier SailGP meets remain marquee without stakes');
 const tennis={followedSports:["tennis"],followFirst:{australiansOnlySportIds:["sport:tennis"]}};
 included(fixture("early-aussie",{round:"Round 1",participantCountryCodes:["AUS"]}),tennis,false,"early tennis requires a followed player");
-included(fixture("foreign-final",{round:"Final",participantCountryCodes:["ITA","USA"]}),tennis,true,"tennis finals remain eligible regardless of nationality");
-included(fixture("explicit-event",{round:"Quarter-final",eventFamilyId:"us-open",participantCountryCodes:["ITA","USA"]}),{...tennis,followFirst:{...tennis.followFirst,followedMajorEventIds:["us-open"]}},true,"event follows bypass Australian scope");
+included(fixture("foreign-final",{round:"Final",participantCountryCodes:["ITA","USA"]}),tennis,false,"tennis finals require a player follow");
+included(fixture("explicit-event",{round:"Quarter-final",eventFamilyId:"us-open",participantCountryCodes:["ITA","USA"]}),{...tennis,followFirst:{...tennis.followFirst,followedMajorEventIds:["us-open"]}},false,"event follows never bypass player selection");
 included(fixture("early-event",{round:"Round 1",eventFamilyId:"us-open"}),{followFirst:{followedMajorEventIds:["us-open"]}},false,"event follows remain marquee only");
 included(fixture("doubles-semi",{round:"Semi-final",eventType:"doubles"}),{followedSports:["tennis"]},false,"doubles start at finals");
 included(fixture('doubles-format',{stage:"Women's Doubles",roundLabel:'Quarterfinal',matchType:'womens-doubles'}),{followedSports:['tennis']},false,'Events and source format labels use the same doubles finals policy');
-included(fixture("singles-quarter",{round:"Quarterfinal",eventType:"singles"}),{followedSports:["tennis"]},true,"singles start at quarter-finals");
+included(fixture("singles-quarter",{round:"Quarterfinal",eventType:"singles"}),{followedSports:["tennis"]},false,"singles quarter-finals require followed players");
 const athlete={followedSports:[],preferenceGraph:{entityFollows:[{participantId:"competitor:f1:max-verstappen",followLevel:"follow"}]}};
 included(fixture("nls",{key:"motorsport",participantIds:["competitor:f1:max-verstappen"],stakesScore:1}),athlete,true,"athlete follows cross disciplines");
 included(fixture("excluded",{key:"motorsport",participantIds:["competitor:f1:max-verstappen"],excludedParticipantIds:["competitor:f1:max-verstappen"]}),athlete,false,"confirmed exclusion overrides provisional entry");

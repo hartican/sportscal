@@ -2554,6 +2554,8 @@
   }
 
   function participantIdsForEvent(event){
+    const published=[...(event?.participantIds || []),...(event?.participantSlots || []).map(slot=>slot.participantId)].filter(Boolean);
+    if(published.length)return [...new Set(published)].filter(id=>!(event.excludedParticipantIds || []).includes(id));
     const nationalTeamIdentities = getNationalTeamIdentities();
     const nationalIds = nationalTeamIdentities?.participantIdsForEvent(event) || [];
     if (nationalIds.length) return nationalIds;
@@ -2571,6 +2573,7 @@
     const text = [event?.name, event?.displayTitleCompact, ...(Array.isArray(event?.participants) ? event.participants.map(participant => participant?.name) : [])]
       .filter(Boolean).join(" | ").toLowerCase();
     return teamsForDomain(domainId).flatMap(section => section.teams)
+      .filter(team => !team.isNationalTeam && team.teamKind !== "national")
       .filter(team => team.aliases.some(alias => new RegExp(`(?:^|[^a-z])${escapeRegExp(alias.toLowerCase())}(?:$|[^a-z])`).test(text)))
       .map(team => team.id);
   }
@@ -2953,7 +2956,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(root, competitionClassification){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v7";
+  const SCHEMA_VERSION = "follow-first.v8";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -3477,7 +3480,7 @@
     const explicitCompetition = competitionPreference?.enabled === true;
     const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
       || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
-    if (followPolicy.explicitCompetitionRequired(event) && !(explicitCompetition || (["aflw","nrlw"].includes(sourceSportId) && explicitScopedSport))) return null;
+    if (followPolicy.explicitCompetitionRequired(event) && !(explicitCompetition || ((["aflw","nrlw","wnba"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
     const sportFollowed = explicitCompetition || (explicitSelectors.size
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
@@ -3491,6 +3494,7 @@
       && event?.kind !== "major_event"
       && event?.kind !== "ticket_sale"
     );
+    if (sportId === "tennis") return null; // 2026-09-09: player/collection follows only, including finals.
     const australianScope = new Set(next.followFirst.australiansOnlySportIds || []);
     const scopedSportIds = [sourceSportId,sportId,sourceSportId === 'afl' ? 'afl-premiership' : '',sourceSportId === 'f1' ? 'motorsport' : ''].filter(Boolean).map(id=>`sport:${id}`);
     const families = new Set(next.followFirst.followedMajorEventIds || []);
@@ -3499,6 +3503,7 @@
       return {type:"event",entityKind:"event",id:eventFamily,label:null,displayTag:false};
     }
     if (competitionPreference?.enabled === false || domains.some(domain => domain.enabled === false)) return null;
+    if (["cricket","rugby"].includes(sportId)) return explicitCompetition && concreteSportingCard ? {type:"competition",entityKind:"competition",id:event.competitionId,label:null,displayTag:false} : null;
     if (sportId !== "tennis" && sportFollowed && scopedSportIds.some(id=>australianScope.has(id)) && followPolicy.australiansFilterUseful(event)){
       return followPolicy.eligibleForFollow(event,{competitionFollow:true,australiansOnly:true}) ? {type:'australians',entityKind:'sport',id:sportId,label:'Australian participants',displayTag:false} : null;
     }
@@ -3793,7 +3798,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildFollowFeedPolicy(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-feed-policy.v5";
+  const SCHEMA_VERSION = "follow-feed-policy.v6";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
 
   function dateKey(value, timeZone = SYDNEY_TIME_ZONE){
@@ -3839,7 +3844,7 @@
   function explicitCompetitionRequired(event){
     const key = sportKey(event);
     if (["aflw", "nrlw"].includes(key)) return true;
-    if (key !== "cricket") return false;
+    if (key === "tennis") return false;
     return /women|female|\bwbb[l]\b|\bwpl\b/i.test([event.gender,event.genderCategory,event.competitionGender,event.competitionId,event.competitionName,event.name].filter(Boolean).join(" "));
   }
 
@@ -3948,8 +3953,9 @@
     if(explicitSelection)return true;
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
+    if(sportKey(event)==="tennis")return false;
     if(explicitEventFollow)return isMarquee(event);
-    if(sportKey(event)==="tennis")return Boolean(competitionFollow && isMarquee(event));
+    if(["cricket","rugby"].includes(sportKey(event)))return false;
     if(australiansOnly && australiansFilterUseful(event))return competitionFollow && hasAustralianParticipant(event);
     if(australianDiscovery && hasAustralianParticipant(event))return true;
     return Boolean(competitionFollow && isMarquee(event));
@@ -3957,7 +3963,7 @@
 
   function followedFixtureDecision(event, { followed = false, followSource = "sport", now = new Date(), timeZone = SYDNEY_TIME_ZONE } = {}){
     if (!followed || !hasPublishedFixture(event) || aggregateEvent(event)) return { mode:"ineligible", include:false, label:"Add to Feed" };
-    if (["team", "athlete", "collection", "entity", "australians"].includes(String(followSource || ""))){
+    if (["team", "athlete", "collection", "entity", "australians", "competition"].includes(String(followSource || ""))){
       return { mode:"direct", include:true, label:"In Feed via follow" };
     }
     if (eligibleForFollow(event,{competitionFollow:true})) return { mode:"immediate", include:true, label:"In Feed via follow" };
@@ -9964,7 +9970,7 @@
   "use strict";
 
   const SCHEMA_VERSION = "sports-discovery-catalogue.v1";
-  const PREFERENCE_VERSION = 20;
+  const PREFERENCE_VERSION = 21;
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const DEFAULT_WINDOW_DAYS = 30;
   const DEFAULT_VISIBILITY_THRESHOLD = 5;
@@ -10222,7 +10228,12 @@
     const legacyAflFollow = Number(saved.version || 0) < PREFERENCE_VERSION && (
       (saved.selectedSelectorEntityIds || []).includes("sport:afl") || (saved.followedSports || []).includes("afl")
     );
+    const inheritedAflw = Number(saved.version || 0)>0 && Number(saved.version)<20
+      && (saved.selectedSelectorEntityIds || []).some(id=>["sport:afl","sport:afl-premiership"].includes(id))
+      && !(saved.preferenceGraph?.entityFollows || []).some(f=>String(f.participantId).includes(":aflw:") && ["follow","priority"].includes(f.followLevel))
+      && !(saved.preferenceGraph?.competitionPreferences || []).some(p=>String(p.competitionId).includes("aflw") && p.enabled===true);
     const selectedSelectorEntityIds = (Array.isArray(saved.selectedSelectorEntityIds) ? saved.selectedSelectorEntityIds : [])
+      .filter(id=>!(inheritedAflw && id==="sport:aflw"))
       .flatMap(id => legacyAflFollow && id === "sport:afl" ? ["sport:afl-premiership"] : [id]);
     const followedSports = (Array.isArray(saved.followedSports) ? saved.followedSports : [])
       .flatMap(id => legacyAflFollow && id === "afl" ? ["sport:afl-premiership"] : [id]);
@@ -11395,7 +11406,7 @@
     const labels = [cleanMatchupSideLabel(source.slice(0, divider.index), 0), cleanMatchupSideLabel(source.slice(divider.index + divider[0].length), 1)];
     const resolved = participantMarksForEvent(event, participants, source);
     return labels.map((label, index) => {
-      const identity = resolved.find(candidate => aliasRange(label, candidate.participant)) || resolved[index] || null;
+      const identity = resolved.find(candidate => aliasRange(label, candidate.participant)) || resolved.find(candidate => candidate.participant?.id === (event.participantSlots?.[index]?.participantId || event.participantIds?.[index])) || null;
       return Object.freeze({ label, participant:identity?.participant || null, mark:identity?.mark || null });
     });
   }

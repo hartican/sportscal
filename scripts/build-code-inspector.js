@@ -402,11 +402,16 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
       fixtures,
       standings:codeStandings(code),
     })}\n`);
+    const scheduleDir=path.join(path.dirname(outputDir),"follow-schedule");fs.mkdirSync(scheduleDir,{recursive:true});
+    const scheduleFixtures=fixtures.map(fixture=>{const {storyline,editorialNarrative,...core}=fixture;return editorialNarrative?.generationMode==="researched" ? {...core,storyline,editorialNarrative} : core;});
+    fs.writeFileSync(path.join(scheduleDir,fileName),JSON.stringify({schemaVersion:"code-inspector-chunk.v1",code:{id:code.id,slug:code.slug},fixtures:scheduleFixtures})+"\n");
     return {
+      followSchedulePath:`data/follow-schedule/${fileName}`,
       id: code.id,
       slug: code.slug,
       label: code.name,
       fixtureCount: fixtures.length,
+      hasStandings:codeStandings(code).length > 0,
       groupingMode: groupingMode(fixtures),
       coverageStatus,
       freshAt,

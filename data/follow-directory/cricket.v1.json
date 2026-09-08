@@ -9525,5 +9525,49 @@
       "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     }
+  ],
+  "browseGroups": [
+    {
+      "id": "internationals",
+      "label": "Major internationals",
+      "memberIds": [
+        "team:cricket:australia",
+        "team:cricket:india",
+        "team:cricket:new-zealand",
+        "team:cricket:south-africa",
+        "team:cricket:pakistan",
+        "team:cricket:sri-lanka",
+        "team:cricket:afghanistan",
+        "team:cricket:england",
+        "team:cricket:bangladesh",
+        "team:cricket:west-indies"
+      ]
+    },
+    {
+      "id": "domestic",
+      "label": "Australian domestic",
+      "memberIds": [
+        "team:cricket:espn-387",
+        "team:cricket:espn-459",
+        "team:cricket:espn-520",
+        "team:cricket:espn-560",
+        "team:cricket:espn-584",
+        "team:cricket:espn-602"
+      ]
+    },
+    {
+      "id": "bbl",
+      "label": "BBL",
+      "memberIds": [
+        "team:cricket:adelaide-strikers",
+        "team:cricket:brisbane-heat",
+        "team:cricket:hobart-hurricanes",
+        "team:cricket:melbourne-renegades",
+        "team:cricket:melbourne-stars",
+        "team:cricket:perth-scorchers",
+        "team:cricket:sydney-sixers",
+        "team:cricket:sydney-thunder"
+      ]
+    }
   ]
 }

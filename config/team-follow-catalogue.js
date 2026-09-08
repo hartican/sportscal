@@ -188,6 +188,8 @@
   }
 
   function participantIdsForEvent(event){
+    const published=[...(event?.participantIds || []),...(event?.participantSlots || []).map(slot=>slot.participantId)].filter(Boolean);
+    if(published.length)return [...new Set(published)].filter(id=>!(event.excludedParticipantIds || []).includes(id));
     const nationalTeamIdentities = getNationalTeamIdentities();
     const nationalIds = nationalTeamIdentities?.participantIdsForEvent(event) || [];
     if (nationalIds.length) return nationalIds;
@@ -205,6 +207,7 @@
     const text = [event?.name, event?.displayTitleCompact, ...(Array.isArray(event?.participants) ? event.participants.map(participant => participant?.name) : [])]
       .filter(Boolean).join(" | ").toLowerCase();
     return teamsForDomain(domainId).flatMap(section => section.teams)
+      .filter(team => !team.isNationalTeam && team.teamKind !== "national")
       .filter(team => team.aliases.some(alias => new RegExp(`(?:^|[^a-z])${escapeRegExp(alias.toLowerCase())}(?:$|[^a-z])`).test(text)))
       .map(team => team.id);
   }

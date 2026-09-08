@@ -592,7 +592,7 @@
     const labels = [cleanMatchupSideLabel(source.slice(0, divider.index), 0), cleanMatchupSideLabel(source.slice(divider.index + divider[0].length), 1)];
     const resolved = participantMarksForEvent(event, participants, source);
     return labels.map((label, index) => {
-      const identity = resolved.find(candidate => aliasRange(label, candidate.participant)) || resolved[index] || null;
+      const identity = resolved.find(candidate => aliasRange(label, candidate.participant)) || resolved.find(candidate => candidate.participant?.id === (event.participantSlots?.[index]?.participantId || event.participantIds?.[index])) || null;
       return Object.freeze({ label, participant:identity?.participant || null, mark:identity?.mark || null });
     });
   }

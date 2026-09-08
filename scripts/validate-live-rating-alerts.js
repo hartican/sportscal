@@ -21,7 +21,7 @@ async function dispatchCase({prefs, phase='live', votes=[vote('jim')], friends=[
   const deliveries=[];let complete=false,sends=0;
   const api={TABLES:{contributions:'votes'},refreshEventSnapshots:async()=>{},eventFor:()=>phase==='missing'?null:event,eventWithTiming:e=>e,identityMaps:async()=>({profiles:new Map([['jim',{visibility,display_name:'Jim'}]]),personas:new Map([['jim',{moderation_flag:moderation}]])}),rows:async(table)=>{
     if(table==='nothingsports_live_rating_alerts')return complete?[]:[alert];
-    if(table==='nothingsports_user_state')return [{preferences:prefs||{followedSports:['tennis']}}];
+    if(table==='nothingsports_user_state')return [{preferences:prefs||{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}}}];
     if(table==='nothingsports_user_follows')return friends.map(followed_user_id=>({followed_user_id}));
     if(table==='votes')return votes;
     if(table==='nothingsports_push_installations')return installations?[{installation_id:'device',endpoint:'https://push.test',p256dh:'key',auth_key:'auth'}]:[];

@@ -14,9 +14,9 @@ function check(event,prefs,expected,label){
 const tennis={followedSports:['tennis']};
 check(fixture({round:'Round 1',marqueeClassification:{isMarquee:true,sourceUrls:['https://example.org']}}),tennis,false,'early marquee needs a player');
 check(fixture({round:'Round 1',participantCountryCodes:['AUS']}),{...tennis,followFirst:{australiansOnlySportIds:['sport:tennis']}},false,'Australian tennis does not bypass player follows');
-for(const round of ['Quarterfinal','QF','Semi-final','SF','Final'])check(fixture({round}),tennis,true,round);
+for(const round of ['Quarterfinal','QF','Semi-final','SF','Final'])check(fixture({round}),tennis,false,round);
 for(const round of ['Quarterfinal','Semi-final'])check(fixture({round,eventType:'doubles'}),tennis,false,'doubles '+round);
-check(fixture({round:'Final',eventType:'doubles'}),tennis,true,'doubles final');
+check(fixture({round:'Final',eventType:'doubles'}),tennis,false,'doubles final');
 check(fixture({round:'Round 1'}),{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},true,'one followed player is sufficient');
 check(fixture({round:'Final'}),{},false,'no follows');
 for(const key of ['aflw','nrlw']){
@@ -48,7 +48,7 @@ const timeline=require('../config/fixture-identity');
 for(const [date,expected] of [['2026-09-01',true],['2026-08-31',false],['2027-09-08',true],['2027-09-09',false]]){
  const event=fixture({date,round:'Final'});
  assert.equal(timeline.retainedInActiveTimeline(event,now),expected,'browser boundary '+date);
- assert.equal(buildServerFeed({events:[event],userId:'boundary',userState:{preferences:tennis},now}).events.length>0,expected,'server boundary '+date);
+ assert.equal(buildServerFeed({events:[event],userId:'boundary',userState:{preferences:{preferenceGraph:{entityFollows:[{participantId:"athlete:one",followLevel:"follow"}]}}},now}).events.length>0,expected,'server boundary '+date);
 }
 assert(timeline.retainedInActiveTimeline(fixture({date:'2026-08-20',endDate:'2026-09-10'}),now),'ongoing multi-day fixture');
 assert(timeline.retainedInActiveTimeline(fixture({date:'2026-09-28'}),new Date('2026-10-04T14:00:00Z')),'seven local days across daylight saving');

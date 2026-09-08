@@ -20,7 +20,7 @@ for(const fixture of finals){
 }
 const pageEvents=fs.readdirSync('data/feed').filter(f=>/^page-.*json$/.test(f)).flatMap(f=>JSON.parse(fs.readFileSync('data/feed/'+f)).events);
 for(const entry of require('../data/canonical/nrl-finals-published-2026.json').events){const e=events.find(e=>aliases(e).includes(entry.id));assert.equal(e.startTimeUtc,entry.startTimeUtc);assert.deepEqual(e.participantIds,entry.participantIds);assert(pageEvents.some(e=>aliases(e).includes(entry.id)));}
-const upcomingTennis=programme.filter(e=>e.key==='tennis'&&new Date(e.startTimeUtc||e.sessionStartTimeUtc)>=reference&&follow.reasonForEvent(e,{followedSports:['tennis']}));
+const upcomingTennis=programme.filter(e=>e.key==='tennis'&&['mens-singles','womens-singles'].includes(e.matchType)&&new Date(e.startTimeUtc||e.sessionStartTimeUtc)>=reference&&follow.reasonForEvent(e,{preferenceGraph:{entityFollows:[{participantId:e.participantIds[0],followLevel:'follow'}]}}));
 assert(upcomingTennis.length>=4);
 for(const e of upcomingTennis){assert.equal(follow.stageLabel(e),'QF');assert.equal(e.editorialNarrative?.generationMode,'researched');assert(e.editorialNarrative.sourceIds.length>=3);}
 for(const id of ['evt_26','evt_27']){

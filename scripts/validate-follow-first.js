@@ -49,14 +49,13 @@ assert.equal(playerReason.displayTag, true, "only a directly followed athlete ge
 assert.equal(followFirst.reasonForEvent({ key:"rugby", competitionScope:"domestic", representativeCountryCodes:["AU"] }, followed), null, "Australian domestic events must not qualify");
 assert.equal(followFirst.reasonForEvent({ key:"rugby", competitionScope:"international", representativeCountryCodes:[] }, followed), null, "international metadata still requires explicit Australian representation");
 const australiaReason = followFirst.reasonForEvent({ key:"rugby", competitionScope:"international", representativeCountryCodes:["AUS"] }, followed);
-assert.equal(australiaReason.entityKind, "national-representation");
-assert.equal(australiaReason.displayTag, false);
+assert.equal(australiaReason, null, "Rugby international fixtures require explicit team or competition follows");
 assert.equal(followFirst.reasonForEvent({ key:"football", majorEventId:"fifa-world-cup", venue:"Leeds" }, { ...followed, followedSports:["football"] }, { locationMatches:true }), null, "sport, event and location metadata must not independently make a Feed card eligible");
 const fiveOfFive = { key:"rugby", eventId:"fixture:five", date:"2026-09-01", time:"19:30", stakesScore:5, cardKind:"fixture" };
 assert.equal(followFirst.reasonForEvent(fiveOfFive, followed),null,"legacy stakes must not confer eligibility");
-assert.equal(followFirst.reasonForEvent({...fiveOfFive,round:"Grand Final"}, followed)?.type,"sport-marquee","explicit finals qualify without numeric stakes");
+assert.equal(followFirst.reasonForEvent({...fiveOfFive,round:"Grand Final"}, followed),null,"a Rugby domestic final still requires a team or competition follow");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, tournamentParent:true }, followed), null, "tournament parents must never qualify through a sport follow");
-assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false } })?.type, "sport-marquee", "disabling extra Australian discovery must not unfollow a senior international");
+assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false } }), null, "a senior Rugby international is not admitted by a broad sport follow");
 assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"international", representativeCountryCodes:["AUS"], participantIds:["team:direct"] }, { ...followed, followFirst:{ ...followed.followFirst, australiaInternationalsEnabled:false }, preferenceGraph:{ entityFollows:[{ participantId:"team:direct", followLevel:"follow" }] } })?.entityKind, "team", "direct follows override the global Australia switch");
 assert.equal(followFirst.stageLabel({ stage:"Wildcard Final" }), "Wildcard");
 assert.equal(followFirst.stageLabel({ stage:"Preliminary Final" }), "Prelim");

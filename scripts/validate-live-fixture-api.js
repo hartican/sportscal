@@ -14,6 +14,11 @@ async function main(){
   res=response();await libraryHandler({url:'/api/fixtures',headers:{}},res);assert(res.body.sources.flatMap(source=>source.fixtures).some(event=>event.id==='known-before-server-refresh'),'a first failed or partial server lookup cannot hide fixtures in the verified library');
   res=response();await handler({url:`/api/fixtures?revision=${revision}`,method:"GET",headers:{}},res);assert.equal(res.statusCode,304);
   res=response();await createLiveFixtureHandler({read:async()=>{throw new Error(secret);}})({url:"/api/fixtures",headers:{}},res);assert.equal(res.statusCode,503);assert(!JSON.stringify(res.body).includes(secret));
+  const scopedHandler=createLiveFixtureHandler({publishedFixtures:()=>[],read:async()=>({revision:'scoped',stale:false,sources:[{source_id:'test',fixtures:[{id:'followed',status:'live'},{id:'unfollowed',status:'live'}]}]})});
+  res=response();await scopedHandler({url:'/api/fixtures?ids=followed',headers:{}},res);assert.deepEqual(res.body.sources.flatMap(s=>s.fixtures).map(e=>e.id),['followed'],'bounded live request excludes unrelated fixtures');
+  const selectedRevision=res.body.revision;
+  res=response();await scopedHandler({url:'/api/fixtures?ids=unfollowed&revision='+selectedRevision,headers:{}},res);assert.equal(res.statusCode,200,'different viewport selection invalidates revision');
+  res=response();await scopedHandler({url:'/api/fixtures?ids='+Array.from({length:61},(_,i)=>'id'+i).join(','),headers:{}},res);assert.equal(res.statusCode,400,'server enforces 60-fixture bound');
   const athleteHandler=createLiveFixtureHandler({read:async()=>({revision:'athlete-revision',stale:false,sources:[{source_id:'discovery-ai-athletes',fixtures:[{id:'race',enrichmentOnly:true,fixtureFallback:{id:'race',name:'NLS Round 8',date:'2026-09-12',key:'motorsport'},participationEvidence:[{participantId:'competitor:f1:george-russell',displayName:'George Russell',participationStatus:'confirmed',participationKind:'race',sourceUrl:'https://www.nuerburgring-langstrecken-serie.de/',checkedAt:'2026-09-08'}]}]}]})});
   res=response();await athleteHandler({url:'/api/fixtures?athlete=competitor%3Af1%3Ageorge-russell',headers:{}},res);
   assert.equal(res.body.schemaVersion,'athlete-participation-live.v1');assert.equal(res.body.history[0].description,'Confirmed entry — NLS Round 8');

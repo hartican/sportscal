@@ -8,7 +8,7 @@
   "use strict";
 
   const SCHEMA_VERSION = "sports-discovery-catalogue.v1";
-  const PREFERENCE_VERSION = 20;
+  const PREFERENCE_VERSION = 21;
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const DEFAULT_WINDOW_DAYS = 30;
   const DEFAULT_VISIBILITY_THRESHOLD = 5;
@@ -266,7 +266,12 @@
     const legacyAflFollow = Number(saved.version || 0) < PREFERENCE_VERSION && (
       (saved.selectedSelectorEntityIds || []).includes("sport:afl") || (saved.followedSports || []).includes("afl")
     );
+    const inheritedAflw = Number(saved.version || 0)>0 && Number(saved.version)<20
+      && (saved.selectedSelectorEntityIds || []).some(id=>["sport:afl","sport:afl-premiership"].includes(id))
+      && !(saved.preferenceGraph?.entityFollows || []).some(f=>String(f.participantId).includes(":aflw:") && ["follow","priority"].includes(f.followLevel))
+      && !(saved.preferenceGraph?.competitionPreferences || []).some(p=>String(p.competitionId).includes("aflw") && p.enabled===true);
     const selectedSelectorEntityIds = (Array.isArray(saved.selectedSelectorEntityIds) ? saved.selectedSelectorEntityIds : [])
+      .filter(id=>!(inheritedAflw && id==="sport:aflw"))
       .flatMap(id => legacyAflFollow && id === "sport:afl" ? ["sport:afl-premiership"] : [id]);
     const followedSports = (Array.isArray(saved.followedSports) ? saved.followedSports : [])
       .flatMap(id => legacyAflFollow && id === "afl" ? ["sport:afl-premiership"] : [id]);

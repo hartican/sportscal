@@ -323,6 +323,10 @@ function main(){
     }, { countryCode:team.countryCode, genderCategory:team.gender, sourceRefs:[team.sourceUrl] }));
   });
 
+  const curation = readJson("data/canonical/follow-directory-curation.v1.json");
+  for (const [id,displayName,countryCode] of [["team:rugby:fijian-drua","Fijian Drua","FJ"],["team:rugby:moana-pasifika","Moana Pasifika",null]]){
+    if (!chunks.get("rugby").has(id)) chunks.get("rugby").set(id,normalizeRecord({id,displayName,type:"team",teamKind:"club",genderCategory:"male",countryCode,leagueId:"competition:super-rugby-pacific",sourceRefs:[curation.sources[3]]}));
+  }
   const generatedAt = sourceGeneratedAt.slice().sort().at(-1) || "2026-08-25T00:00:00.000Z";
   const manifestGeneratedAt = [generatedAt, wrcContext?.generatedAt].filter(Boolean).sort().at(-1) || generatedAt;
   const manifest = {
@@ -364,6 +368,7 @@ function main(){
       status:sport.status,
       sortBasis:records.some(record => Number.isFinite(record.ranking) || Number.isFinite(record.ladderPosition)) ? "ranking-or-ladder-then-alphabetical" : "alphabetical-fallback",
       records,
+      ...(curation.sports[sport.key] ? {browseGroups:curation.sports[sport.key].groups} : {}),
       ...(sport.key === "tennis" ? { collections:tennisCollections } : {}),
     };
     changed = writeIfChanged(path.join(OUTPUT_DIR, `${sport.key}.v1.json`), `${JSON.stringify(payload, null, 2)}\n`, checkOnly) || changed;

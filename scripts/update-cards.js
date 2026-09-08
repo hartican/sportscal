@@ -300,6 +300,10 @@ async function main() {
     if(result.failed.length)process.exitCode=1;
     return;
   }
+  if(process.argv.includes("--follow-ui")){
+    for(const script of ["build-follow-directories","build-code-inspector","build-app-shell-runtime","validate-curated-follow-directories","validate-live-fixture-api"])runStep([`scripts/${script}.js`]);
+    console.log("Follow UI projections rebuilt from retained canonical sources; no source refresh or release performed.");return;
+  }
   if(process.argv.includes("--coverage")){
     await require("./refresh-source-coverage").refreshCoverage();
     runStep(["scripts/refresh-us-open-events.js"]);

@@ -7,7 +7,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(root, competitionClassification){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v7";
+  const SCHEMA_VERSION = "follow-first.v8";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -531,7 +531,7 @@
     const explicitCompetition = competitionPreference?.enabled === true;
     const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
       || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
-    if (followPolicy.explicitCompetitionRequired(event) && !(explicitCompetition || (["aflw","nrlw"].includes(sourceSportId) && explicitScopedSport))) return null;
+    if (followPolicy.explicitCompetitionRequired(event) && !(explicitCompetition || ((["aflw","nrlw","wnba"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
     const sportFollowed = explicitCompetition || (explicitSelectors.size
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
@@ -545,6 +545,7 @@
       && event?.kind !== "major_event"
       && event?.kind !== "ticket_sale"
     );
+    if (sportId === "tennis") return null; // 2026-09-09: player/collection follows only, including finals.
     const australianScope = new Set(next.followFirst.australiansOnlySportIds || []);
     const scopedSportIds = [sourceSportId,sportId,sourceSportId === 'afl' ? 'afl-premiership' : '',sourceSportId === 'f1' ? 'motorsport' : ''].filter(Boolean).map(id=>`sport:${id}`);
     const families = new Set(next.followFirst.followedMajorEventIds || []);
@@ -553,6 +554,7 @@
       return {type:"event",entityKind:"event",id:eventFamily,label:null,displayTag:false};
     }
     if (competitionPreference?.enabled === false || domains.some(domain => domain.enabled === false)) return null;
+    if (["cricket","rugby"].includes(sportId)) return explicitCompetition && concreteSportingCard ? {type:"competition",entityKind:"competition",id:event.competitionId,label:null,displayTag:false} : null;
     if (sportId !== "tennis" && sportFollowed && scopedSportIds.some(id=>australianScope.has(id)) && followPolicy.australiansFilterUseful(event)){
       return followPolicy.eligibleForFollow(event,{competitionFollow:true,australiansOnly:true}) ? {type:'australians',entityKind:'sport',id:sportId,label:'Australian participants',displayTag:false} : null;
     }

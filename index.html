@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="248">
-<script src="/assets/js/app-update.js?v=248" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=248" as="script">
+<meta name="app-shell-version" content="249">
+<script src="/assets/js/app-update.js?v=249" defer></script>
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=249" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6890,8 +6890,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=248">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=248">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=249">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=249">
 </head>
 <body>
 
@@ -7184,7 +7184,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=248"></script>
+<script src="assets/js/app-shell-runtime.js?v=249"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8311,7 +8311,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=248",
+  moduleScriptUrl: "config/major-events.js?v=249",
   url: "data/major-events.v1.json",
 });
 
@@ -8514,7 +8514,7 @@ function saveActiveProfileSections(sections){
 
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
-const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v7";
+const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v8";
 const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 const PERSONALISED_FEED_CACHE_MAX_STALE_MS = 7 * 24 * 60 * 60 * 1000;
 let publicFeedManifest = null;
@@ -10566,14 +10566,14 @@ async function fetchFollowDirectoryChunk(record){
 }
 function retainFollowDirectoryChunk(sportKey,record,chunk){
   followDirectoryChunks.set(sportKey,chunk);followDirectoryChunkErrors.delete(sportKey);
-  disposableStore?.set(`follow-directory:${sportKey}`,{record,chunk});
+  disposableStore?.set(`follow-directory:v2:${sportKey}`,{record,chunk});
   void disposableStore?.flush?.();
 }
 async function loadFollowDirectoryChunk(sportKey){
   if(followDirectoryChunks.has(sportKey))return followDirectoryChunks.get(sportKey);
   if(followDirectoryChunkLoading.has(sportKey))return followDirectoryChunkLoading.get(sportKey);
   const loading=(async()=>{
-    const saved=await disposableStore?.hydrate?.(`follow-directory:${sportKey}`,null);
+    const saved=await disposableStore?.hydrate?.(`follow-directory:v2:${sportKey}`,null);
     if(saved?.chunk?.sportKey===sportKey&&saved.record?.key===sportKey){
       followDirectoryChunks.set(sportKey,saved.chunk);
       void fetchFollowDirectoryChunk(saved.record).then(chunk=>{
@@ -10732,11 +10732,13 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 async function refreshLiveFixtureSnapshot(){
-  if(document.hidden || globalThis.location?.protocol==='file:' || startupCoordinator.isHydrating())return;
+  if(document.hidden || globalThis.location?.protocol==='file:' || startupCoordinator.isHydrating() || activeTab==='follow')return;
   if(liveFixtureRefresh)return liveFixtureRefresh;
+  const ids=[...new Set([...document.querySelectorAll('.feed-card-slot .event-card')].map(card=>card.closest('[data-feed-event-id]')?.dataset.feedEventId).filter(Boolean))].sort().slice(0,60);
+  if(!ids.length)return;
   liveFixtureRefresh=(async()=>{
     try{
-      const response=await fetch(`/api/fixtures?revision=${encodeURIComponent(liveFixtureRevision)}`,{cache:'no-store',signal:AbortSignal.timeout(12000)});
+      const response=await fetch(`/api/fixtures?ids=${encodeURIComponent(ids.join(","))}&revision=${encodeURIComponent(liveFixtureRevision)}`,{cache:'no-store',signal:AbortSignal.timeout(12000)});
       if(response.status===304)return;
       if(!response.ok)throw new Error('Live source unavailable');
       const snapshot=await response.json();
@@ -10749,7 +10751,7 @@ async function refreshLiveFixtureSnapshot(){
       liveFixtureEvents=nextLive;
       liveFixtureRevision=snapshot.revision;
       activeEvents=nextEvents;
-      disposableStore?.set('live-fixtures',{events:nextLive,revision:liveFixtureRevision});
+      disposableStore?.set('live-fixtures:v2',{events:nextLive,revision:liveFixtureRevision});
       if(codeInspectorChunk)codeInspectorChunk={...codeInspectorChunk,fixtures:liveScheduleFixtures(codeInspectorChunk.fixtures)};
       rebuildDerivedCardCache(activeEvents);
       queueScrollIdleMutation(()=>renderAll({preserveViewport:true}));
@@ -10762,7 +10764,7 @@ async function refreshLiveFixtureSnapshot(){
 async function loadFollowedScheduleFixtures(preferences = userPreferences){
   const identity = globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY;
   if(!liveFixtureRevision){
-    const saved=await disposableStore?.hydrate?.('live-fixtures',null);
+    const saved=await disposableStore?.hydrate?.('live-fixtures:v2',null);
     if(saved?.revision&&Array.isArray(saved.events)){liveFixtureEvents=identity.mergeOverlays(liveFixtureEvents,saved.events).filter(event=>eventMeetsDerivedRetention(event));liveFixtureRevision=saved.revision;}
   }
   const manifest = await loadCodeInspectorManifest();
@@ -10773,15 +10775,16 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
     const results = await Promise.allSettled(codes.slice(offset, offset + 3).map(code => {
       if (followedScheduleLoads.has(code.id)) return followedScheduleLoads.get(code.id);
       const read = (async () => {
-        const cacheKey = `followed-schedule:${code.id}`;
+        const cacheKey = `followed-schedule:v2:${code.id}`;
         const saved = await disposableStore?.hydrate?.(cacheKey,null);
         if (!followedScheduleFixtures.has(code.id) && Array.isArray(saved?.events)) followedScheduleFixtures.set(code.id,saved.events);
         let document;
         try {
-          document = await fetchJson(code.chunkPath, {cache:"default"});
+          document = await fetchJson(code.followSchedulePath || code.chunkPath, {cache:"default"});
           if (document?.schemaVersion !== "code-inspector-chunk.v1" || document.code?.id !== code.id || !Array.isArray(document.fixtures)) throw new Error("Invalid followed schedule");
           const previous = followedScheduleFixtures.get(code.id) || [];
-          const incoming = document.fixtures.filter(fixture => fixture?.id).map(fixture => identity.fromSchedule(fixture,code));
+          const context=buildFollowEligibilityContext();
+          const incoming = document.fixtures.filter(fixture => fixture?.id && identity.retainedInActiveTimeline(fixture) && FOLLOW_FIRST.reasonForEvent(fixture,preferences,{preparedPreferences:context.preparedPreferences,collectionsById:context.collectionsById})).map(fixture => identity.fromSchedule(fixture,code));
           // A shortened response is not a deletion. Explicit statuses/mutes still apply.
           const events = mergeCanonicalEventPages(previous,incoming).filter(event => eventMeetsDerivedRetention(event));
           followedScheduleFixtures.set(code.id,events);
@@ -14368,6 +14371,7 @@ function automaticEventFollowReason(ev, context=buildFollowEligibilityContext())
 }
 
 function followFeedPolicySource(reason){
+  if(["competition","event"].includes(reason?.type))return "competition";
   if (reason?.type === "australians") return "australians";
   return ["team", "athlete", "collection", "entity", "entity-follow"].includes(String(reason?.type || ""))
     ? "entity"
@@ -19333,7 +19337,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
       state.appendChild(retry);
     }
     container.appendChild(state);
-    if (!failed && !followDirectoryChunkLoading.has(sportKey)){
+    if (!failed){
       Promise.all([loadFootballDirectoryModule(), loadFollowDirectoryChunk(sportKey)])
         .then(() => queueScrollIdleMutation(renderStandingsContext))
         .catch(error => {followDirectoryChunkErrors.set(sportKey,error);queueScrollIdleMutation(renderStandingsContext);});
@@ -19342,6 +19346,8 @@ function renderLegacyParticipantDirectory(container, sportKey){
   }
   if ((chunk.records || []).some(record => record.entityType === "athlete")) void ensureAthleteProfileUi().catch(() => {});
   const filters = directoryFilters(sportKey);
+  const curatedIds = (chunk.browseGroups || []).flatMap(group=>group.memberIds);
+  const curatedOrder = new Map(curatedIds.map((id,index)=>[id,index]));
   const allRecords = chunk.records.map(record => ({
     ...record,
     rank: FOLLOW_FIRST?.normalizeDirectoryRank?.(record.ranking ?? record.ladderPosition) ?? null,
@@ -19356,12 +19362,14 @@ function renderLegacyParticipantDirectory(container, sportKey){
   const collectionsById = new Map((chunk.collections || []).map(collection => [collection.id, collection]));
   const selectedCollectionMemberIds = new Set(collectionsById.get(filters.collectionId)?.memberIds || []);
   const records = allRecords
+    .filter(record => !curatedIds.length || filters.query || filters.genderCategory === "female" || curatedOrder.has(record.id))
     .filter(record => !motorsportDirectory || record.entityType === filters.entityType)
     .filter(record => !filters.collectionId || selectedCollectionMemberIds.has(record.id))
     .filter(record => !filters.birthCountryCode || record.countryCode === filters.birthCountryCode)
     .filter(record => !filters.genderCategory || record.genderCategory === filters.genderCategory)
     .filter(record => Number.isFinite(footballDirectoryApi.searchMatchScore(record, filters.query)))
     .sort((first, second) => {
+      if(curatedIds.length && !filters.query && !filters.genderCategory)return (curatedOrder.get(first.id) ?? 999)-(curatedOrder.get(second.id) ?? 999);
       if (filters.query){
         const scoreDelta = footballDirectoryApi.searchMatchScore(first, filters.query) - footballDirectoryApi.searchMatchScore(second, filters.query);
         if (scoreDelta) return scoreDelta;
@@ -19378,7 +19386,7 @@ function renderLegacyParticipantDirectory(container, sportKey){
       }
       return String(first.displayName || "").localeCompare(String(second.displayName || ""), "en-AU", { sensitivity:"base" });
     });
-  records.splice(0,records.length,...footballDirectoryApi.followOrder(records,userPreferences,followCollectionsById()));
+  if(!curatedIds.length)records.splice(0,records.length,...footballDirectoryApi.followOrder(records,userPreferences,followCollectionsById()));
   const directory = document.createElement("section");
   directory.className = "football-directory";
   if (motorsportDirectory){
@@ -19455,7 +19463,8 @@ function renderLegacyParticipantDirectory(container, sportKey){
   const limit=followDirectoryBatchLimits.get(batchKey)||40;
   let directoryGroup='';
   records.slice(0,limit).forEach(record => {
-    const group=record.teamKind==='national'||record.competitionScope==='international'?'International':record.teamKind==='club'||record.competitionScope==='domestic'?'Domestic':'Open competition';
+    const curatedGroup=(chunk.browseGroups || []).find(group=>group.memberIds.includes(record.id));
+    const group=curatedGroup?.label || (record.teamKind==='national'||record.competitionScope==='international'?'International':record.teamKind==='club'||record.competitionScope==='domestic'?'Domestic':'Open competition');
     if(group!==directoryGroup){directoryGroup=group;const heading=document.createElement('h3');heading.className='follow-directory-group';heading.textContent=group;list.appendChild(heading);}
     const row = document.createElement("div");
     row.className = "football-club-head follow-directory-row";
@@ -19670,10 +19679,12 @@ function renderTennisFollowCollections(container){
     panel.textContent = followDirectoryChunkErrors.has("tennis") ? "Tennis groups are temporarily unavailable. Tap to retry." : "Loading Tennis groups…";
     panel.addEventListener("click", () => {
       followDirectoryChunkErrors.delete("tennis");
-      void loadFollowDirectoryChunk("tennis").then(() => queueScrollIdleMutation(renderFollowView));
+      void loadFollowDirectoryChunk("tennis").then(() => queueScrollIdleMutation(renderFollowView)).catch(() => queueScrollIdleMutation(renderFollowView));
     }, { once:true });
-    if (!followDirectoryChunkLoading.has("tennis")) void loadFollowDirectoryChunk("tennis").then(() => {
-      if (activeTab === "follow" && followViewSection === "sports-australia" && expandedFollowSportIds.has("tennis")) queueScrollIdleMutation(renderFollowView);
+    if (!followDirectoryChunkErrors.has("tennis") && !followDirectoryChunkLoading.has("tennis")) void loadFollowDirectoryChunk("tennis").then(() => {
+      if (activeTab === "follow" && followDirectoryKey() === "tennis") queueScrollIdleMutation(renderFollowView);
+    }).catch(() => {
+      if (activeTab === "follow" && followDirectoryKey() === "tennis") queueScrollIdleMutation(renderFollowView);
     });
     container.appendChild(panel);
     return panel;
@@ -19737,7 +19748,7 @@ const followStandingsAvailability=new Map();
 const followStandingsLoading=new Set();
 function followHasStandings(code){
   if (!code) return false;
-  return followStandingsAvailability.get(code.id)===true || Boolean(codeInspectorChunk?.code?.id===code.id && codeInspectorChunk.standings?.length)
+  return code.hasStandings===true || followStandingsAvailability.get(code.id)===true || Boolean(codeInspectorChunk?.code?.id===code.id && codeInspectorChunk.standings?.length)
     || (CANONICAL_TAXONOMY.competitions || []).some(competition=>competition.supportsLadder && standingsSportKey(competition)===codeInspectorStandingsSportKey(code));
 }
 async function openFollowScreen(section){
@@ -19811,10 +19822,6 @@ function renderFollowView(){
   const heading=document.createElement('h2');heading.textContent=entity.label;container.appendChild(heading);
   if (!codeInspectorManifest && !codeInspectorManifestLoading) void loadCodeInspectorManifest().then(()=>{if(activeTab==='follow') queueScrollIdleMutation(renderFollowView);}).catch(()=>{});
   const code=followInspectorCode(entity);
-  if(code && !followStandingsAvailability.has(code.id) && !followStandingsLoading.has(code.id)){
-    followStandingsLoading.add(code.id);
-    void fetchJson(code.chunkPath).then(chunk=>{followStandingsAvailability.set(code.id,Boolean(chunk.standings?.length));if(activeTab==='follow'&&!activeInspectorCodeId)queueScrollIdleMutation(renderFollowView);}).catch(()=>{followStandingsAvailability.set(code.id,false);}).finally(()=>followStandingsLoading.delete(code.id));
-  }
   const tabs=document.createElement('nav');tabs.className='follow-section-tabs';tabs.setAttribute('aria-label',`${entity.label} sections`);
   [['schedule','Schedule'],...(followHasStandings(code)?[['standings',followStandingsLabel(code)]]:[]),['teams-players','Teams & players'],['major-events','Major Events']].forEach(([section,label])=>{
     const button=document.createElement('button');button.type='button';button.className=`follow-section-tab${state.section===section?' active':''}`;button.textContent=label;
@@ -24882,7 +24889,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=248");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=249");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -25259,7 +25266,8 @@ function startupFeedTaskDescriptors(){
 // The Feed and all browsing routes share these dependencies. Opening another
 // screen cannot be a prerequisite for resolving a saved follow collection.
 async function ensureFeedSourceReadiness(preferences=userPreferences){
-  await Promise.allSettled([ensureFollowCollectionDirectories(preferences),loadMajorEventsData({quiet:true,cacheFirst:true}),loadFollowedScheduleFixtures(preferences)]);
+  await ensureFollowCollectionDirectories(preferences).catch(()=>{});
+  await loadFollowedScheduleFixtures(preferences).catch(()=>{});
   rebuildDerivedCardCache(activeEvents);
 }
 function loadDeferredStartupContext(){

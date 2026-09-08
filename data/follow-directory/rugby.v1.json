@@ -2203,6 +2203,38 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "team:rugby:fijian-drua",
+      "displayName": "Fijian Drua",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "FJ",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:super-rugby-pacific",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:rugby:fijian-drua",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://super.rugby/superrugby/documents/media-files/2026-super-rugby-pacific-match-schedule/"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "team:rugby:france-women",
       "displayName": "France Women",
       "shortName": null,
@@ -3225,6 +3257,38 @@
       "statusCategory": null,
       "collectionIds": [],
       "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:rugby:moana-pasifika",
+      "displayName": "Moana Pasifika",
+      "shortName": null,
+      "aliases": [],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:super-rugby-pacific",
+      "teamKind": "club",
+      "position": null,
+      "identityId": "team:rugby:moana-pasifika",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://super.rugby/superrugby/documents/media-files/2026-super-rugby-pacific-match-schedule/"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
     {
@@ -6005,6 +6069,55 @@
       "collectionIds": [],
       "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
+    }
+  ],
+  "browseGroups": [
+    {
+      "id": "internationals",
+      "label": "Major internationals",
+      "memberIds": [
+        "team:rugby:wallabies",
+        "team:rugby:all-blacks",
+        "team:rugby:springboks",
+        "team:rugby:argentina",
+        "team:rugby:england",
+        "team:rugby:france",
+        "team:rugby:ireland",
+        "team:rugby:italy",
+        "team:rugby:scotland",
+        "team:rugby:wales",
+        "team:rugby:japan",
+        "team:rugby:fiji",
+        "team:rugby:georgia",
+        "team:rugby:samoa",
+        "team:rugby:tonga",
+        "team:rugby:uruguay",
+        "team:rugby:portugal",
+        "team:rugby:romania",
+        "team:rugby:spain",
+        "team:rugby:usa",
+        "team:rugby:canada",
+        "team:rugby:chile",
+        "team:rugby:wr-725",
+        "team:rugby:zimbabwe"
+      ]
+    },
+    {
+      "id": "super-rugby",
+      "label": "Super Rugby Pacific",
+      "memberIds": [
+        "team:rugby:brumbies",
+        "team:rugby:reds",
+        "team:rugby:waratahs",
+        "team:rugby:force",
+        "team:rugby:blues",
+        "team:rugby:chiefs",
+        "team:rugby:crusaders",
+        "team:rugby:highlanders",
+        "team:rugby:hurricanes",
+        "team:rugby:fijian-drua",
+        "team:rugby:moana-pasifika"
+      ]
     }
   ]
 }

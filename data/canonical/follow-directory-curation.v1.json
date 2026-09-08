@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "follow-directory-curation.v1",
+  "decidedAt": "2026-09-09",
+  "sources": [
+    "https://www.icc-cricket.com/media-releases/india-retain-top-position-in-men-s-odi-team-rankings-after-annual-update",
+    "https://www.rugbyworldcup.com/2027/en/teams",
+    "https://www.cricket.com.au/high-performance/domestic-cricket",
+    "https://super.rugby/superrugby/documents/media-files/2026-super-rugby-pacific-match-schedule/"
+  ],
+  "sports": {
+    "cricket": {
+      "groups": [
+        {
+          "id": "internationals",
+          "label": "Major internationals",
+          "memberIds": [
+            "team:cricket:australia",
+            "team:cricket:india",
+            "team:cricket:new-zealand",
+            "team:cricket:south-africa",
+            "team:cricket:pakistan",
+            "team:cricket:sri-lanka",
+            "team:cricket:afghanistan",
+            "team:cricket:england",
+            "team:cricket:bangladesh",
+            "team:cricket:west-indies"
+          ]
+        },
+        {
+          "id": "domestic",
+          "label": "Australian domestic",
+          "memberIds": [
+            "team:cricket:espn-387",
+            "team:cricket:espn-459",
+            "team:cricket:espn-520",
+            "team:cricket:espn-560",
+            "team:cricket:espn-584",
+            "team:cricket:espn-602"
+          ]
+        },
+        {
+          "id": "bbl",
+          "label": "BBL",
+          "memberIds": [
+            "team:cricket:adelaide-strikers",
+            "team:cricket:brisbane-heat",
+            "team:cricket:hobart-hurricanes",
+            "team:cricket:melbourne-renegades",
+            "team:cricket:melbourne-stars",
+            "team:cricket:perth-scorchers",
+            "team:cricket:sydney-sixers",
+            "team:cricket:sydney-thunder"
+          ]
+        }
+      ]
+    },
+    "rugby": {
+      "groups": [
+        {
+          "id": "internationals",
+          "label": "Major internationals",
+          "memberIds": [
+            "team:rugby:wallabies",
+            "team:rugby:all-blacks",
+            "team:rugby:springboks",
+            "team:rugby:argentina",
+            "team:rugby:england",
+            "team:rugby:france",
+            "team:rugby:ireland",
+            "team:rugby:italy",
+            "team:rugby:scotland",
+            "team:rugby:wales",
+            "team:rugby:japan",
+            "team:rugby:fiji",
+            "team:rugby:georgia",
+            "team:rugby:samoa",
+            "team:rugby:tonga",
+            "team:rugby:uruguay",
+            "team:rugby:portugal",
+            "team:rugby:romania",
+            "team:rugby:spain",
+            "team:rugby:usa",
+            "team:rugby:canada",
+            "team:rugby:chile",
+            "team:rugby:wr-725",
+            "team:rugby:zimbabwe"
+          ]
+        },
+        {
+          "id": "super-rugby",
+          "label": "Super Rugby Pacific",
+          "memberIds": [
+            "team:rugby:brumbies",
+            "team:rugby:reds",
+            "team:rugby:waratahs",
+            "team:rugby:force",
+            "team:rugby:blues",
+            "team:rugby:chiefs",
+            "team:rugby:crusaders",
+            "team:rugby:highlanders",
+            "team:rugby:hurricanes",
+            "team:rugby:fijian-drua",
+            "team:rugby:moana-pasifika"
+          ]
+        }
+      ]
+    }
+  }
+}

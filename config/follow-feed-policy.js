@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildFollowFeedPolicy(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-feed-policy.v5";
+  const SCHEMA_VERSION = "follow-feed-policy.v6";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
 
   function dateKey(value, timeZone = SYDNEY_TIME_ZONE){
@@ -51,7 +51,7 @@
   function explicitCompetitionRequired(event){
     const key = sportKey(event);
     if (["aflw", "nrlw"].includes(key)) return true;
-    if (key !== "cricket") return false;
+    if (key === "tennis") return false;
     return /women|female|\bwbb[l]\b|\bwpl\b/i.test([event.gender,event.genderCategory,event.competitionGender,event.competitionId,event.competitionName,event.name].filter(Boolean).join(" "));
   }
 
@@ -160,8 +160,9 @@
     if(explicitSelection)return true;
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
+    if(sportKey(event)==="tennis")return false;
     if(explicitEventFollow)return isMarquee(event);
-    if(sportKey(event)==="tennis")return Boolean(competitionFollow && isMarquee(event));
+    if(["cricket","rugby"].includes(sportKey(event)))return false;
     if(australiansOnly && australiansFilterUseful(event))return competitionFollow && hasAustralianParticipant(event);
     if(australianDiscovery && hasAustralianParticipant(event))return true;
     return Boolean(competitionFollow && isMarquee(event));
@@ -169,7 +170,7 @@
 
   function followedFixtureDecision(event, { followed = false, followSource = "sport", now = new Date(), timeZone = SYDNEY_TIME_ZONE } = {}){
     if (!followed || !hasPublishedFixture(event) || aggregateEvent(event)) return { mode:"ineligible", include:false, label:"Add to Feed" };
-    if (["team", "athlete", "collection", "entity", "australians"].includes(String(followSource || ""))){
+    if (["team", "athlete", "collection", "entity", "australians", "competition"].includes(String(followSource || ""))){
       return { mode:"direct", include:true, label:"In Feed via follow" };
     }
     if (eligibleForFollow(event,{competitionFollow:true})) return { mode:"immediate", include:true, label:"In Feed via follow" };
