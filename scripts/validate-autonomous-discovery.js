@@ -19,6 +19,7 @@ async function main(){
  const body=JSON.parse(calls[0].options.body);assert.equal(body.store,false);assert(body.max_tool_calls<=4);assert(!calls[0].options.body.includes('user_id'));
  assert(!JSON.stringify(result).includes('<article>'),'source bodies must never be persisted');
  await assert.rejects(discover({mode:'athletes',athletes:[athlete],fixtures:[fixture],environment:{},fetchImpl}),error=>error.code==='ai_not_configured');
+ await assert.rejects(discover({mode:'athletes',athletes:[athlete],fixtures:[fixture],environment:{VERCEL_OIDC_TOKEN:'test-only'},fetchImpl:async()=>({ok:false,status:403,json:async()=>({error:{type:'customer_verification_required'}})})}),error=>error.code==='ai_billing_required');
  console.log('Autonomous discovery: real protocol seam, verified entry, bounded search, no article persistence and missing-key failure passed.');
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

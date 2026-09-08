@@ -36,4 +36,8 @@ The release contains the discovery jobs and explicit blocked health reporting, b
 
 ## GitHub and deployment
 
-Pending exact-SHA push, READY production metadata and public-alias verification at the time this release record was prepared. These must not be inferred from local test results.
+Initial release `a2a483dc2c83252d8fd1860742f865a2358093db` was pushed to GitHub main and deployed as `dpl_2azATxMmTJ6bvpHuCUKWut9Pwtx1`, READY with matching `releaseGitSha`. The public alias served byte-identical HTML, worker, identity/profile modules and version marker. Public fixtures returned 200, revision revalidation returned 304, and an unauthorised refresh returned 401.
+
+The first scheduled production runs populated every Rugby query partition and most Cricket partitions. A few Cricket date requests were temporarily partial and retried; the released static library had already verified all 98 dates. A server-only follow-up therefore includes the verified library in every live response, even when the **first** server lookup is partial, and binds revision validators to both library and live source content. Its regression test passes. This does not mark an unavailable upstream date as freshly verified.
+
+The real Gateway response encodes the billing restriction in `error.type`, not `error.code`; the follow-up recognises both. Production AI jobs remain blocked, not operational. Final follow-up commit/deployment identifiers are recorded in the Vercel release metadata and task handoff rather than inferred from this document's preparation time.
