@@ -62,6 +62,7 @@ function buildSteps({ localOnly = false } = {}) {
   const steps = [
   ["scripts/snapshot-active-follows.js"],
   ["scripts/refresh-source-coverage.js"],
+  ["scripts/refresh-discovery.js"],
   ["scripts/build-athlete-participation.js"],
   ["scripts/refresh-canonical-sports.js"],
   ["scripts/refresh-wrc-context.js"],
@@ -255,6 +256,11 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-follow-first.js"],
   ["scripts/validate-follow-policy-parity.js"],
   ["scripts/validate-source-coverage.js"],
+  ["scripts/validate-discovery-coverage.js"],
+  ["scripts/validate-discovery-refresh.js"],
+  ["scripts/validate-discovery-evidence.js"],
+  ["scripts/validate-discovery-transport.js"],
+  ["scripts/validate-autonomous-discovery.js"],
   ["scripts/validate-live-fixtures.js"],
   ["scripts/validate-live-afl-adapter.js"],
   ["scripts/validate-live-fixture-api.js"],
@@ -271,6 +277,13 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function main() {
   const options = parseOptions();
+  if(process.argv.includes('--discovery')){
+    await require('./refresh-discovery').refreshDiscovery();
+    runStep(['scripts/build-athlete-participation.js']);
+    runStep(['scripts/build-code-inspector.js']);
+    for(const test of ['discovery-evidence','discovery-transport','autonomous-discovery'])runStep([`scripts/validate-${test}.js`]);
+    return;
+  }
   if(process.argv.includes("--live")){
     const {refreshDueSources}=require("../lib/live-fixtures");
     const {liveSources}=require("../lib/live-source-adapters");
@@ -287,6 +300,8 @@ async function main() {
     runStep(["scripts/build-code-inspector.js","--codes=cricket,rugby-union,motorsport,f1,tennis"]);
     runStep(["scripts/build-follow-directories.js"]);
     runStep(["scripts/validate-source-coverage.js"]);
+    runStep(["scripts/validate-discovery-coverage.js"]);
+    runStep(["scripts/validate-discovery-refresh.js"]);
     return;
   }
   const quick=process.argv.includes("--quick");

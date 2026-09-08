@@ -84,15 +84,43 @@
   }
 
   function mergeOverlays(events,updates){
-    const result=events.slice(),indexes=new Map();
-    const aliases=event=>[event?.canonicalEventId,event?.eventId,event?.id].filter(Boolean);
-    result.forEach((event,index)=>aliases(event).forEach(id=>indexes.set(id,index)));
-    for(const event of updates || []){
+    const result=events.slice(),indexes=new Map(),semanticIndexes=new Map();
+    const aliases=event=>[event?.canonicalEventId,event?.eventId,event?.id,...(event?.sourceEventIds||[])].filter(Boolean);
+    const semanticKey=event=>{
+      const ids=[...new Set([event.homeParticipantId,event.awayParticipantId].filter(Boolean))];
+      if(ids.length!==2)return '';
+      const start=Date.parse(event.startTimeUtc||'');if(!Number.isFinite(start))return '';
+      return `${sportKey(event)}|${start}|${ids.sort().join('|')}`;
+    };
+    result.forEach((event,index)=>{aliases(event).forEach(id=>indexes.set(id,index));const key=semanticKey(event);if(key)semanticIndexes.set(key,index);});
+    // Enrichment is an additive overlay, never a replacement score/status feed.
+    const ordered=[...(updates||[]).filter(event=>!event.enrichmentOnly),...(updates||[]).filter(event=>event.enrichmentOnly)];
+    for(const event of ordered){
       const ids=aliases(event);if(!ids.length)continue;
-      const match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined),index=match??result.length;
-      result[index]=normalizeCore({...result[index],...event});ids.forEach(id=>indexes.set(id,index));
+      const key=semanticKey(event),match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined)??(key?semanticIndexes.get(key):undefined),index=match??result.length;
+      const base=result[index];
+      result[index]=event.enrichmentOnly?applyEnrichment(base,event):normalizeCore({...base,...event,...(base?{id:base.id,eventId:base.eventId||base.id,canonicalEventId:base.canonicalEventId||base.id,sourceEventIds:[...new Set([...aliases(base),...ids])]}:{})});
+      ids.forEach(id=>indexes.set(id,index));if(key)semanticIndexes.set(key,index);
     }
     return result;
+  }
+
+  function applyEnrichment(existing,overlay){
+    const base=existing||overlay.fixtureFallback||{id:overlay.id};
+    const entries=new Map();
+    for(const entry of [...(base.participationEvidence||[]),...(overlay.participationEvidence||[])]){
+      if(!entry?.participantId)continue;
+      const prior=entries.get(entry.participantId),when=Date.parse(entry.publishedAt||entry.checkedAt)||0,priorWhen=Date.parse(prior?.publishedAt||prior?.checkedAt)||0;
+      if(!prior||when>priorWhen||when===priorWhen&&entry.participationStatus==='withdrawn')entries.set(entry.participantId,entry);
+    }
+    const participantIds=new Set(base.participantIds||[]),excluded=new Set(base.excludedParticipantIds||[]),participants=new Map((base.participants||[]).map(item=>[item.id,item]));
+    for(const entry of entries.values()){
+      if(entry.participationStatus==='withdrawn'){participantIds.delete(entry.participantId);participants.delete(entry.participantId);excluded.add(entry.participantId);}
+      else{participantIds.add(entry.participantId);excluded.delete(entry.participantId);if(!participants.has(entry.participantId))participants.set(entry.participantId,{id:entry.participantId,displayName:entry.displayName,countryCode:entry.countryCode});}
+    }
+    const tags=new Map((base.consensusTags||[]).map(tag=>[tag.label,tag]));
+    for(const tag of overlay.consensusTags||[]){const prior=tags.get(tag.label);if(!prior||String(tag.checkedAt||'')>=String(prior.checkedAt||''))tags.set(tag.label,tag);}
+    return normalizeCore({...base,participantIds:[...participantIds],participants:[...participants.values()],participantCountryCodes:[...new Set([...(base.participantCountryCodes||[]),...[...entries.values()].filter(entry=>entry.participationStatus!=='withdrawn').map(entry=>entry.countryCode)].filter(Boolean))],excludedParticipantIds:[...excluded],participationEvidence:[...entries.values()],consensusTags:[...tags.values()]});
   }
 
   function estimateTimeline(events,{now=new Date()}={}){
@@ -133,7 +161,7 @@
     const array=value=>Array.isArray(value)?value:[];
     const allowed=new Set(['Rivalry','Derby','Round-Robin','Knockout','Final','Record Chase']);
     const urls=[event.sourceUrl,...array(event.sourceUrls),...array(event.sources).map(source=>source?.url)].filter(url=>typeof url==='string'&&/^https:\/\//.test(url));
-    const tags=[...array(event.consensusTags),...array(event.editorialPreview?.consensusTags)].filter(tag=>tag&&allowed.has(tag.label)&&Number(tag.confidence)>=.6&&array(tag.sourceUrls).some(url=>/^https:\/\//.test(url)));
+    const tags=[...array(event.consensusTags),...array(event.editorialPreview?.consensusTags)].filter(tag=>tag&&allowed.has(tag.label)&&Number(tag.confidence)>=.6&&(!tag.expiresAt||Date.parse(tag.expiresAt)>Date.now())&&array(tag.sourceUrls).some(url=>/^https:\/\//.test(url)));
     // Structural schedule facts can be classified without inventing narrative.
     const round=String(event.round||event.roundLabel||event.stage||'').toLowerCase();
     const label=/^(?:grand |grand-)?final$/.test(round)?'Final':/quarter.?final|semi.?final|knockout|round of (?:16|32)/.test(round)?'Knockout':/round.?robin|group stage/.test(round)?'Round-Robin':null;

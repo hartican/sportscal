@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "discovery-enrichment.v1",
+  "generatedAt": "2026-09-08T10:56:38.458Z",
+  "sources": [
+    {
+      "fixtures": [],
+      "id": "discovery-ai-athletes",
+      "coverage": {
+        "status": "failed",
+        "lastAttemptAt": "2026-09-08T10:56:38.458Z",
+        "failureCode": "ai_not_configured"
+      },
+      "nextDueAt": "2026-09-08T16:56:38.458Z"
+    },
+    {
+      "fixtures": [],
+      "id": "discovery-ai-consensus",
+      "coverage": {
+        "status": "failed",
+        "lastAttemptAt": "2026-09-08T10:56:38.458Z",
+        "failureCode": "ai_not_configured"
+      },
+      "nextDueAt": "2026-09-08T16:56:38.458Z"
+    }
+  ],
+  "events": []
+}

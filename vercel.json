@@ -15,7 +15,7 @@
     },
     "api/feed.js": {
       "maxDuration": 60,
-      "includeFiles": "data/{code-inspector/*.json,events.json,follow-fixtures.v1.json,major-events.v1.json}"
+      "includeFiles": "data/{code-inspector/*.json,follow-directory/*.json,discovery/*.json,events.json,follow-fixtures.v1.json,major-events.v1.json}"
     }
   },
   "redirects": [

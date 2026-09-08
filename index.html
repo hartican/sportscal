@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="246">
-<script src="/assets/js/app-update.js?v=246" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=246" as="script">
+<meta name="app-shell-version" content="247">
+<script src="/assets/js/app-update.js?v=247" defer></script>
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=247" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6879,8 +6879,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   .events-feed-card .major-event-navigation-row{ width:100%; padding:6px 8px; }
 }
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=246">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=246">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=247">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=247">
 </head>
 <body>
 
@@ -7173,7 +7173,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=246"></script>
+<script src="assets/js/app-shell-runtime.js?v=247"></script>
 <script>
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
@@ -8271,7 +8271,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=246",
+  moduleScriptUrl: "config/major-events.js?v=247",
   url: "data/major-events.v1.json",
 });
 
@@ -24783,7 +24783,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=246");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=247");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

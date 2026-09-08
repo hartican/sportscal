@@ -10,6 +10,7 @@ const SUPPLEMENT_PATH = "data/canonical/follow-directory-supplement.v1.json";
 const TENNIS_WATCH_POOL_PATH = "data/canonical/tennis-watch-pool-2026.json";
 const CHAMPIONS_LEAGUE_PATH = "data/canonical/uefa-champions-league-2026-27.json";
 const REQUESTED_SPORTS_PATH = "data/canonical/fiba-women-sailgp-motogp-2026.json";
+const discoveredCompetitions=new Map((require('../data/follow-sources/coverage.v1.json').competitions||[]).map(item=>[item.id,item.name]));
 
 function readJson(relativePath){
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -97,6 +98,7 @@ function normalizeRecord(record, additions = {}){
     marketValue:Number.isFinite(Number(record.marketValue ?? record.marketValueEur)) ? Number(record.marketValue ?? record.marketValueEur) : null,
     currentTeamId:record.currentTeamId || null,
     leagueId:record.leagueId || null,
+    ...(discoveredCompetitions.has(record.leagueId)?{leagueName:discoveredCompetitions.get(record.leagueId)}:{}),
     teamKind:record.teamKind || (record.isNationalTeam === true ? "national" : null),
     position:record.position || metadata.discipline || metadata.championshipRole || null,
     identityId:String(record.identityId || record.id),

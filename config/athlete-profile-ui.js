@@ -33,9 +33,9 @@
     });
   }
 
-  async function fetchJson(url){
+  async function fetchJson(url,{timeoutMs=12000}={}){
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 12000);
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
     try{
       const response = await fetch(url, { cache:"no-cache", signal:controller.signal });
       if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
@@ -148,6 +148,10 @@
         if(!globalThis.NOTHINGSPORTS_ATHLETE_PARTICIPATION)await loadScript('data/canonical/athlete-participation.v1.js');
         cross=globalThis.NOTHINGSPORTS_ATHLETE_PARTICIPATION?.athletes.find(athlete=>athlete.id===record.id);
       }catch(error){/* Optional experience must not remove the existing athlete profile. */}
+      if(root.location?.protocol!=='file:')try{
+        const live=await fetchJson(`/api/fixtures?athlete=${encodeURIComponent(record.id)}`,{timeoutMs:2500});
+        if(live.schemaVersion==='athlete-participation-live.v1'&&live.history?.length)cross={...record,...cross,history:[...new Map([...(cross?.history||[]),...live.history].map(item=>[item.eventId||`${item.date}|${item.sourceUrl}`,item])).values()]};
+      }catch(_error){/* Retain published history when live discovery is unavailable. */}
       if(!profile&&cross)profile={...record,biography:'Source-backed athlete history. Current season statistics are not published for this profile.'};
       if (!profile){
         body.innerHTML = `<div class="athlete-profile-hero"><div></div><div><h2></h2><p>Detailed statistics are currently available for the published top 10 in this code and the complete GWS AFLW experiment.</p></div></div>`;
@@ -164,7 +168,7 @@
         const section=document.createElement('section');section.className='athlete-profile-section';
         const heading=document.createElement('h3');heading.textContent='Other disciplines & experience';section.appendChild(heading);
         for(const item of cross.history){
-          const row=document.createElement('p');row.textContent=`${item.date} · ${item.discipline} · ${item.kind==='test'?'Test / experience':'Race'} — ${item.description} `;
+          const row=document.createElement('p');row.textContent=`${item.date} · ${item.discipline} · ${item.kind==='test'?'Test / experience':item.kind==='match'?'Match':'Race'} — ${item.description} `;
           const link=document.createElement('a');link.textContent='Source';link.href=item.sourceUrl;link.target='_blank';link.rel='noopener noreferrer';row.appendChild(link);section.appendChild(row);
         }
         body.appendChild(section);

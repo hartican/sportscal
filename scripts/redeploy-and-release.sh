@@ -11,6 +11,7 @@ CARD_OUTPUT_FILES=(
   "data/athlete-profiles"
   "data/follow-directory"
   "data/follow-sources"
+  "data/discovery"
   "data/canonical"
   "data/editorial-knowledge.v1.json"
   "data/editorial-research-queue.v1.json"

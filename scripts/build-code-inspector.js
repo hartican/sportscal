@@ -188,6 +188,7 @@ function normalizeFixture(event, codeId, extra = {}){
         ? { timeTbc:true, timePrecision:"tbc" }
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
+    ...Object.fromEntries(['competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','scoreDisplay','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','actualEndTimeUtc'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     venue: (event.venue || event.venueName) && !/tbc/i.test(event.venue || event.venueName) ? (event.venue || event.venueName) : null,
     status: event.status || "upcoming",
@@ -293,7 +294,7 @@ function codeFixtures(code){
         : code.id === "sport:wrc"
           ? canonicalWrc.events || []
         : [];
-  const sourced=[...crossDisciplineFixtures,...(coverage.events || [])].filter(event=>eventMatchesCode(event,code));
+  const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
   return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced], code.id, new Set([...canonical,...sourced]));
 }
 

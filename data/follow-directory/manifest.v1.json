@@ -94,7 +94,7 @@
       "key": "rugby",
       "label": "Rugby Union",
       "status": "available",
-      "recordCount": 23,
+      "recordCount": 180,
       "jsonUrl": "data/follow-directory/rugby.v1.json",
       "scriptUrl": "data/follow-directory/rugby.v1.js"
     },
@@ -126,7 +126,7 @@
       "key": "cricket",
       "label": "Cricket",
       "status": "available",
-      "recordCount": 41,
+      "recordCount": 271,
       "jsonUrl": "data/follow-directory/cricket.v1.json",
       "scriptUrl": "data/follow-directory/cricket.v1.js"
     },

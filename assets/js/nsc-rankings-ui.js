@@ -1,7 +1,7 @@
 // Read-only public ladder. Opening this page never syncs rewards or casts votes.
 (function(){
 'use strict';
-if(!document.querySelector('[data-nsc-ladder-style]')){const style=document.createElement('link');style.rel='stylesheet';style.href='assets/styles/nsc-ladder.css?v=246';style.dataset.nscLadderStyle='';document.head.append(style);}
+if(!document.querySelector('[data-nsc-ladder-style]')){const style=document.createElement('link');style.rel='stylesheet';style.href='assets/styles/nsc-ladder.css?v=247';style.dataset.nscLadderStyle='';document.head.append(style);}
 let observer=null,epoch=0;
 function clear(){++epoch;observer?.disconnect();observer=null;}
 function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}

@@ -13,7 +13,7 @@ http.createServer(async(req,res)=>{
   }
   const relative=decodeURIComponent(url.pathname==="/"?"/index.html":url.pathname);
   const file=path.resolve(root,"."+relative);
-  if(!file.startsWith(root+path.sep)||relative.includes("/.")||!/^\/(?:assets\/|config\/|data\/|schemas\/|[a-z0-9-]+\.(?:html|js|json|webmanifest)$)/i.test(relative)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404);return res.end();}
+  if(!file.startsWith(root+path.sep)||relative.includes("/.")||!/^\/(?:assets\/|styles\/|config\/|data\/|schemas\/|[a-z0-9-]+\.(?:html|js|json|webmanifest)$)/i.test(relative)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404);return res.end();}
   const body=fs.readFileSync(file),ext=path.extname(file),compress=/html|javascript|json|css|svg/.test(types[ext]||"")&&/gzip/.test(req.headers["accept-encoding"]||"");
   const output=compress?zlib.gzipSync(body):body;
   res.writeHead(200,{"Content-Type":types[ext]||"application/octet-stream","Content-Length":output.length,"Cache-Control":"no-cache",...(compress?{"Content-Encoding":"gzip"}:{} )});

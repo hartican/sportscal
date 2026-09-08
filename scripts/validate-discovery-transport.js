@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+'use strict';
+const assert=require('node:assert/strict');
+const identity=require('../config/fixture-identity');
+const {normalizeFixture}=require('./build-code-inspector');
+const fixture={id:'test',key:'rugby',name:'England Women v Australia Women',date:'2026-09-12',competitionName:'WXV',isSenior:false,gender:'women',status:'live',homeScore:17,awayScore:10,participantIds:['team:rugby:england-women'],participants:[{id:'team:rugby:england-women'}],sourceUrl:'https://www.world.rugby/fixtures'};
+const tag={label:'Rivalry',confidence:.9,sourceUrls:['https://www.bbc.com/sport/rugby-union']};
+const overlay={id:'test',enrichmentOnly:true,fixtureFallback:{...fixture,status:'scheduled',homeScore:0},consensusTags:[tag],participationEvidence:[{participantId:'athlete:test:person',participationStatus:'confirmed',publishedAt:'2026-09-08',displayName:'Test Person',sourceUrl:'https://www.world.rugby/fixtures'}]};
+const [merged]=identity.mergeOverlays([fixture],[overlay,{...fixture,homeScore:20}]);
+assert.equal(merged.homeScore,20,'enrichment cannot roll back a live score');
+assert.equal(merged.status,'live');assert.equal(merged.consensusTags[0]?.label,'Rivalry');
+assert(merged.participantIds.includes('athlete:test:person'));assert(merged.participantIds.includes('team:rugby:england-women'));
+const [withdrawn]=identity.mergeOverlays([merged],[{...overlay,participationEvidence:overlay.participationEvidence.map(entry=>({...entry,participationStatus:'withdrawn',publishedAt:'2026-09-09'}))}]);
+assert(!withdrawn.participantIds.includes('athlete:test:person'));assert(withdrawn.excludedParticipantIds.includes('athlete:test:person'));
+assert(identity.mergeOverlays([withdrawn],[overlay])[0].excludedParticipantIds.includes('athlete:test:person'),'older confirmation cannot undo a withdrawal');
+const schedule=normalizeFixture({...fixture,consensusTags:[tag]},'sport:rugby-union');
+for(const key of ['isSenior','gender','competitionName','homeScore','awayScore'])assert.equal(schedule[key],fixture[key],`${key} must survive source → Schedule → Feed`);
+assert.equal(schedule.consensusTags[0]?.label,'Rivalry');
+const teamGame={...fixture,startTimeUtc:'2026-09-12T14:00:00Z',homeParticipantId:'team:rugby:england-women',awayParticipantId:'team:rugby:australia-women',participantIds:['team:rugby:england-women','team:rugby:australia-women']};
+const deduped=identity.mergeOverlays([teamGame],[{...teamGame,id:'another-provider',homeScore:23}]);
+assert.equal(deduped.length,1,'the same two teams at the same time are not two cards');
+assert.equal(deduped[0].id,'test','existing reminders and votes keep their fixture identity');assert.equal(deduped[0].homeScore,23);
+const moved=identity.mergeOverlays(deduped,[{...teamGame,id:'another-provider',startTimeUtc:'2026-09-13T14:00:00Z'}]);
+assert.equal(moved.length,1,'provider aliases survive a reschedule');assert.equal(moved[0].date,'2026-09-14');
+const summary=require('../config/follow-summary').allFollowed({preferenceGraph:{entityFollows:[{participantId:'team:rugby:wallabies',followLevel:'follow'}]}},{records:[{id:'team:rugby:wallabies',displayName:'Wallabies',leagueId:'competition:rugby:wr:uuid',leagueName:'Nations Championship'}]});
+assert.equal(summary[0].competitionLabel,'Nations Championship','All Followed uses source-backed competition names, not provider UUIDs');
+console.log('Discovery transport: live scores preserved, participation additive, withdrawals monotonic and Schedule metadata intact.');

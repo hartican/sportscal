@@ -28,6 +28,23 @@ async function main(){
   await db.query("select public.nothingsports_fail_fixture_source('test',$1,300000)",[token]);
   assert.equal((await db.query("select fixtures->0->>'id' as id from public.nothingsports_fixture_sources")).rows[0].id,"fixture");
   assert.equal((await db.query("select count(*)::integer as count from public.nothingsports_fixture_snapshots")).rows[0].count,1);
-  await db.close();console.log("Postgres fixture store: anonymous/authenticated denial, service access, fenced leases, unchanged revisions and failed-source preservation passed.");
+  const discovery=fs.readdirSync('supabase/migrations').find(name=>name.endsWith('_discovery_source_health.sql'));
+  if(discovery){
+    await db.exec('reset role');await db.exec(fs.readFileSync(`supabase/migrations/${discovery}`,'utf8'));await db.exec('set role service_role');
+    await db.query("select * from public.nothingsports_claim_fixture_source('discovery-empty',$1)",[token]);
+    await db.query("select public.nothingsports_publish_fixture_source('discovery-empty',$1,'[]','empty',21600000)",[token]);
+    const empty=await db.query("select jsonb_array_length(fixtures) as size,extract(epoch from next_due_at-checked_at)::integer as interval from public.nothingsports_fixture_sources where source_id='discovery-empty'");
+    assert.equal(empty.rows[0].size,0);assert.equal(empty.rows[0].interval,21600,'six-hour discovery cadence is not silently clamped to one hour');
+    await db.exec("update public.nothingsports_fixture_sources set next_due_at='-infinity' where source_id='discovery-empty'");
+    await db.query("select * from public.nothingsports_claim_fixture_source('discovery-empty',$1)",[token]);
+    await db.query("select public.nothingsports_publish_fixture_source_report('discovery-empty',$1,'[]','empty',21600000,'{\"cursor\":8,\"status\":\"checked\"}')",[token]);
+    assert.equal((await db.query("select discovery_report->>'cursor' as cursor from public.nothingsports_fixture_sources where source_id='discovery-empty'")).rows[0].cursor,'8');
+    await assert.rejects(db.query("select public.nothingsports_fail_fixture_source_report('discovery-empty',$1,21600000,'{\"cursor\":0}')",[other]),/Lease expired/,'a stale worker cannot overwrite discovery progress');
+    await db.exec("update public.nothingsports_fixture_sources set next_due_at='-infinity'");
+    await db.query("select * from public.nothingsports_claim_fixture_source('test',$1)",[token]);
+    await assert.rejects(db.query("select public.nothingsports_publish_fixture_source('test',$1,'[]','empty',60000)",[token]),/Invalid snapshot/);
+    await db.exec('reset role;set role anon');await assert.rejects(db.query('select discovery_report from public.nothingsports_fixture_sources'),/permission denied/);
+  }
+  await db.close();console.log("Postgres fixture store: anonymous/authenticated denial, service access, fenced leases, unchanged revisions, empty discovery and failed-source preservation passed.");
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

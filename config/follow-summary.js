@@ -6,7 +6,7 @@
     const next=migratePreferences(preferences),byId=new Map(records.map(record=>[identity(record.id),record])),items=new Map();
     const add=(id,kind,sport,label,origin)=>{
       const key=identity(id),record=byId.get(key)||{},previous=items.get(key);
-      const item=previous || {id:record.id||id,kind,sport:record.sportKey||sport||"other",competition:record.leagueId||record.competitionId||"",label:record.displayName||record.name||record.label||label||id,origins:[]};
+      const item=previous || {id:record.id||id,kind,sport:record.sportKey||sport||"other",competition:record.leagueId||record.competitionId||"",competitionLabel:record.leagueName||record.competitionName||null,label:record.displayName||record.name||record.label||label||id,origins:[]};
       if(origin&&!item.origins.includes(origin))item.origins.push(origin);items.set(key,item);
     };
     for(const sport of next.followedSports)add(`sport:${sport}`,"sport",sport,STARTUP_SPORTS.find(item=>item.id===sport)?.label||sport);
@@ -39,7 +39,7 @@
     let sport='',competition='';
     for(const entry of entries){
       if(entry.sport!==sport){sport=entry.sport;competition='';const heading=document.createElement('h3');heading.textContent=context.sportLabel(sport);list.appendChild(heading);}
-      if(entry.competition&&entry.competition!==competition){competition=entry.competition;const heading=document.createElement('h4');heading.textContent=context.competitionLabel(competition);list.appendChild(heading);}
+      if(entry.competition&&entry.competition!==competition){competition=entry.competition;const heading=document.createElement('h4');heading.textContent=entry.competitionLabel||context.competitionLabel(competition);list.appendChild(heading);}
       const row=document.createElement('p');row.dataset.followedId=entry.id;
       const label=document.createElement('strong');label.textContent=entry.label===entry.id?context.participantLabel(entry.id):entry.label;
       const detail=document.createElement('span');detail.className='preference-help';detail.textContent=` · ${entry.kind==='athlete'?'Athlete':entry.kind[0].toUpperCase()+entry.kind.slice(1)}${entry.origins.length?` · via ${entry.origins.join(', ')}`:''}`;
