@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="249">
-<script src="/assets/js/app-update.js?v=249" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=249" as="script">
+<meta name="app-shell-version" content="250">
+<script src="/assets/js/app-update.js?v=250" defer></script>
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=250" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,13 +6885,15 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .event-card-primary-actions .event-quick-actions{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;width:100%;}
 .event-card-primary-actions .event-quick-action{min-height:44px;min-width:0;flex:0 1 auto;font-size:.68rem;}
 .feed-card-slot{min-height:300px;contain:layout style;}
+.feed-card-slot[data-card-state="compact"]{min-height:50px;}
+.feed-card-slot:has(>.event-card){min-height:0;}
 .feed-card-placeholder{margin:0;padding:24px;color:var(--text-dim);}
 .fixture-profile-link{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--text) 30%,transparent);text-underline-offset:3px;}
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=249">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=249">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=250">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=250">
 </head>
 <body>
 
@@ -7184,7 +7186,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=249"></script>
+<script src="assets/js/app-shell-runtime.js?v=250"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7664,6 +7666,7 @@ function renderEventIdentityMark(container, ev, meta){
   const renderFallback = () => {
     container.classList.remove("has-brand-logo", "has-sport-logo");
     container.replaceChildren();
+    if(container.classList.contains('follow-sport-mark') && meta.glyph){container.innerHTML=glyphMarkup(meta.glyph,{className:'vector-glyph',label:meta.label});return;}
     const label=document.createElement('span');label.className='event-sport-wordmark';label.textContent=mark?.wordmark||mark?.label||meta.label;container.append(label);
   };
   if (mark?.kind === "wordmark" && mark.wordmark){
@@ -7952,9 +7955,9 @@ function appendFollowedFixtureParticipants(container,ev){
   for(const id of ids){const participant=(ev.participants||[]).find(p=>p.id===id);const label=participant?.displayName||participant?.name||followedParticipantLabel(id);if(label&&label!==id)row.appendChild(participantProfileLink(id,label,ev.key==='motorsport'&&id.includes(':f1:')?'f1':ev.key));}
   if(row.childElementCount)container.appendChild(row);
 }
-function renderEventTitleIdentity(nameElement, ev, displayTitle){
+function renderEventTitleIdentity(nameElement, ev, displayTitle, {compact=false}={}){
   if((ev.key==='tennis'||ev.key==='wimbledon')&&!/hidden|winner of|loser of|TBC/i.test(displayTitle)){
-    const lineup=majorEventMatchupLineup(ev);
+    const lineup=majorEventMatchupLineup(ev,{compact});
     if(lineup){nameElement.appendChild(lineup);return;}
   }
   const identities = CARD_IDENTITIES?.participantMarksForEvent(ev, cardIdentityParticipants(), displayTitle) || [];
@@ -7965,7 +7968,7 @@ function renderEventTitleIdentity(nameElement, ev, displayTitle){
     .filter((identity, index, all) => index === 0 || identity.range.start >= all[index - 1].range.end);
   if (!matches.length){
     nameElement.textContent = displayTitle;
-    appendFollowedFixtureParticipants(nameElement,ev);
+    if(!compact)appendFollowedFixtureParticipants(nameElement,ev);
     return;
   }
   nameElement.setAttribute("aria-label", displayTitle);
@@ -8311,7 +8314,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=249",
+  moduleScriptUrl: "config/major-events.js?v=250",
   url: "data/major-events.v1.json",
 });
 
@@ -15098,7 +15101,7 @@ function compactFallbackTiming(ev){
 function buildCompactCardSummary(ev){
   const summary=document.createElement('div');summary.className='compact-card-summary';
   const icon=document.createElement('span');icon.className='compact-card-icon';renderEventIdentityMark(icon,ev,sportMetaForEvent(ev));
-  const title=document.createElement('span');title.className='compact-card-name';renderEventTitleIdentity(title,ev,compactFixtureName(ev));
+  const title=document.createElement('span');title.className='compact-card-name';renderEventTitleIdentity(title,ev,compactFixtureName(ev),{compact:true});
   const time=document.createElement('span');time.className='compact-card-time';
   const start=ev.timePrecision==='follows'?null:FEED_CONTROLS.eventStart(ev);
   time.textContent=ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev);
@@ -15135,6 +15138,7 @@ function setFeedCompact(value){
     if(activeTab==='feed'){
       const anchor=captureViewportRenderAnchor();
       mutateWithScrollContinuity(anchor?.card,()=>{
+        for(const {slot} of feedCardSlots.values()){slot.dataset.cardState=target?'compact':'selected';slot.style.minHeight='';}
         const cards=[...document.querySelectorAll('#listView .event-card')];
         if(cards.length&&cards.every(card=>typeof card._rebuildCard==='function')){
           for(const card of cards)patchElementInPlace(card,card._rebuildCard());
@@ -17556,6 +17560,7 @@ function resetFeedCardWindow(){
 function buildFeedCardSlot(event){
   const id=String(event.canonicalEventId || event.eventId || event.id);
   const slot=document.createElement('div');slot.className='feed-card-slot';slot.dataset.feedEventId=id;
+  slot.dataset.cardState=cardStateForEvent(event);
   const key=mainFeedFixtureSemanticKey(event);if(key)slot.dataset.fixtureSemanticKey=key;
   const item={slot,event,mounted:false};
   const placeholder=()=>{const text=document.createElement('p');text.className='feed-card-placeholder';text.textContent=spoilerSafeDisplayTitle(event)||event.name;slot.replaceChildren(text);};
@@ -19780,7 +19785,8 @@ function renderFollowView(){
   sports.forEach(entity=>{
     const button=document.createElement('button');button.type='button';button.className=`follow-sport-icon${entity.id===state.sportId?' active':''}`;
     button.dataset.followSport=entity.id;button.setAttribute('aria-pressed',String(entity.id===state.sportId));
-    const mark=document.createElement('span');mark.className='follow-sport-mark';renderEventIdentityMark(mark,{key:entity.preferenceKey||entity.sportKey||({ 'rugby-union':'rugby',basketball:'nba','afl-premiership':'afl','nrl-premiership':'nrl' })[entity.id.replace('sport:','')]||entity.id.replace('sport:','')},{label:entity.label});
+    const sport={key:entity.preferenceKey||entity.sportKey||({ 'rugby-union':'rugby',basketball:'nba','afl-premiership':'afl','nrl-premiership':'nrl' })[entity.id.replace('sport:','')]||entity.id.replace('sport:','')};
+    const mark=document.createElement('span');mark.className='follow-sport-mark';renderEventIdentityMark(mark,sport,{...sportMetaForEvent(sport),label:entity.label});
     const label=document.createElement('span');label.textContent=entity.label;button.append(mark,label);
     button.addEventListener('click',()=>{saveFollowBrowse({sportId:entity.id,categoryId:'',section:'teams-players',page});renderFollowView();});track.appendChild(button);
   });
@@ -20242,7 +20248,7 @@ function prioritisedMajorEventSubEvents(record, limit = Infinity){
   return Number.isFinite(limit) ? scheduled.slice(0, limit) : scheduled;
 }
 
-function majorEventMatchupLineup(subEvent){
+function majorEventMatchupLineup(subEvent,{compact=false}={}){
   let sides = Array.isArray(subEvent?.matchupSides) ? subEvent.matchupSides : [];
   if(sides.length!==2){const players=[...new Map((subEvent.participants||[]).map(p=>typeof p==='string'?{name:p}:p).filter(Boolean).map(p=>[p.id||p.name||p.displayName,p])).values()];if(players.length===2)sides=players.map(player=>({players:[player]}));}
   if (sides.length !== 2) return null;
@@ -20263,10 +20269,12 @@ function majorEventMatchupLineup(subEvent){
         const person = document.createElement("span");
         person.className = "major-event-matchup-player";
         const countryCode = player.nationalityCode || player.countryCode;
-        const name = document.createElement("span");
-        name.textContent = player.name || player.displayName || "Player TBC";
+        const fullName=player.name || player.displayName || "Player TBC";
+        const name = compact ? participantProfileLink(player.id || player.playerId,fullName,subEvent.key || 'tennis') : document.createElement("span");
+        name.textContent = compact ? fullName.trim().split(/\s+/).slice(-1)[0] : fullName;
+        if(compact)name.title=fullName;
         person.appendChild(name);
-        if (countryCode){
+        if (countryCode && !compact){
           const flag = COUNTRY_FLAGS?.flagMarkup?.(countryCode, { label:`${player.name || player.displayName} nationality` });
           if (flag) person.insertAdjacentHTML("beforeend", flag);
         }
@@ -24889,7 +24897,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=249");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=250");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

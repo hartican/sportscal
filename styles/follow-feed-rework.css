@@ -69,8 +69,17 @@ header.top .vector-glyph{width:20px;height:20px;}
 .compact-card-icon .identity-image-placeholder{display:none;}
 .compact-card-name{flex:1 1 auto;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .compact-card-time{flex:0 0 auto;white-space:nowrap;font-size:.65rem;color:var(--text-dim);}
+#listView .event-card.is-compact-row:has(.event-card-disclosure){padding-left:44px;}
+.compact-card-name .major-event-matchup-sides{width:100%;margin:0;gap:4px;}
+.compact-card-name .major-event-matchup-player{display:block;overflow:hidden;}
+.compact-card-name .fixture-profile-link{max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;}
+.compact-card-name .team-name-with-logo{max-width:100%;overflow:hidden;vertical-align:middle;}
+.compact-card-name:has(.team-name-with-logo){display:flex;align-items:center;gap:3px;}
+.compact-card-name .team-name-with-logo{flex:1 1 0;min-width:0;gap:3px;}
+.compact-card-name .team-logo,.compact-card-name .team-name-logo-fallback{width:16px;height:16px;flex:0 0 16px;}
+.feed-card-slot[data-card-state="compact"] .feed-card-placeholder{padding:8px 44px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.72rem;line-height:32px;}
 /* Text enlargement gets a readable second line instead of an invisible name. */
-@container compact-row (max-width:14rem){
+@container compact-row (max-width:24rem){
   #listView .compact-card-summary{display:grid;grid-template-columns:16px minmax(0,1fr) auto;gap:2px 4px;padding:4px 0;box-sizing:border-box;}
   .compact-card-name{grid-column:2;}
   .compact-card-time{grid-column:2 / -1;grid-row:2;}
@@ -114,6 +123,9 @@ header.top .vector-glyph{width:20px;height:20px;}
 .follow-sport-track{display:flex;width:100%;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;min-width:0;scroll-padding:0;touch-action:pan-x pan-y;scroll-behavior:smooth;}
 .follow-sport-icon{flex:0 0 calc((100% - (var(--follow-page-size) - 1)*6px)/var(--follow-page-size));min-width:0;min-height:72px;padding:4px;border:1px solid transparent;border-radius:8px;background:transparent;color:var(--text);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-family:inherit;font-weight:700;font-size:.68rem;line-height:1.2;scroll-snap-align:start;}
 .follow-sport-mark,.follow-sport-mark img,.follow-sport-mark .vector-glyph{display:inline-flex;align-items:center;justify-content:center;width:40px!important;height:40px!important;object-fit:contain;}
+.follow-sport-mark{position:relative;flex:0 0 40px;overflow:hidden;isolation:isolate;pointer-events:none;}
+.follow-sport-mark .identity-image-placeholder{pointer-events:none;}
+.follow-sport-mark .event-sport-wordmark{position:static;max-width:100%;overflow:hidden;text-overflow:ellipsis;}
 .follow-sport-icon.active,.follow-category-bar .active{border-color:var(--accent);background:var(--soft-fill);color:var(--accent);}
 .follow-sport-pages{display:flex;justify-content:center;gap:5px;height:12px;align-items:center;}
 .follow-sport-pages span{display:grid;place-items:center;width:6px;height:6px;min-width:6px;padding:0;border:0;background:transparent;}
