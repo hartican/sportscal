@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "f1-published-sessions.v1",
+  "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+  "checkedAt": "2026-09-08T14:50:00Z",
+  "sessions": [
+    {
+      "id": "evt_28",
+      "date": "2026-09-13",
+      "time": "00:00",
+      "startTimeUtc": "2026-09-12T14:00:00Z",
+      "venueCountryCode": "ES"
+    },
+    {
+      "id": "evt_29",
+      "date": "2026-09-13",
+      "time": "23:00",
+      "startTimeUtc": "2026-09-13T13:00:00Z",
+      "venueCountryCode": "ES"
+    }
+  ]
+}

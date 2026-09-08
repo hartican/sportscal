@@ -15,11 +15,13 @@ const {researchDepthFor}=require('./lib/editorial-research-depth');
 function idFor(record){ return String(record?.canonicalEventId || record?.eventId || record?.id || ""); }
 function eventTime(record){
   if (record?.startDate && !record?.date) return Date.parse(`${record.startDate}T00:00:00+10:00`);
-  return feedControls.eventStart(record)?.getTime() ?? NaN;
+  return feedControls.eventStart(record)?.getTime() ?? Date.parse(`${record.date || record.startDate || ""}T00:00:00+10:00`);
 }
-function targetKey(targetType, record){ return `${targetType}:${idFor(record)}`; }
+function targetKey(targetType, record){ return `${targetType === "major-event" ? "event" : "fixture"}:${idFor(record)}`; }
 function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Date() }){
   const now = reference.getTime();
+  const signalById = new Map((signals.signals || []).map(signal => [signal.sourceEventId, signal]));
+  const promotion = record => require("../config/promoted-replay").recommendation(record, {aggregates:{impact:signalById.get(idFor(record))?.impact}}) || (["completed","past","finished"].includes(record.status) && signalById.get(idFor(record))?.replayResearchRequested === true);
   const earliest = now - 7 * DAY_MS;
   const latest = now + 30 * DAY_MS;
   const rolling = (feed.events || []).filter(record => {
@@ -37,7 +39,7 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
     .flatMap(parent => (parent.subEvents || []).map(record => ({ parent, record })))
     .filter(({ record }) => {
       const start = eventTime(record);
-      return researchDepthFor(record) >= 3 && Number.isFinite(start) && start >= earliest && start <= latest;
+      return researchDepthFor(record) >= 2 && Number.isFinite(start) && start >= earliest && start <= latest;
     })
     .map(({ parent, record }) => ({
       targetType:"major-event-child",
@@ -50,10 +52,9 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
     const previous = uniqueTargets.get(key);
     uniqueTargets.set(key, previous ? { ...previous, reason:`${previous.reason}+${target.reason}` } : target);
   });
-  const signalById = new Map((signals.signals || []).map(signal => [signal.sourceEventId, signal]));
   const entries = [...uniqueTargets.values()].map(({ targetType, record, reason }) => {
     const projection = targetType === "major-event-child"
-      ? (record.editorialNarrative ? {
+      ? (record.editorialNarrative?.generationMode === "researched" ? {
           id:record.editorialNarrative.projectionId,
           refreshAfter:record.editorialNarrative.refreshAfter,
           consequence:record.editorialNarrative.consequence,
@@ -76,18 +77,19 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
       targetType,
       targetId:idFor(record),
       title:record.name,
-      researchDepth:researchDepthFor(record),
+      researchDepth:promotion(record) ? 5 : researchDepthFor(record),
       startsAt:Number.isFinite(start) ? new Date(start).toISOString() : null,
       reason,
       projectionId:projection?.id || null,
-      coverage:projection ? "covered" : queuedUnverified ? "queued-unverified" : "missing",
+      coverage:projection ? "covered" : Number.isFinite(start)&&start>latest ? "queued-future" : queuedUnverified ? "queued-unverified" : "missing",
       consequenceCoverage:projection?.consequence ? "covered" : "missing",
       consequenceResearchRequired:Boolean(projection && !projection.consequence),
-      priority:pulseUrgent ? "urgent-post-event" : anticipationPriority ? "audience-accelerated" : researchDepthFor(record) === 5 ? "marquee" : "rolling",
+      promotedReplay:Boolean(promotion(record)),
+      priority:promotion(record) ? "promoted-replay" : pulseUrgent ? "urgent-post-event" : anticipationPriority ? "audience-accelerated" : researchDepthFor(record) === 5 ? "marquee" : "rolling",
       refreshDeadline:acceleratedDeadline,
     };
   }).sort((left, right) => {
-    const rank = { "urgent-post-event":0, "audience-accelerated":1, marquee:2, rolling:3 };
+    const rank = { "promoted-replay":-1, "urgent-post-event":0, "audience-accelerated":1, marquee:2, rolling:3 };
     return rank[left.priority] - rank[right.priority] || Date.parse(left.startsAt || "9999-12-31") - Date.parse(right.startsAt || "9999-12-31") || left.targetId.localeCompare(right.targetId);
   });
   const consequenceCovered = entries.filter(entry => entry.consequenceCoverage === "covered").length;

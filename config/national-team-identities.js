@@ -45,7 +45,7 @@
   const nrlThemeBase = "https://www.nrl.com/.theme";
   const rugbyAssetBase = "https://d26phqdbpt0w91.cloudfront.net/NonVideo";
 
-  const allTeams = Object.freeze([
+  const baseTeams = Object.freeze([
     identity("team:football:socceroos", "Socceroos", "football", "sport:football", "AU", "male", ["Australia", "Australian", "Australia Men"], "assets/identities/national/football/socceroos.png", "federation-crest", "https://socceroos.com.au/", "https://footballaustralia.com.au/sites/default/files/styles/image_300x/public/2020-12/18128_FA_Website-Header-Logo_FA.png?itok=18GbS1cR", "2c703adafd1dca0cb3c257fc0eaf179912d2a747cd2f45e451b76aa93a726d60", ["team:football:national:australia"]),
     identity("team:football:matildas", "Matildas", "football", "sport:football", "AU", "female", ["Australia Women", "Australian Women", "CommBank Matildas"], "assets/identities/national/football/matildas.png", "federation-crest", "https://matildas.com.au/", "https://footballaustralia.com.au/sites/default/files/styles/image_300x/public/2020-12/18128_FA_Website-Header-Logo_FA.png?itok=18GbS1cR", "2c703adafd1dca0cb3c257fc0eaf179912d2a747cd2f45e451b76aa93a726d60"),
     identity("team:football:turkiye", "Türkiye", "football", "sport:football", "TR", "male", ["Turkey"], "assets/identities/national/football/turkiye.png", "federation-crest", "https://www.tff.org/", `${footballCrestBase}/turkey-150.png`, "c3bbfbbca378c89d6ac04bfcfae26051e0ec3aca79746dae9b1966daa1e9bf67", ["team:football:national:turkiye"]),
@@ -111,6 +111,16 @@
     identity("team:aflw:representative:ireland", "Ireland AFLW representative", "aflw", "sport:afl", "IE", "female", ["Ireland"], "assets/identities/national/aflw/ireland-state-harp.svg", "coat-of-arms", "https://www.gov.ie/en/department-of-the-taoiseach/publications/the-harp/", "https://ds.services.gov.ie/logos/general/harp.svg", "e65334ba240bebead5b1cf36f98574393c62a19cbe39310071dad28d85b7c041", [], PERMISSION_REVIEW_REQUIRED),
   ]);
 
+  // A governing board crest can identify both sides; their follows remain separate.
+  const allTeams = Object.freeze(baseTeams.flatMap(team => {
+    if (team.sport !== "cricket") return [team];
+    const male = Object.freeze({...team, gender:"male", aliases:Object.freeze(team.aliases.filter(alias => alias !== "White Ferns"))});
+    const femaleId = `${team.id}-women`;
+    const displayName = team.displayName.replace(/ cricket$/, " Women cricket");
+    const female = Object.freeze({...team, id:femaleId, stableTeamId:femaleId, displayName, canonicalName:displayName, shortName:displayName, gender:"female", legacyIds:Object.freeze([]), aliases:Object.freeze([...team.aliases.filter(alias => alias !== "Black Caps"), ...(team.countryCode === "NZ" ? ["White Ferns"] : [])])});
+    return [male, female];
+  }));
+
   const teamsById = Object.freeze(Object.fromEntries(allTeams.map(team => [team.id, team])));
   const legacyIdMap = Object.freeze(Object.fromEntries(allTeams.flatMap(team => team.legacyIds.map(legacyId => [legacyId, team.id]))));
   const assetPaths = Object.freeze(Array.from(new Set(allTeams.map(team => team.assetPath))));
@@ -129,7 +139,7 @@
     return new RegExp(`(?:^|[^a-z0-9])${escapeRegExp(normalizedAlias)}(?:$|[^a-z0-9])`).test(normalizedText);
   }
   function eventText(event){
-    return [event?.name, event?.displayTitleCompact, event?.competitionId, event?.series, event?.sport, ...(Array.isArray(event?.participants) ? event.participants.map(participant => typeof participant === "string" ? participant : participant?.name) : [])].filter(Boolean).join(" | ");
+    return [event?.name, event?.displayTitleCompact, event?.competitionId, event?.series, event?.sport, event?.gender, event?.genderCategory, ...(Array.isArray(event?.participants) ? event.participants.map(participant => typeof participant === "string" ? participant : participant?.name) : [])].filter(Boolean).join(" | ");
   }
   function isAflwRepresentative(event){ return /^aflw-australia-ireland-2026-08-01$/.test(String(event?.id || event?.eventId || "")) || /aflw[^|]*australia\s+v\.?\s+ireland/i.test(eventText(event)); }
   function sportForEvent(event){
@@ -149,7 +159,7 @@
   function genderForEvent(event, sport){
     const text = eventText(event);
     if (sport === "netball" || sport === "aflw") return "female";
-    if (/\b(?:women|women's|female|girls|matildas|jillaroos|kiwi ferns|opals|hockeyroos)\b/i.test(text)) return "female";
+    if (/\b(?:women|women's|female|girls|white ferns|matildas|jillaroos|kiwi ferns|opals|hockeyroos)\b/i.test(text)) return "female";
     if (/\b(?:men|men's|male|socceroos|kangaroos|kiwis|boomers|kookaburras)\b/i.test(text)) return "male";
     return null;
   }
@@ -167,27 +177,30 @@
     return allTeams.filter(team => team.sport === sport);
   }
   function teamForLabel(event, label, usedIds = new Set()){
+    // Reserve and age-group sides are distinct participants, not senior aliases.
+    if(/\b(?:A|U[- ]?\d{2}s?|Under[- ]?\d{2}s?|Academy|Emerging)\s*$/i.test(String(label).replace(/\s+(?:Women|Men)(?:’s|\'s)?$/i,"")))return null;
     const sport = sportForEvent(event);
     const gender = genderForEvent(event, sport);
-    const candidates = candidatesForEvent(event).filter(team => !usedIds.has(team.id) && team.aliases.some(alias => containsAlias(label, alias)));
+    const candidates = candidatesForEvent(event).filter(team => (!gender || team.gender === gender || team.gender === "mixed") && !(sport === "cricket" && team.gender !== (gender || "male")) && !usedIds.has(team.id) && team.aliases.some(alias => sport === "cricket" ? normalize(label.replace(/\s+(?:Women|Men)(?:’s|\'s)?$/i,"")) === normalize(alias) : containsAlias(label, alias)));
     if (!candidates.length) return null;
     const named = candidates.filter(team => containsAlias(label, team.displayName) || team.aliases.some(alias => alias !== team.countryCode && alias.length > 8 && containsAlias(label, alias)));
     const pool = named.length ? named : candidates;
     return pool.find(team => gender && team.gender === gender) || pool.find(team => team.gender === "mixed") || pool.find(team => team.gender === "male") || pool[0];
   }
   function identitiesForEvent(event){
-    const explicitIds = (Array.isArray(event?.participantIds) ? event.participantIds : []).map(canonicalId).map(teamForId).filter(Boolean);
+    const femaleCricket = sportForEvent(event) === "cricket" && genderForEvent(event, "cricket") === "female";
+    const explicitIds = (Array.isArray(event?.participantIds) ? event.participantIds : []).map(canonicalId).map(id => femaleCricket && teamsById[`${id}-women`] ? `${id}-women` : id).map(teamForId).filter(Boolean);
     if (explicitIds.length >= 2) return explicitIds.slice(0, 2);
-    const usedIds = new Set(explicitIds.map(team => team.id));
-    const resolved = [...explicitIds];
-    matchupLabels(event).forEach(label => {
-      const team = teamForLabel(event, label, usedIds);
-      if (!team) return;
-      usedIds.add(team.id);
-      resolved.push(team);
-    });
-    return resolved.slice(0, 2);
+    const usedIds = new Set();
+    return matchupLabels(event).map((label,index) => {
+      const sourceId=event?.participantIds?.[index];
+      const explicit=teamForId(femaleCricket && teamsById[`${sourceId}-women`] ? `${sourceId}-women` : sourceId);
+      const team=explicit || teamForLabel(event,label,usedIds);
+      if(team)usedIds.add(team.id);
+      return team;
+    }).filter(Boolean).slice(0,2);
   }
+
   function participantIdsForEvent(event){ return identitiesForEvent(event).map(team => team.id); }
   function markForTeam(team){
     if (!team) return null;

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "athlete-profile-chunk.v1",
   "sportKey": "f1",
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "generatedAt": "2026-09-08T13:40:21.541Z",
   "profiles": [
     {
       "schemaVersion": "athlete-profile.v1",
@@ -72,6 +72,17 @@
       ],
       "recentFive": [
         {
+          "label": "Italy · 06 Sep",
+          "opponent": null,
+          "result": "Position 7",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "6"
+            }
+          ]
+        },
+        {
           "label": "Netherlands · 23 Aug",
           "opponent": null,
           "result": "Position 10",
@@ -114,17 +125,6 @@
               "value": "1"
             }
           ]
-        },
-        {
-          "label": "Austria · 28 Jun",
-          "opponent": null,
-          "result": "Position 13",
-          "stats": [
-            {
-              "label": "Pts",
-              "value": "0"
-            }
-          ]
         }
       ],
       "selection": {
@@ -132,7 +132,7 @@
         "rank": 10,
         "basis": "Official 2026 Drivers' Standings",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "value": 44
+        "value": 41
       },
       "sourceLinks": [
         {
@@ -144,7 +144,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -215,6 +215,17 @@
       ],
       "recentFive": [
         {
+          "label": "Italy · 06 Sep",
+          "opponent": null,
+          "result": "Position DNF",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "0"
+            }
+          ]
+        },
+        {
           "label": "Netherlands · 23 Aug",
           "opponent": null,
           "result": "Position 5",
@@ -257,17 +268,6 @@
               "value": "29"
             }
           ]
-        },
-        {
-          "label": "Austria · 28 Jun",
-          "opponent": null,
-          "result": "Position 8",
-          "stats": [
-            {
-              "label": "Pts",
-              "value": "4"
-            }
-          ]
         }
       ],
       "selection": {
@@ -287,7 +287,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -358,6 +358,17 @@
       ],
       "recentFive": [
         {
+          "label": "Italy · 06 Sep",
+          "opponent": null,
+          "result": "Position 6",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "8"
+            }
+          ]
+        },
+        {
           "label": "Netherlands · 23 Aug",
           "opponent": null,
           "result": "Position 4",
@@ -400,17 +411,6 @@
               "value": "22"
             }
           ]
-        },
-        {
-          "label": "Austria · 28 Jun",
-          "opponent": null,
-          "result": "Position 5",
-          "stats": [
-            {
-              "label": "Pts",
-              "value": "10"
-            }
-          ]
         }
       ],
       "selection": {
@@ -418,7 +418,7 @@
         "rank": 3,
         "basis": "Official 2026 Drivers' Standings",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "value": 183
+        "value": 191
       },
       "sourceLinks": [
         {
@@ -430,7 +430,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -501,6 +501,17 @@
       ],
       "recentFive": [
         {
+          "label": "Italy · 06 Sep",
+          "opponent": null,
+          "result": "Position 4",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "12"
+            }
+          ]
+        },
+        {
           "label": "Netherlands · 23 Aug",
           "opponent": null,
           "result": "Position 1",
@@ -543,17 +554,6 @@
               "value": "18"
             }
           ]
-        },
-        {
-          "label": "Austria · 28 Jun",
-          "opponent": null,
-          "result": "Position 7",
-          "stats": [
-            {
-              "label": "Pts",
-              "value": "6"
-            }
-          ]
         }
       ],
       "selection": {
@@ -561,7 +561,7 @@
         "rank": 4,
         "basis": "Official 2026 Drivers' Standings",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "value": 159
+        "value": 171
       },
       "sourceLinks": [
         {
@@ -573,7 +573,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -644,6 +644,17 @@
       ],
       "recentFive": [
         {
+          "label": "Italy · 06 Sep",
+          "opponent": null,
+          "result": "Position 5",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "10"
+            }
+          ]
+        },
+        {
           "label": "Netherlands · 23 Aug",
           "opponent": null,
           "result": "Position 6",
@@ -686,17 +697,6 @@
               "value": "2"
             }
           ]
-        },
-        {
-          "label": "Austria · 28 Jun",
-          "opponent": null,
-          "result": "Position 4",
-          "stats": [
-            {
-              "label": "Pts",
-              "value": "12"
-            }
-          ]
         }
       ],
       "selection": {
@@ -704,7 +704,7 @@
         "rank": 7,
         "basis": "Official 2026 Drivers' Standings",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "value": 104
+        "value": 116
       },
       "sourceLinks": [
         {
@@ -716,7 +716,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -847,7 +847,7 @@
         "rank": 1,
         "basis": "Official 2026 Drivers' Standings",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "value": 242
+        "value": 267
       },
       "sourceLinks": [
         {
@@ -859,7 +859,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -930,6 +930,17 @@
       ],
       "recentFive": [
         {
+          "label": "Italy · 06 Sep",
+          "opponent": null,
+          "result": "Position 2",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "18"
+            }
+          ]
+        },
+        {
           "label": "Netherlands · 23 Aug",
           "opponent": null,
           "result": "Position 3",
@@ -972,17 +983,6 @@
               "value": "23"
             }
           ]
-        },
-        {
-          "label": "Austria · 28 Jun",
-          "opponent": null,
-          "result": "Position 1",
-          "stats": [
-            {
-              "label": "Pts",
-              "value": "25"
-            }
-          ]
         }
       ],
       "selection": {
@@ -990,7 +990,7 @@
         "rank": 2,
         "basis": "Official 2026 Drivers' Standings",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "value": 183
+        "value": 201
       },
       "sourceLinks": [
         {
@@ -1002,7 +1002,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1073,6 +1073,17 @@
       ],
       "recentFive": [
         {
+          "label": "Italy · 06 Sep",
+          "opponent": null,
+          "result": "Position 14",
+          "stats": [
+            {
+              "label": "Pts",
+              "value": "0"
+            }
+          ]
+        },
+        {
           "label": "Netherlands · 23 Aug",
           "opponent": null,
           "result": "Position 7",
@@ -1115,17 +1126,6 @@
               "value": "9"
             }
           ]
-        },
-        {
-          "label": "Austria · 28 Jun",
-          "opponent": null,
-          "result": "Position 9",
-          "stats": [
-            {
-              "label": "Pts",
-              "value": "2"
-            }
-          ]
         }
       ],
       "selection": {
@@ -1133,7 +1133,7 @@
         "rank": 9,
         "basis": "Official 2026 Drivers' Standings",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "value": 49
+        "value": 51
       },
       "sourceLinks": [
         {
@@ -1145,7 +1145,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1276,7 +1276,7 @@
         "rank": 6,
         "basis": "Official 2026 Drivers' Standings",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "value": 112
+        "value": 127
       },
       "sourceLinks": [
         {
@@ -1288,7 +1288,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1419,7 +1419,7 @@
         "rank": 8,
         "basis": "Official 2026 Drivers' Standings",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "value": 68
+        "value": 71
       },
       "sourceLinks": [
         {
@@ -1431,7 +1431,7 @@
           "url": "https://www.formula1.com/en/results/2026/drivers"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     }
   ]
 }

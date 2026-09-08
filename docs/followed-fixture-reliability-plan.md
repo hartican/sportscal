@@ -1,5 +1,7 @@
 # Sportscal: followed-fixture reliability and unified UI
 
+> Follow admission amendments (8 September 2026): [follow-decisions.md](follow-decisions.md) supersedes the women’s Cricket and early-round Tennis discovery rules below.
+
 Authoritative contract: the implementation plan approved in this task on 8 September 2026, captured below. Implement in independently verified release units. Do not report later phases complete from an earlier phase's checks.
 
 ## Project and release contract

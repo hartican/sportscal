@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-06T23:31:33.223Z",
+  "publishedAt": "2026-09-08T13:33:26.093Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -20,9 +20,9 @@
     "cricket",
     "premier-league",
     "aflw",
+    "tennis",
     "sailgp",
     "fiba-women",
-    "tennis",
     "nrlw",
     "motogp",
     "wsl",
@@ -34,7 +34,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-09-06",
+    "basisDate": "2026-09-08",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -42,7 +42,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-22",
     "lastEventDate": "2027-07-10",
-    "daysAhead": 307,
+    "daysAhead": 305,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {
@@ -96,7 +96,7 @@
         "lastEventDate": "2027-03-07"
       },
       "nrl": {
-        "count": 63,
+        "count": 67,
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-10-31"
       },
@@ -125,6 +125,11 @@
         "firstEventDate": "2026-08-29",
         "lastEventDate": "2026-11-01"
       },
+      "tennis": {
+        "count": 18,
+        "firstEventDate": "2026-09-03",
+        "lastEventDate": "2026-09-09"
+      },
       "sailgp": {
         "count": 7,
         "firstEventDate": "2026-09-06",
@@ -134,11 +139,6 @@
         "count": 17,
         "firstEventDate": "2026-09-06",
         "lastEventDate": "2026-09-14"
-      },
-      "tennis": {
-        "count": 1,
-        "firstEventDate": "2026-09-07",
-        "lastEventDate": "2026-09-07"
       },
       "nrlw": {
         "count": 7,

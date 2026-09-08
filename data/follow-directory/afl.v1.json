@@ -1,8 +1,8 @@
 {
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "afl",
-  "label": "AFL",
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "label": "Aussie Rules Football",
+  "generatedAt": "2026-09-08T12:37:48.448Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -102,6 +102,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5435/aaron-cadman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -139,6 +140,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1621/aaron-naughton",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -176,6 +178,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1562/adam-cerra",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -213,6 +216,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/913/adam-saad",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -250,6 +254,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12115/adam-sweid",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -287,6 +292,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/492/adam-treloar",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -359,6 +365,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/437/aidan-corr",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -396,6 +403,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5627/aidan-johnson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -433,6 +441,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10887/aidan-schubert",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -470,6 +479,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7357/aiden-riddle",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -507,6 +517,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2558/alex-davies",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -544,6 +555,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10708/alex-dodson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -581,6 +593,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/893/alex-neal-bullen",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -618,6 +631,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/465/alex-pearce",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -655,6 +669,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9887/alex-van-wyk",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -692,6 +707,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/695/aliir-aliir",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -729,6 +745,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9230/alix-tauru",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -766,6 +783,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1684/andrew-brayshaw",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -803,6 +821,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1331/andrew-mcgrath",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -840,6 +859,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5472/andy-moniz-wakefield",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -877,6 +897,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5507/angus-anderson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -914,6 +935,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9950/angus-clarke",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -951,6 +973,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6541/angus-hastie",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -988,6 +1011,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5698/angus-sheldrick",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1025,6 +1049,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5467/anthony-caminiti",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1062,6 +1087,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8454/archer-day-wicks",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1099,6 +1125,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8423/archer-may",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1136,6 +1163,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6500/archer-reid",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1173,6 +1201,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12451/archie-ludowyke",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1210,6 +1239,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3299/archie-perkins",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1247,6 +1277,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6645/archie-roberts",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1284,6 +1315,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5703/arthur-jones",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1321,6 +1353,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9218/asher-eastham",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1358,6 +1391,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9627/ashton-moir",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1395,6 +1429,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12196/avery-thomas",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1432,6 +1467,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1594/bailey-banfield",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1469,6 +1505,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1053/bailey-dale",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1506,6 +1543,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5434/bailey-humphrey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1543,6 +1581,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1904/bailey-j-williams",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1580,6 +1619,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2805/bailey-laurie",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1617,6 +1657,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8448/bailey-macdonald",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1654,6 +1695,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1837/bailey-scott",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1691,6 +1733,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1913/bailey-smith",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1728,6 +1771,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/969/bailey-williams",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1765,6 +1809,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11087/balyn-obrien",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1802,6 +1847,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1520/bayley-fritsch",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1839,6 +1885,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9293/beau-addinsall",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1876,6 +1923,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4056/beau-mccreery",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1913,6 +1961,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1402/ben-ainsworth",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1950,6 +1999,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9932/ben-camporeale",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -1987,6 +2037,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2691/ben-jepson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2024,6 +2075,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/886/ben-keays",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2061,6 +2113,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1810/ben-king",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2098,6 +2151,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1408/ben-long",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2135,6 +2189,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/874/ben-mckay",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2172,6 +2227,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1572/ben-miller",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2209,6 +2265,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/15850/ben-murphy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2246,6 +2303,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10185/benny-barrett",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2283,6 +2341,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2879/billy-cootee",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2320,6 +2379,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8619/billy-dowling",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2357,6 +2417,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1037/billy-frampton",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2394,6 +2455,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6442/billy-wilson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2431,6 +2493,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/683/blake-acres",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2468,6 +2531,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/924/blake-hardwick",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2505,6 +2569,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5236/blake-howes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2542,6 +2607,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11228/blake-thredgold",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2579,6 +2645,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8325/bo-allan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2616,6 +2683,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1835/bobby-hill",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2653,6 +2721,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4868/bodhi-uwland",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2690,6 +2759,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9721/bodie-ryan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2727,6 +2797,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3720/brad-close",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2764,6 +2835,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/482/bradley-hill",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2801,6 +2873,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5701/brady-hough",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2838,6 +2911,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2941/braeden-campbell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2875,6 +2949,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1609/brandon-starcevich",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2912,6 +2987,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4060/brandon-walker",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2949,6 +3025,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1469/brandon-zerk-thatcher",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -2986,6 +3063,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4048/brayden-cook",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3023,6 +3101,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/988/brayden-fiorini",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3060,6 +3139,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5470/brayden-george",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3097,6 +3177,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/862/brayden-maynard",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3134,6 +3215,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1390/brennan-cox",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3171,6 +3253,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1740/brent-daniels",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3243,6 +3326,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/113/brodie-grundy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3280,6 +3364,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2209/brodie-kemp",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3317,6 +3402,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1685/brody-mihocek",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3354,6 +3440,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2218/bruce-reville",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3391,6 +3478,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1959/buku-khamis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3428,6 +3516,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6816/caiden-cleary",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3465,6 +3554,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/952/caleb-daniel",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3502,6 +3592,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1911/caleb-graham",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3539,6 +3630,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5267/caleb-lewis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3576,6 +3668,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6700/caleb-may",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3613,6 +3706,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2304/caleb-serong",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3650,6 +3744,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6443/caleb-windsor",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3687,6 +3782,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/850/callum-ah-chee",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3724,6 +3820,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1809/callum-brown",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3761,6 +3858,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1754/callum-coleman-jones",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3798,6 +3896,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1133/callum-mills",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3835,6 +3934,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1855/callum-wilkie",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3872,6 +3972,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9423/calsher-dear",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3909,6 +4010,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5630/cam-mackenzie",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3946,6 +4048,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1665/cam-rayner",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -3983,6 +4086,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10898/cameron-nairn",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4020,6 +4124,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1404/cameron-zurhaar",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4057,6 +4162,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3356/campbell-chesser",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4094,6 +4200,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12567/campbell-gray",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4131,6 +4238,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6499/campbell-lake",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4203,6 +4311,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3735/chad-warner",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4240,6 +4349,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1574/changkuoth-jiath",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4277,6 +4387,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1475/charlie-ballard",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4314,6 +4425,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12935/charlie-banfield",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4351,6 +4463,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/152/charlie-cameron",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4388,6 +4501,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2398/charlie-comben",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4425,6 +4539,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/776/charlie-curnow",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4462,6 +4577,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8381/charlie-edwards",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4499,6 +4615,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9905/charlie-nicholls",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4536,6 +4653,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1742/charlie-spargo",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4573,6 +4691,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10794/charlie-west",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4610,6 +4729,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1782/chayce-jones",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4647,6 +4767,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9103/christian-moraes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4684,6 +4805,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1001/christian-petracca",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4721,6 +4843,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/735/christian-salem",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4758,6 +4881,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13981/christopher-scerri",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4795,6 +4919,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/15853/cillian-bourke",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4832,6 +4957,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13963/cillian-burke",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4869,6 +4995,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7519/clay-hall",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4906,6 +5033,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/899/clayton-oliver",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4943,6 +5071,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8416/cody-anderson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -4980,6 +5109,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11287/cody-angove",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5017,6 +5147,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12978/cody-curtin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5054,6 +5185,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2401/cody-weightman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5091,6 +5223,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6706/colby-mckercher",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5163,6 +5296,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2389/connor-budarick",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5200,6 +5334,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1812/connor-idun",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5237,6 +5372,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2722/connor-macdonald",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5274,6 +5410,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6576/connor-osullivan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5311,6 +5448,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1848/connor-rozee",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5348,6 +5486,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/982/conor-mckenna",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5385,6 +5524,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1302/conor-nash",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5422,6 +5562,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3030/conor-stone",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5459,6 +5600,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9198/cooper-bell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5496,6 +5638,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12113/cooper-duff-tytler",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5533,6 +5676,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6581/cooper-harvey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5570,6 +5714,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8502/cooper-hynes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5607,6 +5752,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9437/cooper-lord",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5644,6 +5790,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3028/cooper-sharman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5681,6 +5828,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6403/cooper-simpson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5718,6 +5866,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9159/cooper-trembath",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5755,6 +5904,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4054/corey-durdin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5792,6 +5942,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1089/corey-wagner",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5829,6 +5980,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5697/corey-warner",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5866,6 +6018,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1036/dan-butler",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5903,6 +6056,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1043/dan-houston",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5940,6 +6094,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/727/dane-rampe",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -5977,6 +6132,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9055/daniel-annable",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6014,6 +6170,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7336/daniel-curtin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6051,6 +6208,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/249/daniel-mcstay",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6088,6 +6246,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/919/daniel-rioli",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6125,6 +6284,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5217/daniel-turner",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6162,6 +6322,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5229/dante-visentini",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6199,6 +6360,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/652/darcy-byrne-jones",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6236,6 +6398,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1330/darcy-cameron",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6273,6 +6436,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1555/darcy-fogarty",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6310,6 +6474,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1940/darcy-fort",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6347,6 +6512,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/132/darcy-gardiner",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6384,6 +6550,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7595/darcy-jones",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6421,6 +6588,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/895/darcy-moore",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6458,6 +6626,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/852/darcy-parish",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6495,6 +6664,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2786/darcy-wilmot",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6532,6 +6702,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6573/darcy-wilson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6569,6 +6740,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1368/darragh-joyce",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6606,6 +6778,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8/dayne-zorko",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6643,6 +6816,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3713/deven-robertson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6680,6 +6854,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/460/dion-prestia",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6717,6 +6892,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/998/dougal-howard",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6754,6 +6930,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1595/dylan-moore",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6791,6 +6968,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12421/dylan-patterson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6828,6 +7006,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3734/dylan-stephens",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6865,6 +7044,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9891/dyson-sharp",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6902,6 +7082,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13967/eamonn-armstrong",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6939,6 +7120,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/810/ed-langdon",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -6976,6 +7158,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1722/ed-richards",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7013,6 +7196,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7853/edward-allan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7050,6 +7234,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7596/elijah-hewett",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7087,6 +7272,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2975/elijah-hollands",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7124,6 +7310,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5528/elijah-tsatas",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7161,6 +7348,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/584/elliot-yeo",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7198,6 +7386,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1357/elliott-himmelberg",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7235,6 +7424,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/864/eric-hipwood",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7272,6 +7462,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3336/errol-gulden",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7309,6 +7500,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1375/esava-ratugolea",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7381,6 +7573,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6525/ethan-read",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7418,6 +7611,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6597/ewan-mackinlay",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7455,6 +7649,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2695/finlay-macrae",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7492,6 +7687,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5321/finn-callaghan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7529,6 +7725,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2812/finn-maginness",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7566,6 +7763,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9338/finn-osullivan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7603,6 +7801,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8920/finnbar-maley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7640,6 +7839,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12536/finnegan-davis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7677,6 +7877,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2208/flynn-perez",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7714,6 +7915,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6609/flynn-riley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7751,6 +7953,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5141/flynn-young",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7788,6 +7991,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2582/francis-evans",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7825,6 +8029,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11953/fred-rodriguez",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7932,6 +8137,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/690/george-hewett",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -7969,6 +8175,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5421/george-stevens",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8006,6 +8213,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5508/george-wardlaw",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8078,6 +8286,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1312/griffin-logue",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8115,6 +8324,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1563/gryan-miers",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8187,6 +8397,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11298/hamish-davis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8224,6 +8435,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10541/harley-barker",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8261,6 +8473,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5377/harley-reid",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8298,6 +8511,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/822/harris-andrews",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8335,6 +8549,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12091/harrison-coe",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8372,6 +8587,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2242/harrison-jones",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8409,6 +8625,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8430/harrison-oliver",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8446,6 +8663,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1590/harrison-petty",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8483,6 +8701,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10080/harrison-ramm",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8520,6 +8739,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9371/harry-armstrong",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8557,6 +8777,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8637/harry-barnett",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8594,6 +8815,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9199/harry-charleson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8631,6 +8853,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/559/harry-cunningham",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8668,6 +8891,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12390/harry-dean",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8705,6 +8929,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6453/harry-demattia",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8742,6 +8967,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1854/harry-edwards",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8779,6 +9005,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/915/harry-himmelberg",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8816,6 +9043,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13552/harry-kyle",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8853,6 +9081,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/692/harry-mckay",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8890,6 +9119,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1341/harry-morrison",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8927,6 +9157,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9083/harry-ofarrell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -8964,6 +9195,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1394/harry-perryman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9001,6 +9233,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5550/harry-rowston",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9038,6 +9271,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3711/harry-schoenberg",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9075,6 +9309,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2670/harry-sharp",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9112,6 +9347,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5522/harry-sheezel",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9149,6 +9385,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5036/harvey-gallagher",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9186,6 +9423,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5677/harvey-harrison",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9223,6 +9461,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6701/harvey-johnston",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9260,6 +9499,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8503/harvey-langford",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9297,6 +9537,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6641/harvey-thomas",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9369,6 +9610,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1956/hayden-mclean",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9406,6 +9648,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2284/hayden-young",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9443,6 +9686,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4061/heath-chapman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9480,6 +9724,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5410/henry-hustwaite",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9517,6 +9762,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4053/henry-smith",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9554,6 +9800,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5529/hudson-okeeffe",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9591,6 +9838,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5404/hugh-bond",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9628,6 +9876,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11281/hugh-boxshall",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9665,6 +9914,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7313/hugh-davies",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9702,6 +9952,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1301/hugh-mccluggage",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9739,6 +9990,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6395/hugo-garcia",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9776,6 +10028,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5286/hugo-hall-kahan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9813,6 +10066,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12173/hugo-mikunda",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9850,6 +10104,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2764/hugo-ralphsmith",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9887,6 +10142,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1716/hunter-clark",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9924,6 +10180,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/14567/hunter-holmes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9961,6 +10218,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12117/hussien-el-achkar",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -9998,6 +10256,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6467/iliro-smit",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10035,6 +10294,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/15852/indy-cotton",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10072,6 +10332,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1386/isaac-cumming",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10109,6 +10370,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/966/isaac-heeney",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10146,6 +10408,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8522/isaac-kako",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10183,6 +10446,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8634/isaac-keeler",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10220,6 +10484,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1772/isaac-quaynor",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10257,6 +10522,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9530/isaiah-dudley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10294,6 +10560,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/949/ivan-soldo",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10331,6 +10598,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1815/izak-rankine",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10368,6 +10636,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1401/jack-bowes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10405,6 +10674,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1591/jack-buckley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10442,6 +10712,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6858/jack-buller",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10479,6 +10750,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4055/jack-carroll",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10516,6 +10788,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/212/jack-crisp",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10553,6 +10826,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12018/jack-dalton",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10590,6 +10864,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/842/jack-darling",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10627,6 +10902,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2238/jack-ginnivan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10664,6 +10940,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1325/jack-graham",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10701,6 +10978,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/500/jack-gunston",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10738,6 +11016,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5007/jack-henderson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10775,6 +11054,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1339/jack-henry",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10812,6 +11092,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1573/jack-higgins",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10849,6 +11130,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12565/jack-hutchinson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10886,6 +11168,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12431/jack-ison",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10923,6 +11206,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1831/jack-lukosius",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10960,6 +11244,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/748/jack-macrae",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -10997,6 +11282,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/222/jack-martin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11034,6 +11320,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8429/jack-ough",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11071,6 +11358,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1661/jack-payne",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11108,6 +11396,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1849/jack-ross",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11145,6 +11434,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1336/jack-scrimshaw",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11182,6 +11472,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/766/jack-silvagni",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11219,6 +11510,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1072/jack-sinclair",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11256,6 +11548,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/868/jack-steele",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11293,6 +11586,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/608/jack-viney",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11330,6 +11624,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4860/jack-watkins",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11367,6 +11662,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9320/jack-whitlock",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11404,6 +11700,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5700/jack-williams",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11441,6 +11738,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5206/jackson-archer",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11478,6 +11776,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3732/jackson-mead",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11515,6 +11814,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11965/jacob-farrow",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11552,6 +11852,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/918/jacob-hopper",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11589,6 +11890,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5417/jacob-konstanty",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11626,6 +11928,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10640/jacob-molier",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11663,6 +11966,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13923/jacob-moss",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11700,6 +12004,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10103/jacob-newton",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11737,6 +12042,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5689/jacob-van-rooyen",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11774,6 +12080,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4064/jacob-wehr",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11811,6 +12118,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/774/jacob-weitering",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11848,6 +12156,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1127/jade-gresham",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11885,6 +12194,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/614/jaeger-omeara",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11922,6 +12232,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9351/jagga-smith",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11959,6 +12270,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5064/jai-culley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -11996,6 +12308,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9257/jai-murray",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12033,6 +12346,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4712/jai-newcombe",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12070,6 +12384,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/14557/jai-saxena",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12107,6 +12422,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5107/jai-serong",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12144,6 +12460,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13964/jaime-uhr-henry",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12181,6 +12498,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3132/jake-bowey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12218,6 +12536,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/373/jake-kolodjashnij",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12255,6 +12574,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/856/jake-lever",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12292,6 +12612,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/844/jake-lloyd",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12329,6 +12650,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/137/jake-melksham",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12366,6 +12688,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/17224/jake-miles-wrency",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12403,6 +12726,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3723/jake-riccardi",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12440,6 +12764,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6485/jake-rogers",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12477,6 +12802,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2770/jake-soligo",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12514,6 +12840,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/792/jake-stringer",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12551,6 +12878,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1381/jake-waterman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12588,6 +12916,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8623/jakob-ryan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12625,6 +12954,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2693/jamarra-ugle-hagan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12662,6 +12992,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9037/james-barrat",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12699,6 +13030,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2447/james-blanck",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12736,6 +13068,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4050/james-borlase",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12773,6 +13106,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/742/james-harmes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12809,6 +13143,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1813/james-jordon",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12846,6 +13181,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9439/james-leake",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12883,6 +13219,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11626/james-odonnell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12920,6 +13257,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2541/james-peatling",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12957,6 +13295,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1908/james-rowbottom",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -12994,6 +13333,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/514/james-sicily",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13031,6 +13371,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8945/james-trezise",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13068,6 +13409,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5673/james-tunstill",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13105,6 +13447,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1713/james-worpel",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13142,6 +13485,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/751/jamie-cripps",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13179,6 +13523,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/112/jamie-elliott",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13216,6 +13561,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7505/jaren-carr",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13253,6 +13599,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/703/jarman-impey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13290,6 +13637,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1343/jarrod-berry",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13327,6 +13675,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/161/jarrod-witts",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13364,6 +13713,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5692/jase-burgoyne",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13401,6 +13751,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5691/jason-horne-francis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13438,6 +13789,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5372/jaspa-fletcher",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13475,6 +13827,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8588/jasper-alger",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13512,6 +13865,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11432/jaxon-artemis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13549,6 +13903,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3714/jaxon-prior",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13586,6 +13941,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10405/jay-polkinghorne",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13623,6 +13979,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/870/jayden-laverde",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13660,6 +14017,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8521/jayden-nguyen",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13697,6 +14055,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/964/jayden-short",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13734,6 +14093,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7414/jed-adams",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13771,6 +14131,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/464/jed-bews",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13808,6 +14169,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5440/jed-walter",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13845,6 +14207,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7959/jedd-busslinger",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13882,6 +14245,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/223/jeremy-cameron",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13919,6 +14283,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/504/jeremy-howe",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13956,6 +14321,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3721/jeremy-sharp",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -13993,6 +14359,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8509/jesse-dattoli",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14030,6 +14397,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/391/jesse-hogan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14067,6 +14435,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12157/jesse-mellor",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14104,6 +14473,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5674/jesse-motlop",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14141,6 +14511,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11238/jevan-phillipou",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14178,6 +14549,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5543/jhye-clark",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14215,6 +14587,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9050/jobe-shanahan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14252,6 +14625,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9296/joe-berry",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14289,6 +14663,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11301/joe-fonti",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14326,6 +14701,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6503/joe-pike",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14363,6 +14739,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8622/joe-richards",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14400,6 +14777,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1598/joel-amartey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14437,6 +14815,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9376/joel-cochran",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14474,6 +14853,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5178/joel-fitzgerald",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14511,6 +14891,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6564/joel-freijah",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14548,6 +14929,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/458/joel-hamling",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14585,6 +14967,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2568/joel-jeffrey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14622,6 +15005,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1768/john-noble",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14659,6 +15043,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9187/jonty-faull",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14696,6 +15081,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4803/jordan-boyd",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14733,6 +15119,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1929/jordan-clark",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14770,6 +15157,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6385/jordan-croft",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14807,6 +15195,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1080/jordan-dawson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14844,6 +15233,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/782/jordan-de-goey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14881,6 +15271,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1288/jordan-ridley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14918,6 +15309,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1824/jordon-butts",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14955,6 +15347,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1943/jordon-sweet",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -14992,6 +15385,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9175/josaia-delana",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15029,6 +15423,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1412/josh-battle",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15066,6 +15461,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1321/josh-daicos",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15103,6 +15499,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11957/josh-dolan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15140,6 +15537,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1083/josh-dunkley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15177,6 +15575,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5157/josh-gibcus",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15214,6 +15613,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2487/josh-goater",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15251,6 +15651,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/528/josh-kelly",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15288,6 +15689,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13968/josh-lai",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15325,6 +15727,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11789/josh-lindsay",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15362,6 +15765,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3232/josh-rachele",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15399,6 +15803,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5295/josh-sinn",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15436,6 +15841,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8507/josh-smillie",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15473,6 +15879,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2362/josh-treacy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15510,6 +15917,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5252/josh-ward",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15547,6 +15955,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6669/josh-weddle",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15584,6 +15993,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2696/josh-worrell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15621,6 +16031,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7400/joshua-draper",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15658,6 +16069,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5688/judd-mcvee",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15695,6 +16107,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5068/judson-clarke",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15732,6 +16145,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1864/justin-mcinerney",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15769,6 +16183,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3722/jy-farrar",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15806,6 +16221,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1405/jy-simpkin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15843,6 +16259,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5680/jye-amiss",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15880,6 +16297,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1834/jye-caldwell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15917,6 +16335,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1808/kade-chandler",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15954,6 +16373,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5146/kai-lohmann",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -15991,6 +16411,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12422/kalani-white",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16028,6 +16449,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7321/kaleb-smith",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16065,6 +16487,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1758/kane-farrell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16102,6 +16525,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9749/kane-mcauliffe",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16139,6 +16563,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/801/karl-amon",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16176,6 +16601,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4905/karl-worner",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16213,6 +16639,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11568/kayle-gerreyn",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16250,6 +16677,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2203/keidean-coleman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16287,6 +16715,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9486/keighton-matofai-forbes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16324,6 +16753,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1811/kieren-briggs",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16361,6 +16791,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/15854/kobe-mcdonald",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16398,6 +16829,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12387/koby-coulson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16435,6 +16867,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13425/koby-evans",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16472,6 +16905,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7635/koltyn-tholstrup",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16509,6 +16943,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11837/kye-annand",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16546,6 +16981,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12523/kye-fincher",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16583,6 +17019,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/945/kyle-langford",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16620,6 +17057,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3727/kysaiah-pickett",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16657,6 +17095,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2524/lachie-ash",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16694,6 +17133,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1732/lachie-fogarty",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16731,6 +17171,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9248/lachie-jaques",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16768,6 +17209,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4071/lachie-jones",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16805,6 +17247,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/355/lachie-neale",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16842,6 +17285,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1803/lachie-schultz",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16879,6 +17323,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/823/lachie-weller",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16916,6 +17361,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/306/lachie-whitfield",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16953,6 +17399,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7157/lachlan-blakiston",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -16990,6 +17437,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4313/lachlan-bramble",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17027,6 +17475,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12455/lachlan-carmichael",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17064,6 +17513,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5277/lachlan-cowan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17101,6 +17551,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9266/lachlan-gulbin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17138,6 +17589,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4951/lachlan-mcandrew",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17175,6 +17627,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4079/lachlan-mcneil",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17212,6 +17665,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1761/lachlan-sholl",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17249,6 +17703,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6524/lachlan-smith",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17286,6 +17741,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4851/lachlan-sullivan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17323,6 +17779,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/17225/lachy-brewer",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17360,6 +17817,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12318/lachy-dovaston",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17397,6 +17855,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1931/laitham-vandermeer",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17434,6 +17893,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7451/lance-collard",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17471,6 +17931,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10179/latrelle-pickett",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17508,6 +17969,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7508/lawson-humphries",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17545,6 +18007,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5686/leek-aleer",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17582,6 +18045,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9457/lennox-hofmann",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17619,6 +18083,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11566/leon-kickett",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17656,6 +18121,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9246/leonardo-lombard",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17693,6 +18159,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8422/levi-ashcroft",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17730,6 +18197,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5392/lewis-hayes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17767,6 +18235,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1040/lewis-melican",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17804,6 +18273,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1335/lewis-young",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17841,6 +18311,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1756/liam-baker",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17878,6 +18349,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/956/liam-duggan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17915,6 +18387,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9613/liam-fawcett",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17952,6 +18425,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3716/liam-henry",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -17989,6 +18463,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12402/liam-hetherton",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18026,6 +18501,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2678/liam-mcmahon",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18063,6 +18539,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12082/liam-oconnell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18100,6 +18577,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5501/liam-puncher",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18137,6 +18615,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4806/liam-reidy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18174,6 +18653,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1787/liam-ryan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18211,6 +18691,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1897/liam-stocker",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18248,6 +18729,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/294/lincoln-mccarthy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18285,6 +18767,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1560/lloyd-meek",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18322,6 +18805,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9923/logan-evans",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18359,6 +18843,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4074/logan-mcdonald",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18396,6 +18881,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6773/logan-morris",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18433,6 +18919,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9221/logan-smith",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18470,6 +18957,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12017/louis-emmett",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18507,6 +18995,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9674/lucas-camporeale",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18544,6 +19033,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8511/lucca-grego",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18581,6 +19071,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10307/lukas-cooke",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18618,6 +19109,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10205/luke-beecken",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18655,6 +19147,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3187/luke-cleary",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18692,6 +19185,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1607/luke-davies-uniacke",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18729,6 +19223,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3728/luke-jackson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18766,6 +19261,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9475/luke-kennedy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18803,6 +19299,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6741/luke-lloyd",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18840,6 +19337,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/424/luke-mcdonald",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18877,6 +19375,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5304/luke-nankervis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18914,6 +19413,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/816/luke-parker",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18951,6 +19451,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4049/luke-pedlar",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -18988,6 +19489,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1311/luke-ryan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19025,6 +19527,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9375/luke-trainor",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19062,6 +19565,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8434/luke-urquhart",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19099,6 +19603,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7630/luker-kentfield",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19136,6 +19641,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1125/mabior-chol",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19173,6 +19679,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5063/mac-andrew",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19210,6 +19717,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8496/malakai-champion",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19247,6 +19755,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2602/malcolm-rosas",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19284,6 +19793,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9993/mani-liddy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19321,6 +19831,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/892/marc-pittonet",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19358,6 +19869,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/857/marcus-bontempelli",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19395,6 +19907,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2782/marcus-herbert",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19432,6 +19945,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5282/marcus-windhager",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19469,6 +19983,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/296/mark-blicavs",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19506,6 +20021,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1901/mark-keane",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19543,6 +20059,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1344/mark-oconnor",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19580,6 +20097,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/809/mason-cox",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19617,6 +20135,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/944/mason-redman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19654,6 +20173,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/547/mason-wood",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19691,6 +20211,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4349/massimo-dambrosio",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19728,6 +20249,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13966/matt-duffy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19765,6 +20287,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/866/matt-flynn",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19802,6 +20325,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1737/matt-guelfi",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19839,6 +20363,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13965/matt-hill",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19876,6 +20401,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5696/matt-roberts",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19913,6 +20439,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2790/matt-rowell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19950,6 +20477,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9273/matt-whitlock",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -19987,6 +20515,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8635/mattaes-phillipou",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20024,6 +20553,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6702/matthew-carroll",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20061,6 +20591,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1895/matthew-cottrell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20098,6 +20629,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5498/matthew-jefferson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20135,6 +20667,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5679/matthew-johnson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20172,6 +20705,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/922/matthew-kennedy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20209,6 +20743,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9824/matthew-leray",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20246,6 +20781,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1776/matthew-owies",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20283,6 +20819,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2778/maurice-rioli",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20320,6 +20857,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8468/max-beattie",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20357,6 +20895,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/412/max-gawn",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20394,6 +20933,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6638/max-gruzewski",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20431,6 +20971,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5088/max-hall",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20468,6 +21009,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3033/max-heath",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20505,6 +21047,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3250/max-holmes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20542,6 +21085,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12441/max-king",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20579,6 +21123,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6531/max-knobel",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20616,6 +21161,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12453/max-kondogiannis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20653,6 +21199,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9413/max-mapley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20690,6 +21237,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8620/max-michalanney",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20727,6 +21275,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6683/max-ramsden",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20799,6 +21348,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3718/michael-frederick",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20836,6 +21386,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7394/michael-sellwood",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20873,6 +21424,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6874/milan-murdock",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20910,6 +21462,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2848/miles-bergman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20947,6 +21500,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3733/mitch-georgiades",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -20984,6 +21538,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5176/mitch-knevitt",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21021,6 +21576,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1333/mitch-lewis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21058,6 +21614,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/738/mitch-mcgovern",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21095,6 +21652,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5305/mitch-owens",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21132,6 +21690,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4730/mitch-podhajski",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21169,6 +21728,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8493/mitch-zadow",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21206,6 +21766,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7501/mitchell-edwards",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21243,6 +21804,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1292/mitchell-hinge",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21280,6 +21842,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11176/mitchell-marsh",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21317,6 +21880,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9363/murphy-reid",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21354,6 +21918,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6284/mykelti-lefau",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21391,6 +21956,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5694/nasiah-wanganeen-milera",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21428,6 +21994,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6608/nate-caddy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21465,6 +22032,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1032/nathan-broad",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21502,6 +22070,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4059/nathan-odriscoll",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21539,6 +22108,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11935/nathan-wardius",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21576,6 +22146,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10298/ned-bowman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21613,6 +22184,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2880/ned-long",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21650,6 +22222,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5311/ned-moyle",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21687,6 +22260,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1822/ned-reeves",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21724,6 +22298,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5681/neil-erasmus",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21761,6 +22336,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6178/nic-martin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21798,6 +22374,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/950/nic-newman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21835,6 +22412,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12199/nicholas-driscoll",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21872,6 +22450,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5466/nicholas-madden",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21909,6 +22488,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1948/nick-blakey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21946,6 +22526,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2692/nick-bryan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -21983,6 +22564,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1707/nick-coffield",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22020,6 +22602,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5257/nick-daicos",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22057,6 +22640,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/577/nick-haynes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22094,6 +22678,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/128/nick-holman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22131,6 +22716,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1355/nick-larkey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22168,6 +22754,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2474/nick-murray",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22205,6 +22792,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/444/nick-vlastuin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22242,6 +22830,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5592/nick-watson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22279,6 +22868,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2843/nik-cox",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22316,6 +22906,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2783/noah-anderson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22353,6 +22944,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1774/noah-answerth",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22390,6 +22982,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1755/noah-balta",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22427,6 +23020,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11653/noah-chamberlain",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22464,6 +23058,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10243/noah-howes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22501,6 +23096,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5375/noah-long",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22538,6 +23134,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8506/noah-mraz",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22575,6 +23172,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10521/noah-roberts-thomson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22647,6 +23245,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5684/oisin-mullin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22684,6 +23283,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5685/oliver-dempsey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22721,6 +23321,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1363/oliver-florent",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22758,6 +23359,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10170/oliver-francou",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22795,6 +23397,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12317/oliver-greeves",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22832,6 +23435,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/14419/oliver-griffin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22869,6 +23473,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8575/oliver-hannaford",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22906,6 +23511,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12081/oliver-hayes-brown",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22943,6 +23549,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2591/oliver-henry",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -22980,6 +23587,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5569/oliver-hollands",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23017,6 +23625,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5134/oliver-wiltshire",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23054,6 +23663,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2983/ollie-lord",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23091,6 +23701,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6768/ollie-murphy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23128,6 +23739,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/678/ollie-wines",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23165,6 +23777,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5695/oscar-adams",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23202,6 +23815,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1718/oscar-allen",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23239,6 +23853,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/15851/oscar-berry",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23276,6 +23891,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/926/oscar-mcdonald",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23313,6 +23929,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6623/oscar-ryan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23350,6 +23967,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8638/oscar-steene",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23387,6 +24005,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1739/oskar-baker",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23424,6 +24043,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12361/oskar-taylor",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23461,6 +24081,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5128/paddy-cross",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23498,6 +24119,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1554/paddy-dow",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23535,6 +24157,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/17494/patrick-carr",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23572,6 +24195,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/270/patrick-cripps",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23609,6 +24233,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10/patrick-dangerfield",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23646,6 +24271,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1353/patrick-lipinski",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23683,6 +24309,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9366/patrick-retschko",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23720,6 +24347,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9080/patrick-said",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23757,6 +24385,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9038/patrick-snell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23794,6 +24423,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5232/patrick-voss",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23831,6 +24461,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4350/paul-curtis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23868,6 +24499,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1371/peter-ladhams",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23905,6 +24537,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/903/peter-wright",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -23942,6 +24575,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9299/phoenix-gothard",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24014,6 +24648,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7482/reece-torrent",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24051,6 +24686,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2922/reef-mcinnes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24088,6 +24724,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/763/reilly-obrien",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24125,6 +24762,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7975/reuben-ginbey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24162,6 +24800,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5699/rhett-bazzo",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24199,6 +24838,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2855/rhyan-mansell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24236,6 +24876,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1912/rhylee-west",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24273,6 +24914,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/668/rhys-stanley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24310,6 +24952,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9202/rhys-unwin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24347,6 +24990,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6426/riak-andrew",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24419,6 +25063,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11741/ricky-mentha",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24456,6 +25101,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8470/riley-bice",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24493,6 +25139,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3741/riley-garcia",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24530,6 +25177,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9177/riley-hamilton",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24567,6 +25215,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7751/riley-hardeman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24604,6 +25253,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11962/riley-onley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24641,6 +25291,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4046/riley-thilthorpe",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24678,6 +25329,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9237/river-stevens",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24715,6 +25367,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6220/roan-steele",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24752,6 +25405,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12079/rob-monahan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24789,6 +25443,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7536/robert-hansen-jr",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24826,6 +25481,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/193/rory-laird",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24863,6 +25519,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/604/rory-lobb",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24900,6 +25557,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1410/rowan-marshall",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24937,6 +25595,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2724/ryan-angwin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -24974,6 +25633,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2986/ryan-byrnes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25011,6 +25671,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/900/ryan-gardner",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25048,6 +25709,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/124/ryan-lester",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25085,6 +25747,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8467/ryan-maric",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25122,6 +25785,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13661/ryda-luke",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25159,6 +25823,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5296/ryley-sanders",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25196,6 +25861,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3440/saad-el-hawli",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25233,6 +25899,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11938/sam-allen",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25270,6 +25937,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3427/sam-banks",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25307,6 +25975,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2465/sam-berry",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25344,6 +26013,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5124/sam-butler",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25381,6 +26051,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4320/sam-clohesy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25418,6 +26089,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/824/sam-collins",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25455,6 +26127,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10116/sam-cumming",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25492,6 +26165,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5292/sam-darcy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25529,6 +26203,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12580/sam-davidson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25566,6 +26241,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2248/sam-de-koning",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25603,6 +26279,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1296/sam-draper",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25640,6 +26317,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3075/sam-durham",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25677,6 +26355,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2341/sam-flanders",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25714,6 +26393,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12494/sam-grlj",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25751,6 +26431,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8525/sam-lalor",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25788,6 +26469,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9042/sam-marshall",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25825,6 +26507,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1406/sam-powell-pepper",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25862,6 +26545,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1806/sam-sturt",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25899,6 +26583,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13207/sam-swadling",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25936,6 +26621,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1699/sam-switkowski",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -25973,6 +26659,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1698/sam-taylor",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26010,6 +26697,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1896/sam-walsh",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26047,6 +26735,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1903/sam-wicks",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26084,6 +26773,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2245/samson-ryan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26121,6 +26811,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2875/sandy-brock",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26158,6 +26849,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/118/scott-pendlebury",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26195,6 +26887,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1392/sean-darcy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26232,6 +26925,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5275/seth-campbell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26269,6 +26963,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6783/shadeau-brain",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26306,6 +27001,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1407/shai-bolton",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26343,6 +27039,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1924/shane-mcadam",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26380,6 +27077,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4063/shannon-neale",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26417,6 +27115,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5018/shaun-mannagh",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26454,6 +27153,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10256/sid-draper",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26526,6 +27226,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/154/steele-sidebottom",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26563,6 +27264,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7489/steely-green",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26600,6 +27302,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/215/stephen-coniglio",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26637,6 +27340,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/287/steven-may",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26674,6 +27378,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/15673/sullivan-robey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26746,6 +27451,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13986/tai-hayes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26783,6 +27489,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9427/taj-hotton",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26820,6 +27527,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12384/talor-byrne",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26857,6 +27565,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2542/tanner-bruhn",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26894,6 +27603,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/145/taylor-adams",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26931,6 +27641,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11031/taylor-goad",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -26968,6 +27679,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/35/taylor-walker",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27005,6 +27717,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9264/tew-jiath",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27042,6 +27755,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7531/thomas-edwards",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27079,6 +27793,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11956/thomas-matthews",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27116,6 +27831,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1409/tim-english",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27153,6 +27869,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1741/tim-kelly",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27190,6 +27907,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/836/tim-membrey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27227,6 +27945,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1395/tim-taranto",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27264,6 +27983,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8498/tobie-travaglia",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27301,6 +28021,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1839/toby-bedford",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27338,6 +28059,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5112/toby-conway",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27375,6 +28097,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/657/toby-greene",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27412,6 +28135,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6703/toby-mcmullin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27449,6 +28173,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5185/toby-murray",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27486,6 +28211,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/790/toby-nankervis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27523,6 +28249,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1338/toby-pink",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27560,6 +28287,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11933/toby-whan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27597,6 +28325,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6479/tobyn-murray",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27634,6 +28363,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1356/todd-marshall",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27671,6 +28401,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6560/tom-anastasopoulos",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27708,6 +28439,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1846/tom-atkins",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27745,6 +28477,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/789/tom-barrass",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27782,6 +28515,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3181/tom-blamires",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27819,6 +28553,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2877/tom-brown",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27856,6 +28591,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12043/tom-burton",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27893,6 +28629,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/693/tom-campbell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27930,6 +28667,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9611/tom-cochrane",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -27967,6 +28705,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1146/tom-cole",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28004,6 +28743,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1544/tom-de-koning",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28041,6 +28781,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/813/tom-doedee",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28078,6 +28819,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2617/tom-green",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28115,6 +28857,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8579/tom-gross",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28152,6 +28895,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6489/tom-hanily",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28189,6 +28933,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/848/tom-liberatore",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28226,6 +28971,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/472/tom-lynch",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28263,6 +29009,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12571/tom-mccarthy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28300,6 +29047,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1786/tom-mccartin",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28337,6 +29085,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/663/tom-mcdonald",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28374,6 +29123,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1135/tom-papley",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28411,6 +29161,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4068/tom-powell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28448,6 +29199,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9279/tom-sims",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28485,6 +29237,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1947/tom-sparrow",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28522,6 +29275,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1322/tom-stewart",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28559,6 +29313,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/990/touk-miller",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28596,6 +29351,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3729/trent-rivers",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28633,6 +29389,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1694/tristan-xerri",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28670,6 +29427,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12141/ty-gallop",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28707,6 +29465,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/15324/tyan-prindable",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28744,6 +29503,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13382/tylah-williams",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28781,6 +29541,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4777/tylar-young",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28818,6 +29579,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/4066/tyler-brockman",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28855,6 +29617,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2717/tyler-sonsie",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28892,6 +29655,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10575/tyler-welsh",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28929,6 +29693,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/7576/tyrell-dewar",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -28966,6 +29731,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1376/tyson-stengle",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29003,6 +29769,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6698/vigo-visentini",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29040,6 +29807,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2886/wade-derksen",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29077,6 +29845,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/830/wayne-milera",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29184,6 +29953,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8466/wil-dawson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29221,6 +29991,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2479/wil-parker",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29258,6 +30029,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1474/wil-powell",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29295,6 +30067,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5518/will-ashcroft",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29332,6 +30105,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1397/will-brodie",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29369,6 +30143,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/15533/will-darcy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29406,6 +30181,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/3726/will-day",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29443,6 +30219,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6512/will-graham",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29480,6 +30257,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1413/will-hayward",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29517,6 +30295,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12563/will-lewis",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29554,6 +30333,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8447/will-lorenz",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29591,6 +30371,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8472/will-mclachlan",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29628,6 +30409,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1359/will-setterfield",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29665,6 +30447,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1400/willem-drew",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29702,6 +30485,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11955/willem-duursma",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29739,6 +30523,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5488/william-edwards",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29776,6 +30561,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/6600/william-green",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29813,6 +30599,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11327/william-hayes",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -29850,6 +30637,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9672/william-mccabe",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30007,6 +30795,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12524/xavier-bamert",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30044,6 +30833,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1852/xavier-duursma",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30081,6 +30871,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8524/xavier-lindsay",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30118,6 +30909,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1821/xavier-ohalloran",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30155,6 +30947,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12344/xavier-taylor",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30192,6 +30985,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11321/xavier-walsh",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30229,6 +31023,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1577/zac-bailey",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30266,6 +31061,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11960/zac-banch",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30303,6 +31099,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1291/zac-fisher",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30340,6 +31137,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/12472/zac-mccarthy",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30377,6 +31175,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2378/zac-taylor",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30414,6 +31213,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/14554/zac-walker",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30451,6 +31251,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/483/zac-williams",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30488,6 +31289,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1342/zach-guthrie",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30525,6 +31327,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/170/zach-merrett",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30562,6 +31365,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/2612/zach-reid",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30599,6 +31403,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/1856/zak-butters",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30636,6 +31441,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/13856/zak-evans",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30673,6 +31479,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/8418/zak-johnson",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30710,6 +31517,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/5423/zane-duursma",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30747,6 +31555,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/10777/zane-peucker",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30784,6 +31593,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/11333/zane-zakostelsky",
         "source:afl:players",
         "source:afl:teams"
       ],
@@ -30821,6 +31631,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/players/9224/zeke-uwland",
         "source:afl:players",
         "source:afl:teams"
       ],

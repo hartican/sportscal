@@ -12,6 +12,7 @@
       event?.canonicalEventId,
       event?.eventId,
       event?.id,
+      ...(event?.sourceEventIds || []),
       ...(Array.isArray(event?.identityAliases) ? event.identityAliases : []),
     ].map(clean).filter(Boolean)));
   }
@@ -33,7 +34,9 @@
     return `${competition}|${new Date(parsedStart).toISOString()}|${participants.join("|")}`;
   }
 
+  const cachedIndexes=new WeakMap();
   function fixtureIndexes(canonicalFixtures){
+    const cached=cachedIndexes.get(canonicalFixtures);if(cached?.length===canonicalFixtures.length)return cached;
     const byAlias = new Map();
     const bySemantic = new Map();
     (canonicalFixtures || []).forEach(fixture => {
@@ -41,7 +44,7 @@
       const key = semanticFixtureKey(fixture);
       if (key && !bySemantic.has(key)) bySemantic.set(key, fixture);
     });
-    return { byAlias, bySemantic };
+    const result={byAlias,bySemantic,length:canonicalFixtures.length};cachedIndexes.set(canonicalFixtures,result);return result;
   }
 
   function canonicalFixtureFor(event, canonicalFixtures){

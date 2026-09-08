@@ -20,8 +20,8 @@ included(fixture("domestic-final",{key:"rugby",round:"Grand Final",stakesScore:1
 included(fixture('motogp-gp',{key:'motogp',name:'San Marino Grand Prix Race'}),{followedSports:['motogp']},true,'premier Grand Prix races remain marquee without stakes');
 included(fixture('sailgp-meet',{key:'sailgp',name:'Sydney Sail Grand Prix'}),{followedSports:['sailgp']},true,'premier SailGP meets remain marquee without stakes');
 const tennis={followedSports:["tennis"],followFirst:{australiansOnlySportIds:["sport:tennis"]}};
-included(fixture("early-aussie",{round:"Round 1",participantCountryCodes:["AUS"]}),tennis,true,"Australian discovery includes early matches");
-included(fixture("foreign-final",{round:"Final",participantCountryCodes:["ITA","USA"]}),tennis,false,"Australian scope constrains broad sport discovery");
+included(fixture("early-aussie",{round:"Round 1",participantCountryCodes:["AUS"]}),tennis,false,"early tennis requires a followed player");
+included(fixture("foreign-final",{round:"Final",participantCountryCodes:["ITA","USA"]}),tennis,true,"tennis finals remain eligible regardless of nationality");
 included(fixture("explicit-event",{round:"Quarter-final",eventFamilyId:"us-open",participantCountryCodes:["ITA","USA"]}),{...tennis,followFirst:{...tennis.followFirst,followedMajorEventIds:["us-open"]}},true,"event follows bypass Australian scope");
 included(fixture("early-event",{round:"Round 1",eventFamilyId:"us-open"}),{followFirst:{followedMajorEventIds:["us-open"]}},false,"event follows remain marquee only");
 included(fixture("doubles-semi",{round:"Semi-final",eventType:"doubles"}),{followedSports:["tennis"]},false,"doubles start at finals");
@@ -33,9 +33,9 @@ included(fixture("excluded",{key:"motorsport",participantIds:["competitor:f1:max
 included(fixture("muted",{round:"Final",participantIds:["athlete:tennis:muted"]}),{followedSports:["tennis"],preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"mute"}]}},false,"explicit mute overrides broad follow");
 included(fixture("empty-preferences",{key:"rugby",round:"Final",stakesScore:5}),{},false,"no follows means no unsolicited fixture");
 const footballPlayer=require('../data/canonical/football-follow-index.v1.json').players.find(player=>player.currentTeamId);
-for(const fields of [{participantsConfirmed:true},{excludedParticipantIds:[footballPlayer.id]}]){
+for(const fields of [{},{participantsConfirmed:true},{excludedParticipantIds:[footballPlayer.id]}]){
   const event=fixture('excluded-team-inheritance',{key:'football',participantIds:[footballPlayer.currentTeamId],...fields});
-  assert.equal(buildServerFeed({events:[event],userId:'qa',userState:{preferences:{preferenceGraph:{entityFollows:[{participantId:footballPlayer.id,followLevel:'follow'}]}}},now}).events.length,0,'confirmed roster/exclusion prevents implicit team inheritance');
+  assert.equal(buildServerFeed({events:[event],userId:'qa',userState:{preferences:{preferenceGraph:{entityFollows:[{participantId:footballPlayer.id,followLevel:'follow'}]}}},now}).events.length,0,'team membership alone never confirms fixture participation');
 }
 const order=require('../config/football-directory');
 assert.deepEqual(order.followOrder([{id:'club-a',teamKind:'club'},{id:'national',teamKind:'national'},{id:'club-b',teamKind:'club'}],{preferenceGraph:{entityFollows:[{participantId:'club-b',followLevel:'follow'}]}}).map(record=>record.id),['club-b','club-a','national']);

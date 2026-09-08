@@ -78,7 +78,7 @@ function validate(){
     { participantIds: [herrington.currentTeamId] },
     { entityFollows: [{ participantId: herrington.id, followLevel: "follow" }] },
     index
-  ), ["follow"], "a player follow must expand to the current club fixture");
+  ), [], "club membership alone does not confirm player participation");
   assert.deepEqual(directoryApi.expandedFollowLevels(
     { participantIds: [herrington.currentTeamId] },
     { entityFollows: [{ participantId: herrington.id, followLevel: "mute" }] },
@@ -90,7 +90,11 @@ function validate(){
     { participantIds: ["team:football:epl:1"] },
     { entityFollows: [{ participantId: herrington.id, followLevel: "follow" }] },
     transferredIndex
-  ), ["follow"], "a transfer must redirect future fixtures without changing player ID");
+  ), [], "a transfer does not confirm participation in every new club fixture");
+  assert.deepEqual(directoryApi.expandedFollowLevels(
+    {participantIds:[herrington.currentTeamId,herrington.id]},
+    {entityFollows:[{participantId:herrington.id,followLevel:"follow"}]},index
+  ), ["follow"], "confirmed player participation admits the fixture");
   assert.equal(coreEvents.schemaVersion, "football-core-events.v1");
   assert(coreEvents.events.length > 0, "high-stakes football core feed must not be empty");
   assert(coreEvents.events.every(event => Number(event.expected) >= 8), "core football feed must contain only 4/5 and 5/5 fixtures");
@@ -107,7 +111,7 @@ function validate(){
   assert(/function saveStandingsSportKeys[\s\S]{0,350}current\.length === selected\.length[\s\S]{0,100}return false/.test(appSource), "semantic Standings selection no-ops must not write or change timestamps");
   assert(!appSource.includes("function renderTeamFollowPanel") && !appSource.includes("function buildJointTournamentAthletePanel")
     && !appSource.includes("data-entity-follow"), "dedicated follow lists must not remain outside Standings");
-  assert(appSource.includes('!["rugby", "cricket", "football", "fifa", "premier-league"].includes(ev.key)'), "balanced football filtering must cover Premier League and core football fixtures");
+  assert(appSource.includes("FOLLOW_FIRST?.reasonForEvent"), "football uses the shared explicit Follow admission policy");
   assert(serverSource.includes("footballDirectory.expandedFollowLevels") && serverSource.includes("isCoreLeagueFootball"), "server feed must expand player follows and apply the core-league threshold");
   assert(!workerSource.match(/APP_SHELL[\s\S]*football-directory\.v1/), "the full football directory must not enter the critical install shell");
   assert(workerSource.includes('new Request(event.request.url, { method: "GET" })')

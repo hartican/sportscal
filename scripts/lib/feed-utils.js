@@ -121,7 +121,7 @@ function ensureEventDefaults(event, index) {
     liveWindow: Number(event.liveWindow || event.calendarTemplate?.durationHours || 3),
     round: event.round || "all",
     narrativeType: event.narrativeType || event.round || "all",
-    expected: Number(event.expected),
+    expected: event.cardKind==='fixture' && event.expected==null ? null : Number(event.expected),
     replayEligible: event.replayEligible ?? Number(event.expected) >= 7,
     highlightEligible: event.highlightEligible ?? Number(event.expected) >= 6,
     briefingEligible: event.briefingEligible ?? Number(event.expected) >= 7,
@@ -144,31 +144,33 @@ function validateFeed(feed) {
   const eventIds = new Set();
   (feed.events || []).forEach((event, index) => {
     const prefix = `events[${index}]`;
-    const required = ["id", "eventId", "sport", "key", "name", "displayTitleCompact", "date", "time", "broadcaster", "expected", "liveWindow", "selectedSentence", "fullSpiel", "sourceName", "sourceUrl", "sourceCheckedAt"];
+    const fixture=event.cardKind==='fixture';
+    const windowKnown=isDate(event.schedulingWindow?.startsOn)&&isDate(event.schedulingWindow?.endsOn);
+    const required = fixture?["id","eventId","key","name"]:["id", "eventId", "sport", "key", "name", "displayTitleCompact", "date", "time", "broadcaster", "expected", "liveWindow", "selectedSentence", "fullSpiel", "sourceName", "sourceUrl", "sourceCheckedAt"];
     required.forEach(field => {
       if (event[field] === undefined || event[field] === null || event[field] === "") errors.push(`${prefix}.${field} is required.`);
     });
     if (!SPORT_KEY_PATTERN.test(event.key)) errors.push(`${prefix}.key must be a lowercase key (lowercase slug with . _ -).`);
     if (!SPORT_KEYS.has(event.key)) errors.push(`${prefix}.key is not a supported sport key: ${event.key}`);
     if (event.commonwealthDiscipline !== undefined && (String(event.commonwealthDiscipline).trim().length < 2 || String(event.commonwealthDiscipline).length > 80)) errors.push(`${prefix}.commonwealthDiscipline must be 2-80 characters if present.`);
-    if (!isDate(event.date)) errors.push(`${prefix}.date must be YYYY-MM-DD.`);
+    if (!isDate(event.date) && !(fixture && !event.date && windowKnown)) errors.push(`${prefix}.date must be YYYY-MM-DD.`);
     if (event.endDate !== undefined && event.endDate !== null && (!isDate(event.endDate) || event.endDate < event.date)) errors.push(`${prefix}.endDate must be YYYY-MM-DD on or after date.`);
-    if (!isTime(event.time)) errors.push(`${prefix}.time must be HH:MM Sydney time.`);
+    if (!isTime(event.time) && !(fixture && !event.time && event.timePrecision !== "exact")) errors.push(`${prefix}.time must be HH:MM Sydney time.`);
     if (event.startTimeUtc !== undefined && event.startTimeUtc !== null && !isDateTime(event.startTimeUtc)) errors.push(`${prefix}.startTimeUtc must be ISO date-time if present.`);
     if (event.endTimeUtc !== undefined && event.endTimeUtc !== null && !isDateTime(event.endTimeUtc)) errors.push(`${prefix}.endTimeUtc must be ISO date-time if present.`);
-    if (!Number.isFinite(Number(event.expected)) || Number(event.expected) < 1 || Number(event.expected) > 10) errors.push(`${prefix}.expected must be 1-10.`);
+    if (!(fixture && (event.expected==null || Number.isNaN(event.expected))) && (!Number.isFinite(Number(event.expected)) || Number(event.expected) < 1 || Number(event.expected) > 10)) errors.push(`${prefix}.expected must be 1-10.`);
     if (!Number.isFinite(Number(event.liveWindow)) || Number(event.liveWindow) <= 0 || Number(event.liveWindow) > 24) errors.push(`${prefix}.liveWindow must be > 0 and <= 24.`);
     if (event.round && !ROUNDS.has(event.round)) errors.push(`${prefix}.round must be one of ${Array.from(ROUNDS).join(", ")}.`);
     if (String(event.displayTitleCompact || "").length > 80) errors.push(`${prefix}.displayTitleCompact must be 80 chars or fewer.`);
     if (String(event.selectedSentence || "").length > 180) errors.push(`${prefix}.selectedSentence must be 180 chars or fewer.`);
     if (String(event.fullSpiel || "").length > 700) errors.push(`${prefix}.fullSpiel must be 700 chars or fewer.`);
-    if (!/^(https?|calendar):\/\//.test(event.sourceUrl || "")) errors.push(`${prefix}.sourceUrl must be an http(s) or calendar URL.`);
-    if (!isDateTime(event.sourceCheckedAt)) errors.push(`${prefix}.sourceCheckedAt must be an ISO date-time string.`);
+    if (!(fixture && !event.sourceUrl) && !/^(https?|calendar):\/\//.test(event.sourceUrl || "")) errors.push(`${prefix}.sourceUrl must be an http(s) or calendar URL.`);
+    if (!(fixture && !event.sourceCheckedAt) && !isDateTime(event.sourceCheckedAt)) errors.push(`${prefix}.sourceCheckedAt must be an ISO date-time string.`);
     if (event.sourceType !== undefined && !SOURCE_TYPES.has(event.sourceType)) errors.push(`${prefix}.sourceType is unsupported.`);
     if (event.sourceTrust !== undefined && !["verified", "unverified"].includes(event.sourceTrust)) errors.push(`${prefix}.sourceTrust must be verified or unverified if present.`);
-    if (event.status !== undefined && !["upcoming", "completed"].includes(event.status)) errors.push(`${prefix}.status must be upcoming or completed.`);
+    if (event.status !== undefined && !(fixture?["upcoming","scheduled","live","completed","cancelled","postponed","abandoned"]:["upcoming", "completed"]).includes(event.status)) errors.push(`${prefix}.status must be upcoming or completed.`);
     if (event.lastReviewedAt !== undefined && !isDateTime(event.lastReviewedAt)) errors.push(`${prefix}.lastReviewedAt must be an ISO date-time string.`);
-    if (event.participants !== undefined && (!Array.isArray(event.participants) || event.participants.length < 2 || event.participants.some(participant => !participant || !String(participant.name || "").trim()))) {
+    if (event.participants !== undefined && (!Array.isArray(event.participants) || !fixture && event.participants.length < 2 || event.participants.some(participant => !participant || !String(participant.name || "").trim()))) {
       errors.push(`${prefix}.participants must contain at least two named participants if present.`);
     }
     if (event.consensusResult !== undefined && (!event.consensusResult || typeof event.consensusResult !== "object" || Array.isArray(event.consensusResult))) {
@@ -209,7 +211,7 @@ function validateFeed(feed) {
         });
         if (!isDateTime(narrative.researchedAt)) errors.push(`${prefix}.editorialNarrative.researchedAt must be an ISO date-time.`);
         if (narrative.refreshAfter !== undefined && narrative.refreshAfter !== null && !isDateTime(narrative.refreshAfter)) errors.push(`${prefix}.editorialNarrative.refreshAfter must be null or an ISO date-time.`);
-        if (!["researched", "source-derived-fallback"].includes(narrative.generationMode)) errors.push(`${prefix}.editorialNarrative.generationMode is unsupported.`);
+        if (!["researched", "source-derived-fallback", ...(fixture?["verified-parent-child-projection"]:[])].includes(narrative.generationMode)) errors.push(`${prefix}.editorialNarrative.generationMode is unsupported.`);
         if (narrative.schemaVersion === "editorial-narrative.v3") {
           const consequence = narrative.consequence;
           if (!consequence || typeof consequence !== "object" || Array.isArray(consequence)) errors.push(`${prefix}.editorialNarrative.consequence is required for v3 projections.`);

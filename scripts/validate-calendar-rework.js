@@ -37,7 +37,7 @@ groups=timeline.groups([overnight],new Date('2026-09-04T18:00:00Z'));assert.equa
 const prefs={followedSports:['tennis'],followFirst:{australiansOnlySportIds:['sport:tennis']},preferenceGraph:{entityFollows:[{participantId:'player:foreign',followLevel:'follow'}]}};
 const tennis={...fixture,key:'tennis',participantIds:[],participantCountryCodes:['FR']};
 assert.equal(follow.reasonForEvent(tennis,prefs),null);
-assert.equal(follow.reasonForEvent({...tennis,participantCountryCodes:['AU']},prefs).type,'australians');
+assert.equal(follow.reasonForEvent({...tennis,participantCountryCodes:['AU']},prefs),null,'nationality does not bypass ordinary tennis player follows');
 assert(follow.reasonForEvent({...tennis,participantIds:['player:foreign']},prefs));
 assert.equal(follow.reasonForEvent(tennis,{...prefs,followedSports:[]}),null);
 assert.deepEqual(follow.migratePreferences(follow.migratePreferences(prefs)),follow.migratePreferences(prefs));

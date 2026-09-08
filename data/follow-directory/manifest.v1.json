@@ -1,10 +1,10 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-07T00:00:00.000Z",
+  "generatedAt": "2026-09-08T13:31:00.0170172Z",
   "sports": [
     {
       "key": "afl",
-      "label": "AFL",
+      "label": "Aussie Rules Football",
       "status": "available",
       "recordCount": 835,
       "jsonUrl": "data/follow-directory/afl.v1.json",
@@ -38,7 +38,7 @@
       "key": "motorsport",
       "label": "Motorsport",
       "status": "available",
-      "recordCount": 110,
+      "recordCount": 111,
       "jsonUrl": "data/follow-directory/motorsport.v1.json",
       "scriptUrl": "data/follow-directory/motorsport.v1.js"
     },
@@ -46,7 +46,7 @@
       "key": "f1",
       "label": "F1",
       "status": "available",
-      "recordCount": 33,
+      "recordCount": 34,
       "jsonUrl": "data/follow-directory/f1.v1.json",
       "scriptUrl": "data/follow-directory/f1.v1.js"
     },
@@ -126,7 +126,7 @@
       "key": "cricket",
       "label": "Cricket",
       "status": "available",
-      "recordCount": 271,
+      "recordCount": 272,
       "jsonUrl": "data/follow-directory/cricket.v1.json",
       "scriptUrl": "data/follow-directory/cricket.v1.js"
     },

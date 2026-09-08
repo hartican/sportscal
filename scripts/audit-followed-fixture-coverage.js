@@ -149,12 +149,10 @@ function main(){
   results.forEach(result => {
     console.log(`Profile ${result.profileHash}: ${result.surfaced}/${result.followedEntities} followed entities surfaced; ${result.sameDayFixtures} same-day fixtures on the initial page.`);
     if (result.noCurrentFixture.length){
-      const labels = result.noCurrentFixture.map(item => `${item.entityId} (${item.reason})`);
-      console.log(`Profile ${result.profileHash} no_current_fixture: ${labels.join(", ")}`);
+      console.log(`Profile ${result.profileHash}: ${result.noCurrentFixture.length} followed entities have no retained fixture.`);
     }
     if (result.policyFiltered.length){
-      const labels = result.policyFiltered.map(item => `${item.entityId} (${item.fixtureCount} stakes-policy fixture${item.fixtureCount === 1 ? "" : "s"})`);
-      console.log(`Profile ${result.profileHash} policy_filtered: ${labels.join(", ")}`);
+      console.log(`Profile ${result.profileHash}: ${result.policyFiltered.length} entities have fixtures outside the active Follow policy.`);
     }
   });
   const failures = results.flatMap(result => [

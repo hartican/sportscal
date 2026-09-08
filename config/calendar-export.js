@@ -10,9 +10,9 @@
     'calendar-nothingsport-manual-seed-rally-paris-dakar-stage-11-2026':null,
   });
   function migrateSelectionIds(values){return [...new Set((Array.isArray(values)?values:[]).map(value=>LEGACY_SELECTION_IDS[String(value)]===undefined?String(value):LEGACY_SELECTION_IDS[String(value)]).filter(Boolean))];}
-  function sydneyDay(now = new Date()){
-    return new Intl.DateTimeFormat('en-CA', {timeZone:'Australia/Sydney', year:'numeric', month:'2-digit', day:'2-digit'}).format(now);
-  }
+  const sydneyDayFormatter = new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit"});
+  const sydneyTimeFormatter = new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"});
+  function sydneyDay(now = new Date()){ return sydneyDayFormatter.format(now); }
   const validDay = value => /^\d{4}-\d{2}-\d{2}$/.test(value || '') && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0,10)===value;
   function eventStart(event){
     if(event.timePrecision==='estimated'&&Number.isFinite(Date.parse(event.estimatedStartTimeUtc)))return new Date(event.estimatedStartTimeUtc);
@@ -24,7 +24,7 @@
     const target = Date.parse(`${date}T${event.time}:00Z`);
     let estimate = target - 10 * 3600000;
     for (let i=0; i<3; i++){
-      const parts = new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(new Date(estimate));
+      const parts = sydneyTimeFormatter.formatToParts(new Date(estimate));
       const p = Object.fromEntries(parts.map(part => [part.type,part.value]));
       estimate += target - Date.parse(`${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}Z`);
     }

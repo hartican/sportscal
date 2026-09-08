@@ -74,14 +74,9 @@
       event?.homeParticipantId,
       event?.awayParticipantId,
     ].filter(Boolean));
-    const playerTeams = playerTeamMap(index);
     return (graph?.entityFollows || []).filter(follow => {
       if (excluded.has(follow.participantId)) return false;
-      if (eventParticipants.has(follow.participantId)) return true;
-      if (event?.participantsConfirmed === true) return false;
-      if (!isDirectoryPlayerId(follow.participantId)) return false;
-      if (follow.followLevel === "mute") return false;
-      return eventParticipants.has(playerTeams.get(follow.participantId));
+      return eventParticipants.has(follow.participantId);
     }).map(follow => follow.followLevel);
   }
 

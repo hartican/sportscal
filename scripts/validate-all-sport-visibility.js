@@ -18,8 +18,8 @@ for (const code of manifest.codes){
   const events = chunk.fixtures.map(fixture => identity.fromSchedule(fixture,code));
   for (const event of events) assert(ids(event).some(id => candidateIds.has(id)),`${code.id}: Schedule fixture ${event.id} missing from shared catalogue`);
   const active = events.filter(event => lifecycle.lifecycleState(event,{now}).state === "active");
-  const eligible = active.filter(event => policy.eligibleForFollow(event,{competitionFollow:true}));
   const preferences = {followedSports:[...new Set(events.map(event => event.key))],preferenceGraph:{domainPreferences:[{sportDomainId:code.id,enabled:true}]}};
+  const eligible = active.filter(event => identity.retainedInActiveTimeline(event,now) && require('../config/follow-first').reasonForEvent(event,preferences));
   const returned = new Set(), cards = new Set();
   let cursor = 0;
   do {

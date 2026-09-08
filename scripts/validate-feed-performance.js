@@ -8,7 +8,7 @@ const crypto = require("node:crypto");
 const {execFileSync} = require("node:child_process");
 const ROOT = path.resolve(__dirname,"..");
 // Compare this release against the verified origin/main snapshot it extends.
-const BASELINE = "5a5ffe6809c80aefdd256ca22996c6a6dbf0b8f7";
+const BASELINE = "b82ccef2fb8e315cc82287a066d719a37c798b16";
 const MAX_CRITICAL_GZIP_GROWTH_PERCENT = 1.25;
 function localScriptPaths(html){
   return Array.from(html.matchAll(/<script[^>]+src="([^"]+)"/g),m=>m[1])
@@ -42,7 +42,7 @@ function median(values){
 function sourceFingerprint(){
   // Runtime measurements explicitly bypass SW. Bind the executed/rendered UI
   // bytes; the separate startup-budget/lifecycle suites validate the worker.
-  const files=["index.html","assets/js/app-update.js","assets/js/app-shell-runtime.js","assets/styles/nothingsport-foundation.css","config/athlete-profile-ui.js"];
+  const files=["index.html","assets/js/app-update.js","assets/js/app-shell-runtime.js","assets/styles/nothingsport-foundation.css","config/athlete-profile-ui.js","styles/follow-feed-rework.css"];
   const hash=crypto.createHash("sha256");
   files.forEach(file=>hash.update(file).update(fs.readFileSync(path.join(ROOT,file))));
   return hash.digest("hex");

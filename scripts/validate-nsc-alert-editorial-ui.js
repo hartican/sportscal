@@ -32,10 +32,10 @@ function assertOrder(source, markers, message){
 
 // Standard cards submit a one-tap rating; all Events feed surfaces omit inputs.
 const cardSummary=section(html,"function buildNothingscorePeerResults", "function openNothingscoreLeaderboard");
-for(const marker of ["buildInlineCrowdRating", "inlineRatingRequests.has(id)", "pointsAwarded", "paint(chosen)", "Early ratings", "No ratings yet"]){assert(cardSummary.includes(marker), marker);}
-for(const tip of ["How do you think it'll go?", "How do you think it's going?", "How do you think it went?"]){assert(cardSummary.includes(tip),tip);}
+for(const marker of ["buildInlineCrowdRating", "inlineRatingRequests.has(id)", "pointsAwarded", "paint(chosen)", "Ratings unavailable", "Be the first to rate"]){assert(cardSummary.includes(marker), marker);}
+for(const tip of ["HOW'S IT GOING?", "TAP TO RATE"]){assert(cardSummary.includes(tip),tip);}
 for(const label of ["Boring","Mid","Interesting","Cooking","Epic"]){assert(cardSummary.includes(label),label);}
-assert(cardSummary.includes("activeTab==='events'&&!inDrawer"),'Events feed must omit ratings');
+assert(!section(html,"function buildMajorEventCard", "function buildTicketSaleCard").includes("buildNothingscoreSummary"),"Events cards omit rating inputs");
 assert(cardSummary.includes("phase==='pulse'?'pulse':'submit'"),'all phases use the server-owned one-tap contract');
 assert(cardSummary.includes("prefers-reduced-motion: reduce"),'points animation respects reduced motion');
 assert(!cardSummary.includes('draftRating'),'one-tap ratings need no draft or separate Submit');
@@ -105,6 +105,6 @@ assertOrder(consequence, [
   "consequence.spoilerOnSentence",
   "return consequence.previewSentence",
 ], "spoiler-aware consequence selection");
-assert.match(html, /buildEditorialL0Hook\(editorialNarrativeHookForDisplay\([^)]*\), editorialConsequenceForDisplay\(/, "cards must render the consequence as a dedicated second sentence");
+assert(html.includes("const consequence = opened ? editorialConsequenceForDisplay(ev)") && html.includes("buildEditorialL0Hook(hook, isValidatedEditorialCopy(consequence)"), "expanded cards render a validated sourced consequence");
 
 console.log("NSC, alerts, badges and editorial consequence UI validation passed.");

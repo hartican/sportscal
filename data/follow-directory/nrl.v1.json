@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "nrl",
   "label": "NRL",
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "generatedAt": "2026-09-08T12:37:48.448Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -253,6 +253,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/adam-christensen/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -286,6 +287,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/adam-doueihi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -319,6 +321,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/adam-elliott/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -352,6 +355,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/adam-pompey/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -385,6 +389,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/adam-reynolds/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -418,6 +423,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/addin-fonua-blake/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -451,6 +457,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/alexander--brimson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -484,6 +491,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/alec-macdonald/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -517,6 +525,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/alekolasimi-jones/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -550,6 +559,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/alex-conti/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -583,6 +593,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/alex-johnston/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -616,6 +627,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/alex-seyfarth/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -649,6 +661,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/alex-twal/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -682,6 +695,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/ali-leiataua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -715,6 +729,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/allan-fitzgibbon/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -748,6 +763,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/alofiana-khan-pereira/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -781,6 +797,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/amare-milford/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -814,6 +831,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/angus-crichton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -847,6 +865,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/angus-hinchey/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -880,6 +899,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/antonio-verhoeven/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -913,6 +933,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/apa-twidle/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -946,6 +967,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/apisai-koroisau/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -979,6 +1001,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/arama-hau/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1012,6 +1035,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/araz-nanva/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1045,6 +1069,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/ashton-ward/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1078,6 +1103,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/aston-warwick/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1111,6 +1137,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/asu-kepaoa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1144,6 +1171,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/ata-mariota/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1177,6 +1205,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/ativalu-lisati/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1210,6 +1239,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/aublix-tawha/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1243,6 +1273,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/bailey-hayward/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1276,6 +1307,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/bailey-simonsson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1309,6 +1341,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/beau-fermor/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1342,6 +1375,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/ben-condon/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1375,6 +1409,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/ben-hunt/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1408,6 +1443,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/ben-talty/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1441,6 +1477,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/ben-trbojevic/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1474,6 +1511,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/benaiah-ioelu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1507,6 +1545,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/billy-burns/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1540,6 +1579,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/billy-scott/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1573,6 +1613,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/billy-smith/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1606,6 +1647,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/billy-walters/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1639,6 +1681,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/blaize-talagi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1672,6 +1715,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/blake-lawrie/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1705,6 +1749,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/blake-mozer/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1738,6 +1783,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/blake-steep/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1771,6 +1817,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/blake-wilson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1804,6 +1851,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/blayke-brailey/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1837,6 +1885,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/bodhi-sharpley/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1870,6 +1919,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/braden-uele/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1903,6 +1953,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/brad-schneider/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1936,6 +1987,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/bradman-best/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -1969,6 +2021,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/braidon-burns/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2002,6 +2055,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/brandon-smith/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2035,6 +2089,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/brandon-wakeham/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2068,6 +2123,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/braydon-trindall/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2101,6 +2157,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/brendan-piakura/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2134,6 +2191,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/brent-woolf/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2167,6 +2225,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/brian-kelly/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2200,6 +2259,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/brian-pouniu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2233,6 +2293,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/brian-too/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2301,6 +2362,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/briton-nikora/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2334,6 +2396,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/brock-gray/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2367,6 +2430,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/brodie-jones/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2400,6 +2464,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/bronson-garlick/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2433,6 +2498,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/bronson-xerri/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2466,6 +2532,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/bunty-afoa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2499,6 +2566,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/caleb-navale/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2532,6 +2600,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/cameron-bukowski/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2565,6 +2634,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/cameron-mcinnes/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2598,6 +2668,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/cameron-munster/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2631,6 +2702,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/cameron-murray/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2664,6 +2736,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/campbell--graham/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2767,6 +2840,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/casey-mclean/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2800,6 +2874,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/chanel-harris-tavita/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2833,6 +2908,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/charlie-guymer/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2866,6 +2942,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/charlie-murray/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2899,6 +2976,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/charnze-nicoll-klokstad/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2932,6 +3010,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/chevy-stewart/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2965,6 +3044,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/chris-randall/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -2998,6 +3078,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/christian-tuipulotu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3031,6 +3112,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/clayton-faulalo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3064,6 +3146,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/clinton-gutherson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3097,6 +3180,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/coby-black/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3130,6 +3214,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/cody-hopwood/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3163,6 +3248,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/cody-ramsey/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3196,6 +3282,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/cody-walker/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3229,6 +3316,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/coen-hess/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3262,6 +3350,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/connelly-lemuelu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3295,6 +3384,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/connor-muhleisen/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3328,6 +3418,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/connor-tracey/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3361,6 +3452,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/connor-watson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3394,6 +3486,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/cooper-bai/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3427,6 +3520,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/cooper-clarke/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3460,6 +3554,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/cooper-toy/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3493,6 +3588,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/corey-horsburgh/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3526,6 +3622,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/corey-jensen/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3559,6 +3656,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/corey-waddell/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3592,6 +3690,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/cory-paix/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3660,6 +3759,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/daine-laurie/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3693,6 +3793,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/dallin-watene-zelezniak/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3726,6 +3827,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/daly-cherry-evans/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3759,6 +3861,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/damien-cook/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3792,6 +3895,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/dane-gagai/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3825,6 +3929,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/daniel-atkinson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3858,6 +3963,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/daniel-suluka-fifita/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3891,6 +3997,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/daniel-tupou/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3924,6 +4031,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/david-fale/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3957,6 +4065,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/david-fifita/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -3990,6 +4099,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/davvy-moale/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4023,6 +4133,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/dayne-jennings/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4056,6 +4167,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/de-la-salle-vaa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4089,6 +4201,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/dean-ieremia/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4122,6 +4235,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/deine-mariner/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4155,6 +4269,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/delouise-hoeter/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4188,6 +4303,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/demitric-sifakula/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4221,6 +4337,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/diesel-hagan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4288,6 +4405,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/dominic-young/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4321,6 +4439,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/dylan-brown/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4354,6 +4473,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/dylan-edwards/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4387,6 +4507,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/dylan-egan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4420,6 +4541,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/dylan-lucas/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4453,6 +4575,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/dylan-walker/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4486,6 +4609,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/eddie-ieremia-toeava/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4519,6 +4643,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/edward-kosi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4552,6 +4677,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/egan-butcher/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4585,6 +4711,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/eliesa-katoa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4618,6 +4745,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/elijah-keung/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4651,6 +4779,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/elijah-rasmussen/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4684,6 +4813,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/emre-guler/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4717,6 +4847,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/enari-tuala/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4750,6 +4881,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/erin-clark/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4783,6 +4915,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/ethan-bullemor/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4816,6 +4949,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/ethan-king/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4849,6 +4983,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/ethan-roberts/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4882,6 +5017,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/ethan-sanders/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4915,6 +5051,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/ethan-strange/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4948,6 +5085,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/euan-aitken/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -4981,6 +5119,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/ezra-mam/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5014,6 +5153,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/faaletino-tavana/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5047,6 +5187,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/felise-kaufusi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5080,6 +5221,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/fetalaiga-pauga/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5113,6 +5255,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/finau-latu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5146,6 +5289,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/fletcher-baker/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5179,6 +5323,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/fletcher-sharpe/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5212,6 +5357,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/fonua-pole/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5245,6 +5391,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/francis-manuleleua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5278,6 +5425,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/francis-molo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5311,6 +5459,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/freddy-lussick/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5344,6 +5493,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/gabriel-satrick/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5377,6 +5527,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/gehamat-shibasaki/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5445,6 +5596,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/gordon-chan-kum-tong/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5478,6 +5630,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/grant-anderson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5511,6 +5664,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/greg-marzhew/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5544,6 +5698,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/griffin-neame/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5577,6 +5732,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/haele-finau/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5610,6 +5766,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/haizyn-mellars/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5643,6 +5800,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/hame-sele/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5676,6 +5834,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/hamish-stewart/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5709,6 +5868,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/hamiso-tabuai-fidow/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5742,6 +5902,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/harrison-edwards/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5775,6 +5936,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/harrison-graham/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5808,6 +5970,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/harrison-hassett/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5841,6 +6004,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/harry-grant/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5874,6 +6038,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/harry-hayes/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5907,6 +6072,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/haumole-olakauatu2/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5940,6 +6106,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/hayden-barton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -5973,6 +6140,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/hayden-buchanan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6006,6 +6174,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/hayden-watson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6039,6 +6208,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/hayze-perham/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6072,6 +6242,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/heamasi-makasini/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6105,6 +6276,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/heilum-luki/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6138,6 +6310,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/herbie-farnworth/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6171,6 +6344,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/hohepa-puru/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6204,6 +6378,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/hudson-young/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6237,6 +6412,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/hugo-hart/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6270,6 +6446,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/hugo-peel/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6303,6 +6480,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/hugo-savala/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6336,6 +6514,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/isaah-yeo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6369,6 +6548,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/isaiah-fagalilo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6402,6 +6582,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/isaiah-iongi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6435,6 +6616,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/isaiah-papalii/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6468,6 +6650,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/isaiah-tass/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6501,6 +6684,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/isaiya-katoa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6534,6 +6718,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/iulio-afoa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6567,6 +6752,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/izack-tago/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6600,6 +6786,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/jmaine-hopgood/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6633,6 +6820,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/jack-bostock/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6666,6 +6854,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/jack-cogger/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6699,6 +6888,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/jack-cole/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6732,6 +6922,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/jack-de-belin/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6765,6 +6956,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/jack-gosiewski/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6798,6 +6990,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/jack-hetherington/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6831,6 +7024,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/jack-howarth/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6864,6 +7058,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/jack-todd/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6897,6 +7092,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/jack-underhill/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6930,6 +7126,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/jack-wighton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6963,6 +7160,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/jack-williams/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -6996,6 +7194,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/jackson-ford/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7029,6 +7228,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/jackson-shereb/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7062,6 +7262,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/jacob-auloa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7095,6 +7296,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/jacob-halangahu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7128,6 +7330,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/jacob-host/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7161,6 +7364,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/jacob-kiraz/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7194,6 +7398,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/jacob-laban/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7227,6 +7432,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/jacob-liddle/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7260,6 +7466,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/jacob-preston/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7293,6 +7500,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/jacob-saifiti/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7326,6 +7534,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/jacob-webster/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7359,6 +7568,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/jaeman-salmon/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7392,6 +7602,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/jahream-bula/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7425,6 +7636,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/jahrome-hughes/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7458,6 +7670,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/jai-arrow/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7491,6 +7704,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/jai-bowden/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7524,6 +7738,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/jaimin-jolliffe/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7557,6 +7772,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/jaiyden-hunt/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7590,6 +7806,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/jak-goulding/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7623,6 +7840,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/jake-averillo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7656,6 +7874,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/jake-clifford/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7689,6 +7908,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/jake-clydsdale/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7722,6 +7942,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/jake-elliott/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7755,6 +7976,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/jake-simpkin/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7788,6 +8010,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/jake-tago/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7821,6 +8044,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/jake-trbojevic/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7854,6 +8078,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/jake-turpin/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7887,6 +8112,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/jamal-fogarty/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7920,6 +8146,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/jamayne-isaako/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7953,6 +8180,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/james-fisher-harris/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -7986,6 +8214,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/james-schiller/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8019,6 +8248,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/james-tedesco/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8052,6 +8282,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/james-walsh/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8085,6 +8316,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/jamie-humphreys/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8118,6 +8350,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/jared-haywood/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8151,6 +8384,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/jarome-luai/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8184,6 +8418,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/jason-saab/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8217,6 +8452,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/jason-salalilo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8250,6 +8486,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/jason-taumalolo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8283,6 +8520,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/javon-andrews/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8316,6 +8554,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/jaxen-edgar/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8349,6 +8588,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/jaxon-purdue/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8382,6 +8622,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/jayden-berrell/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8415,6 +8656,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/jayden-brailey/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8448,6 +8690,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/jayden-campbell/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8481,6 +8724,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/jayden-sullivan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8514,6 +8758,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/jaydn-sua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8547,6 +8792,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/jaylan-de-groot/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8580,6 +8826,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/jayze-tuigamala/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8613,6 +8860,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/jed-reardon/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8646,6 +8894,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/jensen-taumoepeau/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8679,6 +8928,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/jeral-skelton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8712,6 +8962,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/ieremia-nanai/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8745,6 +8996,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/jeremy-marshall-king/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8778,6 +9030,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/jermaine-mcewen/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8811,6 +9064,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/jerry-musu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8844,6 +9098,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/jesse-arthars/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8877,6 +9132,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/jesse-colquhoun/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8910,6 +9166,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/jesse-mclean/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8943,6 +9200,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/jesse-milin/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -8976,6 +9234,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/jesse-ramien2/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9009,6 +9268,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/ratu-rinakama/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9042,6 +9302,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/jett-liu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9075,6 +9336,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/jezaiah-funa-iuta/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9108,6 +9370,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/joash-papalii/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9141,6 +9404,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/jock-madden/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9174,6 +9438,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/joe-chan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9207,6 +9472,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/joe-roddy/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9240,6 +9506,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/joey-walsh/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9273,6 +9540,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/john-bateman/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9306,6 +9574,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/john-farragher/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9339,6 +9608,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/john-radel/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9372,6 +9642,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/jojo-fifita/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9405,6 +9676,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/jonah-glover/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9438,6 +9710,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/jonah-pezet/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9471,6 +9744,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/jonathan-sua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9504,6 +9778,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/jordan-riki/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9537,6 +9812,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/jordan-samrani/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9570,6 +9846,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/jordan-uta/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9603,6 +9880,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/joseph-tapine/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9636,6 +9914,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/josese-lanyon/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9669,6 +9948,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/josh-addo-carr/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9702,6 +9982,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/josh-curran/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9735,6 +10016,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/josh-feledy/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9768,6 +10050,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/josh-king/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9801,6 +10084,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/josh-papalii/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9834,6 +10118,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/josh-patston/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9867,6 +10152,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/josh-rogers/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9900,6 +10186,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/joshua-coric/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9933,6 +10220,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/josiah-karapani/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9966,6 +10254,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/josiah-pahulu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -9999,6 +10288,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/junior-paulo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10032,6 +10322,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/junior-tupou/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10065,6 +10356,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/jye-gray/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10098,6 +10390,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/jye-linnane/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10131,6 +10424,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/kade-dykes/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10164,6 +10458,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/kade-reed/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10197,6 +10492,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/kaeo-weekes/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10230,6 +10526,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/kai-odonnell/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10263,6 +10560,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/kai-pearce-paul/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10296,6 +10594,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/kaiden-lahrs/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10329,6 +10628,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/kalani-going/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10362,6 +10662,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/kalyn-ponga/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10395,6 +10696,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/kane-bradley/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10428,6 +10730,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/kayliss-fatialofa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10461,6 +10764,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/keano-kini/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10494,6 +10798,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/keaon-koloamatangi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10527,6 +10832,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/keenan-palasia/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10560,6 +10866,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/kelma-tuilagi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10593,6 +10900,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/kit-laulilii/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10626,6 +10934,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/kitione-kautoga/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10659,6 +10968,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/kayal-iro/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10692,6 +11002,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/klese-haas/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10725,6 +11036,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/kobe-hetherington/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10758,6 +11070,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/kodi-nikorima/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10791,6 +11104,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/kontoni-staggs/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10824,6 +11138,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/kulikefu-finefeuiaki/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10857,6 +11172,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/kurt-capewell/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10890,6 +11206,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/kurt-donoghoe/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10923,6 +11240,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/kurt-mann/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10956,6 +11274,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/kurtis-morrin/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -10989,6 +11308,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/kyle-flanagan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11022,6 +11342,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/lachlan-broederlow/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11055,6 +11376,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/lachlan-crouch/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11088,6 +11410,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/lachlan-galvin/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11121,6 +11444,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/lachlan-hubner/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11154,6 +11478,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/lachlan-ilias/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11187,6 +11512,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/latrell-mitchell/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11220,6 +11546,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/latrell-siegwalt/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11253,6 +11580,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/latu-fainu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11286,6 +11614,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/lehi-hopoate/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11319,6 +11648,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/leka-halasima/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11352,6 +11682,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/leo-thompson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11385,6 +11716,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/lewis-symonds/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11418,6 +11750,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/liam-henry/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11451,6 +11784,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/liam-ison/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11484,6 +11818,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/liam-le-blanc/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11517,6 +11852,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/liam-martin/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11550,6 +11886,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/liam-sutton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11583,6 +11920,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/lindsay-collins/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11616,6 +11954,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/lindsay-smith/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11649,6 +11988,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/lipoi-hopoi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11682,6 +12022,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/lj-nonu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11715,6 +12056,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/logan-spinks/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11748,6 +12090,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/loko-jnr-pasifiki-tonga/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11781,6 +12124,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/lorenzo-talataina/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11814,6 +12158,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/luca-moretti/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11847,6 +12192,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/luciano-leilua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11880,6 +12226,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/lui-lee/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11913,6 +12260,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/luke-brooks/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11946,6 +12294,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/luke-cesari/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -11979,6 +12328,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/luke-garner/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12012,6 +12362,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/luke-laulilii/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12045,6 +12396,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/luke-metcalf/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12078,6 +12430,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/luke-sommerton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12111,6 +12464,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/luron-patea/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12144,6 +12498,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/makaia-tafua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12177,6 +12532,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/malachi-smith/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12210,6 +12566,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/manaia-waitere/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12278,6 +12635,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/marata-niukore/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12311,6 +12669,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/marcelo-montoya/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12344,6 +12703,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/marion-seve/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12377,6 +12737,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/mark-nawaqanitawase/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12410,6 +12771,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/mark-tuialii/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12443,6 +12805,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/mason-barber/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12476,6 +12839,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/mason-kira/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12509,6 +12873,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/matt-croker/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12542,6 +12907,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/mathew-feagai/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12575,6 +12941,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/matt-burton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12608,6 +12975,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/matt-doorey/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12641,6 +13009,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/matthew-arthur/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12674,6 +13043,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/matthew-dufty/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12707,6 +13077,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/matthew-humphries/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12740,6 +13111,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/matthew-lodge/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12773,6 +13145,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/matthew-timoko/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12806,6 +13179,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/matty-nicholson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12839,6 +13213,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/mavrik-geyer/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12872,6 +13247,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/mawene-hiroti/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12905,6 +13281,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/max-feagai/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12938,6 +13315,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/max-king/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -12971,6 +13349,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/max-mccarthy/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13004,6 +13383,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/max-plath/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13072,6 +13452,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/michael-asomua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13105,6 +13486,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/michael-gabrael/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13138,6 +13520,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/michael-molo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13171,6 +13554,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/mitchell-kenny/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13204,6 +13588,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/mitchell-barnett/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13237,6 +13622,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/mitchell-jennings/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13270,6 +13656,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/mitchell-moses/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13303,6 +13690,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/mitchell-woods/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13336,6 +13724,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/moala-graham-taufa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13369,6 +13758,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/moeaki-fotuaika/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13402,6 +13792,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/mohamed-alameddine/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13435,6 +13826,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/morgan-gannon/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13468,6 +13860,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/morgan-knowles/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13501,6 +13894,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/morgan-smithies/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13534,6 +13928,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/moses-leo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13567,6 +13962,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/moses-leota/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13600,6 +13996,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/moses-suli/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13633,6 +14030,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/murray-taulagi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13666,6 +14064,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/myles-martin/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13699,6 +14098,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/nat-butcher/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13732,6 +14132,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/nathan-brown/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13765,6 +14166,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/nathan-cleary/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13798,6 +14200,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/naufahu-whyte/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13831,6 +14234,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/navren-willett/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13864,6 +14268,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/nazareth-taua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13932,6 +14337,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/nicholas-hynes/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13965,6 +14371,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/nicholas-lenaz/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -13998,6 +14405,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/nick-meaney/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14031,6 +14439,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/niwhai-puru/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14064,6 +14473,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/noah-martin/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14132,6 +14542,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/oliver-pascoe/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14165,6 +14576,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/onitoni-large/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14198,6 +14610,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/oregon-kaufusi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14231,6 +14644,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/oryn-keeley/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14264,6 +14678,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/owen-pattie/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14332,6 +14747,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/pasami-saulo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14365,6 +14781,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/patrick-carrigan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14398,6 +14815,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/patrick-herbert/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14431,6 +14849,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/patrick-kailahi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14464,6 +14883,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/patrick-young/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14497,6 +14917,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/paul-alamoti/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14530,6 +14951,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/paul-bryan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14563,6 +14985,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/payne-haas/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14631,6 +15054,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/peter-hola/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14664,6 +15088,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/peter-mamouzelos/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14697,6 +15122,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/peter-taateo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14730,6 +15156,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/phillip-coates/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14763,6 +15190,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/phillip-sami/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14796,6 +15224,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/phoenix-crossland/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14829,6 +15258,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/preston-conn/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14862,6 +15292,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/preston-riki/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14895,6 +15326,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/ray-stone/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14928,6 +15360,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/reece-foley/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14961,6 +15394,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/reece-robson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -14994,6 +15428,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/reece-walsh/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15027,6 +15462,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/reed-mahoney/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15060,6 +15496,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/reuben-cotter/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15093,6 +15530,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/reuben-garrick/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15126,6 +15564,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/rex-bassingthwaighte/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15159,6 +15598,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/richard-penisini/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15192,6 +15632,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/riley-jones/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15225,6 +15666,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/riley-pollard/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15258,6 +15700,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/riley-price/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15291,6 +15734,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/robert-derby/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15324,6 +15768,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/robert-toia/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15357,6 +15802,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/rocco-berry/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15390,6 +15836,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/roger-tuivasa-sheck/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15423,6 +15870,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/ronald-philitoga/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15456,6 +15904,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/ronald-volkman/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15489,6 +15938,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/ronaldo-mulitalo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15522,6 +15972,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/royce-hunt/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15555,6 +16006,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/ryan-couchman/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15588,6 +16040,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/ryan-hutchinson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15621,6 +16074,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/ryan-matterson/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15654,6 +16108,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/ryda-talagi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15687,6 +16142,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/ryley-smith/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15720,6 +16176,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/salesi-ataata/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15753,6 +16210,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/salesi-foketi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15786,6 +16244,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/sam-elliott/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15819,6 +16278,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/samuel-healey/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15852,6 +16312,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/sam-mcintyre/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15885,6 +16346,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/sam-tuivaiti/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15918,6 +16380,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/sam-verrills/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15951,6 +16414,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/sam-walker/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -15984,6 +16448,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/samuel-hughes/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16017,6 +16482,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/samuel-stonestreet/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16050,6 +16516,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/samuela-fainu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16083,6 +16550,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/sandon-smith/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16116,6 +16584,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/savelio-tamale/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16149,6 +16618,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/saxon-pryke/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16182,6 +16652,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/scott-drinkwater/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16215,6 +16686,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/scott-sorensen/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16248,6 +16720,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/sean-keppie/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16281,6 +16754,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/sean-osullivan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16314,6 +16788,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/sean-russell/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16347,6 +16822,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/sebastian-kris/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16380,6 +16856,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/sebastian-sua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16413,6 +16890,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/selwyn-cobbo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16446,6 +16924,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/setu-tu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16479,6 +16958,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/shawn-blore/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16512,6 +16992,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/sialetili-faeamani/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16545,6 +17026,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/simi-sasagi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16578,6 +17060,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/simione-laiafi/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16611,6 +17094,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/sione-fainu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16644,6 +17128,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/sione-finau/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16677,6 +17162,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/sione-fonua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16710,6 +17196,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/sione-katoa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16743,6 +17230,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/siosifa-talakai/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16776,6 +17264,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/siosiua-taukeiaho/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16809,6 +17298,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/sitili-tupouniua/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16842,6 +17332,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/siua-wong/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16875,6 +17366,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/siulagi-pio/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16908,6 +17400,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/solomone-saukuru/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -16941,6 +17434,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/soni-luke/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17009,6 +17503,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/spencer-leniu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17077,6 +17572,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/starford-toa/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17110,6 +17606,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/stefano-utoikamanu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17143,6 +17640,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/bulldogs/stephen-crichton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17176,6 +17674,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/sualauvi-faalogo/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17209,6 +17708,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/suli-pole/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17242,6 +17742,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/sunia-turuva/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17275,6 +17776,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/sunny-kama/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17343,6 +17845,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/taine-tuaupiki/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17376,6 +17879,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/south-sydney-rabbitohs/talanoa-penitani/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17409,6 +17913,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/tallyn-da-silva/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17442,6 +17947,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/tanah-boyd/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17475,6 +17981,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/taniela-paseka/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17508,6 +18015,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/tanner-stowers-smith/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17541,6 +18049,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/taylan-may/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17574,6 +18083,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/taylor-losalu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17607,6 +18117,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/te-maire-martin/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17640,6 +18151,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/teancum-brown/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17673,6 +18185,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/teig-wilton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17706,6 +18219,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/terrell-may/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17739,6 +18253,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/tevita-naufahu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17772,6 +18287,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/thomas-cant/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17805,6 +18321,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/thomas-duffy/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17838,6 +18355,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/thomas-flegler/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17871,6 +18389,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/thomas-hazelton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17904,6 +18423,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/thomas-jenkins/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17937,6 +18457,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/thomas-mikaele/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -17970,6 +18491,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/tino-faasuamaleaui/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18003,6 +18525,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/toby-couchman/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18036,6 +18559,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/toby-rodwell/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18069,6 +18593,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/toby-rudolf/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18102,6 +18627,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/toby-winter/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18135,6 +18661,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/tolu-koula/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18168,6 +18695,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/tom-ale/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18201,6 +18729,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/tomas-chester/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18234,6 +18763,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/tom-dearden/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18267,6 +18797,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/tom-gilbert/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18300,6 +18831,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/tom-starling/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18333,6 +18865,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/tom-trbojevic/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18366,6 +18899,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/tommy-talau/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18399,6 +18933,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/eels/toni-mataele/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18432,6 +18967,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/tony-francis/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18465,6 +19001,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/tony-sukkar/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18498,6 +19035,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/trai-fuller/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18531,6 +19069,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/trent-loiero/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18564,6 +19103,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/trent-toelau/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18597,6 +19137,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/trey-mooney/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18630,6 +19171,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/wests-tigers/tristan-hope/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18663,6 +19205,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/storm/tui-kamikamica/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18696,6 +19239,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/tukimihia-simpkins/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18729,6 +19273,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/tupou-francis/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18762,6 +19307,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/tyler-peckham-harris/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18795,6 +19341,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/tyrell-sloan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18828,6 +19375,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/tyson-frizell/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18861,6 +19409,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/tyson-gamble/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18894,6 +19443,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/vaa-semu/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18927,6 +19477,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dragons/valentine-holmes/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18960,6 +19511,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/vena-patuki-case/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -18993,6 +19545,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/roosters/victor-radley/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19026,6 +19579,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/titans/viliami-fifita/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19059,6 +19613,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/viliami-vailea/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19126,6 +19681,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/warriors/wayde-egan/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19193,6 +19749,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sharks/william-kennedy/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19226,6 +19783,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/knights/wilson-de-courcey/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19259,6 +19817,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/xavier-kerrisk/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19292,6 +19851,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/xavier-savage/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19325,6 +19885,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/broncos/xavier-willison/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19358,6 +19919,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/dolphins/zac-garton/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19391,6 +19953,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/zac-herdegen/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19424,6 +19987,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/raiders/zac-hosking/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19457,6 +20021,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/cowboys/zac-laybutt/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19490,6 +20055,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/sea-eagles/zaidas-muagututia/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],
@@ -19523,6 +20089,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.nrl.com/players/nrl-premiership/panthers/zakauri-clarke/",
         "source:nrl:players",
         "source:nrl:signings-2026"
       ],

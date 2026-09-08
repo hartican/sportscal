@@ -7,7 +7,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(root, competitionClassification){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v6";
+  const SCHEMA_VERSION = "follow-first.v7";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -200,7 +200,7 @@
     const meta = {
       schemaVersion:META_SCHEMA_VERSION,
       revision:Math.max(1, Number(source.revision) || 1),
-      sports:sports.length ? sports : ["afl", "nrl"],
+      sports,
       majorEvents:uniqueAllowed(source.majorEvents, MAJOR_EVENT_FAMILIES),
       offerInterests:uniqueAllowed(source.offerInterests, OFFER_INTERESTS),
       location:normalizeLocation(source.location),
@@ -234,6 +234,7 @@
         enabled:true,
         sportingRemindersEnabled:true,
         chatAlertsEnabled:true,
+        liveRatingsEnabled:true,
         soundsEnabled:true,
         badgesEnabled:true,
         userChoice:null,
@@ -308,7 +309,7 @@
     ].map(String).filter(id => !retiredSportIds.has(id))));
     return {
       ...source,
-      version:Math.max(17, Number(source.version) || 0),
+      version:Math.max(18, Number(source.version) || 0),
       followedSports,
       selectedSelectorEntityIds,
       followFirst:{
@@ -334,6 +335,7 @@
               : true,
           sportingRemindersEnabled:prior.notifications?.sportingRemindersEnabled !== false,
           chatAlertsEnabled:prior.notifications?.chatAlertsEnabled !== false,
+          liveRatingsEnabled:prior.notifications?.liveRatingsEnabled !== false,
           soundsEnabled:prior.notifications?.soundsEnabled !== false,
           badgesEnabled:prior.notifications?.badgesEnabled !== false,
           userChoice:typeof prior.notifications?.userChoice === "boolean"
@@ -364,7 +366,9 @@
   }
 
   function effectiveParticipantFollow(participantId, preferences, collectionsById = {}){
-    const next = migratePreferences(preferences);
+    return participantFollowFromNormalized(participantId,migratePreferences(preferences),collectionsById);
+  }
+  function participantFollowFromNormalized(participantId, next, collectionsById = {}){
     const identityKey = participantFollowIdentityKey(participantId);
     const explicitMatches = (next.preferenceGraph?.entityFollows || []).filter(item => participantFollowIdentityKey(item.participantId) === identityKey);
     if (explicitMatches.some(item => item.followLevel === "mute")) return { followed:false, source:"mute", followLevel:"mute", collectionIds:[] };
@@ -469,13 +473,14 @@
     ].map(value => String(value || "").trim()).filter(Boolean)));
   }
 
-  function reasonForEvent(event, preferences, { participantLabel = id => id, collectionsById = {} } = {}){
-    const next = migratePreferences(preferences);
+  function reasonForEvent(event, preferences, { participantLabel = id => id, collectionsById = {}, preparedPreferences = null } = {}){
+    const next = preparedPreferences || migratePreferences(preferences);
     const followPolicy = root.NOTHINGSPORTS_FOLLOW_FEED_POLICY
       || (typeof require === "function" ? require("./follow-feed-policy.js") : null);
+    if (followPolicy.aggregateEvent(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
     const participants = followPolicy.participantIds(event);
-    if (participants.some(id => effectiveParticipantFollow(id,next,collectionsById).source === "mute")) return null;
+    if (participants.some(id => participantFollowFromNormalized(id,next,collectionsById).source === "mute")) return null;
     for (const id of participants){
       const follow = follows.get(id);
       if (follow && ["follow", "priority"].includes(follow.followLevel)){
@@ -488,7 +493,7 @@
           displayTag:entityKind === "athlete",
         };
       }
-      const inherited = effectiveParticipantFollow(id, next, collectionsById);
+      const inherited = participantFollowFromNormalized(id, next, collectionsById);
       if(inherited.source==="explicit")return {type:id.startsWith("team:")?"team":"athlete",entityKind:id.startsWith("team:")?"team":"athlete",id,label:`Because you follow ${participantLabel(id)}`,displayTag:!id.startsWith("team:")};
       if (inherited.source === "collection"){
         return { type:"collection", entityKind:"athlete", id, label:null, displayTag:false, collectionIds:inherited.collectionIds };
@@ -513,14 +518,26 @@
     const followedSportIds = new Set((next.followedSports || []).map(String));
     const catalogue = root.NOTHINGSPORTS_DISCOVERY_CATALOGUE || (typeof require === "function" ? require("./discovery-catalogue.js") : null);
     const nodeId = catalogue?.eventNodeId(event);
-    const matchesNode = id => id === `sport:${sourceSportId}` || id === `sport:${sportId}` || (nodeId && catalogue?.familyIds(id)?.includes(nodeId));
+    const matchesNode = id => {
+      if(["afl","nrl"].includes(sourceSportId) && id===`sport:${sourceSportId}-premiership`){
+        return !event.competitionId || event.competitionId === sourceSportId || new RegExp(`^competition:${sourceSportId}[:-]premiership(?:[:-]|$)`).test(event.competitionId);
+      }
+      return id===`sport:${sourceSportId}` || id===`sport:${sportId}` || (nodeId && catalogue?.familyIds(id)?.includes(nodeId));
+    };
     const graph = next.preferenceGraph || {};
     const domains = (graph.domainPreferences || []).filter(domain => matchesNode(domain.sportDomainId));
     const competitionPreference = (graph.competitionPreferences || []).find(item => item.competitionId === event.competitionId);
-    const sportFollowed = followedSportIds.has(sourceSportId) || followedSportIds.has(sportId)
-      || domains.some(domain => domain.enabled !== false) || (next.selectedSelectorEntityIds || []).some(matchesNode);
+    const explicitSelectors = new Set(next.selectedSelectorEntityIds || []);
+    const explicitCompetition = competitionPreference?.enabled === true;
+    const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
+      || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
+    if (followPolicy.explicitCompetitionRequired(event) && !(explicitCompetition || (["aflw","nrlw"].includes(sourceSportId) && explicitScopedSport))) return null;
+    const sportFollowed = explicitCompetition || (explicitSelectors.size
+      ? [...explicitSelectors].some(matchesNode)
+      : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
+      || domains.some(domain => domain.enabled === true);
     const concreteSportingCard = Boolean(
-      followPolicy?.hasPublishedFixture(event)
+      followPolicy?.sportingFixture(event)
       && event?.majorEventMarker !== true
       && event?.tournamentParent !== true
       && event?.cardKind !== "event"
@@ -536,10 +553,10 @@
       return {type:"event",entityKind:"event",id:eventFamily,label:null,displayTag:false};
     }
     if (competitionPreference?.enabled === false || domains.some(domain => domain.enabled === false)) return null;
-    if (sportFollowed && scopedSportIds.some(id=>australianScope.has(id)) && followPolicy.australiansFilterUseful(event)){
+    if (sportId !== "tennis" && sportFollowed && scopedSportIds.some(id=>australianScope.has(id)) && followPolicy.australiansFilterUseful(event)){
       return followPolicy.eligibleForFollow(event,{competitionFollow:true,australiansOnly:true}) ? {type:'australians',entityKind:'sport',id:sportId,label:'Australian participants',displayTag:false} : null;
     }
-    if (next.followFirst.australiaInternationalsEnabled && sportFollowed && international && representsAustralia){
+    if (sportId !== "tennis" && next.followFirst.australiaInternationalsEnabled && sportFollowed && international && representsAustralia){
       return { type:"australians", entityKind:"national-representation", id:sportId, label:"Australia in international competition", displayTag:false };
     }
     if (
@@ -554,12 +571,16 @@
 
 
   function stageLabel(event){
-    const value = `${event?.stage || ""} ${event?.roundLabel || ""} ${event?.round || ""}`.toLowerCase();
+    const value = String(event?.roundLabel || event?.round || event?.stage || "").toLowerCase();
+    if (/qualifying.*elimination/.test(value)) return "Finals";
     if (/wild\s*card/.test(value)) return "Wildcard";
     if (/prelim/.test(value)) return "Prelim";
-    if (/quarter|qualifying|\bqf\b/.test(value)) return "QF";
-    if (/semi|\bsf\b/.test(value)) return "Semis";
-    if (/grand final|elimination|\bfinals?\b/.test(value)) return "Finals";
+    if (/qualifying[ -]+final/.test(value)) return "Qualifying Final";
+    if (/quarter|\bqf\b/.test(value)) return "QF";
+    if (/semi|\bsf\b/.test(value)) return "SF";
+    if (/grand final/.test(value)) return "Grand Final";
+    if (/elimination/.test(value)) return "Elimination Final";
+    if (/^final(?:[ -]\d+)?$/.test(value.trim())) return "Final";
     return "";
   }
 

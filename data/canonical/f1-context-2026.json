@@ -2,7 +2,7 @@
   "schemaVersion": "sport-context.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "generatedAt": "2026-09-08T13:40:21.541Z",
   "sources": [
     {
       "provider": "Formula 1",
@@ -677,197 +677,238 @@
       "competitionNumberSeason": "2026",
       "profileRef": "profile:f1:carlos-sainz",
       "currentTeamId": "team:f1:williams"
+    },
+    {
+      "id": "competitor:f1:yuki-tsunoda",
+      "type": "competitor",
+      "sportDomainId": "sport:motorsport",
+      "displayName": "Yuki Tsunoda",
+      "canonicalName": "Yuki Tsunoda",
+      "countryCode": "JP",
+      "metadata": {
+        "standingsOnly": true,
+        "teamParticipantId": "team:f1:racing-bulls"
+      },
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers"
     }
   ],
   "ladderSnapshots": [
     {
-      "id": "standings:f1-drivers-2026:hungary",
+      "id": "standings:f1-drivers-2026:current",
       "competitionId": "competition:f1-drivers-2026",
       "seasonLabel": "2026",
-      "roundLabel": "After Hungarian Grand Prix",
-      "snapshotTimeUtc": "2026-09-06T18:14:03.244Z",
+      "roundLabel": "Current championship standings",
+      "snapshotTimeUtc": "2026-09-08T13:40:21.480Z",
       "entries": [
         {
           "participantId": "competitor:f1:kimi-antonelli",
-          "teamParticipantId": "team:f1:mercedes",
           "rank": 1,
-          "points": 242
+          "points": 267,
+          "teamName": "Mercedes",
+          "teamParticipantId": "team:f1:mercedes"
         },
         {
           "participantId": "competitor:f1:george-russell",
-          "teamParticipantId": "team:f1:mercedes",
           "rank": 2,
-          "points": 183
+          "points": 201,
+          "teamName": "Mercedes",
+          "teamParticipantId": "team:f1:mercedes"
         },
         {
           "participantId": "competitor:f1:lewis-hamilton",
-          "teamParticipantId": "team:f1:ferrari",
           "rank": 3,
-          "points": 183
+          "points": 191,
+          "teamName": "Ferrari",
+          "teamParticipantId": "team:f1:ferrari"
         },
         {
           "participantId": "competitor:f1:lando-norris",
-          "teamParticipantId": "team:f1:mclaren",
           "rank": 4,
-          "points": 159
+          "points": 171,
+          "teamName": "McLaren",
+          "teamParticipantId": "team:f1:mclaren"
         },
         {
           "participantId": "competitor:f1:charles-leclerc",
-          "teamParticipantId": "team:f1:ferrari",
           "rank": 5,
-          "points": 155
+          "points": 155,
+          "teamName": "Ferrari",
+          "teamParticipantId": "team:f1:ferrari"
         },
         {
           "participantId": "competitor:f1:max-verstappen",
-          "teamParticipantId": "team:f1:red-bull-racing",
           "rank": 6,
-          "points": 112
+          "points": 127,
+          "teamName": "Red Bull Racing",
+          "teamParticipantId": "team:f1:red-bull-racing"
         },
         {
           "participantId": "competitor:f1:oscar-piastri",
-          "teamParticipantId": "team:f1:mclaren",
           "rank": 7,
-          "points": 104
+          "points": 116,
+          "teamName": "McLaren",
+          "teamParticipantId": "team:f1:mclaren"
         },
         {
           "participantId": "competitor:f1:isack-hadjar",
-          "teamParticipantId": "team:f1:red-bull-racing",
           "rank": 8,
-          "points": 68
+          "points": 71,
+          "teamName": "Red Bull Racing",
+          "teamParticipantId": "team:f1:red-bull-racing"
         },
         {
           "participantId": "competitor:f1:liam-lawson",
-          "teamParticipantId": "team:f1:racing-bulls",
           "rank": 9,
-          "points": 49
+          "points": 51,
+          "teamName": "Racing Bulls",
+          "teamParticipantId": "team:f1:racing-bulls"
         },
         {
           "participantId": "competitor:f1:pierre-gasly",
-          "teamParticipantId": "team:f1:alpine",
           "rank": 10,
-          "points": 44
+          "points": 41,
+          "teamName": "Alpine",
+          "teamParticipantId": "team:f1:alpine"
         },
         {
           "participantId": "competitor:f1:arvid-lindblad",
-          "teamParticipantId": "team:f1:racing-bulls",
           "rank": 11,
-          "points": 23
+          "points": 29,
+          "teamName": "Racing Bulls",
+          "teamParticipantId": "team:f1:racing-bulls"
         },
         {
           "participantId": "competitor:f1:franco-colapinto",
-          "teamParticipantId": "team:f1:alpine",
           "rank": 12,
-          "points": 19
+          "points": 21,
+          "teamName": "Alpine",
+          "teamParticipantId": "team:f1:alpine"
         },
         {
           "participantId": "competitor:f1:oliver-bearman",
-          "teamParticipantId": "team:f1:haas",
           "rank": 13,
-          "points": 18
+          "points": 18,
+          "teamName": "Haas F1 Team",
+          "teamParticipantId": "team:f1:haas"
         },
         {
           "participantId": "competitor:f1:gabriel-bortoleto",
-          "teamParticipantId": "team:f1:audi",
           "rank": 14,
-          "points": 10
-        },
-        {
-          "participantId": "competitor:f1:carlos-sainz",
-          "teamParticipantId": "team:f1:williams",
-          "rank": 15,
-          "points": 6
-        },
-        {
-          "participantId": "competitor:f1:alexander-albon",
-          "teamParticipantId": "team:f1:williams",
-          "rank": 16,
-          "points": 5
-        },
-        {
-          "participantId": "competitor:f1:esteban-ocon",
-          "teamParticipantId": "team:f1:haas",
-          "rank": 17,
-          "points": 3
+          "points": 10,
+          "teamName": "Audi",
+          "teamParticipantId": "team:f1:audi"
         },
         {
           "participantId": "competitor:f1:nico-hulkenberg",
-          "teamParticipantId": "team:f1:audi",
+          "rank": 15,
+          "points": 6,
+          "teamName": "Audi",
+          "teamParticipantId": "team:f1:audi"
+        },
+        {
+          "participantId": "competitor:f1:carlos-sainz",
+          "rank": 16,
+          "points": 6,
+          "teamName": "Williams",
+          "teamParticipantId": "team:f1:williams"
+        },
+        {
+          "participantId": "competitor:f1:alexander-albon",
+          "rank": 17,
+          "points": 5,
+          "teamName": "Williams",
+          "teamParticipantId": "team:f1:williams"
+        },
+        {
+          "participantId": "competitor:f1:esteban-ocon",
           "rank": 18,
-          "points": 2
+          "points": 3,
+          "teamName": "Haas F1 Team",
+          "teamParticipantId": "team:f1:haas"
         },
         {
           "participantId": "competitor:f1:fernando-alonso",
-          "teamParticipantId": "team:f1:aston-martin",
           "rank": 19,
-          "points": 1
+          "points": 3,
+          "teamName": "Aston Martin",
+          "teamParticipantId": "team:f1:aston-martin"
+        },
+        {
+          "participantId": "competitor:f1:yuki-tsunoda",
+          "rank": 20,
+          "points": 1,
+          "teamName": "Racing Bulls",
+          "teamParticipantId": "team:f1:racing-bulls"
         },
         {
           "participantId": "competitor:f1:lance-stroll",
-          "teamParticipantId": "team:f1:aston-martin",
-          "rank": 20,
-          "points": 0
+          "rank": 21,
+          "points": 0,
+          "teamName": "Aston Martin",
+          "teamParticipantId": "team:f1:aston-martin"
         },
         {
           "participantId": "competitor:f1:valtteri-bottas",
-          "teamParticipantId": "team:f1:cadillac",
-          "rank": 21,
-          "points": 0
+          "rank": 22,
+          "points": 0,
+          "teamName": "Cadillac",
+          "teamParticipantId": "team:f1:cadillac"
         },
         {
           "participantId": "competitor:f1:sergio-perez",
-          "teamParticipantId": "team:f1:cadillac",
-          "rank": 22,
-          "points": 0
+          "rank": 23,
+          "points": 0,
+          "teamName": "Cadillac",
+          "teamParticipantId": "team:f1:cadillac"
         }
       ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "source": {
         "provider": "Formula 1",
         "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
         "sourceType": "official",
-        "checkedAt": "2026-07-27T00:30:00.000Z"
+        "checkedAt": "2026-09-08T13:40:21.480Z"
       },
       "metadata": {
-        "standingsType": "drivers",
-        "completedRounds": 11
-      },
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers"
+        "standingsType": "drivers"
+      }
     },
     {
-      "id": "standings:f1-constructors-2026:hungary",
+      "id": "standings:f1-constructors-2026:current",
       "competitionId": "competition:f1-constructors-2026",
       "seasonLabel": "2026",
-      "roundLabel": "After Hungarian Grand Prix",
-      "snapshotTimeUtc": "2026-07-26T23:59:00.000Z",
+      "roundLabel": "Current championship standings",
+      "snapshotTimeUtc": "2026-09-08T13:40:21.480Z",
       "entries": [
         {
           "participantId": "team:f1:mercedes",
           "rank": 1,
-          "points": 379
+          "points": 468
         },
         {
           "participantId": "team:f1:ferrari",
           "rank": 2,
-          "points": 307
+          "points": 346
         },
         {
           "participantId": "team:f1:mclaren",
           "rank": 3,
-          "points": 220
+          "points": 287
         },
         {
           "participantId": "team:f1:red-bull-racing",
           "rank": 4,
-          "points": 177
+          "points": 204
         },
         {
           "participantId": "team:f1:racing-bulls",
           "rank": 5,
-          "points": 66
+          "points": 75
         },
         {
           "participantId": "team:f1:alpine",
           "rank": 6,
-          "points": 61
+          "points": 62
         },
         {
           "participantId": "team:f1:haas",
@@ -877,7 +918,7 @@
         {
           "participantId": "team:f1:audi",
           "rank": 8,
-          "points": 12
+          "points": 16
         },
         {
           "participantId": "team:f1:williams",
@@ -887,7 +928,7 @@
         {
           "participantId": "team:f1:aston-martin",
           "rank": 10,
-          "points": 1
+          "points": 3
         },
         {
           "participantId": "team:f1:cadillac",
@@ -895,15 +936,15 @@
           "points": 0
         }
       ],
+      "sourceUrl": "https://www.formula1.com/en/results/2026/team",
       "source": {
         "provider": "Formula 1",
         "sourceUrl": "https://www.formula1.com/en/results/2026/team",
         "sourceType": "official",
-        "checkedAt": "2026-07-27T00:30:00.000Z"
+        "checkedAt": "2026-09-08T13:40:21.480Z"
       },
       "metadata": {
-        "standingsType": "constructors",
-        "completedRounds": 11
+        "standingsType": "constructors"
       }
     }
   ],

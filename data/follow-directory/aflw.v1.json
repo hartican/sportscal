@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "aflw",
   "label": "AFLW",
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "generatedAt": "2026-09-08T12:37:48.448Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -30,6 +30,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8547/abbey-dowrick",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -67,6 +68,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1979/abbie-mckay",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -104,6 +106,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3289/abby-favell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -141,6 +144,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11750/abby-hobson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -178,6 +182,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8567/abbygail-bushby",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -190,6 +195,41 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:abbygail-bushby"
+    },
+    {
+      "id": "team:aflw:cd_t8098",
+      "displayName": "Adelaide Crows",
+      "shortName": "Adelaide Crows",
+      "aliases": [
+        "Adelaide Crows",
+        "Crows"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:aflw-2026",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:aflw:cd_t8098",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:aflw:aileen-gilroy",
@@ -215,6 +255,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2164/aileen-gilroy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -251,6 +292,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8541/aine-mcdonagh",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -288,6 +330,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2078/aine-tighe",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -325,6 +368,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4547/airlie-runnalls",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -362,6 +406,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11814/aishling-moloney",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -399,6 +444,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2068/aisling-mccarthy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -436,6 +482,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15178/aisling-reidy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -473,6 +520,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4244/alana-gee",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -510,6 +558,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11712/alannah-welsh",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -547,6 +596,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13522/alex-neyland",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -584,6 +634,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1636/alexandra-anderson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -621,6 +672,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4426/alexandra-morcom",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -658,6 +710,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2039/alexia-hamilton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -695,6 +748,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4088/alexis-gregor",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -732,6 +786,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3596/alice-burke",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -769,6 +824,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2169/alice-edmonds",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -806,6 +862,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8583/alice-mitchell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -843,6 +900,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3910/alice-oloughlin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -880,6 +938,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17613/alice-tentye",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -917,6 +976,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13808/alicia-blizard",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -954,6 +1014,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1692/alicia-eva",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -991,6 +1052,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1986/alison-drennan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1028,6 +1090,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13680/alissa-brook",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1065,6 +1128,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5672/ally-dallaway",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1102,6 +1166,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3641/ally-morphett",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1139,6 +1204,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2063/alyce-parker",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1176,6 +1242,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3286/alyssa-bannan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1213,6 +1280,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4105/alyssia-pisano",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1250,6 +1318,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13526/amaia-wain",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1287,6 +1356,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3802/amber-clarke",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1324,6 +1394,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5829/amber-schutte",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1361,6 +1432,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15204/amelia-dethridge",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1398,6 +1470,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8872/amelia-martin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1435,6 +1508,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6062/amelia-radford",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1472,6 +1546,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3992/amelia-velardo",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1509,6 +1584,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8553/amelie-borg",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1546,6 +1622,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13671/amy-boyle-carr",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1583,6 +1660,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5660/amy-franklin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1620,6 +1698,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15177/amy-gavin-mangan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1657,6 +1736,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5736/amy-gaylor",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1694,6 +1774,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2142/amy-mcdonald",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1731,6 +1812,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4031/amy-smith",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1768,6 +1850,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17434/ana-mulholland",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1805,6 +1888,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3578/analea-mckee",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1842,6 +1926,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1976/angelique-stannett",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1879,6 +1964,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6321/annabel-kievit",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1916,6 +2002,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5966/annabelle-embelton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1953,6 +2040,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1634/anne-hatchard",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -1990,6 +2078,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3300/annie-lee",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2027,6 +2116,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15570/aoibhin-cleary",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2064,6 +2154,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17432/aoife-healy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2101,6 +2192,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17256/aoife-horisk",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2138,6 +2230,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11999/ariana-hetherington",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2175,6 +2268,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1984/ash-riddell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2212,6 +2306,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3547/ash-van-loon",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2249,6 +2344,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11902/asher-fearn-wannan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2286,6 +2382,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1795/ashleigh-brazill",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2323,6 +2420,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3352/ashleigh-richards",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2360,6 +2458,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2056/ashleigh-woodland",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2397,6 +2496,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5807/ashley-centra",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2434,6 +2534,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15648/ava-stewart",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2471,6 +2572,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11710/ava-usher",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2508,6 +2610,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/14930/baia-pugh",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2545,6 +2648,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1565/belinda-smith",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2582,6 +2686,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3420/bella-eddey",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2619,6 +2724,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4015/bella-smith",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2656,6 +2762,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4028/bess-keaney",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2693,6 +2800,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2043/beth-lynch",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2730,6 +2838,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5670/beth-schilling",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2767,6 +2876,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1614/bianca-jakobsson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2804,6 +2914,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12293/blaithin-bogue",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2841,6 +2952,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8545/blaithin-mackin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2878,6 +2990,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1890/bonnie-toogood",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2915,6 +3028,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1677/breann-harrington",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2952,6 +3066,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1603/breanna-koenen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -2989,6 +3104,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2185/brenna-tarrant",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3026,6 +3142,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1477/brianna-davey",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3063,6 +3180,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3967/bridie-hipwell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3135,6 +3253,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2123/britney-gutknecht",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3172,6 +3291,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1567/brittany-bonnici",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3209,6 +3329,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4263/brodee-mowbray",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3246,6 +3367,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11717/bronte-parker",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3283,6 +3405,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4141/brooke-barwick",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3320,6 +3443,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13670/brooke-boileau",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3357,6 +3481,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4032/brooke-brown",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3394,6 +3519,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3867/brooke-smith",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3431,6 +3557,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5653/brooke-tonon",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3468,6 +3595,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3928/brooke-vickers",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3505,6 +3633,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1970/brooke-walker",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3542,6 +3671,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4099/bryde-orourke",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3579,6 +3709,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12279/caitlin-fletcher",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3616,6 +3747,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2140/caitlin-gould",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3653,6 +3785,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2093/caitlin-greiser",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3690,6 +3823,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17431/caitlin-kennedy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3727,6 +3861,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12281/caitlin-reid",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3764,6 +3899,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15194/caitlin-tipping",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3801,6 +3937,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11998/caitlin-wendland",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3838,6 +3975,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8540/cambridge-mccormick",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3910,6 +4048,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3824/carly-remmos",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3947,6 +4086,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13819/carys-daddario",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -3984,6 +4124,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2046/casey-sherriff",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4021,6 +4162,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2138/catherine-svarc",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4058,6 +4200,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6198/chantal-mason",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4095,6 +4238,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2069/chantel-emonson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4132,6 +4276,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13758/charli-hazelhurst",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4169,6 +4314,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11886/charli-wicksteed",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4206,6 +4352,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13301/charlie-oconnor-moreira",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4243,6 +4390,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3598/charlie-rowbottom",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4280,6 +4428,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3452/charlotte-baskaran",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4317,6 +4466,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5952/charlotte-brewer",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4354,6 +4504,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4208/charlotte-mullins",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4391,6 +4542,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13749/charlotte-riggs",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4428,6 +4580,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5671/charlotte-thomas",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4465,6 +4618,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1961/charlotte-wilson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4502,6 +4656,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2073/chelsea-biddell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4539,6 +4694,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1602/chelsea-randall",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4576,6 +4732,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5796/chelsea-sutton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4613,6 +4770,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2044/cheyenne-hammond",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4650,6 +4808,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4670/chloe-adams",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4687,6 +4846,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6175/chloe-baker-west",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4724,6 +4884,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11850/chloe-bown",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4761,6 +4922,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13454/chloe-gaunt",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4798,6 +4960,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1878/chloe-molloy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4835,6 +4998,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2003/chloe-scheer",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4872,6 +5036,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15755/christina-leuzzi",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4909,6 +5074,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2115/ciara-fitzgerald",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4946,6 +5112,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8709/claire-mahony",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -4983,6 +5150,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2091/clara-fitzpatrick",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5020,6 +5188,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4546/claudia-gunjaca",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5057,6 +5226,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1823/claudia-whitfort",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5094,6 +5264,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13807/claudia-wright",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5131,6 +5302,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8837/cleo-buttifant",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5203,6 +5375,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4013/courtney-hodder",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5240,6 +5413,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11806/courtney-murphy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5277,6 +5451,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5668/courtney-rowley",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5314,6 +5489,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4270/cynthia-hamilton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5351,6 +5527,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4020/daisy-darcy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5388,6 +5565,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5967/daisy-flockart",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5425,6 +5603,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3608/daisy-walker",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5462,6 +5641,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2128/dakota-davidson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5499,6 +5679,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5659/dana-east",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5536,6 +5717,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2030/danielle-ponter",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5573,6 +5755,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6152/darcie-davies",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5610,6 +5793,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1745/darcy-guttridge",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5647,6 +5831,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3188/darcy-moloney",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5684,6 +5869,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1519/darcy-vescio",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5721,6 +5907,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1763/daria-bannister",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5758,6 +5945,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11807/dayna-finn",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5795,6 +5983,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1578/deanna-berry",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5832,6 +6021,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11715/dekota-baron",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5869,6 +6059,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4474/dominique-carbone",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5906,6 +6097,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8317/dominique-carruthers",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5943,6 +6135,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1549/ebony-marinoff",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -5980,6 +6173,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1989/ebony-odea",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6017,6 +6211,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1920/eden-zanker",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6054,6 +6249,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12277/eilish-odowd",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6091,6 +6287,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1994/eilish-sheerin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6128,6 +6325,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12302/elaine-grigg",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6165,6 +6363,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2024/eleanor-brown",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6202,6 +6401,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8570/eleanor-hartill",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6239,6 +6439,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2197/elisabeth-georgostathis",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6276,6 +6477,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12038/elise-barwick",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6313,6 +6515,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3491/eliza-james",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6350,6 +6553,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3599/eliza-mcnamara",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6387,6 +6591,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6077/eliza-shannon",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6424,6 +6629,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4503/eliza-west",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6461,6 +6667,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8555/ella-boag",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6498,6 +6705,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3579/ella-friend",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6535,6 +6743,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4290/ella-heads",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6572,6 +6781,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8566/ella-roberts",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6609,6 +6819,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12283/ella-slocombe",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6646,6 +6857,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1825/elle-bennetts",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6683,6 +6895,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8668/elli-symonds",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6720,6 +6933,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1464/ellie-blackburn",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6757,6 +6971,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17260/ellie-brady",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6794,6 +7009,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2165/ellie-gavalas",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6831,6 +7047,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2112/ellie-hampson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6868,6 +7085,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3668/ellie-mckenzie",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6905,6 +7123,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8861/ellie-veerhuis",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6942,6 +7161,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1869/eloise-jones",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -6979,6 +7199,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2959/emelia-yassir",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7016,6 +7237,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1439/emily-bates",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7053,6 +7275,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8568/emily-elkington",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7090,6 +7313,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5715/emily-everist",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7127,6 +7351,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5974/emily-gough",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7164,6 +7389,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4023/emily-pease",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7201,6 +7427,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17433/emma-dineen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7238,6 +7465,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8870/emma-juneja",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7275,6 +7503,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1462/emma-kearney",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7312,6 +7541,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13752/emma-kilpatrick",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7349,6 +7579,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1486/emma-king",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7386,6 +7617,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8763/emma-mcdonald",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7423,6 +7655,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17278/emma-murray",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7460,6 +7693,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2152/emma-odriscoll",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7497,6 +7731,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1522/emma-swanson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7534,6 +7769,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11810/emmelie-fiedler",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7571,6 +7807,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8542/erika-oshea",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7608,6 +7845,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11808/erone-fitzpatrick",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7657,41 +7895,6 @@
       "sourceReviewAfter": null
     },
     {
-      "id": "team:aflw:cd_t8796",
-      "displayName": "Euro-Yroke",
-      "shortName": "Euro-Yroke",
-      "aliases": [
-        "Euro-Yroke",
-        "St Kilda"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:aflw-2026",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:aflw:cd_t8796",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
       "id": "competitor:aflw:evie-cowcher",
       "displayName": "Evie Cowcher",
       "shortName": null,
@@ -7715,6 +7918,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13812/evie-cowcher",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7752,6 +7956,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11695/evie-long",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7789,6 +7994,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8685/evie-parker",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7826,6 +8032,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17435/fina-dethlefsen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7863,6 +8070,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6158/fleur-davies",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7875,6 +8083,41 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:fleur-davies"
+    },
+    {
+      "id": "team:aflw:cd_t7886",
+      "displayName": "Fremantle",
+      "shortName": "Fremantle",
+      "aliases": [
+        "Fremantle",
+        "Dockers"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:aflw-2026",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:aflw:cd_t7886",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:aflw:gabby-osullivan",
@@ -7900,6 +8143,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1648/gabby-osullivan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7937,6 +8181,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2117/gabby-seymour",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -7974,6 +8219,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1599/gabriella-pound",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8011,6 +8257,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2096/gabrielle-newton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8083,6 +8330,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1535/gemma-houghton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8120,6 +8368,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3821/georgia-campbell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8157,6 +8406,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4134/georgia-clark",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8194,6 +8444,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2031/georgia-clarke",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8231,6 +8482,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8538/georgia-clayden",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8268,6 +8520,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3519/georgia-gall",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8305,6 +8558,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2144/georgia-garnett",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8342,6 +8596,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1797/georgia-gee",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8379,6 +8634,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5765/georgia-knight",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8416,6 +8672,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13738/georgia-mckee",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8453,6 +8710,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2065/georgia-nanscawen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8490,6 +8748,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2090/georgia-patrikios",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8527,6 +8786,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4104/georgia-stubs",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8564,6 +8824,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5773/georgie-brisbane",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8601,6 +8862,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13681/georgie-cleaver",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8638,6 +8900,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3468/georgie-prespakis",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8675,6 +8938,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1988/georgie-rankin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8712,6 +8976,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11714/georja-davies",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8784,6 +9049,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8676/grace-baba",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8821,6 +9087,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13675/grace-beasley",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8858,6 +9125,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5805/grace-belloni",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8895,6 +9163,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2075/grace-egan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8932,6 +9201,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2118/grace-kelly",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -8969,6 +9239,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15571/grace-kos",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9006,6 +9277,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13753/grace-martin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9043,6 +9315,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13515/grace-parsons",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9080,6 +9353,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2126/greta-bodey",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9152,6 +9426,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8549/hannah-ewings",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9189,6 +9464,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17253/hannah-looney",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9226,6 +9502,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2157/hannah-munyard",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9263,6 +9540,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2120/hannah-priest",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9300,6 +9578,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1708/harriet-cordner",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9337,6 +9616,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6155/havana-harris",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9409,6 +9689,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4113/hayley-mclaughlin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9446,6 +9727,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1546/hayley-miller",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9483,6 +9765,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11704/heidi-talbot",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9520,6 +9803,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5725/heidi-woodley",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9557,6 +9841,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8867/holly-cooper",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9594,6 +9879,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8736/holly-egan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9631,6 +9917,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8748/holly-ridewood",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9668,6 +9955,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4461/imogen-barnett",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9705,6 +9993,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11756/imogen-brown",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9742,6 +10031,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13766/imogen-trengove",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9779,6 +10069,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15568/indi-strom",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9816,6 +10107,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13740/india-rasheed",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9853,6 +10145,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15814/indiana-west",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9890,6 +10183,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6144/indiana-williams",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9927,6 +10221,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4014/indy-tahau",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -9964,6 +10259,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8777/isabel-bacon",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10001,6 +10297,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2174/isabel-dawes",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10038,6 +10335,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1921/isabel-huntington",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10075,6 +10373,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2159/isabella-grant",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10112,6 +10411,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4034/isabella-lewis",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10149,6 +10449,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2151/isabella-shannon",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10186,6 +10487,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3456/isabelle-pritchard",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10223,6 +10525,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4200/jnoemi-anderson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10260,6 +10563,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4153/jacinta-hose",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10297,6 +10601,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5705/jacqueline-dupuy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10334,6 +10639,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2066/jacqueline-parry",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10371,6 +10677,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2027/jade-ellenger",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10408,6 +10715,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11778/jade-mclay",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10445,6 +10753,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8564/jaide-britton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10482,6 +10791,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1444/jaimee-lambert",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10519,6 +10829,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1584/jamie-stanton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10556,6 +10867,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1531/jas-grierson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10593,6 +10905,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2059/jasmin-stewart",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10630,6 +10943,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13764/jasmine-evans",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10667,6 +10981,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4464/jasmine-ferguson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10704,6 +11019,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3990/jasmine-fleming",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10741,6 +11057,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1619/jasmine-garner",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10778,6 +11095,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8715/jasmine-sowden",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10815,6 +11133,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4247/jasmyn-smith",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10852,6 +11171,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15572/jemma-charity",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10889,6 +11209,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3919/jemma-rigoni",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10926,6 +11247,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4225/jemmika-douglas",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -10963,6 +11285,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1888/jenna-bruton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11000,6 +11323,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3037/jenna-richardson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11037,6 +11361,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11805/jennifer-dunne",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11074,6 +11399,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1790/jess-allan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11111,6 +11437,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3584/jess-fitzgerald",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11148,6 +11475,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4108/jess-vukic",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11185,6 +11513,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1971/jesse-tawhiao-wardlaw",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11222,6 +11551,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4310/jessica-doyle",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11259,6 +11589,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5657/jessica-good",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11296,6 +11627,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4196/jessica-low",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11333,6 +11665,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5847/jessica-rentsch",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11370,6 +11703,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11802/jordyn-allen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11407,6 +11741,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3861/jorja-livingstone",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11444,6 +11779,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13311/josephine-bamford",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11481,6 +11817,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11779/jovie-skewes-clinton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11518,6 +11855,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2055/julia-crockett-grills",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11555,6 +11893,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8556/julia-teakle",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11592,6 +11931,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11824/julie-osullivan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11629,6 +11969,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13805/juliet-kelly",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11666,6 +12007,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1476/justine-mules-robinson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11703,6 +12045,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1482/kaitlyn-ashmore",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11740,6 +12083,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12273/kaitlyn-srhoj",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11777,6 +12121,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1874/kalinda-howarth",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11814,6 +12159,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2189/kate-dempsey",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11851,6 +12197,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1891/kate-hore",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11888,6 +12235,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13673/kate-kenny",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11925,6 +12273,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1513/kate-shierlaw",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11962,6 +12311,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2114/kate-surman",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -11999,6 +12349,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4084/katelyn-pope",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12036,6 +12387,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1467/katie-brennan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12073,6 +12425,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2010/katie-lynch",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12110,6 +12463,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6205/kayla-dalgleish",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12147,6 +12501,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6160/kaylee-kimber",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12184,6 +12539,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15566/kayleigh-cronin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12221,6 +12577,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3200/keeley-hardingham",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12258,6 +12615,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8529/keeley-kustermann",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12295,6 +12653,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3860/keeley-sherar",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12332,6 +12691,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3280/keeley-skepper",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12369,6 +12729,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3927/keely-coyne",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12406,6 +12767,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1517/kellie-gibson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12443,6 +12805,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15205/kellyann-hogan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12480,6 +12843,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4241/keyshia-matenga",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12517,6 +12881,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6161/kiara-bischa",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12554,6 +12919,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1443/kiara-bowers",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12591,6 +12957,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8528/kiera-mueller",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12628,6 +12995,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13527/kiera-yerbury",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12665,6 +13033,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1922/kim-rennie",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12702,6 +13071,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1664/kirsty-lamb",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12739,6 +13109,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4186/kristie-lee-weston-turner",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12751,41 +13122,6 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:kristie-lee-weston-turner"
-    },
-    {
-      "id": "team:aflw:cd_t8098",
-      "displayName": "Kuwarna",
-      "shortName": "Kuwarna",
-      "aliases": [
-        "Kuwarna",
-        "Crows"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:aflw-2026",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:aflw:cd_t8098",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
     },
     {
       "id": "competitor:aflw:kyla-forbes",
@@ -12811,6 +13147,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5730/kyla-forbes",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12848,6 +13185,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13742/laela-ebert",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12885,6 +13223,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5938/lara-hausegger",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12922,6 +13261,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3994/laura-elliott",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12959,6 +13299,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3114/laura-gardiner",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -12996,6 +13337,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2190/laura-mcclelland",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13033,6 +13375,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2032/laura-pugh",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13070,6 +13413,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4143/laura-stone",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13107,6 +13451,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2113/lauren-ahrens",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13144,6 +13489,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2029/lauren-bella",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13181,6 +13527,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2005/lauren-butler",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13218,6 +13565,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17438/lauren-clifton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13255,6 +13603,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1536/lauren-pearce",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13292,6 +13641,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8565/lauren-wakfer",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13329,6 +13679,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13677/lauren-young",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13366,6 +13717,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13091/lavinia-cox",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13403,6 +13755,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1553/libby-birch",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13440,6 +13793,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4029/libby-graham",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13477,6 +13831,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4086/lila-keck",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13514,6 +13869,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11694/lilly-baker",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13551,6 +13907,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13757/lily-baxter",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13588,6 +13945,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6044/lily-goss",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13625,6 +13983,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8554/lily-johnson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13662,6 +14021,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1454/lily-mithen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13699,6 +14059,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13823/lily-paterson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13736,6 +14097,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2072/lily-postlethwaite",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13773,6 +14135,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13473/lily-quigley",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13810,6 +14173,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15631/lily-smart",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13847,6 +14211,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4240/lily-tarlinton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13884,6 +14249,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3480/lily-rose-williamson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13921,6 +14287,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1712/lisa-steane",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13958,6 +14325,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4635/liz-mcgrath",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -13995,6 +14363,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4180/lou-lou-field",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14032,6 +14401,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1666/louise-stephenson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14069,6 +14439,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4315/lucia-painter",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14106,6 +14477,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5925/lucille-cronin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14143,6 +14515,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13741/lucy-boyd",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14180,6 +14553,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2103/lucy-mcevoy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14217,6 +14591,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4022/lucy-single",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14254,6 +14629,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6185/lucy-wales",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14291,6 +14667,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15625/lucy-waye",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14328,6 +14705,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5656/lulu-pullar",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14365,6 +14743,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3838/mackenzie-eardley",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14402,6 +14781,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8804/mackenzie-ford",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14439,6 +14819,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13513/maddie-quinn",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14476,6 +14857,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1770/maddie-shevlin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14513,6 +14895,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1862/maddison-gay",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14550,6 +14933,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6001/maddison-torpey",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14587,6 +14971,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2021/maddy-brancatisano",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14624,6 +15009,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1762/madeleine-guerin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14661,6 +15047,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8534/madeleine-scanlon",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14698,6 +15085,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4295/madeline-hendrie",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14735,6 +15123,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4187/madison-brazendale",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14772,6 +15161,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17644/madison-evans",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14809,6 +15199,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5874/madison-ibrahim",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14846,6 +15237,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2071/madison-newman",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14883,6 +15275,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2051/madison-prespakis",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14920,6 +15313,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3201/maeve-chaplin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14957,6 +15351,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2161/maggie-gorham",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -14994,6 +15389,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11780/maggie-johnstone",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15031,6 +15427,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4044/maggie-maclachlan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15068,6 +15465,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5941/maggie-mahony",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15105,6 +15503,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2052/maisie-nankivell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15142,6 +15541,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17551/maisy-evans",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15179,6 +15579,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2104/maria-moloney",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15216,6 +15617,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8743/marlo-graham",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15253,6 +15655,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17436/mary-kate-lynch",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15290,6 +15693,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12036/matilda-argus",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15327,6 +15731,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15569/matilda-banfield",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15364,6 +15769,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11809/matilda-dyke",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15401,6 +15807,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11821/matilda-scholz",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15438,6 +15845,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3555/matilda-van-berkel",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15475,6 +15883,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11816/mattea-breed",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15512,6 +15921,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17251/maya-dear",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15549,6 +15959,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15646/maya-louvel-finn",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15586,6 +15997,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11815/meara-girvan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15623,6 +16035,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11781/meg-lappin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15660,6 +16073,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5762/meg-robertson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15697,6 +16111,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3355/megan-fitzsimon",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15734,6 +16149,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8536/megan-kauffman",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15771,6 +16187,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4674/mekah-morrissy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15783,6 +16200,41 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:mekah-morrissy"
+    },
+    {
+      "id": "team:aflw:cd_t7386",
+      "displayName": "Melbourne",
+      "shortName": "Melbourne",
+      "aliases": [
+        "Melbourne",
+        "Demons"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:aflw-2026",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:aflw:cd_t7386",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:aflw:mia-anderson",
@@ -15808,6 +16260,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8769/mia-anderson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15845,6 +16298,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5791/mia-austin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15882,6 +16336,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3809/mia-busch",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15919,6 +16374,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2183/mia-king",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15956,6 +16412,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13825/mia-russo",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -15993,6 +16450,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6157/mia-salisbury",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16030,6 +16488,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1972/mikala-cann",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16067,6 +16526,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2094/mikayla-bowen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16104,6 +16564,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11708/mikayla-nurse",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16141,6 +16602,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4230/mikayla-pauga",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16178,6 +16640,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6192/mikayla-western",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16215,6 +16678,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4145/mikayla-williamson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16252,6 +16716,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13765/mikaylah-antony",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16289,6 +16754,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2141/mim-strom",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16326,6 +16792,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3479/mimi-hill",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16363,6 +16830,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13288/mischa-barwin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16400,6 +16868,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13132/mizuki-brothwell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16437,6 +16906,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13678/molly-brooksby",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16474,6 +16944,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2196/molly-mcdonald",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16511,6 +16982,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13817/molly-ohehir",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16548,6 +17020,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13521/molly-thomas",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16585,6 +17058,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13754/monique-bessen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16622,6 +17096,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1769/monique-conti",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16659,6 +17134,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6073/montana-beruldsen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16696,6 +17172,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3533/montana-ham",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16733,6 +17210,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2135/montana-mckinnon",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16770,6 +17248,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2137/najwa-allen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16807,6 +17286,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12045/nalu-brothwell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16819,41 +17299,6 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:nalu-brothwell"
-    },
-    {
-      "id": "team:aflw:cd_t7386",
-      "displayName": "Narrm",
-      "shortName": "Narrm",
-      "aliases": [
-        "Narrm",
-        "Demons"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:aflw-2026",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:aflw:cd_t7386",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
     },
     {
       "id": "competitor:aflw:natalie-grider",
@@ -16879,6 +17324,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1953/natalie-grider",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16916,6 +17362,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13804/natasha-entwistle",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16953,6 +17400,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15567/neasa-dooley",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -16990,6 +17438,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2171/nell-morris-dalton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17027,6 +17476,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2155/niamh-kelly",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17064,6 +17514,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11819/niamh-martin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17101,6 +17552,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11817/niamh-mclaughlin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17138,6 +17590,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1525/nicola-barr",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17175,6 +17628,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1564/nicola-stevens",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17212,6 +17666,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2097/nicola-xenos",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17249,6 +17704,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1987/nicole-bresnehan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17286,6 +17742,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2014/nina-morrison",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17323,6 +17780,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13802/noa-mcnaughton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17395,6 +17853,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6153/nyalli-milne",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17432,6 +17891,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13818/olivia-crane",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17469,6 +17929,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11655/olivia-gorman",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17506,6 +17967,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11623/olivia-lacy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17543,6 +18005,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17259/olivia-lewis",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17580,6 +18043,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2016/olivia-purcell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17617,6 +18081,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2186/olivia-vesely",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17654,6 +18119,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13821/olivia-wolmarans",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17691,6 +18157,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2076/orla-odwyer",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17728,6 +18195,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8535/orlagh-lally",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17765,6 +18233,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5666/paige-price",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17802,6 +18271,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3875/paige-scott",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17839,6 +18309,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4082/paige-trudgeon",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17876,6 +18347,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11823/paris-mccarthy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17913,6 +18385,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1461/paxy-paxman",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17950,6 +18423,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12282/piper-dunlop",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -17987,6 +18461,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13679/piper-window",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18024,6 +18499,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11804/poppy-boltz",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18061,6 +18537,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2092/poppy-kelly",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18098,6 +18575,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13739/poppy-scholz",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18135,6 +18613,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15764/poppy-stockwell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18147,6 +18626,41 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:poppy-stockwell"
+    },
+    {
+      "id": "team:aflw:cd_t9409",
+      "displayName": "Port Adelaide",
+      "shortName": "Port Adelaide",
+      "aliases": [
+        "Port Adelaide",
+        "Power"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:aflw-2026",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:aflw:cd_t9409",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:aflw:priya-bowering",
@@ -18172,6 +18686,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5984/priya-bowering",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18209,6 +18724,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5662/rachel-kearns",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18246,6 +18762,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6194/rania-crozier",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18283,6 +18800,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1629/rebecca-beeson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18320,6 +18838,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2156/rebecca-miller",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18357,6 +18876,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2012/rebecca-webster",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18394,6 +18914,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2015/rene-caris",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18431,6 +18952,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13826/renee-morgan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18468,6 +18990,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13484/rhianna-ingram",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18539,6 +19062,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2101/roxanne-roux",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18576,6 +19100,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1511/ruby-schleicher",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18613,6 +19138,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4012/ruby-svarc",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18650,6 +19176,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3497/ruby-tripodi",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18687,6 +19214,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/12259/ryleigh-wotherspoon",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18724,6 +19252,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4135/rylie-wilcox",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18761,6 +19290,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1493/sabrina-frederick",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18798,6 +19328,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8551/sachi-syme",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18835,6 +19366,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13261/sanne-bakker",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18872,6 +19404,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17437/saoirse-lally",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18909,6 +19442,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4671/sara-howley",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18946,6 +19480,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1494/sarah-allan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -18983,6 +19518,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8552/sarah-goodwin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19020,6 +19556,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4152/sarah-grunden",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19057,6 +19594,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3635/sarah-hartwig",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19094,6 +19632,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1656/sarah-hosking",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19131,6 +19670,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5669/sarah-lakay",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19168,6 +19708,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1433/sarah-lampard",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19205,6 +19746,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5928/sarah-poustie",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19242,6 +19784,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1975/sarah-rowe",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19279,6 +19822,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15573/sarah-steele-park",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19316,6 +19860,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4018/sarah-verrier",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19353,6 +19898,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/17265/sarah-wall",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19390,6 +19936,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8558/saraid-taylor",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19427,6 +19974,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11274/scarlett-johnson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19464,6 +20012,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2081/serene-watson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19501,6 +20050,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4042/shanae-davison",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19538,6 +20088,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1429/shannon-campbell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19575,6 +20126,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11861/shauna-mcelligott",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19612,6 +20164,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2000/shelley-heath-barker",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19649,6 +20202,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13676/shineah-goody",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19686,6 +20240,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13824/sienna-gerardi",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19723,6 +20278,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6149/sienna-mcmullen",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19760,6 +20316,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5933/sienna-tallariti",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19797,6 +20354,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4150/sierra-grieves",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19834,6 +20392,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4471/simone-nalder",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19871,6 +20430,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2082/sinead-goldrick",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19908,6 +20468,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15179/siofra-oconnell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19945,6 +20506,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3916/sofia-hurley",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -19982,6 +20544,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/15399/sophia-gaukrodger",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20019,6 +20582,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2053/sophie-alexander",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20056,6 +20620,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4087/sophie-butterworth",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20093,6 +20658,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1879/sophie-conway",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20130,6 +20696,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13762/sophie-eaton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20167,6 +20734,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2121/sophie-mcdonald",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20203,6 +20771,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5979/sophie-mckay",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20240,6 +20809,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6136/sophie-peters",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20277,6 +20847,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8797/sophie-strong",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20314,6 +20885,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2004/sophie-van-de-heuvel",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20326,6 +20898,40 @@
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
       "profileRef": "profile:aflw:sophie-van-de-heuvel"
+    },
+    {
+      "id": "team:aflw:cd_t8796",
+      "displayName": "St Kilda",
+      "shortName": "St Kilda",
+      "aliases": [
+        "St Kilda"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": null,
+      "countryBasis": null,
+      "genderCategory": "female",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:aflw-2026",
+      "teamKind": null,
+      "position": null,
+      "identityId": "team:aflw:cd_t8796",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
     },
     {
       "id": "competitor:aflw:stephanie-cain",
@@ -20351,6 +20957,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1568/stephanie-cain",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20388,6 +20995,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6312/stephanie-wales",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20425,6 +21033,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11705/sunny-lappin",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20497,6 +21106,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4526/tahlia-fellows",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20534,6 +21144,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3292/tahlia-gillard",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20571,6 +21182,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2074/tahlia-hickie",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20608,6 +21220,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1605/tahlia-randall",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20645,6 +21258,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4530/tamara-smith",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20682,6 +21296,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6039/tanya-kennedy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20719,6 +21334,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4571/tara-bohanna",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20756,6 +21372,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6147/tara-harrington",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20793,6 +21410,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4021/tarni-evans",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20830,6 +21448,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2166/tarni-white",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20867,6 +21486,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13810/taya-chambers",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20904,6 +21524,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1524/tayla-harris",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20941,6 +21562,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11862/tayla-mcmillan",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -20978,6 +21600,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4377/taylah-gatt",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21015,6 +21638,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11803/taylah-levy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21052,6 +21676,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2080/taylor-smith",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21089,6 +21714,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4236/teagan-germech",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21126,6 +21752,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4010/teah-charlton",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21163,6 +21790,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3192/tess-craven",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21200,6 +21828,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1997/tessa-boyd",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21237,6 +21866,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/1420/tilly-lucas-rodd",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21274,6 +21904,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/4169/tunisha-kikoak",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21311,6 +21942,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3254/tyanna-smith",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21348,6 +21980,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2062/tyla-hanks",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21385,6 +22018,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/2131/vaomua-laloifi",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21422,6 +22056,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8543/vikki-wall",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21459,6 +22094,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13746/violet-patterson",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21474,10 +22110,10 @@
     },
     {
       "id": "team:aflw:cd_t8787",
-      "displayName": "Waalitj Marawar",
-      "shortName": "Waalitj Marawar",
+      "displayName": "West Coast Eagles",
+      "shortName": "West Coast Eagles",
       "aliases": [
-        "Waalitj Marawar",
+        "West Coast Eagles",
         "Eagles"
       ],
       "entityType": "team",
@@ -21493,41 +22129,6 @@
       "teamKind": null,
       "position": null,
       "identityId": "team:aflw:cd_t8787",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:aflw:cd_t7886",
-      "displayName": "Walyalup",
-      "shortName": "Walyalup",
-      "aliases": [
-        "Walyalup",
-        "Dockers"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:aflw-2026",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:aflw:cd_t7886",
       "logoUrl": null,
       "logoDarkUrl": null,
       "headshotUrl": null,
@@ -21578,41 +22179,6 @@
       "sourceReviewAfter": null
     },
     {
-      "id": "team:aflw:cd_t9409",
-      "displayName": "Yartapuulti",
-      "shortName": "Yartapuulti",
-      "aliases": [
-        "Yartapuulti",
-        "Power"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": null,
-      "countryBasis": null,
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:aflw-2026",
-      "teamKind": null,
-      "position": null,
-      "identityId": "team:aflw:cd_t9409",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
       "id": "competitor:aflw:yasmeen-janschek",
       "displayName": "Yasmeen Janschek",
       "shortName": null,
@@ -21636,6 +22202,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13519/yasmeen-janschek",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21673,6 +22240,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3882/yasmin-duursma",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21710,6 +22278,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/3013/zali-friswell",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21747,6 +22316,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/11927/zara-neuwirth",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21784,6 +22354,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5862/zarlie-goldsworthy",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21821,6 +22392,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/13801/zippy-fish",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21858,6 +22430,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/6206/zoe-besanko",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21895,6 +22468,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8747/zoe-hargreaves",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21932,6 +22506,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/5652/zoe-prowse",
         "source:aflw:players",
         "source:aflw:teams"
       ],
@@ -21969,6 +22544,7 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
+        "https://www.afl.com.au/aflw/players/8569/zoe-wakfer",
         "source:aflw:players",
         "source:aflw:teams"
       ],

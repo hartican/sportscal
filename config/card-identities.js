@@ -578,7 +578,7 @@
     return TEAM_SPORT_KEYS.has(String(event?.key || "")) && /\s+v\.?\s+/i.test(String(title || event?.name || ""));
   }
   function cleanMatchupSideLabel(value, side){
-    let label = String(value || "").trim();
+    let label = String(value || "").trim().replace(/^(?:(?:Qualifying & Elimination|Qualifying|Elimination|Semi|Preliminary|Grand) Final(?: \d+)?|Finals?)\s*[-—–:]\s*/i, "");
     if (side === 0 && /\s[—–]\s/.test(label)) label = label.split(/\s[—–]\s/).pop().trim();
     if (side === 1 && /\s[—–]\s/.test(label)) label = label.split(/\s[—–]\s/)[0].trim();
     label = label.replace(/\s+(?:[—–-])\s+(?:group|round|quarterfinal|semifinal|semi final|preliminary final|grand final|final)\b.*$/i, "").trim();

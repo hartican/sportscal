@@ -7,6 +7,8 @@
 
   const VERSION = "venue-registry.v3";
   const ENTRIES = Object.freeze([
+    ["us-open-louis-armstrong", "Louis Armstrong Stadium", "Louis Armstrong Stadium", ["Louis Armstrong Stadium"]],
+    ["arthur-ashe-stadium", "Arthur Ashe Stadium", "Arthur Ashe Stadium", ["Arthur Ashe Stadium"]],
     ["stadium-australia", "Stadium Australia", "Accor Stadium", ["Accor Stadium", "Accor Stadium, Sydney"]],
     ["sydney-football-stadium", "Sydney Football Stadium", "Allianz Stadium", ["Allianz Stadium", "Allianz Stadium, Sydney"]],
     ["brookvale-oval", "Brookvale Oval", "4 Pines Park", ["4 Pines Park"]],
@@ -18,15 +20,15 @@
     ["gio-stadium", "Bruce stadium", "GIO Stadium Canberra", ["GIO Stadium", "GIO Stadium Canberra", "Canberra Stadium", "Bruce Stadium", "Bruce stadium"]],
     ["manuka-oval", "Manuka Oval", "Corroboree Group Oval", ["Corroboree Group Oval, Manuka", "Corroboree Group Oval Manuka, Canberra", "Manuka Oval, Canberra"]],
     ["shark-park", "Shark Park", "Ocean Protect Stadium", ["Ocean Protect Stadium"]],
-    ["perth-stadium", "Perth Stadium", "Optus Stadium", ["Optus Stadium, Perth", "Perth Stadium"]],
+    ["perth-stadium", "Perth Stadium", "Optus Stadium", ["Optus Stadium", "Optus Stadium, Perth", "Perth Stadium"]],
     ["lang-park", "Lang Park", "Suncorp Stadium", ["Suncorp Stadium", "Suncorp Stadium, Brisbane"]],
     ["townsville-stadium", "Townsville Stadium", "Queensland Country Bank Stadium", ["Queensland Country Bank Stadium", "Queensland Country Bank Stadium, Townsville"]],
     ["robina-stadium", "Robina Stadium", "Cbus Super Stadium", ["Cbus Super Stadium"]],
     ["parramatta-stadium", "Parramatta Stadium", "CommBank Stadium", ["CommBank Stadium"]],
     ["sydney-showground-stadium", "Sydney Showground", "ENGIE Stadium", ["ENGIE Stadium", "ENGIE Stadium, Sydney", "Sydney Showground Stadium"]],
     ["jubilee-oval", "Kogarah Oval", "Netstrata Jubilee Stadium", ["Netstrata Jubilee Stadium", "Jubilee Oval", "Jubilee Stadium"]],
-    ["scg", "the SCG", "Sydney Cricket Ground", ["SCG, Sydney", "Sydney Cricket Ground"]],
-    ["mcg", "the MCG", "Melbourne Cricket Ground", ["MCG, Melbourne", "Melbourne Cricket Ground"]],
+    ["scg", "the SCG", "Sydney Cricket Ground", ["SCG", "SCG, Sydney", "Sydney Cricket Ground"]],
+    ["mcg", "the MCG", "Melbourne Cricket Ground", ["MCG", "MCG, Melbourne", "Melbourne Cricket Ground"]],
     ["hbf-park", "HBF Park", "HBF Park", ["HBF Park", "HBF Park, Perth"]],
     ["eden-park", "Eden Park", "Eden Park", ["Eden Park, Auckland"]],
     ["ellis-park", "Ellis Park", "Ellis Park", ["Ellis Park, Johannesburg"]],
@@ -143,6 +145,14 @@
   ].map(([id, displayName, officialName, aliases]) => Object.freeze({ id, displayName, officialName, aliases: Object.freeze(aliases) })));
 
   const CONTEXTUAL_ALIASES = Object.freeze({
+    "grandstand": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
+    "court 6": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
+    "court 7": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
+    "court 11": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
+    "court 12": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
+    "court 13": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
+    "court 15": Object.freeze({id:"usta-billie-jean-king-national-tennis-center", keys:Object.freeze(["tennis"]), eventSeriesId:"event-series:us-open"}),
+
     "brisbane stadium": Object.freeze({ id: "lang-park", keys: Object.freeze(["rugby"]) }),
     "cincinnati usa": Object.freeze({ id: "lindner-family-tennis-center", keys: Object.freeze(["tennis", "wimbledon"]) }),
     "new york usa": Object.freeze({ id: "usta-billie-jean-king-national-tennis-center", keys: Object.freeze(["tennis"]) }),
@@ -160,6 +170,7 @@
   });
 
   const REVIEW_DISPOSITIONS = Object.freeze({
+    "venue tbc": "competition_placeholder",
     "2026 nba finals": "competition_placeholder",
     "belfort": "place_or_route",
     "chalon sur saone": "place_or_route",
@@ -202,7 +213,7 @@
     const normalized = normalise(officialName);
     let entry = aliasIndex.get(normalized);
     const contextual = CONTEXTUAL_ALIASES[normalized];
-    if (!entry && contextual && contextual.keys.includes(String(context?.key || ""))) entry = entriesById.get(contextual.id);
+    if (!entry && contextual && contextual.keys.includes(String(context?.key || "")) && (!contextual.eventSeriesId || context.eventSeriesId === contextual.eventSeriesId || /us-open/.test(context.id || context.parentEventId || ""))) entry = entriesById.get(contextual.id);
     if (entry) return Object.freeze({ ...entry, audited: true });
     return Object.freeze({
       id: fallbackId(officialName),

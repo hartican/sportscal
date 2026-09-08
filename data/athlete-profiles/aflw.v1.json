@@ -1,7 +1,7 @@
 {
   "schemaVersion": "athlete-profile-chunk.v1",
   "sportKey": "aflw",
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "generatedAt": "2026-09-08T13:40:21.541Z",
   "profiles": [
     {
       "schemaVersion": "athlete-profile.v1",
@@ -89,7 +89,7 @@
       "recentFive": [
         {
           "label": "Round 4",
-          "opponent": "Euro-Yroke",
+          "opponent": "St Kilda",
           "result": "W 99-7",
           "stats": [
             {
@@ -197,7 +197,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -206,12 +206,12 @@
       "sportKey": "aflw",
       "displayName": "Kate Hore",
       "currentTeamId": "team:aflw:cd_t7386",
-      "teamName": "Narrm",
+      "teamName": "Melbourne",
       "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1009980.png?im=Scale,width=0.6,height=0.6",
       "competitionNumber": 10,
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
-      "biography": "Kate Hore is a medium_forward for Narrm in the 2026 season, wearing guernsey No. 10. Recruited from Beaumaris (Vic)/St Kilda Sharks (VFLW), Kate made a senior debut in 2018 and is listed at 170 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
+      "biography": "Kate Hore is a medium_forward for Melbourne in the 2026 season, wearing guernsey No. 10. Recruited from Beaumaris (Vic)/St Kilda Sharks (VFLW), Kate made a senior debut in 2018 and is listed at 170 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
       "keyFacts": [
         {
           "label": "Position",
@@ -283,6 +283,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 4",
+          "opponent": "West Coast Eagles",
+          "result": "W 81-44",
+          "stats": [
+            {
+              "label": "D",
+              "value": 22
+            },
+            {
+              "label": "G",
+              "value": 1
+            },
+            {
+              "label": "T",
+              "value": 6
+            },
+            {
+              "label": "C",
+              "value": 6
+            }
+          ]
+        },
         {
           "label": "Round 3",
           "opponent": "Brisbane Lions",
@@ -370,7 +393,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -458,7 +481,7 @@
       "recentFive": [
         {
           "label": "Round 4",
-          "opponent": "Euro-Yroke",
+          "opponent": "St Kilda",
           "result": "W 99-7",
           "stats": [
             {
@@ -566,7 +589,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -575,12 +598,12 @@
       "sportKey": "aflw",
       "displayName": "Ella Roberts",
       "currentTeamId": "team:aflw:cd_t8787",
-      "teamName": "Waalitj Marawar",
+      "teamName": "West Coast Eagles",
       "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1022823.png?im=Scale,width=0.6,height=0.6",
       "competitionNumber": 4,
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
-      "biography": "Ella Roberts is a midfielder for Waalitj Marawar in the 2026 season, wearing guernsey No. 4. Recruited from Margaret River (WA)/Busselton (WA)/Peel Thunder (WAFLW), Ella made a senior debut in 2022 and is listed at 176 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
+      "biography": "Ella Roberts is a midfielder for West Coast Eagles in the 2026 season, wearing guernsey No. 4. Recruited from Margaret River (WA)/Busselton (WA)/Peel Thunder (WAFLW), Ella made a senior debut in 2022 and is listed at 176 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
       "keyFacts": [
         {
           "label": "Position",
@@ -653,8 +676,31 @@
       ],
       "recentFive": [
         {
+          "label": "Round 4",
+          "opponent": "Melbourne",
+          "result": "L 44-81",
+          "stats": [
+            {
+              "label": "D",
+              "value": 26
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 12
+            },
+            {
+              "label": "C",
+              "value": 9
+            }
+          ]
+        },
+        {
           "label": "Round 3",
-          "opponent": "Kuwarna",
+          "opponent": "Adelaide Crows",
           "result": "L 43-60",
           "stats": [
             {
@@ -739,7 +785,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -748,12 +794,12 @@
       "sportKey": "aflw",
       "displayName": "Matilda Scholz",
       "currentTeamId": "team:aflw:cd_t9409",
-      "teamName": "Yartapuulti",
+      "teamName": "Port Adelaide",
       "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1023943.png?im=Scale,width=0.6,height=0.6",
       "competitionNumber": 29,
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
-      "biography": "Matilda Scholz is a ruck for Yartapuulti in the 2026 season, wearing guernsey No. 29. Recruited from Mitcham (SA)/Goodwood (SA)/Glenelg (SANFLW), Matilda made a senior debut in 2023 and is listed at 189 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
+      "biography": "Matilda Scholz is a ruck for Port Adelaide in the 2026 season, wearing guernsey No. 29. Recruited from Mitcham (SA)/Goodwood (SA)/Glenelg (SANFLW), Matilda made a senior debut in 2023 and is listed at 189 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
       "keyFacts": [
         {
           "label": "Position",
@@ -896,7 +942,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Walyalup",
+          "opponent": "Fremantle",
           "result": "W 41-20",
           "stats": [
             {
@@ -935,7 +981,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1108,7 +1154,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1117,12 +1163,12 @@
       "sportKey": "aflw",
       "displayName": "Ebony Marinoff",
       "currentTeamId": "team:aflw:cd_t8098",
-      "teamName": "Kuwarna",
+      "teamName": "Adelaide Crows",
       "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1005279.png?im=Scale,width=0.6,height=0.6",
       "competitionNumber": 10,
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
-      "biography": "Ebony Marinoff is a midfielder for Kuwarna in the 2026 season, wearing guernsey No. 10. Recruited from Lockleys (SA)/Morphettville Park (SA), Ebony made a senior debut in 2017 and is listed at 169 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
+      "biography": "Ebony Marinoff is a midfielder for Adelaide Crows in the 2026 season, wearing guernsey No. 10. Recruited from Lockleys (SA)/Morphettville Park (SA), Ebony made a senior debut in 2017 and is listed at 169 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
       "keyFacts": [
         {
           "label": "Position",
@@ -1195,8 +1241,31 @@
       ],
       "recentFive": [
         {
+          "label": "Round 4",
+          "opponent": "Hawthorn",
+          "result": "W 67-39",
+          "stats": [
+            {
+              "label": "D",
+              "value": 24
+            },
+            {
+              "label": "G",
+              "value": 1
+            },
+            {
+              "label": "T",
+              "value": 13
+            },
+            {
+              "label": "C",
+              "value": 4
+            }
+          ]
+        },
+        {
           "label": "Round 3",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 60-43",
           "stats": [
             {
@@ -1281,7 +1350,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1368,6 +1437,29 @@
       ],
       "recentFive": [
         {
+          "label": "Round 4",
+          "opponent": "Essendon",
+          "result": "W 83-51",
+          "stats": [
+            {
+              "label": "D",
+              "value": 26
+            },
+            {
+              "label": "G",
+              "value": 0
+            },
+            {
+              "label": "T",
+              "value": 7
+            },
+            {
+              "label": "C",
+              "value": 5
+            }
+          ]
+        },
+        {
           "label": "Round 3",
           "opponent": "Gold Coast SUNS",
           "result": "W 64-57",
@@ -1392,7 +1484,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Euro-Yroke",
+          "opponent": "St Kilda",
           "result": "W 100-15",
           "stats": [
             {
@@ -1454,7 +1546,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1565,7 +1657,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Euro-Yroke",
+          "opponent": "St Kilda",
           "result": "W 38-15",
           "stats": [
             {
@@ -1611,7 +1703,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Kuwarna",
+          "opponent": "Adelaide Crows",
           "result": "W 61-53",
           "stats": [
             {
@@ -1650,7 +1742,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1659,12 +1751,12 @@
       "sportKey": "aflw",
       "displayName": "Tyla Hanks",
       "currentTeamId": "team:aflw:cd_t7386",
-      "teamName": "Narrm",
+      "teamName": "Melbourne",
       "headshotUrl": "https://s.afl.com.au/staticfile/AFL%20Tenant/AFL/Players/ChampIDImages/AFLW/2026264/1009853.png?im=Scale,width=0.6,height=0.6",
       "competitionNumber": 5,
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
-      "biography": "Tyla Hanks is a midfielder for Narrm in the 2026 season, wearing guernsey No. 5. Recruited from Cora Lynn (Vic)/Beaconsfield (Vic)/Gippsland U18/Carlton (VFLW), Tyla made a senior debut in 2019 and is listed at 157 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
+      "biography": "Tyla Hanks is a midfielder for Melbourne in the 2026 season, wearing guernsey No. 5. Recruited from Cora Lynn (Vic)/Beaconsfield (Vic)/Gippsland U18/Carlton (VFLW), Tyla made a senior debut in 2019 and is listed at 157 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
       "keyFacts": [
         {
           "label": "Position",
@@ -1736,6 +1828,29 @@
         }
       ],
       "recentFive": [
+        {
+          "label": "Round 4",
+          "opponent": "West Coast Eagles",
+          "result": "W 81-44",
+          "stats": [
+            {
+              "label": "D",
+              "value": 29
+            },
+            {
+              "label": "G",
+              "value": 1
+            },
+            {
+              "label": "T",
+              "value": 13
+            },
+            {
+              "label": "C",
+              "value": 7
+            }
+          ]
+        },
         {
           "label": "Round 3",
           "opponent": "Brisbane Lions",
@@ -1823,7 +1938,7 @@
           "url": "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -1934,7 +2049,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -1957,7 +2072,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -1980,7 +2095,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -2011,7 +2126,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1693/alicia-eva"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2122,7 +2237,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -2145,7 +2260,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -2168,7 +2283,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -2199,7 +2314,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2062/alyce-parker"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2310,7 +2425,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -2333,7 +2448,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -2356,7 +2471,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -2387,7 +2502,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4264/brodee-mowbray"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2498,7 +2613,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -2521,7 +2636,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -2544,7 +2659,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -2575,7 +2690,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12279/caitlin-fletcher"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2686,7 +2801,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -2709,7 +2824,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -2732,7 +2847,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -2763,7 +2878,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/8540/cambridge-mccormick"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -2851,7 +2966,7 @@
       "recentFive": [
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -2874,7 +2989,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -2905,7 +3020,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/3609/daisy-walker"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3016,7 +3131,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -3039,7 +3154,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -3062,7 +3177,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -3093,7 +3208,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12278/eilish-odowd"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3188,7 +3303,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2024/eleanor-brown"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3299,7 +3414,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -3330,7 +3445,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4015/emily-pease"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3425,7 +3540,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/6158/fleur-davies"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3544,7 +3659,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4134/georgia-clark"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3655,7 +3770,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -3678,7 +3793,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -3701,7 +3816,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -3732,7 +3847,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/2145/georgia-garnett"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -3843,7 +3958,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -3866,7 +3981,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -3889,7 +4004,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -3920,7 +4035,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/15571/grace-kos"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4031,7 +4146,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -4054,7 +4169,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -4077,7 +4192,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -4108,7 +4223,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13753/grace-martin"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4219,7 +4334,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -4242,7 +4357,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -4265,7 +4380,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -4296,7 +4411,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1921/isabel-huntington"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4407,7 +4522,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -4430,7 +4545,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -4453,7 +4568,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -4484,7 +4599,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4310/jessica-doyle"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4579,7 +4694,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/12273/kaitlyn-srhoj"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4667,7 +4782,7 @@
       "recentFive": [
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -4690,7 +4805,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -4713,7 +4828,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -4744,7 +4859,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13519/kiera-yerbury"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -4855,7 +4970,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -4878,7 +4993,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -4901,7 +5016,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -4932,7 +5047,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4191/madison-brazendale"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5023,7 +5138,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/17551/maisy-evans"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5134,7 +5249,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -5157,7 +5272,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -5180,7 +5295,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -5211,7 +5326,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4231/mikayla-pauga"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5322,7 +5437,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -5345,7 +5460,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -5368,7 +5483,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -5399,7 +5514,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11804/poppy-boltz"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5510,7 +5625,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -5533,7 +5648,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -5556,7 +5671,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -5587,7 +5702,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1629/rebecca-beeson"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5698,7 +5813,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -5721,7 +5836,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -5744,7 +5859,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -5775,7 +5890,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4671/sara-howley"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5866,7 +5981,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11274/scarlett-johnson"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -5957,7 +6072,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/15399/sophia-gaukrodger"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6068,7 +6183,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -6091,7 +6206,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -6114,7 +6229,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -6145,7 +6260,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/4040/tarni-evans"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6240,7 +6355,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/11803/taylah-levy"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6351,7 +6466,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -6374,7 +6489,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -6397,7 +6512,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -6428,7 +6543,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/1420/tilly-lucas-rodd"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6539,7 +6654,7 @@
         },
         {
           "label": "Round 3",
-          "opponent": "Yartapuulti",
+          "opponent": "Port Adelaide",
           "result": "L 48-52",
           "stats": [
             {
@@ -6562,7 +6677,7 @@
         },
         {
           "label": "Round 2",
-          "opponent": "Narrm",
+          "opponent": "Melbourne",
           "result": "L 12-60",
           "stats": [
             {
@@ -6585,7 +6700,7 @@
         },
         {
           "label": "Round 1",
-          "opponent": "Waalitj Marawar",
+          "opponent": "West Coast Eagles",
           "result": "W 54-42",
           "stats": [
             {
@@ -6616,7 +6731,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/13525/yasmeen-janschek"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     },
     {
       "schemaVersion": "athlete-profile.v1",
@@ -6711,7 +6826,7 @@
           "url": "https://www.gwsgiants.com.au/players/aflw/5862/zarlie-goldsworthy"
         }
       ],
-      "sourceCheckedAt": "2026-09-06T18:14:03.244Z"
+      "sourceCheckedAt": "2026-09-08T13:40:21.541Z"
     }
   ]
 }

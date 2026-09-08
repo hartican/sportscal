@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "published-finals.v1",
+  "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+  "events": [
+    {
+      "id": "major-match:nrl-finals-2026:qualifying-final-1",
+      "eventId": "major-match:nrl-finals-2026:qualifying-final-1",
+      "key": "nrl",
+      "sport": "NRL",
+      "cardKind": "fixture",
+      "competitionId": "competition:nrl-premiership-2026",
+      "name": "Panthers v Roosters",
+      "date": "2026-09-13",
+      "time": "16:05",
+      "startTimeUtc": "2026-09-13T06:05:00.000Z",
+      "venue": "CommBank Stadium",
+      "venueCountryCode": "AU",
+      "roundLabel": "Qualifying Final",
+      "stage": "Qualifying Final",
+      "status": "scheduled",
+      "participantIds": [
+        "team:nrl:329",
+        "team:nrl:331"
+      ],
+      "homeParticipantId": "team:nrl:329",
+      "awayParticipantId": "team:nrl:331",
+      "participants": [
+        {
+          "id": "team:nrl:329",
+          "name": "Panthers",
+          "role": "home"
+        },
+        {
+          "id": "team:nrl:331",
+          "name": "Roosters",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+      "broadcasterIds": [
+        "nine",
+        "foxtel",
+        "kayo"
+      ],
+      "sourceName": "NRL official finals announcement",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+      "sourceCheckedAt": "2026-09-08T12:00:00Z",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "major-match:nrl-finals-2026:qualifying-final-2",
+      "eventId": "major-match:nrl-finals-2026:qualifying-final-2",
+      "key": "nrl",
+      "sport": "NRL",
+      "cardKind": "fixture",
+      "competitionId": "competition:nrl-premiership-2026",
+      "name": "Warriors v Dolphins",
+      "date": "2026-09-12",
+      "time": "16:05",
+      "startTimeUtc": "2026-09-12T06:05:00.000Z",
+      "venue": "Go Media Stadium",
+      "venueCountryCode": "NZ",
+      "roundLabel": "Qualifying Final",
+      "stage": "Qualifying Final",
+      "status": "scheduled",
+      "participantIds": [
+        "team:nrl:321",
+        "team:nrl:9538"
+      ],
+      "homeParticipantId": "team:nrl:321",
+      "awayParticipantId": "team:nrl:9538",
+      "participants": [
+        {
+          "id": "team:nrl:321",
+          "name": "Warriors",
+          "role": "home"
+        },
+        {
+          "id": "team:nrl:9538",
+          "name": "Dolphins",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+      "broadcasterIds": [
+        "nine",
+        "foxtel",
+        "kayo"
+      ],
+      "sourceName": "NRL official finals announcement",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+      "sourceCheckedAt": "2026-09-08T12:00:00Z",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "major-match:nrl-finals-2026:elimination-final-1",
+      "eventId": "major-match:nrl-finals-2026:elimination-final-1",
+      "key": "nrl",
+      "sport": "NRL",
+      "cardKind": "fixture",
+      "competitionId": "competition:nrl-premiership-2026",
+      "name": "Sharks v Cowboys",
+      "date": "2026-09-12",
+      "time": "19:50",
+      "startTimeUtc": "2026-09-12T09:50:00.000Z",
+      "venue": "Allianz Stadium",
+      "venueCountryCode": "AU",
+      "roundLabel": "Elimination Final",
+      "stage": "Elimination Final",
+      "status": "scheduled",
+      "participantIds": [
+        "team:nrl:333",
+        "team:nrl:326"
+      ],
+      "homeParticipantId": "team:nrl:333",
+      "awayParticipantId": "team:nrl:326",
+      "participants": [
+        {
+          "id": "team:nrl:333",
+          "name": "Sharks",
+          "role": "home"
+        },
+        {
+          "id": "team:nrl:326",
+          "name": "Cowboys",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+      "broadcasterIds": [
+        "nine",
+        "foxtel",
+        "kayo"
+      ],
+      "sourceName": "NRL official finals announcement",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+      "sourceCheckedAt": "2026-09-08T12:00:00Z",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    },
+    {
+      "id": "major-match:nrl-finals-2026:elimination-final-2",
+      "eventId": "major-match:nrl-finals-2026:elimination-final-2",
+      "key": "nrl",
+      "sport": "NRL",
+      "cardKind": "fixture",
+      "competitionId": "competition:nrl-premiership-2026",
+      "name": "Rabbitohs v Knights",
+      "date": "2026-09-11",
+      "time": "19:50",
+      "startTimeUtc": "2026-09-11T09:50:00.000Z",
+      "venue": "Allianz Stadium",
+      "venueCountryCode": "AU",
+      "roundLabel": "Elimination Final",
+      "stage": "Elimination Final",
+      "status": "scheduled",
+      "participantIds": [
+        "team:nrl:335",
+        "team:nrl:325"
+      ],
+      "homeParticipantId": "team:nrl:335",
+      "awayParticipantId": "team:nrl:325",
+      "participants": [
+        {
+          "id": "team:nrl:335",
+          "name": "Rabbitohs",
+          "role": "home"
+        },
+        {
+          "id": "team:nrl:325",
+          "name": "Knights",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+      "broadcasterIds": [
+        "nine",
+        "foxtel",
+        "kayo"
+      ],
+      "sourceName": "NRL official finals announcement",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+      "sourceCheckedAt": "2026-09-08T12:00:00Z",
+      "sourceType": "official",
+      "sourceTrust": "verified"
+    }
+  ]
+}

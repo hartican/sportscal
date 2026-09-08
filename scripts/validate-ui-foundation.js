@@ -30,7 +30,7 @@ assert(card.includes("buildEventWhyItMatters(ev)") && foundation.includes(".even
 assert(html.includes('const label = active ? "Reminder ON" : "Remind"') && html.includes("is-reminder-on"), "Reminder must change to Reminder ON with its filled-bell state");
 
 assert(html.includes('heading.id = "calendarTodayAnchor"') && html.includes("if (todayEvents.length) appendDateGroups(todayEvents,{today:true})"), "a populated Today group must use one combined date heading and anchor");
-assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v6"'), "the redesigned personalised card cache must be invalidated");
+assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v7"'), "the redesigned personalised card cache must be invalidated");
 
 const worker = fs.readFileSync("service-worker.js", "utf8");
 assert(worker.includes(`nothingsport-shell-v${html.match(/name="app-shell-version" content="(\d+)"/)[1]}`) && worker.includes(`"${stylesheet}"`), "the new foundation and shell must be available after installed-app cache replacement");

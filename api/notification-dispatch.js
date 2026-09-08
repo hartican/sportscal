@@ -70,6 +70,7 @@ module.exports = async function notificationDispatchHandler(request, response){
     webpush.setVapidDetails(String(process.env.VAPID_SUBJECT || "https://nothingsport.vercel.app/"), publicKey, privateKey);
 
     const now = new Date();
+    const liveRatings=await require('../lib/live-rating-alerts').dispatch({now}).catch(error=>({error:String(error.message).slice(0,180)}));
     await recordDispatchHealth({ last_started_at:now.toISOString(), last_error:null }).catch(() => null);
     const oldest = new Date(now.getTime() - 60 * 60 * 1000);
     const staleBefore = new Date(now.getTime() - CLAIM_STALE_MS).toISOString();
@@ -115,14 +116,14 @@ module.exports = async function notificationDispatchHandler(request, response){
     const completedAt = new Date().toISOString();
     await recordDispatchHealth({
       last_completed_at:completedAt,
-      ...(failed === 0 ? { last_success_at:completedAt } : {}),
+      ...(failed === 0 && !liveRatings.error && !liveRatings.failed ? { last_success_at:completedAt } : {}),
       checked_count:(reminders || []).length,
       claimed_count:claimed.length,
-      sent_count:sent,
-      failed_count:failed,
-      last_error:failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null,
+      sent_count:sent + (liveRatings.sent || 0),
+      failed_count:failed + (liveRatings.failed || 0) + (liveRatings.error ? 1 : 0),
+      last_error:liveRatings.error || (failed ? `${failed} notification delivery${failed === 1 ? "" : "ies"} failed in the latest run.` : null),
     }).catch(() => null);
-    response.status(200).json({ checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
+    response.status(liveRatings.error ? 503 : 200).json({ liveRatings, checked:(reminders || []).length, claimed:claimed.length, sent, failed, at:now.toISOString() });
   }catch(error){
     await recordDispatchHealth({ last_completed_at:new Date().toISOString(), last_error:String(error?.message || "Notification dispatch failed.").slice(0, 500) }).catch(() => null);
     const outgoing = publicError(error);

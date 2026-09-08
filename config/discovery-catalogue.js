@@ -8,7 +8,7 @@
   "use strict";
 
   const SCHEMA_VERSION = "sports-discovery-catalogue.v1";
-  const PREFERENCE_VERSION = 19;
+  const PREFERENCE_VERSION = 20;
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const DEFAULT_WINDOW_DAYS = 30;
   const DEFAULT_VISIBILITY_THRESHOLD = 5;
@@ -38,8 +38,8 @@
   ]);
 
   const legacyFollowAliases = Object.freeze({
-    "category:sports": sportNodes.map(node => node.id),
-    "category:special-events": internalEventTags.flatMap(node => node.underlyingSportIds || []),
+    "category:sports": [], // A legacy category has no evidence of explicit child follows.
+    "category:special-events": [],
     "sport:australian-football": ["sport:afl-premiership"],
     "sport:rugby-league": ["sport:nrl"],
     "competition:nrlw-premiership": ["sport:nrlw"],
@@ -175,7 +175,7 @@
 
   function commonwealthSportIds(disciplineIds){
     const normalized = uniqueStrings(disciplineIds).map(value => normalizeCommonwealthDiscipline(value)).filter(Boolean);
-    const selected = normalized.length ? normalized : commonwealthDisciplines.map(node => node.canonicalDiscipline);
+    const selected = normalized; // Event-brand consent does not opt into every underlying sport.
     return orderedSportIds(selected.flatMap(discipline => commonwealthByDiscipline.get(discipline)?.underlyingSportIds || []));
   }
 
@@ -269,7 +269,7 @@
     const selectedSelectorEntityIds = (Array.isArray(saved.selectedSelectorEntityIds) ? saved.selectedSelectorEntityIds : [])
       .flatMap(id => legacyAflFollow && id === "sport:afl" ? ["sport:afl-premiership"] : [id]);
     const followedSports = (Array.isArray(saved.followedSports) ? saved.followedSports : [])
-      .flatMap(id => legacyAflFollow && id === "afl" ? ["afl-premiership"] : [id]);
+      .flatMap(id => legacyAflFollow && id === "afl" ? ["sport:afl-premiership"] : [id]);
     const commonwealthDisciplineIds = uniqueStrings([
       ...(Array.isArray(saved.commonwealthDisciplineIds) ? saved.commonwealthDisciplineIds : []),
       ...selectedSelectorEntityIds.filter(id => String(id).startsWith("cwg:")),
@@ -279,7 +279,7 @@
     // descendant of a selected parent, so unioning it here would silently turn a
     // Motorsport parent follow into separate F1 and WRC follows.
     const migration = migrateEventBrandFollows(
-      selectedSelectorEntityIds.length ? selectedSelectorEntityIds : followedSports,
+      Array.isArray(saved.selectedSelectorEntityIds) ? selectedSelectorEntityIds : Number(saved.version)>0 && Number(saved.version)<PREFERENCE_VERSION ? [] : followedSports,
       { commonwealthDisciplineIds }
     );
     const next = {

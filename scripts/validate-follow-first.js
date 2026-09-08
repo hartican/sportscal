@@ -61,8 +61,8 @@ assert.equal(followFirst.reasonForEvent({ ...fiveOfFive, competitionScope:"inter
 assert.equal(followFirst.stageLabel({ stage:"Wildcard Final" }), "Wildcard");
 assert.equal(followFirst.stageLabel({ stage:"Preliminary Final" }), "Prelim");
 assert.equal(followFirst.stageLabel({ roundLabel:"Quarter-finals" }), "QF");
-assert.equal(followFirst.stageLabel({ stage:"Semi Final" }), "Semis");
-assert.equal(followFirst.stageLabel({ stage:"Grand Final" }), "Finals");
+assert.equal(followFirst.stageLabel({ stage:"Semi Final" }), "SF");
+assert.equal(followFirst.stageLabel({ stage:"Grand Final" }), "Grand Final");
 assert.deepEqual(["Round 27", "Wildcard Final", "Qualifying Final", "Elimination Final", "Semi Final", "Preliminary Final", "Grand Final"].sort(followFirst.compareFixtureGroupLabels), ["Round 27", "Wildcard Final", "Elimination Final", "Qualifying Final", "Semi Final", "Preliminary Final", "Grand Final"]);
 assert.equal(followFirst.normalizedFixtureGroupLabel("Australia v New Zealand"), "Other fixtures");
 
@@ -146,7 +146,7 @@ assert(fs.existsSync("lib/calendar-handler.js") && fs.existsSync("lib/calendar-c
 assert.match(fs.readFileSync("api/user-state.js","utf8"), /isCalendarRequest\(request\)/);
 assert.match(fs.readFileSync("vercel.json","utf8"), /"source": "\/api\/calendar"[\s\S]*"destination": "\/api\/user-state\?route=calendar"/);
 
-assert(html.includes('className = "matchup-stage-badge"') && html.includes("FOLLOW_FIRST?.stageLabel"));
+assert(html.includes("badge.className='matchup-stage-badge'") && html.includes("FOLLOW_FIRST.stageLabel"));
 assert(followFirstSource.includes("Because you follow") && html.includes("function automaticEventFollowReason"), "follow context must remain available to eligibility without becoming card metadata");
 assert(!html.includes('type:"sport-tuned"') && !html.includes('if (ev.key === "aflw" && userPreferences.selectedSelectorEntityIds'), "AFLW must use the same Follow policy as every other sport");
 assert(!eventCardSource.includes("follow-reason-tag"), "Feed cards must not render follow-reason labels");

@@ -37,6 +37,7 @@
     ["competition:davis-cup", "Davis Cup", "competition", "discipline:tennis:professional"],
     ["competition:billie-jean-king-cup", "Billie Jean King Cup", "competition", "discipline:tennis:professional", ["BJK Cup"]],
     ["event-series:wimbledon", "Wimbledon", "event_series", "competition:grand-slams"],
+    ["event-series:us-open", "US Open", "event_series", "competition:grand-slams"],
     ["event-series:national-bank-open", "National Bank Open", "event_series", "competition:wta-tour", ["Toronto WTA 1000", "Montreal WTA 1000"]],
 
     ["sport:football", "Football", "sport", null, ["Soccer"]],

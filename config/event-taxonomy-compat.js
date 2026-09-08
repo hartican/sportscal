@@ -23,6 +23,7 @@
       const resolved = hierarchy?.canonicalNodeId?.(candidate);
       if (resolved) return resolved;
     }
+    if (/^competition:tennis:us-open(?::\d{4})?$/.test(event?.competitionId || "")) return "event-series:us-open";
     const title = String(event?.name || event?.displayName || event?.title || "");
     const titleRules = [
       [/\b(nrlw)\b/i, "competition:nrlw-premiership"],

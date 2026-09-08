@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildFollowFeedPolicy(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-feed-policy.v4";
+  const SCHEMA_VERSION = "follow-feed-policy.v5";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
 
   function dateKey(value, timeZone = SYDNEY_TIME_ZONE){
@@ -40,8 +40,30 @@
     ].filter(Boolean).map(String))).filter(id => !excluded.has(id));
   }
 
+  function aggregateEvent(event){
+    if (!event) return true;
+    if (event.majorEventMarker || event.tournamentParent || event.narrativeType === "tennis-tournament-overview" || event.cardKind === "event" || ["tournament","major_event","ticket_sale"].includes(event.kind)) return true;
+    // Legacy published summaries have no typed kind. Do not confuse a dated
+    // championship match with the programme for a whole week or round.
+    return /\bfinals?\s+week\s*\d|\bpreliminary finals\b|\bfinals series\b/i.test(event.name || "") && participantIds(event).length < 2;
+  }
+
+  function explicitCompetitionRequired(event){
+    const key = sportKey(event);
+    if (["aflw", "nrlw"].includes(key)) return true;
+    if (key !== "cricket") return false;
+    return /women|female|\bwbb[l]\b|\bwpl\b/i.test([event.gender,event.genderCategory,event.competitionGender,event.competitionId,event.competitionName,event.name].filter(Boolean).join(" "));
+  }
+
+  function explicitlyExcluded(event, preferences){
+    const graph = preferences?.preferenceGraph || {};
+    const key = sportKey(event);
+    return (graph.competitionPreferences || []).some(p => p.competitionId === event.competitionId && p.enabled === false)
+      || (graph.domainPreferences || []).some(p => [event.sportDomainId, `sport:${key}`].filter(Boolean).includes(p.sportDomainId) && p.enabled === false);
+  }
+
   function sportingFixture(event){
-    return hasPublishedFixture(event) && !event.majorEventMarker && !event.tournamentParent
+    return hasPublishedFixture(event) && !aggregateEvent(event) && !event.majorEventMarker && !event.tournamentParent
       && event.cardKind !== "event" && !["tournament", "major_event", "ticket_sale"].includes(event.kind);
   }
 
@@ -85,7 +107,7 @@
     if (key === "tennis"){
       const doubles = /doubles/i.test([event.eventType,event.matchType,event.discipline,event.drawType,event.stage,event.name].filter(Boolean).join(" "));
       const final = /^(?:women.s |men.s |mixed |singles |doubles )*(?:grand )?finals?$/i.test(round.trim()) || /\bfinal\b/i.test(round) && !/quarter|semi|round|qualif/i.test(round);
-      return (doubles ? final : final || /quarter[- ]?final|semi[- ]?final|\b[qQsS][fF]\b|\b(?:QF|SF)\b/i.test(round)) || explicitMarquee(event);
+      return (doubles ? final : final || /quarter[- ]?final|semi[- ]?final|\b[qQsS][fF]\b|\b(?:QF|SF)\b/i.test(round));
     }
     const international = event?.isInternational === true || event?.competitionScope === "international";
     const junior = event?.isSenior === false || /\b(?:u[- ]?(?:1[0-9]|2[0-3])|under[- ]?(?:1[0-9]|2[0-3])|junior|youth)\b/i.test([event?.ageGroup,event?.competitionName,event?.name].join(" "));
@@ -133,19 +155,20 @@
   }
 
   function eligibleForFollow(event,{competitionFollow=false,participantFollow=false,explicitSelection=false,explicitEventFollow=false,australiansOnly=false,australianDiscovery=false,muted=false}={}){
-    if(!hasPublishedFixture(event))return false;
+    if(!hasPublishedFixture(event) || aggregateEvent(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
     if(explicitEventFollow)return isMarquee(event);
+    if(sportKey(event)==="tennis")return Boolean(competitionFollow && isMarquee(event));
     if(australiansOnly && australiansFilterUseful(event))return competitionFollow && hasAustralianParticipant(event);
     if(australianDiscovery && hasAustralianParticipant(event))return true;
     return Boolean(competitionFollow && isMarquee(event));
   }
 
   function followedFixtureDecision(event, { followed = false, followSource = "sport", now = new Date(), timeZone = SYDNEY_TIME_ZONE } = {}){
-    if (!followed || !hasPublishedFixture(event)) return { mode:"ineligible", include:false, label:"Add to Feed" };
+    if (!followed || !hasPublishedFixture(event) || aggregateEvent(event)) return { mode:"ineligible", include:false, label:"Add to Feed" };
     if (["team", "athlete", "collection", "entity", "australians"].includes(String(followSource || ""))){
       return { mode:"direct", include:true, label:"In Feed via follow" };
     }
@@ -153,5 +176,5 @@
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, aggregateEvent, explicitCompetitionRequired, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
 });

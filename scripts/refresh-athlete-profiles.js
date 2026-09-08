@@ -27,10 +27,6 @@ const F1_GRID = [
   ["Max Verstappen", "Red Bull Racing", 3, "NL"], ["Isack Hadjar", "Red Bull Racing", 6, "FR"],
   ["Alexander Albon", "Williams", 23, "TH"], ["Carlos Sainz", "Williams", 55, "ES"],
 ];
-const F1_TOP_TEN = [
-  ["Kimi Antonelli", 242], ["George Russell", 183], ["Lewis Hamilton", 183], ["Lando Norris", 159], ["Charles Leclerc", 155],
-  ["Max Verstappen", 112], ["Oscar Piastri", 104], ["Isack Hadjar", 68], ["Liam Lawson", 49], ["Pierre Gasly", 44],
-];
 const AFLCA_URL = "https://www.afl.com.au/news/1594994/record-breaker-collingwood-magpies-star-nick-daicos-caps-incredible-season-with-second-coaches-award/";
 const AFLW_TOP_URL = "https://www.afl.com.au/news/1583246/the-25-the-aflws-best-players-ranked-ahead-of-the-2026-season";
 const F1_STANDINGS_URL = "https://www.formula1.com/en/results/2026/drivers";
@@ -187,7 +183,9 @@ function parseF1Recent(html){
 async function buildF1Profiles(context, checkedAt){
   const teams = new Map(context.participants.filter(item => item.type === "team").map(team => [team.displayName.toLowerCase(), team]));
   const existing = new Map(context.participants.filter(item => item.type === "competitor").map(driver => [driver.displayName.toLowerCase(), driver]));
-  const topByName = new Map(F1_TOP_TEN.map(([name, points], index) => [name.toLowerCase(), { rank:index + 1, points }]));
+  const currentStandings = context.ladderSnapshots.find(snapshot => snapshot.competitionId === 'competition:f1-drivers-2026');
+  const participantNames = new Map(context.participants.map(participant => [participant.id,participant.displayName]));
+  const topByName = new Map((currentStandings?.entries || []).filter(entry=>entry.rank<=10).map(entry=>[String(participantNames.get(entry.participantId)).toLowerCase(), {rank:entry.rank,points:entry.points}]));
   const drivers = await parallel(F1_GRID, async ([name, teamName, number, countryCode]) => {
     const slug = slugify(name);
     const url = `https://www.formula1.com/en/drivers/${slug}`;
@@ -211,19 +209,10 @@ async function buildF1Profiles(context, checkedAt){
       } : null,
     };
   }, 5);
-  const byId = new Map(context.participants.filter(item => item.type === "team").map(item => [item.id, item]));
+  const byId = new Map(context.participants.map(item => [item.id, item]));
   drivers.forEach(({ participant }) => byId.set(participant.id, participant));
   context.participants = [...byId.values()];
-  const snapshot = context.ladderSnapshots.find(item => item.id === "ladder:f1:drivers:2026") || context.ladderSnapshots[0];
-  if (snapshot){
-    const old = new Map((snapshot.entries || []).map(entry => [entry.participantId, entry]));
-    snapshot.entries = F1_TOP_TEN.map(([name, points], index) => {
-      const driver = drivers.find(row => row.participant.displayName === name).participant;
-      return { ...(old.get(driver.id) || {}), participantId:driver.id, teamParticipantId:driver.currentTeamId, rank:index + 1, points };
-    }).concat((snapshot.entries || []).filter(entry => !F1_TOP_TEN.some(([name]) => drivers.find(row => row.participant.id === entry.participantId)?.participant.displayName === name)));
-    snapshot.snapshotTimeUtc = checkedAt;
-    snapshot.sourceUrl = F1_STANDINGS_URL;
-  }
+  // Profile biographies never overwrite independently refreshed championship standings.
   context.generatedAt = checkedAt;
   return { context, profiles:drivers.map(row => row.profile).filter(Boolean) };
 }

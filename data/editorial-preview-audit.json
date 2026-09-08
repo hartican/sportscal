@@ -1,157 +1,46 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-06T18:19:24.428Z",
+  "generatedAt": "2026-09-08T14:50:22.854Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 26,
-    "passed": 26,
+    "due": 27,
+    "passed": 27,
     "failed": 0
   },
   "cards": [
     {
-      "id": "evt_fiba_women_2026_group_puerto_rico_belgium",
-      "name": "Puerto Rico v Belgium",
-      "sport": "FIBA Women",
-      "date": "2026-09-07",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_group_italy_usa",
-      "name": "Italy v USA",
-      "sport": "FIBA Women",
-      "date": "2026-09-07",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-07",
-      "name": "US Open — Grand Slam",
+      "id": "fixture-us-open-2026-official-ms-1503",
+      "name": "Frances Tiafoe v Alex Michelsen",
       "sport": "Tennis",
-      "date": "2026-09-07",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:matchup",
-        "narrative:path",
-        "narrative:history"
-      ],
-      "sourceUrl": "https://www.usopen.org/en_US/about/eventschedule.html",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_group_belgium_australia",
-      "name": "Belgium v Australian Opals",
-      "sport": "FIBA Women",
-      "date": "2026-09-07",
+      "date": "2026-09-09",
       "stakes": 5,
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "narrative:matchup",
+        "narrative:history",
+        "narrative:path",
+        "narrative:schedule"
       ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
       "issues": []
     },
     {
-      "id": "evt_fiba_women_2026_group_nigeria_france",
-      "name": "Nigeria v France",
-      "sport": "FIBA Women",
-      "date": "2026-09-07",
-      "stakes": 4,
+      "id": "fixture-us-open-2026-official-ws-2501",
+      "name": "Aryna Sabalenka v Linda Noskova",
+      "sport": "Tennis",
+      "date": "2026-09-09",
+      "stakes": 5,
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "narrative:path",
+        "narrative:matchup",
+        "narrative:consequence",
+        "narrative:schedule"
       ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_group_germany_mali",
-      "name": "Germany v Mali",
-      "sport": "FIBA Women",
-      "date": "2026-09-08",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_group_japan_spain",
-      "name": "Japan v Spain",
-      "sport": "FIBA Women",
-      "date": "2026-09-08",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_group_italy_china",
-      "name": "Italy v China",
-      "sport": "FIBA Women",
-      "date": "2026-09-08",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_group_usa_czechia",
-      "name": "USA v Czechia",
-      "sport": "FIBA Women",
-      "date": "2026-09-08",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
       "issues": []
     },
     {
@@ -168,6 +57,41 @@
         "narrative:consequence"
       ],
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "issues": []
+    },
+    {
+      "id": "fixture-us-open-2026-official-ms-1504",
+      "name": "Ben Shelton v Carlos Alcaraz",
+      "sport": "Tennis",
+      "date": "2026-09-09",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:history",
+        "narrative:schedule"
+      ],
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+      "issues": []
+    },
+    {
+      "id": "fixture-us-open-2026-official-ws-2502",
+      "name": "Jessica Pegula v Emma Navarro",
+      "sport": "Tennis",
+      "date": "2026-09-09",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:history",
+        "narrative:consequence",
+        "narrative:path",
+        "narrative:schedule"
+      ],
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
       "issues": []
     },
     {
@@ -252,11 +176,27 @@
       "issues": []
     },
     {
+      "id": "major-match-nrl-finals-2026-elimination-final-2",
+      "name": "Rabbitohs v Knights",
+      "sport": "NRL",
+      "date": "2026-09-11",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:schedule",
+        "narrative:path"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+      "issues": []
+    },
+    {
       "id": "event-afl-cd_m20260142701",
       "name": "Fremantle v Geelong Cats",
       "sport": "AFL",
       "date": "2026-09-11",
-      "stakes": 4,
+      "stakes": 5,
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
@@ -281,6 +221,23 @@
         "narrative:consequence"
       ],
       "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "issues": []
+    },
+    {
+      "id": "major-match-nrl-finals-2026-qualifying-final-2",
+      "name": "Warriors v Dolphins",
+      "sport": "NRL",
+      "date": "2026-09-12",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
       "issues": []
     },
     {
@@ -320,15 +277,32 @@
       "name": "Brisbane Lions v Adelaide Crows",
       "sport": "AFL",
       "date": "2026-09-12",
-      "stakes": 4,
+      "stakes": 5,
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
         "narrative:path",
         "narrative:venue",
-        "narrative:consequence"
+        "narrative:consequence",
+        "narrative:form"
       ],
       "sourceUrl": "https://www.afl.com.au/ladder",
+      "issues": []
+    },
+    {
+      "id": "major-match-nrl-finals-2026-elimination-final-1",
+      "name": "Sharks v Cowboys",
+      "sport": "NRL",
+      "date": "2026-09-12",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
       "issues": []
     },
     {
@@ -396,6 +370,22 @@
       "issues": []
     },
     {
+      "id": "major-match-nrl-finals-2026-qualifying-final-1",
+      "name": "Panthers v Roosters",
+      "sport": "NRL",
+      "date": "2026-09-13",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+      "issues": []
+    },
+    {
       "id": "evt_fiba_women_2026_bronze",
       "name": "FIBA Women's World Cup — bronze medal game",
       "sport": "FIBA Women",
@@ -425,6 +415,37 @@
         "narrative:consequence"
       ],
       "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "issues": []
+    },
+    {
+      "id": "evt_82",
+      "name": "NRL Finals Week 2",
+      "sport": "NRL",
+      "date": "2026-09-19",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
+      "issues": []
+    },
+    {
+      "id": "evt_sailgp_2026_geneva_day_1",
+      "name": "Geneva Sail Grand Prix — race day 1",
+      "sport": "SailGP",
+      "date": "2026-09-19",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:schedule",
+        "narrative:format",
+        "narrative:consequence"
+      ],
+      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
       "issues": []
     }
   ]

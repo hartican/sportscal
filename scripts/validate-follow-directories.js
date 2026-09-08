@@ -78,8 +78,8 @@ for (const sportKey of ["afl", "aflw", "f1"]){
   const chunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${sportKey}.v1.json`), "utf8"));
   const athletes = chunk.records.filter(record => record.entityType === "athlete");
   assert.ok(athletes.length >= (sportKey === "f1" ? 22 : 500), `${sportKey}: current athlete directory is incomplete`);
-  assert.ok(athletes.every(record => record.headshotUrl), `${sportKey}: every athlete needs a portrait URL`);
-  if (sportKey === "f1") assert.ok(athletes.every(record => Number(record.competitionNumber) > 0 && record.competitionNumberKind === "racing"), "F1 drivers need current racing numbers");
+  assert.ok(athletes.every(record => record.headshotUrl || record.standingsOnly && record.sourceRefs.length), `${sportKey}: every athlete needs a portrait URL`);
+  if (sportKey === "f1") assert.ok(athletes.every(record => record.standingsOnly || Number(record.competitionNumber) > 0 && record.competitionNumberKind === "racing"), "F1 drivers need current racing numbers");
   else assert.ok(athletes.every(record => record.competitionNumberKind === "guernsey"), `${sportKey}: guernsey metadata is required even while a source number is TBC`);
 }
 const wrc = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/wrc.v1.json"), "utf8"));

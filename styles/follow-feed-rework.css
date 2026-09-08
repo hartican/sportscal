@@ -34,11 +34,11 @@ header.top .vector-glyph{width:20px;height:20px;}
 .event-card .event-date-line{margin:4px 0 8px;}
 .event-card .event-main>*+*,.events-feed-card .major-event-identity>*+*{margin-top:8px;}
 .event-card .event-top-row,.event-card .matchup-header{padding-top:0;margin-top:0;}
-.event-card .event-hero-mark{width:44px;height:44px;padding:0;margin:0 auto 6px;}
-.event-card .matchup-team-logo-slot{width:48px;height:48px;min-height:0;}
-.event-card .matchup-team-logo{max-width:48px;max-height:48px;}
+.event-card .event-hero-mark{width:110px;height:110px;padding:0;margin:0 auto 6px;}
+.event-card .matchup-team-logo-slot{width:120px;height:120px;min-height:0;}
+.event-card .matchup-team-logo{width:100%;height:100%;max-width:110px;max-height:110px;object-fit:contain;}
 .event-card:not(.is-compact-row) .matchup-identity-row{height:auto;min-height:48px;gap:8px;}
-.events-feed-card .major-event-logo{width:44px;height:44px;margin:0 auto 8px;}
+.events-feed-card .major-event-logo{width:110px;height:110px;margin:0 auto 8px;}
 .events-feed-card .major-event-identity{padding:0 8px 0;}
 .events-feed-card .major-event-identity h3{padding-inline:36px;}
 .events-feed-card .major-event-ticket-row{border:0;background:transparent;min-height:0;}
@@ -53,7 +53,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .event-card-disclosure:hover{background:color-mix(in srgb,#1d9d4c 12%,transparent);}
 .event-card-disclosure:focus-visible{outline:2px solid #1d9d4c;outline-offset:-3px;}
 .event-card .event-card-primary-actions,.major-event-navigation-row,.major-event-ticket-row,.event-card .event-card-secondary-actions{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;width:auto;padding:0;margin:4px 0;}
-.event-card .event-quick-actions{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px;width:auto;margin:0;}
+.event-card .event-quick-actions{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:4px;width:auto;margin:0;}
 .event-card .event-quick-action,.event-card .fixture-chat-action,.event-card .major-event-ticket-link,.event-card .major-event-match-action,.event-card .nsc-card-action,.event-card .major-event-schedule-toggle{flex:0 1 auto;width:auto;min-width:44px;min-height:44px;height:auto;padding:8px;font-size:.72rem;line-height:1.25;}
 .event-quick-action::after,.major-event-ticket-link::after,.major-event-match-action::after,.ticket-link::after,.code-inspector-feed-action::after,.event-footer-button::after,.event-feedback-button::after{display:none;}
 .event-quick-action span:last-child{white-space:normal;overflow:visible;text-overflow:clip;}
@@ -166,3 +166,6 @@ header.top .vector-glyph{width:20px;height:20px;}
 .nsc-ranking-list{overflow-anchor:none;}.nsc-reward-row{padding:8px 0;border-bottom:1px solid var(--border);font-size:.8rem;}
 @media(max-width:600px){header.top .brand{flex-basis:100%;}header.top .header-actions{width:100%;justify-content:space-between;}header.top .header-actions #homeSpoilerToggle{margin-right:8px;} .follow-view .football-directory-toolbar{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(prefers-reduced-motion:reduce){.follow-sport-track{scroll-behavior:auto;}.nsc-inline-rating.is-epic-burst::after{content:'';inset:0;border-radius:10px;box-shadow:0 0 16px #009cff99;animation:none;}}
+
+.fixture-participant-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 12px;font-size:.8rem;}
+@media(max-width:640px){.event-card .matchup-team-logo-slot{width:100px;height:100px;}.event-card .matchup-team-logo{max-width:94px;max-height:94px;}.event-card .event-hero-mark,.events-feed-card .major-event-logo{width:100px;height:100px;}}

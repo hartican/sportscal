@@ -1,21 +1,21 @@
 {
   "schemaVersion": "aflw-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-09-06T18:13:58.575Z",
+  "generatedAt": "2026-09-08T13:40:18.997Z",
   "sources": [
     {
       "id": "source:aflw:teams",
       "provider": "AFLW",
       "url": "https://www.afl.com.au/aflw/teams",
       "sourceType": "official",
-      "checkedAt": "2026-09-06T18:13:58.575Z"
+      "checkedAt": "2026-09-08T13:40:18.997Z"
     },
     {
       "id": "source:aflw:players",
       "provider": "AFLW",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-09-06T18:13:58.575Z"
+      "checkedAt": "2026-09-08T13:40:18.997Z"
     }
   ],
   "leagues": [
@@ -33,6 +33,20 @@
     }
   ],
   "teams": [
+    {
+      "id": "team:aflw:cd_t8098",
+      "leagueId": "competition:aflw-2026",
+      "displayName": "Adelaide Crows",
+      "shortName": "Adelaide Crows",
+      "aliases": [
+        "Adelaide Crows",
+        "Crows"
+      ],
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "active": true
+    },
     {
       "id": "team:aflw:cd_t7887",
       "leagueId": "competition:aflw-2026",
@@ -90,13 +104,13 @@
       "active": true
     },
     {
-      "id": "team:aflw:cd_t8796",
+      "id": "team:aflw:cd_t7886",
       "leagueId": "competition:aflw-2026",
-      "displayName": "Euro-Yroke",
-      "shortName": "Euro-Yroke",
+      "displayName": "Fremantle",
+      "shortName": "Fremantle",
       "aliases": [
-        "Euro-Yroke",
-        "St Kilda"
+        "Fremantle",
+        "Dockers"
       ],
       "sourceRefs": [
         "source:aflw:teams"
@@ -160,26 +174,12 @@
       "active": true
     },
     {
-      "id": "team:aflw:cd_t8098",
-      "leagueId": "competition:aflw-2026",
-      "displayName": "Kuwarna",
-      "shortName": "Kuwarna",
-      "aliases": [
-        "Kuwarna",
-        "Crows"
-      ],
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "active": true
-    },
-    {
       "id": "team:aflw:cd_t7386",
       "leagueId": "competition:aflw-2026",
-      "displayName": "Narrm",
-      "shortName": "Narrm",
+      "displayName": "Melbourne",
+      "shortName": "Melbourne",
       "aliases": [
-        "Narrm",
+        "Melbourne",
         "Demons"
       ],
       "sourceRefs": [
@@ -202,12 +202,39 @@
       "active": true
     },
     {
+      "id": "team:aflw:cd_t9409",
+      "leagueId": "competition:aflw-2026",
+      "displayName": "Port Adelaide",
+      "shortName": "Port Adelaide",
+      "aliases": [
+        "Port Adelaide",
+        "Power"
+      ],
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "active": true
+    },
+    {
       "id": "team:aflw:cd_t8788",
       "leagueId": "competition:aflw-2026",
       "displayName": "Richmond",
       "shortName": "Richmond",
       "aliases": [
         "Richmond"
+      ],
+      "sourceRefs": [
+        "source:aflw:teams"
+      ],
+      "active": true
+    },
+    {
+      "id": "team:aflw:cd_t8796",
+      "leagueId": "competition:aflw-2026",
+      "displayName": "St Kilda",
+      "shortName": "St Kilda",
+      "aliases": [
+        "St Kilda"
       ],
       "sourceRefs": [
         "source:aflw:teams"
@@ -231,25 +258,11 @@
     {
       "id": "team:aflw:cd_t8787",
       "leagueId": "competition:aflw-2026",
-      "displayName": "Waalitj Marawar",
-      "shortName": "Waalitj Marawar",
+      "displayName": "West Coast Eagles",
+      "shortName": "West Coast Eagles",
       "aliases": [
-        "Waalitj Marawar",
+        "West Coast Eagles",
         "Eagles"
-      ],
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "active": true
-    },
-    {
-      "id": "team:aflw:cd_t7886",
-      "leagueId": "competition:aflw-2026",
-      "displayName": "Walyalup",
-      "shortName": "Walyalup",
-      "aliases": [
-        "Walyalup",
-        "Dockers"
       ],
       "sourceRefs": [
         "source:aflw:teams"
@@ -264,20 +277,6 @@
       "aliases": [
         "Western Bulldogs",
         "Bulldogs"
-      ],
-      "sourceRefs": [
-        "source:aflw:teams"
-      ],
-      "active": true
-    },
-    {
-      "id": "team:aflw:cd_t9409",
-      "leagueId": "competition:aflw-2026",
-      "displayName": "Yartapuulti",
-      "shortName": "Yartapuulti",
-      "aliases": [
-        "Yartapuulti",
-        "Power"
       ],
       "sourceRefs": [
         "source:aflw:teams"
@@ -828,8 +827,8 @@
       "profileRef": "profile:aflw:alice-edmonds",
       "dateOfBirth": "1998-05-31",
       "heightInCm": 189,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "East Brighton (Vic)/Caulfield Grammarians (Vic)/Richmond (VFLW)/Richmond",
+      "debutYear": "2020",
       "active": true
     },
     {
@@ -1166,8 +1165,8 @@
       "profileRef": "profile:aflw:amaia-wain",
       "dateOfBirth": "2007-08-31",
       "heightInCm": 179,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Sydney Swans Academy/UNSW-ES Bulldogs",
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -1556,8 +1555,8 @@
       "profileRef": "profile:aflw:analea-mckee",
       "dateOfBirth": "2003-06-07",
       "heightInCm": 180,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Geelong Falcons / Geelong VFLW/Brisbane",
+      "debutYear": "2023",
       "active": true
     },
     {
@@ -1869,7 +1868,7 @@
       "dateOfBirth": "2007-12-14",
       "heightInCm": 177,
       "recruitedFrom": "Whitehorse (Vic)/Blackburn (Vic)/Eastern U18",
-      "debutYear": null,
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -2466,8 +2465,8 @@
       "profileRef": "profile:aflw:britney-gutknecht",
       "dateOfBirth": "2001-04-20",
       "heightInCm": 167,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Laurimar (Vic)/Northern U18/Carlton (VFLW)",
+      "debutYear": "2020",
       "active": true
     },
     {
@@ -2570,8 +2569,8 @@
       "profileRef": "profile:aflw:brooke-barwick",
       "dateOfBirth": "2005-07-29",
       "heightInCm": 159,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Claremont Football Club",
+      "debutYear": "2024",
       "active": true
     },
     {
@@ -3013,7 +3012,7 @@
       "dateOfBirth": "2007-01-03",
       "heightInCm": 169,
       "recruitedFrom": "Caversham JFC (WA)/Swan Districts (WA)",
-      "debutYear": null,
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -3194,7 +3193,7 @@
       "profileRef": "profile:aflw:charlie-oconnor-moreira",
       "dateOfBirth": "2007-09-13",
       "heightInCm": 169,
-      "recruitedFrom": null,
+      "recruitedFrom": "Western Jets U18/Williamstown CYMS",
       "debutYear": null,
       "active": true
     },
@@ -3844,8 +3843,8 @@
       "profileRef": "profile:aflw:cleo-buttifant",
       "dateOfBirth": "2005-05-03",
       "heightInCm": 174,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "GWS Giants Academy/Ainslie (ACT)/Turvey Park(NSW)",
+      "debutYear": "2024",
       "active": true
     },
     {
@@ -4286,8 +4285,8 @@
       "profileRef": "profile:aflw:deanna-berry",
       "dateOfBirth": "1998-05-07",
       "heightInCm": 171,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Mernda (Vic)/Epping (Vic)/Montmorency (Vic)/Melbourne University (VFLW)/Melbourne",
+      "debutYear": "2017",
       "active": true
     },
     {
@@ -4364,8 +4363,8 @@
       "profileRef": "profile:aflw:dominique-carruthers",
       "dateOfBirth": "1995-08-31",
       "heightInCm": 168,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "North Shore (AFL Sydney)/Macquarie University (AFL Sydney)/Port Melbourne (VFLW)/Western Bulldogs (VFLW)",
+      "debutYear": "2023",
       "active": true
     },
     {
@@ -4520,8 +4519,8 @@
       "profileRef": "profile:aflw:elaine-grigg",
       "dateOfBirth": "2005-12-23",
       "heightInCm": 161,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Central District (SANFL)/Broadview (SA)",
+      "debutYear": "2024",
       "active": true
     },
     {
@@ -4598,8 +4597,8 @@
       "profileRef": "profile:aflw:elisabeth-georgostathis",
       "dateOfBirth": "2001-10-17",
       "heightInCm": 162,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "VU Western Spurs (Vic)/Western U18",
+      "debutYear": "2020",
       "active": true
     },
     {
@@ -4884,8 +4883,8 @@
       "profileRef": "profile:aflw:elle-bennetts",
       "dateOfBirth": "1989-09-06",
       "heightInCm": 175,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Victorian Fury (Australia Netball League)/GWS Giants",
+      "debutYear": "2018",
       "active": true
     },
     {
@@ -4936,8 +4935,8 @@
       "profileRef": "profile:aflw:ellie-blackburn",
       "dateOfBirth": "1995-03-25",
       "heightInCm": 169,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Berwick (Vic)/Beaconsfield (Vic)/Melbourne University (VFLW)",
+      "debutYear": "2017",
       "active": true
     },
     {
@@ -4988,8 +4987,8 @@
       "profileRef": "profile:aflw:ellie-gavalas",
       "dateOfBirth": "1996-03-25",
       "heightInCm": 158,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Marcellin (Vic)/Western Bulldogs (VFLW)/Kangaroos",
+      "debutYear": "2020",
       "active": true
     },
     {
@@ -5404,8 +5403,8 @@
       "profileRef": "profile:aflw:emma-mcdonald",
       "dateOfBirth": "2006-04-18",
       "heightInCm": 179,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Oakleigh U18/Ashburton (VIC)",
+      "debutYear": "2025",
       "active": true
     },
     {
@@ -6471,7 +6470,7 @@
       "dateOfBirth": "2007-12-10",
       "heightInCm": 180,
       "recruitedFrom": "Swans Academy",
-      "debutYear": null,
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -6756,8 +6755,8 @@
       "profileRef": "profile:aflw:heidi-woodley",
       "dateOfBirth": "2004-11-17",
       "heightInCm": 169,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Kilmore (Vic)/Diamond Creek (Vic)/Calder U18/West Preston-Lakeside (Vic)",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -7146,8 +7145,8 @@
       "profileRef": "profile:aflw:isabella-grant",
       "dateOfBirth": "2001-09-21",
       "heightInCm": 175,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Spotswood (Vic)/Western U18",
+      "debutYear": "2021",
       "active": true
     },
     {
@@ -7224,8 +7223,8 @@
       "profileRef": "profile:aflw:isabelle-pritchard",
       "dateOfBirth": "2002-03-08",
       "heightInCm": 178,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Spotswood (Vic)/Western U18",
+      "debutYear": "2021",
       "active": true
     },
     {
@@ -7666,8 +7665,8 @@
       "profileRef": "profile:aflw:jasmyn-smith",
       "dateOfBirth": "2004-05-10",
       "heightInCm": 165,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Broadbeach (Qld)/Bond University (QAFLW)/Gold Coast",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -7874,8 +7873,8 @@
       "profileRef": "profile:aflw:jess-fitzgerald",
       "dateOfBirth": "2002-03-08",
       "heightInCm": 163,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Bundoora Park (Vic)/St Mary's Greensborough (Vic)/Northern U18",
+      "debutYear": "2021",
       "active": true
     },
     {
@@ -8602,8 +8601,8 @@
       "profileRef": "profile:aflw:kaylee-kimber",
       "dateOfBirth": "2003-09-13",
       "heightInCm": 174,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Moranbah (Qld)/Southport (QAFLW)",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -8654,8 +8653,8 @@
       "profileRef": "profile:aflw:keeley-hardingham",
       "dateOfBirth": "2003-12-25",
       "heightInCm": 179,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Western Bulldogs (VFLW)",
+      "debutYear": "2025",
       "active": true
     },
     {
@@ -9252,8 +9251,8 @@
       "profileRef": "profile:aflw:lauren-ahrens",
       "dateOfBirth": "1991-08-19",
       "heightInCm": 182,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Melbourne University (VFLW)/Essendon (VFLW)/Gold Coast",
+      "debutYear": "2020",
       "active": true
     },
     {
@@ -9902,8 +9901,8 @@
       "profileRef": "profile:aflw:louise-stephenson",
       "dateOfBirth": "1995-07-09",
       "heightInCm": 178,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "St Damians (Vic)/Melbourne University (VFLW)/GWS GIANTS/Hawthorn",
+      "debutYear": "2017",
       "active": true
     },
     {
@@ -10085,7 +10084,7 @@
       "dateOfBirth": "2007-06-07",
       "heightInCm": 169,
       "recruitedFrom": "West Adelaide/Goodwood Saints",
-      "debutYear": null,
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -10423,7 +10422,7 @@
       "dateOfBirth": "2006-08-15",
       "heightInCm": 176,
       "recruitedFrom": "Piara Waters JFC",
-      "debutYear": null,
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -10552,8 +10551,8 @@
       "profileRef": "profile:aflw:maggie-gorham",
       "dateOfBirth": "2001-09-16",
       "heightInCm": 175,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Belconnen (AFL Canberra)/GWS Giant's List/Ainslie (AFL Canberra)",
+      "debutYear": "2023",
       "active": true
     },
     {
@@ -11306,8 +11305,8 @@
       "profileRef": "profile:aflw:mikala-cann",
       "dateOfBirth": "2000-11-04",
       "heightInCm": 170,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Blackburn (Vic)/Eastern U18/Hawthorn (VFLW)/Collingwood (AFLW)",
+      "debutYear": "2019",
       "active": true
     },
     {
@@ -11566,8 +11565,8 @@
       "profileRef": "profile:aflw:mizuki-brothwell",
       "dateOfBirth": "2007-10-22",
       "heightInCm": 175,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Dandenong Stingrays U18/Balnarring",
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -12945,7 +12944,7 @@
       "dateOfBirth": "2007-05-04",
       "heightInCm": 169,
       "recruitedFrom": "South Fremantle (WAFLW)/Jandakot JFC (Metro South)",
-      "debutYear": null,
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -13126,8 +13125,8 @@
       "profileRef": "profile:aflw:rylie-wilcox",
       "dateOfBirth": "2004-12-03",
       "heightInCm": 158,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Parkside (Vic)/Fitzroy JFC (Vic)/Northern U18",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -13360,8 +13359,8 @@
       "profileRef": "profile:aflw:sarah-hartwig",
       "dateOfBirth": "2002-04-12",
       "heightInCm": 173,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "St Peters (Vic)/St Bedes-Mentone (Vic)/Sandringham U18",
+      "debutYear": "2021",
       "active": true
     },
     {
@@ -13464,8 +13463,8 @@
       "profileRef": "profile:aflw:sarah-poustie",
       "dateOfBirth": "2006-01-05",
       "heightInCm": 171,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Oakleigh U18/Old Scotch (VIC)",
+      "debutYear": "2025",
       "active": true
     },
     {
@@ -14972,8 +14971,8 @@
       "profileRef": "profile:aflw:vaomua-laloifi",
       "dateOfBirth": "1993-07-24",
       "heightInCm": 173,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Old Xaverians (Vic)/Collingwood (VFLW)/Western Bulldogs (VFLW)/Carlton",
+      "debutYear": "2020",
       "active": true
     },
     {

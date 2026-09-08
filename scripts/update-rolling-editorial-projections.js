@@ -97,12 +97,21 @@ function f1Narrative(event, context, reference){
   const challengerName = participants.get(challenger.participantId)?.displayName || "second place";
   const sourceId = "source:rolling:f1:driver-standings";
   const qualifying = /qualifying/i.test(event.name || "");
+  const circuit=/Italian/.test(event.name||'')?{slug:'italy',fact:'Monza pairs long full-throttle sections with heavy braking into chicanes.'}:/Spanish/.test(event.name||'')?{slug:'spain',fact:'Madring makes its Grand Prix debut in 2026 with a 22-corner layout and a banked Turn 12.'}:null;
+  const constructors=context.ladderSnapshots.find(item=>item.competitionId==='competition:f1-constructors-2026');
+  const front=constructors?.entries?.[0],second=constructors?.entries?.[1];
+  const extraSources=circuit&&front&&second?[{id:'source:rolling:f1:constructors',name:'Formula 1 constructors standings',url:constructors.source.sourceUrl,sourceType:'official',checkedAt:constructors.snapshotTimeUtc},{id:`source:rolling:f1:circuit:${circuit.slug}`,name:'Formula 1 official circuit guide',url:`https://www.formula1.com/en/racing/2026/${circuit.slug}`,sourceType:'official',checkedAt:reference.toISOString()}]:[];
   const consequence = qualifying ? "sets the grid and determines who controls the race start" : "is the points-paying chapter of the weekend";
   return {
     ladder,
     source:ladder.source,
     sourceId,
+    extraSources,
     facts:[
+      ...(extraSources.length ? [
+        {id:'fact:rolling:f1:constructors',subjectIds:['subject:rolling:f1-season'],statement:`${participants.get(front.participantId).displayName} has ${front.points} constructors points to ${participants.get(second.participantId).displayName}'s ${second.points}.`,dimension:'form',sourceIds:[extraSources[0].id],observedAt:constructors.snapshotTimeUtc,expiresAt:null},
+        {id:`fact:rolling:f1:circuit:${circuit.slug}`,subjectIds:['subject:rolling:f1-season'],statement:circuit.fact,dimension:'format',sourceIds:[extraSources[1].id],observedAt:reference.toISOString(),expiresAt:null}
+      ] : []),
       { id:"fact:rolling:f1:leader", subjectIds:["subject:rolling:f1-leader"], statement:`${leaderName} leads the 2026 drivers' championship with ${leader.points} points, ${leader.points - challenger.points} ahead of ${challengerName}.`, dimension:"form", sourceIds:[sourceId], observedAt:ladder.snapshotTimeUtc, expiresAt:null },
       { id:`fact:rolling:f1:${qualifying ? "qualifying" : "race"}-consequence`, subjectIds:["subject:rolling:f1-season"], statement:`In a Formula 1 weekend, ${qualifying ? "qualifying sets the starting grid and track-position baseline for the race" : "the race awards the championship points that convert weekend pace into the title standings"}.`, dimension:"consequence", sourceIds:[sourceId], observedAt:ladder.snapshotTimeUtc, expiresAt:null },
     ],
@@ -205,7 +214,7 @@ function requestedSportNarrative(event, requestedSports, reference){
     ...(sourceEvent.result ? [{
       id:`fact:rolling:${slug(sourceEvent.id)}:result`,
       statement:sourceEvent.result.status === "official"
-        ? `${sourceEvent.result.outcomeText}`
+        ? `${sourceEvent.result.recapText || sourceEvent.result.outcomeText}`
         : `The official results page had not published a verified outcome for ${sourceEvent.name} at the latest check.`,
       dimension:"consequence",
       sourceIds:[sourceId(sourceEvent.result.sourceId)],
@@ -262,7 +271,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
         : event.key === "wrc"
           ? wrc.ladderSnapshots.find(item => item.competitionId === "competition:wrc-drivers-2026")
           : requestedEventIds.has(event.canonicalEventId)
-            ? { snapshotTimeUtc:requestedSports.generatedAt }
+            ? { snapshotTimeUtc:requestedSports.events.find(item => item.id === event.canonicalEventId)?.result?.checkedAt || requestedSports.generatedAt }
             : context.ladderSnapshots.find(item => item.competitionId === event.competitionId);
       const currentSnapshotAt = Date.parse(currentSnapshot?.snapshotTimeUtc || currentSnapshot?.source?.checkedAt || "");
       const existingResearchedAt = Date.parse(existing.researchedAt || "");
@@ -270,6 +279,7 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
         || (Number.isFinite(existingResearchedAt) && existingResearchedAt >= currentSnapshotAt);
       if (requirement
         && isCurrent
+        && (event.status !== "completed" || Boolean(existing.synopsisSpoilerOn))
         && Number(existing.researchDepth || existing.stakes) >= researchDepthFor(event)
         && (existing.factIds || []).length >= requirement[0]
         && (existing.sourceIds || []).length >= requirement[1]
@@ -356,7 +366,8 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
       upsert(knowledge.narrativeThreads, { id:"thread:rolling:f1-title", subjectIds:["subject:rolling:f1-leader", "subject:rolling:f1-season"], title:"2026 Formula 1 title pressure", summary:"The championship lead is carried across qualifying and race cards so each session explains what its sporting consequence means for the title fight, rather than stopping at the timetable.", factIds:motor.facts.map(fact => fact.id), status:"active", updatedAt:motor.ladder.snapshotTimeUtc });
       threadIds = ["thread:rolling:f1-title"];
       factIds = motor.facts.map(fact => fact.id);
-      sourceIds = [motor.sourceId];
+      motor.extraSources.forEach(source=>upsert(knowledge.sources,source));
+      sourceIds = [motor.sourceId,...motor.extraSources.map(source=>source.id)];
       hook = motor.safeHook;
       synopsis = motor.safeSynopsis;
     } else if (rally) {

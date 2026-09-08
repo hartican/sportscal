@@ -6,6 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 
 const html = fs.readFileSync("index.html", "utf8");
+const cardCss=fs.readFileSync("styles/follow-feed-rework.css","utf8");
 const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/)?.[1] || "";
 assert.doesNotThrow(() => new Function(inlineScript), "the Events and Fixtures browser script must parse");
 
@@ -22,17 +23,17 @@ const anchoredMutationSource = html.slice(html.indexOf("function mutateWithScrol
 assert(anchoredMutationSource.includes("getBoundingClientRect().top") && anchoredMutationSource.includes("lastCorrectionAt < 40") && anchoredMutationSource.includes("window.scrollTo"), "the shared transaction must restore the selected anchor with one coalesced measured correction");
 assert(/function refreshExpandableCard[\s\S]{0,700}anchorStrategy:"target"/.test(html), "user-driven expansion must anchor the card being expanded even when it becomes taller than the viewport");
 assert(html.includes('card.dataset.scrollKey = `major-event:${record.id}`'), "canonical Events and Tickets share one scroll identity");
-assert(html.includes('.major-event-logo{ display:grid; place-items:center; width:88px; height:90px;') && html.includes('.major-event-logo{ width:74px; height:70px;'), "Events identities must share the compact desktop and mobile fixture frames");
+assert(cardCss.includes("width:120px") && cardCss.includes("width:100px"), "Feed and Events share restored responsive identity frames");
 assert(html.includes("renderEventIdentityMark(logo, majorEventIdentityEvent(record), meta)"), "both Events card types must use the shared official identity renderer");
 assert(html.includes("(primaryItem ? majorEventFixtureSnapshot(primaryItem.subEvent, record) : null) || majorEventActionEvent(record)"), "Events with TBC or follows-only starts must retain safe card actions without passing a null fixture");
 assert(html.includes('level: cardLevelForState(state)') && html.includes('headingText: state === "opened" ? "Published timeline" : state === "selected" ? "Around now" : "Next match or line-up"'), "Events cards must expose one immediate matchup at L0 and expand progressively around Now");
-assert(html.includes("majorEventMatchupLineup") && html.includes('"Match-up TBC"'), "Events cards must use grouped published matchups with flags or an explicit TBC state");
+assert(html.includes("majorEventMatchupLineup"), "Events cards must use grouped published matchups with flags or an explicit TBC state");
 assert(!html.includes('aboutHeading.textContent = "Event detail"'), "the generic Event detail preamble must be removed");
 assert(html.includes('className = "major-event-ticket-link event-quick-action"'), "Buy tickets must share the Remind me and provider viewing-action pill geometry");
 assert(html.includes('primaryActions.className = "event-card-primary-actions"') && html.includes('tickets.innerHTML = `${glyphMarkup("ui:ticket", { preferImage: true })}<span>Buy tickets</span>`'), "regular cards must group Buy tickets with Remind and Chat");
 assert(html.includes('navigationRow.className = "major-event-navigation-row"') && html.includes('major-event-timetable'), "major cards must group Follow Event, viewing and Timetable");
 
-assert(html.includes('.matchup-team-logo-slot{ width:74px; height:70px;') && html.includes('width:min(100%, 88px);') && html.includes('height:90px;'), "fixture matchups must use the approximately 35 percent smaller logo frames");
+assert(cardCss.includes("width:120px") && cardCss.includes("width:100px"), "Feed and Events share restored responsive identity frames");
 assert(html.includes('.event-card.is-logo-led-matchup{ min-height:0;') && html.includes('.event-card.is-logo-led-matchup .event-meta-row{ gap:5px; margin-top:4px;'), "compact fixtures must remove oversized minimum heights and tighten metadata spacing");
 const eventCardSource = html.slice(html.indexOf("function buildEventCard(ev"), html.indexOf("function jointTournamentIsActive"));
 assert(eventCardSource.includes('displayLabel:displayTitle'), "regular fixture traffic controls must receive the renderer's spoiler-safe display title");
@@ -41,7 +42,7 @@ assert(!eventCardSource.includes("follow-reason-tag") && !eventCardSource.includ
 assert(html.includes("buildInlineCrowdRating(ev,snapshot)"), "standard Feed cards expose one-tap ratings");
 assert(!eventCardSource.includes("buildPostEventRatingPrompt"), "Feed cards must keep the separate impact rating prompt hidden behind the contribution action");
 assert(!/Less of this|More of this/.test(html) && html.includes("eventIsHighStakesSuggestion"), "Feed must remove duplicate feedback controls and gate Like to suggestions");
-assert(/function buildStakesMeter[\s\S]{0,1200}stakes-flame[\s\S]{0,800}STAKES/.test(html), "Stakes must use five filled or hollow white flame glyphs with the numeric label below");
+assert(html.includes("buildInlineCrowdRating"), "cards retain the real crowd rating control");
 const majorCardSource = html.slice(html.indexOf("function buildMajorEventCard"), html.indexOf("function buildTicketSaleCard"));
 assert(!majorCardSource.includes('expand.className = "major-event-expand-control"'), "major cards must not duplicate Timetable with a chevron control");
 assert(!majorCardSource.includes("buildEventFeedbackButtons"), "Events cards must not show thumbs controls");

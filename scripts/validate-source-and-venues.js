@@ -94,6 +94,7 @@ assert.deepEqual(audit.pending, [
   "Spain",
   "Sweden",
   "Tour de France 2026",
+  "Venue TBC",
 ], "only reviewed route and competition-placeholder inputs may remain unresolved");
 
 console.log(`Source trust and venue registry valid: ${audit.total} current venues scanned; ${audit.audited} reviewed aliases, ${audit.pending.length} queued for editorial venue review.`);

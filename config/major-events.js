@@ -154,21 +154,26 @@
     return new Intl.DateTimeFormat("en-AU", { timeZone, weekday:"short", day:"numeric", month:"short" }).format(date);
   }
 
+  const timelineTimeFormatters = new Map();
+  function timelineTimeFormatter(timeZone){
+    if(!timelineTimeFormatters.has(timeZone))timelineTimeFormatters.set(timeZone,new Intl.DateTimeFormat("en-AU", {timeZone,hour:"numeric",minute:"2-digit",hour12:true}));
+    return timelineTimeFormatters.get(timeZone);
+  }
   function timelineDisplayTime(subEvent, timeZone){
     if (subEvent?.timePrecision === "estimated" && Number.isFinite(Date.parse(subEvent.estimatedStartTimeUtc))){
-      return `Approx. ${new Intl.DateTimeFormat("en-AU", {timeZone,hour:"numeric",minute:"2-digit",hour12:true}).format(new Date(subEvent.estimatedStartTimeUtc)).replace(/\s/g, "").toLowerCase()}`;
+      return `Approx. ${timelineTimeFormatter(timeZone).format(new Date(subEvent.estimatedStartTimeUtc)).replace(/\s/g, "").toLowerCase()}`;
     }
     if (subEvent?.timePrecision === "follows"){
       const session = new Date(subEvent?.sessionStartTimeUtc || "").getTime();
       if (!Number.isFinite(session)) return "Follows";
-      const label = new Intl.DateTimeFormat("en-AU", { timeZone, hour:"numeric", minute:"2-digit", hour12:true })
+      const label = timelineTimeFormatter(timeZone)
         .format(new Date(session)).replace(/\s/g, "").toLowerCase();
       return `Follows · session starts ${label}`;
     }
     if (["tbc", "unpublished", "date-only"].includes(subEvent?.timePrecision)) return "Time unpublished";
     const direct = new Date(subEvent?.startTimeUtc || "").getTime();
     if (!Number.isFinite(direct)) return "Time TBC";
-    return new Intl.DateTimeFormat("en-AU", { timeZone, hour:"numeric", minute:"2-digit", hour12:true })
+    return timelineTimeFormatter(timeZone)
       .format(new Date(direct)).replace(/\s/g, "").toLowerCase();
   }
 
@@ -388,6 +393,7 @@
     };
   }
 
+  const editorialFeedIndexes = new WeakMap();
   function editorialRecordForSubEvent(subEvent, parent, feedEvents = [], fixture = fixtureFromSubEvent(subEvent, parent)){
     const baseRecord = fixture || {
       ...subEvent,
@@ -401,16 +407,21 @@
     const aliases = new Set(fixtureAliasIds(subEvent));
     const normalizedAliases = new Set([...aliases].map(normalizedFixtureId).filter(Boolean));
     const candidates = Array.isArray(feedEvents) ? feedEvents : [];
-    const exactMatch = candidates.find(event => {
-      if (!event?.editorialNarrative) return false;
-      return [event.id, event.eventId, event.canonicalEventId, event.stableMatchId, ...(event.legacyEventIds || [])]
-        .map(value => String(value || "").trim())
-        .some(value => value && (aliases.has(value) || normalizedAliases.has(normalizedFixtureId(value))));
-    });
-    const semanticKey = fixtureSemanticKey(baseRecord);
-    const semanticMatch = exactMatch || (semanticKey
-      ? candidates.find(event => event?.editorialNarrative && fixtureSemanticKey(event) === semanticKey)
-      : null);
+    let index=editorialFeedIndexes.get(candidates);
+    if(!index || index.length!==candidates.length){
+      index={length:candidates.length,aliases:new Map(),semantics:new Map()};
+      const add=(map,key,event)=>{if(key){const values=map.get(key)||[];values.push(event);map.set(key,values);}};
+      for(const event of candidates){
+        for(const value of [event.id,event.eventId,event.canonicalEventId,event.stableMatchId,...(event.legacyEventIds||[]),...(event.sourceEventIds||[])]){
+          add(index.aliases,normalizedFixtureId(value),event);
+        }
+        add(index.semantics,fixtureSemanticKey(event),event);
+      }
+      editorialFeedIndexes.set(candidates,index);
+    }
+    const exactMatch=[...normalizedAliases].flatMap(alias=>index.aliases.get(alias)||[]).find(event=>event.editorialNarrative);
+    const semanticKey=fixtureSemanticKey(baseRecord);
+    const semanticMatch=exactMatch || (index.semantics.get(semanticKey)||[]).find(event=>event.editorialNarrative);
     const editorialNarrative = semanticMatch?.editorialNarrative || subEvent?.editorialNarrative || inheritedEditorialNarrative(subEvent, parent);
     return editorialNarrative ? { ...baseRecord, editorialNarrative } : baseRecord;
   }

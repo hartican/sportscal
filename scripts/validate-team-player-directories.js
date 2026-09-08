@@ -66,8 +66,8 @@ function validateDirectory(spec){
   const sample = directory.players[0];
   assert.deepEqual(
     directoryApi.expandedFollowLevels({ participantIds: [sample.currentTeamId] }, { entityFollows: [{ participantId: sample.id, followLevel: "follow" }] }, index),
-    ["follow"],
-    `${spec.label} player follows must expand to their current club fixture`
+    [],
+    `${spec.label} club membership alone cannot admit a player fixture`
   );
   return { directory, index };
 }

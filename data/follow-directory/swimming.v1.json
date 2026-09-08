@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "swimming",
   "label": "Swimming",
-  "generatedAt": "2026-09-06T18:14:03.244Z",
+  "generatedAt": "2026-09-08T12:29:16.052Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -4909,8 +4909,8 @@
           "rank": 42,
           "aquaPoints": 890,
           "time": "1:46.04",
-          "resultDate": "2026-08-17T00:00:00",
-          "eventName": "2026 Junior Pan Pacific Swimming Championships (50m)"
+          "resultDate": "2026-07-29T00:00:00",
+          "eventName": "2026 Toyota National Championships (50m)"
         },
         {
           "disciplineId": "e6838448-4683-448c-8788-742362dca33c",

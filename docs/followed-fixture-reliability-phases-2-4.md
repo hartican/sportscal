@@ -1,5 +1,7 @@
 # Followed-fixture reliability: phases 2–4 handoff
 
+> Follow admission amendments (8 September 2026): [follow-decisions.md](follow-decisions.md) supersedes the women’s Cricket and early-round Tennis discovery rules below.
+
 Implementation: 8 September 2026, `codex/followed-fixture-reliability`, based on `5a5ffe6809c80aefdd256ca22996c6a6dbf0b8f7`. Shell 246. See the [approved plan](followed-fixture-reliability-plan.md), [phase 1 history](followed-fixture-reliability-phase-1.md) and [source research](source-coverage-research-2026-09-08.md).
 
 This records implementation, local verification and the subsequently authorised production activation. The initial release stopped at a feature-branch preview; the user's subsequent confirmation explicitly authorised main, production secrets, the live database and scheduler.

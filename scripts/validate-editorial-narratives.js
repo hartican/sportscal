@@ -35,7 +35,7 @@ function byIdentity(records){
   return index;
 }
 function activeFeedMarquee(events){
-  return events.filter(event => event.status !== "completed" && stakesFor(event) === 5);
+  return events.filter(event => event.status !== "completed" && stakesFor(event) === 5 && Number.isFinite(eventTime(event)) && eventTime(event)<=reference.getTime()+30*DAY_MS);
 }
 function activeOrRecentMajor(records){
   return records.filter(record => record.kind !== "ticket_sale" && record.lifecycleStatus !== "retired" && record.stakesScore === 5);
@@ -53,8 +53,8 @@ function assertProjected(record, projection, label){
   assert.equal(record.editorialNarrative?.projectionId, projection.id, `${label} must publish its projection id`);
   assert.equal(record.editorialNarrative?.hook, projection.hook, `${label} must publish the researched hook`);
   assert.equal(record.editorialNarrative?.synopsis, projection.synopsis, `${label} must publish the researched L1/L2 synopsis`);
-  const requirement = TIER_REQUIREMENTS[projection.stakes];
-  const expectedTier = projection.stakes === 5 ? "marquee" : projection.stakes === 4 ? "featured" : "standard";
+  const requirement = TIER_REQUIREMENTS[projection.researchDepth || projection.stakes];
+  const expectedTier = (projection.researchDepth || projection.stakes) === 5 ? "marquee" : (projection.researchDepth || projection.stakes) === 4 ? "featured" : "standard";
   const expectedSchema = projection.consequence ? "editorial-narrative.v3" : "editorial-narrative.v2";
   assert.equal(record.editorialNarrative?.schemaVersion, expectedSchema, `${label} must publish the compatible ${expectedSchema} projection writer`);
   if (projection.consequence) assert.deepEqual(record.editorialNarrative.consequence, projection.consequence, `${label} must publish its immutable sourced consequence snapshot`);
@@ -123,7 +123,7 @@ const html = fs.readFileSync("index.html", "utf8");
 assert(html.includes("mainDiv.appendChild(whyItMatters)") && html.includes("buildInlineCrowdRating(ev,snapshot)"), "Feed retains editorial alongside the standard one-tap rating input");
 assert.doesNotMatch(html, /labelText:"Independent context"/, "expanded cards must not repeat editorial in a second metadata box");
 assert.doesNotMatch(html, /editorialNarrativeCopyForDisplay\(/, "selected and opened cards must not repeat a second synopsis block beneath Why it matters");
-assert(html.includes("if (editorialHook) row.appendChild(editorialHook);") && !html.includes("row.appendChild(buildEventNothingscoreAction(crowdEvent));"), "Events fixtures retain editorial without rating inputs");
+assert(html.includes('buildEventCard(event, {mode:"events"') || html.includes("eventParent:record"), "Events fixtures use the shared fixture renderer");
 assert.match(html, /completed && isSpoilerVisible\(record\)[^]*spoilerOnSentence[^]*previewSentence/, "completed spoiler-on cards must prefer sourced result consequences while spoiler-off retains preview copy");
 assert.doesNotMatch(html, /buildEditorialL0Hook\((?:selectedSentenceForDisplay\(ev\)|record\.summary)/, "schedule and structural fallback copy must never be relabelled Why it matters");
 assert.match(html, /editorial-l0-hook-label[^]*Why it matters/, "L0 hooks need a visible editorial label");

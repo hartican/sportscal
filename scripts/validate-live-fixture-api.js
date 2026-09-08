@@ -10,7 +10,7 @@ async function main(){
   res=response();await handler({url:"/api/fixture-refresh",method:"POST",headers:{authorization:`Bearer ${secret}`}},res);assert.equal(res.statusCode,200);
   res=response();await handler({url:"/api/fixtures",method:"GET",headers:{}},res);assert.equal(res.body.sources.flatMap(source=>source.fixtures).find(event=>event.id==='fixture').status,"live");assert.equal(res.headers["Cache-Control"],"no-store");
   const revision=res.body.revision;
-  const libraryHandler=createLiveFixtureHandler({publishedFixtures:()=>[{id:'known-before-server-refresh',date:'2099-01-01',key:'cricket',name:'Published fixture'}],read:async()=>({revision:'empty',sources:[],stale:false})});
+  const libraryHandler=createLiveFixtureHandler({publishedFixtures:()=>[{id:'known-before-server-refresh',date:new Date(Date.now()+86400000).toISOString().slice(0,10),key:'cricket',name:'Published fixture'}],read:async()=>({revision:'empty',sources:[],stale:false})});
   res=response();await libraryHandler({url:'/api/fixtures',headers:{}},res);assert(res.body.sources.flatMap(source=>source.fixtures).some(event=>event.id==='known-before-server-refresh'),'a first failed or partial server lookup cannot hide fixtures in the verified library');
   res=response();await handler({url:`/api/fixtures?revision=${revision}`,method:"GET",headers:{}},res);assert.equal(res.statusCode,304);
   res=response();await createLiveFixtureHandler({read:async()=>{throw new Error(secret);}})({url:"/api/fixtures",headers:{}},res);assert.equal(res.statusCode,503);assert(!JSON.stringify(res.body).includes(secret));

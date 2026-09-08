@@ -1,7 +1,7 @@
-const CACHE_NAME = "nothingsport-shell-v247";
-const SHELL_VERSION = "247";
+const CACHE_NAME = "nothingsport-shell-v248";
+const SHELL_VERSION = "248";
 const APP_SHELL = [
-  "/assets/js/app-update.js?v=247",
+  "/assets/js/app-update.js?v=248",
   // Navigations already share /index.html below; do not download/cache its
   // million-byte HTML a second time under the root alias during installation.
   "/index.html",
@@ -11,14 +11,14 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=247",
-  "/assets/js/app-shell-runtime.js?v=247",
-  "/assets/js/nsc-rankings-ui.js?v=247",
-  "/assets/styles/nsc-ladder.css?v=247",
+  "/assets/styles/nothingsport-foundation.css?v=248",
+  "/assets/js/app-shell-runtime.js?v=248",
+  "/assets/js/nsc-rankings-ui.js?v=248",
+  "/assets/styles/nsc-ladder.css?v=248",
   "/config/calendar-selection.js",
   "/config/follow-summary.js",
   "/assets/identities/events/le-mans-24-hours.png",
-  "/styles/follow-feed-rework.css?v=247",
+  "/styles/follow-feed-rework.css?v=248",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/brand-copy.js",
@@ -31,7 +31,7 @@ const APP_SHELL = [
   "/config/canonical-sports-taxonomy.js",
   "/config/sport-hierarchy.js",
   "/config/competition-classification.js?v=222",
-  "/config/fixture-identity.js?v=247",
+  "/config/fixture-identity.js?v=248",
   "/config/team-follow-catalogue.js",
   "/config/event-taxonomy-compat.js",
   "/config/preference-taxonomy.js",
@@ -50,11 +50,11 @@ const APP_SHELL = [
   "/config/chat-contract.js",
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
-  "/config/follow-first.js?v=247",
+  "/config/follow-first.js?v=248",
   "/config/feed-controls.js",
   "/config/ticketing.js",
-  "/config/major-events.js?v=247",
-  "/config/follow-feed-policy.js?v=247",
+  "/config/major-events.js?v=248",
+  "/config/follow-feed-policy.js?v=248",
   "/config/football-directory.js",
   "/config/personalised-feed.js",
   "/config/source-trust.js",

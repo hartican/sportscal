@@ -147,8 +147,8 @@ const tarniEvansFeed = aflwFeed(aflwPreferences({
   entityFollows:[{ participantId:TARNI_EVANS_ID, followLevel:"follow" }],
 }));
 assert(
-  tarniEvansFeed.events.some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
-  "following Tarni Evans must inherit GWS and surface the released Brisbane Lions v GWS GIANTS fixture",
+  !tarniEvansFeed.events.some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
+  "club membership alone must not claim Tarni Evans participated in the fixture",
 );
 
 const combinedGwsFeed = aflwFeed(aflwPreferences({

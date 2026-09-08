@@ -39,10 +39,9 @@ check("card content cycles while overlay dismiss stays independent", () => {
  assert(html.includes("window.getSelection()?.toString()"));
 });
 
-check("stakes flames have a contrast plate", () => {
-  assert.match(html, /\.stakes-flames\{[^}]*background:\s*(?:#|var\()/s);
-  assert.match(html, /\.stakes-flame\.is-empty/);
-  assert.match(html, /STAKES \$\{score\}\/5/);
+check("crowd ratings retain accessible controls", () => {
+  assert(html.includes("buildInlineCrowdRating"));
+  assert(html.includes("Tap to rate") || html.includes("TAP TO RATE"));
 });
 
 check("Dismiss replaces Dislike and Like is suggestion-only", () => {

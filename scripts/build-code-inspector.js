@@ -13,6 +13,8 @@ const fixtureIdentity = require("../config/fixture-identity");
 const nationalTeamIdentities = require("../config/national-team-identities");
 const feed = require("../data/events.json");
 const canonicalAflNrl = require("../data/canonical/afl-nrl-2026.json");
+const canonicalF1=require("../data/canonical/f1-context-2026.json");
+const canonicalTennis=require("../data/canonical/tennis-context-2026.json");
 const canonicalWrc = require("../data/canonical/wrc-context-2026.json");
 const canonicalAmericanFootball = require("../data/canonical/american-football-directory.v1.json");
 const canonicalIceHockey = require("../data/canonical/ice-hockey-directory.v1.json");
@@ -34,7 +36,7 @@ for (const participant of nationalTeamIdentities.participants){
 for (const participant of canonicalChampionsLeague.participants || []){
   canonicalParticipantNames.set(participant.id, participant.displayName);
 }
-for (const participant of canonicalWrc.participants || []){
+for (const participant of [...(canonicalWrc.participants || []),...(canonicalF1.participants || []),...(canonicalTennis.participants || [])]){
   canonicalParticipantNames.set(participant.id, participant.displayName || participant.shortName || null);
 }
 
@@ -124,14 +126,14 @@ function participantSlots(event){
       slot: slot.slot || index + 1,
       participantId: nationalTeamIdentities.canonicalId(slot.participantId) || nationalTeams[index]?.id || null,
       label: slot.label || canonicalParticipantNames.get(nationalTeamIdentities.canonicalId(slot.participantId)) || nationalTeams[index]?.displayName || null,
-      logoUrl:nationalTeams[index]?.assetPath || slot.logoUrl || null,
+      logoUrl:nationalTeamIdentities.teamForId(slot.participantId)?.assetPath || slot.logoUrl || null,
     }));
   }
   if (Array.isArray(event?.participantIds) && event.participantIds.length){
     return event.participantIds.slice(0, 2).map(nationalTeamIdentities.canonicalId).map((participantId, index) => ({
       slot: index + 1,
       participantId,
-      label: canonicalParticipantNames.get(participantId) || nationalTeams[index]?.displayName || null,
+      label: canonicalParticipantNames.get(participantId) || nationalTeamIdentities.teamForId(participantId)?.displayName || (event.participants || []).find(p=>p.id===participantId)?.name || null,
       logoUrl:nationalTeamIdentities.teamForId(participantId)?.assetPath || null,
     }));
   }
@@ -173,6 +175,7 @@ function normalizeFixture(event, codeId, extra = {}){
   const stage = event.stage || event.phaseLabel || extra.stage || null;
   return {
     id: stableId(event),
+    sourceEventIds:[...new Set([event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].filter(Boolean))],
     codeId,
     key,
     ...(event.published === false ? {published:false} : {}),
@@ -188,7 +191,7 @@ function normalizeFixture(event, codeId, extra = {}){
         ? { timeTbc:true, timePrecision:"tbc" }
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
-    ...Object.fromEntries(['competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','scoreDisplay','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','scoreDisplay','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','actualEndTimeUtc'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     venue: (event.venue || event.venueName) && !/tbc/i.test(event.venue || event.venueName) ? (event.venue || event.venueName) : null,
     status: event.status || "upcoming",
@@ -256,7 +259,12 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
   eventRecords.forEach(event => {
     const id = stableId(event);
     if (!id) return;
-    const mergedEvent = { ...(fixtures.get(id) || {}), ...event };
+    const aliases=new Set([id,event.id,event.eventId,...(event.sourceEventIds||[])].filter(Boolean));
+    let previous=fixtures.get(id);
+    for(const [key,fixture] of fixtures){
+      if([key,...(fixture.sourceEventIds||[])].some(alias=>aliases.has(alias))){previous={...fixture,...previous};fixtures.delete(key);}
+    }
+    const mergedEvent = { ...previous, ...event };
     const hasConfirmedParticipants = Array.isArray(event.participantSlots) && event.participantSlots.length
       || Array.isArray(event.participantIds) && event.participantIds.length;
     if (Array.isArray(event.participantIds) && event.participantIds.length && !Array.isArray(event.participantSlots)){
@@ -280,6 +288,7 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
 
 function codeFixtures(code){
   const placeholders = [...eventPhasePlaceholders(code), ...codePhasePlaceholders(code)];
+  const programme = require("../lib/competition-fixtures").fixtures().filter(event => eventMatchesCode(event,code));
   const published = feed.events.filter(event => eventMatchesCode(event, code));
   const canonical = ["sport:afl", "sport:aflw", "sport:nrl"].includes(code.id)
     ? canonicalAflNrl.events.filter(event => code.id === "sport:aflw"
@@ -295,7 +304,7 @@ function codeFixtures(code){
           ? canonicalWrc.events || []
         : [];
   const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
-  return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced], code.id, new Set([...canonical,...sourced]));
+  return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme], code.id, new Set([...canonical,...sourced]));
 }
 
 function groupingMode(fixtures){
@@ -305,7 +314,13 @@ function groupingMode(fixtures){
 }
 
 function codeStandings(code){
-  const source = code.id === "sport:wrc"
+  const canonicalDocument=code.id==='sport:f1'?canonicalF1:code.id==='sport:tennis'?canonicalTennis:['sport:afl','sport:aflw','sport:nrl'].includes(code.id)?canonicalAflNrl:null;
+  const snapshots=new Map();
+  for(const snapshot of canonicalDocument?.ladderSnapshots||[]){
+    if(canonicalDocument===canonicalAflNrl && !String(snapshot.competitionId).startsWith(`competition:${code.id.replace('sport:','')}${code.id==='sport:aflw'?'':'-'}`))continue;
+    const old=snapshots.get(snapshot.competitionId);if(!old || String(snapshot.snapshotTimeUtc)>String(old.snapshotTimeUtc))snapshots.set(snapshot.competitionId,snapshot);
+  }
+  const source = canonicalDocument ? [...snapshots.values()].flatMap(snapshot=>(snapshot.entries||[]).map(entry=>({...entry,competitionId:snapshot.competitionId,asOf:snapshot.snapshotTimeUtc,roundLabel:snapshot.roundLabel,sourceUrl:snapshot.sourceUrl||snapshot.source?.sourceUrl}))) : code.id === "sport:wrc"
     ? (canonicalWrc.ladderSnapshots || []).flatMap(snapshot => (snapshot.entries || []).map(entry => ({ ...entry, competitionId:snapshot.competitionId })))
     : code.id === "sport:american-football"
     ? canonicalAmericanFootball.standings || []

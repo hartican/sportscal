@@ -172,8 +172,12 @@
     if (event?.status === "live") return true;
     const parts = Object.fromEntries(SYDNEY_PARTS.formatToParts(now).map(part => [part.type,part.value]));
     const cutoff = new Date(Date.UTC(Number(parts.year),Number(parts.month)-1,Number(parts.day)-days)).toISOString().slice(0,10);
-    const end = event?.endDate || event?.date || event?.startDate;
-    return !/^\d{4}-\d{2}-\d{2}$/.test(end || "") || end >= cutoff;
+    const start=event?.date || event?.startDate || event?.schedulingWindow?.startsOn;
+    const end = event?.endDate || event?.date || event?.startDate || event?.schedulingWindow?.endsOn;
+    const futureYear=Number(parts.year)+1,month=Number(parts.month)-1;
+    const lastDay=new Date(Date.UTC(futureYear,month+1,0)).getUTCDate();
+    const horizon=new Date(Date.UTC(futureYear,month,Math.min(Number(parts.day),lastDay))).toISOString().slice(0,10);
+    return (!/^\d{4}-\d{2}-\d{2}$/.test(end || "") || end >= cutoff) && (!/^\d{4}-\d{2}-\d{2}$/.test(start || "") || start<=horizon);
   }
   return Object.freeze({sportKey, scheduleCode, normalizeCore, fromSchedule, followedScheduleCodes,mergeOverlays,estimateTimeline,retainedInActiveTimeline,consensusTagsForEvent});
 });

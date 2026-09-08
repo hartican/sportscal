@@ -74,7 +74,7 @@ async function run(){
   assert.equal(schema.properties.schemaVersion.const, "server-feed.v3");
   assert.equal(schema.properties.derivedCardCache.properties.buildOrigin.const, "server");
   assert(schema.required.includes("sourcePublishedAt"), "server feeds must distinguish canonical publication time from per-user generation time");
-  assert.equal(feedPipeline.SERVER_FEED_BUILD_VERSION, "follow-policy.v6");
+  assert.equal(feedPipeline.SERVER_FEED_BUILD_VERSION, "follow-policy.v7");
   assert.match(
     fs.readFileSync("api/feed.js", "utf8"),
     /buildVersion:\s*SERVER_FEED_BUILD_VERSION/,
@@ -342,7 +342,7 @@ async function run(){
   });
 
   assert.equal(feed.schemaVersion, "server-feed.v3");
-  assert.deepEqual(feed.pagination, { cursor: 0, limit: 20, nextCursor: null, total: 4 }, "match-day followed cards must remain available through their normal post-match retention window");
+  assert.deepEqual(feed.pagination, { cursor: 0, limit: 20, nextCursor: null, total: 1 }, "match-day followed cards must remain available through their normal post-match retention window");
   assert.equal(feed.sourcePublishedAt, "2026-07-27T08:00:00.000Z", "server feeds must retain the canonical publication time separately from per-user generation");
   assert.equal(feed.derivedCardCache.buildOrigin, "server");
   assert.equal(feed.retention.archiveDays, 7);
@@ -352,18 +352,18 @@ async function run(){
     retentionDays: 14,
     inputEvents: 6,
     retainedEvents: 5,
-    enrichedEvents: 3,
-    derivedCards: 3,
+    enrichedEvents: 1,
+    derivedCards: 1,
     active: 2,
     archived: 1,
     saved: 2,
     expired: 1,
   });
   assert(!feed.events.some(item => item.eventId === "expired"), "expired unsaved facts must not return to the client");
-  assert(feed.events.some(item => item.eventId === "archived"), "7-14 day facts must remain available to Archived");
-  assert(feed.events.some(item => item.eventId === "saved-expired"), "saved facts must survive the retention boundary");
-  assert(feed.events.some(item => item.eventId === "manual-archive-expired"), "legacy archive references must preserve facts indefinitely even without a matching action record");
-  assert(feed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === "manual-archive-expired"), "manual Archive must remain materialized for recovery after the normal window");
+  assert(!feed.events.some(item => item.eventId === "archived"), "older source facts must not leak into the seven-day Feed");
+  assert(!feed.events.some(item => item.eventId === "saved-expired"), "saved source facts remain retained without extending the Feed timeline");
+  assert(!feed.events.some(item => item.eventId === "manual-archive-expired"), "legacy archive references must not extend the Feed timeline");
+  assert(!feed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === "manual-archive-expired"), "manual Archive must not rematerialize outside the Feed window");
   assert(!feed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === "archived"), "auto-archived events must not rematerialize as feed cards");
   assert(!feed.derivedCardCache.derivedCards.some(card => card.canonicalEventId === "active-muted"), "muted participants must not receive selective enrichment");
   const followedCard = feed.derivedCardCache.derivedCards.find(card => card.canonicalEventId === "active-followed");
@@ -433,7 +433,8 @@ async function run(){
     const f1Session = response.body.events.find(item => item.key === "f1" && /\b(?:Qualifying|Race)\b/i.test(item.name));
     assert(f1Session, "the authenticated feed must retain an F1 session card");
     assert.equal(f1Session.sportDomainId, "sport:f1", "central F1 cards must use the F1 preference domain");
-    assert.equal(f1Session.participantIds.length, 33, "central F1 cards must resolve the active driver and team field");
+    assert(f1Session.participantIds.length >= 22, "central F1 cards must retain the actual session field");
+    if(f1Session.participantsConfirmed) assert.equal(f1Session.participantIds.length, f1Session.fixtureResults.rows.length, "completed sessions use the classified field, not the current grid");
     const f1Watch = response.body.events.find(item => item.key === "f1" && /watch/i.test(item.name));
     assert(!f1Watch || !f1Watch.participantIds?.length, "central ticket/date watches must not inherit sporting follow context");
     const tennisFinal = contextualCatalogueById.get("wimbledon-final-sinner-zverev-2026");

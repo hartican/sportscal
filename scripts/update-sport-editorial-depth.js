@@ -3,7 +3,7 @@
 "use strict";
 
 const fs = require("node:fs");
-const { stakesFor } = require("./update-rolling-editorial-projections.js");
+const { researchDepthFor } = require("./update-rolling-editorial-projections.js");
 const { validateKnowledge } = require("./lib/editorial-narrative.js");
 
 const DAY_MS = 86400000;
@@ -127,7 +127,7 @@ function buildEpl(knowledge, events, context, reference){
   const sourceTable = addSource(knowledge, "source:depth:epl:table", "Premier League current 2026/27 table", "https://www.premierleague.com/en/tables/premier-league/2026-27");
   const sourceGuide = addSource(knowledge, "source:depth:epl:season-guide", "Premier League 2026/27 club guide", "https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627");
   const sourceFixtures = addSource(knowledge, "source:depth:epl:fixtures", "Premier League 2026/27 fixture list", "https://www.premierleague.com/en/news/4675097");
-  const targetEvents = events.filter(event => event.key === "premier-league" && stakesFor(event) >= 3 && eventTime(event) >= reference.getTime() - 7 * DAY_MS && eventTime(event) <= reference.getTime() + 30 * DAY_MS);
+  const targetEvents = events.filter(event => event.key === "premier-league" && eventTime(event) >= reference.getTime() - 7 * DAY_MS && eventTime(event) <= reference.getTime() + 30 * DAY_MS);
   const allLeagueEvents = events.filter(event => event.key === "premier-league");
   for (const event of targetEvents){
     const homeId = event.homeParticipantId;
@@ -154,7 +154,7 @@ function buildEpl(knowledge, events, context, reference){
     const result = String(event.outcomeText || event.recapText || "").trim();
     replaceProjection(knowledge, {
       id:`projection:rolling:${slug(idFor(event))}`,
-      targetType:"feed-event", targetIds:[idFor(event)], stakes:stakesFor(event), hook, synopsis,
+      targetType:"feed-event", targetIds:[idFor(event)], researchDepth:researchDepthFor(event), hook, synopsis,
       ...(result ? { hookSpoilerOn:fit(event.outcomeText || `${event.displayTitleCompact || event.name || "This fixture"} is complete.`, 180), synopsisSpoilerOn:fit(`${result} ${event.recapText || ""} The result now updates ${home.name}'s ${home.test} thread and ${away.name}'s ${away.test} thread rather than ending the story at full-time.`, 700) } : {}),
       threadIds:[homeThread, awayThread], factIds:[homeArcFact, awayArcFact, homeFormFact, awayFormFact, matchupFact], sourceIds:[sourceTable, sourceGuide, sourceFixtures, eventSource], researchedAt:reference.toISOString(), refreshAfter:event.status === "completed" ? null : event.startTimeUtc || null, generationMode:"researched", originalityReview:{ method:"independent-summary-no-source-prose-retained", reviewedAt:reference.toISOString() },
     });
@@ -196,7 +196,7 @@ function buildAfl(knowledge, events, reference){
     threadFacts[story.thread].push(...factIds);
     const result = String(event.outcomeText || event.recapText || "").trim();
     replaceProjection(knowledge, {
-      id:`projection:rolling:${slug(idFor(event))}`, targetType:"feed-event", targetIds:[idFor(event)], stakes:stakesFor(event), hook:story.hook, synopsis:story.synopsis,
+      id:`projection:rolling:${slug(idFor(event))}`, targetType:"feed-event", targetIds:[idFor(event)], researchDepth:researchDepthFor(event), hook:story.hook, synopsis:story.synopsis,
       ...(result ? { hookSpoilerOn:fit(event.outcomeText || `${event.displayTitleCompact || event.name || "This fixture"} is complete.`, 180), synopsisSpoilerOn:fit(`${result} ${event.recapText || ""} The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.`, 700) } : {}),
       threadIds:[`thread:depth:afl:${story.thread}`], factIds, sourceIds:[sourceLadder, sourceFinals, sourceRules, eventSource], researchedAt:reference.toISOString(), refreshAfter:event.status === "completed" ? null : event.startTimeUtc || null, generationMode:"researched", originalityReview:{ method:"independent-summary-no-source-prose-retained", reviewedAt:reference.toISOString() },
     });
@@ -276,7 +276,7 @@ function buildCricket(knowledge, events, reference){
     "new-zealand":addSubject(knowledge, "subject:depth:cricket:new-zealand-tests-2026-27", "series", "Australia v New Zealand Tests 2026/27"),
   };
   const threadFacts = { bangladesh:[], "south-africa":[], england:[], "new-zealand":[] };
-  const targetEvents = events.filter(event => CRICKET_STORIES[idFor(event)] && stakesFor(event) >= 3);
+  const targetEvents = events.filter(event => CRICKET_STORIES[idFor(event)] && researchDepthFor(event) >= 3);
   for (const event of targetEvents){
     const story = CRICKET_STORIES[idFor(event)];
     const subjectId = subjects[story.thread];
@@ -285,7 +285,7 @@ function buildCricket(knowledge, events, reference){
     threadFacts[story.thread].push(...factIds);
     const result = String(event.outcomeText || event.recapText || "").trim();
     replaceProjection(knowledge, {
-      id:`projection:sport-depth:${slug(idFor(event))}`, targetType:"feed-event", targetIds:[idFor(event)], stakes:stakesFor(event), hook:story.hook, synopsis:story.synopsis,
+      id:`projection:sport-depth:${slug(idFor(event))}`, targetType:"feed-event", targetIds:[idFor(event)], researchDepth:researchDepthFor(event), hook:story.hook, synopsis:story.synopsis,
       ...(result ? { hookSpoilerOn:story.resultHook || fit(event.outcomeText || `${event.displayTitleCompact || event.name || "This fixture"} is complete.`, 180), synopsisSpoilerOn:fit(`${result} ${event.recapText || ""} This result advances the persistent ${story.thread.replace("-", " ")} series thread rather than ending at the scoreline.`, 700) } : {}),
       threadIds:[`thread:depth:cricket:${story.thread}`], factIds, sourceIds, researchedAt:reference.toISOString(), refreshAfter:event.status === "completed" ? null : event.startTimeUtc || null, generationMode:"researched", originalityReview:{ method:"independent-summary-no-source-prose-retained", reviewedAt:reference.toISOString() },
     });
@@ -321,6 +321,18 @@ function main(){
   const football = buildEpl(knowledge, feed.events, context, reference);
   const afl = buildAfl(knowledge, feed.events, reference);
   const cricket = buildCricket(knowledge, feed.events, reference);
+  // Carry source-backed series context into the deeper fixture research record.
+  // Never invent a fourth fact or cite a source that supports none of its facts.
+  const factsById=new Map(knowledge.narrativeFacts.map(fact=>[fact.id,fact]));
+  for(const projection of knowledge.eventProjections.filter(p=>p.researchDepth===5)){
+    const complete=()=>projection.factIds.length>=4&&projection.sourceIds.length>=3&&new Set(projection.factIds.map(id=>factsById.get(id)?.dimension)).size>=3;
+    const threadFacts=knowledge.narrativeThreads.filter(thread=>projection.threadIds.includes(thread.id)).flatMap(thread=>thread.factIds);
+    for(const id of threadFacts){
+      if(complete())break;
+      const fact=factsById.get(id);if(!fact||projection.factIds.includes(id))continue;
+      projection.factIds.push(id);projection.sourceIds=[...new Set([...projection.sourceIds,...fact.sourceIds])];
+    }
+  }
   knowledge.updatedAt = reference.toISOString();
   const issues = validateKnowledge(knowledge);
   if (issues.length) throw new Error(`Sport editorial depth invalid:\n- ${issues.join("\n- ")}`);

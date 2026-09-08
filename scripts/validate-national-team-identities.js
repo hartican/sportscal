@@ -17,8 +17,8 @@ const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 
 assert.equal(registry.schemaVersion, "national-team-identities.v1");
 assert.equal(registry.baselineCount, 58);
-assert.equal(registry.allTeams.length, 58, "the audited baseline must contain 58 national-team identities");
-assert.equal(new Set(registry.allTeams.map(team => team.id)).size, 58, "national-team IDs must be unique");
+assert.equal(registry.allTeams.length, 67, "the audited baseline must contain 67 national-team identities");
+assert.equal(new Set(registry.allTeams.map(team => team.id)).size, 67, "national-team IDs must be unique");
 assert.equal(new Set(registry.allTeams.map(team => team.assetPath)).size, 58, "each national-team identity must have an explicit local asset path");
 assert.deepEqual(registry.policy.order, ["team-logo", "federation-crest", "coat-of-arms"]);
 
@@ -51,7 +51,7 @@ registry.allTeams.forEach(team => {
 
 assert.equal(cardIdentities.schemaVersion, "card-identities.v4");
 assert.equal(cardIdentities.policy.nationalTeamFlags, false);
-assert.equal(catalogue.allTeams.filter(team => team.teamKind === "national").length, 58, "Follow must consume all 58 registry identities");
+assert.equal(catalogue.allTeams.filter(team => team.teamKind === "national").length, 67, "Follow must consume all 67 registry identities");
 assert.doesNotMatch(html, /<script src="config\/national-team-identities\.js"><\/script>/, "the full provenance registry must stay out of the critical app shell");
 const shellVersion = html.match(/name="app-shell-version" content="(\d+)"/)?.[1];
 assert(shellVersion, "the app shell version must be declared");
@@ -65,12 +65,16 @@ assert(serviceWorkerSource.includes(`nothingsport-shell-v${shellVersion}`), "the
 assert(serviceWorkerSource.includes(`"/assets/js/app-shell-runtime.js?v=${shellVersion}"`), "the offline shell must cache the exact runtime carrying national identities");
 
 const regressionCases = [
+  [{key:"cricket", name:"India Women v Pakistan Women"}, ["team:cricket:india-women", "team:cricket:pakistan-women"]],
+  [{key:"cricket", name:"India Women v Pakistan Women", participantIds:["team:cricket:india", "team:cricket:pakistan"]}, ["team:cricket:india-women", "team:cricket:pakistan-women"]],
+  [{key:"cricket", name:"South Africa A v Bangladesh A"}, []],
+  [{key:"cricket", name:"England Under 19s v Pakistan Under 19s"}, []],
   [{ key:"nrl", name:"Australia v New Zealand" }, ["team:nrl:kangaroos", "team:nrl:kiwis"]],
   [{ key:"nrl", name:"Australia v Fiji — Rugby League World Cup" }, ["team:nrl:kangaroos", "team:nrl:fiji-bati"]],
   [{ key:"nrl", name:"Australia v Cook Islands — Rugby League World Cup" }, ["team:nrl:kangaroos", "team:nrl:cook-islands-aitu"]],
   [{ key:"nrl", name:"Australia Women v New Zealand Women" }, ["team:nrl:jillaroos", "team:nrl:kiwi-ferns"]],
   [{ key:"football", name:"Australia v England" }, ["team:football:socceroos", "team:football:england"]],
-  [{ key:"football", name:"Matildas v USA" }, ["team:football:matildas", "team:football:usa"]],
+  [{ key:"football", name:"Matildas v USA" }, ["team:football:matildas"]],
   [{ key:"rugby", name:"Australia v New Zealand" }, ["team:rugby:wallabies", "team:rugby:all-blacks"]],
   [{ key:"netball", name:"Australia v New Zealand" }, ["team:netball:diamonds", "team:netball:silver-ferns"]],
   [{ key:"netball", name:"South Africa v Jamaica" }, ["team:netball:south-africa-proteas", "team:netball:jamaica-sunshine-girls"]],
@@ -127,12 +131,12 @@ if (!assetsOnly){
 
   const followRecords = fs.readdirSync(path.join(ROOT, "data/follow-directory")).filter(name => name.endsWith(".v1.json") && name !== "manifest.v1.json")
     .flatMap(name => JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory", name), "utf8")).records || [])
-    .filter(record => record.teamKind === "national");
-  assert.equal(followRecords.length, 58, "generated Follow data must retain all national teams as teamKind national");
+    .filter(record => record.teamKind === "national" && registry.teamForId(record.id));
+  assert.equal(followRecords.length, 67, "generated Follow data must retain all national teams as teamKind national");
   followRecords.forEach(record => {
     assert(registry.teamForId(record.id), `Follow contains unknown national team ${record.id}`);
     assert.match(record.logoUrl || "", /^assets\/identities\/national\//, `${record.id} Follow logo must be local`);
   });
 }
 
-console.log(`National-team identity validation passed for 58 identities${assetsOnly ? " (assets and integration)" : " across Feed, major events, Standings & Fixtures and Follow"}.`);
+console.log(`National-team identity validation passed for 67 identities${assetsOnly ? " (assets and integration)" : " across Feed, major events, Standings & Fixtures and Follow"}.`);

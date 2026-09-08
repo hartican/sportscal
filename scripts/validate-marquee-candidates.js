@@ -54,7 +54,8 @@ async function main(){
   for (const candidate of artifact.candidates){
     assert.ok(!ids.has(candidate.campaignId)); ids.add(candidate.campaignId);
     assert.equal(candidate.material.stakes, 5);
-    assert.ok(candidate.source.name && candidate.source.url && candidate.source.checkedAt);
+    if(candidate.readyForExport)assert.ok(candidate.source.name && candidate.source.url && candidate.source.checkedAt);
+    else if(!candidate.source.name || !candidate.source.url)assert(candidate.readinessIssues.includes("missing_source_provenance"));
     assert.ok(candidate.drafts.instagram.caption.length <= 2200);
     assert.ok(candidate.drafts.email.subject.length <= 150);
     assert.ok(candidate.drafts.email.preheader.length <= 150);

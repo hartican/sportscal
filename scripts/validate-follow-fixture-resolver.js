@@ -49,8 +49,10 @@ for (const [entityId, expectedMinimum] of [
 }
 
 const playerState = state(follow("competitor:football:espn:134283"));
-assert(expandedFollowEntityIds(playerState).has("team:football:club:real-madrid"), "a followed team-sport player must expand to the current team");
-assert(resolveUserFollowFixtures({ events:[], userState:playerState }).events.length, "player-to-current-team expansion must resolve fixtures");
+assert(!expandedFollowEntityIds(playerState).has("team:football:club:real-madrid"), "club membership is not confirmed participation");
+assert.equal(resolveUserFollowFixtures({ events:[], userState:playerState }).events.length, 0, "unconfirmed current-team fixtures must not be inferred");
+const confirmedPlayerFixture={id:"confirmed-player",cardKind:"fixture",key:"football",participantIds:["competitor:football:espn:134283"],participantsConfirmed:true};
+assert(resolveUserFollowFixtures({events:[confirmedPlayerFixture],userState:playerState}).events.some(e=>e.id==="confirmed-player"), "confirmed participation resolves the followed player fixture");
 const mutedTeamState = state(follow("competitor:football:espn:134283"), follow("team:football:club:real-madrid", "mute"));
 assert(!expandedFollowEntityIds(mutedTeamState).has("team:football:club:real-madrid"), "an explicit team mute must override player expansion");
 assert.equal(resolveUserFollowFixtures({ events:[], userState:mutedTeamState }).events.length, 0, "muted current-team fixtures must not enter the personalised pool");
@@ -90,15 +92,15 @@ nflPlayerState.preferences.preferenceGraph.domainPreferences = [{
   includeFollowedTeams:true,
 }];
 const nflPlayerResolved = resolveUserFollowFixtures({ events:[], userState:nflPlayerState });
-assert(expandedFollowEntityIds(nflPlayerState).has("team:nfl:ari"), "a followed NFL player must expand to the current team");
-assert(buildServerFeed({
+assert(!expandedFollowEntityIds(nflPlayerState).has("team:nfl:ari"), "NFL club membership alone does not confirm fixture participation");
+assert(!buildServerFeed({
   events:nflPlayerResolved.events,
   userId:"00000000-0000-4000-8000-000000000001",
   userState:nflPlayerState,
   participants:nflPlayerResolved.participants,
   now:new Date("2026-08-29T12:00:00.000Z"),
   limit:20,
-}).events.length, "player-expanded fixtures must remain eligible after the server feed filter");
+}).events.length, "unconfirmed player fixtures must not pass the server filter");
 
 const lowStakesFollow = {
   id:"fixture:test:low-stakes-follow",
@@ -245,7 +247,7 @@ const artifactBuilderSource = fs.readFileSync(path.resolve(__dirname, "build-fol
 assert(artifactBuilderSource.includes("includeCompactArtifact:false"), "the compact artifact must be regenerated from source bundles rather than its previous saved state");
 
 const html = fs.readFileSync(path.resolve(__dirname, "../index.html"), "utf8");
-assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v6"'), "pre-direct-follow personalised pages must be invalidated");
+assert(html.includes('PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v7"'), "pre-direct-follow personalised pages must be invalidated");
 assert(html.includes('payload?.schemaVersion !== "server-feed.v3"'), "the client must reject stale personalised schemas");
 assert(html.includes("requestFeedRebuildAfterFollowChange"), "follow changes must request an immediate server rebuild");
 assert.match(html, /await syncCurrentServerState\(\);[^]*await clearCachedPersonalisedFeed[^]*await refreshRemoteFeed/, "the follow rebuild must complete server sync before fetching the new page");
@@ -253,4 +255,4 @@ assert.match(html, /followFeedRefreshPending = true[^]*navigator\?\.onLine === f
 assert.match(html, /window\.addEventListener\("online"[^]*followFeedRefreshPending[^]*requestFeedRebuildAfterFollowChange/, "pending follow refreshes must retry on reconnection");
 assert.match(html, /function buildEventTimingStateChip[^]*chip\.textContent = timing\.label[^]*event-date-line[^]*appendChild\(timingChip\)/, "live cards must display the shared explicit timing signage beside their start time");
 
-console.log("Follow fixture resolver valid: source adapters, player expansion, mutes, deduplication, private snapshots, cache invalidation and offline retry passed.");
+console.log("Follow fixture resolver valid: source adapters, confirmed participation, mutes, deduplication, private snapshots, cache invalidation and offline retry passed.");

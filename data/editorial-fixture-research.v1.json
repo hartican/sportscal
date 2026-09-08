@@ -1,0 +1,843 @@
+{
+  "schemaVersion": "fixture-editorial-research.v1",
+  "entries": [
+    {
+      "id": "fixture:us-open-2026:official:ms:1504",
+      "title": "Ben Shelton v Carlos Alcaraz",
+      "hook": "Shelton brings home support and a sharpened game to the defending champion's quarterfinal test.",
+      "synopsis": "Ben Shelton went straight from beating Stefanos Tsitsipas to the practice court: reaching this quarterfinal was a step, not the destination. Carlos Alcaraz brings the defending champion's authority into an Ashe night session where Shelton can make the occasion feel very different. The American's challenge is to sustain that pressure against a player no American has beaten at a major.",
+      "sources": [
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+        "https://www.usopen.org/en_US/news/articles/2026-09-07/carlos_alcaraz_to_face_ben_shelton_on_tuesday_at_the_2026_us_open.html",
+        "https://www.usopen.org/amp/en_US/news/articles/2026-09-06/shelton_dominates_tsitsipas_sets_alcaraz_clash_in_2026_us_open_quarterfinals.html"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Defending champion Carlos Alcaraz faces eighth seed Ben Shelton in the US Open quarterfinals.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Shelton defeated Stefanos Tsitsipas in the fourth round before returning to the practice court.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Shelton is seeking to become the first American to defeat Alcaraz at a Grand Slam.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Shelton and Alcaraz are second on the Arthur Ashe night-session programme.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T12:00:00.000Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2501",
+      "title": "Aryna Sabalenka v Linda Noskova",
+      "hook": "Sabalenka's title defence and No. 1 hopes meet Wimbledon champion Noskova in the last eight.",
+      "synopsis": "Aryna Sabalenka needs the title to keep a chance of retaining No. 1, making this quarterfinal a test of both her New York defence and her standing in the game. Linda Noskova arrives with the authority of a Wimbledon champion. With Rybakina, Pegula and Gauff also in the ranking contest, this is a direct collision between two major winners with consequences beyond the next round.",
+      "sources": [
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+        "https://www.usopen.org/en_US/news/articles/2026-09-07/aryna_sabalenka_to_meet_linda_noskova_on_tuesday_at_the_2026_us_open.html",
+        "https://www.usopen.org/en_US/news/articles/2026-09-07/six_americans_reach_2026_us_open_quarterfinals_most_since_2002.html"
+      ],
+      "facts": [
+        {
+          "dimension": "path",
+          "statement": "Sabalenka must win the US Open to retain a chance of keeping the No. 1 ranking.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Linda Noskova enters this quarterfinal as the reigning Wimbledon champion.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Rybakina, Pegula and Gauff also remain in contention for the No. 1 ranking.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Sabalenka and Noskova open the Arthur Ashe programme at 11:30am New York time.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T12:00:00.000Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ws:2502",
+      "title": "Jessica Pegula v Emma Navarro",
+      "hook": "Pegula and Navarro put a guaranteed American semifinal place on the line, with a ranking prize still within Pegula's reach.",
+      "synopsis": "Jessica Pegula has already reached a US Open final; Emma Navarro is trying to turn her return to the last eight into another deep run at home. Their meeting guarantees an American semifinalist, but only one can keep building on a tournament that has brought six home players into the singles quarterfinals. Pegula also remains among the players with a chance of leaving New York as world No. 1.",
+      "sources": [
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+        "https://www.usopen.org/amp/en_US/news/articles/2026-09-07/emma_navarro_and_jessica_pegula_to_play_in_all-american_qf_at_the_2026_us_open.html",
+        "https://www.usopen.org/en_US/news/articles/2026-09-07/six_americans_reach_2026_us_open_quarterfinals_most_since_2002.html"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Pegula and Navarro meet in an all-American US Open quarterfinal.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Pegula reached the 2024 US Open final, losing to Sabalenka.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Their quarterfinal guarantees an American woman in the singles semifinals.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Pegula remains one of four women with a chance of taking the No. 1 ranking.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Pegula and Navarro open the Arthur Ashe night session on Tuesday.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T12:00:00.000Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1503",
+      "title": "Frances Tiafoe v Alex Michelsen",
+      "hook": "Tiafoe and Michelsen meet with an American semifinal place guaranteed and the home-title drought still alive as a target.",
+      "synopsis": "Frances Tiafoe and Alex Michelsen can draw on the same home crowd, but this quarterfinal gives only one of them a place in the last four. They are part of a six-player American singles contingent in the quarterfinals, the country's largest here since 2002. Their match converts that collective promise into a guaranteed semifinal berth; the winner carries it into the closing days.",
+      "sources": [
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+        "https://www.usopen.org/amp/en_US/news/articles/2026-09-07/2026_us_open_alex_michelsen_vs_frances_tiafoe_-_quarterfinal_key_match_preview.html",
+        "https://www.usopen.org/en_US/news/articles/2026-09-07/six_americans_reach_2026_us_open_quarterfinals_most_since_2002.html"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Tiafoe and Michelsen face each other in the US Open quarterfinals.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Six Americans reached the singles quarterfinals, the most at the US Open since 2002.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The Tiafoe-Michelsen match guarantees an American man a semifinal place.",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Tiafoe and Michelsen play in the Arthur Ashe day session after Sabalenka and Noskova.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T12:00:00.000Z"
+    },
+    {
+      "id": "evt_27",
+      "title": "Italian Grand Prix race",
+      "hook": "Monza earns a five-star replay: two starts and split Mercedes strategies turn a home race into a contest worth watching in full.",
+      "synopsis": "The Italian Grand Prix keeps changing its terms: an early red flag resets the field, Mercedes lets its drivers contest the lead, and a virtual safety car forces a choice between track position and fresher tyres. There is a separate fight between the McLarens, with little room to spare. It earns our five-star replay recommendation for the way those decisions unfold, rather than simply for the final classification.",
+      "sources": [
+        "https://www.formula1.com/en/latest/article/what-the-teams-said-race-day-in-italy-2026.43DzkIlg5jfZZOc1IBjSv3",
+        "https://www.formula1.com/en/results/2026/races/1293/italy/race-result",
+        "https://www.formula1.com/en/racing/2026/italy"
+      ],
+      "facts": [
+        {
+          "dimension": "form",
+          "statement": "Antonelli won at Monza after starting nineteenth on the grid.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "Antonelli became the first Italian winner at Monza since 1966.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Mercedes split strategies under a virtual safety car, with Antonelli stopping and Russell staying out.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Antonelli finished ahead of Russell and Verstappen in the official race classification.",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T12:00:00.000Z",
+      "promotedReplay": true,
+      "hookSpoilerOn": "Antonelli wins from nineteenth at Monza, ending a sixty-year wait for an Italian home winner.",
+      "synopsisSpoilerOn": "Kimi Antonelli turned nineteenth on the grid into victory, using fresh tyres after a virtual-safety-car stop to catch George Russell. Mercedes finished first and second, with Max Verstappen third. The comeback made Antonelli the first Italian to win at Monza since 1966; the split strategy and the battles behind make the full race worth revisiting."
+    },
+    {
+      "id": "major-match:nrl-finals-2026:qualifying-final-1",
+      "title": "Panthers v Roosters",
+      "hook": "The minor premiers meet fourth-placed Sydney with a week off within reach.",
+      "synopsis": "Penrith secured top spot in the final round. Nathan Cleary faces Daly Cherry-Evans in a qualifying final that rewards the winner with direct passage to a preliminary final. The loser gets another chance, but must play next week.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+        "https://www.nrl.com/news/2026/09/08/nrl-team-lists-finals-week-1/",
+        "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Penrith finished first and the Roosters fourth.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Penrith secured the minor premiership in the final round.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Cleary and Cherry-Evans are the named halfbacks.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Qualifying winners advance to preliminary finals; losers enter semi-finals.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T13:00:00.000Z"
+    },
+    {
+      "id": "major-match:nrl-finals-2026:qualifying-final-2",
+      "title": "Warriors v Dolphins",
+      "hook": "The Dolphins begin their first finals campaign against second-placed New Zealand.",
+      "synopsis": "The Dolphins arrive with Cobbo, Finefeuiaki and Nikorima returning. The Warriors regain Ford and Halasima for a qualifying final offering the winner a week off. A defeat preserves one life but adds a sudden-death semi-final to the route.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+        "https://www.nrl.com/news/2026/09/08/nrl-team-lists-finals-week-1/",
+        "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/"
+      ],
+      "facts": [
+        {
+          "dimension": "history",
+          "statement": "This is the Dolphins’ first finals appearance.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "The Warriors finished second and the Dolphins third.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Ford and Halasima return for New Zealand.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The winner advances directly to a preliminary final.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T13:00:00.000Z"
+    },
+    {
+      "id": "major-match:nrl-finals-2026:elimination-final-1",
+      "title": "Sharks v Cowboys",
+      "hook": "Trindall returns for Cronulla as fifth meets eighth with no second chance.",
+      "synopsis": "Trindall rejoins Hynes after a shoulder injury. The Cowboys regain Neame, Nanai and Laybutt, but their eighth-place finish leaves them on the elimination path. The winner must then get past a qualifying-final loser to reach the preliminary finals.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+        "https://www.nrl.com/news/2026/09/08/nrl-team-lists-finals-week-1/",
+        "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Cronulla finished fifth and North Queensland eighth.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Trindall returns after a shoulder injury.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Neame, Nanai and Laybutt return for North Queensland.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The loser is eliminated; the winner enters a semi-final.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T13:00:00.000Z"
+    },
+    {
+      "id": "major-match:nrl-finals-2026:elimination-final-2",
+      "title": "Rabbitohs v Knights",
+      "hook": "Sixth meets seventh to open the finals, with one season ending on Friday.",
+      "synopsis": "South Sydney and Newcastle begin on the sudden-death side of the draw. Ponga is named at fullback for the Knights, opposite Dufty. Winning this elimination final earns another game against a top-four opponent; losing ends the premiership campaign.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+        "https://www.nrl.com/news/2026/09/08/nrl-team-lists-finals-week-1/",
+        "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "South Sydney finished sixth and Newcastle seventh.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "This elimination final opens the series on Friday.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Ponga and Dufty are the named fullbacks.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The winner faces a qualifying-final loser in a semi-final.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T13:00:00.000Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1222",
+      "title": "Daniel Merida v Andrey Rublev",
+      "hook": "Merida tests his rapid rise against Rublev’s established New York record.",
+      "synopsis": "Daniel Merida arrived in New York ranked 39th after beginning the year outside the top 160. Andrey Rublev brought four US Open quarterfinal appearances to this second-round meeting: a useful measure of whether the Spaniard’s first ATP title in July signalled a lasting step forward.",
+      "hookSpoilerOn": "Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev",
+      "synopsisSpoilerOn": "Merida recovered from losing the opening tiebreak to win in four sets, the biggest victory of his career. Daniel Merida 6(3)-7(7) 6-2 6-4 6-4 Andrey Rublev.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/news/articles/2026-09-02/who_is_daniel_merida_rublevs_conqueror_at_the_2026_us_open.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Merida rose from No. 163 in January to No. 39 before the US Open.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Rublev entered as the 23rd seed and a four-time US Open quarterfinalist.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Daniel Merida v Andrey Rublev was scheduled in Round 2 at Court 11.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1231",
+      "title": "James Duckworth v Yibing Wu",
+      "hook": "Duckworth and Wu meet at the point where return pressure can change the match.",
+      "synopsis": "James Duckworth’s second-round assignment was Yibing Wu, with a place in the last 32 at stake. Court 6 offered a close view of the serve-and-return contest between the Australian and Chinese players; the official match record makes those exchanges the useful starting point for the replay.",
+      "hookSpoilerOn": "James Duckworth 5-7 3-6 1-6 Yibing Wu",
+      "synopsisSpoilerOn": "Wu won 7-5, 6-3, 6-1, converting five of 14 break opportunities while facing none himself. His 36 winners against 12 unforced errors explain the increasing separation. James Duckworth 5-7 3-6 1-6 Yibing Wu.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/scores/stats/1231.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Wu converted five of fourteen break points and faced no break points.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Wu recorded 36 winners and 12 unforced errors.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "James Duckworth v Yibing Wu was scheduled in Round 2 at Court 6.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1230",
+      "title": "Dino Prizmic v Tommy Paul",
+      "hook": "Paul’s home campaign meets Prizmic’s challenge in the Grandstand.",
+      "synopsis": "Tommy Paul brought the twentieth seed and local support into this second-round match against Dino Prizmic. Their Grandstand meeting put a place in the last 32 on the line, with the American trying to build a route towards the second week of his home major.",
+      "hookSpoilerOn": "Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul",
+      "synopsisSpoilerOn": "Paul won 6-2, 6-3, 5-7, 6-4 in three hours and four minutes. Prizmic’s third-set response forced the American to finish the work in a fourth. Dino Prizmic 2-6 3-6 7-5 4-6 Tommy Paul.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/scores/stats/1230.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule11.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Paul entered as the twentieth seed in the men’s singles draw.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Paul and Prizmic played for three hours and four minutes in the Grandstand.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Dino Prizmic v Tommy Paul was scheduled in Round 2 at Grandstand.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1202",
+      "title": "Alexei Popyrin v Alejandro Tabilo",
+      "hook": "Popyrin faces seeded Tabilo with another Australian place in the last 32 at stake.",
+      "synopsis": "Alexei Popyrin’s path through Grigor Dimitrov led to a second-round meeting against Alejandro Tabilo. The Chilean held the twenty-fifth seed, making this a test of whether Popyrin could carry that first-round progress further through the draw.",
+      "hookSpoilerOn": "Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo",
+      "synopsisSpoilerOn": "Tabilo won 2-6, 7-6(4), 7-6(3), 6-2. Two middle-set tiebreaks reversed Popyrin’s opening advantage in a three-hour, 22-minute match. Alexei Popyrin 6-2 6(4)-7(7) 6(3)-7(7) 2-6 Alejandro Tabilo.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/scores/schedule/schedule12.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Tabilo was seeded twenty-fifth in the men’s singles draw.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "The match lasted three hours and twenty-two minutes on Court 7.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Alexei Popyrin v Alejandro Tabilo was scheduled in Round 2 at Court 7.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1211",
+      "title": "Jakub Mensik v Jurij Rodionov",
+      "hook": "Mensik and Rodionov arrive from straight-set opening wins.",
+      "synopsis": "Jakub Mensik’s seventeenth seed met Jurij Rodionov’s opening-round momentum in this second-round match. Mensik had come through Shintaro Mochizuki in three sets, while Rodionov had done the same against Giovanni Mpetshi Perricard. The contest put two efficient starts against one another for a place in round three.",
+      "hookSpoilerOn": "Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov",
+      "synopsisSpoilerOn": "The official fixture result is available below. Jakub Mensik 6-3 3-6 6-2 6-3 Jurij Rodionov.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/scores/schedule/schedule9.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Mensik beat Shintaro Mochizuki in three sets in the opening round.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Rodionov beat Giovanni Mpetshi Perricard in three sets in the opening round.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Jakub Mensik v Jurij Rodionov was scheduled in Round 2 at Court 11.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:md:3126",
+      "title": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers",
+      "hook": "Duckworth and Peers stand on opposite sides of an Australian doubles interest.",
+      "synopsis": "James Duckworth paired with Miomir Kecmanovic against Marcelo Melo and John Peers in the opening round. With an Australian on each side, this Court 15 meeting offered two different partnerships chasing the same place in round two.",
+      "hookSpoilerOn": "James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers",
+      "synopsisSpoilerOn": "Melo and Peers recovered from a set down to win 3-6, 7-5, 6-4 in one hour and 41 minutes. James Duckworth / Miomir Kecmanovic 6-3 5-7 4-6 Marcelo Melo / John Peers.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/scores/schedule/schedule13.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Melo and Peers won the second set 7-5 after losing the opening set.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "The Court 15 match lasted one hour and forty-one minutes.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "James Duckworth / Miomir Kecmanovic v Marcelo Melo / John Peers was scheduled in Round 1 at Court 15.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1315",
+      "title": "Alexander Bublik v Tommy Paul",
+      "hook": "Paul and Bublik revisit the third-round rivalry that went the distance a year ago.",
+      "synopsis": "Alexander Bublik ended Tommy Paul’s 2025 US Open in five sets at this same stage. Their rematch carried that history into Louis Armstrong Stadium, where Paul was again playing for the chance to take his home campaign into the second week.",
+      "hookSpoilerOn": "Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul",
+      "synopsisSpoilerOn": "Paul reversed last year’s outcome in another five-set match, recovering from two sets to one down. A 6-1 fourth set and a 5-0 start to the fifth turned the contest before he closed it 6-3. Alexander Bublik 4-6 6-3 7(7)-6(4) 1-6 3-6 Tommy Paul.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/news/articles/2026-09-04/tommy_paul_tops_alexander_bublik_at_2026_us_open_to_avenge_2025_loss.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule13.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Bublik beat Paul in five sets in the third round of the 2025 US Open.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Paul won the fourth set 6-1 and led 5-0 in the fifth before closing it 6-3.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Alexander Bublik v Tommy Paul was scheduled in Round 3 at Louis Armstrong Stadium.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1306",
+      "title": "Jakub Mensik v Learner Tien",
+      "hook": "Mensik and Tien bring a young rivalry into the pressure of a home major.",
+      "synopsis": "Learner Tien faced Jakub Mensik in the third round with his best US Open run taking shape. Mensik arrived as the new mixed doubles champion alongside Karolina Muchova, giving the Czech a very different kind of New York momentum.",
+      "hookSpoilerOn": "Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien",
+      "synopsisSpoilerOn": "Tien won 6-3, 1-6, 6-7(2), 6-3, 6-4, recovering from two sets to one down to continue his best run at his home Grand Slam. Jakub Mensik 3-6 6-1 7(7)-6(2) 3-6 4-6 Learner Tien.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/news/articles/2026-09-06/learner_tien_wins_five-set_fight_vs_mensik_in_2026_us_open_third_round.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Mensik won the 2026 US Open mixed doubles title with Karolina Muchova.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Tien recovered from two sets to one down against Mensik.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Jakub Mensik v Learner Tien was scheduled in Round 3 at Louis Armstrong Stadium.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:ms:1408",
+      "title": "Tommy Paul v Carlos Alcaraz",
+      "hook": "Paul tests the returning defending champion for a place in the quarterfinals.",
+      "synopsis": "Carlos Alcaraz arrived with the stronger head-to-head record and a lighter workload through three rounds. Paul had taken the longer route, including a five-set encounter with Bublik. Their fourth-round meeting asked whether that match toughness could disrupt the defending champion’s increasingly assured return from a wrist injury.",
+      "hookSpoilerOn": "Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz",
+      "synopsisSpoilerOn": "Alcaraz won 6-4, 6-3, 6-4 to reach his fifth US Open quarterfinal in six appearances. Tommy Paul 4-6 3-6 4-6 Carlos Alcaraz.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/news/articles/2026-09-06/2026_us_open_carlos_alcaraz_vs_tommy_paul_-_round_4_key_match_preview.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule15.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Alcaraz entered the match with a 6-2 head-to-head advantage over Paul.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Paul reached round four after a five-set victory over Alexander Bublik.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Tommy Paul v Carlos Alcaraz was scheduled in Round 4 at Arthur Ashe Stadium.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:wd:4104",
+      "title": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk",
+      "hook": "Hunter and Krawczyk begin their seeded doubles campaign against an American pair.",
+      "synopsis": "Storm Hunter and Desirae Krawczyk entered as the thirteenth seeds against DJ Bennett and Ava Esposito. The Australian-American pairing had an immediate opportunity to establish itself in a draw led by Siniakova and Townsend; Bennett and Esposito stood between them and round two.",
+      "hookSpoilerOn": "DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk",
+      "synopsisSpoilerOn": "Hunter and Krawczyk won 6-0, 6-3 to advance. DJ Bennett / Ava Esposito 0-6 3-6 Storm Hunter / Desirae Krawczyk.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/news/articles/2026-09-03/dabrowski-stefani_routliffe-sutjiadi_among_womens_doubles_winners_on_day_5_of_2026_us_open.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule12.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Hunter and Krawczyk were seeded thirteenth in women’s doubles.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Hunter and Krawczyk won their opening match 6-0, 6-3.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "DJ Bennett / Ava Esposito v Storm Hunter / Desirae Krawczyk was scheduled in Round 1 at Court 13.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:wd:4202",
+      "title": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk",
+      "hook": "Hunter and Krawczyk face a pair fresh from the Cincinnati final.",
+      "synopsis": "Magali Kempen and Alexandra Panova brought a Cincinnati doubles final into their second-round match with Storm Hunter and Desirae Krawczyk. The thirteenth seeds were trying to keep their own campaign moving towards a possible meeting with the top seeds.",
+      "hookSpoilerOn": "Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk",
+      "synopsisSpoilerOn": "Hunter and Krawczyk won 6-4, 5-7, 6-4, earning a third-round meeting with Siniakova and Townsend. Magali Kempen / Alexandra Panova 4-6 7-5 4-6 Storm Hunter / Desirae Krawczyk.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/news/articles/2026-09-05/doubles_katerina_siniakova-taylor_townsend_roll_at_the_2026_us_open.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule14.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Kempen and Panova reached the Cincinnati Open women’s doubles final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Hunter and Krawczyk won this match in three sets to reach round three.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Magali Kempen / Alexandra Panova v Storm Hunter / Desirae Krawczyk was scheduled in Round 2 at Court 12.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "fixture:us-open-2026:official:wd:4301",
+      "title": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk",
+      "hook": "Hunter and Krawczyk stand in the path of Siniakova and Townsend’s missing major.",
+      "synopsis": "Katerina Siniakova and Taylor Townsend entered this third-round meeting with three different Grand Slam titles together and the US Open still to add. Storm Hunter and Desirae Krawczyk, seeded thirteenth, were the immediate obstacle to the top seeds’ quarterfinal place.",
+      "hookSpoilerOn": "Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk",
+      "synopsisSpoilerOn": "Siniakova and Townsend recovered from 5-3 down in the opening set and won 7-6(4), 6-4. Their 35 winners against 15 from Hunter and Krawczyk supplied the decisive attacking difference. Katerina Siniakova / Taylor Townsend 7(8)-6(6) 6-4 Storm Hunter / Desirae Krawczyk.",
+      "researchDepth": 2,
+      "sources": [
+        "https://www.usopen.org/en_US/news/articles/2026-09-07/siniakova-townsend_harrison-skupski_advance_in_doubles_at_the_2026_us_open.html",
+        "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule16.json"
+      ],
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Siniakova and Townsend entered with titles together at the other three Grand Slams.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Siniakova and Townsend hit 35 winners against Hunter and Krawczyk’s fifteen.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk was scheduled in Round 3 at Louis Armstrong Stadium.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ],
+      "researchedAt": "2026-09-08T14:15:34.766Z"
+    }
+  ]
+}

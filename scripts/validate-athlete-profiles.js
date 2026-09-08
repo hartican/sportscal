@@ -36,7 +36,7 @@ assert.ok(gws.every(player => player.headshotUrl && Number(player.competitionNum
 const aflwProfileIds = new Set(chunks.aflw.profiles.map(profile => profile.participantId));
 assert.ok(gws.every(player => aflwProfileIds.has(player.id)));
 const f1 = read("data/canonical/f1-context-2026.json");
-const grid = f1.participants.filter(item => item.type === "competitor" && item.metadata?.active !== false);
+const grid = f1.participants.filter(item => item.type === "competitor" && item.metadata?.active !== false && !item.metadata?.standingsOnly);
 assert.equal(grid.length, 22);
 assert.equal(new Set(grid.map(driver => driver.competitionNumber)).size, 22);
 assert.ok(grid.every(driver => driver.headshotUrl && driver.profileRef && Number(driver.competitionNumber) > 0));

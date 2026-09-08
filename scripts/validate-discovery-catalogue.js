@@ -13,7 +13,7 @@ assert(selector.nodes.some(node => node.nodeType === "internal-event-tag"), "nam
 assert(selector.internalEventTags.every(node => node.exposed === false && node.selectable === false), "event brands must never be filter or follow choices");
 
 const hierarchyExpectations = {
-  "sport:nrl": [["sport:nrl-premiership", "NRL Premiership"], ["sport:nrlw", "NRLW"]],
+  "sport:nrl": [["sport:nrl-premiership", "NRL"], ["sport:nrlw", "NRLW"]],
   "sport:motorsport": [["sport:f1", "F1"], ["sport:motogp", "MotoGP"], ["sport:wrc", "WRC"]],
   "sport:extreme": [["sport:downhill-mtb", "MTB"]],
   "sport:surf": [["sport:big-wave", "Big-wave"]],
@@ -58,9 +58,9 @@ const allGamesMigration = catalogue.migrateEventBrandFollows(["special:commonwea
 assert.deepEqual(
   allGamesMigration.sportIds,
   catalogue.commonwealthSportIds([]),
-  "a Games umbrella without disciplines must include every supported Games sport"
+  "an event-brand follow without disciplines must not create sport follows"
 );
-assert(allGamesMigration.sportIds.length >= 10, "the full Games migration must not collapse to a generic umbrella follow");
+assert.equal(allGamesMigration.sportIds.length, 0);
 
 const migratedPreferences = catalogue.migratePreferences({
   version: 12,

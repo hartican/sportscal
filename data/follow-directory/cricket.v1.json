@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "cricket",
   "label": "Cricket",
-  "generatedAt": "2026-09-08T10:41:20.598Z",
+  "generatedAt": "2026-09-08T12:27:59.331Z",
   "status": "available",
   "sortBasis": "ranking-or-ladder-then-alphabetical",
   "records": [
@@ -35,13 +35,51 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/24273/game/1528705/australia-vs-england-3rd-odi-24273",
-        "https://www.cricket.com.au/"
+        "https://www.cricket.com.au/",
+        "https://www.espn.in/cricket/series/24273/game/1528705/australia-vs-england-3rd-odi-24273"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:australia-women",
+      "displayName": "Australia Women cricket",
+      "shortName": "Australia Women cricket",
+      "aliases": [
+        "Australia cricket",
+        "Australia",
+        "Australian"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "AU",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:24268",
+      "leagueName": "New Zealand Women tour of Australia 2026/27",
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:cricket:australia-women",
+      "logoUrl": "assets/identities/national/cricket/australia.jpg",
+      "logoDarkUrl": "assets/identities/national/cricket/australia.jpg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.cricket.com.au/",
+        "https://www.espn.in/cricket/series/24268/game/1528724/australia-women-vs-new-zealand-women-3rd-t20i-24268"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -72,13 +110,50 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/24484/game/1525666/south-africa-vs-bangladesh-3rd-odi-24484",
-        "https://www.tigercricket.com.bd/"
+        "https://www.tigercricket.com.bd/",
+        "https://www.espn.in/cricket/series/24484/game/1525666/south-africa-vs-bangladesh-3rd-odi-24484"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:bangladesh-women",
+      "displayName": "Bangladesh Women cricket",
+      "shortName": "Bangladesh Women cricket",
+      "aliases": [
+        "Bangladesh cricket",
+        "Bangladesh"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "BD",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:24276",
+      "leagueName": "Bangladesh Women tour of Australia 2026/27",
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:cricket:bangladesh-women",
+      "logoUrl": "assets/identities/national/cricket/bangladesh.jpg",
+      "logoDarkUrl": "assets/identities/national/cricket/bangladesh.jpg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.tigercricket.com.bd/",
+        "https://www.espn.in/cricket/series/24276/game/1528718/australia-women-vs-bangladesh-women-3rd-odi-24276"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -109,13 +184,50 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/24273/game/1528705/australia-vs-england-3rd-odi-24273",
-        "https://www.ecb.co.uk/"
+        "https://www.ecb.co.uk/",
+        "https://www.espn.in/cricket/series/24273/game/1528705/australia-vs-england-3rd-odi-24273"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:england-women",
+      "displayName": "England Women cricket",
+      "shortName": "England Women cricket",
+      "aliases": [
+        "England cricket",
+        "England"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "GB",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:23803",
+      "leagueName": "Ireland Women tour of England 2026",
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:cricket:england-women",
+      "logoUrl": "assets/identities/national/cricket/england.jpg",
+      "logoDarkUrl": "assets/identities/national/cricket/england.jpg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.ecb.co.uk/",
+        "https://www.espn.in/cricket/series/23803/scorecard/1496554/england-women-vs-ireland-women-3rd-odi-23803"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -146,13 +258,50 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/24289/game/1529229/india-vs-west-indies-3rd-odi-24289",
-        "https://www.bcci.tv/"
+        "https://www.bcci.tv/",
+        "https://www.espn.in/cricket/series/24289/game/1529229/india-vs-west-indies-3rd-odi-24289"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:india-women",
+      "displayName": "India Women cricket",
+      "shortName": "India Women cricket",
+      "aliases": [
+        "India cricket",
+        "India"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "IN",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:24559",
+      "leagueName": "India Women tour of South Africa 2026/27",
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:cricket:india-women",
+      "logoUrl": "assets/identities/national/cricket/india.jpg",
+      "logoDarkUrl": "assets/identities/national/cricket/india.jpg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.bcci.tv/",
+        "https://www.espn.in/cricket/series/24559/game/1543892/south-africa-emerging-players-women-vs-india-women-tour-match-24559"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -162,8 +311,7 @@
       "aliases": [
         "New Zealand cricket",
         "New Zealand",
-        "Black Caps",
-        "White Ferns"
+        "Black Caps"
       ],
       "entityType": "team",
       "current": true,
@@ -185,13 +333,51 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/24469/game/1539443/new-zealand-vs-india-2nd-test-24469",
-        "https://www.nzc.nz/"
+        "https://www.nzc.nz/",
+        "https://www.espn.in/cricket/series/24469/game/1539443/new-zealand-vs-india-2nd-test-24469"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:new-zealand-women",
+      "displayName": "New Zealand Women cricket",
+      "shortName": "New Zealand Women cricket",
+      "aliases": [
+        "New Zealand cricket",
+        "New Zealand",
+        "White Ferns"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "NZ",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:24268",
+      "leagueName": "New Zealand Women tour of Australia 2026/27",
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:cricket:new-zealand-women",
+      "logoUrl": "assets/identities/national/cricket/new-zealand.jpg",
+      "logoDarkUrl": "assets/identities/national/cricket/new-zealand.jpg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.nzc.nz/",
+        "https://www.espn.in/cricket/series/24268/game/1528724/australia-women-vs-new-zealand-women-3rd-t20i-24268"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -222,13 +408,50 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/24707/game/1550712/pakistan-vs-sri-lanka-2nd-test-24707",
-        "https://www.pcb.com.pk/"
+        "https://www.pcb.com.pk/",
+        "https://www.espn.in/cricket/series/24707/game/1550712/pakistan-vs-sri-lanka-2nd-test-24707"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:pakistan-women",
+      "displayName": "Pakistan Women cricket",
+      "shortName": "Pakistan Women cricket",
+      "aliases": [
+        "Pakistan cricket",
+        "Pakistan"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "PK",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:22546",
+      "leagueName": "Asian Games Women's Cricket Competition",
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:cricket:pakistan-women",
+      "logoUrl": "assets/identities/national/cricket/pakistan.jpg",
+      "logoDarkUrl": "assets/identities/national/cricket/pakistan.jpg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.pcb.com.pk/",
+        "https://www.espn.in/cricket/series/22546/game/1550475/pakistan-women-vs-thailand-women-2nd-quarter-final-asian-games-womens-cricket-competition-2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -260,13 +483,51 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/24203/game/1525656/south-africa-vs-australia-2nd-odi-24203",
-        "https://cricket.co.za/"
+        "https://cricket.co.za/",
+        "https://www.espn.in/cricket/series/24203/game/1525656/south-africa-vs-australia-2nd-odi-24203"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:south-africa-women",
+      "displayName": "South Africa Women cricket",
+      "shortName": "South Africa Women cricket",
+      "aliases": [
+        "South Africa cricket",
+        "South Africa",
+        "Proteas"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "ZA",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:24565",
+      "leagueName": "South Africa Women tour of Zimbabwe 2026",
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:cricket:south-africa-women",
+      "logoUrl": "assets/identities/national/cricket/south-africa.jpg",
+      "logoDarkUrl": "assets/identities/national/cricket/south-africa.jpg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://cricket.co.za/",
+        "https://www.espn.in/cricket/series/24565/game/1543891/zimbabwe-women-vs-south-africa-women-5th-t20i-24565"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -297,13 +558,50 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/23802/game/1496590/england-vs-sri-lanka-3rd-odi-23802",
-        "https://srilankacricket.lk/"
+        "https://srilankacricket.lk/",
+        "https://www.espn.in/cricket/series/23802/game/1496590/england-vs-sri-lanka-3rd-odi-23802"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:sri-lanka-women",
+      "displayName": "Sri Lanka Women cricket",
+      "shortName": "Sri Lanka Women cricket",
+      "aliases": [
+        "Sri Lanka cricket",
+        "Sri Lanka"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "LK",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": "competition:cricket:espn:22546",
+      "leagueName": "Asian Games Women's Cricket Competition",
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:cricket:sri-lanka-women",
+      "logoUrl": "assets/identities/national/cricket/sri-lanka.jpg",
+      "logoDarkUrl": "assets/identities/national/cricket/sri-lanka.jpg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://srilankacricket.lk/",
+        "https://www.espn.in/cricket/series/22546/game/1550476/malaysia-women-vs-sri-lanka-women-3rd-quarter-final-asian-games-womens-cricket-competition-2026"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -335,13 +633,50 @@
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://www.espn.in/cricket/series/24289/game/1529229/india-vs-west-indies-3rd-odi-24289",
-        "https://www.windiescricket.com/"
+        "https://www.windiescricket.com/",
+        "https://www.espn.in/cricket/series/24289/game/1529229/india-vs-west-indies-3rd-odi-24289"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "team:cricket:west-indies-women",
+      "displayName": "West Indies Women cricket",
+      "shortName": "West Indies Women cricket",
+      "aliases": [
+        "West Indies cricket",
+        "West Indies",
+        "Windies"
+      ],
+      "entityType": "team",
+      "current": true,
+      "countryCode": "WI",
+      "countryBasis": "official-record",
+      "genderCategory": "female",
+      "ranking": 0,
+      "ladderPosition": 0,
+      "marketValue": null,
+      "currentTeamId": null,
+      "leagueId": null,
+      "teamKind": "national",
+      "position": null,
+      "identityId": "team:cricket:west-indies-women",
+      "logoUrl": "assets/identities/national/cricket/west-indies.jpg",
+      "logoDarkUrl": "assets/identities/national/cricket/west-indies.jpg",
+      "headshotUrl": null,
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.windiescricket.com/",
+        "catalogue:cricket"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
       "sourceReviewAfter": null
     },
     {
@@ -376,7 +711,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -445,7 +780,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -480,7 +815,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -515,7 +850,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -550,7 +885,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -585,7 +920,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -620,7 +955,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -655,7 +990,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -690,7 +1025,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -725,7 +1060,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -760,7 +1095,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -795,7 +1130,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -830,42 +1165,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:cricket:australia-women",
-      "displayName": "Australia Women",
-      "shortName": null,
-      "aliases": [
-        "AUS-W"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "AU",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24268",
-      "leagueName": "New Zealand Women tour of Australia 2026/27",
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:cricket:australia-women",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.in/cricket/series/24268/game/1528724/australia-women-vs-new-zealand-women-3rd-t20i-24268"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -900,7 +1200,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -935,7 +1235,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -970,7 +1270,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1005,42 +1305,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:cricket:bangladesh-women",
-      "displayName": "Bangladesh Women",
-      "shortName": null,
-      "aliases": [
-        "BAN-W"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "BD",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24276",
-      "leagueName": "Bangladesh Women tour of Australia 2026/27",
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:cricket:bangladesh-women",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.in/cricket/series/24276/game/1528718/australia-women-vs-bangladesh-women-3rd-odi-24276"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1075,7 +1340,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1110,7 +1375,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1145,7 +1410,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1180,7 +1445,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1215,7 +1480,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1250,7 +1515,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1285,7 +1550,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1320,7 +1585,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1355,7 +1620,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1390,7 +1655,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1425,7 +1690,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1460,7 +1725,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1529,7 +1794,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1564,7 +1829,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1599,7 +1864,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1634,7 +1899,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1669,7 +1934,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1704,7 +1969,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1739,7 +2004,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1774,7 +2039,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1809,7 +2074,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1844,7 +2109,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1879,7 +2144,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1914,7 +2179,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1949,7 +2214,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -1984,7 +2249,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2019,7 +2284,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2054,7 +2319,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2089,7 +2354,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2124,7 +2389,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2159,7 +2424,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2194,7 +2459,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2227,7 +2492,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2262,7 +2527,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2297,7 +2562,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2332,7 +2597,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2367,7 +2632,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2400,7 +2665,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2435,7 +2700,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2470,7 +2735,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2505,7 +2770,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2540,7 +2805,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2575,7 +2840,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2610,42 +2875,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:cricket:england-women",
-      "displayName": "England Women",
-      "shortName": null,
-      "aliases": [
-        "ENG-W"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "GB",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:23803",
-      "leagueName": "Ireland Women tour of England 2026",
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:cricket:england-women",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.in/cricket/series/23803/scorecard/1496554/england-women-vs-ireland-women-3rd-odi-23803"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2680,7 +2910,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2715,7 +2945,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2748,7 +2978,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2783,7 +3013,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2818,7 +3048,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2853,7 +3083,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2886,7 +3116,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2921,7 +3151,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2956,7 +3186,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -2991,7 +3221,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3024,7 +3254,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3059,7 +3289,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3094,7 +3324,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3129,7 +3359,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3164,7 +3394,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3199,7 +3429,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3234,7 +3464,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3267,7 +3497,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3302,7 +3532,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3337,7 +3567,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3372,7 +3602,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3407,7 +3637,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3476,7 +3706,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3511,7 +3741,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3546,7 +3776,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3581,7 +3811,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3616,7 +3846,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3651,7 +3881,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3686,42 +3916,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:cricket:india-women",
-      "displayName": "India Women",
-      "shortName": null,
-      "aliases": [
-        "IND-W"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "IN",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24559",
-      "leagueName": "India Women tour of South Africa 2026/27",
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:cricket:india-women",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.in/cricket/series/24559/game/1543892/south-africa-emerging-players-women-vs-india-women-tour-match-24559"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3756,7 +3951,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3791,7 +3986,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3826,7 +4021,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3861,7 +4056,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3896,7 +4091,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3931,7 +4126,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -3966,7 +4161,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4001,7 +4196,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4036,7 +4231,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4071,7 +4266,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4106,7 +4301,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4139,7 +4334,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4174,7 +4369,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4209,7 +4404,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4244,7 +4439,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4279,7 +4474,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4314,7 +4509,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4349,7 +4544,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4384,7 +4579,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4419,7 +4614,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4452,7 +4647,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4487,7 +4682,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4522,7 +4717,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4557,7 +4752,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4590,7 +4785,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4625,7 +4820,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4660,7 +4855,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4695,7 +4890,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4730,7 +4925,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4765,7 +4960,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4800,7 +4995,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4835,7 +5030,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4870,7 +5065,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4905,7 +5100,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -4940,7 +5135,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5009,7 +5204,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5078,7 +5273,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5113,7 +5308,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5148,7 +5343,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5181,7 +5376,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5216,7 +5411,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5251,7 +5446,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5286,7 +5481,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5321,7 +5516,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5356,7 +5551,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5391,7 +5586,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5426,7 +5621,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5461,7 +5656,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5496,7 +5691,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5531,7 +5726,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5566,42 +5761,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:cricket:new-zealand-women",
-      "displayName": "New Zealand Women",
-      "shortName": null,
-      "aliases": [
-        "NZ-W"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "NZ",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24268",
-      "leagueName": "New Zealand Women tour of Australia 2026/27",
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:cricket:new-zealand-women",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.in/cricket/series/24268/game/1528724/australia-women-vs-new-zealand-women-3rd-t20i-24268"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5636,7 +5796,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5671,7 +5831,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5706,7 +5866,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5741,7 +5901,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5776,7 +5936,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5809,7 +5969,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5844,7 +6004,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5879,7 +6039,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5914,7 +6074,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5949,7 +6109,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -5984,7 +6144,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6017,7 +6177,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6052,7 +6212,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6087,7 +6247,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6122,7 +6282,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6157,7 +6317,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6192,7 +6352,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6227,42 +6387,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:cricket:pakistan-women",
-      "displayName": "Pakistan Women",
-      "shortName": null,
-      "aliases": [
-        "PAK-W"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "PK",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:22546",
-      "leagueName": "Asian Games Women's Cricket Competition",
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:cricket:pakistan-women",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.in/cricket/series/22546/game/1550475/pakistan-women-vs-thailand-women-2nd-quarter-final-asian-games-womens-cricket-competition-2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6297,7 +6422,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6332,7 +6457,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6401,7 +6526,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6436,7 +6561,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6471,7 +6596,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6506,7 +6631,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6541,7 +6666,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6576,7 +6701,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6611,7 +6736,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6646,7 +6771,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6681,7 +6806,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6716,7 +6841,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6751,7 +6876,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6786,7 +6911,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6821,7 +6946,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6856,7 +6981,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6891,7 +7016,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6926,7 +7051,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6961,7 +7086,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -6996,7 +7121,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7031,7 +7156,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7066,7 +7191,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7101,7 +7226,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7136,7 +7261,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7171,7 +7296,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7206,7 +7331,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7239,7 +7364,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7274,7 +7399,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7309,7 +7434,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7344,7 +7469,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7379,42 +7504,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:cricket:south-africa-women",
-      "displayName": "South Africa Women",
-      "shortName": null,
-      "aliases": [
-        "SA-W"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "ZA",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:24565",
-      "leagueName": "South Africa Women tour of Zimbabwe 2026",
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:cricket:south-africa-women",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.in/cricket/series/24565/game/1543891/zimbabwe-women-vs-south-africa-women-5th-t20i-24565"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7449,7 +7539,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7484,7 +7574,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7519,7 +7609,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7554,42 +7644,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "team:cricket:sri-lanka-women",
-      "displayName": "Sri Lanka Women",
-      "shortName": null,
-      "aliases": [
-        "SL-W"
-      ],
-      "entityType": "team",
-      "current": true,
-      "countryCode": "LK",
-      "countryBasis": "official-record",
-      "genderCategory": "female",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": null,
-      "leagueId": "competition:cricket:espn:22546",
-      "leagueName": "Asian Games Women's Cricket Competition",
-      "teamKind": "national",
-      "position": null,
-      "identityId": "team:cricket:sri-lanka-women",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": null,
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.in/cricket/series/22546/game/1550476/malaysia-women-vs-sri-lanka-women-3rd-quarter-final-asian-games-womens-cricket-competition-2026"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7624,7 +7679,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7659,7 +7714,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7694,7 +7749,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7729,7 +7784,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7762,7 +7817,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7797,7 +7852,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7832,7 +7887,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7867,7 +7922,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7900,7 +7955,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -7969,7 +8024,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8038,7 +8093,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8073,7 +8128,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8108,7 +8163,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8143,7 +8198,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8178,7 +8233,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8213,7 +8268,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8248,7 +8303,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8283,7 +8338,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8318,7 +8373,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8353,7 +8408,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8388,7 +8443,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8423,7 +8478,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8458,7 +8513,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8493,7 +8548,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8528,7 +8583,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8563,7 +8618,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8598,7 +8653,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8633,7 +8688,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8668,7 +8723,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8703,7 +8758,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8738,7 +8793,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8773,7 +8828,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8808,7 +8863,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8843,7 +8898,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8878,7 +8933,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8913,7 +8968,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8946,7 +9001,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -8981,7 +9036,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9016,7 +9071,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9051,7 +9106,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9086,7 +9141,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9121,7 +9176,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9156,7 +9211,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9191,7 +9246,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9226,7 +9281,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9259,7 +9314,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9294,7 +9349,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9329,7 +9384,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9362,7 +9417,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9397,7 +9452,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9432,7 +9487,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     },
     {
@@ -9467,7 +9522,7 @@
       "watchPoolMember": false,
       "statusCategory": null,
       "collectionIds": [],
-      "sourceCheckedAt": "2026-09-08T10:41:20.598Z",
+      "sourceCheckedAt": "2026-09-08T12:27:59.331Z",
       "sourceReviewAfter": null
     }
   ]

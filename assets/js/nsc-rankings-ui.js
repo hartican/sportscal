@@ -13,6 +13,7 @@ function row(entry,frozen=false){
  avatar.textContent=String(entry.name||'?').split(/\s+/).map(p=>p[0]).slice(0,2).join('');
  if(/^https:\/\//.test(entry.avatarUrl||'')){const img=document.createElement('img');img.src=entry.avatarUrl;img.alt='';img.loading='lazy';img.referrerPolicy='no-referrer';img.onerror=()=>img.remove();avatar.append(img);}
  const identity=cell(undefined,'nsc-ladder-identity');identity.append(node('strong',entry.name||'Nothinger'),node('small','@'+(entry.handle||'nothinger')+(entry.isViewer?' · You':'')));
+ if(entry.canFollow){const follow=node('button',entry.following?'Following':'Follow','btn ghost');follow.type='button';follow.setAttribute('aria-pressed',String(entry.following));follow.setAttribute('aria-label',`Follow ${entry.name}`);follow.onclick=async()=>{follow.disabled=true;try{const result=await serverSyncClient.nothingscoreRequest({},{action:'follow-user',targetProfileId:entry.profileId,following:!entry.following});entry.following=result.following;follow.textContent=entry.following?'Following':'Follow';follow.setAttribute('aria-pressed',String(entry.following));}catch(error){showToast(error.message||'Follow could not be saved.');}finally{follow.disabled=false;}};identity.append(follow);}
  cell(Number(entry.fixtures||0).toLocaleString('en-AU'),'nsc-ladder-number');
  cell(Number(entry.points||0).toLocaleString('en-AU'),'nsc-ladder-number');
  cell(entry.efficiency==null?'—':(Number(entry.efficiency)*100).toFixed(1)+'%','nsc-ladder-number');return el;

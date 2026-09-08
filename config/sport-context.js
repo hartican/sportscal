@@ -84,7 +84,7 @@
     const eligible = (context?.participants || [])
       .filter(participant => participant.sportDomainId === scope.participantSportDomainId)
       .filter(participant => !participant.metadata?.preferenceDomainId || participant.metadata.preferenceDomainId === scope.preferenceDomainId)
-      .filter(participant => participant.metadata?.active !== false);
+      .filter(participant => participant.metadata?.active !== false && !participant.metadata?.standingsOnly);
     if (scope.resolutionMode === "explicit"){
       const eligibleIds = new Set(eligible.map(participant => participant.id));
       return Array.from(new Set(scope.participantIds || []))
@@ -113,7 +113,7 @@
         return false;
       }
     });
-    if (!scope) return contextualEvent;
+    if (!scope || event.participantsConfirmed === true) return contextualEvent;
     const participantIds = Array.from(new Set([
       ...(Array.isArray(event.participantIds) ? event.participantIds : []),
       ...matchedParticipantIdsForScope(scope, context, title),

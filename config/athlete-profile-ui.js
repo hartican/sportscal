@@ -12,6 +12,8 @@
 
   const style = document.createElement("style");
   style.textContent = `
+.profile-context-table{width:100%;border-collapse:collapse;font-size:.75rem;}.profile-context-table th,.profile-context-table td{padding:7px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;}
+
 .athlete-profile-trigger{border:0;background:transparent;color:inherit;padding:0;text-align:left;cursor:pointer}.athlete-profile-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}.athlete-headshot{width:38px;height:38px;flex:0 0 38px;border-radius:50%;object-fit:cover;object-position:50% 18%;background:var(--panel);box-shadow:0 0 0 1px var(--border)}.athlete-number{display:inline-grid;place-items:center;min-width:28px;height:24px;padding:0 6px;border-radius:999px;background:color-mix(in srgb,var(--sport-color,var(--accent)) 17%,var(--panel));color:var(--text);font-size:.66rem;font-weight:900}
 .athlete-profile-backdrop{position:fixed;inset:0;z-index:10040;display:flex;justify-content:flex-end;background:rgba(0,0,0,.54)}
 .athlete-profile-drawer{width:min(100%,560px);height:100%;overflow:auto;padding:calc(18px + env(safe-area-inset-top)) 18px calc(24px + env(safe-area-inset-bottom));background:var(--bg-card);color:var(--text);box-shadow:-18px 0 50px rgba(0,0,0,.28)}
@@ -131,14 +133,40 @@
     target.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " "){ event.preventDefault(); void open(record, sportKey, target); } });
   }
 
-  async function open(record, sportKey, trigger){
+const profileStandingsChunks=new Map();
+async function appendProfileFixtureContext(container,record,sportKey,fixture){
+  const table=(columns,rows)=>{const wrap=document.createElement('div');wrap.style.overflowX='auto';const t=document.createElement('table');t.className='profile-context-table';const head=document.createElement('tr');columns.forEach(label=>{const th=document.createElement('th');th.textContent=label;head.append(th);});t.append(head);rows.forEach(row=>{const tr=document.createElement('tr');row.forEach(value=>{const td=document.createElement('td');td.textContent=String(value??'—');tr.append(td);});t.append(tr);});wrap.append(t);return wrap;};
+  if(fixture){
+    const section=document.createElement('section');section.className='athlete-profile-section';const heading=document.createElement('h3');heading.textContent=`Fixture results · ${spoilerSafeDisplayTitle(fixture)||fixture.name}`;section.append(heading);
+    const show=()=>{const result=fixture.fixtureResults;if(result?.rows?.length)section.append(table(result.columns,result.rows));else{const p=document.createElement('p');p.textContent=fixture.scoreDisplay||fixture.result||fixture.outcomeText||fixture.score||'Full results are not published yet.';section.append(p);}if(fixture.fixtureResults?.sourceUrl){const a=document.createElement('a');a.href=fixture.fixtureResults.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Official full results';section.append(a);}};
+    if(userPreferences.showSpoilers)show();else{const reveal=document.createElement('button');reveal.type='button';reveal.className='btn ghost';reveal.textContent='Show fixture results';reveal.onclick=()=>{reveal.remove();show();};section.append(reveal);}container.append(section);
+  }
+  const section=document.createElement('section');section.className='athlete-profile-section';const heading=document.createElement('h3');heading.textContent='Ladder / standings';const status=document.createElement('p');status.textContent='Loading standings…';section.append(heading,status);container.append(section);
+  try{
+    const manifest=await loadCodeInspectorManifest();const code=(manifest?.codes||codeInspectorManifest?.codes||[]).find(c=>c.slug===sportKey || c.id===`sport:${sportKey}`);
+    if(!code){status.textContent='Standings are not published for this competition yet.';return;}
+    if(!profileStandingsChunks.has(code.id))profileStandingsChunks.set(code.id,fetchJson(code.chunkPath).catch(error=>{profileStandingsChunks.delete(code.id);throw error;}));
+    const chunk=await profileStandingsChunks.get(code.id);if(!section.isConnected)return;
+    const standings=chunk.standings||[];status.textContent=standings.length?'':'Standings are not published for this competition yet.';
+    for(const competition of new Set(standings.map(e=>e.competitionId))){const rows=standings.filter(e=>e.competitionId===competition);const label=document.createElement('p');label.textContent=[competition?.replace(/^competition:/,'').replaceAll('-',' '),rows[0]?.roundLabel,rows[0]?.asOf?'As of '+new Date(rows[0].asOf).toLocaleDateString('en-AU'):''].filter(Boolean).join(' · ');section.append(label,table(['Pos','Team / athlete','Points','Played'],rows.map(e=>[e.rank,e.displayName,e.points??e.ladderPoints,e.played])));}
+  }catch(error){status.textContent='Standings unavailable. ';const retry=document.createElement('button');retry.type='button';retry.textContent='Retry';retry.onclick=()=>{section.remove();void appendProfileFixtureContext(container,record,sportKey,null);};status.append(retry);}
+}
+
+  async function open(record, sportKey, trigger, options={}){
     document.querySelector(".athlete-profile-backdrop")?.remove();
     const backdrop = document.createElement("div"); backdrop.className = "athlete-profile-backdrop";
     const drawer = document.createElement("aside"); drawer.className = "athlete-profile-drawer"; drawer.setAttribute("role", "dialog"); drawer.setAttribute("aria-modal", "true"); drawer.setAttribute("aria-label", `${record.displayName} athlete profile`);
     const close = document.createElement("button"); close.type = "button"; close.className = "athlete-profile-close"; close.setAttribute("aria-label", "Close athlete profile"); close.textContent = "×";
     const body = document.createElement("div"); body.className = "athlete-profile-body"; body.innerHTML = "<p>Loading official profile…</p>";
-    drawer.append(close, body); backdrop.appendChild(drawer); document.body.appendChild(backdrop);
-    const dismiss = () => { backdrop.remove(); trigger?.focus?.({ preventScroll:true }); document.removeEventListener("keydown", onKey); };
+    drawer.append(close);
+    if(typeof root.buildDirectoryFollowButton==='function')drawer.append(root.buildDirectoryFollowButton(record.id,{sportKey,label:record.displayName}));
+    drawer.append(body);const context=document.createElement('div');drawer.append(context);void appendProfileFixtureContext(context,record,sportKey,options.fixture); backdrop.appendChild(drawer); document.body.appendChild(backdrop);
+    const historyToken=options.fixture?`profile:${record.id}:${Date.now()}`:null;
+    if(historyToken)history.pushState({...history.state,fixtureProfile:historyToken},'');
+    const cleanup=()=>{if(!backdrop.isConnected)return;backdrop.remove();options.onClose?.();trigger?.focus?.({preventScroll:true});document.removeEventListener('keydown',onKey);window.removeEventListener('popstate',onBack);};
+    const onBack=()=>{if(history.state?.fixtureProfile!==historyToken)cleanup();};
+    if(historyToken)window.addEventListener('popstate',onBack);
+    const dismiss=()=>{if(historyToken&&history.state?.fixtureProfile===historyToken)history.back();else cleanup();};
     const onKey = event => { if (event.key === "Escape") dismiss(); };
     close.addEventListener("click", dismiss); backdrop.addEventListener("click", event => { if (event.target === backdrop) dismiss(); }); document.addEventListener("keydown", onKey); close.focus();
     try{
@@ -154,7 +182,7 @@
       }catch(_error){/* Retain published history when live discovery is unavailable. */}
       if(!profile&&cross)profile={...record,biography:'Source-backed athlete history. Current season statistics are not published for this profile.'};
       if (!profile){
-        body.innerHTML = `<div class="athlete-profile-hero"><div></div><div><h2></h2><p>Detailed statistics are currently available for the published top 10 in this code and the complete GWS AFLW experiment.</p></div></div>`;
+        body.innerHTML = `<div class="athlete-profile-hero"><div></div><div><h2></h2><p>Follow this participant to include their published fixtures. Detailed statistics will appear when available.</p></div></div>`;
         body.querySelector("h2").textContent = record.displayName;
         return;
       }

@@ -37,6 +37,7 @@ function safeSignal(snapshot, capturedAt){
   return {
     sourceEventId:String(snapshot?.canonicalEventId || snapshot?.eventId || ""),
     anticipation,
+    replayResearchRequested:snapshot?.replayResearchRequested===true,
     pulse:pulse ? { ...pulse, active:snapshot?.phase === "pulse" } : null,
     impact,
     capturedAt,

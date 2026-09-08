@@ -28,7 +28,7 @@ assert.doesNotMatch(html, /appendManualMustWatchQueue|setMustWatch\(|Add to Must
 assert(!html.includes('label.className = "new-tag"') && html.includes("seenThreshold: 0.6") && html.includes("seenDelayMs: 800"), "seen-state learning must retain the durable 60%-for-800ms lifecycle without exposing a New label");
 assert(html.includes('action.textContent = "Open in Events"') && html.includes("openMajorEventInEvents(event.majorEventId)"), "major event markers must expose a keyboard button into Events");
 assert(html.includes('footer.className = "event-compact-footer"') && html.includes('openEvents.textContent = "View in Events"'), "linked fixture cards must expose the optional compact expanded-footer Events action");
-assert(html.includes("function pruneUnavailableFootballFollows(directory)") && html.includes("pruneUnavailableFootballFollows(data);"), "removed football participant follows must be pruned when the unchanged lazy directory hydrates");
+assert(!html.includes("pruneUnavailableFootballFollows"), "directory membership changes must preserve explicit player follows");
 assert.match(html, /--fixture-card-collapsed-height:248px[\s\S]{0,500}\.cards-grid > \.event-card\[data-card-state="compact"\][\s\S]{0,500}height:var\(--fixture-card-collapsed-height\)/, "all collapsed fixture variants must share one outer height");
 assert(!fs.existsSync("data/football/fixtures/a-league-men.json") && !fs.existsSync("data/football/fixtures/a-league-men.js"), "A-League fixture bundles must be removed from active data");
 const football = JSON.parse(fs.readFileSync("data/canonical/football-directory.v1.json", "utf8"));

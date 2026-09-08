@@ -35,26 +35,12 @@ const usable = majorEvents.usableDocument(staleCatalogue, { reference:future });
 assert(usable.document.events.some(item => item.id === "major-event:us-open-2026"), "valid Events must survive a stale sibling record");
 assert(!usable.document.events.some(item => item.id === "major-event:cincinnati-open-2026"), "the stale record must be quarantined");
 
-const cases = [
-  ["sport:afl", "Wildcard Finals", 4],
-  ["sport:afl", "Qualifying & Elimination Finals", 4],
-  ["sport:afl", "Semi Finals", 4],
-  ["sport:afl", "Preliminary Finals", 5],
-  ["sport:afl", "Grand Final", 5],
-  ["sport:nrl", "Round 27", 4],
-  ["sport:nrl", "Finals Week 1", 4],
-  ["sport:nrl", "Preliminary Final", 5],
-  ["sport:nrl", "Grand Final", 5],
-];
-cases.forEach(([sportDomainId, roundLabel, expected]) => {
-  const policy = stakesPolicy.applyCompetitionStakes({ sportDomainId, roundLabel });
-  assert.equal(policy.stakesFloor, expected, `${sportDomainId} ${roundLabel} must have the canonical floor`);
-  const enriched = enrichment.enrichEvent({ id:`test:${sportDomainId}:${roundLabel}`, key:sportDomainId.split(":").pop(), sportDomainId, roundLabel, storyline:{ stakes:2 } }, {});
-  assert.equal(enriched.stakesScore, expected, "a stale generated score must not beat the stage floor");
-});
-canonical.events.filter(item => item.sportDomainId === "sport:afl" && /final/i.test(item.roundLabel || "")).forEach(item => {
-  assert(stakesPolicy.stakesFloorForFixture(item) >= 4, `${item.id} must be at least 4/5`);
-});
+// Numeric stakes were retired as an admission threshold; stage meaning remains source-owned.
+const followPolicy = require('../config/follow-feed-policy');
+for(const key of ['afl','nrl']){
+  assert.equal(followPolicy.eligibleForFollow({id:'final-test',key,name:'One v Two',cardKind:'fixture',date:'2026-09-10',time:'19:00',roundLabel:'Grand Final'},{competitionFollow:true}),true);
+  assert.equal(followPolicy.eligibleForFollow({key,name:'Finals Week 1',roundLabel:'Finals Week 1'},{competitionFollow:true}),false);
+}
 
 assert.match(chatApi, /mode === "gif-config"/);
 assert.match(chatApi, /async function gifConfig/);

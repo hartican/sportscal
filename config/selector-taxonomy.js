@@ -55,11 +55,11 @@
   }
 
   const sportNodes = [
-    ["sport:afl", "AFL", "parent", null, ["afl"], "sport:australian-football", "sport:australian-football", 10, ["sport:afl-premiership", "sport:aflw"]],
-    ["sport:afl-premiership", "AFL Premiership", "child", "sport:afl", ["afl"], "competition:afl-premiership", "sport:australian-football", 11],
+    ["sport:afl", "Aussie Rules Football", "parent", null, ["afl"], "sport:australian-football", "sport:australian-football", 10, ["sport:afl-premiership", "sport:aflw"]],
+    ["sport:afl-premiership", "AFL", "child", "sport:afl", ["afl"], "competition:afl-premiership", "sport:australian-football", 11],
     ["sport:aflw", "AFLW", "child", "sport:afl", ["aflw"], "competition:aflw", "sport:australian-football", 12],
     ["sport:nrl", "NRL", "parent", null, ["nrl"], "sport:rugby-league", "sport:rugby", 20, ["sport:nrl-premiership", "sport:nrlw"]],
-    ["sport:nrl-premiership", "NRL Premiership", "child", "sport:nrl", ["nrl"], "competition:nrl-premiership", "sport:rugby", 21],
+    ["sport:nrl-premiership", "NRL", "child", "sport:nrl", ["nrl"], "competition:nrl-premiership", "sport:rugby", 21],
     ["sport:nrlw", "NRLW", "child", "sport:nrl", ["nrlw"], "competition:nrlw-premiership", "sport:rugby", 22],
     ["sport:motorsport", "Motorsport", "parent", null, ["motorsport"], "sport:motorsport", "sport:motorsport", 30, ["sport:f1", "sport:motogp", "sport:wrc"]],
     ["sport:f1", "F1", "child", "sport:motorsport", ["f1"], "competition:formula-one", "sport:motorsport", 31],
