@@ -4,6 +4,10 @@ Implementation: 8 September 2026, `codex/followed-fixture-reliability`, based on
 
 This is an implementation and local-verification record, not proof of production activation. The user authorised GitHub push and Vercel deployment; production versus preview was not specified. The safe release target is the feature branch and a preview. Main, production secrets and the live database remain unchanged until production activation is authorised.
 
+### Subsequent authorised activation
+
+The user subsequently authorised main, database and production activation. Main was fast-forwarded to `2b79e21`; both migrations applied successfully and the production-candidate ladder returned the three existing public profiles. The first protected source refresh succeeded for eight sources but exposed AFL/AFLW round discovery assuming a `roundNumber` absent from published cards. The live alias was held while this was corrected: resolve saved labels against official round metadata and include the official current round neighbourhood. Canonical AFL/AFLW/NRL outputs also explicitly retain their Feed sport key, display name and live scores. A new public-adapter regression is wired into the canonical validator list; real read-only source probes returned 8 AFL, 27 AFLW and 204 NRL records. Final deployment/alias and scheduler results must still be verified independently.
+
 ## Delivered in this pass
 
 - Common Follow policy across Feed, Events, Schedule, server Feed and calendar: sport finals/marquee, senior international Rugby/Cricket including women, F1 championship sessions, WRC rounds, MotoGP races and SailGP meets. Tennis singles quarter-finals onward and doubles finals use structured format/round fields. Explicit team/athlete follows are additive, source-backed event follows bypass Australian scope, explicit mutes win, confirmed exclusions override provisional roster inheritance. Ratings and legacy stakes cannot grant or remove admission.
@@ -34,8 +38,8 @@ Critical initial requests remain five, compressed growth about 1.0% against the 
 
 The following files are prepared and tested but have **not** been applied to the live Supabase project:
 
-1. `supabase/migrations/20260908072254_live_fixture_snapshots.sql`
-2. `supabase/migrations/20260908083941_nothing_score_ladder.sql`
+1. `supabase/migrations/20260908093906_live_fixture_snapshots.sql` (applied; filename matches the live migration history)
+2. `supabase/migrations/20260908093940_nothing_score_ladder.sql` (applied; filename matches the live migration history)
 3. `supabase/enable-live-fixture-cron.sql`, after securely configuring the protected endpoint URL and secret in Vault.
 
 Vercel inspection found service/backend secrets in Production only. `FIXTURE_REFRESH_SECRET` is not configured. A preview therefore verifies packaging/UI, not live ladder data or automatic fixture freshness. Do not copy production secrets into Preview, run live DDL, create Vault entries, enable Cron, merge main or promote production merely to make preview tests pass.

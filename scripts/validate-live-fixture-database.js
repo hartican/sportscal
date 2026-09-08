@@ -5,7 +5,9 @@ async function main(){
   if(!process.env.PGLITE_MODULE)throw new Error("Set PGLITE_MODULE to a local @electric-sql/pglite installation.");
   const {PGlite}=require(process.env.PGLITE_MODULE),db=new PGlite();
   await db.exec("create role anon; create role authenticated; create role service_role bypassrls; grant usage on schema public to anon,authenticated,service_role;");
-  await db.exec(fs.readFileSync("supabase/migrations/20260908072254_live_fixture_snapshots.sql","utf8"));
+  const migration=fs.readdirSync('supabase/migrations').find(name=>name.endsWith('_live_fixture_snapshots.sql'));
+  assert(migration,'live fixture migration exists');
+  await db.exec(fs.readFileSync(`supabase/migrations/${migration}`,'utf8'));
   const token="11111111-1111-4111-8111-111111111111",other="22222222-2222-4222-8222-222222222222";
   await db.exec("set role anon");
   await assert.rejects(db.query("select * from public.nothingsports_fixture_sources"),/permission denied/);

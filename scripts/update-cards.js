@@ -256,6 +256,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-follow-policy-parity.js"],
   ["scripts/validate-source-coverage.js"],
   ["scripts/validate-live-fixtures.js"],
+  ["scripts/validate-live-afl-adapter.js"],
   ["scripts/validate-live-fixture-api.js"],
   ["scripts/validate-calendar-selection.js"],
   ["scripts/validate-fixture-timing.js"],
