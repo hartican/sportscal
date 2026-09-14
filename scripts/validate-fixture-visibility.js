@@ -39,8 +39,8 @@ assert(policy.followedFixtureDecision(damaged, {followed:true,now}).include,
   "incomplete or postponed championship fixtures must remain eligible");
 assert(followFirst.reasonForEvent(damaged, preferences), "browser eligibility must not need exact timing or editorial");
 const practice = {...monza, sessionType:"practice", name:"Italian GP FP1", stakesScore:5};
-assert.equal(policy.eligibleForFollow(practice,{competitionFollow:true}),false,"sport-only F1 excludes practice even with old high-stakes metadata");
-assert.equal(followFirst.reasonForEvent(practice,preferences),null,"browser practice policy must match the server");
+assert.equal(policy.eligibleForFollow(practice,{competitionFollow:true}),true,"an explicit F1 follow includes every published session, including practice");
+assert(followFirst.reasonForEvent(practice,preferences),"browser practice policy must match the server");
 assert.equal(policy.followedFixtureDecision({...monza,published:false},{followed:true}).include,false,"unpublished records are not fixtures");
 assert.equal(buildServerFeed({events:[{...monza,status:"unpublished"}],userId:"visibility-test",userState:{preferences},now}).events.length,0,"normalisation must not turn unpublished records into public fixtures");
 const incompleteFinal = {...damaged,id:"rugby-final",key:"rugby",sportId:"rugby",competitionId:"competition:rugby:test",name:"Rugby Final",stage:"final"};
