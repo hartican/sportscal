@@ -1,7 +1,7 @@
 "use strict";
 
 const webpush = require("web-push");
-const { publicError, supabaseServiceRequest } = require("../lib/supabase-server");
+const { publicError, SupabaseRequestError, supabaseServiceRequest } = require("../lib/supabase-server");
 
 function bearer(request){
   const header = String(request?.headers?.authorization || "");
@@ -74,12 +74,20 @@ module.exports = async function notificationDispatchHandler(request, response){
     await recordDispatchHealth({ last_started_at:now.toISOString(), last_error:null }).catch(() => null);
     const oldest = new Date(now.getTime() - 60 * 60 * 1000);
     const staleBefore = new Date(now.getTime() - CLAIM_STALE_MS).toISOString();
-    const reminders = await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?dispatched_at=is.null&remind_at=lte.${encodeURIComponent(now.toISOString())}&remind_at=gte.${encodeURIComponent(oldest.toISOString())}&or=(claimed_at.is.null,claimed_at.lt.${encodeURIComponent(staleBefore)})&order=remind_at.asc&limit=100&select=*`);
-    const claimed = [];
-    for (const reminder of reminders || []){
-      const claimedAt = new Date().toISOString();
-      const row = await claimReminder(reminder, claimedAt, staleBefore);
-      if (row) claimed.push({ reminder:row, claimedAt });
+    const claimedAt=now.toISOString();
+    let reminders=[];
+    let claimed=[];
+    try{
+      const rows=await supabaseServiceRequest('/rest/v1/rpc/nothingsports_claim_due_reminders',{method:'POST',body:{claim_at:claimedAt,oldest_due:oldest.toISOString(),stale_before:staleBefore,batch_limit:100}});
+      reminders=Array.isArray(rows)?rows:[];
+      claimed=reminders.map(reminder=>({reminder,claimedAt}));
+    }catch(error){
+      if(!(error instanceof SupabaseRequestError)||![400,404].includes(Number(error.status)))throw error;
+      reminders = await supabaseServiceRequest(`/rest/v1/nothingsports_reminders?dispatched_at=is.null&remind_at=lte.${encodeURIComponent(now.toISOString())}&remind_at=gte.${encodeURIComponent(oldest.toISOString())}&or=(claimed_at.is.null,claimed_at.lt.${encodeURIComponent(staleBefore)})&order=remind_at.asc&limit=100&select=*`);
+      for (const reminder of reminders || []){
+        const row = await claimReminder(reminder, claimedAt, staleBefore);
+        if (row) claimed.push({ reminder:row, claimedAt });
+      }
     }
     const ids = [...new Set(claimed.map(item => item.reminder.installation_id).filter(Boolean))];
     const installationRows = ids.length
