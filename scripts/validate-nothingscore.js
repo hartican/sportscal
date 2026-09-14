@@ -29,7 +29,7 @@ assert.deepEqual(nsc.HEAT_TAGS, ["Box office","Big stakes","Rivalry","Star power
 assert.deepEqual(nsc.IMPACT_TAGS, ["Thrilling","Eye-popping","Mind-blowing","Emotional","Electric atmosphere","Pure chaos"]);
 assert.equal(nsc.PULSE_BUCKET_MS, 5 * 60 * 1000);
 assert.equal(nsc.PULSE_FRESH_MS, 15 * 60 * 1000);
-assert.equal(nsc.PRESENCE_TTL_MS, 150 * 1000);
+assert.equal(nsc.PRESENCE_TTL_MS, 10 * 60 * 1000);
 
 const twoPilotRows = [
   { userId:"pilot-one", persona:"general", rating:5, tags:["Rivalry"] },
@@ -69,7 +69,7 @@ const pulse = nsc.pulseAggregate([
 assert.equal(pulse.uniqueContributors, 2, "only users fresh in the last ten minutes may shape live Pulse");
 assert.equal(pulse.score, 3.7, "a fresh user's live value is their event-wide mean across buckets");
 assert.equal(nsc.pulseBucket("2026-08-29T10:12:59.000Z"), "2026-08-29T10:10:00.000Z");
-assert.equal(nsc.activePresence([{lastHeartbeatAt:"2026-08-29T10:07:31.000Z"},{lastHeartbeatAt:"2026-08-29T10:07:29.000Z"}], pulseNow).length, 1);
+assert.equal(nsc.activePresence([{lastHeartbeatAt:"2026-08-29T10:00:01.000Z"},{lastHeartbeatAt:"2026-08-29T09:59:59.000Z"}], pulseNow).length, 1);
 
 assert.equal(nsc.phaseFor({startTimeUtc:"2026-08-29T10:00:00.000Z",endTimeUtc:"2026-08-29T12:00:00.000Z"}, "2026-08-29T09:59:00.000Z"), "heat");
 assert.equal(nsc.phaseFor({startTimeUtc:"2026-08-29T10:00:00.000Z",session:{status:"active",effectiveStartAt:"2026-08-29T10:00:00.000Z",effectiveEndAt:"2026-08-29T12:00:00.000Z"}}, "2026-08-29T10:30:00.000Z"), "pulse");

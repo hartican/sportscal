@@ -4,9 +4,9 @@ const assert=require("node:assert/strict");
 const {refreshDueSources,refreshInterval,contentHash,overlaySnapshots}=require("../lib/live-fixtures");
 const now=new Date("2026-09-08T00:00:00Z");
 const event={id:"match",key:"rugby",name:"Test",startTimeUtc:"2026-09-08T00:10:00Z",status:"scheduled"};
-assert.equal(refreshInterval([event],now),300000);
-assert.equal(refreshInterval([{...event,status:"live"}],now),60000);
-assert.equal(refreshInterval([{...event,startTimeUtc:"2026-10-01T00:00:00Z"}],now),3600000);
+assert.equal(refreshInterval([event],now),120000);
+assert.equal(refreshInterval([{...event,status:"live"}],now),120000);
+assert.equal(refreshInterval([{...event,startTimeUtc:"2026-10-01T00:00:00Z"}],now),30*60000);
 assert.equal(contentHash([event]),contentHash([{...event,sourceCheckedAt:now.toISOString()}]),"checking unchanged facts must not create a new revision");
 assert.equal(overlaySnapshots([event],[{fixtures:[{...event,status:"postponed",time:null,startTimeUtc:null}]}])[0].status,"postponed");
 async function main(){

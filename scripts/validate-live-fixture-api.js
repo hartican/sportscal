@@ -8,12 +8,12 @@ async function main(){
   let res=response();await handler({url:"/api/fixture-refresh",method:"POST",headers:{}},res);assert.equal(res.statusCode,401);
   res=response();await handler({url:"/api/fixture-refresh",method:"GET",headers:{authorization:`Bearer ${secret}`}},res);assert.equal(res.statusCode,405);
   res=response();await handler({url:"/api/fixture-refresh",method:"POST",headers:{authorization:`Bearer ${secret}`}},res);assert.equal(res.statusCode,200);
-  res=response();await handler({url:"/api/fixtures",method:"GET",headers:{}},res);assert.equal(res.body.sources.flatMap(source=>source.fixtures).find(event=>event.id==='fixture').status,"live");assert.equal(res.headers["Cache-Control"],"no-store");
+  res=response();await handler({url:"/api/fixtures",method:"GET",headers:{}},res);assert.equal(res.body.sources.flatMap(source=>source.fixtures).find(event=>event.id==='fixture').status,"live");assert.equal(res.headers["Cache-Control"],"public, max-age=0, s-maxage=30, stale-while-revalidate=300");assert(res.body.generatedAt);assert.equal(res.body.maxAgeSeconds,30);
   const revision=res.body.revision;
   const libraryHandler=createLiveFixtureHandler({publishedFixtures:()=>[{id:'known-before-server-refresh',date:new Date(Date.now()+86400000).toISOString().slice(0,10),key:'cricket',name:'Published fixture'}],read:async()=>({revision:'empty',sources:[],stale:false})});
   res=response();await libraryHandler({url:'/api/fixtures',headers:{}},res);assert(res.body.sources.flatMap(source=>source.fixtures).some(event=>event.id==='known-before-server-refresh'),'a first failed or partial server lookup cannot hide fixtures in the verified library');
   res=response();await handler({url:`/api/fixtures?revision=${revision}`,method:"GET",headers:{}},res);assert.equal(res.statusCode,304);
-  res=response();await createLiveFixtureHandler({read:async()=>{throw new Error(secret);}})({url:"/api/fixtures",headers:{}},res);assert.equal(res.statusCode,503);assert(!JSON.stringify(res.body).includes(secret));
+  res=response();await createLiveFixtureHandler({read:async()=>{throw new Error(secret);}})({url:"/api/fixtures?ids=missing-static-id",headers:{}},res);assert.equal(res.statusCode,200);assert.equal(res.body.stale,true);assert.equal(res.body.maxAgeSeconds,300);assert(!JSON.stringify(res.body).includes(secret));
   const scopedHandler=createLiveFixtureHandler({publishedFixtures:()=>[],read:async()=>({revision:'scoped',stale:false,sources:[{source_id:'test',fixtures:[{id:'followed',status:'live'},{id:'unfollowed',status:'live'}]}]})});
   res=response();await scopedHandler({url:'/api/fixtures?ids=followed',headers:{}},res);assert.deepEqual(res.body.sources.flatMap(s=>s.fixtures).map(e=>e.id),['followed'],'bounded live request excludes unrelated fixtures');
   const selectedRevision=res.body.revision;

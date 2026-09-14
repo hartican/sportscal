@@ -62,7 +62,9 @@ async function run(){
   assert.equal(chatContract.LIMITS.messageCodePoints, 500);
   assert.equal(chatContract.LIMITS.messagesPerMinute, 30);
   assert.equal(chatContract.LIMITS.historyPage, 100);
-  assert.equal(chatContract.POLLING.roomMs, 2000);
+  assert.equal(chatContract.POLLING.roomMs, 5000);
+  assert.equal(chatContract.POLLING.quietMs, 30000);
+  assert.equal(chatContract.POLLING.quietAfterMs, 60000);
   assert.equal(chatContract.POLLING.activeMs, 30000);
   assert.equal(chatContract.POLLING.failureMs, 30000);
   assert.equal(chatContract.displayName(" A "), "", "one-character names must fail");

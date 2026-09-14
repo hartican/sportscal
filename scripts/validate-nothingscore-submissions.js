@@ -210,6 +210,7 @@ async function handlerContracts(){
     async pilotFor(){pilotCalls+=1;return{approved:true,suspended:false};},
     async profileFor(){return{profile_id:"profile-one",display_name:"Test Person",handle:"test_person",visibility:profileVisibility};},
     async snapshots(){return[];},
+    async refreshEventSnapshots(){},
     ownerProfile:actualServer.ownerProfile,
     async personaFor(){return{persona:"general",moderation_flag:false};},
   };

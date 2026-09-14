@@ -40,3 +40,7 @@ Notes
 Follow decision record — mandatory reading
 ------------------------------------------
 Before changing Follow, Feed admission, discovery opt-ins, fixture routing, retention or related notifications, read [docs/follow-decisions.md](docs/follow-decisions.md). It records the user-approved rules and supersedes conflicting older plans. Consult it before asking the user to repeat a settled decision. Update the record and its regression tests together when the user changes a rule.
+
+Backend efficiency record — mandatory reading
+---------------------------------------------
+Before changing live fixture refresh, Supabase persistence, chat polling, notifications, presence or scheduled refreshes, read [docs/backend-efficiency-decisions.md](docs/backend-efficiency-decisions.md). Preserve its MVP budgets and one-owner scheduler rules unless a later dated decision explicitly supersedes them.

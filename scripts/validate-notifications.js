@@ -254,6 +254,7 @@ async function main(){
   const dispatchCalls = [];
   const dispatchService = async (path, options = {}) => {
     dispatchCalls.push({ path, options });
+    if (path === "/rest/v1/rpc/nothingsports_claim_due_reminders") return claimAllowed ? [{ ...reminder, claimed_at:options.body.claim_at }] : [];
     if (options.method === "PATCH" && options.headers?.Prefer === "return=representation") return claimAllowed ? [{ ...reminder, claimed_at:options.body.claimed_at }] : [];
     if (path.includes("nothingsports_reminders?dispatched_at=is.null")) return [reminder];
     if (path.includes("nothingsports_push_installations?installation_id=in.")) return [installation];
@@ -266,7 +267,7 @@ async function main(){
     assert.equal(sends, 1);
     assert.equal(response.payload.claimed, 1);
     assert.equal(dispatchedPayloads[0].title, "Claimed final", "push titles put the fixture first; timing belongs in the body");
-    assert(dispatchCalls.some(call => call.options.method === "PATCH" && call.path.includes("claimed_at.is.null")), "dispatch must atomically claim a due row before sending");
+    assert(dispatchCalls.some(call => call.options.method === "POST" && call.path === "/rest/v1/rpc/nothingsports_claim_due_reminders"), "dispatch must atomically claim a due batch before sending");
 
     claimAllowed = false;
     sends = 0;

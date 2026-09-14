@@ -18,7 +18,7 @@ Authoritative user decisions, 8 September 2026. Read this before changing Follow
 | Timeline | Seven local calendar days of completed fixtures, ongoing events, and up to twelve months ahead. Open at Now; preserve the mixed timeline, lazy loading and staggered detail. | Old source results, ledgers and saved records are retained outside active Feed. |
 | Profiles | Card participant names open canonical profiles under Follow with a quick Follow/Following control; Back restores the card position. | Follow on a profile persists across devices. |
 | Replays | Completed fixtures with published post-match 5/5 OR personal post-match 5/5 receive Promoted replay. Personal promotion is viewer-specific. Monza 2026 has an explicit editorial 5/5 recommendation, separate from crowd votes. | Promotion never extends active retention or manufactures votes. |
-| People and alerts | Explicit directed follows on the Nothing Score ladder. Only persisted real 5/5 live votes on eligible fixtures alert; group for 60 seconds and deliver once per recipient/fixture. | No modelled raters, self-alerts, private identities or notification opt-out overrides. |
+| People and alerts | Explicit directed follows on the Nothing Score ladder. Only persisted real 5/5 live votes on eligible fixtures alert; group for five minutes and deliver once per recipient/fixture. | No modelled raters, self-alerts, private identities or notification opt-out overrides. |
 
 ## Additional profile decision — 8 September 2026
 
@@ -76,3 +76,5 @@ Preference version 22 makes `eventFamilyDecisions.v1` authoritative. A legacy cl
 ## Accepted plan clarification — 14 September 2026
 
 The latest accepted repair plan explicitly admits **all published F1 sessions** when F1 is followed. This supersedes the race/qualifying-only wording above; practice is eligible through the explicit competition choice, without becoming an editorial marquee or implying a driver follow. Event-family exclusions and participant mutes retain precedence. Regression: `validate-follow-decisions.js` and `validate-restored-feed-chat-contract.js`.
+
+The same accepted recovery plan changes followed-user EPIC grouping from 60 seconds to five minutes to meet the MVP infrastructure budget. Delivery remains once per recipient and fixture, and every privacy, opt-out, real-rating and Feed-eligibility check remains mandatory.
