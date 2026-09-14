@@ -68,3 +68,7 @@ Regression commands: `validate-event-unfollow.js`, `validate-event-unfollow-brow
 The user explicitly confirmed this is the reusable process for **every card in Events**, not a US Open exception. All event-family Follow controls use the same mutation and eligibility path. Preserve explicit choices for published event families outside the onboarding shortlist; a new event remains unfollowed until chosen. Child fixtures carry their canonical `eventFamilyId`. Ticket cards operate on their parent event family. Regression coverage iterates every published event family, including Cincinnati, Rugby League World Cup, Nations Championship, Australian Open and Australian Grand Prix.
 
 Preference version 22 makes `eventFamilyDecisions.v1` authoritative. A legacy client patch that removes an ID only from `followedMajorEventIds` is a deliberate exclusion; the server records it before onboarding or cached seeds can be reapplied. Re-adding the ID records an explicit follow. The followed and excluded arrays remain compatibility projections of that decision map.
+
+## Accepted plan clarification — 14 September 2026
+
+The latest accepted repair plan explicitly admits **all published F1 sessions** when F1 is followed. This supersedes the race/qualifying-only wording above; practice is eligible through the explicit competition choice, without becoming an editorial marquee or implying a driver follow. Event-family exclusions and participant mutes retain precedence. Regression: `validate-follow-decisions.js` and `validate-restored-feed-chat-contract.js`.

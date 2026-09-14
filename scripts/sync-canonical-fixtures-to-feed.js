@@ -268,7 +268,7 @@ function canonicalMetadata(fixture){
     homeParticipantId: fixture.homeParticipantId,
     awayParticipantId: fixture.awayParticipantId,
     roundLabel: fixture.roundLabel || null,
-    stage: fixture.stage || null,
+    stage: fixture.stage || (/final/i.test(fixture.roundLabel || '') ? fixture.roundLabel : null),
     competitionPhase: phase.competitionPhase,
     isFinalRegularSeasonRound: phase.isFinalRegularSeasonRound,
     stakesFloor: phase.stakesFloor,

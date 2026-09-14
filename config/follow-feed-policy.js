@@ -179,6 +179,7 @@
     if(explicitSelection)return true;
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
+    if(sportKey(event)==="f1" && competitionFollow)return true;
     if(sportKey(event)==="tennis")return false;
     if(explicitEventFollow)return isMarquee(event);
     if(["cricket","rugby"].includes(sportKey(event)))return false;

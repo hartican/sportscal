@@ -410,6 +410,7 @@ async function handleActive(user, admin, profile){
   ]);
   const invitedRooms=invitationRows.length?await rows(TABLES.rooms,{id:`in.(${invitationRows.map(row=>row.room_id).join(',')})`,select:"id,canonical_fixture_id,fixture_snapshot,room_name,status,created_at"}):[];
   const invitedById=new Map(invitedRooms.map(room=>[room.id,room]));
+  const archivedIds=new Set(archivedMemberships.map(item=>item.room_id));
   return {
     schemaVersion:chatContract.SCHEMA_VERSION,
     isAdmin:admin,
@@ -419,7 +420,7 @@ async function handleActive(user, admin, profile){
       canPost:Boolean(profile?.public_profile),
     },
     capabilities,
-    rooms:(Array.isArray(active) ? active : []).filter(room=>!new Set(archivedMemberships.map(item=>item.room_id)).has(room.room_id||room.id)).map(publicRoom),
+    rooms:(Array.isArray(active) ? active : []).filter(room=>!archivedIds.has(room.room_id||room.id)).map(publicRoom),
     invitations:invitationRows.map(invitation=>({invitationId:invitation.invitation_id,createdAt:invitation.created_at,room:publicRoom(invitedById.get(invitation.room_id)||{id:invitation.room_id,room_name:"Chat invitation"})})),
   };
 }
@@ -494,12 +495,6 @@ async function reactionState(roomId, userId, messageIds, after){
 async function handleRoomGet(request, user, admin, profile){
   const roomId = requireUuid(queryValue(request, "roomId"), "room ID");
   const { room, member } = await requireRoomAccess(roomId, user, admin);
-  if (member && room.status === "open"){
-    await supabaseServiceRequest(restPath(TABLES.members, {room_id:`eq.${room.id}`,user_id:`eq.${user.id}`}), {
-      method:"PATCH", headers:{Prefer:"return=minimal"},
-      body:{last_delivered_at:new Date().toISOString(),archived_at:null},
-    });
-  }
   const before = validInstant(queryValue(request, "before"));
   const after = validInstant(queryValue(request, "after"));
   const newestPage = !after;
@@ -521,6 +516,16 @@ async function handleRoomGet(request, user, admin, profile){
     select:"user_id,member_kind,guest_display_name,joined_at,last_delivered_at,last_read_at,archived_at",
     order:"joined_at.asc",
   });
+  const receiptRows=after ? await rows(TABLES.messages,{
+    room_id:`eq.${room.id}`,sender_id:`eq.${user.id}`,
+    select:"id,sender_id,created_at",order:"created_at.desc",limit:"50",
+  }) : messages.filter(message=>message.sender_id===user.id);
+  const receiptState=message=>{
+    const recipients=memberRows.filter(item=>item.user_id!==message.sender_id && Date.parse(item.joined_at||"")<=Date.parse(message.created_at||""));
+    if(!recipients.length)return "sent";
+    if(recipients.every(item=>Date.parse(item.last_read_at||"")>=Date.parse(message.created_at)))return "read";
+    return recipients.every(item=>Date.parse(item.last_delivered_at||"")>=Date.parse(message.created_at)) ? "delivered" : "sent";
+  };
   const replyIds = [...new Set(messages.map(item => item.reply_to_message_id).filter(Boolean))];
   const replyRows = replyIds.length ? await rows(TABLES.messages, {
     id:`in.(${replyIds.join(",")})`,
@@ -601,10 +606,7 @@ async function handleRoomGet(request, user, admin, profile){
       })),
     },
     messages:messages.map(message => {
-      const recipients=memberRows.filter(item=>item.user_id!==message.sender_id && Date.parse(item.joined_at||"")<=Date.parse(message.created_at||""));
-      const deliveryState=!recipients.length || recipients.every(item=>Date.parse(item.last_read_at||"")>=Date.parse(message.created_at||""))
-        ? "read"
-        : recipients.every(item=>Date.parse(item.last_delivered_at||"")>=Date.parse(message.created_at||"")) ? "delivered" : "sent";
+      const deliveryState=receiptState(message);
       return ({
       messageId:message.id,
       clientId:message.client_id,
@@ -620,6 +622,7 @@ async function handleRoomGet(request, user, admin, profile){
         return { replyTo:reply ? { messageId:reply.id, senderName:senderName(reply), body:reply.body } : null };
       })() : { replyTo:null }),
     });}),
+    receiptChanges:receiptRows.map(message=>({messageId:message.id,deliveryState:receiptState(message)})),
     reactionChanges:reactionResult.changes,
     reactionCursor:reactionResult.cursor,
     olderCursor:newestPage && messages.length === chatContract.LIMITS.historyPage ? messages[0]?.created_at || null : null,
@@ -1089,7 +1092,8 @@ async function leaveRoom(body,user,profile){
 }
 
 async function archiveRooms(body,user){
-  const roomIds=[...new Set((Array.isArray(body.roomIds)?body.roomIds:[]).map(id=>requireUuid(id,"room ID")))].slice(0,50);
+  const roomIds=[...new Set((Array.isArray(body.roomIds)?body.roomIds:[]).map(id=>requireUuid(id,"room ID")))];
+  if(roomIds.length>50)throw new ChatRequestError("Choose up to 50 chats per request.",400,"chat_archive_limit");
   if(!roomIds.length)throw new ChatRequestError("Choose at least one chat.",400,"chat_rooms_required");
   const memberships=await rows(TABLES.members,{room_id:`in.(${roomIds.join(',')})`,user_id:`eq.${user.id}`,select:"room_id"});
   if(memberships.length!==roomIds.length)throw new ChatRequestError("One of those chats is no longer available.",403,"chat_membership_required");
@@ -1211,6 +1215,7 @@ async function sendMessage(body, user, admin, profile){
       sentAt:row.created_at,
       senderName:senderDisplayName,
       own:true,
+      deliveryState:"sent",
       attachments:messageAttachments.map(item => ({
         attachmentId:item.attachment_id, kind:item.kind, fileName:item.file_name,
         contentType:item.content_type, byteSize:Number(item.byte_size),
@@ -1349,18 +1354,16 @@ async function toggleReaction(body, user, admin){
   };
 }
 
-async function markRead(body, user, admin){
+async function markRead(body, user, admin, deliveredOnly=false){
   const roomId = requireUuid(body.roomId, "room ID");
   const { room, member } = await requireRoomAccess(roomId, user, admin);
   if (!member || room.status !== "open") throw new ChatRequestError("Only current members can mark a chat read.", 403, "chat_membership_required");
-  const readAt = new Date().toISOString();
-  await supabaseServiceRequest(restPath(TABLES.members, {
-    room_id:`eq.${roomId}`,
-    user_id:`eq.${user.id}`,
-  }), {
-    method:"PATCH",
-    headers:{ Prefer:"return=minimal" },
-    body:{ last_delivered_at:readAt, last_read_at:readAt },
+  const acknowledged=validInstant(body.readAt);
+  const now=new Date().toISOString();
+  const readAt=acknowledged && acknowledged<=now ? acknowledged : member.last_delivered_at;
+  if(!readAt)return {schemaVersion:chatContract.SCHEMA_VERSION,readAt:null};
+  await supabaseServiceRequest('/rest/v1/rpc/nothingsports_chat_acknowledge',{
+    method:'POST',body:{target_room:roomId,target_user:user.id,acknowledged_at:readAt,mark_read:!deliveredOnly},
   });
   return { schemaVersion:chatContract.SCHEMA_VERSION, readAt };
 }
@@ -1419,6 +1422,7 @@ async function handlePost(request, user, admin, profile){
     case "saved-media-delete": return deleteSavedMedia(body, user);
     case "toggle-reaction": return toggleReaction(body, user, admin);
     case "mark-read": return markRead(body, user, admin);
+    case "mark-delivered": return markRead(body, user, admin, true);
     case "close-room": return closeRoom(body, user, admin);
     default: throw new ChatRequestError("Unknown chat action.", 400, "unknown_chat_action");
   }

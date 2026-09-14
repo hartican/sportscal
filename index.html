@@ -15136,6 +15136,7 @@ function compactFixtureName(ev){
     .replace(/Alexander Zverev/g,'Zverev').replace(/Alejandro Tabilo/g,'Tabilo');
 }
 function compactFallbackTiming(ev){
+  if(ev.displayDateLabel)return ev.displayDateLabel;
   const shortDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(String(value||''))
     ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short'}).format(new Date(`${value}T00:00:00Z`)).replace(/Sept/g,'Sep').replace(/, /g,' ') : 'Date TBC';
   const date=shortDate(ev.date||ev.startDate);
@@ -23412,6 +23413,25 @@ function chatRoomRow(room,{selecting=false}={}){
   return button;
 }
 
+async function deleteSelectedChats(button){
+  if (!chatState.selectedRoomIds.length) return;
+  button.disabled=true;
+  const selected=[...chatState.selectedRoomIds];
+  try{
+    for(let offset=0;offset<selected.length;offset+=50){
+      const batch=selected.slice(offset,offset+50);
+      await serverSyncClient.chatRequest({}, {action:'archive-rooms',roomIds:batch});
+      chatState.selectedRoomIds=chatState.selectedRoomIds.filter(id=>!batch.includes(id));
+      chatState.rooms=chatState.rooms.filter(room=>!batch.includes(room.roomId));
+    }
+    chatState.chatSelectionMode=false;
+    await refreshChatActive({rerenderOpenList:true});
+  }catch(error){
+    renderActiveChats();
+    chatConnection(error.message||'Chats could not be deleted. Your remaining selection is saved.','retrying');
+  }finally{button.disabled=false;}
+}
+
 function renderActiveChats(){
   chatSetupFixture = null;
   chatState.currentRoom = null;
@@ -23435,7 +23455,7 @@ function renderActiveChats(){
     savedMedia.addEventListener("click", () => { void renderSavedGameMedia(); });
     body.appendChild(savedMedia);
   }
-  if(chatState.rooms.length&&!chatState.isGuest){const controls=document.createElement('div');controls.className='chat-form-actions';const edit=document.createElement('button');edit.type='button';edit.className='btn ghost';edit.textContent=chatState.chatSelectionMode?'Cancel':'Select chats';edit.onclick=()=>{chatState.chatSelectionMode=!chatState.chatSelectionMode;chatState.selectedRoomIds=[];renderActiveChats();};controls.appendChild(edit);if(chatState.chatSelectionMode){const all=document.createElement('button');all.type='button';all.className='btn ghost';all.textContent='Select all';all.onclick=()=>{chatState.selectedRoomIds=chatState.rooms.map(room=>room.roomId);renderActiveChats();};const remove=document.createElement('button');remove.type='button';remove.className='btn primary';remove.textContent='Delete selected';remove.onclick=async()=>{if(!chatState.selectedRoomIds.length)return;remove.disabled=true;await serverSyncClient.chatRequest({}, {action:'archive-rooms',roomIds:chatState.selectedRoomIds});chatState.chatSelectionMode=false;chatState.selectedRoomIds=[];await refreshChatActive({rerenderOpenList:true});};controls.append(all,remove);}body.appendChild(controls);}
+  if(chatState.rooms.length&&!chatState.isGuest){const controls=document.createElement('div');controls.className='chat-form-actions';const edit=document.createElement('button');edit.type='button';edit.className='btn ghost';edit.textContent=chatState.chatSelectionMode?'Cancel':'Select chats';edit.onclick=()=>{chatState.chatSelectionMode=!chatState.chatSelectionMode;chatState.selectedRoomIds=[];renderActiveChats();};controls.appendChild(edit);if(chatState.chatSelectionMode){const all=document.createElement('button');all.type='button';all.className='btn ghost';all.textContent='Select all';all.onclick=()=>{chatState.selectedRoomIds=chatState.rooms.map(room=>room.roomId);renderActiveChats();};const remove=document.createElement('button');remove.type='button';remove.className='btn primary';remove.textContent='Delete selected';remove.title='Remove selected chats from your list. Other members keep their messages.';remove.onclick=()=>deleteSelectedChats(remove);controls.append(all,remove);}body.appendChild(controls);}
   if (!chatState.rooms.length){
     const empty = document.createElement("p");
     empty.className = "chat-empty";
@@ -24015,7 +24035,7 @@ function chatMessageElement(message){
   if (actions.childElementCount) item.appendChild(actions);
   const status=document.createElement("div");status.className="chat-message-status";
   status.appendChild(time);
-  if(message.own){const ticks=document.createElement("span");ticks.className=`chat-receipt ${message.deliveryState||"sent"}`;ticks.setAttribute("aria-label",message.deliveryState==="read"?"Read by everyone":message.deliveryState==="delivered"?"Delivered to everyone":"Sent");ticks.textContent=message.deliveryState==="sent"?"✓":"✓✓";status.appendChild(ticks);}
+  if(message.own && !message.pending){const ticks=document.createElement("span");ticks.className=`chat-receipt ${message.deliveryState||"sent"}`;ticks.setAttribute("aria-label",message.deliveryState==="read"?"Read by everyone":message.deliveryState==="delivered"?"Delivered to everyone":"Sent");ticks.textContent=["delivered","read"].includes(message.deliveryState)?"✓✓":"✓";status.appendChild(ticks);}
   item.appendChild(status);
   return item;
 }
@@ -24582,9 +24602,19 @@ async function markCurrentChatRead(){
   if (!room || room.readOnly) return;
   document.getElementById("chatNewMessagesBtn").classList.remove("show");
   try{
-    await serverSyncClient.chatRequest({}, { action:"mark-read", roomId:room.roomId, readAt:new Date().toISOString() });
+    await serverSyncClient.chatRequest({}, { action:"mark-read", roomId:room.roomId, readAt:chatState.messages.filter(message=>!message.pending).at(-1)?.sentAt });
     await refreshChatActive();
   }catch(_error){ /* The next successful room poll will reconcile unread state. */ }
+}
+
+function mergeChatReceipts(changes){
+  let changed=false;
+  const byId=new Map(chatState.messages.map(message=>[message.messageId,message]));
+  for(const receipt of changes||[]){
+    const message=byId.get(receipt.messageId);
+    if(message && message.deliveryState!==receipt.deliveryState){message.deliveryState=receipt.deliveryState;changed=true;}
+  }
+  return changed;
 }
 
 function mergeChatMessages(messages){
@@ -24645,7 +24675,7 @@ async function openChatRoom(roomId){
     if (payload.room?.viewer?.canPost) await ensureChatMediaUi();
     renderOpenChatRoom({ autoScroll:true });
     if (!payload.room.readOnly){
-      void serverSyncClient.chatRequest({}, { action:"mark-read", roomId, readAt:new Date().toISOString() })
+      void serverSyncClient.chatRequest({}, { action:"mark-read", roomId, readAt:chatState.messages.filter(message=>!message.pending).at(-1)?.sentAt })
         .then(() => refreshChatActive())
         .catch(() => null);
     }
@@ -24670,7 +24700,10 @@ async function loadOlderChatMessages(button){
   try{
     const payload = await serverSyncClient.chatRequest({ roomId:room.roomId, before });
     chatState.currentRoom = payload.room;
+    const receiptsChanged=mergeChatReceipts(payload.receiptChanges);
     mergeChatMessages(payload.messages);
+    const deliveredAt=(payload.messages||[]).at(-1)?.sentAt;
+    if(deliveredAt && !payload.room.readOnly)void serverSyncClient.chatRequest({}, {action:"mark-delivered",roomId:payload.room.roomId,readAt:deliveredAt}).catch(()=>null);
     mergeChatReactionChanges(payload.reactionChanges);
     chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
     chatState.olderCursor = payload.olderCursor || null;
@@ -24705,13 +24738,16 @@ async function pollChatRoom(){
     const beforeIds = new Set(chatState.messages.map(message => message.messageId));
     const payload = await serverSyncClient.chatRequest({ roomId:chatState.currentRoom.roomId, after, reactionAfter:chatState.reactionCursor });
     chatState.currentRoom = payload.room;
+    const receiptsChanged=mergeChatReceipts(payload.receiptChanges);
     mergeChatMessages(payload.messages);
+    const deliveredAt=(payload.messages||[]).at(-1)?.sentAt;
+    if(deliveredAt && !payload.room.readOnly)void serverSyncClient.chatRequest({}, {action:"mark-delivered",roomId:payload.room.roomId,readAt:deliveredAt}).catch(()=>null);
     const incoming = (payload.messages || []).filter(message => !beforeIds.has(message.messageId) && !message.own);
     const added = (payload.messages || []).some(message => !beforeIds.has(message.messageId));
     const reactionsChanged = mergeChatReactionChanges(payload.reactionChanges);
     chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
     if (payload.room.status !== previousStatus) renderOpenChatRoom({ autoScroll:atBottom });
-    else if (added || reactionsChanged) refreshChatMessageStream({
+    else if (added || reactionsChanged || receiptsChanged) refreshChatMessageStream({
       autoScroll:atBottom,
       showNew:(added && !atBottom) || document.getElementById("chatNewMessagesBtn").classList.contains("show"),
       preserveScroll:!atBottom,

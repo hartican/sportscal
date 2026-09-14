@@ -184,7 +184,7 @@ async function run(){
   assert.match(html, /email\.className = "chat-user-email"/, "member names and email addresses must render as separate rows");
   assert(worker.includes(`nothingsport-shell-v${html.match(/name="app-shell-version" content="(\d+)"/)?.[1]}`));
   assert(html.match(/name="app-shell-version" content="(\d+)"/)?.[1]);
-  assert.match(worker, /"\/config\/chat-contract\.js"/);
+  assert(require("./offline-shell-module")("config/chat-contract.js"), "chat contract must be available offline, individually or bundled");
 
   const ids = {
     adminA:"11111111-1111-4111-8111-111111111111",
@@ -214,6 +214,7 @@ async function run(){
   ]);
   const rooms = [];
   const members = [];
+  const invitations = [];
   const messages = [];
   const reactions = [];
   let roomSequence = 1;
@@ -307,6 +308,19 @@ async function run(){
       members.push({room_id:room.id,user_id:body.target_user,added_by:body.target_user,member_kind:body.target_member_kind,guest_display_name:body.target_guest_display_name,joined_at:timestamp(),last_read_at:timestamp()});
       return fetchResponse([{outcome:"joined",existing_member:false,member_count:roomMembers.length+1}]);
     }
+    if(url.pathname.endsWith('/nothingsports_chat_resolve_invitation')){
+      const invitation=invitations.find(item=>item.invitation_id===body.target_invitation&&item.invitee_id===body.target_invitee);
+      if(!invitation)return fetchResponse([]);
+      if(invitation.status==='pending'){
+        invitation.status=body.target_resolution;
+        if(invitation.status==='accepted')members.push({room_id:invitation.room_id,user_id:invitation.invitee_id,added_by:invitation.inviter_id,member_kind:'account',joined_at:timestamp(),last_read_at:timestamp()});
+      }
+      return fetchResponse([{room_id:invitation.room_id,status:invitation.status}]);
+    }
+    if(url.pathname.endsWith('/nothingsports_chat_acknowledge')){
+      members.filter(item=>item.room_id===body.target_room&&item.user_id===body.target_user).forEach(item=>{item.last_delivered_at=body.acknowledged_at;if(body.mark_read)item.last_read_at=body.acknowledged_at;});
+      return fetchResponse(null);
+    }
     if (url.pathname === "/rest/v1/rpc/nothingsports_chat_active_rooms"){
       const ownMemberships = new Map(members.filter(member => member.user_id === body.target_user).map(member => [member.room_id, member]));
       return fetchResponse(rooms.filter(room => room.status === "open" && (body.include_admin_rooms || ownMemberships.has(room.id))).map(room => {
@@ -324,6 +338,13 @@ async function run(){
       }));
     }
     const table = url.pathname.split("/").at(-1);
+    if(table==='nothingsports_chat_invitations'){
+      if(options.method==='POST'){
+        for(const item of body)invitations.push({...item,invitation_id:`dddddddd-dddd-4ddd-8ddd-${String(invitations.length+1).padStart(12,'0')}`,created_at:timestamp()});
+        return fetchResponse([]);
+      }
+      return fetchResponse(invitations.filter(item=>(!url.searchParams.has('room_id')||item.room_id===eq(url.searchParams.get('room_id')))&&(!url.searchParams.has('invitee_id')||item.invitee_id===eq(url.searchParams.get('invitee_id')))&&(!url.searchParams.has('status')||item.status===eq(url.searchParams.get('status')))));
+    }
     if (table === "nothingsports_nsc_profiles"){
       const rawUserId = url.searchParams.get("user_id") || "";
       if (rawUserId.startsWith("in.(")){
@@ -365,6 +386,7 @@ async function run(){
         }
         return fetchResponse([room]);
       }
+      if(roomId.startsWith("in.("))return fetchResponse(rooms.filter(item=>roomId.slice(4,-1).split(",").includes(item.id)));
       return fetchResponse(room ? [room] : []);
     }
     if (table === "nothingsports_chat_members"){
@@ -389,7 +411,7 @@ async function run(){
         });
         return fetchResponse([]);
       }
-      return fetchResponse(members.filter(member => (!roomId || member.room_id === roomId) && (!userId || member.user_id === userId)));
+      return fetchResponse(members.filter(member => (!roomId || member.room_id === roomId) && (!userId || member.user_id === userId) && (!url.searchParams.has("archived_at") || member.archived_at)));
     }
     if (table === "nothingsports_chat_messages"){
       const messageId = eq(url.searchParams.get("id"));
@@ -492,6 +514,13 @@ async function run(){
       member_kind:"guest",guest_display_name:"Earlier Guest",joined_at:timestamp(),last_read_at:timestamp(),
     });
 
+    assert(!members.some(member=>member.user_id===ids.userB),'creating a room must not auto-admit invitees');
+    const pendingRead=await invoke(tokenRequest(`token-${ids.userB}`,{query:{roomId:firstRoom.body.room.roomId}}));
+    assert.equal(pendingRead.statusCode,403,'pending invitees cannot read history');
+    for(const invitation of invitations){
+      const accepted=await invoke(tokenRequest(`token-${invitation.invitee_id}`,{method:'POST',body:{action:'resolve-invitation',invitationId:invitation.invitation_id,resolution:'accept'}}));
+      assert.equal(accepted.statusCode,200);
+    }
     const activeMember = await invoke(tokenRequest(`token-${ids.userB}`, { query:{ mode:"active" } }));
     assert.equal(activeMember.body.rooms.length, 2, "membership, not follows, must drive Active chats");
     const activeAdmin = await invoke(tokenRequest(`token-${ids.adminB}`, { query:{ mode:"active" } }));

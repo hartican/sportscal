@@ -110,6 +110,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-canonical-sports.js"],
   ["scripts/validate-gws-aflw-editorial.js"],
   ["scripts/validate-restored-feed-chat-contract.js"],
+  ["scripts/validate-chat-bulk-receipts.js"],
   ["scripts/validate-card-identities.js"],
   ["scripts/validate-identity-fallback-lifecycle.js"],
   ["scripts/validate-card-polish.js"],

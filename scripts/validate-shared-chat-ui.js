@@ -122,7 +122,7 @@ assert.match(polling, /reactionAfter:chatState\.reactionCursor/);
 assert.match(polling, /mergeChatReactionChanges\(payload\.reactionChanges\)/);
 assert.match(polling, /payload\.reactionCursor/);
 assert.match(polling, /refreshChatMessageStream\(/, "polling must patch the message stream without replacing the composer or Members state");
-assert.match(polling, /if \(payload\.room\.status !== previousStatus\) renderOpenChatRoom[\s\S]{0,100}else if \(added \|\| reactionsChanged\) refreshChatMessageStream/, "only a room-status transition may rebuild the room body during polling");
+assert.match(polling, /if \(payload\.room\.status !== previousStatus\) renderOpenChatRoom[\s\S]{0,100}else if \(added \|\| reactionsChanged \|\| receiptsChanged\) refreshChatMessageStream/, "only a room-status transition may rebuild the room body during polling");
 const activePolling = section(html, "function chatUnreadIncreasedOutsideOpenRoom", "function scheduleChatActivePoll");
 assert.match(activePolling, /previousUnreadByRoom/);
 assert.match(activePolling, /room\.roomId !== currentRoomId/, "the active poll must leave the open room's cue to its message poll");
@@ -131,17 +131,17 @@ assert.match(activePolling, /chatState\.activeSignature[\s\S]+chatUnreadIncrease
 assert.equal((activePolling.match(/playIncomingChatSound\(\)/g) || []).length,1,"one active poll must play at most one cue for all outside-room unread increases");
 const unreadHelperSource = section(html, "function chatUnreadIncreasedOutsideOpenRoom", "async function refreshChatActive");
 const chatUnreadIncreasedOutsideOpenRoom = Function(`${unreadHelperSource}; return chatUnreadIncreasedOutsideOpenRoom;`)();
-assert.equal(chatUnreadIncreasedOutsideOpenRoom(
+assert.deepEqual(chatUnreadIncreasedOutsideOpenRoom(
   [{roomId:"open",unreadCount:0},{roomId:"outside",unreadCount:1}],
   [{roomId:"open",unreadCount:1},{roomId:"outside",unreadCount:2}],
   "open",
-),true,"one outside-room unread increase must request a cue even when the open room also changes");
+),{roomId:"outside",unreadCount:2},"one outside-room unread increase must request a cue even when the open room also changes");
 assert.equal(chatUnreadIncreasedOutsideOpenRoom(
   [{roomId:"open",unreadCount:0}],
   [{roomId:"open",unreadCount:1}],
   "open",
-),false,"the active poll must not duplicate the open room's message-poll cue");
-assert.equal(chatUnreadIncreasedOutsideOpenRoom([], [{roomId:"outside",unreadCount:4}], null),false,"the first active snapshot must not sound for historical unread messages");
+),undefined,"the active poll must not duplicate the open room's message-poll cue");
+assert.equal(chatUnreadIncreasedOutsideOpenRoom([], [{roomId:"outside",unreadCount:4}], null),undefined,"the first active snapshot must not sound for historical unread messages");
 
 // Signed-in identity is one global Public Profile. Chat never writes the retired room profile.
 assert.doesNotMatch(html, /Public pilot profile/i);
@@ -155,7 +155,9 @@ assert.match(accountProfile, /title\.textContent = "Public Profile"/);
 assert.match(accountProfile, /nothingscoreProfileForm\(\)/);
 const nscDrawer = section(html, "function renderNothingscoreDrawer()", "async function loadNothingscoreLeaderboard");
 assert.doesNotMatch(nscDrawer, /nothingscoreProfileForm\(\)/, "NSC must link to Settings instead of duplicating the editor");
-assert.match(nscDrawer, /Edit in Settings/);
-assert.match(nscDrawer, /settingsSection = "account"/);
+const accountSummary = section(html, "function buildMyNscAccountSection", "function refreshMyNscAccountSection");
+assert.match(nscDrawer, /buildMyNscAccountSection\(\)/);
+assert.match(accountSummary, /Edit in Settings/);
+assert.match(accountSummary, /settingsSection = "account"/);
 
 console.log("Shared chat and Public Profile UI validation passed.");
