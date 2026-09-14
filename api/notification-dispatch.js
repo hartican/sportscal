@@ -1,7 +1,7 @@
 "use strict";
 
 const webpush = require("web-push");
-const { publicError, SupabaseRequestError, supabaseServiceRequest } = require("../lib/supabase-server");
+const { publicError, SupabaseRequestError, supabaseMaintenanceMode, supabaseServiceRequest } = require("../lib/supabase-server");
 
 function bearer(request){
   const header = String(request?.headers?.authorization || "");
@@ -62,6 +62,10 @@ module.exports = async function notificationDispatchHandler(request, response){
     const cronSecret = String(process.env.CRON_SECRET || "");
     if (!cronSecret || bearer(request) !== cronSecret){
       response.status(401).json({ error:"Notification dispatch is not authorised.", code:"unauthorised" });
+      return;
+    }
+    if (supabaseMaintenanceMode()){
+      response.status(503).json({ error:"Notification dispatch paused for database recovery.", code:"supabase_maintenance" });
       return;
     }
     const publicKey = String(process.env.VAPID_PUBLIC_KEY || "");

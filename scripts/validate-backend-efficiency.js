@@ -51,6 +51,8 @@ async function main(){
   assert.match(workflow,/QUICK_RESULTS: \$\{\{ steps\.cadence\.outputs\.quick \}\}/);
   assert.equal(fs.existsSync(".github/workflows/quick-results-refresh.yml"),false);
   assert.match(read("AGENTS.md"),/docs\/backend-efficiency-decisions\.md/);
+  assert.match(read("lib/supabase-server.js"),/SUPABASE_MAINTENANCE_MODE/);
+  assert.match(read("supabase/recover-disk-pressure.sql"),/limit 100/);
 
   console.log("Backend efficiency: bounded fixture reads, fail-soft delivery, adaptive clients, batched jobs and single scheduler passed.");
 }
