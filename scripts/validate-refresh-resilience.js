@@ -9,6 +9,7 @@ const tennisRankings = fs.readFileSync("scripts/refresh-tennis-ranking-exports.j
 const rollingEditorial = fs.readFileSync("scripts/update-rolling-editorial-projections.js", "utf8");
 const teamDirectories = fs.readFileSync("scripts/build-team-player-directories.js", "utf8");
 const officialFollow = fs.readFileSync("scripts/refresh-official-follow-fixtures.js", "utf8");
+const swimming = fs.readFileSync("scripts/refresh-swimming-directory.js", "utf8");
 assert.match(source, /AbortSignal\.timeout\(20_000\)/, "slow source calls need a bounded timeout");
 assert.match(source, /preserv(?:e|ing) existing/i, "transient source failure must retain validated current snapshots");
 assert.match(source, /retiredEspnRosterEndpoint[^]*404\\s\+Not Found:[^]*site\\\.api\\\.espn\\\.com[^]*roster/i, "the retired ESPN roster capability must preserve the last validated NFL snapshot instead of blocking every canonical refresh");
@@ -21,4 +22,6 @@ assert.match(teamDirectories, /AbortSignal\.timeout\(20_000\)/, "team/player sou
 assert.match(teamDirectories, /preserving existing directories for the immediate --check validation/i, "team/player refresh must preserve only into its canonical check stage");
 assert.match(officialFollow, /AbortSignal\.timeout\(20_000\)/, "official follow source calls need a bounded timeout");
 assert.match(officialFollow, /preserving \$\{payload\.events\.length\} validated fixtures/, "official follow refresh must preserve only a validated artifact after a transient failure");
+assert.match(swimming, /AbortSignal\.timeout\(20_000\)/, "World Aquatics calls need a bounded timeout");
+assert.match(swimming, /validate\(existing\)[\s\S]+preserving \$\{existing\.athletes\.length\} validated athletes for the immediate --check pass/i, "a changed or unavailable World Aquatics endpoint must preserve the last validated swimming directory");
 console.log("Canonical source resilience valid: bounded fetches and validated preservation passed.");

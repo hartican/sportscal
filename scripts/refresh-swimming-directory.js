@@ -15,7 +15,10 @@ const EVENTS = Object.freeze([
 ]);
 
 async function fetchJson(url){
-  const response = await fetch(url, { headers:{ accept:"application/json", "user-agent":"nothingSport canonical refresh/1.0" } });
+  const response = await fetch(url, {
+    headers:{ accept:"application/json", "user-agent":"nothingSport canonical refresh/1.0" },
+    signal:AbortSignal.timeout(20_000),
+  });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
   return response.json();
 }
@@ -96,7 +99,17 @@ async function main(){
     console.log("Swimming directory valid: 30 women and 30 men with official event-specific ranks.");
     return;
   }
-  const [women, men] = await Promise.all([buildGender("F", "female"), buildGender("M", "male")]);
+  let women;
+  let men;
+  try{
+    [women, men] = await Promise.all([buildGender("F", "female"), buildGender("M", "male")]);
+  }catch(error){
+    if (!fs.existsSync(OUTPUT_PATH)) throw error;
+    const existing = JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf8"));
+    validate(existing);
+    console.warn(`Swimming source refresh failed (${error.message}); preserving ${existing.athletes.length} validated athletes for the immediate --check pass.`);
+    return;
+  }
   const payload = {
     schemaVersion:"individual-sport-directory.v1", sportKey:"swimming",
     generatedAt:[women.generatedOn, men.generatedOn].filter(Boolean).sort().at(-1) || new Date().toISOString(),
