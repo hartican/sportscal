@@ -10,6 +10,7 @@ const rollingEditorial = fs.readFileSync("scripts/update-rolling-editorial-proje
 const teamDirectories = fs.readFileSync("scripts/build-team-player-directories.js", "utf8");
 const officialFollow = fs.readFileSync("scripts/refresh-official-follow-fixtures.js", "utf8");
 const swimming = fs.readFileSync("scripts/refresh-swimming-directory.js", "utf8");
+const { f1Narrative } = require("./update-rolling-editorial-projections");
 assert.match(source, /AbortSignal\.timeout\(20_000\)/, "slow source calls need a bounded timeout");
 assert.match(source, /preserv(?:e|ing) existing/i, "transient source failure must retain validated current snapshots");
 assert.match(source, /retiredEspnRosterEndpoint[^]*404\\s\+Not Found:[^]*site\\\.api\\\.espn\\\.com[^]*roster/i, "the retired ESPN roster capability must preserve the last validated NFL snapshot instead of blocking every canonical refresh");
@@ -24,4 +25,31 @@ assert.match(officialFollow, /AbortSignal\.timeout\(20_000\)/, "official follow 
 assert.match(officialFollow, /preserving \$\{payload\.events\.length\} validated fixtures/, "official follow refresh must preserve only a validated artifact after a transient failure");
 assert.match(swimming, /AbortSignal\.timeout\(20_000\)/, "World Aquatics calls need a bounded timeout");
 assert.match(swimming, /validate\(existing\)[\s\S]+preserving \$\{existing\.athletes\.length\} validated athletes for the immediate --check pass/i, "a changed or unavailable World Aquatics endpoint must preserve the last validated swimming directory");
+const f1Projection = f1Narrative({
+  id:"fixture:f1:2026:singapore:race",
+  key:"f1",
+  name:"Singapore GP Race",
+  sourceUrl:"https://www.formula1.com/en/results/2026/drivers",
+  editorialPreview:{ evidenceReferences:[
+    { url:"https://www.formula1.com/en/results/2026/drivers" },
+    { url:"https://www.formula1.com/en/results/2026/team" },
+    { url:"https://www.formula1.com/en/results/2026/races" },
+  ] },
+}, {
+  participants:[
+    { id:"driver:leader", displayName:"Driver One" },
+    { id:"driver:second", displayName:"Driver Two" },
+    { id:"constructor:leader", displayName:"Constructor One" },
+    { id:"constructor:second", displayName:"Constructor Two" },
+  ],
+  sources:[{ provider:"Formula 1", sourceUrl:"https://www.formula1.com/en/results/2026/races" }],
+  ladderSnapshots:[
+    { competitionId:"competition:f1-drivers-2026", snapshotTimeUtc:"2026-09-14T00:00:00.000Z", source:{ sourceUrl:"https://www.formula1.com/en/results/2026/drivers" }, entries:[{ participantId:"driver:leader", points:300 }, { participantId:"driver:second", points:280 }] },
+    { competitionId:"competition:f1-constructors-2026", snapshotTimeUtc:"2026-09-14T00:00:00.000Z", source:{ sourceUrl:"https://www.formula1.com/en/results/2026/team" }, entries:[{ participantId:"constructor:leader", points:500 }, { participantId:"constructor:second", points:450 }] },
+  ],
+}, new Date("2026-09-14T00:00:00.000Z"));
+assert.equal(f1Projection.facts.length, 4, "an ordinary F1 marquee session needs four sourced facts");
+assert.equal(new Set(f1Projection.facts.map(fact => fact.dimension)).size, 3, "an ordinary F1 marquee session needs three narrative dimensions");
+assert.equal(new Set([f1Projection.sourceId, ...f1Projection.extraSources.map(source => source.id)]).size, 3, "an ordinary F1 marquee session needs three source records");
+assert.match(f1Projection.extraSources.find(source => source.id.includes(":session:"))?.url || "", /\/races$/, "the session fact must use the official race/session source instead of duplicating the driver standings source");
 console.log("Canonical source resilience valid: bounded fetches and validated preservation passed.");

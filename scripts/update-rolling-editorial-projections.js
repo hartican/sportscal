@@ -100,7 +100,13 @@ function f1Narrative(event, context, reference){
   const circuit=/Italian/.test(event.name||'')?{slug:'italy',fact:'Monza pairs long full-throttle sections with heavy braking into chicanes.'}:/Spanish/.test(event.name||'')?{slug:'spain',fact:'Madring makes its Grand Prix debut in 2026 with a 22-corner layout and a banked Turn 12.'}:null;
   const constructors=context.ladderSnapshots.find(item=>item.competitionId==='competition:f1-constructors-2026');
   const front=constructors?.entries?.[0],second=constructors?.entries?.[1];
-  const extraSources=circuit&&front&&second?[{id:'source:rolling:f1:constructors',name:'Formula 1 constructors standings',url:constructors.source.sourceUrl,sourceType:'official',checkedAt:constructors.snapshotTimeUtc},{id:`source:rolling:f1:circuit:${circuit.slug}`,name:'Formula 1 official circuit guide',url:`https://www.formula1.com/en/racing/2026/${circuit.slug}`,sourceType:'official',checkedAt:reference.toISOString()}]:[];
+  const sessionSourceId=`source:rolling:f1:session:${slug(idFor(event))}`;
+  const sessionEvidence=(event.editorialPreview?.evidenceReferences||[]).find(item=>/\/races(?:\/|$)/i.test(item?.url||""));
+  const sessionContextSource=(context.sources||[]).find(item=>/\/races(?:\/|$)/i.test(item?.sourceUrl||""));
+  const sessionSourceUrl=event.timingSource?.url||sessionEvidence?.url||sessionContextSource?.sourceUrl||event.canonicalSourceUrl||event.sourceUrl||"https://www.formula1.com/en/racing/2026";
+  const constructorSource=front&&second?{id:'source:rolling:f1:constructors',name:'Formula 1 constructors standings',url:constructors.source.sourceUrl,sourceType:'official',checkedAt:constructors.snapshotTimeUtc}:null;
+  const sessionSource={id:sessionSourceId,name:`Formula 1 published session record for ${event.name}`,url:sessionSourceUrl,sourceType:'official',checkedAt:event.canonicalSourceCheckedAt||event.sourceCheckedAt||reference.toISOString()};
+  const extraSources=[constructorSource,sessionSource].filter(Boolean);
   const consequence = qualifying ? "sets the grid and determines who controls the race start" : "is the points-paying chapter of the weekend";
   return {
     ladder,
@@ -108,10 +114,9 @@ function f1Narrative(event, context, reference){
     sourceId,
     extraSources,
     facts:[
-      ...(extraSources.length ? [
-        {id:'fact:rolling:f1:constructors',subjectIds:['subject:rolling:f1-season'],statement:`${participants.get(front.participantId).displayName} has ${front.points} constructors points to ${participants.get(second.participantId).displayName}'s ${second.points}.`,dimension:'form',sourceIds:[extraSources[0].id],observedAt:constructors.snapshotTimeUtc,expiresAt:null},
-        {id:`fact:rolling:f1:circuit:${circuit.slug}`,subjectIds:['subject:rolling:f1-season'],statement:circuit.fact,dimension:'format',sourceIds:[extraSources[1].id],observedAt:reference.toISOString(),expiresAt:null}
-      ] : []),
+      ...(constructorSource ? [{id:'fact:rolling:f1:constructors',subjectIds:['subject:rolling:f1-season'],statement:`${participants.get(front.participantId)?.displayName||'The leading constructor'} has ${front.points} constructors points, while ${participants.get(second.participantId)?.displayName||'second place'} has ${second.points}.`,dimension:'form',sourceIds:[constructorSource.id],observedAt:constructors.snapshotTimeUtc,expiresAt:null}] : []),
+      {id:`fact:rolling:f1:session:${slug(idFor(event))}`,subjectIds:['subject:rolling:f1-season'],statement:`${event.name} is the published ${qualifying?'qualifying':'race'} session for this 2026 Formula 1 round.`,dimension:'schedule',sourceIds:[sessionSourceId],observedAt:sessionSource.checkedAt,expiresAt:null},
+      ...(circuit ? [{id:`fact:rolling:f1:circuit:${circuit.slug}`,subjectIds:['subject:rolling:f1-season'],statement:circuit.fact,dimension:'format',sourceIds:[sessionSourceId],observedAt:sessionSource.checkedAt,expiresAt:null}] : []),
       { id:"fact:rolling:f1:leader", subjectIds:["subject:rolling:f1-leader"], statement:`${leaderName} leads the 2026 drivers' championship with ${leader.points} points, ${leader.points - challenger.points} ahead of ${challengerName}.`, dimension:"form", sourceIds:[sourceId], observedAt:ladder.snapshotTimeUtc, expiresAt:null },
       { id:`fact:rolling:f1:${qualifying ? "qualifying" : "race"}-consequence`, subjectIds:["subject:rolling:f1-season"], statement:`In a Formula 1 weekend, ${qualifying ? "qualifying sets the starting grid and track-position baseline for the race" : "the race awards the championship points that convert weekend pace into the title standings"}.`, dimension:"consequence", sourceIds:[sourceId], observedAt:ladder.snapshotTimeUtc, expiresAt:null },
     ],
@@ -495,4 +500,4 @@ function main(){
   console.log(`${write ? "Updated" : "Validated"} rolling editorial: ${generated} event-specific projections refreshed.`);
 }
 if (require.main === module){ try { main(); } catch (error){ console.error(error.message); process.exitCode = 1; } }
-module.exports = { build, researchDepthFor };
+module.exports = { build, researchDepthFor, f1Narrative };
