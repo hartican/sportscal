@@ -8,6 +8,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const NFL_PATH = path.join(ROOT, "data/canonical/american-football-directory.v1.json");
 const ICE_HOCKEY_PATH = path.join(ROOT, "data/canonical/ice-hockey-directory.v1.json");
+const CARD_IDENTITIES_PATH = path.join(ROOT, "config/card-identities.js");
 const NHL_SEASON = "20262027";
 const NFL_SEASON = 2026;
 
@@ -42,6 +43,20 @@ function writeJson(filePath, payload){
   if (fs.existsSync(filePath) && fs.readFileSync(filePath, "utf8") === content) return false;
   fs.writeFileSync(filePath, content);
   return true;
+}
+
+function nflClubIdentityRows(payload){
+  return payload.teams.map(team => [team.id, team.displayName, team.shortName, team.aliases || []]);
+}
+
+function syncNflCardIdentities(payload, { check = false } = {}){
+  const source = fs.readFileSync(CARD_IDENTITIES_PATH, "utf8");
+  const block = `/* nfl-club-identities:start */\n  const nflClubIdentities = ${JSON.stringify(nflClubIdentityRows(payload))};\n  /* nfl-club-identities:end */`;
+  const pattern = /\/\* nfl-club-identities:start \*\/[\s\S]*?\/\* nfl-club-identities:end \*\//;
+  if (!pattern.test(source)) throw new Error("NFL card identity block is missing");
+  const updated = source.replace(pattern, block);
+  if (check && updated !== source) throw new Error("NFL card identities are stale; run node scripts/refresh-nfl-ice-hockey.js");
+  if (!check && updated !== source) fs.writeFileSync(CARD_IDENTITIES_PATH, updated);
 }
 
 function isoParts(value){
@@ -353,6 +368,7 @@ async function main(){
     const iceHockey = JSON.parse(fs.readFileSync(ICE_HOCKEY_PATH, "utf8"));
     validate(nfl, { teamCount:32, minimumPlayers:1500, minimumFixtures:250 });
     validate(iceHockey, { minimumTeamCount:52, minimumPlayers:700, minimumFixtures:1350 });
+    syncNflCardIdentities(nfl, { check:true });
     if (iceHockey.teams.filter(team => team.leagueId === "competition:nhl").length !== 32) throw new Error("Ice Hockey: NHL club count must be 32");
     if (iceHockey.teams.filter(team => team.leagueId === "competition:chl").length < 20) throw new Error("Ice Hockey: current CHL field is incomplete");
     console.log(`NFL/Ice Hockey current snapshots valid: ${nfl.players.length + iceHockey.players.length} players, ${nfl.fixtures.length + iceHockey.fixtures.length} fixtures.`);
@@ -363,6 +379,7 @@ async function main(){
   validate(iceHockey, { minimumTeamCount:52, minimumPlayers:700, minimumFixtures:1350 });
   writeJson(NFL_PATH, nfl);
   writeJson(ICE_HOCKEY_PATH, iceHockey);
+  syncNflCardIdentities(nfl);
   console.log(`Refreshed NFL and Ice Hockey: ${nfl.teams.length + iceHockey.teams.length} teams, ${nfl.players.length + iceHockey.players.length} players, ${nfl.fixtures.length + iceHockey.fixtures.length} fixtures.`);
 }
 

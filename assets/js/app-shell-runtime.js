@@ -11331,6 +11331,26 @@
     return [id, teamMark(id, label, url, "https://www.nba.com/teams", [label], id === "team:nba:toronto-raptors" ? "CA" : "US")];
   })));
 
+  // Lightweight NFL identities are available on a cold Feed before Follow
+  // loads the full player directory. The canonical refresh script keeps this
+  // compact team list in sync with american-football-directory.v1.json.
+  /* nfl-club-identities:start */
+  const nflClubIdentities = [["team:nfl:ari","Arizona Cardinals","Cardinals",["ARI","Arizona","Cardinals"]],["team:nfl:atl","Atlanta Falcons","Falcons",["ATL","Atlanta","Falcons"]],["team:nfl:bal","Baltimore Ravens","Ravens",["BAL","Baltimore","Ravens"]],["team:nfl:buf","Buffalo Bills","Bills",["BUF","Buffalo","Bills"]],["team:nfl:car","Carolina Panthers","Panthers",["CAR","Carolina","Panthers"]],["team:nfl:chi","Chicago Bears","Bears",["CHI","Chicago","Bears"]],["team:nfl:cin","Cincinnati Bengals","Bengals",["CIN","Cincinnati","Bengals"]],["team:nfl:cle","Cleveland Browns","Browns",["CLE","Cleveland","Browns"]],["team:nfl:dal","Dallas Cowboys","Cowboys",["DAL","Dallas","Cowboys"]],["team:nfl:den","Denver Broncos","Broncos",["DEN","Denver","Broncos"]],["team:nfl:det","Detroit Lions","Lions",["DET","Detroit","Lions"]],["team:nfl:gb","Green Bay Packers","Packers",["GB","Green Bay","Packers"]],["team:nfl:hou","Houston Texans","Texans",["HOU","Houston","Texans"]],["team:nfl:ind","Indianapolis Colts","Colts",["IND","Indianapolis","Colts"]],["team:nfl:jax","Jacksonville Jaguars","Jaguars",["JAX","Jacksonville","Jaguars"]],["team:nfl:kc","Kansas City Chiefs","Chiefs",["KC","Kansas City","Chiefs"]],["team:nfl:lv","Las Vegas Raiders","Raiders",["LV","Las Vegas","Raiders"]],["team:nfl:lac","Los Angeles Chargers","Chargers",["LAC","Los Angeles","Chargers"]],["team:nfl:lar","Los Angeles Rams","Rams",["LAR","Los Angeles","Rams"]],["team:nfl:mia","Miami Dolphins","Dolphins",["MIA","Miami","Dolphins"]],["team:nfl:min","Minnesota Vikings","Vikings",["MIN","Minnesota","Vikings"]],["team:nfl:ne","New England Patriots","Patriots",["NE","New England","Patriots"]],["team:nfl:no","New Orleans Saints","Saints",["NO","New Orleans","Saints"]],["team:nfl:nyg","New York Giants","Giants",["NYG","New York","Giants"]],["team:nfl:nyj","New York Jets","Jets",["NYJ","New York","Jets"]],["team:nfl:phi","Philadelphia Eagles","Eagles",["PHI","Philadelphia","Eagles"]],["team:nfl:pit","Pittsburgh Steelers","Steelers",["PIT","Pittsburgh","Steelers"]],["team:nfl:sf","San Francisco 49ers","49ers",["SF","San Francisco","49ers"]],["team:nfl:sea","Seattle Seahawks","Seahawks",["SEA","Seattle","Seahawks"]],["team:nfl:tb","Tampa Bay Buccaneers","Buccaneers",["TB","Tampa Bay","Buccaneers"]],["team:nfl:ten","Tennessee Titans","Titans",["TEN","Tennessee","Titans"]],["team:nfl:wsh","Washington Commanders","Commanders",["WSH","Washington","Commanders"]]];
+  /* nfl-club-identities:end */
+  const nflTeamMarks = Object.freeze(Object.fromEntries(nflClubIdentities.map(([id, label, shortName, aliases]) => {
+    const abbreviation = id.split(":").at(-1);
+    const url = `https://a.espncdn.com/i/teamlogos/nfl/500/${abbreviation}.png`;
+    const dark = `https://a.espncdn.com/i/teamlogos/nfl/500-dark/${abbreviation}.png`;
+    return [id, Object.freeze({
+      ...referenceMark(`participant:${id}`, label, url, "https://www.nfl.com/teams/", {
+        assetSource:url,
+        logo:{ dark, iconDark:dark, backgroundLight:"light", backgroundDark:"dark" },
+      }),
+      aliases:Object.freeze(Array.from(new Set([label, shortName, ...aliases]))),
+      fallbackCountryCode:"US",
+    })];
+  })));
+
   const baseParticipantMarks = Object.freeze(Object.fromEntries([
     ...Object.entries(nrlTeamSlugs).map(([participantId, slug]) => [participantId, officialMark(`participant:${participantId}`, slug, `https://www.nrl.com/.theme/${slug}/${nrlDefaultBadgeExceptions.has(slug) ? "badge.svg" : "badge-light.svg"}`, "https://www.nrl.com/clubs/", {
       logo: {
@@ -11356,6 +11376,7 @@
     ...Object.entries(f1TeamMarks),
     ...Object.entries(premierLeagueTeamMarks),
     ...Object.entries(nbaTeamMarks),
+    ...Object.entries(nflTeamMarks),
   ]));
   // Lightweight club identities are available on a cold Feed before Follow loads.
   // Kept in sync by scripts/refresh-football-directory.js; no player roster here.
@@ -11409,8 +11430,11 @@
     football: Object.freeze(["team:football:"]),
     nba: Object.freeze(["team:nba:", "team:basketball:"]),
     basketball: Object.freeze(["team:nba:", "team:basketball:"]),
+    nfl: Object.freeze(["team:nfl:"]),
+    "american-football": Object.freeze(["team:nfl:"]),
     netball: Object.freeze(["team:netball:"]),
     hockey: Object.freeze(["team:hockey:"]),
+    "ice-hockey": Object.freeze(["team:nhl:", "team:chl:"]),
     cwg: Object.freeze(["team:cwg:"]),
     "multi-sport": Object.freeze(["team:cwg:"]),
   });
@@ -11493,16 +11517,25 @@
     return null;
   }
   function participantMarksForEvent(event, participants, title = ""){
-    const participantList = Array.isArray(participants) ? participants : []; const byId = new Map(participantList.map(participant => [participant.id, participant])); const resolved = []; const seen = new Set();
+    const slotParticipants = (Array.isArray(event?.participantSlots) ? event.participantSlots : []).map(slot => ({
+      id:slot?.participantId,
+      displayName:slot?.label || slot?.displayName || slot?.name,
+      shortName:slot?.label || slot?.displayName || slot?.name,
+      logoUrl:slot?.logoUrl || null,
+      logoDarkUrl:slot?.logoDarkUrl || slot?.logoUrl || null,
+      crestSourceUrl:slot?.sourceUrl || event?.sourceUrl || "",
+      metadata:{ titleAliases:[slot?.label, slot?.displayName, slot?.name].filter(Boolean) },
+    })).filter(participant => participant.id);
+    const participantList = [...(Array.isArray(participants) ? participants : []), ...slotParticipants]; const byId = new Map(participantList.map(participant => [participant.id, participant])); const resolved = []; const seen = new Set();
     const addParticipant = participant => { const mark = participantMarks[participant?.id] || directoryMarkForParticipant(participant); if (!participant || !mark || seen.has(participant.id)) return; seen.add(participant.id); resolved.push(Object.freeze({ participant, mark })); };
     const nationalTeamIdentities = getNationalTeamIdentities();
-    (Array.isArray(event?.participantIds) ? event.participantIds : []).map(participantId => nationalTeamIdentities?.canonicalId(participantId) || participantId).map(participantId => byId.get(participantId) || identityParticipants[participantId]).forEach(addParticipant);
+    [...(Array.isArray(event?.participantIds) ? event.participantIds : []), ...slotParticipants.map(participant => participant.id)].map(participantId => nationalTeamIdentities?.canonicalId(participantId) || participantId).map(participantId => byId.get(participantId) || identityParticipants[participantId]).forEach(addParticipant);
     (nationalTeamIdentities?.identitiesForEvent({ ...event, name:title || event?.name }) || []).map(team => nationalTeamIdentities.participantsById[team.id]).forEach(addParticipant);
     const registeredPrefixes = participantIdPrefixesByEventKey[event?.key] || [];
     if (resolved.length < 2 && registeredPrefixes.length && /\s+v\.?\s+/i.test(title)){
       const registeredParticipants = Object.values(identityParticipants).filter(participant => registeredPrefixes.some(prefix => participant.id.startsWith(prefix)));
       [...participantList.filter(participant=>registeredPrefixes.some(prefix=>String(participant?.id||"").startsWith(prefix))), ...registeredParticipants]
-        .filter(participant => participantMarks[participant.id] || participant.crestUrl)
+        .filter(participant => participantMarks[participant.id] || participant.crestUrl || participant.logoUrl)
         .filter(participant => aliasRange(title, participant))
         .forEach(addParticipant);
     }
@@ -11516,15 +11549,20 @@
     return resolved;
   }
   function directoryMarkForParticipant(participant){
-    if (!participant?.id || !participant?.crestUrl) return null;
+    const light = participant?.crestUrl || participant?.logoUrl;
+    if (!participant?.id || !light) return null;
+    const dark = participant?.logoDarkUrl || light;
     const label = participant.displayName || participant.canonicalName || participant.shortName || participant.id;
     return Object.freeze({
-      ...referenceMark(`participant:${participant.id}`, label, participant.crestUrl, participant.crestSourceUrl || participant.sourceUrl || "", { backgroundLight:"light", backgroundDark:"light" }),
+      ...referenceMark(`participant:${participant.id}`, label, light, participant.crestSourceUrl || participant.sourceUrl || "", {
+        assetSource:light,
+        logo:{ dark, iconDark:dark, backgroundLight:"light", backgroundDark:"dark" },
+      }),
       aliases:Object.freeze(participantAliases(participant)),
       fallbackCountryCode:participant.countryCode || participant.metadata?.countryCode || "",
     });
   }
-  const TEAM_SPORT_KEYS = new Set(["afl", "nrl", "rugby", "cricket", "fifa", "football", "premier-league", "bundesliga", "la-liga", "serie-a", "ligue-1", "nba", "basketball", "nfl", "american-football", "cwg", "netball", "hockey"]);
+  const TEAM_SPORT_KEYS = new Set(["afl", "nrl", "rugby", "cricket", "fifa", "football", "premier-league", "bundesliga", "la-liga", "serie-a", "ligue-1", "nba", "basketball", "nfl", "american-football", "cwg", "netball", "hockey", "ice-hockey"]);
   function isTeamSportMatchup(event, title = ""){
     return TEAM_SPORT_KEYS.has(String(event?.key || "")) && /\s+v\.?\s+/i.test(String(title || event?.name || ""));
   }

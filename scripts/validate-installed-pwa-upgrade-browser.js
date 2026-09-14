@@ -30,6 +30,7 @@ function baselineFile(name){
   historical.set(name,bytes);return bytes;
 }
 const baselineVersion=baselineFile('index.html').toString().match(/name="app-shell-version" content="(\d+)"/)[1];
+const launchOptions=process.env.PWA_EXECUTABLE_PATH?{executablePath:process.env.PWA_EXECUTABLE_PATH}:{};
 let phase='baseline', nextRelease=false, optionalFailure=false, coreFailure=false, networkFailure=false, versionRequests=0;
 function candidateFile(name){
   const file=path.join(root,name);if(!fs.existsSync(file)||!fs.statSync(file).isFile())return null;
@@ -55,7 +56,7 @@ const server=http.createServer((req,res)=>{
   try{
     await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
     const origin='http://127.0.0.1:'+server.address().port;
-    browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true});
+    browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions});
     const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'allow'});
     const page=await context.newPage();
     const navigations=[];page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations.push(frame.url());});
