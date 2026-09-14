@@ -157,6 +157,11 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/prepare-result-editorial.js"],
   ["scripts/validate-major-events.js"],
   ["scripts/build-editorial-research-queue.js", "--write"],
+  // Canonical fixture reconciliation can resolve placeholder identities after
+  // the first editorial pass. Reconcile inherited parent/child projections
+  // once more before publication so the resolved card keeps its research.
+  ["scripts/update-rolling-editorial-projections.js", "--write"],
+  ["scripts/apply-editorial-narratives.js", "--write"],
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "data/events.json", "data/events.json"]]
   ), discoverCanonicalFixtureBundles()),

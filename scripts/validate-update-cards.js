@@ -81,6 +81,15 @@ assert(localSteps.some(step => step[0] === "scripts/validate-editorial-sport-dep
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-interactions.js"), "every canonical update must keep L1/L2 copy editorial and likes reversible");
 assert(localSteps.some(step => step[0] === "scripts/snapshot-editorial-nothingscore.js" && step.includes("--write")), "every canonical update must snapshot privacy-safe Nothingscore aggregates before composing editorial work");
 assert(localSteps.some(step => step[0] === "scripts/build-editorial-research-queue.js" && step.includes("--write")), "every canonical update must recalculate the rolling stakes-2+ editorial queue");
+const rollingProjectionIndexes = localSteps.map((step, index) => step[0] === "scripts/update-rolling-editorial-projections.js" && step.includes("--write") ? index : -1).filter(index => index >= 0);
+const narrativeApplicationIndexes = localSteps.map((step, index) => step[0] === "scripts/apply-editorial-narratives.js" && step.includes("--write") ? index : -1).filter(index => index >= 0);
+assert(rollingProjectionIndexes.length >= 2 && narrativeApplicationIndexes.length >= 2, "every canonical update must reconcile resolved fixture identities with persistent editorial immediately before publication");
+assert(
+  rollingProjectionIndexes.at(-1) > localSteps.findIndex(step => step[0] === "scripts/build-editorial-research-queue.js")
+    && rollingProjectionIndexes.at(-1) < narrativeApplicationIndexes.at(-1)
+    && narrativeApplicationIndexes.at(-1) < localSteps.findIndex(step => step[0] === "scripts/publish-feed.js"),
+  "the final editorial identity reconciliation must run after the research queue and before feed publication"
+);
 assert(localSteps.some(step => step[0] === "scripts/update-editorial-audience-memory.js" && step.includes("--write")), "every canonical update must update qualifying Sentiment memory before projection");
 assert(localSteps.some(step => step[0] === "scripts/validate-editorial-audience-memory.js"), "every canonical update must validate Sentiment privacy, threshold, expiry and explicit carry rules");
 assert(localSteps.some(step => step[0] === "scripts/validate-nsc-demo-panel.js"), "every canonical update must validate deterministic demo crowd isolation");
