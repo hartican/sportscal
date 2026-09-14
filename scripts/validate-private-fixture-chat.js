@@ -76,6 +76,7 @@ async function run(){
 
   const sql = fs.readFileSync("supabase/private-fixture-chat.sql", "utf8");
   const freeTierAuthSql = fs.readFileSync("supabase/migrations/20260914112500_free_tier_anonymous_auth_hardening.sql", "utf8");
+  const freeTierCleanupSql = fs.readFileSync("supabase/migrations/20260914113500_coalesce_free_tier_chat_cleanup.sql", "utf8");
   const api = fs.readFileSync("api/chat.js", "utf8");
   const authApi = fs.readFileSync("api/auth.js", "utf8");
   const capabilitySource = fs.readFileSync("lib/chat-capability.js", "utf8");
@@ -136,7 +137,8 @@ async function run(){
       `free-tier anonymous identities must not write ${table}`,
     );
   }
-  assert.match(freeTierAuthSql, /'nothingsports-chat-anonymous-auth-cleanup-daily'[\s\S]+'23 3 \* \* \*'[\s\S]+is_anonymous is true[\s\S]+interval '1 day'/i,"free-tier orphaned anonymous identities must be purged by one bounded daily job");
+  assert.match(freeTierCleanupSql, /jobname in[\s\S]+'nothingsports-chat-purge-hourly'[\s\S]+'nothingsports-chat-anonymous-auth-cleanup-daily'/i,"legacy chat cleanup jobs must be removed before scheduling the consolidated job");
+  assert.match(freeTierCleanupSql, /'nothingsports-chat-maintenance-daily'[\s\S]+'23 3 \* \* \*'[\s\S]+status = 'closed'[\s\S]+purge_at <= now\(\)[\s\S]+is_anonymous is true[\s\S]+interval '1 day'/i,"closed rooms and orphaned anonymous identities must be purged by one bounded daily job");
   assert.match(api, /CHAT_ADMIN_EMAILS/);
   assert.match(api, /authenticatedUser\(bearerToken\(request\)\)/);
   assert.match(api, /supabaseServiceRequest/);
