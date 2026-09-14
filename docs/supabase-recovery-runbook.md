@@ -59,6 +59,10 @@ Attach the disk-I/O warning email already retained with the incident evidence. D
 14. Re-enable exactly one canonical card workflow, one live-fixture scheduler and one notification dispatcher. Leave overlapping local automations paused. Observe one successful run of each and confirm unchanged fixture sources create no snapshot write.
 15. Set `SUPABASE_MAINTENANCE_MODE=0` (or remove it), redeploy the same verified commit and test production. Do not reopen traffic before the expired growth is pruned and the reduced-write migration is applied.
 
+### Free-plan Auth recovery
+
+Supabase restricts the **Before User Created** Auth hook to Team or Enterprise. Do not make that paid hook a release dependency. On Free, enable global account creation, anonymous sign-ins and confirmed Email sign-in. Guest chat still enters through the server's signed room capability and durable per-room/IP rate gate; the server joins and attests the resulting identity before returning it. Directly minted anonymous identities have no chat access, cannot write account state or telemetry, and the single daily cleanup removes unattested orphans after 24 hours. Keep CAPTCHA disabled until the client and server guest flows both provide its challenge token.
+
 ## Why restore will not immediately refill the disk
 
 The maintenance switch closes the application path before the database returns. Disabling database-owned cron jobs closes the second write path as the first SQL maintenance action. The cleanup removes expired growth in bounded batches, and the reduced-write migration changes fixture publishing from repeated multi-megabyte source snapshots to changed rows plus small source metadata. Normal traffic resumes only after those controls are proven. A pause/restore on its own does not provide this protection.

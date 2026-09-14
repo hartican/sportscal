@@ -75,6 +75,7 @@ async function run(){
   assert.equal(chatContract.reactionEmoji("🔥"), "");
 
   const sql = fs.readFileSync("supabase/private-fixture-chat.sql", "utf8");
+  const freeTierAuthSql = fs.readFileSync("supabase/migrations/20260914112500_free_tier_anonymous_auth_hardening.sql", "utf8");
   const api = fs.readFileSync("api/chat.js", "utf8");
   const authApi = fs.readFileSync("api/auth.js", "utf8");
   const capabilitySource = fs.readFileSync("lib/chat-capability.js", "utf8");
@@ -128,6 +129,14 @@ async function run(){
   assert.match(sql, /badges_enabled boolean not null default true/i);
   assert.match(notifications, /chat_alerts_enabled=eq\.true/, "chat push must exclude installations that explicitly opted out");
   assert.match(sql, /is_anonymous is true[\s\S]+interval '30 days'/i);
+  for (const table of ["nothingsports_user_state", "nothingsports_user_meta", "product_events"]){
+    assert.match(
+      freeTierAuthSql,
+      new RegExp(`on public\\.${table}[\\s\\S]+is_anonymous[\\s\\S]+false`, "i"),
+      `free-tier anonymous identities must not write ${table}`,
+    );
+  }
+  assert.match(freeTierAuthSql, /'nothingsports-chat-anonymous-auth-cleanup-daily'[\s\S]+'23 3 \* \* \*'[\s\S]+is_anonymous is true[\s\S]+interval '1 day'/i,"free-tier orphaned anonymous identities must be purged by one bounded daily job");
   assert.match(api, /CHAT_ADMIN_EMAILS/);
   assert.match(api, /authenticatedUser\(bearerToken\(request\)\)/);
   assert.match(api, /supabaseServiceRequest/);
