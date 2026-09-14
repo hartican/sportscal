@@ -48,6 +48,7 @@ async function main(){
   resultsContext.nscRankingState={};
   resultsContext.history={pushState(){}};
   resultsContext.document.body={classList:{contains:()=>false}};
+  resultsContext.getEventStatus=()=>"past";
   resultsContext.nothingscoreEventId=()=>"alias";
   resultsContext.setNothingscoreDrawerOpen=()=>{};
   resultsContext.document.getElementById=()=>({classList:{contains:()=>true},querySelector:()=>({setAttribute:name=>{if(name==="open")resultsOpened=true;}})});
