@@ -189,6 +189,7 @@ async function buildF1Profiles(context, checkedAt){
   const existing = new Map(context.participants.filter(item => item.type === "competitor").map(driver => [driver.displayName.toLowerCase(), driver]));
   const currentStandings = context.ladderSnapshots.find(snapshot => snapshot.competitionId === 'competition:f1-drivers-2026');
   const participantNames = new Map(context.participants.map(participant => [participant.id,participant.displayName]));
+  const standingByParticipantId = new Map((currentStandings?.entries || []).map(entry => [entry.participantId, entry]));
   const topByName = new Map((currentStandings?.entries || []).filter(entry=>entry.rank<=10).map(entry=>[String(participantNames.get(entry.participantId)).toLowerCase(), {rank:entry.rank,points:entry.points}]));
   const drivers = await parallel(F1_GRID, async ([name, teamName, number, countryCode]) => {
     const slug = slugify(name);
@@ -196,8 +197,12 @@ async function buildF1Profiles(context, checkedAt){
     const html = await fetchText(url);
     const facts = parseF1DataGrid(html);
     const participant = existing.get(name.toLowerCase()) || { id:`competitor:f1:${slug}`, type:"competitor", sportDomainId:"sport:motorsport", displayName:name, shortName:name.split(" ").at(-1), canonicalName:name, metadata:{} };
-    const team = teams.get(teamName.toLowerCase()) || [...teams.values()].find(item => item.displayName.toLowerCase().startsWith(teamName.toLowerCase()));
+    const standingTeamId = standingByParticipantId.get(participant.id)?.teamParticipantId;
+    const team = context.participants.find(item => item.type === "team" && item.id === standingTeamId)
+      || teams.get(teamName.toLowerCase())
+      || [...teams.values()].find(item => item.displayName.toLowerCase().startsWith(teamName.toLowerCase()));
     if (!team) throw new Error(`F1 team did not resolve: ${teamName}`);
+    const resolvedTeamName = team.displayName;
     const top = topByName.get(name.toLowerCase());
     const resultsHref = html.match(new RegExp(`href="([^"]*/results/2026/drivers/[A-Z0-9]+/${slug})"`, "i"))?.[1] || null;
     const recentFive = top && resultsHref ? parseF1Recent(await fetchText(new URL(resultsHref, "https://www.formula1.com").href)) : [];
@@ -205,8 +210,8 @@ async function buildF1Profiles(context, checkedAt){
       participant:{ ...participant, countryCode, headshotUrl:firstPortrait(html), competitionNumber:number, competitionNumberKind:"racing", competitionNumberSeason:"2026", profileRef:`profile:f1:${slug}`, currentTeamId:team.id, metadata:{ ...(participant.metadata || {}), active:true, teamParticipantId:team.id } },
       profile:top ? {
         schemaVersion:"athlete-profile.v1", id:`profile:f1:${slug}`, participantId:participant.id, sportKey:"f1", displayName:name,
-        currentTeamId:team.id, teamName, headshotUrl:firstPortrait(html), competitionNumber:number, competitionNumberKind:"racing", competitionNumberSeason:"2026",
-        biography:f1Biography(name, teamName, facts), keyFacts:facts.filter(row => ["date of birth","place of birth","team","country"].includes(row.label.toLowerCase())).slice(0, 6),
+        currentTeamId:team.id, teamName:resolvedTeamName, headshotUrl:firstPortrait(html), competitionNumber:number, competitionNumberKind:"racing", competitionNumberSeason:"2026",
+        biography:f1Biography(name, resolvedTeamName, facts), keyFacts:facts.filter(row => ["date of birth","place of birth","team","country"].includes(row.label.toLowerCase())).slice(0, 6),
         seasonStats:facts.filter(row => /^season |^race /i.test(row.label)).slice(0, 8), careerStats:facts.filter(row => /career|grand prix|highest|podium|championship/i.test(row.label)).slice(0, 8),
         recentFive, selection:{ topTen:true, rank:top.rank, basis:"Official 2026 Drivers' Standings", sourceUrl:F1_STANDINGS_URL, value:top.points },
         sourceLinks:[{ label:"Official F1 driver profile", url }, { label:"Official F1 standings", url:F1_STANDINGS_URL }], sourceCheckedAt:checkedAt,
