@@ -1,7 +1,7 @@
 {
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-08T13:33:26.093Z",
+  "publishedAt": "2026-09-14T20:44:08.227Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -34,7 +34,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-09-08",
+    "basisDate": "2026-09-14",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -42,7 +42,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-22",
     "lastEventDate": "2027-07-10",
-    "daysAhead": 305,
+    "daysAhead": 299,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {
@@ -126,7 +126,7 @@
         "lastEventDate": "2026-11-01"
       },
       "tennis": {
-        "count": 18,
+        "count": 17,
         "firstEventDate": "2026-09-03",
         "lastEventDate": "2026-09-09"
       },

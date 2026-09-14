@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-09-08T13:33:26.093Z",
+  "generatedAt": "2026-09-14T20:44:08.227Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/afl.json",
@@ -11,7 +11,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-08T13:33:26.093Z",
+      "freshAt": "2026-09-14T20:44:08.227Z",
       "chunkPath": "data/code-inspector/afl.json"
     },
     {
@@ -23,7 +23,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-08T13:33:26.093Z",
+      "freshAt": "2026-09-14T20:44:08.227Z",
       "parentSportId": "sport:afl",
       "chunkPath": "data/code-inspector/aflw.json"
     },
@@ -36,7 +36,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-08T13:33:26.093Z",
+      "freshAt": "2026-09-14T20:44:08.227Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -147,7 +147,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-08T13:33:26.093Z",
+      "freshAt": "2026-09-14T20:44:08.227Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {

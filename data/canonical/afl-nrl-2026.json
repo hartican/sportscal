@@ -7667,7 +7667,7 @@
         "team:aflw:cd_t7387"
       ],
       "displayName": "Hawthorn v Western Bulldogs",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -7704,6 +7704,12 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8915",
         "sourceType": "official",
         "checkedAt": "2026-09-08T12:28:20.977Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t9407",
+        "scorelineText": "Hawthorn v Western Bulldogs — 41-30",
+        "spoilerLevel": "sensitive"
       }
     },
     {
@@ -7729,7 +7735,7 @@
         "team:aflw:cd_t8097"
       ],
       "displayName": "Gold Coast SUNS v Collingwood",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -7766,6 +7772,12 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8919",
         "sourceType": "official",
         "checkedAt": "2026-09-08T12:28:20.977Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t8786",
+        "scorelineText": "Gold Coast SUNS v Collingwood — 62-32",
+        "spoilerLevel": "sensitive"
       }
     },
     {
@@ -7791,7 +7803,7 @@
         "team:aflw:cd_t8467"
       ],
       "displayName": "Adelaide Crows v Geelong Cats",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -7828,6 +7840,12 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8917",
         "sourceType": "official",
         "checkedAt": "2026-09-08T12:28:20.977Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t8467",
+        "scorelineText": "Adelaide Crows v Geelong Cats — 46-57",
+        "spoilerLevel": "sensitive"
       }
     },
     {
@@ -7853,7 +7871,7 @@
         "team:aflw:cd_t7887"
       ],
       "displayName": "West Coast Eagles v Brisbane Lions",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -7890,6 +7908,12 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8918",
         "sourceType": "official",
         "checkedAt": "2026-09-08T12:28:20.977Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t8787",
+        "scorelineText": "West Coast Eagles v Brisbane Lions — 46-41",
+        "spoilerLevel": "sensitive"
       }
     },
     {
@@ -7915,7 +7939,7 @@
         "team:aflw:cd_t9409"
       ],
       "displayName": "Melbourne v Port Adelaide",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -7952,6 +7976,12 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8923",
         "sourceType": "official",
         "checkedAt": "2026-09-08T12:28:20.977Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t7386",
+        "scorelineText": "Melbourne v Port Adelaide — 74-23",
+        "spoilerLevel": "sensitive"
       }
     },
     {
@@ -7977,7 +8007,7 @@
         "team:aflw:cd_t8796"
       ],
       "displayName": "Richmond v St Kilda",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -8014,6 +8044,12 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8921",
         "sourceType": "official",
         "checkedAt": "2026-09-08T12:28:20.977Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t8788",
+        "scorelineText": "Richmond v St Kilda — 58-43",
+        "spoilerLevel": "sensitive"
       }
     },
     {
@@ -8039,7 +8075,7 @@
         "team:aflw:cd_t7889"
       ],
       "displayName": "Sydney Swans v GWS GIANTS",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -8109,6 +8145,12 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8920",
         "sourceCheckedAt": "2026-09-08T12:28:20.977Z",
         "needsPreviewRefresh": false
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t9408",
+        "scorelineText": "Sydney Swans v GWS GIANTS — 87-56",
+        "spoilerLevel": "sensitive"
       }
     },
     {
@@ -8134,7 +8176,7 @@
         "team:aflw:cd_t8096"
       ],
       "displayName": "North Melbourne v Carlton",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -8171,6 +8213,12 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8922",
         "sourceType": "official",
         "checkedAt": "2026-09-08T12:28:20.977Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t8466",
+        "scorelineText": "North Melbourne v Carlton — 33-23",
+        "spoilerLevel": "sensitive"
       }
     },
     {
@@ -8196,7 +8244,7 @@
         "team:aflw:cd_t9406"
       ],
       "displayName": "Fremantle v Essendon",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -8233,6 +8281,12 @@
         "sourceUrl": "https://www.afl.com.au/aflw/matches/8924",
         "sourceType": "official",
         "checkedAt": "2026-09-08T12:28:20.977Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:aflw:cd_t7886",
+        "scorelineText": "Fremantle v Essendon — 37-22",
+        "spoilerLevel": "sensitive"
       }
     },
     {
@@ -23816,7 +23870,7 @@
         "team:afl:cd_t70"
       ],
       "displayName": "Fremantle v Geelong Cats",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -23853,6 +23907,12 @@
         "sourceUrl": "https://www.afl.com.au/afl/matches/9023",
         "sourceType": "official",
         "checkedAt": "2026-09-08T12:28:20.977Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:afl:cd_t60",
+        "scorelineText": "Fremantle v Geelong Cats — 120-106",
+        "spoilerLevel": "sensitive"
       }
     },
     {
@@ -23878,7 +23938,7 @@
         "team:afl:cd_t10"
       ],
       "displayName": "Brisbane Lions v Adelaide Crows",
-      "status": "scheduled",
+      "status": "completed",
       "broadcasters": [
         {
           "broadcasterId": "broadcaster:kayo",
@@ -23915,6 +23975,12 @@
         "sourceUrl": "https://www.afl.com.au/afl/matches/9030",
         "sourceType": "official",
         "checkedAt": "2026-09-08T12:28:20.977Z"
+      },
+      "result": {
+        "status": "completed",
+        "winnerParticipantId": "team:afl:cd_t20",
+        "scorelineText": "Brisbane Lions v Adelaide Crows — 144-91",
+        "spoilerLevel": "sensitive"
       }
     },
     {
