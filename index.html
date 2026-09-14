@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="252">
-<script src="/assets/js/app-update.js?v=252" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=252" as="script">
+<meta name="app-shell-version" content="253">
+<script src="/assets/js/app-update.js?v=253" defer></script>
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=253" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6912,8 +6912,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=252">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=252">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=253">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=253">
 </head>
 <body>
 
@@ -7208,7 +7208,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=252"></script>
+<script src="assets/js/app-shell-runtime.js?v=253"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8349,7 +8349,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-  moduleScriptUrl: "config/major-events.js?v=252",
+  moduleScriptUrl: "config/major-events.js?v=253",
   url: "data/major-events.v1.json",
 });
 
@@ -8677,6 +8677,7 @@ let codeInspectorChunk = null;
 let liveFixtureRevision = "";
 let liveFixtureEvents = [];
 let liveFixtureRefresh = null;
+let liveFixtureLastRequestedAt = 0;
 let codeInspectorChunkLoading = null;
 let codeInspectorTab = "all-fixtures";
 let codeInspectorPlayersExpanded = false;
@@ -8833,6 +8834,7 @@ let chatState = createChatState();
 let chatActiveTimer = null;
 let chatRoomTimer = null;
 let chatPollFailures = 0;
+let chatLastActivityAt = 0;
 let chatPreviousFocus = null;
 let chatSetupFixture = null;
 let chatViewportLock = null;
@@ -8850,6 +8852,8 @@ const nothingscorePendingIds = new Set();
 const nothingscoreDetailLoading = new Set();
 const nothingscoreWatching = new Set();
 const nothingscoreHeartbeatFailures = new Map();
+const nothingscoreWatchingStartedAt = new Map();
+const nothingscoreWatchingConfirmed = new Set();
 let nothingscoreViewer = { signedIn:false, ratingEligible:false, profile:null };
 let nothingscoreBatchTimer = null;
 let nothingscorePollTimer = null;
@@ -10781,11 +10785,13 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 async function refreshLiveFixtureSnapshot(){
   if(document.hidden || globalThis.location?.protocol==='file:' || startupCoordinator.isHydrating() || activeTab==='follow')return;
   if(liveFixtureRefresh)return liveFixtureRefresh;
+  if(Date.now()-liveFixtureLastRequestedAt<30_000)return;
   const ids=[...new Set([...document.querySelectorAll('.feed-card-slot .event-card')].map(card=>card.closest('[data-feed-event-id]')?.dataset.feedEventId).filter(Boolean))].sort().slice(0,60);
   if(!ids.length)return;
   liveFixtureRefresh=(async()=>{
     try{
-      const response=await fetch(`/api/fixtures?ids=${encodeURIComponent(ids.join(","))}&revision=${encodeURIComponent(liveFixtureRevision)}`,{cache:'no-store',signal:AbortSignal.timeout(12000)});
+      liveFixtureLastRequestedAt=Date.now();
+      const response=await fetch(`/api/fixtures?ids=${encodeURIComponent(ids.join(","))}&revision=${encodeURIComponent(liveFixtureRevision)}`,{cache:'default',signal:AbortSignal.timeout(5000)});
       if(response.status===304)return;
       if(!response.ok)throw new Error('Live source unavailable');
       const snapshot=await response.json();
@@ -16702,7 +16708,7 @@ function visiblePulseNothingscoreIds(){
     .filter(Boolean);
 }
 
-function scheduleNothingscorePoll(delay = 30_000){
+function scheduleNothingscorePoll(delay = 120_000){
   window.clearTimeout(nothingscorePollTimer);
   if (document.visibilityState === "hidden" || nothingscorePollFailures >= 3) return;
   nothingscorePollTimer = window.setTimeout(async () => {
@@ -16710,30 +16716,32 @@ function scheduleNothingscorePoll(delay = 30_000){
     try{
       if (ids.length) await loadNothingscoreBatch(ids);
       nothingscorePollFailures = 0;
-      scheduleNothingscorePoll(30_000);
+      scheduleNothingscorePoll(120_000);
     }catch(_error){
       nothingscorePollFailures += 1;
-      scheduleNothingscorePoll(30_000);
+      scheduleNothingscorePoll(120_000);
     }
   }, delay);
 }
 
-function scheduleNothingscoreHeartbeat(delay = 60_000){
+function scheduleNothingscoreHeartbeat(delay){
   window.clearTimeout(nothingscoreHeartbeatTimer);
   if (!nothingscoreWatching.size || document.visibilityState === "hidden") return;
+  const nextDelay=delay ?? ([...nothingscoreWatching].some(eventId=>!nothingscoreWatchingConfirmed.has(eventId))?60_000:5*60_000);
   nothingscoreHeartbeatTimer = window.setTimeout(async () => {
     for (const eventId of [...nothingscoreWatching]){
       try{
         await serverSyncClient.nothingscoreRequest({}, { action:"watching", eventId });
         nothingscoreHeartbeatFailures.set(eventId, 0);
+        if(Date.now()-Number(nothingscoreWatchingStartedAt.get(eventId)||Date.now())>=55_000)nothingscoreWatchingConfirmed.add(eventId);
       }catch(_error){
         const failures = Number(nothingscoreHeartbeatFailures.get(eventId) || 0) + 1;
         nothingscoreHeartbeatFailures.set(eventId, failures);
-        if (failures >= 3) nothingscoreWatching.delete(eventId);
+        if (failures >= 3){nothingscoreWatching.delete(eventId);nothingscoreWatchingStartedAt.delete(eventId);nothingscoreWatchingConfirmed.delete(eventId);}
       }
     }
-    scheduleNothingscoreHeartbeat(60_000);
-  }, delay);
+    scheduleNothingscoreHeartbeat();
+  }, nextDelay);
 }
 
 function buildEventWhyItMatters(ev){
@@ -24680,6 +24688,7 @@ async function openChatRoom(roomId){
         .catch(() => null);
     }
     chatPollFailures = 0;
+    chatLastActivityAt = Date.now();
     scheduleChatRoomPoll(CHAT.POLLING.roomMs);
   }catch(error){
     chatConnection(error.message || "Chat could not be opened.", "retrying");
@@ -24745,6 +24754,7 @@ async function pollChatRoom(){
     const incoming = (payload.messages || []).filter(message => !beforeIds.has(message.messageId) && !message.own);
     const added = (payload.messages || []).some(message => !beforeIds.has(message.messageId));
     const reactionsChanged = mergeChatReactionChanges(payload.reactionChanges);
+    if(added||reactionsChanged||receiptsChanged)chatLastActivityAt=Date.now();
     chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
     if (payload.room.status !== previousStatus) renderOpenChatRoom({ autoScroll:atBottom });
     else if (added || reactionsChanged || receiptsChanged) refreshChatMessageStream({
@@ -24756,7 +24766,7 @@ async function pollChatRoom(){
     if (added && atBottom && !payload.room.readOnly) void markCurrentChatRead();
     chatPollFailures = 0;
     chatConnection("Connected", "connected");
-    scheduleChatRoomPoll(CHAT.POLLING.roomMs);
+    scheduleChatRoomPoll(Date.now()-chatLastActivityAt<CHAT.POLLING.quietAfterMs?CHAT.POLLING.roomMs:CHAT.POLLING.quietMs);
   }catch(error){
     chatPollFailures += 1;
     chatConnection("Connection interrupted · retrying", "retrying");
@@ -24900,6 +24910,7 @@ function setNothingscoreDrawerOpen(open){
     document.getElementById('closeNothingscoreBtn').focus({preventScroll:true});
   }else{
     ++nscRankingGeneration;clearTimeout(nscRankingTimer);
+    nothingscoreWatching.clear();nothingscoreWatchingStartedAt.clear();nothingscoreWatchingConfirmed.clear();window.clearTimeout(nothingscoreHeartbeatTimer);
     activeNothingscoreContributionEvent=null;activeNothingscoreContributionError='';
     if(nscReturnPosition)restoreViewportRenderAnchor(nscReturnPosition);
     nothingscorePreviousFocus?.focus?.({preventScroll:true});nothingscorePreviousFocus=null;
@@ -24937,6 +24948,11 @@ async function openNothingscoreContribution(ev, {showResults = false} = {}){
   activeNothingscoreContributionEvent = ev;
   activeNothingscoreContributionError = "";
   setNothingscoreDrawerOpen(true);
+  if(getEventStatus(ev)==="live"&&serverPersistence.user&&!nothingscoreWatching.has(id)){
+    nothingscoreWatching.add(id);nothingscoreWatchingStartedAt.set(id,Date.now());
+    try{await serverSyncClient?.nothingscoreRequest?.({}, {action:"watching",eventId:id});nothingscoreHeartbeatFailures.set(id,0);scheduleNothingscoreHeartbeat(60_000);}
+    catch(_error){nothingscoreWatching.delete(id);nothingscoreWatchingStartedAt.delete(id);}
+  }
   const owner = serverPersistence.user?.id || "";
   try{
     const payload = await serverSyncClient?.nothingscoreRequest?.({ eventId:nothingscoreEventId(ev) });
@@ -25035,7 +25051,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=252");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=253");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -25314,12 +25330,12 @@ document.addEventListener("visibilitychange", () => {
   }
   nothingscorePollFailures = 0;
   scheduleNothingscorePoll(0);
-  if (nothingscoreWatching.size) scheduleNothingscoreHeartbeat(0);
+  if (nothingscoreWatching.size) scheduleNothingscoreHeartbeat();
 });
 window.addEventListener("online", () => {
   nothingscorePollFailures = 0;
   scheduleNothingscorePoll(0);
-  if (nothingscoreWatching.size) scheduleNothingscoreHeartbeat(0);
+  if (nothingscoreWatching.size) scheduleNothingscoreHeartbeat();
 });
 window.addEventListener("offline", () => {
   window.clearTimeout(nothingscorePollTimer);
@@ -25604,7 +25620,7 @@ if ("serviceWorker" in navigator){
 
 
 setInterval(refreshFeedClock, 60000);
-setInterval(()=>void refreshLiveFixtureSnapshot(),60000);
+setInterval(()=>void refreshLiveFixtureSnapshot(),120000);
 window.addEventListener('focus',()=>void refreshLiveFixtureSnapshot());
 window.addEventListener('online',()=>void refreshLiveFixtureSnapshot());
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)void refreshLiveFixtureSnapshot();});

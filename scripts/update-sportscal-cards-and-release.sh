@@ -220,8 +220,8 @@ if [[ "${SKIP_RELEASE:-0}" == "1" ]]; then
   REMOTE_SERVICE_WORKER_HASH="skipped"
   RELEASE_CONTENT_MATCH="SKIPPED"
 else
-  if [[ "${QUICK_RESULTS:-0}" == "1" ]] && git diff --quiet -- data feeds; then
-    echo "Quick refresh found no content changes; no deployment required."
+  if git diff --quiet -- data feeds; then
+    echo "Canonical refresh found no content changes; no deployment required."
     exit 0
   fi
   ./scripts/redeploy-and-release.sh "${RELEASE_COMMIT_MESSAGE:-Automated card refresh and redeploy}"

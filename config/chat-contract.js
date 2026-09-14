@@ -20,7 +20,7 @@
     userSearchMin:3,
     userSearchResults:10,
   });
-  const POLLING = Object.freeze({ roomMs:2_000, activeMs:30_000, failureMs:30_000 });
+  const POLLING = Object.freeze({ roomMs:5_000, quietMs:30_000, quietAfterMs:60_000, activeMs:30_000, failureMs:30_000 });
 
   function codePointLength(value){
     return Array.from(String(value || "")).length;

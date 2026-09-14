@@ -24,10 +24,15 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "quick=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-
           echo "run=true" >> "$GITHUB_OUTPUT"
+          if [[ "$(TZ=Australia/Sydney date +%u)" == "7" ]]; then
+            echo "quick=0" >> "$GITHUB_OUTPUT"
+          else
+            echo "quick=1" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Check out main
         if: steps.cadence.outputs.run == 'true'
@@ -72,4 +77,5 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           RELEASE_COMMIT_MESSAGE: Automated canonical sports refresh
+          QUICK_RESULTS: ${{ steps.cadence.outputs.quick }}
         run: bash scripts/update-sportscal-cards-and-release.sh
