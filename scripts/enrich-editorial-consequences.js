@@ -191,7 +191,12 @@ function enrich({ knowledge, consequences, feed, majorEvents }){
     const updated = ensureResultProvenance(event, resultAwareConsequence(event, record), knowledge);
     const projection = projectionForTarget(knowledge, record.targetType, event);
     projection.factIds = unique([...(projection.factIds || []), ...updated.factIds]);
-    projection.sourceIds = unique([...(projection.sourceIds || []), ...updated.sourceIds]);
+    const factIndex = new Map((knowledge.narrativeFacts || []).map(fact => [fact.id, fact]));
+    projection.sourceIds = unique([
+      ...(projection.sourceIds || []),
+      ...updated.sourceIds,
+      ...projection.factIds.flatMap(factId => factIndex.get(factId)?.sourceIds || []),
+    ]);
     projection.consequence = consequenceBody(updated);
     enriched += 1;
     return updated;

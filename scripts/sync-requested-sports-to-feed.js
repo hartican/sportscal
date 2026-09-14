@@ -11,7 +11,10 @@ const {
 } = require("./lib/feed-utils");
 
 const ROOT = path.resolve(__dirname, "..");
-const SCHEDULE_PATH = path.join(ROOT, "data/canonical/fiba-women-sailgp-motogp-2026.json");
+const SCHEDULE_PATHS = [
+  path.join(ROOT, "data/canonical/fiba-women-sailgp-motogp-2026.json"),
+  path.join(ROOT, "data/canonical/golf-majors-2027.json"),
+];
 const SOURCE_CHECKED_AT = "2026-09-06T00:00:00.000Z";
 
 function stableCardId(canonicalEventId){
@@ -26,6 +29,7 @@ function broadcasterFor(sportKey){
     return { label:"Nine / 9Now / Fox Sports / Kayo", options:["9Now", "Kayo Sports", "Foxtel"], ids:["nine", "kayo", "foxtel"] };
   }
   if (sportKey === "fiba-women") return { label:"ESPN via Kayo / Foxtel", options:["Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
+  if (sportKey === "golf") return { label:"Broadcast TBC", options:[], ids:[] };
   return { label:"Fox Sports via Kayo / Foxtel", options:["Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
 }
 
@@ -35,6 +39,7 @@ function sportLabel(sportKey){
     "fiba-women":"FIBA Women",
     sailgp:"SailGP",
     motogp:"MotoGP",
+    golf:"Golf",
   })[sportKey] || sportKey;
 }
 
@@ -44,7 +49,12 @@ function cardForEvent(event, schedule, participantsById){
   const resultSource = result ? schedule.sources[result.sourceId] : null;
   if (result && !resultSource) throw new Error(`${event.id}: unknown result source ${result.sourceId}`);
   const broadcaster = broadcasterFor(event.sportKey);
-  const fieldEvent = ["motogp", "sailgp"].includes(event.sportKey);
+  const fieldEvent = ["motogp", "sailgp", "golf"].includes(event.sportKey);
+  const aggregateSchedule = event.cardKind === "event" || (
+    event.sportKey === "fiba-women"
+    && !(event.participantIds || []).length
+    && /(?:qualification day\s*\d*|quarterfinals|semifinals)$/i.test(event.name || "")
+  );
   const eventParticipantIds = event.participantIds || (fieldEvent
     ? (schedule.participants || []).filter(participant => participant.sportKey === event.sportKey).map(participant => participant.id)
     : []);
@@ -75,8 +85,10 @@ function cardForEvent(event, schedule, participantsById){
     sport:sportLabel(event.sportKey),
     key:event.sportKey,
     name:event.name,
+    cardKind:aggregateSchedule ? "event" : "fixture",
     displayTitleCompact:event.name,
     date:event.date,
+    ...(event.endDate ? {endDate:event.endDate} : {}),
     time:event.time,
     ...(event.startTimeUtc ? { startTimeUtc:event.startTimeUtc } : {}),
     ...(event.timeTbc ? { timeTbc:true } : {}),
@@ -114,13 +126,14 @@ function cardForEvent(event, schedule, participantsById){
         consensusResult:{ winner:participantsById.get(result.winnerParticipantId)?.displayName || null, summary:result.outcomeText },
       } : {}),
     } : {}),
-    sportDomainId:event.sportKey === "sailgp" ? "sport:sailing"
+    sportDomainId:event.sportKey === "golf" ? "sport:golf"
+      : event.sportKey === "sailgp" ? "sport:sailing"
       : event.sportKey === "fiba-women" ? "sport:basketball"
         : event.sportKey === "nrlw" ? "sport:nrl"
           : "sport:motorsport",
     discoverySportId:`sport:${event.sportKey}`,
     competitionId:event.competitionId,
-    taxonomyNodeId:event.sportKey === "nrlw" ? "competition:nrlw-premiership" : event.codeId,
+    taxonomyNodeId:event.taxonomyNodeId || (event.sportKey === "nrlw" ? "competition:nrlw-premiership" : event.codeId),
     codeId:event.codeId,
     competitionScope:event.sportKey === "nrlw" ? "domestic" : "international",
     isInternational:event.sportKey !== "nrlw",
@@ -165,10 +178,12 @@ function cardForEvent(event, schedule, participantsById){
 function main(){
   const inputPath = path.resolve(process.argv[2] || path.join(ROOT, "feeds/incoming/events.json"));
   const outputPath = path.resolve(process.argv[3] || inputPath);
-  const schedule = readJson(SCHEDULE_PATH);
   const feed = readJson(inputPath);
-  const participantsById = new Map((schedule.participants || []).map(participant => [participant.id, participant]));
-  const cards = (schedule.events || []).map(event => cardForEvent(event, schedule, participantsById));
+  const schedules=SCHEDULE_PATHS.map(readJson);
+  const cards=schedules.flatMap(schedule=>{
+    const participantsById = new Map((schedule.participants || []).map(participant => [participant.id, participant]));
+    return (schedule.events || []).map(event => cardForEvent(event, schedule, participantsById));
+  });
   const canonicalIds = new Set(cards.map(card => card.canonicalEventId));
   const next = normalizeFeed({
     ...feed,

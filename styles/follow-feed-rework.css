@@ -63,12 +63,20 @@ header.top .vector-glyph{width:20px;height:20px;}
 .event-card .event-why-it-matters,.event-card .nsc-peer-results{margin:4px 0;}
 /* L0 has its own geometry. No hero dimensions or second identity placeholder. */
 #listView .event-card.is-compact-row{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;box-sizing:border-box;width:100%;height:auto;min-height:48px;max-height:none;padding:0 44px 0 8px;gap:0;border-radius:10px;aspect-ratio:auto;contain-intrinsic-size:auto 48px;grid-template-columns:none;align-self:start;container:compact-row / inline-size;}
-#listView .compact-card-summary{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:4px;flex:1;width:100%;min-width:0;min-height:48px;line-height:1.25;font-size:.72rem;text-align:left;white-space:nowrap;}
-.compact-card-icon,.compact-card-icon img,.compact-card-icon .vector-glyph{flex:0 0 16px;width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;object-fit:contain;}
+#listView .compact-card-summary{display:grid;grid-template-columns:24px minmax(0,1fr);grid-template-rows:auto auto;align-items:center;gap:3px 7px;flex:1;width:100%;min-width:0;min-height:58px;line-height:1.25;font-size:.72rem;text-align:left;}
+.compact-card-icon,.compact-card-icon img,.compact-card-icon .vector-glyph{grid-row:1 / span 2;flex:0 0 24px;width:24px!important;height:24px!important;max-width:24px!important;max-height:24px!important;object-fit:contain;}
 .compact-card-icon{display:grid;place-items:center;overflow:hidden;}
 .compact-card-icon .identity-image-placeholder{display:none;}
-.compact-card-name{flex:1 1 auto;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.compact-card-time{flex:0 0 auto;white-space:nowrap;font-size:.65rem;color:var(--text-dim);}
+.compact-card-name{grid-column:2;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.compact-card-time{grid-column:2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.65rem;color:var(--text-dim);}
+.compact-matchup-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;overflow:visible;}
+.compact-matchup-side{min-width:0;display:flex;align-items:center;gap:5px;overflow:hidden;}
+.compact-matchup-side:last-child{justify-content:flex-end;}
+.compact-matchup-side .fixture-profile-link{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.compact-participant-mark,.compact-participant-fallback{width:22px;height:22px;flex:0 0 22px;object-fit:contain;display:grid;place-items:center;font-size:.52rem;font-weight:900;border-radius:50%;}
+.compact-participant-fallback{border:1px solid var(--border);color:var(--text-dim);}
+.compact-matchup-v{display:grid;place-items:center;min-width:20px;color:var(--text-dim);font-weight:900;}
+.compact-stage-badge{min-width:38px;height:28px!important;font-size:.7rem!important;}
 #listView .event-card.is-compact-row:has(.event-card-disclosure){padding-left:44px;}
 .compact-card-name .major-event-matchup-sides{width:100%;margin:0;gap:4px;}
 .compact-card-name .major-event-matchup-player{display:block;overflow:hidden;}
@@ -80,9 +88,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .feed-card-slot[data-card-state="compact"] .feed-card-placeholder{padding:8px 44px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.72rem;line-height:32px;}
 /* Text enlargement gets a readable second line instead of an invisible name. */
 @container compact-row (max-width:24rem){
-  #listView .compact-card-summary{display:grid;grid-template-columns:16px minmax(0,1fr) auto;gap:2px 4px;padding:4px 0;box-sizing:border-box;}
-  .compact-card-name{grid-column:2;}
-  .compact-card-time{grid-column:2 / -1;grid-row:2;}
+  #listView .compact-card-summary{grid-template-columns:24px minmax(0,1fr);padding:4px 0;box-sizing:border-box;}
   .compact-card-stakes{grid-column:3;grid-row:1;}
 }
 .compact-card-stakes,.event-action-stakes{display:inline-flex;align-items:center;gap:1px;flex:0 0 auto;}
@@ -145,10 +151,13 @@ header.top .vector-glyph{width:20px;height:20px;}
 /* Shared, one-tap rating control. */
 .nsc-inline-rating{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;margin:4px 0;text-align:center;font-size:.72rem;}
 .nsc-rating-blocks{display:flex;justify-content:center;gap:8px;}
-.nsc-rating-block{--rating-colour:#476074;display:grid;place-items:center;flex:0 0 44px;width:44px;height:52px;min-width:44px;border:0;background:transparent;padding:4px;color:var(--rating-colour);cursor:pointer;}
+.nsc-rating-blocks{gap:12px;}
+.nsc-rating-block{--rating-colour:#476074;display:grid;place-items:center;flex:0 0 48px;width:48px;height:58px;min-width:48px;border:0;background:transparent;padding:3px;color:var(--rating-colour);cursor:pointer;}
 .nsc-rating-block:nth-child(1){--rating-colour:#607080;}.nsc-rating-block:nth-child(2){--rating-colour:#4c718f;}.nsc-rating-block:nth-child(3){--rating-colour:#3181ad;}.nsc-rating-block:nth-child(4){--rating-colour:#168fd1;}.nsc-rating-block:nth-child(5){--rating-colour:#009cff;}
 .nsc-rating-block::before{content:none;}
-.nsc-rating-block svg{height:42px;width:36px;fill:transparent;stroke:currentColor;stroke-width:1.8;}
+.nsc-rating-block svg{height:48px;width:41px;fill:transparent;stroke:currentColor;stroke-width:1.8;}
+.event-card:not(.is-compact-row) .matchup-stage-badge{min-width:64px;height:42px;padding:7px 12px;font-size:.78rem;align-self:center;}
+.event-card:not(.is-compact-row) .matchup-stage-slot{align-self:center;align-items:center;padding-top:0;}
 .nsc-rating-block.is-filled svg{fill:currentColor;filter:drop-shadow(0 0 4px color-mix(in srgb,currentColor 40%,transparent));}
 .fixture-watch-rating{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;max-width:350px;margin-inline:auto;}
 .fixture-watch-rating .event-quick-actions{display:block;}.fixture-watch-rating .event-quick-action{display:flex;flex-direction:column;justify-content:center;padding:8px 2px;border-radius:12px;white-space:normal;text-align:center;}
@@ -179,4 +188,9 @@ header.top .vector-glyph{width:20px;height:20px;}
 @media(prefers-reduced-motion:reduce){.follow-sport-track{scroll-behavior:auto;}.nsc-inline-rating.is-epic-burst::after{content:'';inset:0;border-radius:10px;box-shadow:0 0 16px #009cff99;animation:none;}}
 
 .fixture-participant-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 12px;font-size:.8rem;}
+.fixture-participant-pager{display:grid;grid-template-columns:34px minmax(0,1fr) auto 34px;align-items:center;width:100%;max-width:620px;gap:7px;}
+.fixture-participant-page-names{display:block;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-align:center;}
+.fixture-participant-page-count{font-size:.68rem;color:var(--muted);font-variant-numeric:tabular-nums;}
+.fixture-participant-page-control{min-width:34px;min-height:34px;border:1px solid var(--border);border-radius:10px;background:var(--panel-bg);color:var(--text);font:inherit;font-weight:800;}
+.fixture-participant-page-control:disabled{opacity:.35;}
 @media(max-width:640px){.event-card .matchup-team-logo-slot{width:100px;height:100px;}.event-card .matchup-team-logo{max-width:94px;max-height:94px;}.event-card .event-hero-mark,.events-feed-card .major-event-logo{width:100px;height:100px;}}

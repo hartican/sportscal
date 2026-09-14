@@ -115,6 +115,41 @@
     return next;
   }
 
+  function eventFamilyPath(change, leaf){
+    return change.path.length === 3
+      && change.path[0] === "preferences"
+      && change.path[1] === "followFirst"
+      && change.path[2] === leaf;
+  }
+
+  // Old clients only replaced followedMajorEventIds. Translate that delta into
+  // the durable decision model before preference migration can reapply a seed.
+  function reconcileEventFamilyDecisions(baseState, input, mergedState){
+    const patch = normalizePatch(input);
+    const touchedFollowed = patch.changes.some(change => eventFamilyPath(change, "followedMajorEventIds"));
+    const touchedExcluded = patch.changes.some(change => eventFamilyPath(change, "excludedMajorEventIds"));
+    const touchedDecisions = patch.changes.some(change => eventFamilyPath(change, "eventFamilyDecisions"));
+    if (!touchedFollowed || touchedExcluded || touchedDecisions) return mergedState;
+
+    const previous = new Set(baseState?.preferences?.followFirst?.followedMajorEventIds || []);
+    const current = new Set(mergedState?.preferences?.followFirst?.followedMajorEventIds || []);
+    const priorDecisions = baseState?.preferences?.followFirst?.eventFamilyDecisions;
+    const states = {
+      ...(priorDecisions?.states && plainObject(priorDecisions.states) ? priorDecisions.states : {}),
+    };
+    previous.forEach(id => { if (!current.has(id)) states[String(id)] = "excluded"; });
+    current.forEach(id => { if (!previous.has(id)) states[String(id)] = "followed"; });
+    const next = clone(mergedState);
+    if (!plainObject(next.preferences)) next.preferences = {};
+    if (!plainObject(next.preferences.followFirst)) next.preferences.followFirst = {};
+    next.preferences.followFirst.eventFamilyDecisions = {
+      schemaVersion:"event-family-decisions.v1",
+      states,
+    };
+    next.preferences.followFirst.excludedMajorEventIds = Object.keys(states).filter(id => states[id] === "excluded");
+    return next;
+  }
+
   function hasChanges(patch){
     return normalizePatch(patch).changes.length > 0;
   }
@@ -126,5 +161,6 @@
     createPatch,
     hasChanges,
     normalizePatch,
+    reconcileEventFamilyDecisions,
   });
 });

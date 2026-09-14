@@ -33,7 +33,31 @@ function main(){
     let applied = 0;
     document.events = document.events.map(event => {
       const projection = projectionForTarget(knowledge, "feed-event", event);
-      if (!projection) return event;
+      if (!projection){
+        const narrative = event.editorialNarrative;
+        const primarySource = indexes.sources.get(narrative?.sourceIds?.[0]);
+        if (!narrative?.hook || !narrative?.synopsis || !primarySource) return event;
+        const threadTitle = indexes.threads.get(narrative.threadIds?.[0])?.title || "Finals path";
+        return {
+          ...event,
+          selectedSentence:narrative.hook,
+          fullSpiel:narrative.synopsis,
+          sourceName:primarySource.name,
+          sourceUrl:primarySource.url,
+          sourceType:primarySource.sourceType,
+          sourceCheckedAt:primarySource.checkedAt,
+          lastReviewedAt:narrative.researchedAt || event.lastReviewedAt,
+          editorialPreview:{
+            status:"journalistic",
+            angle:threadTitle,
+            contextSignals:Array.from(new Set(["event-specific", ...(narrative.dimensions || []).map(value => `narrative:${value}`)])),
+            sourceName:primarySource.name,
+            sourceUrl:primarySource.url,
+            sourceCheckedAt:primarySource.checkedAt,
+            needsPreviewRefresh:false,
+          },
+        };
+      }
       applied += 1;
       return applyToFeedEvent(event, projection, indexes);
     });

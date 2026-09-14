@@ -17,7 +17,7 @@
   const CODE_INTERACTION_HALF_LIFE_MS = 30 * 24 * 60 * 60 * 1000;
 
   const STARTUP_SPORTS = Object.freeze([
-    { id:"afl", selectorId:"sport:afl", label:"AFL" },
+    { id:"afl", selectorId:"sport:afl-premiership", label:"AFL" },
     { id:"nrl", selectorId:"sport:nrl", label:"NRL" },
     { id:"nrlw", selectorId:"sport:nrlw", label:"NRLW" },
     { id:"cricket", selectorId:"sport:cricket", label:"Cricket" },
@@ -230,6 +230,8 @@
       australiaInternationalsEnabled:true,
       australiansOnlySportIds:[],
       followedMajorEventIds:[],
+      excludedMajorEventIds:[],
+      eventFamilyDecisions:{ schemaVersion:"event-family-decisions.v1", states:{} },
       collectionFollows:[],
       codeInteractions:[],
       location:normalizeLocation({}),
@@ -298,12 +300,24 @@
       ...(Array.isArray(rawStartupMeta?.majorEvents) ? rawStartupMeta.majorEvents : []),
       ...legacySelectorCodeFollows,
     ]) || { codeSelectorIds:[], retainedEventFamilyIds:[] };
-    const excludedMajorEventIds = eventFamilyChoices(prior.excludedMajorEventIds);
+    const rawDecisionStates = prior.eventFamilyDecisions?.states && typeof prior.eventFamilyDecisions.states === "object"
+      ? prior.eventFamilyDecisions.states
+      : {};
+    const eventFamilyStates = {};
+    eventFamilyChoices(prior.followedMajorEventIds).filter(id => !competitionClassification?.codeDefinition?.(id)).forEach(id => { eventFamilyStates[id] = "followed"; });
+    eventFamilyChoices(prior.excludedMajorEventIds).filter(id => !competitionClassification?.codeDefinition?.(id)).forEach(id => { eventFamilyStates[id] = "excluded"; });
+    Object.entries(rawDecisionStates).forEach(([id, state]) => {
+      if ((state === "followed" || state === "excluded") && !competitionClassification?.codeDefinition?.(id)) eventFamilyStates[String(id)] = state;
+    });
+    const excludedMajorEventIds = eventFamilyChoices(Object.keys(eventFamilyStates).filter(id => eventFamilyStates[id] === "excluded"));
     const followedMajorEventIds = eventFamilyChoices([
       ...legacyCodeFollows.retainedEventFamilyIds,
       ...startupMeta.majorEvents,
       ...(followedCommonwealthGames ? ["commonwealth-games"] : []),
     ]).filter(id=>!excludedMajorEventIds.includes(id));
+    Object.keys(eventFamilyStates).filter(id => eventFamilyStates[id] === "followed").forEach(id => {
+      if (!followedMajorEventIds.includes(id)) followedMajorEventIds.push(id);
+    });
     const selectedSelectorEntityIds = Array.from(new Set([
       ...(Array.isArray(source.selectedSelectorEntityIds) ? source.selectedSelectorEntityIds : []),
       ...legacyCodeFollows.codeSelectorIds,
@@ -314,7 +328,7 @@
     ].map(String).filter(id => !retiredSportIds.has(id))));
     return {
       ...source,
-      version:Math.max(18, Number(source.version) || 0),
+      version:Math.max(22, Number(source.version) || 0),
       followedSports,
       selectedSelectorEntityIds,
       followFirst:{
@@ -327,6 +341,13 @@
         australiansOnlySportIds:Array.from(new Set((Array.isArray(prior.australiansOnlySportIds) ? prior.australiansOnlySportIds : []).filter(id => typeof id === "string" && id.startsWith("sport:")))),
         followedMajorEventIds,
         excludedMajorEventIds,
+        eventFamilyDecisions:{
+          schemaVersion:"event-family-decisions.v1",
+          states:Object.fromEntries([
+            ...followedMajorEventIds.map(id => [id, "followed"]),
+            ...excludedMajorEventIds.map(id => [id, "excluded"]),
+          ]),
+        },
         collectionFollows:normalizeCollectionFollows(prior.collectionFollows),
         codeInteractions:normalizeCodeInteractions(prior.codeInteractions),
         location:normalizeLocation(prior.location || startupMeta.location),

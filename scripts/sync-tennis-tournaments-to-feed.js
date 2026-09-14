@@ -80,7 +80,7 @@ function tournamentToCard(tournament, referenceDate){
     broadcastOptions: [],
     expected: expectedFor(tournament.level),
     venue: `${tournament.city}, ${tournament.countryCode}`,
-    liveWindow: 12,
+    liveWindow: 3,
     round: "all",
     narrativeType: "tennis-tournament-overview",
     status: "upcoming",

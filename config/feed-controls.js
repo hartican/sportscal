@@ -89,7 +89,7 @@
     if(Number.isFinite(explicit)&&explicit>0)return explicit;
     const identity=`${event?.competitionId || ""} ${event?.key || ""} ${event?.sportId || ""} ${event?.name || ""}`.toLowerCase();
     if(/le mans|endurance|fia wec/.test(identity))return 24;
-    if(/tennis|us open|wimbledon|roland garros|australian open/.test(identity))return 5;
+    if(/tennis|us open|wimbledon|roland garros|australian open/.test(identity))return 3;
     if(/formula 1|\bf1\b|motorsport/.test(identity))return 4;
     return 3;
   }
@@ -131,13 +131,13 @@
 
   function timingState(event, now = new Date()){
     const status=String(event?.status || event?.scheduleStatus || "").toLowerCase();
-    if(["completed","finished","final","cancelled","canceled","postponed"].includes(status))return null;
+    if(["cancelled","canceled","postponed"].includes(status))return null;
     const start = eventStart(event);
     if (!start) return null;
     const reference = now instanceof Date ? now : new Date(now);
     if (Number.isNaN(reference.getTime())) return null;
     const startMs = start.getTime();
-    const explicitEnd = Date.parse(event?.endTimeUtc || "");
+    const explicitEnd = Date.parse(event?.endTimeUtc || event?.resultPublishedAt || "");
     const derivedEnd = startMs + inferredDurationHours(event) * 3600000;
     const endMs = Number.isFinite(explicitEnd) && explicitEnd >= startMs ? explicitEnd : derivedEnd;
     const nowMs = reference.getTime();
@@ -147,7 +147,7 @@
     if (nowMs >= startMs - STARTS_SOON_MS && nowMs < startMs){
       return Object.freeze({ key:"starts-soon", label:"Starts Soon", ariaLabel:"Starts soon" });
     }
-    if (nowMs >= startMs && nowMs < endMs){
+    if (!["completed","finished","final"].includes(status) && nowMs >= startMs && nowMs < endMs){
       return Object.freeze({ key:"live-now", label:"Live Now", ariaLabel:"Live now" });
     }
     if (nowMs >= endMs && nowMs < endMs + JUST_FINISHED_MS){

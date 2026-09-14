@@ -383,11 +383,13 @@
     if (!narrative) return null;
     const hook = childEditorialHook(subEvent, parent);
     if (!hook) return null;
+    const draw=String(subEvent?.drawLabel || subEvent?.discipline || subEvent?.category || "the draw").trim();
+    const round=String(subEvent?.roundLabel || subEvent?.stageLabel || subEvent?.round || "this round").trim();
     return {
       ...narrative,
       projectionId:`${narrative.projectionId}:child:${subEvent.id}`,
       hook,
-      synopsis:[hook, narrative.synopsis].filter(Boolean).join(" "),
+      synopsis:`${hook} The editorial context is specific to ${draw} and ${round}; it updates independently as this matchup changes.`,
       dimensions:Array.from(new Set([...(narrative.dimensions || []), "path"])),
       generationMode:"verified-parent-child-projection",
     };

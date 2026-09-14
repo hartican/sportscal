@@ -36,6 +36,7 @@ const TABLES = Object.freeze({
   reactions:"nothingsports_chat_reactions",
   attachments:"nothingsports_chat_attachments",
   savedMedia:"nothingsports_saved_game_media",
+  invitations:"nothingsports_chat_invitations",
   nscPoints:"nothingsports_nsc_points",
 });
 const CHAT_MEDIA_BUCKET = "nothingsports-chat-transient";
@@ -283,7 +284,7 @@ async function membership(roomId, userId){
   return (await rows(TABLES.members, {
     room_id:`eq.${requireUuid(roomId, "room ID")}`,
     user_id:`eq.${requireUuid(userId, "account ID")}`,
-    select:"room_id,user_id,member_kind,guest_display_name,joined_at,last_read_at",
+    select:"room_id,user_id,member_kind,guest_display_name,joined_at,last_delivered_at,last_read_at,archived_at",
     limit:"1",
   }))[0] || null;
 }
@@ -398,13 +399,17 @@ async function knownAuthUsers(){
 }
 
 async function handleActive(user, admin, profile){
-  const [active, capabilities] = await Promise.all([
+  const [active, capabilities, invitationRows, archivedMemberships] = await Promise.all([
     supabaseServiceRequest("/rest/v1/rpc/nothingsports_chat_active_rooms", {
       method:"POST",
       body:{ target_user:user.id, include_admin_rooms:admin },
     }),
     chatCapabilities(user),
+    rows(TABLES.invitations,{invitee_id:`eq.${user.id}`,status:"eq.pending",select:"invitation_id,room_id,created_at"}),
+    rows(TABLES.members,{user_id:`eq.${user.id}`,archived_at:"not.is.null",select:"room_id"}),
   ]);
+  const invitedRooms=invitationRows.length?await rows(TABLES.rooms,{id:`in.(${invitationRows.map(row=>row.room_id).join(',')})`,select:"id,canonical_fixture_id,fixture_snapshot,room_name,status,created_at"}):[];
+  const invitedById=new Map(invitedRooms.map(room=>[room.id,room]));
   return {
     schemaVersion:chatContract.SCHEMA_VERSION,
     isAdmin:admin,
@@ -414,7 +419,8 @@ async function handleActive(user, admin, profile){
       canPost:Boolean(profile?.public_profile),
     },
     capabilities,
-    rooms:(Array.isArray(active) ? active : []).map(publicRoom),
+    rooms:(Array.isArray(active) ? active : []).filter(room=>!new Set(archivedMemberships.map(item=>item.room_id)).has(room.room_id||room.id)).map(publicRoom),
+    invitations:invitationRows.map(invitation=>({invitationId:invitation.invitation_id,createdAt:invitation.created_at,room:publicRoom(invitedById.get(invitation.room_id)||{id:invitation.room_id,room_name:"Chat invitation"})})),
   };
 }
 
@@ -488,6 +494,12 @@ async function reactionState(roomId, userId, messageIds, after){
 async function handleRoomGet(request, user, admin, profile){
   const roomId = requireUuid(queryValue(request, "roomId"), "room ID");
   const { room, member } = await requireRoomAccess(roomId, user, admin);
+  if (member && room.status === "open"){
+    await supabaseServiceRequest(restPath(TABLES.members, {room_id:`eq.${room.id}`,user_id:`eq.${user.id}`}), {
+      method:"PATCH", headers:{Prefer:"return=minimal"},
+      body:{last_delivered_at:new Date().toISOString(),archived_at:null},
+    });
+  }
   const before = validInstant(queryValue(request, "before"));
   const after = validInstant(queryValue(request, "after"));
   const newestPage = !after;
@@ -506,7 +518,7 @@ async function handleRoomGet(request, user, admin, profile){
   if (newestPage) messages = messages.reverse();
   const memberRows = await rows(TABLES.members, {
     room_id:`eq.${room.id}`,
-    select:"user_id,member_kind,guest_display_name,joined_at,last_read_at",
+    select:"user_id,member_kind,guest_display_name,joined_at,last_delivered_at,last_read_at,archived_at",
     order:"joined_at.asc",
   });
   const replyIds = [...new Set(messages.map(item => item.reply_to_message_id).filter(Boolean))];
@@ -588,7 +600,12 @@ async function handleRoomGet(request, user, admin, profile){
         joinedAt:item.joined_at,
       })),
     },
-    messages:messages.map(message => ({
+    messages:messages.map(message => {
+      const recipients=memberRows.filter(item=>item.user_id!==message.sender_id && Date.parse(item.joined_at||"")<=Date.parse(message.created_at||""));
+      const deliveryState=!recipients.length || recipients.every(item=>Date.parse(item.last_read_at||"")>=Date.parse(message.created_at||""))
+        ? "read"
+        : recipients.every(item=>Date.parse(item.last_delivered_at||"")>=Date.parse(message.created_at||"")) ? "delivered" : "sent";
+      return ({
       messageId:message.id,
       clientId:message.client_id,
       messageType:message.message_type,
@@ -596,12 +613,13 @@ async function handleRoomGet(request, user, admin, profile){
       sentAt:message.created_at,
       senderName:senderName(message),
       own:message.sender_id === user.id,
+      deliveryState,
       attachments:attachmentsByMessage.get(message.id) || [],
       ...(message.reply_to_message_id ? (() => {
         const reply = repliesById.get(message.reply_to_message_id);
         return { replyTo:reply ? { messageId:reply.id, senderName:senderName(reply), body:reply.body } : null };
       })() : { replyTo:null }),
-    })),
+    });}),
     reactionChanges:reactionResult.changes,
     reactionCursor:reactionResult.cursor,
     olderCursor:newestPage && messages.length === chatContract.LIMITS.historyPage ? messages[0]?.created_at || null : null,
@@ -893,12 +911,12 @@ async function createRoom(body, user, admin){
   if (!roomName) throw new ChatRequestError("Use a room name between 1 and 80 characters.", 400, "invalid_chat_room_name");
   const fixture = canonicalFixtureSnapshot(body.canonicalFixtureId);
   const requested = Array.isArray(body.memberIds) ? body.memberIds.map(value => requireUuid(value)) : [];
-  const memberIds = [...new Set([user.id, ...requested])];
-  if (memberIds.length > chatContract.LIMITS.membersPerRoom){
+  const memberIds = [user.id];
+  if (1 + new Set(requested.filter(id => id !== user.id)).size > chatContract.LIMITS.membersPerRoom){
     throw new ChatRequestError("A chat room may have at most 25 members.", 409, "chat_member_limit");
   }
   const knownIds = new Set((await knownAuthUsers()).map(account => account.id));
-  if (memberIds.some(id => !knownIds.has(id))){
+  if ([...memberIds, ...requested].some(id => !knownIds.has(id))){
     throw new ChatRequestError("Every chat member must be an existing account.", 400, "unknown_chat_member");
   }
   const result = await supabaseServiceRequest("/rest/v1/rpc/nothingsports_chat_create_room", {
@@ -912,6 +930,8 @@ async function createRoom(body, user, admin){
     },
   });
   const roomId = Array.isArray(result) ? result[0] : result;
+  const invitees=[...new Set(requested.filter(id=>id!==user.id))];
+  if(invitees.length)await addMembers({roomId,memberIds:invitees},user,admin);
   return { schemaVersion:chatContract.SCHEMA_VERSION, room:publicRoom(await roomById(roomId)) };
 }
 
@@ -1018,24 +1038,26 @@ async function addMembers(body, user, admin){
   const requested = [...new Set((Array.isArray(body.memberIds) ? body.memberIds : []).map(value => requireUuid(value)))];
   if (!requested.length) throw new ChatRequestError("Choose at least one account.", 400, "chat_members_required");
   const current = await rows(TABLES.members, { room_id:`eq.${roomId}`, select:"user_id" });
+  const pending = await rows(TABLES.invitations, { room_id:`eq.${roomId}`, status:"eq.pending", select:"invitee_id" });
   const currentIds = new Set(current.map(item => item.user_id));
-  const additions = requested.filter(id => !currentIds.has(id));
-  if (current.length + additions.length > chatContract.LIMITS.membersPerRoom){
+  const pendingIds = new Set(pending.map(item => item.invitee_id));
+  const additions = requested.filter(id => !currentIds.has(id) && !pendingIds.has(id));
+  if (current.length + pending.length + additions.length > chatContract.LIMITS.membersPerRoom){
     throw new ChatRequestError("A chat room may have at most 25 members.", 409, "chat_member_limit");
   }
   const knownIds = new Set((await knownAuthUsers()).map(account => account.id));
   if (additions.some(id => !knownIds.has(id))) throw new ChatRequestError("Every chat member must be an existing account.", 400, "unknown_chat_member");
   if (additions.length){
     try{
-      await supabaseServiceRequest(restPath(TABLES.members, { on_conflict:"room_id,user_id" }), {
+      await supabaseServiceRequest(restPath(TABLES.invitations, { on_conflict:"room_id,invitee_id" }), {
         method:"POST",
-        headers:{ Prefer:"resolution=ignore-duplicates,return=minimal" },
+        headers:{ Prefer:"resolution=merge-duplicates,return=minimal" },
         body:additions.map(accountId => ({
           room_id:roomId,
-          user_id:accountId,
-          added_by:user.id,
-          member_kind:"account",
-          guest_display_name:null,
+          inviter_id:user.id,
+          invitee_id:accountId,
+          status:"pending",
+          resolved_at:null,
         })),
       });
     }catch(error){
@@ -1045,7 +1067,34 @@ async function addMembers(body, user, admin){
       throw error;
     }
   }
-  return { schemaVersion:chatContract.SCHEMA_VERSION, added:additions.length };
+  return { schemaVersion:chatContract.SCHEMA_VERSION, invited:additions.length };
+}
+
+async function resolveInvitation(body,user){
+  const invitationId=requireUuid(body.invitationId,"invitation ID");
+  const resolution=body.resolution==="accept"?"accepted":body.resolution==="reject"?"rejected":null;
+  if(!resolution)throw new ChatRequestError("Choose accept or reject.",400,"invalid_chat_invitation_resolution");
+  const result=await supabaseServiceRequest('/rest/v1/rpc/nothingsports_chat_resolve_invitation',{method:'POST',body:{target_invitation:invitationId,target_invitee:user.id,target_resolution:resolution}});
+  const resolved=Array.isArray(result)?result[0]:result;
+  if(!resolved)throw new ChatRequestError("That invitation is no longer available.",404,"chat_invitation_not_found");
+  return {schemaVersion:chatContract.SCHEMA_VERSION,resolution,roomId:resolved.room_id||resolved.roomId};
+}
+
+async function leaveRoom(body,user,profile){
+  const roomId=requireUuid(body.roomId,"room ID");
+  await requireRoomAccess(roomId,user,false,{write:true});
+  const displayName=profile?.display_name||"Member";
+  await supabaseServiceRequest('/rest/v1/rpc/nothingsports_chat_leave_room',{method:'POST',body:{target_room:roomId,target_user:user.id,target_display_name:displayName,target_client_id:`leave-${crypto.randomUUID()}`}});
+  return {schemaVersion:chatContract.SCHEMA_VERSION,left:true};
+}
+
+async function archiveRooms(body,user){
+  const roomIds=[...new Set((Array.isArray(body.roomIds)?body.roomIds:[]).map(id=>requireUuid(id,"room ID")))].slice(0,50);
+  if(!roomIds.length)throw new ChatRequestError("Choose at least one chat.",400,"chat_rooms_required");
+  const memberships=await rows(TABLES.members,{room_id:`in.(${roomIds.join(',')})`,user_id:`eq.${user.id}`,select:"room_id"});
+  if(memberships.length!==roomIds.length)throw new ChatRequestError("One of those chats is no longer available.",403,"chat_membership_required");
+  await supabaseServiceRequest(restPath(TABLES.members,{room_id:`in.(${roomIds.join(',')})`,user_id:`eq.${user.id}`}),{method:"PATCH",headers:{Prefer:"return=minimal"},body:{archived_at:new Date().toISOString()}});
+  return {schemaVersion:chatContract.SCHEMA_VERSION,archived:roomIds.length};
 }
 
 async function removeMember(body, user, admin){
@@ -1311,7 +1360,7 @@ async function markRead(body, user, admin){
   }), {
     method:"PATCH",
     headers:{ Prefer:"return=minimal" },
-    body:{ last_read_at:readAt },
+    body:{ last_delivered_at:readAt, last_read_at:readAt },
   });
   return { schemaVersion:chatContract.SCHEMA_VERSION, readAt };
 }
@@ -1357,6 +1406,9 @@ async function handlePost(request, user, admin, profile){
     case "rotate-share": return configureGuestShare(body, user, admin, "rotate");
     case "disable-share": return configureGuestShare(body, user, admin, "disable");
     case "add-members": return addMembers(body, user, admin);
+    case "resolve-invitation": return resolveInvitation(body,user);
+    case "leave-room": return leaveRoom(body,user,profile);
+    case "archive-rooms": return archiveRooms(body,user);
     case "remove-member": return removeMember(body, user, admin);
     case "send-message": return sendMessage(body, user, admin, profile);
     case "attachment-upload-url": return prepareAttachment(body, user, admin);

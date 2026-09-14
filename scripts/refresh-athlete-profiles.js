@@ -123,15 +123,19 @@ async function buildAflProfiles(code, directory, selectedPlayers, checkedAt, tok
     const rank = selectedPlayers.findIndex(item => (Array.isArray(item) ? item[0] : item).toLowerCase() === player.displayName.toLowerCase()) + 1;
     const gws = gwsUrls.get(player.providerId);
     const sourceUrl = gws?.url || player.sourceUrl;
+    const isTarniEvans=player.id==="competitor:aflw:tarni-evans";
     return {
       schemaVersion:"athlete-profile.v1", id:player.profileRef, participantId:player.id, sportKey:code,
       displayName:player.displayName, currentTeamId:player.currentTeamId, teamName:teamNames.get(player.currentTeamId) || null,
       headshotUrl:details.photoURL ? encodeURI(details.photoURL) : player.headshotUrl,
       competitionNumber:Number(details.jumperNumber || player.competitionNumber) > 0 ? Number(details.jumperNumber || player.competitionNumber) : null,
       competitionNumberKind:"guernsey", competitionNumberSeason:"2026",
-      biography:playerBiography(player, details, teamNames.get(player.currentTeamId) || (isAflw ? "an AFLW club" : "an AFL club")),
+      biography:isTarniEvans
+        ? "Tarni Evans is a 178 cm key-position player and left-footed forward in the GWS GIANTS leadership group. After beginning as an intercepting defender, she moved forward full-time in 2024, made a third consecutive AFLPA 22Under22 team at centre half-forward, and finished 2025 as the GIANTS’ leading goalkicker and equal-third in the Gabrielle Trainor Medal. Current-season and career totals below come only from the official AFL statistics record."
+        : playerBiography(player, details, teamNames.get(player.currentTeamId) || (isAflw ? "an AFLW club" : "an AFL club")),
       keyFacts:[
-        { label:"Position", value:details.position || player.position }, { label:"Height", value:Number(details.heightCm || player.heightInCm) ? `${details.heightCm || player.heightInCm} cm` : null },
+        { label:"Position", value:isTarniEvans?"Key forward":details.position || player.position }, { label:"Height", value:Number(details.heightCm || player.heightInCm) ? `${details.heightCm || player.heightInCm} cm` : null },
+        ...(isTarniEvans?[{label:"Honours",value:"Leading Goalkicker 2025 · AFLPA 22Under22 2022 (S7), 2023, 2024 · Goal of the Year 2022 (S7), 2025"}]:[]),
         { label:"Debut", value:details.debutYear || player.debutYear || null }, { label:"Recruited from", value:details.recruitedFrom || player.recruitedFrom || null },
       ].filter(item => item.value),
       seasonStats:metricRows(official.seasonAverages, [["matchesPlayed","Matches"],["disposals","Disposals avg"],["goals","Goals avg"],["tackles","Tackles avg"],["totalClearances","Clearances avg"],["marks","Marks avg"]]),

@@ -12,6 +12,7 @@ const {
 } = require("./lib/storyline-card-rules");
 const canonicalSportsTaxonomy = require("../config/canonical-sports-taxonomy.js");
 const competitionStakes = require("../config/enrichment-engine.js");
+const { publicFixtureTitle } = require('../lib/finals-presentation');
 
 const DEFAULT_LIVE_WINDOW_MS = 3 * 60 * 60 * 1000;
 const COMPLETED_RETENTION_MS = 7 * 24 * 60 * 60 * 1000;
@@ -253,6 +254,8 @@ function participantRefs(fixture, participantsById){
 function canonicalMetadata(fixture){
   const phase = competitionStakes.applyCompetitionStakes(fixture);
   return {
+    name: publicFixtureTitle(fixture),
+    displayTitleCompact: publicFixtureTitle(fixture),
     canonicalEventId: fixture.id,
     canonicalSourceId: fixture.sourceId,
     canonicalSourceName: fixture.source?.provider,

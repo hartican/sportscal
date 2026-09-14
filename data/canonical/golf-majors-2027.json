@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "requested-sports.v1",
+  "sources": {
+    "pga-tour-2027": {
+      "name": "PGA TOUR 2027 schedule",
+      "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
+      "type": "official"
+    },
+    "pga-championship": {
+      "name": "PGA Championship",
+      "url": "https://www.pgachampionship.com/about-us",
+      "type": "official"
+    },
+    "usga-2027": {
+      "name": "USGA 2027 U.S. Open",
+      "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
+      "type": "official"
+    },
+    "the-open-2027": {
+      "name": "The Open 2027",
+      "url": "https://www.theopen.com/st-andrews-2027",
+      "type": "official"
+    }
+  },
+  "participants": [],
+  "events": [
+    {
+      "id": "event:golf:masters-2027",
+      "sportKey": "golf",
+      "codeId": "sport:golf",
+      "competitionId": "competition:golf:masters-2027",
+      "taxonomyNodeId": "event-series:masters-tournament",
+      "name": "2027 Masters Tournament",
+      "date": "2027-04-08",
+      "endDate": "2027-04-11",
+      "time": "22:00",
+      "timeTbc": true,
+      "venue": "Augusta National Golf Club, Georgia",
+      "round": "all",
+      "stage": "Major",
+      "expected": 10,
+      "liveWindow": 12,
+      "sourceId": "pga-tour-2027",
+      "hook": "The first men's major of 2027 returns to Augusta National.",
+      "context": "Four championship days at Augusta open the men's major season; tee times and the field will replace this schedule card when officially published.",
+      "gender": "men"
+    },
+    {
+      "id": "event:golf:pga-championship-2027",
+      "sportKey": "golf",
+      "codeId": "sport:golf",
+      "competitionId": "competition:golf:pga-championship-2027",
+      "taxonomyNodeId": "event-series:pga-championship",
+      "name": "2027 PGA Championship",
+      "date": "2027-05-20",
+      "endDate": "2027-05-23",
+      "time": "22:00",
+      "timeTbc": true,
+      "venue": "PGA Frisco, Texas",
+      "round": "all",
+      "stage": "Major",
+      "expected": 10,
+      "liveWindow": 12,
+      "sourceId": "pga-championship",
+      "hook": "The PGA Championship brings the strongest available men's field to PGA Frisco.",
+      "context": "The official championship window is queued now; tee times and player cards will follow the published field and draw.",
+      "gender": "men"
+    },
+    {
+      "id": "event:golf:us-open-2027",
+      "sportKey": "golf",
+      "codeId": "sport:golf",
+      "competitionId": "competition:golf:us-open-2027",
+      "taxonomyNodeId": "event-series:us-open-golf",
+      "name": "2027 U.S. Open",
+      "date": "2027-06-17",
+      "endDate": "2027-06-20",
+      "time": "22:00",
+      "timeTbc": true,
+      "venue": "Pebble Beach Golf Links, California",
+      "round": "all",
+      "stage": "Major",
+      "expected": 10,
+      "liveWindow": 12,
+      "sourceId": "usga-2027",
+      "hook": "Pebble Beach hosts the 2027 U.S. Open and its national-championship test.",
+      "context": "The official four-day championship window is queued, with tee times and player detail to follow the final field.",
+      "gender": "men"
+    },
+    {
+      "id": "event:golf:the-open-2027",
+      "sportKey": "golf",
+      "codeId": "sport:golf",
+      "competitionId": "competition:golf:the-open-2027",
+      "taxonomyNodeId": "event-series:the-open",
+      "name": "The 155th Open",
+      "date": "2027-07-15",
+      "endDate": "2027-07-18",
+      "time": "16:00",
+      "timeTbc": true,
+      "venue": "The Old Course, St Andrews",
+      "round": "all",
+      "stage": "Major",
+      "expected": 10,
+      "liveWindow": 12,
+      "sourceId": "the-open-2027",
+      "hook": "The Open returns to St Andrews for the 155th Championship.",
+      "context": "The men's final major of 2027 is queued across its official championship dates; tee times and field-specific cards will follow publication.",
+      "gender": "men"
+    }
+  ]
+}

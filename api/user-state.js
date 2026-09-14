@@ -187,7 +187,12 @@ module.exports = async function userStateHandler(request, response){
         payload: { code: "user_state_conflict" },
       });
     }
-    const merged = userStateSync.applyPatch(userStateFromRow(existing) || {}, patch);
+    const priorState = userStateFromRow(existing) || {};
+    const merged = userStateSync.reconcileEventFamilyDecisions(
+      priorState,
+      patch,
+      userStateSync.applyPatch(priorState, patch),
+    );
     if (existing && sameUserState(existing, merged)){
       response.status(200).json({
         user: publicUser(user),

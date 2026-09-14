@@ -82,6 +82,9 @@ const FINALS_EXPECTED_AT = Object.freeze({
 });
 
 function stableId(event){
+  const finalsFixtureId = [event?.id, event?.eventId, event?.canonicalEventId, ...(event?.sourceEventIds || [])]
+    .find(value => /^major-match:(?:afl|nrl)-finals-\d{4}:/i.test(String(value || "")));
+  if (finalsFixtureId) return String(finalsFixtureId);
   return String(event?.canonicalEventId || event?.eventId || event?.id || "");
 }
 
@@ -191,6 +194,7 @@ function normalizeFixture(event, codeId, extra = {}){
         ? { timeTbc:true, timePrecision:"tbc" }
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
+    ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...Object.fromEntries(['fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','scoreDisplay','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','actualEndTimeUtc'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     venue: (event.venue || event.venueName) && !/tbc/i.test(event.venue || event.venueName) ? (event.venue || event.venueName) : null,

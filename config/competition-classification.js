@@ -26,7 +26,7 @@
     }),
     Object.freeze({
       canonicalCodeId:"sport:afl",
-      selectorId:"sport:afl",
+      selectorId:"sport:afl-premiership",
       parentSportId:"sport:afl",
       reason:"phase-of-existing-code",
       legacyFollowIds:Object.freeze([

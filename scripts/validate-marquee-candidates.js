@@ -19,7 +19,7 @@ async function main(){
   assert.equal(artifact.shadowMode, true, "candidate generation must remain shadow-only");
   assert.equal(artifact.summary.stakesFiveFuture, artifact.candidates.length, "every future 5/5-stakes row must enter the workbench");
   assert.equal(artifact.summary.shown, artifact.candidates.length);
-  assert(artifact.candidates.some(candidate => /Winner of PF1 v Winner of PF2/i.test(candidate.material?.title || "")), "the canonical 5/5 AFL Grand Final must enter the workbench");
+  assert(artifact.candidates.some(candidate => candidate.material?.title === "AFL Grand Final" && /Winner of PF1 v Winner of PF2/i.test(candidate.material?.matchupLabel || "")), "the canonical 5/5 AFL Grand Final must enter the workbench with its public stage title and bracket matchup kept separate");
   assert.equal(artifact.summary.eligible, artifact.candidates.filter(candidate => candidate.readyForExport).length);
   assert.equal(artifact.summary.eligible, 2);
   assert.equal(artifact.summary.watching, artifact.candidates.filter(candidate => !candidate.readyForExport).length);

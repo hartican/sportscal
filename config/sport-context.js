@@ -113,7 +113,13 @@
         return false;
       }
     });
-    if (!scope || event.participantsConfirmed === true) return contextualEvent;
+    if (!scope) return contextualEvent;
+    if (event.participantsConfirmed === true){
+      return {
+        ...contextualEvent,
+        sportDomainId:event.sportDomainId || scope.preferenceDomainId || event.key,
+      };
+    }
     const participantIds = Array.from(new Set([
       ...(Array.isArray(event.participantIds) ? event.participantIds : []),
       ...matchedParticipantIdsForScope(scope, context, title),

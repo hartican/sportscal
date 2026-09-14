@@ -1542,10 +1542,10 @@ main{
   right: max(20px, calc((100vw - 1100px) / 2 + 20px));
   bottom: 22px;
   z-index: 45;
-  border-color: rgba(0,229,255,0.55);
-  background: rgba(19,19,24,0.94);
+  border-color: color-mix(in srgb,var(--accent) 55%,var(--border));
+  background: color-mix(in srgb,var(--bg-card) 94%,transparent);
   color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  box-shadow: 0 10px 30px var(--shadow);
   backdrop-filter: blur(12px);
 }
 
@@ -5486,14 +5486,14 @@ body.settings-open .app-footer{
 }
 .chat-backdrop.show{ display:flex; }
 .chat-drawer{
-  width:min(460px, 100%);
+  width:100%;
   height:var(--chat-viewport-height, 100dvh);
   display:flex;
   flex-direction:column;
   overflow:hidden;
-  border-left:1px solid var(--border);
+  border:0;
   background:var(--panel-bg);
-  box-shadow:-28px 0 80px rgba(0,0,0,0.48);
+  box-shadow:none;
 }
 .chat-head{
   flex:0 0 auto;
@@ -5608,6 +5608,9 @@ button.chat-room-row{ cursor:pointer; }
   font-size:.63rem;
 }
 .chat-message-meta strong{ min-width:0; overflow-wrap:anywhere; color:var(--text); font-size:.68rem; }
+.chat-message-status{display:flex;justify-content:flex-end;align-items:center;gap:5px;margin-top:4px;color:var(--text-dim);font-size:.62rem;font-variant-numeric:tabular-nums}
+.chat-receipt{letter-spacing:-.18em;padding-right:.18em;font-weight:950;color:var(--text-dim)}
+.chat-receipt.read{color:var(--accent)}
 .chat-message-body{ white-space:pre-wrap; overflow-wrap:anywhere; font-size:.8rem; line-height:1.45; }
 .chat-message-quote{
   display:block;
@@ -5752,6 +5755,23 @@ button.chat-room-row{ cursor:pointer; }
   resize:vertical;
 }
 .chat-composer .btn{ min-width:76px; }
+.chat-composer button[type="submit"]{
+  background:linear-gradient(135deg,#ff477e 0%,#ff2d8d 46%,#00d9f5 100%);
+  color:#090b10;
+  border-color:transparent;
+  font-weight:800;
+}
+.chat-composer button[type="submit"]:disabled{ opacity:.48; filter:saturate(.55); }
+.chat-composer button[type="submit"]:focus-visible{ outline:3px solid color-mix(in srgb,var(--accent) 58%,white); outline-offset:2px; }
+.chat-incoming-banner{
+  position:fixed; z-index:1400; top:max(12px,env(safe-area-inset-top)); left:50%;
+  width:min(92vw,520px); min-height:48px; transform:translate(-50%,-140%);
+  opacity:0; pointer-events:none; transition:transform .2s ease,opacity .2s ease;
+  background:var(--panel-bg); color:var(--text); border:1px solid var(--accent);
+  border-radius:14px; box-shadow:0 14px 38px rgba(0,0,0,.28); padding:10px 14px;
+  text-align:left; font:inherit; font-weight:750;
+}
+.chat-incoming-banner.show{ transform:translate(-50%,0); opacity:1; pointer-events:auto; }
 .chat-form{ display:grid; gap:12px; }
 .chat-form-actions{ display:flex; flex-wrap:wrap; gap:8px; }
 .chat-form .field-label input,
@@ -5888,11 +5908,11 @@ body.nsc-open{ overflow:hidden; }
   .chat-backdrop{ align-items:flex-end; }
   .chat-drawer{
     width:100%;
-    height:min(86dvh, 760px);
+    height:var(--chat-viewport-height, 100dvh);
     border-left:0;
-    border-top:1px solid var(--border);
-    border-radius:22px 22px 0 0;
-    box-shadow:0 -28px 80px rgba(0,0,0,0.48);
+    border:0;
+    border-radius:0;
+    box-shadow:none;
   }
   .chat-body{ padding-inline:max(14px, env(safe-area-inset-left)); }
   .chat-composer{
@@ -7173,6 +7193,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
+<button class="chat-incoming-banner" id="chatIncomingBanner" type="button" hidden></button>
+
 <div class="chat-backdrop nsc-backdrop" id="nothingscoreBackdrop" aria-hidden="true">
   <aside class="chat-drawer nsc-drawer" id="nothingscoreDrawer" role="region" aria-labelledby="nothingscoreTitle" aria-describedby="nothingscoreSubtitle">
     <header class="chat-head">
@@ -7952,10 +7974,23 @@ function appendFollowedFixtureParticipants(container,ev){
   const ids=FOLLOW_FEED_POLICY.participantIds(ev).filter(id=>cachedParticipantFollow(id).followed);
   if(!ids.length)return;
   const row=document.createElement('div');row.className='fixture-participant-links';
-  for(const id of ids){const participant=(ev.participants||[]).find(p=>p.id===id);const label=participant?.displayName||participant?.name||followedParticipantLabel(id);if(label&&label!==id)row.appendChild(participantProfileLink(id,label,ev.key==='motorsport'&&id.includes(':f1:')?'f1':ev.key));}
+  const entries=ids.map(id=>{const participant=(ev.participants||[]).find(p=>p.id===id);const label=participant?.displayName||participant?.name||followedParticipantLabel(id);return label&&label!==id?{id,label}:null;}).filter(Boolean);
+  if(ev.key==='f1'&&entries.length){
+    row.classList.add('fixture-participant-pager');
+    let page=0;
+    const visibleCount=()=>matchMedia('(min-width:768px)').matches?4:2;
+    const previous=document.createElement('button');previous.type='button';previous.className='fixture-participant-page-control';previous.textContent='‹';previous.setAttribute('aria-label','Previous followed drivers and teams');
+    const names=document.createElement('span');names.className='fixture-participant-page-names';
+    const count=document.createElement('span');count.className='fixture-participant-page-count';
+    const next=document.createElement('button');next.type='button';next.className='fixture-participant-page-control';next.textContent='›';next.setAttribute('aria-label','Next followed drivers and teams');
+    const render=()=>{const size=visibleCount();const pages=Math.max(1,Math.ceil(entries.length/size));page=Math.min(page,pages-1);names.replaceChildren(...entries.slice(page*size,page*size+size).flatMap((entry,index)=>[...(index?[document.createTextNode(' · ')]:[]),participantProfileLink(entry.id,entry.label,'f1')]));count.textContent=`${page+1}/${pages}`;previous.disabled=page===0;next.disabled=page===pages-1;};
+    previous.onclick=()=>{page=Math.max(0,page-1);render();};next.onclick=()=>{page+=1;render();};
+    row.append(previous,names,count,next);render();
+  }else for(const {id,label} of entries)row.appendChild(participantProfileLink(id,label,ev.key==='motorsport'&&id.includes(':f1:')?'f1':ev.key));
   if(row.childElementCount)container.appendChild(row);
 }
-function renderEventTitleIdentity(nameElement, ev, displayTitle, {compact=false}={}){
+function renderEventTitleIdentity(nameElement, ev, displayTitle, options){
+  const compact=Boolean(options?.compact);
   if((ev.key==='tennis'||ev.key==='wimbledon')&&!/hidden|winner of|loser of|TBC/i.test(displayTitle)){
     const lineup=majorEventMatchupLineup(ev,{compact});
     if(lineup){nameElement.appendChild(lineup);return;}
@@ -8775,11 +8810,16 @@ function createChatState(overrides = {}){
     replyToMessageId:null,
     reactionCursor:"",
     shareCapability:"",
+    invitations:[],
+    chatSelectionMode:false,
+    selectedRoomIds:[],
     activeSignature:"",
     ...overrides,
     profile:{ displayName:null, ...(overrides.profile || {}) },
     capabilities:{ lifetimeNscPoints:0, gifMinimumPoints:25, canUseGifs:false, ...(overrides.capabilities || {}) },
     rooms:Array.isArray(overrides.rooms) ? overrides.rooms : [],
+    invitations:Array.isArray(overrides.invitations) ? overrides.invitations : [],
+    selectedRoomIds:Array.isArray(overrides.selectedRoomIds) ? overrides.selectedRoomIds : [],
     messages:Array.isArray(overrides.messages) ? overrides.messages : [],
     pendingAttachments:Array.isArray(overrides.pendingAttachments) ? overrides.pendingAttachments : [],
   };
@@ -15104,13 +15144,24 @@ function compactFallbackTiming(ev){
   const time=!ev.timeTbc&&/^\d{1,2}:\d{2}/.test(String(ev.time||''))?fmtTime12(ev.time):'Time TBC';
   return `${date} ${ev.timePrecision==='estimated'?'Approx. ':''}${time}`.replace(/ (am|pm)/g,'$1');
 }
+function buildCompactParticipant(identity,ev){
+  const side=document.createElement('span');side.className='compact-matchup-side';
+  const mark=identity.mark||{};
+  const fallback=document.createElement('span');fallback.className='compact-participant-fallback';fallback.textContent=(identity.label||'?').split(/\s+/).map(x=>x[0]).join('').slice(0,2);side.appendChild(fallback);
+  if(mark.url||mark.logo?.primary){const image=document.createElement('img');image.className='compact-participant-mark';image.alt='';image.loading='lazy';image.decoding='async';applyTeamLogoAsset(image,mark,'icon',themeUsesDarkAssets());image.onload=()=>fallback.remove();image.onerror=()=>image.remove();side.appendChild(image);}
+  side.appendChild(participantProfileLink(identity.participant?.id||mark.id,identity.label,ev.key));return side;
+}
 function buildCompactCardSummary(ev){
   const summary=document.createElement('div');summary.className='compact-card-summary';
   const icon=document.createElement('span');icon.className='compact-card-icon';renderEventIdentityMark(icon,ev,sportMetaForEvent(ev));
-  const title=document.createElement('span');title.className='compact-card-name';renderEventTitleIdentity(title,ev,compactFixtureName(ev),{compact:true});
+  const title=document.createElement('span');title.className='compact-card-name';
+  const identities=matchupIdentityMatches(ev,compactFixtureName(ev));
+  if(identities.length===2){title.classList.add('compact-matchup-grid');title.appendChild(buildCompactParticipant(identities[0],ev));const middle=document.createElement('span');const stage=FOLLOW_FIRST?.stageLabel?.(ev);middle.className=stage?'matchup-stage-badge compact-stage-badge':'compact-matchup-v';middle.textContent=stage||'v';title.appendChild(middle);title.appendChild(buildCompactParticipant(identities[1],ev));}
+  else renderEventTitleIdentity(title,ev,compactFixtureName(ev),{compact:true});
   const time=document.createElement('span');time.className='compact-card-time';
   const start=ev.timePrecision==='follows'?null:FEED_CONTROLS.eventStart(ev);
-  time.textContent=ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev);
+  const timing=ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev);
+  const sportLabel=ev.key==='tennis'||ev.key==='wimbledon'?`Tennis${ev.competitionName||ev.majorEventName?' · '+(ev.competitionName||ev.majorEventName):''}`:(ev.sport||sportMetaForEvent(ev).label||ev.key).replace('American Football','NFL');time.textContent=`${timing} • ${sportLabel}`;
   summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${time.textContent}`);summary.title=summary.getAttribute('aria-label');
   summary.append(icon,title,time);return summary;
 }
@@ -19646,6 +19697,9 @@ function toggleMajorEventFollow(eventId){
   const excluded = new Set(next.followFirst.excludedMajorEventIds || []);
   if (selected.has(eventId)){ selected.delete(eventId); excluded.add(eventId); }
   else { selected.add(eventId); excluded.delete(eventId); }
+  const decisionStates = {...(next.followFirst.eventFamilyDecisions?.states || {})};
+  decisionStates[eventId] = selected.has(eventId) ? "followed" : "excluded";
+  next.followFirst.eventFamilyDecisions = {schemaVersion:"event-family-decisions.v1",states:decisionStates};
   next.followFirst.excludedMajorEventIds = Array.from(excluded);
   next.followFirst.followedMajorEventIds = Array.from(selected);
   savePreferences(next);
@@ -23335,7 +23389,8 @@ function setChatHeading(title, subtitle){
   document.getElementById("chatSubtitle").textContent = subtitle;
 }
 
-function chatRoomRow(room){
+function chatRoomRow(room,{selecting=false}={}){
+  if(selecting){const label=document.createElement('label');label.className='chat-room-row';const input=document.createElement('input');input.type='checkbox';input.checked=chatState.selectedRoomIds.includes(room.roomId);input.onchange=()=>{const ids=new Set(chatState.selectedRoomIds);input.checked?ids.add(room.roomId):ids.delete(room.roomId);chatState.selectedRoomIds=[...ids];};const copy=document.createElement('span');const name=document.createElement('strong');name.textContent=room.roomName;const fixture=document.createElement('span');fixture.textContent=room.fixture?.name||'Fixture chat';copy.append(name,fixture);label.append(input,copy);return label;}
   const button = document.createElement("button");
   button.type = "button";
   button.className = "chat-room-row";
@@ -23371,6 +23426,7 @@ function renderActiveChats(){
   disclosure.className = "chat-disclosure";
   disclosure.textContent = "New rooms begin members-only. Administrators may enable an unlisted guest link; closed rooms revoke participant access and remain read-only to administrators for seven days.";
   body.appendChild(disclosure);
+  for(const invitation of chatState.invitations){const row=document.createElement('section');row.className='chat-room-row';const copy=document.createElement('span');copy.innerHTML=`<strong></strong><span></span>`;copy.querySelector('strong').textContent=invitation.room?.roomName||'Chat invitation';copy.querySelector('span').textContent=invitation.room?.fixture?.name||'Fixture chat';const actions=document.createElement('span');actions.className='chat-form-actions';for(const [resolution,label] of [['accept','Accept'],['reject','Reject']]){const button=document.createElement('button');button.type='button';button.className=`btn ${resolution==='accept'?'primary':'ghost'}`;button.textContent=label;button.onclick=async()=>{button.disabled=true;await serverSyncClient.chatRequest({}, {action:'resolve-invitation',invitationId:invitation.invitationId,resolution});await refreshChatActive({rerenderOpenList:true});};actions.appendChild(button);}row.append(copy,actions);body.appendChild(row);}
   if (!chatState.isGuest){
     const savedMedia = document.createElement("button");
     savedMedia.type = "button";
@@ -23379,6 +23435,7 @@ function renderActiveChats(){
     savedMedia.addEventListener("click", () => { void renderSavedGameMedia(); });
     body.appendChild(savedMedia);
   }
+  if(chatState.rooms.length&&!chatState.isGuest){const controls=document.createElement('div');controls.className='chat-form-actions';const edit=document.createElement('button');edit.type='button';edit.className='btn ghost';edit.textContent=chatState.chatSelectionMode?'Cancel':'Select chats';edit.onclick=()=>{chatState.chatSelectionMode=!chatState.chatSelectionMode;chatState.selectedRoomIds=[];renderActiveChats();};controls.appendChild(edit);if(chatState.chatSelectionMode){const all=document.createElement('button');all.type='button';all.className='btn ghost';all.textContent='Select all';all.onclick=()=>{chatState.selectedRoomIds=chatState.rooms.map(room=>room.roomId);renderActiveChats();};const remove=document.createElement('button');remove.type='button';remove.className='btn primary';remove.textContent='Delete selected';remove.onclick=async()=>{if(!chatState.selectedRoomIds.length)return;remove.disabled=true;await serverSyncClient.chatRequest({}, {action:'archive-rooms',roomIds:chatState.selectedRoomIds});chatState.chatSelectionMode=false;chatState.selectedRoomIds=[];await refreshChatActive({rerenderOpenList:true});};controls.append(all,remove);}body.appendChild(controls);}
   if (!chatState.rooms.length){
     const empty = document.createElement("p");
     empty.className = "chat-empty";
@@ -23390,7 +23447,7 @@ function renderActiveChats(){
   }
   const list = document.createElement("div");
   list.className = "chat-room-list";
-  chatState.rooms.forEach(room => list.appendChild(chatRoomRow(room)));
+  chatState.rooms.forEach(room => list.appendChild(chatRoomRow(room,{selecting:chatState.chatSelectionMode})));
   body.appendChild(list);
 }
 
@@ -23671,7 +23728,11 @@ async function openPendingSharedChat(){
   try{
     const preview = await serverSyncClient.chatGuestPreview(capability);
     if (serverSyncClient.getSession?.()){
-      prepareChatAudio();
+      const audio = await prepareChatAudio({force:true});
+      if (!audio || audio.state !== "running") throw new Error("Chat sound could not be enabled. Check browser or device Settings.");
+      copy.textContent = "Chat sound on";
+      enable.remove();
+      await new Promise(resolve => window.setTimeout(resolve, 650));
       const payload = await serverSyncClient.chatRequest({}, { action:"join-shared-room", capability });
       clearPendingChatCapability();
       await refreshChatActive();
@@ -23764,8 +23825,12 @@ function buildChatAlertPrompt(){
     enable.textContent = permission === "default" ? "Enable system alerts" : "Tap to enable chat sound";
     enable.addEventListener("click", async () => {
       enable.disabled = true;
-      prepareChatAudio();
       try{
+        const audio = await prepareChatAudio({ force:true });
+        if (!audio || audio.state !== "running") throw new Error("Chat sound could not be enabled. Check browser or device Settings.");
+        copy.textContent = "Chat sound on";
+        enable.remove();
+        await new Promise(resolve => window.setTimeout(resolve, 650));
         if (permission === "default") await ensurePushInstallation({ requestPermission:true });
         renderOpenChatRoom({ autoScroll:false, preserveScroll:true });
       }catch(error){
@@ -23863,7 +23928,7 @@ function chatMessageElement(message){
   const body = document.createElement("div");
   body.className = "chat-message-body";
   body.textContent = message.body;
-  meta.append(sender, time);
+  meta.append(sender);
   item.appendChild(meta);
   if (message.replyTo){
     const quote = document.createElement("button");
@@ -23948,6 +24013,10 @@ function chatMessageElement(message){
   if (chatState.currentRoom?.viewer?.canPost) actions.append(reply, react, picker);
   if (reactions.childElementCount) item.appendChild(reactions);
   if (actions.childElementCount) item.appendChild(actions);
+  const status=document.createElement("div");status.className="chat-message-status";
+  status.appendChild(time);
+  if(message.own){const ticks=document.createElement("span");ticks.className=`chat-receipt ${message.deliveryState||"sent"}`;ticks.setAttribute("aria-label",message.deliveryState==="read"?"Read by everyone":message.deliveryState==="delivered"?"Delivered to everyone":"Sent");ticks.textContent=message.deliveryState==="sent"?"✓":"✓✓";status.appendChild(ticks);}
+  item.appendChild(status);
   return item;
 }
 
@@ -23985,12 +24054,15 @@ function renderChatPublicProfileForm(host, { onSaved } = {}){
   save.type = "submit";
   save.className = "btn primary";
   save.textContent = "Save Public Profile";
-  form.append(heading, displayLabel, handleLabel, help, save);
+  const avatarLabel=document.createElement('label');avatarLabel.className='field-label';avatarLabel.textContent='Profile picture';const avatar=document.createElement('input');avatar.type='file';avatar.accept='image/jpeg,image/png,image/webp';avatarLabel.appendChild(avatar);
+  const processedAvatar=async()=>{const file=avatar.files?.[0];if(!file)return null;if(file.size>8*1024*1024)throw new Error('Choose an image smaller than 8 MB before cropping.');const bitmap=await createImageBitmap(file);const size=Math.min(bitmap.width,bitmap.height),canvas=document.createElement('canvas');canvas.width=canvas.height=512;canvas.getContext('2d').drawImage(bitmap,(bitmap.width-size)/2,(bitmap.height-size)/2,size,size,0,0,512,512);let quality=.9,blob;do{blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/webp',quality));quality-=.1;}while(blob&&blob.size>1024*1024&&quality>=.4);if(!blob||blob.size>1024*1024)throw new Error('That picture could not be reduced below 1 MB.');return await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(blob);});};
+  form.append(heading, displayLabel, handleLabel, avatarLabel, help, save);
   form.addEventListener("submit", async submitEvent => {
     submitEvent.preventDefault();
     save.disabled = true;
     try{
       await serverSyncClient.nothingscoreRequest({}, { action:"profile", displayName:display.value, handle:handle.value });
+      const dataUrl=await processedAvatar();if(dataUrl)await serverSyncClient.nothingscoreRequest({}, {action:'profile-avatar',dataUrl});
       await refreshNothingscoreViewer();
       await refreshChatActive();
       await onSaved?.();
@@ -24174,6 +24246,7 @@ function renderChatMembersDisclosure(room){
       : "This room is members-only until an administrator enables its guest link.";
   content.appendChild(disclosure);
   renderChatAdminControls(content, room);
+  if(room.viewer?.member&&room.status==='open'){const leave=document.createElement('button');leave.type='button';leave.className='btn ghost';leave.textContent='Leave chat';leave.onclick=async()=>{leave.disabled=true;await serverSyncClient.chatRequest({}, {action:'leave-room',roomId:room.roomId});setChatDrawerOpen(false);await refreshChatActive();};content.appendChild(leave);}
   details.append(summary, content);
   return details;
 }
@@ -24545,6 +24618,7 @@ function laterChatReactionCursor(first, second){
 }
 
 async function openChatRoom(roomId){
+  hideChatIncomingBanner();
   window.clearTimeout(chatRoomTimer);
   chatRoomTimer = null;
   const previousRoomId = chatState.currentRoom?.roomId || null;
@@ -24656,11 +24730,30 @@ async function pollChatRoom(){
 
 function chatUnreadIncreasedOutsideOpenRoom(previousRooms, nextRooms, currentRoomId){
   const previousUnreadByRoom = new Map((previousRooms || []).map(room => [room.roomId, Number(room.unreadCount || 0)]));
-  return (nextRooms || []).some(room => (
+  return (nextRooms || []).find(room => (
     room.roomId !== currentRoomId
     && previousUnreadByRoom.has(room.roomId)
     && Number(room.unreadCount || 0) > Number(previousUnreadByRoom.get(room.roomId) || 0)
   ));
+}
+
+let chatIncomingBannerTimer=null;
+function hideChatIncomingBanner(){
+  window.clearTimeout(chatIncomingBannerTimer);
+  const banner=document.getElementById("chatIncomingBanner");
+  if(!banner)return;
+  banner.classList.remove("show");
+  window.setTimeout(()=>{if(!banner.classList.contains("show"))banner.hidden=true;},220);
+}
+function showChatIncomingBanner(room){
+  if(!room)return;
+  const banner=document.getElementById("chatIncomingBanner");
+  banner.hidden=false;
+  banner.textContent=`New message in ${room.roomName || room.fixture?.name || "fixture chat"}`;
+  banner.onclick=()=>{hideChatIncomingBanner();setChatDrawerOpen(true);void openChatRoom(room.roomId);};
+  window.requestAnimationFrame(()=>banner.classList.add("show"));
+  window.clearTimeout(chatIncomingBannerTimer);
+  chatIncomingBannerTimer=window.setTimeout(hideChatIncomingBanner,7000);
 }
 
 async function refreshChatActive({ rerenderOpenList = false } = {}){
@@ -24680,10 +24773,11 @@ async function refreshChatActive({ rerenderOpenList = false } = {}){
       profile:payload.profile || { displayName:null },
       capabilities:payload.capabilities || chatState.capabilities,
       rooms:nextRooms,
+      invitations:payload.invitations||[],
       activeSignature:signature,
     });
     updateActiveChatButton();
-    if (outsideRoomUnreadIncreased) playIncomingChatSound();
+    if (outsideRoomUnreadIncreased){ playIncomingChatSound(); showChatIncomingBanner(outsideRoomUnreadIncreased); }
     if (rerenderOpenList && document.getElementById("chatBackdrop").classList.contains("show") && !chatState.currentRoom) renderActiveChats();
     if (changed){
       document.querySelectorAll("[data-fixture-chat-id]").forEach(host => {

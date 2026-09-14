@@ -970,7 +970,11 @@
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-07",
+          "displayDateLabel": "Week of Monday, 7 Sep",
+          "date": "2026-09-07"
         },
         {
           "id": "event:afl:cd_m20260142702",
@@ -1089,7 +1093,11 @@
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-07",
+          "displayDateLabel": "Week of Monday, 7 Sep",
+          "date": "2026-09-07"
         },
         {
           "id": "event:afl:cd_m20260142801",
@@ -1208,7 +1216,11 @@
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 5,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-14",
+          "displayDateLabel": "Week of Monday, 14 Sep",
+          "date": "2026-09-14"
         },
         {
           "id": "event:afl:cd_m20260142802",
@@ -1327,11 +1339,15 @@
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 5,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-14",
+          "displayDateLabel": "Week of Monday, 14 Sep",
+          "date": "2026-09-14"
         },
         {
           "id": "event:afl:cd_m20260142901",
-          "name": "Grand Final - Winner of PF1 v Winner of PF2",
+          "name": "AFL Grand Final",
           "roundLabel": "Grand Final",
           "stage": "Grand Final",
           "startTimeUtc": "2026-09-26T04:30:00.000Z",
@@ -1417,7 +1433,12 @@
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 5,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "publicStageLabel": "AFL Grand Final",
+          "displayName": "AFL Grand Final",
+          "displayTitleCompact": "AFL Grand Final",
+          "presentationTier": "championship",
+          "editorialRefreshOnParticipants": true
         }
       ],
       "competitionId": "competition:afl-premiership-2026"
@@ -1681,7 +1702,11 @@
             "arcStage": "preview"
           },
           "codeId": "sport:nrl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-07",
+          "displayDateLabel": "Week of Monday, 7 Sep",
+          "date": "2026-09-07"
         },
         {
           "id": "major-match:nrl-finals-2026:qualifying-final-2",
@@ -1735,7 +1760,11 @@
             "arcStage": "preview"
           },
           "codeId": "sport:nrl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-07",
+          "displayDateLabel": "Week of Monday, 7 Sep",
+          "date": "2026-09-07"
         },
         {
           "id": "major-match:nrl-finals-2026:elimination-final-1",
@@ -1789,7 +1818,11 @@
             "arcStage": "preview"
           },
           "codeId": "sport:nrl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-07",
+          "displayDateLabel": "Week of Monday, 7 Sep",
+          "date": "2026-09-07"
         },
         {
           "id": "major-match:nrl-finals-2026:elimination-final-2",
@@ -1843,7 +1876,11 @@
             "arcStage": "preview"
           },
           "codeId": "sport:nrl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-07",
+          "displayDateLabel": "Week of Monday, 7 Sep",
+          "date": "2026-09-07"
         },
         {
           "id": "major-match:nrl-finals-2026:semi-final-1",
@@ -1897,7 +1934,11 @@
             "arcStage": "preview"
           },
           "codeId": "sport:nrl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-14",
+          "displayDateLabel": "Week of Monday, 14 Sep",
+          "date": "2026-09-14"
         },
         {
           "id": "major-match:nrl-finals-2026:semi-final-2",
@@ -1951,7 +1992,11 @@
             "arcStage": "preview"
           },
           "codeId": "sport:nrl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-14",
+          "displayDateLabel": "Week of Monday, 14 Sep",
+          "date": "2026-09-14"
         },
         {
           "id": "major-match:nrl-finals-2026:preliminary-final-1",
@@ -2005,7 +2050,11 @@
             "arcStage": "preview"
           },
           "codeId": "sport:nrl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-21",
+          "displayDateLabel": "Week of Monday, 21 Sep",
+          "date": "2026-09-21"
         },
         {
           "id": "major-match:nrl-finals-2026:preliminary-final-2",
@@ -2059,11 +2108,15 @@
             "arcStage": "preview"
           },
           "codeId": "sport:nrl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-21",
+          "displayDateLabel": "Week of Monday, 21 Sep",
+          "date": "2026-09-21"
         },
         {
           "id": "major-match:nrl-finals-2026:grand-final",
-          "name": "NRL Grand Final - winner of PF1 v winner of PF2",
+          "name": "NRL Grand Final",
           "roundLabel": "Grand Final",
           "stage": "Grand Final",
           "startTimeUtc": null,
@@ -2113,7 +2166,16 @@
             "arcStage": "preview"
           },
           "codeId": "sport:nrl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "schedulePrecision": "week",
+          "weekAnchorDate": "2026-09-28",
+          "displayDateLabel": "Week of Monday, 28 Sep",
+          "date": "2026-09-28",
+          "publicStageLabel": "NRL Grand Final",
+          "displayName": "NRL Grand Final",
+          "displayTitleCompact": "NRL Grand Final",
+          "presentationTier": "championship",
+          "editorialRefreshOnParticipants": true
         }
       ],
       "competitionId": "competition:nrl:premiership:2026"

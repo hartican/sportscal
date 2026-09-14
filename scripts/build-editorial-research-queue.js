@@ -53,13 +53,17 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
     uniqueTargets.set(key, previous ? { ...previous, reason:`${previous.reason}+${target.reason}` } : target);
   });
   const entries = [...uniqueTargets.values()].map(({ targetType, record, reason }) => {
+    const inheritedNarrative = record.editorialNarrative;
+    const inheritedProjection = ["researched", "verified-parent-child-projection"].includes(inheritedNarrative?.generationMode) ? {
+          id:inheritedNarrative.projectionId,
+          refreshAfter:inheritedNarrative.refreshAfter,
+          consequence:inheritedNarrative.consequence,
+        } : null;
     const projection = targetType === "major-event-child"
-      ? (record.editorialNarrative?.generationMode === "researched" ? {
-          id:record.editorialNarrative.projectionId,
-          refreshAfter:record.editorialNarrative.refreshAfter,
-          consequence:record.editorialNarrative.consequence,
+      ? (inheritedProjection ? {
+          ...inheritedProjection,
         } : null)
-      : projectionForTarget(knowledge, targetType, record);
+      : projectionForTarget(knowledge, targetType, record) || inheritedProjection;
     const queuedUnverified = !projection
       && record?.editorialPreview?.status === "research-required"
       && record?.sourceTrust !== "verified";

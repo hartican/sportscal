@@ -31,6 +31,7 @@ assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T11:00:00.
 assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T13:59:59.999Z")).key, "just-finished");
 assert.equal(feedControls.timingState(timedEvent, new Date("2026-08-13T14:00:00.000Z")), null, "Just Finished expires exactly three hours after the end");
 assert.equal(feedControls.timingState({ startTimeUtc:timedEvent.startTimeUtc, liveWindow:2 }, new Date("2026-08-13T11:00:00.000Z")).key, "just-finished", "liveWindow supplies the derived end");
+assert.equal(feedControls.timingState({key:"tennis",status:"completed",startTimeUtc:timedEvent.startTimeUtc,liveWindow:3},new Date("2026-08-13T12:30:00.000Z")).key,"just-finished","completed tennis remains Just Finished for three hours after its expected end");
 ["cancelled", "canceled", "postponed"].forEach(status => assert.equal(feedControls.timingState({ ...timedEvent, status }, new Date("2026-08-13T09:30:00.000Z")), null));
 assert.equal(feedControls.timingState({startTimeUtc:"2026-09-05T02:30:00.000Z",timePrecision:"exact",key:"tennis",status:"live"},new Date("2026-09-06T09:09:00.000Z")),null,"stale explicit live status must expire after the sport cap");
 

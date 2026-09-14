@@ -18,4 +18,12 @@ for (const event of published){
   assert.ok(event.editorialPreview.evidenceReferences.length >= 3);
   assert.ok(!/generic|coming up|don't miss/i.test(`${event.selectedSentence} ${event.fullSpiel}`));
 }
+const profiles=JSON.parse(fs.readFileSync(path.join(ROOT,"data/athlete-profiles/aflw.v1.json"),"utf8")).profiles;
+const tarni=profiles.find(profile=>profile.participantId==="competitor:aflw:tarni-evans");
+assert(tarni,"Tarni Evans profile must be published");
+assert.match(tarni.biography,/left-footed forward/i);
+assert.match(tarni.biography,/leading goalkicker/i);
+assert.equal(tarni.keyFacts.find(fact=>fact.label==="Position")?.value,"Key forward");
+assert.match(tarni.keyFacts.find(fact=>fact.label==="Honours")?.value||"",/22Under22/);
+assert(tarni.sourceLinks.some(link=>link.url==="https://www.gwsgiants.com.au/players/aflw/4040/tarni-evans"));
 console.log("GWS AFLW editorial valid: 12 fixtures present and ten post-cutoff fixtures carry source-backed, fixture-specific copy.");

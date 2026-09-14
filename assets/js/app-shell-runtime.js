@@ -671,7 +671,14 @@
   }));
 
   const canonicalByKey = Object.fromEntries(domains.map(domain => [domain.key, domain]));
-  const byKey = Object.freeze({ ...canonicalByKey, rally: canonicalByKey.wrc });
+  const byKey = Object.freeze({
+    ...canonicalByKey,
+    rally: canonicalByKey.wrc,
+    snow: canonicalByKey.ski,
+    skiing: canonicalByKey.ski,
+    "winter-sport": canonicalByKey.ski,
+    "winter-sports": canonicalByKey.ski,
+  });
 
   function metaByKey(){
     const entries = Object.fromEntries(domains.map(domain => [domain.key, Object.freeze({
@@ -681,6 +688,10 @@
       domainId: domain.domainId,
     })]));
     entries.rally = entries.wrc;
+    entries.snow = entries.ski;
+    entries.skiing = entries.ski;
+    entries["winter-sport"] = entries.ski;
+    entries["winter-sports"] = entries.ski;
     return Object.freeze(entries);
   }
 
@@ -1835,6 +1846,9 @@
     ["competition:dp-world-tour", "DP World Tour", "competition", "discipline:golf:mens"],
     ["competition:golf-majors", "Golf majors", "competition", "discipline:golf:mens"],
     ["event-series:masters-tournament", "Masters Tournament", "event_series", "competition:golf-majors", ["The Masters"]],
+    ["event-series:pga-championship", "PGA Championship", "event_series", "competition:golf-majors"],
+    ["event-series:us-open-golf", "U.S. Open", "event_series", "competition:golf-majors"],
+    ["event-series:the-open", "The Open", "event_series", "competition:golf-majors"],
 
     ["sport:horse-racing", "Horse racing", "sport"],
     ["discipline:horse-racing:thoroughbred", "Thoroughbred racing", "discipline", "sport:horse-racing"],
@@ -1934,6 +1948,10 @@
     "competition:motogp-2026": "competition:motogp",
     "competition:sailgp-2026": "competition:sailgp",
     "competition:fiba-womens-world-cup-2026": "competition:fiba-womens-world-cup",
+    "competition:golf:masters-2027": "event-series:masters-tournament",
+    "competition:golf:pga-championship-2027": "event-series:pga-championship",
+    "competition:golf:us-open-2027": "event-series:us-open-golf",
+    "competition:golf:the-open-2027": "event-series:the-open",
     "competition:atp-singles-2026": "competition:atp-tour",
     "competition:tour-de-france-stage-jerseys-2026": "event-series:tour-de-france",
     "competition:nba-eastern-conference-2025-26": "competition:nba",
@@ -2064,7 +2082,7 @@
     }),
     Object.freeze({
       canonicalCodeId:"sport:afl",
-      selectorId:"sport:afl",
+      selectorId:"sport:afl-premiership",
       parentSportId:"sport:afl",
       reason:"phase-of-existing-code",
       legacyFollowIds:Object.freeze([
@@ -2969,7 +2987,7 @@
   const CODE_INTERACTION_HALF_LIFE_MS = 30 * 24 * 60 * 60 * 1000;
 
   const STARTUP_SPORTS = Object.freeze([
-    { id:"afl", selectorId:"sport:afl", label:"AFL" },
+    { id:"afl", selectorId:"sport:afl-premiership", label:"AFL" },
     { id:"nrl", selectorId:"sport:nrl", label:"NRL" },
     { id:"nrlw", selectorId:"sport:nrlw", label:"NRLW" },
     { id:"cricket", selectorId:"sport:cricket", label:"Cricket" },
@@ -3182,6 +3200,8 @@
       australiaInternationalsEnabled:true,
       australiansOnlySportIds:[],
       followedMajorEventIds:[],
+      excludedMajorEventIds:[],
+      eventFamilyDecisions:{ schemaVersion:"event-family-decisions.v1", states:{} },
       collectionFollows:[],
       codeInteractions:[],
       location:normalizeLocation({}),
@@ -3250,12 +3270,24 @@
       ...(Array.isArray(rawStartupMeta?.majorEvents) ? rawStartupMeta.majorEvents : []),
       ...legacySelectorCodeFollows,
     ]) || { codeSelectorIds:[], retainedEventFamilyIds:[] };
-    const excludedMajorEventIds = eventFamilyChoices(prior.excludedMajorEventIds);
+    const rawDecisionStates = prior.eventFamilyDecisions?.states && typeof prior.eventFamilyDecisions.states === "object"
+      ? prior.eventFamilyDecisions.states
+      : {};
+    const eventFamilyStates = {};
+    eventFamilyChoices(prior.followedMajorEventIds).filter(id => !competitionClassification?.codeDefinition?.(id)).forEach(id => { eventFamilyStates[id] = "followed"; });
+    eventFamilyChoices(prior.excludedMajorEventIds).filter(id => !competitionClassification?.codeDefinition?.(id)).forEach(id => { eventFamilyStates[id] = "excluded"; });
+    Object.entries(rawDecisionStates).forEach(([id, state]) => {
+      if ((state === "followed" || state === "excluded") && !competitionClassification?.codeDefinition?.(id)) eventFamilyStates[String(id)] = state;
+    });
+    const excludedMajorEventIds = eventFamilyChoices(Object.keys(eventFamilyStates).filter(id => eventFamilyStates[id] === "excluded"));
     const followedMajorEventIds = eventFamilyChoices([
       ...legacyCodeFollows.retainedEventFamilyIds,
       ...startupMeta.majorEvents,
       ...(followedCommonwealthGames ? ["commonwealth-games"] : []),
     ]).filter(id=>!excludedMajorEventIds.includes(id));
+    Object.keys(eventFamilyStates).filter(id => eventFamilyStates[id] === "followed").forEach(id => {
+      if (!followedMajorEventIds.includes(id)) followedMajorEventIds.push(id);
+    });
     const selectedSelectorEntityIds = Array.from(new Set([
       ...(Array.isArray(source.selectedSelectorEntityIds) ? source.selectedSelectorEntityIds : []),
       ...legacyCodeFollows.codeSelectorIds,
@@ -3266,7 +3298,7 @@
     ].map(String).filter(id => !retiredSportIds.has(id))));
     return {
       ...source,
-      version:Math.max(18, Number(source.version) || 0),
+      version:Math.max(22, Number(source.version) || 0),
       followedSports,
       selectedSelectorEntityIds,
       followFirst:{
@@ -3279,6 +3311,13 @@
         australiansOnlySportIds:Array.from(new Set((Array.isArray(prior.australiansOnlySportIds) ? prior.australiansOnlySportIds : []).filter(id => typeof id === "string" && id.startsWith("sport:")))),
         followedMajorEventIds,
         excludedMajorEventIds,
+        eventFamilyDecisions:{
+          schemaVersion:"event-family-decisions.v1",
+          states:Object.fromEntries([
+            ...followedMajorEventIds.map(id => [id, "followed"]),
+            ...excludedMajorEventIds.map(id => [id, "excluded"]),
+          ]),
+        },
         collectionFollows:normalizeCollectionFollows(prior.collectionFollows),
         codeInteractions:normalizeCodeInteractions(prior.codeInteractions),
         location:normalizeLocation(prior.location || startupMeta.location),
@@ -4119,7 +4158,13 @@
         return false;
       }
     });
-    if (!scope || event.participantsConfirmed === true) return contextualEvent;
+    if (!scope) return contextualEvent;
+    if (event.participantsConfirmed === true){
+      return {
+        ...contextualEvent,
+        sportDomainId:event.sportDomainId || scope.preferenceDomainId || event.key,
+      };
+    }
     const participantIds = Array.from(new Set([
       ...(Array.isArray(event.participantIds) ? event.participantIds : []),
       ...matchedParticipantIdsForScope(scope, context, title),
@@ -5750,6 +5795,41 @@
     return next;
   }
 
+  function eventFamilyPath(change, leaf){
+    return change.path.length === 3
+      && change.path[0] === "preferences"
+      && change.path[1] === "followFirst"
+      && change.path[2] === leaf;
+  }
+
+  // Old clients only replaced followedMajorEventIds. Translate that delta into
+  // the durable decision model before preference migration can reapply a seed.
+  function reconcileEventFamilyDecisions(baseState, input, mergedState){
+    const patch = normalizePatch(input);
+    const touchedFollowed = patch.changes.some(change => eventFamilyPath(change, "followedMajorEventIds"));
+    const touchedExcluded = patch.changes.some(change => eventFamilyPath(change, "excludedMajorEventIds"));
+    const touchedDecisions = patch.changes.some(change => eventFamilyPath(change, "eventFamilyDecisions"));
+    if (!touchedFollowed || touchedExcluded || touchedDecisions) return mergedState;
+
+    const previous = new Set(baseState?.preferences?.followFirst?.followedMajorEventIds || []);
+    const current = new Set(mergedState?.preferences?.followFirst?.followedMajorEventIds || []);
+    const priorDecisions = baseState?.preferences?.followFirst?.eventFamilyDecisions;
+    const states = {
+      ...(priorDecisions?.states && plainObject(priorDecisions.states) ? priorDecisions.states : {}),
+    };
+    previous.forEach(id => { if (!current.has(id)) states[String(id)] = "excluded"; });
+    current.forEach(id => { if (!previous.has(id)) states[String(id)] = "followed"; });
+    const next = clone(mergedState);
+    if (!plainObject(next.preferences)) next.preferences = {};
+    if (!plainObject(next.preferences.followFirst)) next.preferences.followFirst = {};
+    next.preferences.followFirst.eventFamilyDecisions = {
+      schemaVersion:"event-family-decisions.v1",
+      states,
+    };
+    next.preferences.followFirst.excludedMajorEventIds = Object.keys(states).filter(id => states[id] === "excluded");
+    return next;
+  }
+
   function hasChanges(patch){
     return normalizePatch(patch).changes.length > 0;
   }
@@ -5761,6 +5841,7 @@
     createPatch,
     hasChanges,
     normalizePatch,
+    reconcileEventFamilyDecisions,
   });
 });
 
@@ -6753,7 +6834,7 @@
     if(Number.isFinite(explicit)&&explicit>0)return explicit;
     const identity=`${event?.competitionId || ""} ${event?.key || ""} ${event?.sportId || ""} ${event?.name || ""}`.toLowerCase();
     if(/le mans|endurance|fia wec/.test(identity))return 24;
-    if(/tennis|us open|wimbledon|roland garros|australian open/.test(identity))return 5;
+    if(/tennis|us open|wimbledon|roland garros|australian open/.test(identity))return 3;
     if(/formula 1|\bf1\b|motorsport/.test(identity))return 4;
     return 3;
   }
@@ -6795,13 +6876,13 @@
 
   function timingState(event, now = new Date()){
     const status=String(event?.status || event?.scheduleStatus || "").toLowerCase();
-    if(["completed","finished","final","cancelled","canceled","postponed"].includes(status))return null;
+    if(["cancelled","canceled","postponed"].includes(status))return null;
     const start = eventStart(event);
     if (!start) return null;
     const reference = now instanceof Date ? now : new Date(now);
     if (Number.isNaN(reference.getTime())) return null;
     const startMs = start.getTime();
-    const explicitEnd = Date.parse(event?.endTimeUtc || "");
+    const explicitEnd = Date.parse(event?.endTimeUtc || event?.resultPublishedAt || "");
     const derivedEnd = startMs + inferredDurationHours(event) * 3600000;
     const endMs = Number.isFinite(explicitEnd) && explicitEnd >= startMs ? explicitEnd : derivedEnd;
     const nowMs = reference.getTime();
@@ -6811,7 +6892,7 @@
     if (nowMs >= startMs - STARTS_SOON_MS && nowMs < startMs){
       return Object.freeze({ key:"starts-soon", label:"Starts Soon", ariaLabel:"Starts soon" });
     }
-    if (nowMs >= startMs && nowMs < endMs){
+    if (!["completed","finished","final"].includes(status) && nowMs >= startMs && nowMs < endMs){
       return Object.freeze({ key:"live-now", label:"Live Now", ariaLabel:"Live now" });
     }
     if (nowMs >= endMs && nowMs < endMs + JUST_FINISHED_MS){

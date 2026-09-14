@@ -43,8 +43,8 @@ assert.equal(policy.eligibleForFollow(practice,{competitionFollow:true}),false,"
 assert.equal(followFirst.reasonForEvent(practice,preferences),null,"browser practice policy must match the server");
 assert.equal(policy.followedFixtureDecision({...monza,published:false},{followed:true}).include,false,"unpublished records are not fixtures");
 assert.equal(buildServerFeed({events:[{...monza,status:"unpublished"}],userId:"visibility-test",userState:{preferences},now}).events.length,0,"normalisation must not turn unpublished records into public fixtures");
-const incompleteFinal = {...damaged,id:"rugby-final",key:"rugby",sportId:"rugby",name:"Rugby Final",stage:"final"};
-assert(followFirst.reasonForEvent(incompleteFinal,{followedSports:["rugby"]}),"missing time and imagery cannot hide an eligible final");
+const incompleteFinal = {...damaged,id:"rugby-final",key:"rugby",sportId:"rugby",competitionId:"competition:rugby:test",name:"Rugby Final",stage:"final"};
+assert(followFirst.reasonForEvent(incompleteFinal,{preferenceGraph:{competitionPreferences:[{competitionId:"competition:rugby:test",enabled:true}]}}),"missing time and imagery cannot hide an eligible final from an explicitly followed competition");
 const malformedFeed = buildServerFeed({events:[null,damaged,{...monza,id:"malformed-broadcasts",eventId:"malformed-broadcasts",broadcastOptions:{bad:true},participantIds:{bad:true}}],userId:"visibility-test",userState:{preferences},now});
 assert.equal(malformedFeed.events.length,2,"malformed optional collections must not abort the server Feed");
 assert.equal(malformedFeed.events.find(event => event.id === damaged.id).status,"postponed","status remains explicit in the Feed");

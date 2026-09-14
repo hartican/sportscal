@@ -261,6 +261,31 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
   let generated = 0;
   targets.forEach(event => {
     const existing = projectionForTarget(knowledge, "feed-event", event);
+    const inherited = event?.editorialNarrative;
+    if (!existing && inherited?.generationMode === "verified-parent-child-projection"){
+      const inheritedFactSources = (inherited.factIds || []).flatMap(factId => (
+        knowledge.narrativeFacts.find(fact => fact.id === factId)?.sourceIds || []
+      ));
+      const competitionLabel = String(event.key || event.sport || "Finals").toUpperCase();
+      const stageLabel = String(event.publicStageLabel || event.roundLabel || event.stage || "Finals").replace(/\s+Finals$/i, " Final");
+      upsert(knowledge.eventProjections, {
+        id:inherited.projectionId,
+        targetType:"feed-event",
+        targetIds:[idFor(event)],
+        researchDepth:researchDepthFor(event),
+        hook:fit(`${competitionLabel} ${stageLabel}: ${inherited.hook}`, 180),
+        synopsis:inherited.synopsis,
+        threadIds:[...(inherited.threadIds || [])],
+        factIds:[...(inherited.factIds || [])],
+        sourceIds:Array.from(new Set([...(inherited.sourceIds || []), ...inheritedFactSources])),
+        researchedAt:inherited.researchedAt,
+        refreshAfter:inherited.refreshAfter || null,
+        generationMode:"researched",
+        originalityReview:{ method:"independent-summary-no-source-prose-retained", reviewedAt:inherited.researchedAt },
+      });
+      generated += 1;
+      return;
+    }
     if (existing && !existing.id.startsWith("projection:rolling:")) return;
     if (existing && existing.id.startsWith("projection:rolling:")){
       const requirement = { 2:[1, 1, 1], 3:[2, 1, 1], 4:[3, 2, 2], 5:[4, 3, 3] }[researchDepthFor(event)];
@@ -284,6 +309,10 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
         && (existing.factIds || []).length >= requirement[0]
         && (existing.sourceIds || []).length >= requirement[1]
         && dimensions.size >= requirement[2]){
+        existing.sourceIds = Array.from(new Set([
+          ...(existing.sourceIds || []),
+          ...(existing.factIds || []).flatMap(id => factIndex.get(id)?.sourceIds || []),
+        ]));
         delete existing.consequence;
         return;
       }
@@ -439,7 +468,10 @@ function build({ knowledge, feed, context, f1, wrc, requestedSports, reference }
       } : {}),
       threadIds,
       factIds,
-      sourceIds,
+      sourceIds:Array.from(new Set([
+        ...sourceIds,
+        ...factIds.flatMap(id => knowledge.narrativeFacts.find(fact => fact.id === id)?.sourceIds || []),
+      ])),
       researchedAt:reference.toISOString(),
       refreshAfter:null,
       generationMode:"researched",

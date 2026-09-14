@@ -1,6 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict');
 const follow=require('../config/follow-first'),policy=require('../config/follow-feed-policy');
+const sync=require('../config/user-state-sync');
 const {buildServerFeed}=require('../lib/server-feed-pipeline');
 const event=require('../lib/competition-fixtures').fixtures().find(e=>e.key==='tennis'&&e.parentEventId==='major-event:us-open-2026'&&e.date>='2026-09-08');assert(event);
 const preferences={followFirst:{followedMajorEventIds:['us-open'],startupMeta:{majorEvents:['us-open']}},preferenceGraph:{entityFollows:[{participantId:event.participantIds[0],followLevel:'follow'}]}};
@@ -31,3 +32,15 @@ for(const parent of require('../data/major-events.v1.json').events){
  for(const child of children)assert(policy.explicitlyExcluded(child,normalized),'linked child excluded for '+family);
 }
 console.log('All published Events families, including non-onboarding events and ticket parent links, share the process.');
+
+const baseState={preferences:{followFirst:{followedMajorEventIds:['us-open'],excludedMajorEventIds:[],startupMeta:{majorEvents:['us-open']}}}};
+const oldClientPatch={schemaVersion:sync.PATCH_SCHEMA_VERSION,baseUpdatedAt:null,changes:[{path:['preferences','followFirst','followedMajorEventIds'],value:[]}]};
+const reconciled=sync.reconcileEventFamilyDecisions(baseState,oldClientPatch,sync.applyPatch(baseState,oldClientPatch));
+const migratedOldClient=follow.migratePreferences(reconciled.preferences);
+assert.equal(migratedOldClient.followFirst.eventFamilyDecisions.states['us-open'],'excluded','old-client removal becomes an explicit decision');
+assert(migratedOldClient.followFirst.excludedMajorEventIds.includes('us-open'),'old-client removal projects compatibility exclusion');
+assert(!migratedOldClient.followFirst.followedMajorEventIds.includes('us-open'),'startup seed cannot restore old-client unfollow');
+const refollowPatch={schemaVersion:sync.PATCH_SCHEMA_VERSION,baseUpdatedAt:null,changes:[{path:['preferences','followFirst','followedMajorEventIds'],value:['us-open']}]};
+const refollowed=sync.reconcileEventFamilyDecisions(reconciled,refollowPatch,sync.applyPatch(reconciled,refollowPatch));
+assert.equal(refollowed.preferences.followFirst.eventFamilyDecisions.states['us-open'],'followed','old-client refollow clears exclusion state');
+console.log('Legacy event-family remove/refollow deltas are converted into durable decisions.');

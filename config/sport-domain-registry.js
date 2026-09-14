@@ -125,7 +125,14 @@
   }));
 
   const canonicalByKey = Object.fromEntries(domains.map(domain => [domain.key, domain]));
-  const byKey = Object.freeze({ ...canonicalByKey, rally: canonicalByKey.wrc });
+  const byKey = Object.freeze({
+    ...canonicalByKey,
+    rally: canonicalByKey.wrc,
+    snow: canonicalByKey.ski,
+    skiing: canonicalByKey.ski,
+    "winter-sport": canonicalByKey.ski,
+    "winter-sports": canonicalByKey.ski,
+  });
 
   function metaByKey(){
     const entries = Object.fromEntries(domains.map(domain => [domain.key, Object.freeze({
@@ -135,6 +142,10 @@
       domainId: domain.domainId,
     })]));
     entries.rally = entries.wrc;
+    entries.snow = entries.ski;
+    entries.skiing = entries.ski;
+    entries["winter-sport"] = entries.ski;
+    entries["winter-sports"] = entries.ski;
     return Object.freeze(entries);
   }
 

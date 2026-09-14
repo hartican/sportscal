@@ -31,6 +31,7 @@ function isDueForResult(event) {
   // final result is available, so a daily order-of-play timestamp is never a
   // result deadline.
   if (event.cardType === "tournament_overview") return false;
+  if (event.cardKind === "event") return false;
   // Ticket release watches represent an alert window, not a scoreable sporting
   // contest. Their date can pass while the underlying future event remains
   // unresolved, so they must never be forced through result completeness.

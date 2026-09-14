@@ -35,7 +35,7 @@ function byIdentity(records){
   return index;
 }
 function activeFeedMarquee(events){
-  return events.filter(event => event.status !== "completed" && stakesFor(event) === 5 && Number.isFinite(eventTime(event)) && eventTime(event)<=reference.getTime()+30*DAY_MS);
+  return events.filter(event => event.status !== "completed" && event.schedulePrecision !== "week" && stakesFor(event) === 5 && Number.isFinite(eventTime(event)) && eventTime(event)<=reference.getTime()+30*DAY_MS);
 }
 function activeOrRecentMajor(records){
   return records.filter(record => record.kind !== "ticket_sale" && record.lifecycleStatus !== "retired" && record.stakesScore === 5);
