@@ -21,6 +21,8 @@ assert.equal(RESULT_LEAK.test("Leeds lost only three of their final 14 matches l
 assert.equal(RESULT_LEAK.test("Leeds retained a physical 3-4-2-1 structure."), false, "a tactical formation must not be mistaken for a scoreline");
 assert.equal(RESULT_LEAK.test("Leeds lost to Brentford."), true, "a direct completed-result statement must remain blocked from spoiler-off copy");
 assert.equal(RESULT_LEAK.test("Leeds 3-4 Brentford."), true, "a completed scoreline must remain blocked from spoiler-off copy");
+assert.equal(RESULT_LEAK.test("The winner gets a week off and the loser plays next week."), false, "generic finals progression must remain valid spoiler-off context after the fixture completes");
+assert.equal(RESULT_LEAK.test("The winner of the qualifying final was Penrith."), true, "a statement that identifies the actual winner must remain blocked from spoiler-off copy");
 
 inputs.forEach(input => {
   const feed = readJson(path.resolve(input));
