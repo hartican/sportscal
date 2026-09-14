@@ -1,7 +1,7 @@
-const CACHE_NAME = "nothingsport-shell-v251";
-const SHELL_VERSION = "251";
+const CACHE_NAME = "nothingsport-shell-v252";
+const SHELL_VERSION = "252";
 const APP_SHELL = [
-  "/assets/js/app-update.js?v=251",
+  "/assets/js/app-update.js?v=252",
   // Navigations already share /index.html below; do not download/cache its
   // million-byte HTML a second time under the root alias during installation.
   "/index.html",
@@ -11,18 +11,18 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=251",
+  "/assets/styles/nothingsport-foundation.css?v=252",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=251",
-  "/assets/js/nsc-rankings-ui.js?v=251",
-  "/assets/styles/nsc-ladder.css?v=251",
+  "/assets/js/app-shell-runtime.js?v=252",
+  "/assets/js/nsc-rankings-ui.js?v=252",
+  "/assets/styles/nsc-ladder.css?v=252",
   "/config/calendar-selection.js",
   "/config/sport-hierarchy.js",
   "/config/event-taxonomy-compat.js",
   "/config/preference-taxonomy.js",
   "/config/follow-summary.js",
   "/assets/identities/events/le-mans-24-hours.png",
-  "/styles/follow-feed-rework.css?v=251",
+  "/styles/follow-feed-rework.css?v=252",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/tennis-coverage.js",
@@ -31,7 +31,7 @@ const APP_SHELL = [
   "/config/preference-reset-ui.js?v=218",
   "/config/marquee-campaigns.js",
   "/config/server-sync.js",
-  "/config/major-events.js?v=251",
+  "/config/major-events.js?v=252",
   "/config/football-directory.js",
   "/config/joint-tennis-tournament.js",
   "/data/feed/manifest.json",
