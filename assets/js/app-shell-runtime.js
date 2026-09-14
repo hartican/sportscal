@@ -11069,6 +11069,23 @@
     "cricket-australia": officialMark("organisation:cricket-australia", "Cricket Australia", "https://resources.cricket-australia.pulselive.com/cricket-australia/document/2022/10/25/bdb5b713-9bb9-40c9-aefd-84b51f0b1b20/CricketAustraliaLogoWhiteWide.svg", "https://www.cricket.com.au/", {
       logo: { backgroundLight: "dark", backgroundDark: "dark" },
     }),
+    sailgp: officialMark("competition:sailgp", "SailGP", "https://images.ctfassets.net/2lppn7hwgzta/49nSoTH4iRkcIxgzvD2KBi/6895c52f4ee8551a88bb10214fa84ea1/Rolex_SailGP_Landscape_Logo_Primary_RGB.png", "https://sailgp.com/", {
+      logo: {
+        dark: "https://images.ctfassets.net/2lppn7hwgzta/dUmTzy6WOpc4VIZmCnIVW/5e62c50f3fdeb58a67c6d31dd80bb900/Rolex_SailGP_Landscape_Logo_Reversed_RGB.png",
+        iconDark: "https://images.ctfassets.net/2lppn7hwgzta/dUmTzy6WOpc4VIZmCnIVW/5e62c50f3fdeb58a67c6d31dd80bb900/Rolex_SailGP_Landscape_Logo_Reversed_RGB.png",
+        backgroundLight: "light",
+        backgroundDark: "dark",
+      },
+    }),
+    motogp: officialMark("competition:motogp", "MotoGP", "https://static.dorna.com/assets/logos/mgp/brand/mgp-logo-on-light.svg?v2", "https://www.motogp.com/", {
+      logo: {
+        dark: "https://static.dorna.com/assets/logos/mgp/brand/mgp-logo-on-dark.svg?v2",
+        iconDark: "https://static.dorna.com/assets/logos/mgp/brand/mgp-logo-on-dark.svg?v2",
+        backgroundLight: "light",
+        backgroundDark: "dark",
+      },
+    }),
+    nfl: referenceMark("competition:nfl", "NFL", "https://upload.wikimedia.org/wikipedia/en/a/a2/National_Football_League_logo.svg", "https://designplaybook.nfl.com/"),
     rugby: referenceMark("competition:rugby-australia", "Rugby Australia", "https://upload.wikimedia.org/wikipedia/commons/8/8b/Rugby_Australia_2017_vector_logo.svg", "https://commons.wikimedia.org/wiki/File:Rugby_Australia_2017_vector_logo.svg"),
     "premier-league": referenceMark("competition:premier-league", "Premier League", "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg", "https://www.premierleague.com/"),
     bundesliga: officialMark("competition:bundesliga", "Bundesliga", "https://www.bundesliga.com/assets/logo/bundesliga_pos.svg", "https://www.bundesliga.com/en/bundesliga"),
@@ -11143,6 +11160,10 @@
     "team:cricket:england": nationalTeamMark("team:cricket:england", "England and Wales Cricket Board", "https://resources.ecb.co.uk/ecb/document/2023/06/07/0d9368e6-932a-4bf2-90a3-509a0c4b1cc2/ECB.co.uk.png", "https://www.ecb.co.uk/", ["England"], "GB"),
     "team:cricket:new-zealand": nationalTeamMark("team:cricket:new-zealand", "New Zealand Cricket", "https://www.nzc.nz/dist/img/nzc-logo-vert-2.svg", "https://www.nzc.nz/", ["New Zealand"], "NZ"),
     "team:cricket:south-africa": nationalTeamMark("team:cricket:south-africa", "South Africa cricket", "assets/identities/national/cricket/south-africa.jpg", "https://www.cricket.co.za/", ["South Africa", "Proteas"]),
+    "team:cricket:zimbabwe": nationalTeamMark("team:cricket:zimbabwe", "Zimbabwe Cricket", "https://upload.wikimedia.org/wikipedia/en/4/48/Zimbabwe_Cricket_%28logo%29.svg", "https://www.zimcricket.org/", ["Zimbabwe", "Zimbabwe Men", "Zimbabwe Women"], "ZW"),
+    "team:cricket:queensland": teamMark("team:cricket:queensland", "Queensland Bulls", "https://static-files.cricket-australia.pulselive.com/flag/120/1205@2x.png", "https://www.cricket.com.au/teams/CA%3A1205/queensland-bulls", ["Queensland", "Queensland Bulls", "QLD"]),
+    "team:cricket:new-south-wales": teamMark("team:cricket:new-south-wales", "NSW Men", "https://static-files.cricket-australia.pulselive.com/flag/120/674@2x.png", "https://www.cricket.com.au/teams/CA%3A674/nsw-men", ["New South Wales", "NSW", "NSW Men", "NSW Blues"]),
+    "team:cricket:victoria": teamMark("team:cricket:victoria", "Victoria Men", "https://static-files.cricket-australia.pulselive.com/flag/120/82@2x.png", "https://www.cricket.com.au/teams/CA%3A82/victoria-men", ["Victoria", "Victoria Men", "Victorian", "VIC"]),
   });
   const cricketParticipants = Object.freeze(Object.entries(cricketTeamMarks).map(([id, mark]) => Object.freeze({
     id,
@@ -11404,6 +11425,9 @@
   ]);
   const competitionMarks = Object.freeze({
     "competition:formula-one":eventMarks.f1,
+    "competition:motogp":eventMarks.motogp,
+    "competition:sailgp":eventMarks.sailgp,
+    "competition:nfl":eventMarks.nfl,
     "competition:wrc":sportMarks.wrc,
     "competition:premier-league": eventMarks["premier-league"],
     "competition:bundesliga": eventMarks.bundesliga,
@@ -11440,6 +11464,9 @@
     if (competitionMarks[id]) return competitionMarks[id];
     if (/^competition:wrc(?:[-:]|$)/.test(id)) return sportMarks.wrc;
     if (/^competition:formula-one(?:[-:]|$)/.test(id)) return eventMarks.f1;
+    if (/^competition:motogp(?:[-:]|$)/.test(id)) return eventMarks.motogp;
+    if (/^competition:sailgp(?:[-:]|$)/.test(id)) return eventMarks.sailgp;
+    if (/^competition:nfl(?:[-:]|$)/.test(id)) return eventMarks.nfl;
     const versionlessId = id.replace(/:(?:19|20)\d{2}(?:-\d{2})?(?::.*)?$/, "");
     if (competitionMarks[versionlessId]) return competitionMarks[versionlessId];
     if (/^competition:uefa-champions-league(?::|$)/.test(id)) return eventMarks["uefa-champions-league"];

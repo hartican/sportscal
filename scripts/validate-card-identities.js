@@ -119,6 +119,16 @@ activeF1Teams.forEach(team => {
 });
 assert.match(identities.markForEvent({ key: "cricket", name: "ICC Men's T20 World Cup — Australia v Bangladesh" })?.url || "", /^https:\/\/images\.icc-cricket\.com\/image\/private\/t_q-best\/.*\/icc-white-logo\.svg$/, "ICC cards must use ICC's official high-quality SVG mark");
 assert.match(identities.markForEvent({ key: "cricket", name: "Australia v Bangladesh — First Test", sourceUrl: "https://www.cricket.com.au/" })?.url || "", /^https:\/\/resources\.cricket-australia\.pulselive\.com\/.*\/CricketAustraliaLogoWhiteWide\.svg$/, "Australian bilateral cards must use Cricket Australia's official SVG mark");
+for (const [key, competitionId, label, host] of [
+  ["sailgp", "competition:sailgp", "SailGP", "images.ctfassets.net"],
+  ["motogp", "competition:motogp", "MotoGP", "static.dorna.com"],
+  ["nfl", "competition:nfl", "NFL", "upload.wikimedia.org"],
+]){
+  const mark = identities.markForEvent({ key, competitionId, name: `${label} coverage` });
+  assert.equal(mark?.label, label, `${label} cards must use their competition logo`);
+  assert.match(mark?.url || "", new RegExp(`^https://${host.replaceAll(".", "\\.")}/`), `${label} must expose an image mark instead of a generic sport glyph`);
+  assert.equal(mark?.provenance === "official-site" || mark?.provenance === "reference-library", true, `${label} must retain vetted logo provenance`);
+}
 const premierLeagueMarks = Object.values(identities.participantMarks).filter(mark => mark.id.startsWith("team:football:epl:"));
 assert.equal(premierLeagueMarks.length, 20, "the Premier League registry must cover all current clubs");
 premierLeagueMarks.forEach(mark => {
@@ -197,6 +207,21 @@ assert.equal(cricketResolved[1].mark.label, "Bangladesh cricket");
 assert.equal(cricketResolved[0].mark.url, "assets/identities/national/cricket/australia.jpg", "Australia must use its locally stored official cricket identity");
 assert.equal(cricketResolved[1].mark.url, "assets/identities/national/cricket/bangladesh.jpg", "Bangladesh must use its locally stored official cricket identity");
 assert.notEqual(cricketResolved[0].mark.url, cricketResolved[1].mark.url, "Australia and Bangladesh must retain clearly distinct team identities");
+
+for (const [title, labels] of [
+  ["Queensland v New South Wales", ["Queensland Bulls", "NSW Men"]],
+  ["QLD v VIC", ["Queensland Bulls", "Victoria Men"]],
+  ["NSW Blues v Victoria Men", ["NSW Men", "Victoria Men"]],
+]){
+  const resolved = identities.participantMarksForEvent({ key:"cricket" }, [], title)
+    .map(item => ({ label:item.mark.label, start:identities.aliasRange(title, item.participant)?.start ?? Infinity }))
+    .sort((left, right) => left.start - right.start)
+    .map(item => item.label);
+  assert.deepEqual(resolved, labels, `cricket identities must resolve ${title}`);
+}
+const zimbabweResolved = identities.participantMarksForEvent({ key:"cricket" }, [], "Zimbabwe v Australia — First ODI");
+assert(zimbabweResolved.some(item => item.mark.label === "Zimbabwe Cricket"), "Zimbabwe cricket cards must resolve the Zimbabwe Cricket crest");
+assert.match(zimbabweResolved.find(item => item.mark.label === "Zimbabwe Cricket")?.mark.url || "", /^https:\/\/upload\.wikimedia\.org\/wikipedia\/en\/4\/48\/Zimbabwe_Cricket_/, "Zimbabwe must expose its cricket crest rather than a flag or monogram");
 
 const rugbyCases = [
   ["Australia v Ireland", ["Wallabies", "Ireland"]],
