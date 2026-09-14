@@ -6,7 +6,10 @@ const {discoveryJobs}=require('../lib/discovery-sources');
 const {mergeEvidenceOverlays}=require('../lib/autonomous-discovery');
 const OUTPUT=path.join(__dirname,'../data/discovery/enrichment.v1.json');
 async function refreshDiscovery({now=new Date(),sources=discoveryJobs()}={}){
- const prior=JSON.parse(fs.readFileSync(OUTPUT,'utf8')),records=[];
+ const prior=JSON.parse(fs.readFileSync(OUTPUT,'utf8'));
+ // Disabling AI stops requests, but keeps already accepted editorial evidence.
+ const active=new Set(sources.map(source=>source.id));
+ const records=prior.sources.filter(source=>source.id==='discovery-ai-consensus'&&!active.has(source.id)).map(source=>({...source,coverage:{status:'disabled'},nextDueAt:null}));
  for(const source of sources){
   const old=prior.sources.find(item=>item.id===source.id)||{fixtures:[]};
   if(Date.parse(old.nextDueAt)>+now){records.push(old);continue;}

@@ -24,7 +24,7 @@ async function main(){
   res=response();await scopedHandler({url:'/api/fixtures?ids='+Array.from({length:61},(_,i)=>'id'+i).join(','),headers:{}},res);assert.equal(res.statusCode,400,'server enforces 60-fixture bound');
   const athleteHandler=createLiveFixtureHandler({read:async()=>({revision:'athlete-revision',stale:false,sources:[{source_id:'discovery-ai-athletes',fixtures:[{id:'race',enrichmentOnly:true,fixtureFallback:{id:'race',name:'NLS Round 8',date:'2026-09-12',key:'motorsport'},participationEvidence:[{participantId:'competitor:f1:george-russell',displayName:'George Russell',participationStatus:'confirmed',participationKind:'race',sourceUrl:'https://www.nuerburgring-langstrecken-serie.de/',checkedAt:'2026-09-08'}]}]}]})});
   res=response();await athleteHandler({url:'/api/fixtures?athlete=competitor%3Af1%3Ageorge-russell',headers:{}},res);
-  assert.equal(res.body.schemaVersion,'athlete-participation-live.v1');assert.equal(res.body.history[0].description,'Confirmed entry — NLS Round 8');
+  assert.equal(res.body.schemaVersion,'athlete-participation-live.v1');assert.deepEqual(res.body.history,[],'retired AI athlete entries must not surface in profiles');
   assert(!res.body.sources,'profile lookup does not download every fixture');
   console.log("Live fixture API: public read, revision validator, protected POST and safe failure passed.");
 }

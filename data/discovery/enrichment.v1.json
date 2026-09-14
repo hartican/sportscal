@@ -4,23 +4,11 @@
   "sources": [
     {
       "fixtures": [],
-      "id": "discovery-ai-athletes",
-      "coverage": {
-        "status": "failed",
-        "lastAttemptAt": "2026-09-08T10:56:38.458Z",
-        "failureCode": "ai_not_configured"
-      },
-      "nextDueAt": "2026-09-08T16:56:38.458Z"
-    },
-    {
-      "fixtures": [],
       "id": "discovery-ai-consensus",
       "coverage": {
-        "status": "failed",
-        "lastAttemptAt": "2026-09-08T10:56:38.458Z",
-        "failureCode": "ai_not_configured"
+        "status": "disabled"
       },
-      "nextDueAt": "2026-09-08T16:56:38.458Z"
+      "nextDueAt": null
     }
   ],
   "events": []

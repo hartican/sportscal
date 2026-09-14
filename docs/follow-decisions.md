@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## AI discovery change — 14 September 2026
+
+Automatic cross-sport athlete entry discovery is removed. It no longer scans account preferences, searches entries, or contributes historical AI athlete snapshots to the Feed. Ordinary source-backed participant follows continue to work. Consensus-tag ingestion is optional and disabled by default; only `DISCOVERY_CONSENSUS_ENABLED=true` enables its six-hour batches. Existing accepted consensus evidence and user ratings remain available when it is disabled. Fixture ingestion, Follow admission, scores, Calendar and NSC do not depend on this opt-in. Regression: `node scripts/validate-autonomous-discovery.js`.
+
 Authoritative user decisions, 8 September 2026. Read this before changing Follow, Feed eligibility, discovery, card retention, or related notifications. The approved Restore Feed reliability plan governs this implementation. Update this record and its regression tests when the user changes a decision; do not silently restore superseded behaviour.
 
 | Decision | Behaviour | Examples |

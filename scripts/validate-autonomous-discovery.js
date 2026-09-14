@@ -2,24 +2,33 @@
 'use strict';
 const assert=require('node:assert/strict');
 const {discover}=require('../lib/autonomous-discovery');
-const url='https://www.nuerburgring-langstrecken-serie.de/language/en/entry-list';
-const athlete={id:'competitor:f1:george-russell',displayName:'George Russell',sportKey:'f1',countryCode:'GB'};
-const fixture={id:'fixture:nls:2026:8',name:'NLS Round 8',key:'motorsport',date:'2026-09-12',competitionId:'competition:nls-2026',competitionName:'NLS'};
-const candidate={participantId:athlete.id,eventId:fixture.id,newFixture:null,matchedName:athlete.displayName,participationStatus:'confirmed',participationKind:'race',evidence:[{url,publishedAt:'2026-09-08',eventDate:fixture.date,eventName:fixture.name,publisherGroup:'nls'}]};
+const {discoveryJobs}=require('../lib/discovery-sources');
+const {overlaySnapshots}=require('../lib/live-fixtures');
+const fixture={id:'fixture:test:final',name:'Test Final',key:'football',date:'2026-09-15'};
 async function main(){
- const calls=[];
- const fetchImpl=async(input,options)=>{
-  calls.push({input,options});
-  if(input==='https://api.openai.com/v1/responses')return {ok:true,json:async()=>({status:'completed',output:[{type:'web_search_call',action:{sources:[{url}]}},{type:'message',content:[{type:'output_text',text:JSON.stringify({participations:[candidate],consensus:[]})}]}]})};
-  assert.equal(input,url);return new Response('<article>NLS Round 8 entry list for 12 September 2026. George Russell will race at NLS Round 8.</article>',{headers:{'content-type':'text/html'}});
+ let calls=0;
+ const fetchImpl=async()=>{calls++;throw new Error('Unexpected network call');};
+ assert.deepEqual(discoveryJobs({environment:{OPENAI_API_KEY:'test-only'},fetchImpl}),[]);
+ assert.deepEqual(discoveryJobs({environment:{DISCOVERY_CONSENSUS_ENABLED:'true'}}).map(job=>job.id),['discovery-ai-consensus']);
+ await assert.rejects(discover({mode:'athletes',fetchImpl}),error=>error.code==='discovery_mode_removed');
+ await assert.rejects(discover({mode:'consensus',fixtures:[fixture],environment:{OPENAI_API_KEY:'test-only'},fetchImpl}),error=>error.code==='consensus_disabled');
+ const environment={DISCOVERY_CONSENSUS_ENABLED:'true',OPENAI_API_KEY:'test-only'};
+ const empty=await discover({mode:'consensus',fixtures:[],environment,fetchImpl});
+ assert.equal(empty.coverage.searchedFixtures,0);assert.equal(calls,0);
+ const responseFetch=async(input,options)=>{
+  calls++;
+  const body=JSON.parse(options.body);
+  assert.equal(body.store,false);assert(body.max_tool_calls<=4);
+  assert(!('participations' in body.text.format.schema.properties));
+  assert(!('athletes' in JSON.parse(body.input)));
+  return {ok:true,json:async()=>({status:'completed',output:[{type:'web_search_call',action:{sources:[]}},{type:'message',content:[{type:'output_text',text:JSON.stringify({consensus:[]})}]}]})};
  };
- const result=await discover({mode:'athletes',athletes:[athlete],fixtures:[fixture],fetchImpl,environment:{OPENAI_API_KEY:'test-only'},now:new Date('2026-09-08')});
- assert.equal(result.length,1);assert.equal(result[0].participationEvidence[0].participantId,athlete.id);
- assert.equal(result.coverage.accepted,1);assert.equal(result.coverage.status,'checked');
- const body=JSON.parse(calls[0].options.body);assert.equal(body.store,false);assert(body.max_tool_calls<=4);assert(!calls[0].options.body.includes('user_id'));
- assert(!JSON.stringify(result).includes('<article>'),'source bodies must never be persisted');
- await assert.rejects(discover({mode:'athletes',athletes:[athlete],fixtures:[fixture],environment:{},fetchImpl}),error=>error.code==='ai_not_configured');
- await assert.rejects(discover({mode:'athletes',athletes:[athlete],fixtures:[fixture],environment:{VERCEL_OIDC_TOKEN:'test-only'},fetchImpl:async()=>({ok:false,status:403,json:async()=>({error:{type:'customer_verification_required'}})})}),error=>error.code==='ai_billing_required');
- console.log('Autonomous discovery: real protocol seam, verified entry, bounded search, no article persistence and missing-key failure passed.');
+ const previous=[{id:fixture.id,enrichmentOnly:true,consensusTags:[{label:'Final',checkedAt:'2026-09-14'}]}];
+ const result=await discover({mode:'consensus',fixtures:[fixture],previous,environment,fetchImpl:responseFetch});
+ assert.equal(calls,1);assert.equal(result[0].consensusTags[0].label,'Final');assert.equal(result.coverage.status,'checked');
+ await assert.rejects(discover({mode:'consensus',fixtures:[fixture],environment,fetchImpl:async()=>({ok:false,status:403,json:async()=>({error:{type:'customer_verification_required'}})})}),error=>error.code==='ai_billing_required');
+ const retained=overlaySnapshots([fixture],[{source_id:'discovery-ai-athletes',fixtures:[{...fixture,name:'Obsolete athlete discovery'}]}]);
+ assert.equal(retained[0].name,fixture.name);
+ console.log('Optional consensus: no default calls, removed athlete mode, bounded opt-in search, retained tags and retired snapshots passed.');
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});
