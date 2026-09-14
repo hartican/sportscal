@@ -52,4 +52,15 @@ assert.equal(f1Projection.facts.length, 4, "an ordinary F1 marquee session needs
 assert.equal(new Set(f1Projection.facts.map(fact => fact.dimension)).size, 3, "an ordinary F1 marquee session needs three narrative dimensions");
 assert.equal(new Set([f1Projection.sourceId, ...f1Projection.extraSources.map(source => source.id)]).size, 3, "an ordinary F1 marquee session needs three source records");
 assert.match(f1Projection.extraSources.find(source => source.id.includes(":session:"))?.url || "", /\/races$/, "the session fact must use the official race/session source instead of duplicating the driver standings source");
+const monzaQualifying = f1Narrative({ id:"fixture:f1:2026:italy:qualifying", key:"f1", name:"Italian GP Qualifying" }, {
+  participants:[{ id:"driver:leader", displayName:"Driver One" }, { id:"driver:second", displayName:"Driver Two" }],
+  sources:[{ provider:"Formula 1", sourceUrl:"https://www.formula1.com/en/results/2026/races" }],
+  ladderSnapshots:[{ competitionId:"competition:f1-drivers-2026", snapshotTimeUtc:"2026-09-14T00:00:00.000Z", source:{ sourceUrl:"https://www.formula1.com/en/results/2026/drivers" }, entries:[{ participantId:"driver:leader", points:300 }, { participantId:"driver:second", points:280 }] }],
+}, new Date("2026-09-14T00:00:00.000Z"));
+const monzaRace = f1Narrative({ id:"fixture:f1:2026:italy:race", key:"f1", name:"Italian GP Race" }, {
+  participants:[{ id:"driver:leader", displayName:"Driver One" }, { id:"driver:second", displayName:"Driver Two" }],
+  sources:[{ provider:"Formula 1", sourceUrl:"https://www.formula1.com/en/results/2026/races" }],
+  ladderSnapshots:[{ competitionId:"competition:f1-drivers-2026", snapshotTimeUtc:"2026-09-14T00:00:00.000Z", source:{ sourceUrl:"https://www.formula1.com/en/results/2026/drivers" }, entries:[{ participantId:"driver:leader", points:300 }, { participantId:"driver:second", points:280 }] }],
+}, new Date("2026-09-14T00:00:00.000Z"));
+assert.notEqual(monzaQualifying.facts.find(fact => fact.dimension === "format")?.id, monzaRace.facts.find(fact => fact.dimension === "format")?.id, "two sessions at one Grand Prix must not overwrite each other's circuit fact provenance");
 console.log("Canonical source resilience valid: bounded fetches and validated preservation passed.");
