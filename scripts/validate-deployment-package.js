@@ -21,4 +21,5 @@ for(const manifest of ['data/code-inspector/manifest.json','data/follow-director
 const catalogue=require(path.join(root,'lib/calendar-catalogue')).catalogue();
 assert(catalogue.length>500,'Staged catalogue lost coverage');
 require(path.join(root,'lib/live-source-adapters'));
+for(const file of fs.readdirSync(path.join(root,'api')).filter(name=>name.endsWith('.js')))require(path.join(root,'api',file));
 console.log(`Deployment package verified: ${inventory.files.length} files, ${inventory.bytes} bytes, ${catalogue.length} catalogue events`);

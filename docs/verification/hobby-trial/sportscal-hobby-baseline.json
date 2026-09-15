@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "hobby-feed-benchmark.v1",
+  "cold": {
+    "wallMs": 538.169375,
+    "cpuMs": 384.753,
+    "rssMiB": 196.25
+  },
+  "results": [
+    {
+      "profile": "empty",
+      "iso": "2026-09-15T03:00:00Z",
+      "cpuMs": 1032.334,
+      "wallMs": 829.41725,
+      "resolveMs": 224.7674169999999,
+      "composeMs": 604.6534170000001,
+      "sha256": "c557f636df44153c0d74359336c3993731b24caa1e23f9016ef4ad9dfc6e7e90",
+      "events": 0,
+      "bytes": 586
+    },
+    {
+      "profile": "empty",
+      "iso": "2026-10-03T15:59:59Z",
+      "cpuMs": 869.019,
+      "wallMs": 655.099667,
+      "resolveMs": 163.52220899999998,
+      "composeMs": 491.5788329999998,
+      "sha256": "6d05196c1a6a03ca404e89d23616217bc32c45235a25638811c7c1c7024c74f5",
+      "events": 0,
+      "bytes": 586
+    },
+    {
+      "profile": "empty",
+      "iso": "2026-10-03T16:00:01Z",
+      "cpuMs": 750.78,
+      "wallMs": 618.715334,
+      "resolveMs": 155.34887500000013,
+      "composeMs": 463.36704199999986,
+      "sha256": "0ebf891307551c03d6c295b5a4dee0bb5dec1156b7967dcc905138fec26e95ce",
+      "events": 0,
+      "bytes": 586
+    },
+    {
+      "profile": "mixed",
+      "iso": "2026-09-15T03:00:00Z",
+      "cpuMs": 979.471,
+      "wallMs": 800.8095410000001,
+      "resolveMs": 182.09516600000006,
+      "composeMs": 618.7150000000001,
+      "sha256": "90f71a5a79112e73530525f8fdde7ab3c4a5512b4fd3c7e8157f0a8ecf8192e7",
+      "events": 17,
+      "bytes": 108333
+    },
+    {
+      "profile": "mixed",
+      "iso": "2026-10-03T15:59:59Z",
+      "cpuMs": 807.522,
+      "wallMs": 646.7665830000001,
+      "resolveMs": 159.78687499999978,
+      "composeMs": 486.98045800000045,
+      "sha256": "13e259ec119b3d6d2db3ef9c3ed34fe1c6f66c28144d796028b2008a2fd6f8df",
+      "events": 6,
+      "bytes": 30041
+    },
+    {
+      "profile": "mixed",
+      "iso": "2026-10-03T16:00:01Z",
+      "cpuMs": 800.814,
+      "wallMs": 763.9601660000008,
+      "resolveMs": 282.93775000000005,
+      "composeMs": 481.0231250000006,
+      "sha256": "bea92b1be5a52092a90acb9f27060507f6dac69be50c8deeee35d4c1a911af69",
+      "events": 6,
+      "bytes": 30041
+    },
+    {
+      "profile": "tennis-football",
+      "iso": "2026-09-15T03:00:00Z",
+      "cpuMs": 1074.697,
+      "wallMs": 1277.7425839999996,
+      "resolveMs": 250.96612499999992,
+      "composeMs": 1026.7772919999998,
+      "sha256": "53a6a0abbd4604a791c523192c75f46a91298747cf103cf7f7025275d005a922",
+      "events": 1,
+      "bytes": 7938
+    },
+    {
+      "profile": "tennis-football",
+      "iso": "2026-10-03T15:59:59Z",
+      "cpuMs": 919.104,
+      "wallMs": 753.0984589999998,
+      "resolveMs": 250.50925000000007,
+      "composeMs": 502.59000000000015,
+      "sha256": "6d05196c1a6a03ca404e89d23616217bc32c45235a25638811c7c1c7024c74f5",
+      "events": 0,
+      "bytes": 586
+    },
+    {
+      "profile": "tennis-football",
+      "iso": "2026-10-03T16:00:01Z",
+      "cpuMs": 773.676,
+      "wallMs": 674.2532920000003,
+      "resolveMs": 221.18274999999994,
+      "composeMs": 453.07116700000006,
+      "sha256": "0ebf891307551c03d6c295b5a4dee0bb5dec1156b7967dcc905138fec26e95ce",
+      "events": 0,
+      "bytes": 586
+    }
+  ],
+  "rssMiB": 592.546875
+}

@@ -45,7 +45,7 @@ trap cleanup EXIT
 # Blob-SHA verification plus isolated object fallback avoids the macOS SIGBUS
 # in Git's bulk paths while materialising only the requested commit tree.
 node scripts/materialize-git-tree.js "$DEPLOY_SHA" "${NS_DEPLOY_DIR:?}" --deployment
-node scripts/validate-deployment-package.js "${NS_DEPLOY_DIR:?}"
+NODE_PATH="$PROJECT_ROOT/node_modules" node scripts/validate-deployment-package.js "${NS_DEPLOY_DIR:?}"
 if [[ -n "${NS_DEPLOY_REPORT_DIR:-}" ]]; then
   mkdir -p "$NS_DEPLOY_REPORT_DIR"
   cp "$NS_DEPLOY_DIR/deployment-files.json" "$NS_DEPLOY_REPORT_DIR/deployment-files.json"

@@ -45,6 +45,14 @@ jobs:
           test "$RELEASE_SHA" = "$(git rev-parse origin/main)"
           git checkout --detach "$RELEASE_SHA"
       - run: npm ci && npm install --global vercel@59.1.4
+      - name: Verify feed and deployment safety contracts
+        run: |
+          node scripts/build-app-shell-runtime.js --check
+          node scripts/validate-hobby-feed-cache.js
+          node scripts/validate-hobby-feed-client.js
+          node scripts/validate-hobby-deployments.js
+          node scripts/validate-server-feed.js
+          node scripts/validate-follow-policy-parity.js
       - name: Bind project and preserve current production
         run: node scripts/prepare-production-release.js
       - name: Deploy or reuse exact release
