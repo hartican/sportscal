@@ -21543,7 +21543,19 @@
         "kayo"
       ],
       "broadcasts": [],
-      "viewingOptions": [],
+      "viewingOptions": [
+        {
+          "providerId": "kayo",
+          "webUrl": "https://kayosports.com.au/en-AU/welcome/cricket?campaign=cricketaus&channel=cricketaus&extcamp=cricketaus-ptr-cau-lnk-acq-grc-cri-kyo",
+          "sportUrl": "https://kayosports.com.au/en-AU/welcome/cricket?campaign=cricketaus&channel=cricketaus&extcamp=cricketaus-ptr-cau-lnk-acq-grc-cri-kyo",
+          "linkScope": "sport",
+          "rightsScope": "fixture",
+          "territory": "AU",
+          "accessType": "subscription",
+          "sourceUrl": "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+          "verifiedAt": "2026-09-15T05:30:00.000Z"
+        }
+      ],
       "consensusTags": [],
       "numberOfDays": 1,
       "endDate": "2026-09-15",
@@ -25042,7 +25054,19 @@
         "kayo"
       ],
       "broadcasts": [],
-      "viewingOptions": [],
+      "viewingOptions": [
+        {
+          "providerId": "kayo",
+          "webUrl": "https://kayosports.com.au/en-AU/welcome/cricket?campaign=cricketaus&channel=cricketaus&extcamp=cricketaus-ptr-cau-lnk-acq-grc-cri-kyo",
+          "sportUrl": "https://kayosports.com.au/en-AU/welcome/cricket?campaign=cricketaus&channel=cricketaus&extcamp=cricketaus-ptr-cau-lnk-acq-grc-cri-kyo",
+          "linkScope": "sport",
+          "rightsScope": "fixture",
+          "territory": "AU",
+          "accessType": "subscription",
+          "sourceUrl": "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+          "verifiedAt": "2026-09-15T05:30:00.000Z"
+        }
+      ],
       "consensusTags": [],
       "numberOfDays": 1,
       "endDate": "2026-09-18",
@@ -27229,7 +27253,19 @@
         "kayo"
       ],
       "broadcasts": [],
-      "viewingOptions": [],
+      "viewingOptions": [
+        {
+          "providerId": "kayo",
+          "webUrl": "https://kayosports.com.au/en-AU/welcome/cricket?campaign=cricketaus&channel=cricketaus&extcamp=cricketaus-ptr-cau-lnk-acq-grc-cri-kyo",
+          "sportUrl": "https://kayosports.com.au/en-AU/welcome/cricket?campaign=cricketaus&channel=cricketaus&extcamp=cricketaus-ptr-cau-lnk-acq-grc-cri-kyo",
+          "linkScope": "sport",
+          "rightsScope": "fixture",
+          "territory": "AU",
+          "accessType": "subscription",
+          "sourceUrl": "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+          "verifiedAt": "2026-09-15T05:30:00.000Z"
+        }
+      ],
       "consensusTags": [],
       "numberOfDays": 1,
       "endDate": "2026-09-20",

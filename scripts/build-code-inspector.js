@@ -88,6 +88,26 @@ function stableId(event){
   return String(event?.canonicalEventId || event?.eventId || event?.id || "");
 }
 
+function semanticFixtureKey(event){
+  const participantIds = [...new Set([
+    ...(event?.participantIds || []),
+    ...(event?.participantSlots || []).map(slot => slot?.participantId),
+    event?.homeParticipantId,
+    event?.awayParticipantId,
+  ].filter(Boolean).map(String))].sort();
+  const start = Date.parse(event?.startTimeUtc || "");
+  if (participantIds.length < 2 || !Number.isFinite(start)) return "";
+  return `${fixtureIdentity.sportKey(event)}|${new Date(start).toISOString()}|${participantIds.join("|")}`;
+}
+
+function fixtureEvidenceScore(event){
+  return Number(Boolean(event?.broadcaster)) * 8
+    + Number((event?.viewingOptions || []).length > 0) * 8
+    + Number((event?.broadcastOptions || []).length > 0) * 4
+    + Number(Boolean(event?.sourceUrl)) * 2
+    + Number(Boolean(event?.expected || event?.stakesScore));
+}
+
 function isAflwFixture(event){
   return event?.discoverySportId === "sport:aflw"
     || event?.competitionId === "competition:aflw-2026"
@@ -268,15 +288,51 @@ function codePhasePlaceholders(code){
 
 function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents = new Set()){
   const fixtures = new Map(placeholders.map(fixture => [fixture.id, fixture]));
+  const semanticIds = new Map();
+  for (const [id, fixture] of fixtures){
+    const semantic = semanticFixtureKey(fixture);
+    if (semantic && !semanticIds.has(semantic)) semanticIds.set(semantic, id);
+  }
   eventRecords.forEach(event => {
     const id = stableId(event);
     if (!id) return;
     const aliases=new Set([id,event.id,event.eventId,...(event.sourceEventIds||[])].filter(Boolean));
     let previous=fixtures.get(id);
+    let retainedId=previous?.id || id;
+    let matchedSemantically=false;
     for(const [key,fixture] of fixtures){
-      if([key,...(fixture.sourceEventIds||[])].some(alias=>aliases.has(alias))){previous={...fixture,...previous};fixtures.delete(key);}
+      if([key,...(fixture.sourceEventIds||[])].some(alias=>aliases.has(alias))){previous={...fixture,...previous};retainedId=fixture.id || key;fixtures.delete(key);}
     }
-    const mergedEvent = { ...previous, ...event };
+    const semantic = semanticFixtureKey(event);
+    const semanticId = semantic ? semanticIds.get(semantic) : null;
+    if(!previous && semanticId && fixtures.has(semanticId)){
+      previous=fixtures.get(semanticId);
+      retainedId=previous.id || semanticId;
+      fixtures.delete(semanticId);
+      matchedSemantically=true;
+    }
+    const preferPrevious = matchedSemantically && fixtureEvidenceScore(previous) > fixtureEvidenceScore(event);
+    const preferred = preferPrevious ? previous : event;
+    const secondary = preferPrevious ? event : previous;
+    retainedId = stableId(preferred) || retainedId;
+    const sourceEventIds = [...new Set([
+      retainedId,
+      ...(previous?.sourceEventIds || []),
+      previous?.id,
+      previous?.eventId,
+      event.id,
+      event.eventId,
+      event.canonicalEventId,
+      ...(event.sourceEventIds || []),
+    ].filter(Boolean))];
+    const mergedEvent = previous ? {
+      ...secondary,
+      ...preferred,
+      id:retainedId,
+      eventId:preferred.eventId || retainedId,
+      canonicalEventId:preferred.canonicalEventId || retainedId,
+      sourceEventIds,
+    } : event;
     const hasConfirmedParticipants = Array.isArray(event.participantSlots) && event.participantSlots.length
       || Array.isArray(event.participantIds) && event.participantIds.length;
     if (Array.isArray(event.participantIds) && event.participantIds.length && !Array.isArray(event.participantSlots)){
@@ -286,9 +342,12 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
       if (event.scheduleStatus === undefined) delete mergedEvent.scheduleStatus;
       if (event.detailsExpectedAt === undefined) mergedEvent.detailsExpectedAt = null;
     }
-    fixtures.set(id, normalizeFixture(mergedEvent, codeId, {
+    const normalized = normalizeFixture(mergedEvent, codeId, {
       sourceCoverage: officialEvents.has(event) ? "official-canonical" : "published-feed",
-    }));
+    });
+    fixtures.set(retainedId, normalized);
+    const normalizedSemantic = semanticFixtureKey(normalized);
+    if (normalizedSemantic) semanticIds.set(normalizedSemantic, retainedId);
   });
   return Array.from(fixtures.values()).sort((first, second) => (
     String(first.date || first.schedulingWindow?.startsOn || "9999-12-31")
@@ -445,4 +504,4 @@ if (require.main === module){
   console.log(`Code Inspector built: ${manifest.codes.length} codes, ${manifest.codes.reduce((total, code) => total + code.fixtureCount, 0)} fixtures.`);
 }
 
-module.exports = { build, codeFixtures, eventMatchesCode, mergeFixtureRecords, normalizeFixture };
+module.exports = { build, codeFixtures, eventMatchesCode, fixtureEvidenceScore, mergeFixtureRecords, normalizeFixture, semanticFixtureKey };

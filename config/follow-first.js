@@ -792,7 +792,8 @@
       })
       .map(providerId => {
         const provider = VIEWING_PROVIDERS[providerId];
-        const explicit = explicitOptions.find(option => trustedProviderIdForOption(event, option) === providerId);
+        const explicit = explicitOptions.find(option => option && typeof option === "object" && trustedProviderIdForOption(event, option) === providerId)
+          || explicitOptions.find(option => trustedProviderIdForOption(event, option) === providerId);
         const explicitObject = explicit && typeof explicit === "object" ? explicit : {};
         const explicitUrl = explicitObject.webUrl || explicitObject.url || null;
         const explicitScope = String(explicitObject.linkScope || explicitObject.rightsScope || "").toLowerCase();

@@ -137,6 +137,35 @@ assert.equal(merged[0].sourceCoverage, "official-canonical");
 assert.deepEqual(merged[0].participantSlots.map(slot => slot.label), ["Broncos", "Storm"]);
 assert.equal(merged[0].detailsExpectedAt, null);
 
+const cricketOfficial = {
+  id:"fixture:cricket:CA:40288",
+  key:"cricket",
+  competitionId:"competition:cricket:4621",
+  name:"Zimbabwe Men v Australia Men",
+  startTimeUtc:"2026-09-15T07:30:00.000Z",
+  participantIds:["team:cricket:zimbabwe", "team:cricket:australia"],
+  homeParticipantId:"team:cricket:zimbabwe",
+  awayParticipantId:"team:cricket:australia",
+};
+const cricketBroadcast = {
+  id:"fixture:cricket:espn:1530203",
+  key:"cricket",
+  competitionId:"competition:cricket:espn:24303",
+  name:"Zimbabwe v Australia",
+  startTimeUtc:"2026-09-15T07:30:00.000Z",
+  participantIds:["team:cricket:zimbabwe", "team:cricket:australia"],
+  homeParticipantId:"team:cricket:zimbabwe",
+  awayParticipantId:"team:cricket:australia",
+  broadcaster:"Fox Cricket / Foxtel / Kayo Sports",
+  viewingOptions:[{ providerId:"kayo", webUrl:"https://kayosports.com.au/en-AU/welcome/cricket", linkScope:"sport", rightsScope:"fixture" }],
+};
+const mergedCricket = mergeFixtureRecords([], [cricketOfficial, cricketBroadcast], "sport:cricket", new Set([cricketOfficial, cricketBroadcast]));
+assert.equal(mergedCricket.length, 1, "the same cricket fixture from schedule and broadcast sources must render once");
+assert.equal(mergedCricket[0].id, cricketBroadcast.id, "semantic fixture merging must retain the identity carrying richer reviewed evidence");
+assert.deepEqual(new Set(mergedCricket[0].sourceEventIds), new Set([cricketOfficial.id, cricketBroadcast.id]), "semantic fixture merging must retain both source identities");
+assert.equal(mergedCricket[0].broadcaster, cricketBroadcast.broadcaster, "semantic fixture merging must retain richer broadcast evidence");
+assert.equal(mergedCricket[0].viewingOptions[0].providerId, "kayo", "semantic fixture merging must retain the Kayo viewing link");
+
 const canonicalBundle = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/afl-nrl-2026.json"), "utf8"));
 const canonicalAflwFixtures = canonicalBundle.events.filter(event => event.competitionId === "competition:aflw-2026");
 const publishedAflwFixtureIds = new Set(aflwChunk.fixtures.map(fixture => fixture.id));

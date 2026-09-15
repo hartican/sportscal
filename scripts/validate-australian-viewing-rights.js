@@ -88,6 +88,14 @@ const fixtureOverride = followFirst.viewingOptions({
 }).map(option => option.providerId);
 assert(JSON.stringify(fixtureOverride) === JSON.stringify(["seven"]), "a verified fixture-specific option must override a broad sport rule");
 
+const kayoDeepLink = "https://kayosports.com.au/en-AU/welcome/cricket?campaign=cricketaus";
+const explicitKayoLink = followFirst.viewingLink({
+  key:"cricket",
+  broadcaster:"Fox Cricket / Foxtel / Kayo Sports",
+  viewingOptions:[{ providerId:"kayo", webUrl:kayoDeepLink, linkScope:"sport", rightsScope:"fixture", sourceUrl:"https://www.cricket.com.au/", verifiedAt:"2026-09-15T05:30:00.000Z" }],
+});
+assert(explicitKayoLink?.providerId === "kayo" && explicitKayoLink.webUrl === kayoDeepLink, "a verified structured Kayo link must outrank the inferred broadcaster fallback URL");
+
 const feedDir = path.join(__dirname, "..", "data", "feed");
 const events = fs.readdirSync(feedDir)
   .filter(name => /^page-\d+\.json$/.test(name))

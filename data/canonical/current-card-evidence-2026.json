@@ -144,6 +144,19 @@
       "ids": ["fixture:cricket:espn:1530203", "fixture:cricket:espn:1530204", "fixture:cricket:espn:1530205"],
       "broadcaster": "Fox Cricket / Foxtel / Kayo Sports",
       "broadcasterIds": ["foxtel", "kayo"],
+      "viewingOptions": [
+        {
+          "providerId": "kayo",
+          "webUrl": "https://kayosports.com.au/en-AU/welcome/cricket?campaign=cricketaus&channel=cricketaus&extcamp=cricketaus-ptr-cau-lnk-acq-grc-cri-kyo",
+          "sportUrl": "https://kayosports.com.au/en-AU/welcome/cricket?campaign=cricketaus&channel=cricketaus&extcamp=cricketaus-ptr-cau-lnk-acq-grc-cri-kyo",
+          "linkScope": "sport",
+          "rightsScope": "fixture",
+          "territory": "AU",
+          "accessType": "subscription",
+          "sourceUrl": "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+          "verifiedAt": "2026-09-15T05:30:00.000Z"
+        }
+      ],
       "sourceName": "Cricket Australia / Fox Sports",
       "sourceUrl": "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
       "broadcastSourceUrl": "https://www.foxsports.com.au/cricket/australia/cricket-2026-australia-vs-zimbabwe-and-south-africa-ultimate-guide-when-are-the-matches-scheduled-how-to-watch-and-stream-squads-latest-news/news-story/b5a37176056f8983cea072ee085c6277"

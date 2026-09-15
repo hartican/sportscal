@@ -36,11 +36,21 @@ for(const expected of evidence.resultOverrides){
   }
   if(record.startTimeUtc) assert(Number.isFinite(Date.parse(record.endTimeUtc)), `${expected.id} completion boundary is missing`);
 }
-for(const group of evidence.broadcastOverrides) for(const id of group.ids){
-  const record = cricket.find(item => identity(item) === id);
-  assert(record, `${id} is missing from cricket fixtures`);
-  assert.equal(record.broadcaster, group.broadcaster, `${id} broadcaster drifted`);
+for(const group of evidence.broadcastOverrides){
+  const seriesRecords = cricket.filter(item => group.ids.some(id => matches(item, { id, canonicalId:id })));
+  assert.equal(seriesRecords.length, group.ids.length, "reviewed cricket fixtures must remain one card per match after source deduplication");
+  for(const id of group.ids){
+    const record = cricket.find(item => matches(item, { id, canonicalId:id }));
+    assert(record, `${id} is missing from cricket fixtures`);
+    assert.equal(record.broadcaster, group.broadcaster, `${id} broadcaster drifted`);
+    if(group.viewingOptions?.length){
+      assert.equal(record.viewingOptions?.[0]?.providerId, "kayo", `${id} Kayo viewing option drifted`);
+      assert.match(record.viewingOptions[0].webUrl, /^https:\/\/kayosports\.com\.au\//, `${id} Kayo link drifted`);
+    }
+  }
 }
+const firstZimbabweAustraliaOdi = cricket.find(item => matches(item, { id:"fixture:cricket:espn:1530203", canonicalId:"fixture:cricket:espn:1530203" }));
+assert(firstZimbabweAustraliaOdi.sourceEventIds.includes("fixture:cricket:CA:40288"), "the deduplicated first ODI must retain its Cricket Australia schedule alias");
 const shell = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 assert.match(shell, /score:\s*\["score",\s*"scoreDisplay"/, "scoreDisplay must remain a spoiler-aware result field");
 const quick = fs.readFileSync(path.join(ROOT, "scripts/quick-results.js"), "utf8");
