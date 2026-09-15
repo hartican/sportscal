@@ -2,14 +2,13 @@
 'use strict';
 // Invoked by update-cards --quick. Uses canonical adapters; never loads ladders.
 const fs=require('node:fs'),{spawnSync}=require('node:child_process');
-const canonical=require('./refresh-canonical-sports');
 const tennis=require('./refresh-us-open-events');
 const pl=require('./refresh-premier-league-cards');
 const officialResults=require('./sync-official-card-results');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 const {storylineFor,spoilerSafeRootCopy}=require('./lib/storyline-card-rules');
-const KEYS=['status','scheduleStatus','startTimeUtc','endTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt'];
+const KEYS=['status','scheduleStatus','startTimeUtc','endTimeUtc','actualEndTimeUtc','time','date','score','scoreDisplay','result','outcomeText','recapText','homeScore','awayScore','resultPublishedAt','sessionStartTimeUtc','sequenceInSession','timePrecision','sourceName','sourceUrl','sourceCheckedAt'];
 function semantic(value){return JSON.stringify(value,(key,v)=>['checkedAt','updatedAt','lastReviewedAt','sourceCheckedAt','statusUpdatedAt','resultPublishedAt'].includes(key)?undefined:v);}
 function patchKnown(events,updates){
  let count=0;const byId=new Map(updates.map(e=>[e.id || e.eventId,e]));
@@ -47,8 +46,8 @@ async function refreshNflResults(now){
 // atomic preservation boundary remain independent of deployment credentials.
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
- const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL'));
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Premier League|F1|Official results)/.test(change));
+ const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL')||change==='Current card evidence');
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Premier League|F1|Official results|Current card evidence)/.test(change));
  const codes=new Set();
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
@@ -57,7 +56,7 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.some(change=>change.startsWith('NFL')))codes.add('american-football');
  if(changes.some(change=>change.startsWith('Official results')))['aflw','nrl','nrlw','motorsport','f1','motogp','fiba-women','tennis','wrc'].forEach(code=>codes.add(code));
  const steps=[];
- if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/refresh-major-events-from-canonical.js']);}
+ if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/apply-current-card-evidence.js'],['scripts/refresh-major-events-from-canonical.js']);}
  if(feedChanged){steps.push(
   ['scripts/enrich-storyline-cards.js','--write'],
   ['scripts/select-result-editorial.js'],
@@ -66,23 +65,21 @@ function projectionSteps(changes,{rebuild=false}={}){
   ['scripts/qa-storyline-spoilers.js','data/events.json'],
  );}
  if(feedChanged)steps.push(['scripts/build-paged-feed.js']);
- steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],...(rebuild?[['scripts/build-app-shell-runtime.js']]:[]),['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
+ steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],...(rebuild?[['scripts/build-app-shell-runtime.js']]:[]),['scripts/apply-current-card-evidence.js','--check'],['scripts/validate-current-card-coverage.js'],['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
  return steps;
 }
 async function refresh({now=new Date(),offline=false}={}){
- const changes=[],failures=[],bundlePath='data/canonical/afl-nrl-2026.json',bundle=read(bundlePath);
+ const changes=[],failures=[],bundlePath='data/canonical/afl-nrl-2026.json';
+ const previousBundle=read(bundlePath);let bundle=previousBundle;
  const near=ev=>{const start=Date.parse(ev.startTimeUtc||'');return Number.isFinite(start)&&Math.abs(start-+now)<=7*86400000;};
- const existing=bundle.events.filter(near),created=new Map(bundle.events.map(e=>[e.id,e.createdAt])),updates=[];
- if(!offline){
- for(const code of ['afl','aflw'])try{
-   const relevant=existing.filter(e=>e.id.startsWith(`event:${code}:`));if(!relevant.length)continue;
-   const seasons=await json(`https://aflapi.afl.com.au/afl/v2/competitions/${code==='afl'?1:3}/compseasons?pageSize=20`);
-   const season=seasons.compSeasons.find(s=>s.name.startsWith(String(now.getFullYear())));if(!season)throw new Error('Season unavailable');
-   for(const round of new Set(relevant.map(e=>e.roundNumber))){const response=await json(`https://aflapi.afl.com.au/afl/v2/matches?compSeasonId=${season.id}&roundNumber=${round}&pageSize=50`);if(!Array.isArray(response.matches))throw new Error('Malformed matches');updates.push(...response.matches.map(m=>canonical.buildAflEvent(m,now.toISOString(),created,code==='aflw'?{code,competitionId:'competition:aflw-2026',discoverySportId:'sport:aflw'}:{}).event));}
- }catch(error){failures.push(`${code}: ${error.message}`);}
- try{if(existing.some(e=>e.id.startsWith('event:nrl:'))){const response=await json('https://mc.championdata.com/data/12999/fixture.json');if(!Array.isArray(response.fixture?.match))throw new Error('Malformed NRL fixtures');updates.push(...response.fixture.match.map(m=>canonical.buildNrlEvent(m,now.toISOString(),created).event));}}catch(error){failures.push(`nrl: ${error.message}`);}
- }
- const patched=patchKnown(bundle.events,updates.filter(near));if(patched.count){write(bundlePath,{...bundle,events:patched.events});changes.push(`AFL/NRL ${patched.count}`);}
+ if(!offline)try{
+   run('scripts/refresh-canonical-sports.js');bundle=read(bundlePath);
+   if(semantic(bundle)!==semantic(previousBundle))changes.push('AFL/NRL inventory');
+ }catch(error){failures.push(`AFL/NRL: ${error.message}`);}
+ const evidenceBefore=semantic({bundle:read(bundlePath),feed:read('feeds/incoming/events.json'),coverage:read('data/follow-sources/coverage.v1.json'),results:read('data/canonical/official-card-results-2026.json')});
+ run('scripts/apply-current-card-evidence.js');bundle=read(bundlePath);
+ const evidenceAfter=semantic({bundle,feed:read('feeds/incoming/events.json'),coverage:read('data/follow-sources/coverage.v1.json'),results:read('data/canonical/official-card-results-2026.json')});
+ if(evidenceBefore!==evidenceAfter)changes.push('Current card evidence');
  if(!offline)try{const count=await refreshNflResults(now);if(count)changes.push(`NFL ${count}`);}catch(error){failures.push(`NFL: ${error.message}`);}
  const officialDocument=read('feeds/incoming/events.json'),officialSnapshot=read('data/canonical/official-card-results-2026.json'),official=officialResults.applyOfficialResults(officialDocument.events,officialSnapshot);
  const officialReleaseChanged=officialDocument.version!==officialSnapshot.feedVersion;

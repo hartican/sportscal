@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v255";
+const CACHE_NAME = "nothingsport-shell-v256";
 const SHELL_VERSION = "254";
 const APP_SHELL = [
   "/assets/js/app-update.js?v=254",

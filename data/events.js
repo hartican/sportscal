@@ -5723,7 +5723,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "NRL Round 20",
       "Canberra by 10"
     ],
-    "sourceTrust": "verified"
+    "sourceTrust": "verified",
+    "endTimeUtc": "2026-07-18T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "afl-collingwood-carlton-2026-07-18",
@@ -5786,7 +5788,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Collingwood by 21",
       "Media consensus"
     ],
-    "sourceTrust": "unverified"
+    "sourceTrust": "unverified",
+    "endTimeUtc": "2026-07-18T12:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "rugby-australia-italy-2026-07-18",
@@ -5859,7 +5863,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:rugby:wallabies",
       "team:rugby:italy"
-    ]
+    ],
+    "endTimeUtc": "2026-07-18T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Cycling",
@@ -6098,7 +6104,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Essendon v GWS Giants is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Essendon held off GWS by three points at Marvel Stadium (media consensus).",
       "synopsisSpoilerOn": "Fox Sports and independent fixture-result services agree that Essendon won 67-64 at Marvel Stadium after GWS finished with 8.16."
-    }
+    },
+    "endTimeUtc": "2026-07-19T09:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Cycling",
@@ -6540,7 +6548,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992102",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6589,7 +6597,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Knights v Roosters is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "The Roosters edged Newcastle 23-22 through a late Daly Cherry-Evans field goal.",
       "synopsisSpoilerOn": "A 77th-minute Cherry-Evans field goal separated the sides after the Knights and Roosters traded momentum in a one-point Round 21 finish."
-    }
+    },
+    "endTimeUtc": "2026-07-24T11:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Commonwealth Games",
@@ -6695,7 +6705,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142008",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8205",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6744,7 +6754,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Melbourne v Geelong Cats is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Geelong defeated Melbourne by 20 points after a strong finish at the MCG.",
       "synopsisSpoilerOn": "The Cats pulled away to win 117-97, with Shannon Neale kicking five goals as Geelong strengthened its position near the top of the ladder."
-    }
+    },
+    "endTimeUtc": "2026-07-24T12:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992103",
@@ -6792,7 +6804,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992103",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -6841,7 +6853,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Rabbitohs v Storm is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "South Sydney held off Melbourne 28-26 in a two-point Round 21 finish.",
       "synopsisSpoilerOn": "Campbell Graham's 75th-minute try proved decisive as the Rabbitohs absorbed a late Storm push and closed out the home win."
-    }
+    },
+    "endTimeUtc": "2026-07-24T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142004",
@@ -6889,7 +6903,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142004",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8210",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -6938,7 +6952,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Fremantle v West Coast Eagles is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Fremantle won the Western Derby by 70 points.",
       "synopsisSpoilerOn": "The Dockers controlled the derby to win 112-42. Murphy Reid earned the Glendinning-Allan Medal after a 26-disposal performance."
-    }
+    },
+    "endTimeUtc": "2026-07-24T13:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Cycling",
@@ -7198,7 +7214,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142003",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8201",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -7247,7 +7263,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Carlton v Gold Coast SUNS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Carlton defeated Gold Coast by 13 points at the MCG.",
       "synopsisSpoilerOn": "The Blues rallied late to win 110-97, denying the Suns in a high-scoring contest and damaging Gold Coast's finals push."
-    }
+    },
+    "endTimeUtc": "2026-07-25T06:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "nrl-raiders-tigers-2026-07-25",
@@ -7293,7 +7311,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992104",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -7344,7 +7362,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Raiders v Wests Tigers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Canberra ran in ten tries to defeat Wests Tigers 56-10.",
       "synopsisSpoilerOn": "The Raiders produced their biggest win of the season, controlling the contest from the opening exchanges and completing a 46-point victory."
-    }
+    },
+    "endTimeUtc": "2026-07-25T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142006",
@@ -7392,7 +7412,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142006",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8206",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -7441,7 +7461,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Hawthorn v Essendon is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Hawthorn defeated Essendon by 93 points at the MCG.",
       "synopsisSpoilerOn": "The Hawks dominated from early in the contest to win 132-39, with Jack Gunston kicking seven goals in the emphatic Round 20 victory."
-    }
+    },
+    "endTimeUtc": "2026-07-25T09:15:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142005",
@@ -7489,7 +7511,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142005",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8208",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -7538,7 +7560,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "GWS GIANTS v Sydney Swans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sydney defeated Greater Western Sydney by 51 points.",
       "synopsisSpoilerOn": "The Swans won the derby 139-88 with a sustained attacking performance that left the Giants' finals hopes under further pressure."
-    }
+    },
+    "endTimeUtc": "2026-07-25T09:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992105",
@@ -7586,7 +7610,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992105",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -7635,7 +7659,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Bulldogs v Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "The Bulldogs defeated the Warriors 18-6.",
       "synopsisSpoilerOn": "Canterbury limited New Zealand to one converted try and closed out a 12-point Round 21 win."
-    }
+    },
+    "endTimeUtc": "2026-07-25T10:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992106",
@@ -7683,7 +7709,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992106",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -7732,7 +7758,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Cowboys v Broncos is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "North Queensland defeated Brisbane 18-10 in the Queensland derby.",
       "synopsisSpoilerOn": "The Cowboys held the Broncos to ten points and completed an eight-point home victory in the final match of Saturday's Round 21 programme."
-    }
+    },
+    "endTimeUtc": "2026-07-25T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Cycling",
@@ -7834,7 +7862,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142009",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8204",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -7885,7 +7913,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Western Bulldogs v Richmond is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "The Western Bulldogs defeated Richmond by 57 points.",
       "synopsisSpoilerOn": "The Bulldogs controlled the second half to win 105-48 and secure a convincing Round 20 result."
-    }
+    },
+    "endTimeUtc": "2026-07-25T12:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Commonwealth Games",
@@ -8041,7 +8071,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142002",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8203",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8090,7 +8120,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Brisbane Lions v Port Adelaide is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brisbane defeated Port Adelaide by 59 points at the Gabba.",
       "synopsisSpoilerOn": "The Lions took control after half-time to win 126-67, with Will Ashcroft collecting 30 disposals and kicking two goals."
-    }
+    },
+    "endTimeUtc": "2026-07-26T06:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992107",
@@ -8138,7 +8170,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992107",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8187,7 +8219,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Dragons v Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Gold Coast defeated St George Illawarra 38-18.",
       "synopsisSpoilerOn": "The Titans scored 38 points to complete a 20-point away win over the Dragons in Sunday's Round 21 opener."
-    }
+    },
+    "endTimeUtc": "2026-07-26T07:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142007",
@@ -8235,7 +8269,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142007",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8207",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -8284,7 +8318,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "North Melbourne v St Kilda is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "St Kilda defeated North Melbourne by 31 points.",
       "synopsisSpoilerOn": "The Saints won 93-62, led by Nasiah Wanganeen-Milera's 46 disposals and four goals."
-    }
+    },
+    "endTimeUtc": "2026-07-26T08:15:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992108",
@@ -8332,7 +8368,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992108",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -8381,7 +8417,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Sea Eagles v Sharks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Cronulla defeated Manly 48-12 at Brookvale.",
       "synopsisSpoilerOn": "The Sharks completed a 36-point away win to strengthen their top-four position, holding Manly to two converted tries."
-    }
+    },
+    "endTimeUtc": "2026-07-26T09:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Commonwealth Games",
@@ -9342,7 +9380,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142102",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8213",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -9381,7 +9419,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-07-30T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992201",
@@ -9429,7 +9469,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992201",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9478,7 +9518,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Cowboys v Roosters is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Roosters defeated Cowboys 82-12.",
       "synopsisSpoilerOn": "Cowboys v Roosters finished 12-82 in Round 22, with Roosters winning by 70 points."
-    }
+    },
+    "endTimeUtc": "2026-07-30T12:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Commonwealth Games",
@@ -9630,7 +9672,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992202",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9679,7 +9721,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Dragons v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Dolphins defeated Dragons 28-22.",
       "synopsisSpoilerOn": "Dragons v Dolphins finished 22-28 in Round 22, with Dolphins winning by 6 points."
-    }
+    },
+    "endTimeUtc": "2026-07-31T11:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992203",
@@ -9727,7 +9771,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992203",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -9776,7 +9820,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Storm v Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Bulldogs defeated Storm 36-22.",
       "synopsisSpoilerOn": "Storm v Bulldogs finished 22-36 in Round 22, with Bulldogs winning by 14 points."
-    }
+    },
+    "endTimeUtc": "2026-07-31T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142104",
@@ -9824,7 +9870,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142104",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8218",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -9873,7 +9919,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Fremantle v Western Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Fremantle defeated Western Bulldogs 78-41.",
       "synopsisSpoilerOn": "Fremantle v Western Bulldogs finished 78-41 in Round 21, with Fremantle winning by 37 points."
-    }
+    },
+    "endTimeUtc": "2026-07-31T13:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Commonwealth Games",
@@ -10078,7 +10126,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142109",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8217",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10127,7 +10175,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "St Kilda v Sydney Swans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sydney Swans defeated St Kilda 107-88.",
       "synopsisSpoilerOn": "St Kilda v Sydney Swans finished 88-107 in Round 21, with Sydney Swans winning by 19 points."
-    }
+    },
+    "endTimeUtc": "2026-08-01T06:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142106",
@@ -10175,7 +10225,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142106",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8212",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10224,7 +10274,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Hawthorn v North Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Hawthorn defeated North Melbourne 99-83.",
       "synopsisSpoilerOn": "Hawthorn v North Melbourne finished 99-83 in Round 21, with Hawthorn winning by 16 points."
-    }
+    },
+    "endTimeUtc": "2026-08-01T06:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992204",
@@ -10272,7 +10324,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992204",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10321,7 +10373,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Titans v Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Warriors defeated Titans 42-6.",
       "synopsisSpoilerOn": "Titans v Warriors finished 6-42 in Round 22, with Warriors winning by 36 points."
-    }
+    },
+    "endTimeUtc": "2026-08-01T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "aflw-australia-ireland-2026-08-01",
@@ -10444,7 +10498,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992205",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10493,7 +10547,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Panthers v Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Panthers defeated Raiders 42-18.",
       "synopsisSpoilerOn": "Panthers v Raiders finished 42-18 in Round 22, with Panthers winning by 24 points."
-    }
+    },
+    "endTimeUtc": "2026-08-01T10:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "cwg-glasgow-2026-netball-new-zealand-england-semifinal",
@@ -10607,7 +10663,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142107",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8221",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10656,7 +10712,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Port Adelaide v GWS GIANTS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "GWS GIANTS defeated Port Adelaide 75-63.",
       "synopsisSpoilerOn": "Port Adelaide v GWS GIANTS finished 63-75 in Round 21, with GWS GIANTS winning by 12 points."
-    }
+    },
+    "endTimeUtc": "2026-08-01T11:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992206",
@@ -10704,7 +10762,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992206",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -10753,7 +10811,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Broncos v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Knights defeated Broncos 30-6.",
       "synopsisSpoilerOn": "Broncos v Knights finished 6-30 in Round 22, with Knights winning by 24 points."
-    }
+    },
+    "endTimeUtc": "2026-08-01T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142101",
@@ -10801,7 +10861,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142101",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8209",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -10850,7 +10910,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Carlton v Brisbane Lions is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Carlton defeated Brisbane Lions 154-78.",
       "synopsisSpoilerOn": "Carlton v Brisbane Lions finished 154-78 in Round 21, with Carlton winning by 76 points."
-    }
+    },
+    "endTimeUtc": "2026-08-01T12:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Commonwealth Games",
@@ -11232,7 +11294,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142108",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8214",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11281,7 +11343,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Richmond v West Coast Eagles is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Richmond defeated West Coast Eagles 84-73.",
       "synopsisSpoilerOn": "Richmond v West Coast Eagles finished 84-73 in Round 21, with Richmond winning by 11 points."
-    }
+    },
+    "endTimeUtc": "2026-08-02T06:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992207",
@@ -11329,7 +11393,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992207",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11378,7 +11442,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Sharks v Rabbitohs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sharks defeated Rabbitohs 32-16.",
       "synopsisSpoilerOn": "Sharks v Rabbitohs finished 32-16 in Round 22, with Sharks winning by 16 points."
-    }
+    },
+    "endTimeUtc": "2026-08-02T07:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142105",
@@ -11426,7 +11492,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142105",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8215",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11475,7 +11541,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Gold Coast SUNS v Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Melbourne defeated Gold Coast SUNS 114-105.",
       "synopsisSpoilerOn": "Gold Coast SUNS v Melbourne finished 105-114 in Round 21, with Melbourne winning by 9 points."
-    }
+    },
+    "endTimeUtc": "2026-08-02T08:15:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992208",
@@ -11523,7 +11591,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992208",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -11572,7 +11640,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Wests Tigers v Eels is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Eels defeated Wests Tigers 16-13.",
       "synopsisSpoilerOn": "Wests Tigers v Eels finished 13-16 in Round 22, with Eels winning by 3 points."
-    }
+    },
+    "endTimeUtc": "2026-08-02T09:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "Commonwealth Games",
@@ -11914,7 +11984,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142209",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8224",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -11965,7 +12035,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Western Bulldogs v North Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "North Melbourne defeated Western Bulldogs 100-77.",
       "synopsisSpoilerOn": "Western Bulldogs v North Melbourne finished 77-100 in Round 22, with North Melbourne winning by 23 points."
-    }
+    },
+    "endTimeUtc": "2026-08-06T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992301",
@@ -12013,7 +12085,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992301",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12062,7 +12134,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Titans v Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Cowboys defeated Titans 30-8.",
       "synopsisSpoilerOn": "Titans v Cowboys finished 8-30 in Round 23, with Cowboys winning by 22 points."
-    }
+    },
+    "endTimeUtc": "2026-08-06T12:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992302",
@@ -12110,7 +12184,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992302",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12159,7 +12233,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Warriors v Panthers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Warriors defeated Panthers 28-12.",
       "synopsisSpoilerOn": "Warriors v Panthers finished 28-12 in Round 23, with Warriors winning by 16 points."
-    }
+    },
+    "endTimeUtc": "2026-08-07T11:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142202",
@@ -12207,7 +12283,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142202",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8223",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12256,7 +12332,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Brisbane Lions v Hawthorn is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brisbane Lions defeated Hawthorn 125-58.",
       "synopsisSpoilerOn": "Brisbane Lions v Hawthorn finished 125-58 in Round 22, with Brisbane Lions winning by 67 points."
-    }
+    },
+    "endTimeUtc": "2026-08-07T12:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992303",
@@ -12304,7 +12382,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992303",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12353,7 +12431,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Roosters v Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Roosters defeated Bulldogs 20-18.",
       "synopsisSpoilerOn": "Roosters v Bulldogs finished 20-18 in Round 23, with Roosters winning by 2 points."
-    }
+    },
+    "endTimeUtc": "2026-08-07T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142205",
@@ -12401,7 +12481,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142205",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8220",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12450,7 +12530,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Melbourne v Fremantle is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Melbourne defeated Fremantle 113-109.",
       "synopsisSpoilerOn": "Melbourne v Fremantle finished 113-109 in Round 22, with Melbourne winning by 4 points."
-    }
+    },
+    "endTimeUtc": "2026-08-08T06:15:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992304",
@@ -12498,7 +12580,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992304",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12547,7 +12629,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Storm v Sea Eagles is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Storm defeated Sea Eagles 42-20.",
       "synopsisSpoilerOn": "Storm v Sea Eagles finished 42-20 in Round 23, with Storm winning by 22 points."
-    }
+    },
+    "endTimeUtc": "2026-08-08T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142207",
@@ -12595,7 +12679,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142207",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8222",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12644,7 +12728,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Sydney Swans v Port Adelaide is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sydney Swans defeated Port Adelaide 167-70.",
       "synopsisSpoilerOn": "Sydney Swans v Port Adelaide finished 167-70 in Round 22, with Sydney Swans winning by 97 points."
-    }
+    },
+    "endTimeUtc": "2026-08-08T09:15:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142203",
@@ -12692,7 +12778,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142203",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8219",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -12741,7 +12827,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Geelong Cats v Essendon is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Geelong Cats defeated Essendon 117-50.",
       "synopsisSpoilerOn": "Geelong Cats v Essendon finished 117-50 in Round 22, with Geelong Cats winning by 67 points."
-    }
+    },
+    "endTimeUtc": "2026-08-08T09:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992305",
@@ -12789,7 +12877,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992305",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12838,7 +12926,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Dolphins v Broncos is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Dolphins defeated Broncos 40-32.",
       "synopsisSpoilerOn": "Dolphins v Broncos finished 40-32 in Round 23, with Dolphins winning by 8 points."
-    }
+    },
+    "endTimeUtc": "2026-08-08T10:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992306",
@@ -12886,7 +12976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992306",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -12935,7 +13025,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Rabbitohs v Eels is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Rabbitohs defeated Eels 28-24.",
       "synopsisSpoilerOn": "Rabbitohs v Eels finished 28-24 in Round 23, with Rabbitohs winning by 4 points."
-    }
+    },
+    "endTimeUtc": "2026-08-08T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142201",
@@ -12983,7 +13075,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142201",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8230",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13032,7 +13124,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Adelaide Crows v Richmond is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Adelaide Crows defeated Richmond 63-54.",
       "synopsisSpoilerOn": "Adelaide Crows v Richmond finished 63-54 in Round 22, with Adelaide Crows winning by 9 points."
-    }
+    },
+    "endTimeUtc": "2026-08-08T12:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "rugby-japan-australia-2026-08-08",
@@ -13120,7 +13214,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:rugby:japan",
       "team:rugby:wallabies"
-    ]
+    ],
+    "endTimeUtc": "2026-08-08T13:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "afl-gws-gold-coast-2026-08-09",
@@ -13166,7 +13262,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142204",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8228",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13217,7 +13313,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "GWS GIANTS v Gold Coast SUNS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Gold Coast SUNS defeated GWS GIANTS 79-77.",
       "synopsisSpoilerOn": "GWS GIANTS v Gold Coast SUNS finished 77-79 in Round 22, with Gold Coast SUNS winning by 2 points."
-    }
+    },
+    "endTimeUtc": "2026-08-09T06:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "nrl-raiders-knights-2026-08-09",
@@ -13263,7 +13361,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992307",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13314,7 +13412,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Raiders v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Knights defeated Raiders 30-24.",
       "synopsisSpoilerOn": "Raiders v Knights finished 24-30 in Round 23, with Knights winning by 6 points."
-    }
+    },
+    "endTimeUtc": "2026-08-09T07:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992308",
@@ -13362,7 +13462,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992308",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13411,7 +13511,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Dragons v Sharks is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Dragons defeated Sharks 24-16.",
       "synopsisSpoilerOn": "Dragons v Sharks finished 24-16 in Round 23, with Dragons winning by 8 points."
-    }
+    },
+    "endTimeUtc": "2026-08-09T09:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142208",
@@ -13459,7 +13561,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142208",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8227",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13508,7 +13610,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "West Coast Eagles v Collingwood is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Collingwood defeated West Coast Eagles 117-98.",
       "synopsisSpoilerOn": "West Coast Eagles v Collingwood finished 98-117 in Round 22, with Collingwood winning by 19 points."
-    }
+    },
+    "endTimeUtc": "2026-08-09T09:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142206",
@@ -13556,7 +13660,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142206",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8225",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -13605,7 +13709,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "St Kilda v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Carlton defeated St Kilda 106-62.",
       "synopsisSpoilerOn": "St Kilda v Carlton finished 62-106 in Round 22, with Carlton winning by 44 points."
-    }
+    },
+    "endTimeUtc": "2026-08-09T12:20:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "cricket-australia-bangladesh-first-test-2026",
@@ -13720,7 +13826,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:50:03.143Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-08-13T08:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992401",
@@ -13768,7 +13876,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992401",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13817,7 +13925,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Panthers v Roosters is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Roosters defeated Panthers 12-6.",
       "synopsisSpoilerOn": "Panthers v Roosters finished 6-12 in Round 24, with Roosters winning by 6 points."
-    }
+    },
+    "endTimeUtc": "2026-08-13T12:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992402",
@@ -13865,7 +13975,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992402",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -13914,7 +14024,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Sea Eagles v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Dolphins defeated Sea Eagles 22-0.",
       "synopsisSpoilerOn": "Sea Eagles v Dolphins finished 0-22 in Round 24, with Dolphins winning by 22 points."
-    }
+    },
+    "endTimeUtc": "2026-08-14T11:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992403",
@@ -13962,7 +14074,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992403",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14011,7 +14123,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Bulldogs v Rabbitohs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Rabbitohs defeated Bulldogs 22-6.",
       "synopsisSpoilerOn": "Bulldogs v Rabbitohs finished 6-22 in Round 24, with Rabbitohs winning by 16 points."
-    }
+    },
+    "endTimeUtc": "2026-08-14T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142303",
@@ -14059,7 +14173,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142303",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8237",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14108,7 +14222,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Fremantle v Adelaide Crows is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Fremantle defeated Adelaide Crows 112-88.",
       "synopsisSpoilerOn": "Fremantle v Adelaide Crows finished 112-88 in Round 23, with Fremantle winning by 24 points."
-    }
+    },
+    "endTimeUtc": "2026-08-14T13:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142308",
@@ -14156,7 +14272,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142308",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8238",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14205,7 +14321,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Richmond v St Kilda is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "St Kilda defeated Richmond 94-45.",
       "synopsisSpoilerOn": "Richmond v St Kilda finished 45-94 in Round 23, with St Kilda winning by 49 points."
-    }
+    },
+    "endTimeUtc": "2026-08-15T05:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992404",
@@ -14253,7 +14371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992404",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14302,7 +14420,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Sharks v Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Raiders defeated Sharks 24-20.",
       "synopsisSpoilerOn": "Sharks v Raiders finished 20-24 in Round 24, with Raiders winning by 4 points."
-    }
+    },
+    "endTimeUtc": "2026-08-15T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "rugby-australia-japan-2026-08-15",
@@ -14380,7 +14500,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:rugby:wallabies",
       "team:rugby:japan"
-    ]
+    ],
+    "endTimeUtc": "2026-08-15T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142306",
@@ -14428,7 +14550,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142306",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8231",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14477,7 +14599,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "North Melbourne v Geelong Cats is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Geelong Cats defeated North Melbourne 125-110.",
       "synopsisSpoilerOn": "North Melbourne v Geelong Cats finished 110-125 in Round 23, with Geelong Cats winning by 15 points."
-    }
+    },
+    "endTimeUtc": "2026-08-15T08:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142301",
@@ -14525,7 +14649,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142301",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8229",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14574,7 +14698,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Brisbane Lions v Gold Coast SUNS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brisbane Lions defeated Gold Coast SUNS 95-53.",
       "synopsisSpoilerOn": "Brisbane Lions v Gold Coast SUNS finished 95-53 in Round 23, with Brisbane Lions winning by 42 points."
-    }
+    },
+    "endTimeUtc": "2026-08-15T09:15:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992405",
@@ -14622,7 +14748,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992405",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14671,7 +14797,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Eels v Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Eels defeated Cowboys 32-30.",
       "synopsisSpoilerOn": "Eels v Cowboys finished 32-30 in Round 24, with Eels winning by 2 points."
-    }
+    },
+    "endTimeUtc": "2026-08-15T10:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992406",
@@ -14719,7 +14847,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992406",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -14768,7 +14896,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Broncos v Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Warriors defeated Broncos 40-6.",
       "synopsisSpoilerOn": "Broncos v Warriors finished 6-40 in Round 24, with Warriors winning by 34 points."
-    }
+    },
+    "endTimeUtc": "2026-08-15T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142305",
@@ -14816,7 +14946,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142305",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8244",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14863,7 +14993,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Hawthorn v Collingwood is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Hawthorn and Collingwood drew 92-92.",
       "synopsisSpoilerOn": "Hawthorn v Collingwood finished level at 92-92 in Round 23."
-    }
+    },
+    "endTimeUtc": "2026-08-15T12:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142307",
@@ -14911,7 +15043,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142307",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8234",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -14960,7 +15092,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Port Adelaide v Melbourne is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Melbourne defeated Port Adelaide 132-56.",
       "synopsisSpoilerOn": "Port Adelaide v Melbourne finished 56-132 in Round 23, with Melbourne winning by 76 points."
-    }
+    },
+    "endTimeUtc": "2026-08-15T13:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142304",
@@ -15008,7 +15142,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142304",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8233",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15057,7 +15191,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "GWS GIANTS v West Coast Eagles is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "GWS GIANTS defeated West Coast Eagles 111-57.",
       "synopsisSpoilerOn": "GWS GIANTS v West Coast Eagles finished 111-57 in Round 23, with GWS GIANTS winning by 54 points."
-    }
+    },
+    "endTimeUtc": "2026-08-16T06:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992407",
@@ -15105,7 +15241,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992407",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15154,7 +15290,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Knights v Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Knights defeated Titans 36-26.",
       "synopsisSpoilerOn": "Knights v Titans finished 36-26 in Round 24, with Knights winning by 10 points."
-    }
+    },
+    "endTimeUtc": "2026-08-16T07:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142309",
@@ -15202,7 +15340,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142309",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8232",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15249,7 +15387,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Western Bulldogs v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Western Bulldogs and Carlton drew 82-82.",
       "synopsisSpoilerOn": "Western Bulldogs v Carlton finished level at 82-82 in Round 23."
-    }
+    },
+    "endTimeUtc": "2026-08-16T08:15:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992408",
@@ -15297,7 +15437,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992408",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15346,7 +15486,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Wests Tigers v Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Dragons defeated Wests Tigers 24-22.",
       "synopsisSpoilerOn": "Wests Tigers v Dragons finished 22-24 in Round 24, with Dragons winning by 2 points."
-    }
+    },
+    "endTimeUtc": "2026-08-16T09:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142302",
@@ -15394,7 +15536,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142302",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8226",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15443,7 +15585,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Essendon v Sydney Swans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sydney Swans defeated Essendon 112-76.",
       "synopsisSpoilerOn": "Essendon v Sydney Swans finished 76-112 in Round 23, with Sydney Swans winning by 36 points."
-    }
+    },
+    "endTimeUtc": "2026-08-16T09:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142407",
@@ -15491,7 +15635,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142407",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8242",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15540,7 +15684,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "St Kilda v Gold Coast SUNS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Gold Coast SUNS defeated St Kilda 103-80.",
       "synopsisSpoilerOn": "St Kilda v Gold Coast SUNS finished 80-103 in Round 24, with Gold Coast SUNS winning by 23 points."
-    }
+    },
+    "endTimeUtc": "2026-08-20T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992501",
@@ -15588,7 +15734,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992501",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15637,7 +15783,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Storm v Panthers is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Panthers defeated Storm 22-14.",
       "synopsisSpoilerOn": "Storm v Panthers finished 14-22 in Round 25, with Panthers winning by 8 points."
-    }
+    },
+    "endTimeUtc": "2026-08-20T12:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "nrl-raiders-broncos-2026-08-21",
@@ -15695,7 +15843,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992502",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15734,7 +15882,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-21T11:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142402",
@@ -15782,7 +15932,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142402",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8239",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -15831,7 +15981,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Collingwood v Brisbane Lions is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Brisbane Lions defeated Collingwood 159-96.",
       "synopsisSpoilerOn": "Collingwood v Brisbane Lions finished 96-159 in Round 24, with Brisbane Lions winning by 63 points."
-    }
+    },
+    "endTimeUtc": "2026-08-21T12:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992503",
@@ -15879,7 +16031,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992503",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -15928,7 +16080,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Dolphins v Eels is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Dolphins defeated Eels 34-16.",
       "synopsisSpoilerOn": "Dolphins v Eels finished 34-16 in Round 25, with Dolphins winning by 18 points."
-    }
+    },
+    "endTimeUtc": "2026-08-21T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128923",
@@ -16140,7 +16294,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:50:03.143Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-08-22T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142403",
@@ -16188,7 +16344,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142403",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8240",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -16237,7 +16393,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Carlton v Fremantle is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Carlton defeated Fremantle 119-82.",
       "synopsisSpoilerOn": "Carlton v Fremantle finished 119-82 in Round 24, with Carlton winning by 37 points."
-    }
+    },
+    "endTimeUtc": "2026-08-22T06:15:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992504",
@@ -16285,7 +16443,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992504",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16334,7 +16492,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Knights v Sea Eagles is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sea Eagles defeated Knights 44-24.",
       "synopsisSpoilerOn": "Knights v Sea Eagles finished 24-44 in Round 25, with Sea Eagles winning by 20 points."
-    }
+    },
+    "endTimeUtc": "2026-08-22T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142406",
@@ -16382,7 +16542,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142406",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8236",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -16431,7 +16591,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Melbourne v Western Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Western Bulldogs defeated Melbourne 108-87.",
       "synopsisSpoilerOn": "Melbourne v Western Bulldogs finished 87-108 in Round 24, with Western Bulldogs winning by 21 points."
-    }
+    },
+    "endTimeUtc": "2026-08-22T09:15:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992505",
@@ -16479,7 +16641,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992505",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16528,7 +16690,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Rabbitohs v Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Warriors defeated Rabbitohs 45-26.",
       "synopsisSpoilerOn": "Rabbitohs v Warriors finished 26-45 in Round 25, with Warriors winning by 19 points."
-    }
+    },
+    "endTimeUtc": "2026-08-22T10:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992506",
@@ -16576,7 +16740,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992506",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -16625,7 +16789,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Dragons v Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Bulldogs defeated Dragons 44-14.",
       "synopsisSpoilerOn": "Dragons v Bulldogs finished 14-44 in Round 25, with Bulldogs winning by 30 points."
-    }
+    },
+    "endTimeUtc": "2026-08-22T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142405",
@@ -16673,7 +16839,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142405",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8246",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -16722,7 +16888,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Geelong Cats v Richmond is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Geelong Cats defeated Richmond 133-76.",
       "synopsisSpoilerOn": "Geelong Cats v Richmond finished 133-76 in Round 24, with Geelong Cats winning by 57 points."
-    }
+    },
+    "endTimeUtc": "2026-08-22T12:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142401",
@@ -16770,7 +16938,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142401",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8243",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -16819,7 +16987,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Adelaide Crows v GWS GIANTS is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Adelaide Crows defeated GWS GIANTS 157-101.",
       "synopsisSpoilerOn": "Adelaide Crows v GWS GIANTS finished 157-101 in Round 24, with Adelaide Crows winning by 56 points."
-    }
+    },
+    "endTimeUtc": "2026-08-22T13:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128926",
@@ -16979,7 +17149,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "participantIds": [
       "team:rugby:springboks",
       "team:rugby:all-blacks"
-    ]
+    ],
+    "endTimeUtc": "2026-08-22T16:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128925",
@@ -17460,7 +17632,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142404",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8235",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -17540,7 +17712,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-23T05:20:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992507",
@@ -17588,7 +17762,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992507",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -17665,7 +17839,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-23T07:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142408",
@@ -17713,7 +17889,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142408",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8245",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -17793,7 +17969,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-23T08:20:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992508",
@@ -17841,7 +18019,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992508",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -17918,7 +18096,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-23T09:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142409",
@@ -17966,7 +18146,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142409",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/8241",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -18046,7 +18226,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-23T12:20:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128929",
@@ -18794,7 +18976,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992601",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -18871,7 +19053,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-27T12:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992602",
@@ -18919,7 +19103,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992602",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -18996,7 +19180,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-28T11:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142502",
@@ -19048,7 +19234,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142502",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9020",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -19235,7 +19421,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winnerParticipantId": "team:afl:cd_t140",
       "scorelineText": "Western Bulldogs v Collingwood — 96-93",
       "spoilerLevel": "sensitive"
-    }
+    },
+    "endTimeUtc": "2026-08-28T12:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992603",
@@ -19283,7 +19471,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992603",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -19360,7 +19548,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-28T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128937",
@@ -19543,7 +19733,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640301",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8897",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -19595,7 +19785,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "North Melbourne v Western Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "North Melbourne defeated Western Bulldogs 70-23.",
       "synopsisSpoilerOn": "North Melbourne v Western Bulldogs finished 70-23 in Round 3, with North Melbourne winning by 47 points."
-    }
+    },
+    "endTimeUtc": "2026-08-29T05:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640302",
@@ -19645,7 +19837,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640302",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8899",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -19697,7 +19889,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Adelaide Crows v West Coast Eagles is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Adelaide Crows defeated West Coast Eagles 60-43.",
       "synopsisSpoilerOn": "Adelaide Crows v West Coast Eagles finished 60-43 in Round 3, with Adelaide Crows winning by 17 points."
-    }
+    },
+    "endTimeUtc": "2026-08-29T07:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992604",
@@ -19745,7 +19939,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992604",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -19825,7 +20019,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-29T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640303",
@@ -19875,7 +20071,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640303",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8902",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -19927,7 +20123,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Sydney Swans v St Kilda is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Sydney Swans defeated St Kilda 38-15.",
       "synopsisSpoilerOn": "Sydney Swans v St Kilda finished 38-15 in Round 3, with Sydney Swans winning by 23 points."
-    }
+    },
+    "endTimeUtc": "2026-08-29T09:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992605",
@@ -19975,7 +20173,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992605",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -20055,7 +20253,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-29T10:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992606",
@@ -20103,7 +20303,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992606",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -20183,7 +20383,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-29T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142501",
@@ -20235,7 +20437,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142501",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9021",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -20422,7 +20624,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winnerParticipantId": "team:afl:cd_t30",
       "scorelineText": "Melbourne v Carlton — 55-74",
       "spoilerLevel": "sensitive"
-    }
+    },
+    "endTimeUtc": "2026-08-29T12:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128939",
@@ -21060,7 +21264,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "recapText": "Australia held out Argentina 27-21 in Jujuy, extending the Wallabies' winning start under Les Kiss before the second Test in Mendoza.",
     "resultLabels": [
       "Australia 27-21 Argentina"
-    ]
+    ],
+    "endTimeUtc": "2026-08-29T22:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640304",
@@ -21110,7 +21316,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640304",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8900",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -21162,7 +21368,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "GWS GIANTS v Port Adelaide is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Port Adelaide defeated GWS GIANTS 52-48.",
       "synopsisSpoilerOn": "GWS GIANTS v Port Adelaide finished 48-52 in Round 3, with Port Adelaide winning by 4 points."
-    }
+    },
+    "endTimeUtc": "2026-08-30T05:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640305",
@@ -21212,7 +21420,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640305",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8901",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -21264,7 +21472,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Melbourne v Brisbane Lions is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Melbourne defeated Brisbane Lions 89-33.",
       "synopsisSpoilerOn": "Melbourne v Brisbane Lions finished 89-33 in Round 3, with Melbourne winning by 56 points."
-    }
+    },
+    "endTimeUtc": "2026-08-30T06:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992607",
@@ -21312,7 +21522,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992607",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -21539,7 +21749,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalResultScoreline": "Warriors v Knights — 46-32",
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-30T07:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640306",
@@ -21589,7 +21801,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640306",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8903",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -21641,7 +21853,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Gold Coast SUNS v Geelong Cats is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Geelong Cats defeated Gold Coast SUNS 64-57.",
       "synopsisSpoilerOn": "Gold Coast SUNS v Geelong Cats finished 57-64 in Round 3, with Geelong Cats winning by 7 points."
-    }
+    },
+    "endTimeUtc": "2026-08-30T08:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640307",
@@ -21691,7 +21905,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640307",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8904",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -21743,7 +21957,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Collingwood v Hawthorn is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Hawthorn defeated Collingwood 54-26.",
       "synopsisSpoilerOn": "Collingwood v Hawthorn finished 26-54 in Round 3, with Hawthorn winning by 28 points."
-    }
+    },
+    "endTimeUtc": "2026-08-30T08:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992608",
@@ -21791,7 +22007,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992608",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -21873,7 +22089,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalResultScoreline": "Eels v Sharks — 38-18",
     "competitionPhase": "regular-season",
     "isFinalRegularSeasonRound": false,
-    "stakesFloor": 1
+    "stakesFloor": 1,
+    "endTimeUtc": "2026-08-30T09:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640308",
@@ -21923,7 +22141,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640308",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8908",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -21975,7 +22193,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Fremantle v Carlton is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Carlton defeated Fremantle 48-42.",
       "synopsisSpoilerOn": "Fremantle v Carlton finished 42-48 in Round 3, with Carlton winning by 6 points."
-    }
+    },
+    "endTimeUtc": "2026-08-30T10:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640309",
@@ -22025,7 +22245,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640309",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8906",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -22077,7 +22297,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOff": "Essendon v Richmond is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "hookSpoilerOn": "Richmond defeated Essendon 38-33.",
       "synopsisSpoilerOn": "Essendon v Richmond finished 33-38 in Round 3, with Richmond winning by 5 points."
-    }
+    },
+    "endTimeUtc": "2026-08-30T12:20:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128935",
@@ -23318,7 +23540,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992701",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -23401,7 +23623,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 8,
       "intensitySource": "computed",
       "researchDepth": 2
-    }
+    },
+    "endTimeUtc": "2026-09-03T12:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142601",
@@ -23453,7 +23677,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142601",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9024",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -23642,7 +23866,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winnerParticipantId": "team:afl:cd_t80",
       "scorelineText": "Fremantle v Hawthorn — 40-72",
       "spoilerLevel": "sensitive"
-    }
+    },
+    "endTimeUtc": "2026-09-03T13:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-ms-1202",
@@ -24248,7 +24474,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992702",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -24331,7 +24557,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Dolphins defeated Titans 24-20.",
       "marginText": "Dolphins by 4"
     },
-    "canonicalResultScoreline": "Titans v Dolphins — 20-24"
+    "canonicalResultScoreline": "Titans v Dolphins — 20-24",
+    "endTimeUtc": "2026-09-04T11:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142603",
@@ -24383,7 +24611,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142603",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9022",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -24572,7 +24800,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winnerParticipantId": "team:afl:cd_t70",
       "scorelineText": "Geelong Cats v Carlton — 107-74",
       "spoilerLevel": "sensitive"
-    }
+    },
+    "endTimeUtc": "2026-09-04T12:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992703",
@@ -24622,7 +24852,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992703",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -24705,7 +24935,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Rabbitohs defeated Roosters 50-20.",
       "marginText": "Rabbitohs by 30"
     },
-    "canonicalResultScoreline": "Rabbitohs v Roosters — 50-20"
+    "canonicalResultScoreline": "Rabbitohs v Roosters — 50-20",
+    "endTimeUtc": "2026-09-04T13:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-md-3126",
@@ -25268,7 +25500,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640401",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8905",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -25351,7 +25583,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-05T05:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640402",
@@ -25401,7 +25635,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640402",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8907",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -25484,7 +25718,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-05T06:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640403",
@@ -25534,7 +25770,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640403",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8910",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -25617,7 +25853,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-05T07:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992704",
@@ -25667,7 +25905,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992704",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -25750,7 +25988,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Warriors defeated Sea Eagles 31-30.",
       "marginText": "Warriors by 1"
     },
-    "canonicalResultScoreline": "Warriors v Sea Eagles — 31-30"
+    "canonicalResultScoreline": "Warriors v Sea Eagles — 31-30",
+    "endTimeUtc": "2026-09-05T08:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142602",
@@ -25802,7 +26042,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142602",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9029",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -25991,7 +26231,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winnerParticipantId": "team:afl:cd_t160",
       "scorelineText": "Sydney Swans v Brisbane Lions — 141-88",
       "spoilerLevel": "sensitive"
-    }
+    },
+    "endTimeUtc": "2026-09-05T08:15:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992705",
@@ -26041,7 +26283,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992705",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -26124,7 +26366,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Raiders defeated Cowboys 50-30.",
       "marginText": "Raiders by 20"
     },
-    "canonicalResultScoreline": "Cowboys v Raiders — 30-50"
+    "canonicalResultScoreline": "Cowboys v Raiders — 30-50",
+    "endTimeUtc": "2026-09-05T10:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640404",
@@ -26174,7 +26418,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640404",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8909",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -26257,7 +26501,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-05T11:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992706",
@@ -26307,7 +26553,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992706",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -26390,7 +26636,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Storm defeated Sharks 24-20.",
       "marginText": "Storm by 4"
     },
-    "canonicalResultScoreline": "Sharks v Storm — 20-24"
+    "canonicalResultScoreline": "Sharks v Storm — 20-24",
+    "endTimeUtc": "2026-09-05T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142604",
@@ -26442,7 +26690,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142604",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9025",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -26631,7 +26879,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "winnerParticipantId": "team:afl:cd_t10",
       "scorelineText": "Adelaide Crows v Western Bulldogs — 90-68",
       "spoilerLevel": "sensitive"
-    }
+    },
+    "endTimeUtc": "2026-09-05T12:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128951",
@@ -28421,7 +28671,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Draw",
       "Australia series win",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-06T00:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-ms-1306",
@@ -28647,7 +28899,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640405",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8911",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -28730,7 +28982,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-06T05:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640406",
@@ -28780,7 +29034,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640406",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8912",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -28863,7 +29117,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-06T06:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992707",
@@ -28913,7 +29169,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992707",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -29019,7 +29275,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Dragons defeated Eels 24-22.",
       "marginText": "Dragons by 2"
     },
-    "canonicalResultScoreline": "Dragons v Eels — 24-22"
+    "canonicalResultScoreline": "Dragons v Eels — 24-22",
+    "endTimeUtc": "2026-09-06T07:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640407",
@@ -29069,7 +29327,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640407",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8914",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -29152,7 +29410,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-06T07:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640408",
@@ -29202,7 +29462,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640408",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8916",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -29285,7 +29545,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-06T08:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-nrl-129992708",
@@ -29335,7 +29597,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "129992708",
     "canonicalSourceName": "NRL Match Centre / Champion Data",
     "canonicalSourceUrl": "https://www.nrl.com/draw",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:nrl",
     "competitionId": "competition:nrl-premiership-2026",
@@ -29441,7 +29703,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Panthers defeated Wests Tigers 38-10.",
       "marginText": "Panthers by 28"
     },
-    "canonicalResultScoreline": "Panthers v Wests Tigers — 38-10"
+    "canonicalResultScoreline": "Panthers v Wests Tigers — 38-10",
+    "endTimeUtc": "2026-09-06T09:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640409",
@@ -29491,7 +29755,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640409",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8913",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -29574,7 +29838,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-06T10:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_sailgp_2026_valencia_day_2",
@@ -29705,7 +29971,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-06T14:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_china_czechia",
@@ -29849,7 +30117,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-06T15:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128946",
@@ -30525,7 +30795,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "displayName": "Charles Leclerc",
         "countryCode": "MC"
       }
-    ]
+    ],
+    "endTimeUtc": "2026-09-06T16:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128943",
@@ -30978,7 +31250,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:06:42.638Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-06T18:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_italy_usa",
@@ -31122,7 +31396,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:06:42.638Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-06T21:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_belgium_australia",
@@ -31266,7 +31542,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:06:42.638Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-07T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_puerto_rico_turkiye",
@@ -31410,7 +31688,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:06:42.638Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-07T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_hungary_korea",
@@ -31554,7 +31834,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:06:42.638Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-07T15:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_nigeria_france",
@@ -31698,7 +31980,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:06:42.638Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-07T15:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-wd-4301",
@@ -32046,7 +32330,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:06:42.638Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-07T18:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_japan_spain",
@@ -32190,7 +32476,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:06:42.638Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-07T18:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_italy_china",
@@ -32334,7 +32622,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:06:42.638Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-07T21:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_group_usa_czechia",
@@ -32478,7 +32768,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T14:06:42.638Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "endTimeUtc": "2026-09-07T21:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-08",
@@ -32724,8 +33016,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "selectedSentence": "Frances Tiafoe v Alex Michelsen is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Frances Tiafoe v Alex Michelsen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ms:1503",
@@ -32913,8 +33205,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "selectedSentence": "Aryna Sabalenka v Linda Noskova is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Aryna Sabalenka v Linda Noskova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ws:2501",
@@ -33001,7 +33293,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -33030,7 +33322,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-qualification-day-1",
@@ -33068,7 +33360,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Qualification to quarterfinals",
       "Australia 82-80 Italy · China 75-72 Puerto Rico",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-08T18:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "fixture-us-open-2026-official-ms-1504",
@@ -33205,8 +33499,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "selectedSentence": "Ben Shelton v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Ben Shelton v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ms:1504",
@@ -33394,8 +33688,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "selectedSentence": "Jessica Pegula v Emma Navarro is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Jessica Pegula v Emma Navarro is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ws:2502",
@@ -33492,10 +33786,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "WRC Rally Chile Bio Bío is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "WRC",
     "sourceUrl": "https://www.wrc.com/en/news/solberg-wins-rally-chile-as-toyota-clinches-manufacturers-crown",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": true,
@@ -33555,7 +33849,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -33584,7 +33878,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-qualification-day-2",
@@ -33622,7 +33916,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Qualification to quarterfinals",
       "Germany 94-56 Korea · Hungary 84-63 Japan",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-09T18:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_quarterfinals",
@@ -33658,7 +33954,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -33688,7 +33984,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "archetype": "elimination",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-quarterfinals",
@@ -33726,7 +34022,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Quarterfinals",
       "Spain 89-66 Australia · Germany 93-74 Belgium · France 90-61 China · USA 108-56 Hungary",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-10T19:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nrlw_2026_round_11_roosters_bulldogs",
@@ -33765,7 +34063,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/10/thursday-night-footy-roosters-v-bulldogs/",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -33824,7 +34122,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-roosters-bulldogs",
@@ -33889,7 +34187,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Round 11",
       "Sydney Roosters 42-12 Canterbury-Bankstown Bulldogs",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-10T12:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nrlw_2026_round_11_wests_tigers_raiders",
@@ -33928,7 +34228,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/08/nrlw-team-lists-round-11/",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -33987,7 +34287,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-wests-tigers-raiders",
@@ -34052,7 +34352,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Round 11",
       "Wests Tigers 10-22 Canberra Raiders",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-11T10:40:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "major-match-nrl-finals-2026-elimination-final-2",
@@ -34144,7 +34446,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "canonicalEventId": "major-match:nrl-finals-2026:elimination-final-2",
@@ -34163,7 +34465,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Rabbitohs v Knights is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Rabbitohs v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:elimination-final-2",
       "major-match-nrl-finals-2026-elimination-final-2"
@@ -34209,7 +34511,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Elimination Final",
       "Rabbitohs 10-20 Knights",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-11T12:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-afl-cd_m20260142701",
@@ -34261,7 +34565,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142701",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9023",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -34467,7 +34771,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Fremantle defeated Geelong Cats 120-106.",
       "marginText": "Fremantle by 14"
     },
-    "canonicalResultScoreline": "Fremantle v Geelong Cats — 120-106"
+    "canonicalResultScoreline": "Fremantle v Geelong Cats — 120-106",
+    "endTimeUtc": "2026-09-11T13:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nrlw_2026_round_11_eels_cowboys",
@@ -34506,7 +34812,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -34565,7 +34871,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-eels-cowboys",
@@ -34630,7 +34936,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Round 11",
       "Parramatta Eels 33-28 North Queensland Cowboys",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-12T05:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640501",
@@ -34680,7 +34988,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640501",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8915",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -34761,7 +35069,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Hawthorn defeated Western Bulldogs 41-30.",
       "marginText": "Hawthorn by 11"
     },
-    "canonicalResultScoreline": "Hawthorn v Western Bulldogs — 41-30"
+    "canonicalResultScoreline": "Hawthorn v Western Bulldogs — 41-30",
+    "endTimeUtc": "2026-09-12T06:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640502",
@@ -34811,7 +35121,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640502",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8919",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -34892,7 +35202,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Gold Coast SUNS defeated Collingwood 62-32.",
       "marginText": "Gold Coast SUNS by 30"
     },
-    "canonicalResultScoreline": "Gold Coast SUNS v Collingwood — 62-32"
+    "canonicalResultScoreline": "Gold Coast SUNS v Collingwood — 62-32",
+    "endTimeUtc": "2026-09-12T07:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640503",
@@ -34942,7 +35254,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640503",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8917",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -35023,7 +35335,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Geelong Cats defeated Adelaide Crows 57-46.",
       "marginText": "Geelong Cats by 11"
     },
-    "canonicalResultScoreline": "Adelaide Crows v Geelong Cats — 46-57"
+    "canonicalResultScoreline": "Adelaide Crows v Geelong Cats — 46-57",
+    "endTimeUtc": "2026-09-12T08:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "major-match-nrl-finals-2026-qualifying-final-2",
@@ -35116,7 +35430,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "canonicalEventId": "major-match:nrl-finals-2026:qualifying-final-2",
@@ -35135,7 +35449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Warriors v Dolphins is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Warriors v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:qualifying-final-2",
       "major-match-nrl-finals-2026-qualifying-final-2"
@@ -35181,7 +35495,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Qualifying Final",
       "Warriors 16-26 Dolphins",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-12T09:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640504",
@@ -35231,7 +35547,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640504",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8918",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -35312,7 +35628,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "West Coast Eagles defeated Brisbane Lions 46-41.",
       "marginText": "West Coast Eagles by 5"
     },
-    "canonicalResultScoreline": "West Coast Eagles v Brisbane Lions — 46-41"
+    "canonicalResultScoreline": "West Coast Eagles v Brisbane Lions — 46-41",
+    "endTimeUtc": "2026-09-12T09:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nrlw_2026_round_11_sharks_dragons",
@@ -35351,7 +35669,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -35410,7 +35728,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-sharks-dragons",
@@ -35475,7 +35793,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Round 11",
       "Cronulla-Sutherland Sharks 16-8 St George Illawarra Dragons",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-12T10:10:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "sport": "NRL",
@@ -35616,7 +35936,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142702",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9030",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -35823,7 +36143,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Brisbane Lions defeated Adelaide Crows 144-91.",
       "marginText": "Brisbane Lions by 53"
     },
-    "canonicalResultScoreline": "Brisbane Lions v Adelaide Crows — 144-91"
+    "canonicalResultScoreline": "Brisbane Lions v Adelaide Crows — 144-91",
+    "endTimeUtc": "2026-09-12T12:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "major-match-nrl-finals-2026-elimination-final-1",
@@ -35915,7 +36237,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "canonicalEventId": "major-match:nrl-finals-2026:elimination-final-1",
@@ -35934,7 +36256,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Sharks v Cowboys is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Sharks v Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:elimination-final-1",
       "major-match-nrl-finals-2026-elimination-final-1"
@@ -35980,6 +36302,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Elimination Final",
       "Sharks 26-16 Cowboys",
       "Official result"
+    ],
+    "endTimeUtc": "2026-09-12T12:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "sourceRefs": [
+      "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/"
     ]
   },
   {
@@ -36644,7 +36971,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "R14 Spanish GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Formula 1 official session results",
     "sourceUrl": "https://www.formula1.com/en/results/2026/races/1294/spain/qualifying",
-    "sourceCheckedAt": "2026-09-15T04:02:05.012Z",
+    "sourceCheckedAt": "2026-09-15T04:44:18.999Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -36657,7 +36984,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "status": "completed",
     "sourceTrust": "unverified",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-28",
@@ -36712,144 +37039,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Result",
       "1. Lando Norris · 2. Kimi Antonelli · 3. Max Verstappen",
       "Official result"
-    ]
-  },
-  {
-    "id": "evt_motogp_2026_san_marino",
-    "eventId": "evt_motogp_2026_san_marino",
-    "canonicalEventId": "event:motogp:2026:san-marino",
-    "sport": "MotoGP",
-    "key": "motogp",
-    "name": "MotoGP San Marino Grand Prix",
-    "displayTitleCompact": "MotoGP San Marino Grand Prix",
-    "date": "2026-09-13",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
     ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Misano World Circuit Marco Simoncelli",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "San Marino GP",
-    "stage": "Grand Prix",
-    "narrativeType": "all",
-    "selectedSentence": "MotoGP San Marino Grand Prix is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "MotoGP San Marino Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "MotoGP",
-    "sourceUrl": "https://www.motogp.com/en/news/2026/07/16//1088005",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "sportDomainId": "sport:motorsport",
-    "discoverySportId": "sport:motogp",
-    "competitionId": "competition:motogp",
-    "taxonomyNodeId": "competition:motogp",
-    "codeId": "competition:motogp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "FR",
-      "TR",
-      "IT",
-      "BR",
-      "ES",
-      "ZA",
-      "AU",
-      "JP"
-    ],
-    "participantIds": [
-      "competitor:motogp:johann-zarco",
-      "competitor:motogp:toprak-razgatlioglu",
-      "competitor:motogp:luca-marini",
-      "competitor:motogp:diogo-moreira",
-      "competitor:motogp:maverick-vinales",
-      "competitor:motogp:fabio-quartararo",
-      "competitor:motogp:franco-morbidelli",
-      "competitor:motogp:enea-bastianini",
-      "competitor:motogp:raul-fernandez",
-      "competitor:motogp:brad-binder",
-      "competitor:motogp:joan-mir",
-      "competitor:motogp:pedro-acosta",
-      "competitor:motogp:alex-rins",
-      "competitor:motogp:jack-miller",
-      "competitor:motogp:fabio-di-giannantonio",
-      "competitor:motogp:fermin-aldeguer",
-      "competitor:motogp:francesco-bagnaia",
-      "competitor:motogp:marco-bezzecchi",
-      "competitor:motogp:alex-marquez",
-      "competitor:motogp:ai-ogura",
-      "competitor:motogp:jorge-martin",
-      "competitor:motogp:marc-marquez"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
-      "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
-    },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-motogp-2026-san-marino",
-      "researchTier": "marquee",
-      "hook": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-      "synopsis": "MotoGP's title fight heads to Misano for the San Marino Grand Prix. The Italian stop begins the final nine-race run to the Valencia decider.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-san-marino:schedule",
-        "fact:rolling:event-motogp-2026-san-marino:field",
-        "fact:rolling:event-motogp-2026-san-marino:viewing",
-        "fact:rolling:event-motogp-2026-san-marino:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "score": "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
-    "outcomeText": "Marc Marquez won the San Marino Grand Prix.",
-    "recapText": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "San Marino GP",
-      "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
-      "Official result"
-    ]
+    "endTimeUtc": "2026-09-12T17:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_semifinals",
@@ -36885,7 +37077,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-semi-finals",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -36915,7 +37107,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "archetype": "elimination",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-semifinals",
@@ -36953,7 +37145,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Semifinals",
       "USA 76-66 Spain · France 86-64 Germany",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-12T22:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128962",
@@ -37250,7 +37444,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -37310,7 +37504,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-broncos-warriors",
@@ -37375,7 +37569,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Round 11",
       "Brisbane Broncos 52-18 New Zealand Warriors",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-13T05:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640505",
@@ -37425,7 +37621,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640505",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8923",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -37506,7 +37702,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Melbourne defeated Port Adelaide 74-23.",
       "marginText": "Melbourne by 51"
     },
-    "canonicalResultScoreline": "Melbourne v Port Adelaide — 74-23"
+    "canonicalResultScoreline": "Melbourne v Port Adelaide — 74-23",
+    "endTimeUtc": "2026-09-13T05:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640506",
@@ -37556,7 +37754,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640506",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8921",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -37637,7 +37835,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Richmond defeated St Kilda 58-43.",
       "marginText": "Richmond by 15"
     },
-    "canonicalResultScoreline": "Richmond v St Kilda — 58-43"
+    "canonicalResultScoreline": "Richmond v St Kilda — 58-43",
+    "endTimeUtc": "2026-09-13T06:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_nrlw_2026_round_11_knights_titans",
@@ -37676,7 +37876,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -37735,7 +37935,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 2
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-knights-titans",
@@ -37800,7 +38000,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Round 11",
       "Newcastle Knights 20-32 Gold Coast Titans",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-13T06:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640507",
@@ -37850,7 +38052,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640507",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8920",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -37931,7 +38133,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Sydney Swans defeated GWS GIANTS 87-56.",
       "marginText": "Sydney Swans by 31"
     },
-    "canonicalResultScoreline": "Sydney Swans v GWS GIANTS — 87-56"
+    "canonicalResultScoreline": "Sydney Swans v GWS GIANTS — 87-56",
+    "endTimeUtc": "2026-09-13T07:35:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "event-aflw-cd_m20262640508",
@@ -37981,7 +38185,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640508",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8922",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -38062,7 +38266,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "North Melbourne defeated Carlton 33-23.",
       "marginText": "North Melbourne by 10"
     },
-    "canonicalResultScoreline": "North Melbourne v Carlton — 33-23"
+    "canonicalResultScoreline": "North Melbourne v Carlton — 33-23",
+    "endTimeUtc": "2026-09-13T08:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "major-match-nrl-finals-2026-qualifying-final-1",
@@ -38154,7 +38360,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ],
     "sourceName": "NRL",
     "sourceUrl": "https://www.nrl.com/news/2026/09/13/finals-blockbuster-panthers-v-roosters/",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "canonicalEventId": "major-match:nrl-finals-2026:qualifying-final-1",
@@ -38173,7 +38379,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "consensusTags": [],
     "selectedSentence": "Panthers v Roosters is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "Panthers v Roosters is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "sourceEventIds": [
       "major-match:nrl-finals-2026:qualifying-final-1",
       "major-match-nrl-finals-2026-qualifying-final-1"
@@ -38219,6 +38425,11 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Qualifying Final",
       "Panthers 19-12 Roosters",
       "Official result"
+    ],
+    "endTimeUtc": "2026-09-13T09:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "sourceRefs": [
+      "https://www.nrl.com/news/2026/09/13/finals-blockbuster-panthers-v-roosters/"
     ]
   },
   {
@@ -38269,7 +38480,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640509",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8924",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -38350,7 +38561,154 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "summary": "Fremantle defeated Essendon 37-22.",
       "marginText": "Fremantle by 15"
     },
-    "canonicalResultScoreline": "Fremantle v Essendon — 37-22"
+    "canonicalResultScoreline": "Fremantle v Essendon — 37-22",
+    "endTimeUtc": "2026-09-13T10:05:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_motogp_2026_san_marino",
+    "eventId": "evt_motogp_2026_san_marino",
+    "canonicalEventId": "event:motogp:2026:san-marino",
+    "sport": "MotoGP",
+    "key": "motogp",
+    "name": "MotoGP San Marino Grand Prix",
+    "displayTitleCompact": "MotoGP San Marino Grand Prix",
+    "date": "2026-09-13",
+    "time": "22:00",
+    "timeTbc": false,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Misano World Circuit Marco Simoncelli",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "San Marino GP",
+    "stage": "Grand Prix",
+    "narrativeType": "all",
+    "selectedSentence": "MotoGP San Marino Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "MotoGP San Marino Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "MotoGP",
+    "sourceUrl": "https://stats.motogp.com/en/gp-results",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "sportDomainId": "sport:motorsport",
+    "discoverySportId": "sport:motogp",
+    "competitionId": "competition:motogp",
+    "taxonomyNodeId": "competition:motogp",
+    "codeId": "competition:motogp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "FR",
+      "TR",
+      "IT",
+      "BR",
+      "ES",
+      "ZA",
+      "AU",
+      "JP"
+    ],
+    "participantIds": [
+      "competitor:motogp:johann-zarco",
+      "competitor:motogp:toprak-razgatlioglu",
+      "competitor:motogp:luca-marini",
+      "competitor:motogp:diogo-moreira",
+      "competitor:motogp:maverick-vinales",
+      "competitor:motogp:fabio-quartararo",
+      "competitor:motogp:franco-morbidelli",
+      "competitor:motogp:enea-bastianini",
+      "competitor:motogp:raul-fernandez",
+      "competitor:motogp:brad-binder",
+      "competitor:motogp:joan-mir",
+      "competitor:motogp:pedro-acosta",
+      "competitor:motogp:alex-rins",
+      "competitor:motogp:jack-miller",
+      "competitor:motogp:fabio-di-giannantonio",
+      "competitor:motogp:fermin-aldeguer",
+      "competitor:motogp:francesco-bagnaia",
+      "competitor:motogp:marco-bezzecchi",
+      "competitor:motogp:alex-marquez",
+      "competitor:motogp:ai-ogura",
+      "competitor:motogp:jorge-martin",
+      "competitor:motogp:marc-marquez"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "computed",
+      "arcStage": "recap",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
+      "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
+      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "researchDepth": 5
+    },
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-motogp-2026-san-marino",
+      "researchTier": "marquee",
+      "hook": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
+      "synopsis": "MotoGP's title fight heads to Misano for the San Marino Grand Prix. The Italian stop begins the final nine-race run to the Valencia decider.",
+      "threadIds": [
+        "thread:rolling:motogp:2026"
+      ],
+      "factIds": [
+        "fact:rolling:event-motogp-2026-san-marino:schedule",
+        "fact:rolling:event-motogp-2026-san-marino:field",
+        "fact:rolling:event-motogp-2026-san-marino:viewing",
+        "fact:rolling:event-motogp-2026-san-marino:consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:motogp:motogp-calendar",
+        "source:rolling:motogp:motogp-riders",
+        "source:rolling:motogp:motogp-broadcast-au"
+      ],
+      "dimensions": [
+        "schedule",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-09-08T12:57:33.822Z",
+      "refreshAfter": null,
+      "generationMode": "researched"
+    },
+    "score": "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
+    "outcomeText": "Marc Marquez won the San Marino Grand Prix.",
+    "recapText": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
+    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+    "resultLabels": [
+      "San Marino GP",
+      "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
+      "Official result"
+    ],
+    "startTimeUtc": "2026-09-13T12:00:00.000Z",
+    "endTimeUtc": "2026-09-13T13:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "sourceRefs": [
+      "https://stats.motogp.com/en/gp-results",
+      "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181",
+      "https://www.motogp.com/en/news/2026/07/16//1088005"
+    ]
   },
   {
     "id": "epl-2026-27-128956",
@@ -38498,7 +38856,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "R14 Spanish GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "Formula 1 official session results",
     "sourceUrl": "https://www.formula1.com/en/results/2026/races/1294/spain/race-result",
-    "sourceCheckedAt": "2026-09-15T04:02:05.012Z",
+    "sourceCheckedAt": "2026-09-15T04:44:18.999Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -38511,7 +38869,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "status": "completed",
     "sourceTrust": "unverified",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-29",
@@ -38566,7 +38924,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Result",
       "1. Kimi Antonelli · 2. Max Verstappen · 3. Lando Norris",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-13T16:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_fiba_women_2026_bronze",
@@ -38602,7 +38962,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -38631,7 +38991,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-bronze",
@@ -38671,7 +39031,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Third-place game",
       "Spain 81-58 Germany",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-13T17:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128960",
@@ -38836,7 +39198,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "fullSpiel": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
     "sourceName": "FIBA",
     "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -38866,7 +39228,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "archetype": "championship decider",
       "researchDepth": 5
     },
-    "lastReviewedAt": "2026-09-15T03:15:00.000Z",
+    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-final",
@@ -38906,7 +39268,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Final",
       "USA 97-79 France",
       "Official result"
-    ]
+    ],
+    "endTimeUtc": "2026-09-13T21:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "epl-2026-27-128958",
@@ -39085,7 +39449,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640601",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8925",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -39160,6 +39524,236 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1
     }
+  },
+  {
+    "id": "event-afl-cd_m20260142802",
+    "name": "Sydney Swans v Fremantle",
+    "roundLabel": "Preliminary Finals",
+    "stage": "Preliminary Final",
+    "startTimeUtc": "2026-09-18T09:40:00.000Z",
+    "venue": "SCG",
+    "stakesScore": 5,
+    "summary": "Second Preliminary Final. Teams, venue and time are pending the Semi Finals.",
+    "participantIds": [
+      "team:afl:cd_t160",
+      "team:afl:cd_t60"
+    ],
+    "participants": [
+      {
+        "id": "team:afl:cd_t160",
+        "name": "Sydney Swans",
+        "role": "home"
+      },
+      {
+        "id": "team:afl:cd_t60",
+        "name": "Fremantle",
+        "role": "away"
+      }
+    ],
+    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports / Binge",
+    "broadcasterIds": [
+      "seven",
+      "foxtel",
+      "kayo"
+    ],
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel",
+      "7plus",
+      "Watch AFL"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "serviceId": "kayo",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      },
+      {
+        "providerId": "foxtel",
+        "serviceId": "foxtel",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      },
+      {
+        "providerId": "seven",
+        "serviceId": "seven",
+        "territory": "AU",
+        "accessType": "free",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142802",
+      "researchTier": "marquee",
+      "hook": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final.",
+      "synopsis": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
+      "threadIds": [
+        "thread:afl:finals-2026:first-wildcard-road"
+      ],
+      "factIds": [
+        "fact:afl-finals-2026:new-format",
+        "fact:afl-finals-2026:wildcard-results",
+        "fact:afl-finals-2026:week-two-path",
+        "fact:afl-finals-2026:carlton-revival",
+        "fact:afl-finals-2026:bulldogs-jones",
+        "fact:afl-finals-2026:destination"
+      ],
+      "sourceIds": [
+        "source:afl:2026-wildcard-format",
+        "source:afl:2026-bulldogs-wildcard",
+        "source:afl:2026-arty-jones",
+        "source:afl:2026-carlton-wildcard",
+        "source:afl:2026-week-two",
+        "source:afl:2026-grand-final-time"
+      ],
+      "dimensions": [
+        "format",
+        "form",
+        "path",
+        "history",
+        "schedule"
+      ],
+      "researchedAt": "2026-08-29T19:30:00.000Z",
+      "refreshAfter": "2026-09-03T10:00:00.000Z",
+      "generationMode": "verified-parent-child-projection"
+    },
+    "storyline": {
+      "stakes": 5,
+      "hookSpoilerOff": "Sydney Swans v Fremantle is coming up, with the main context and watch details in place.",
+      "hookSpoilerOn": "Sydney Swans v Fremantle is coming up, with the main context and watch details in place.",
+      "synopsisSpoilerOff": "Sydney Swans v Fremantle is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+      "synopsisSpoilerOn": "Sydney Swans v Fremantle is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+      "arcStage": "preview",
+      "intensity": 5,
+      "expectedSpectacle": 10,
+      "intensitySource": "computed"
+    },
+    "competitionPhase": "preliminary-final",
+    "isFinalRegularSeasonRound": false,
+    "stakesFloor": 5,
+    "codeId": "sport:afl",
+    "surfaceClassification": "code",
+    "key": "afl",
+    "cardKind": "fixture",
+    "competitionId": "competition:afl-premiership-2026",
+    "eventId": "event-afl-cd_m20260142802",
+    "canonicalEventId": "event:afl:cd_m20260142802",
+    "status": "upcoming",
+    "timePrecision": "exact",
+    "schedulingWindow": {
+      "startsOn": "2026-08-28",
+      "endsOn": "2026-09-26"
+    },
+    "date": "2026-09-18",
+    "displayTitleCompact": "Sydney Swans v Fremantle",
+    "time": "19:40",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasts": [],
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "lastReviewedAt": "2026-09-15T04:44:28.561Z",
+    "sourceEventIds": [
+      "event:afl:cd_m20260142802",
+      "event-afl-cd_m20260142802"
+    ],
+    "sourceTrust": "verified",
+    "liveWindow": 3,
+    "round": "all",
+    "narrativeType": "all",
+    "expected": 10,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "sourceId": "CD_M20260142802",
+    "sportDomainId": "sport:afl",
+    "discoverySportId": "sport:afl-premiership",
+    "seasonLabel": "2026",
+    "roundNumber": 28,
+    "eventType": "match",
+    "scheduleStatus": "confirmed",
+    "localTimezone": "Australia/Melbourne",
+    "venueName": "To Be Confirmed",
+    "venueCity": "Victoria",
+    "venueCountryCode": "AU",
+    "homeParticipantId": "team:afl:cd_t160",
+    "awayParticipantId": "team:afl:cd_t60",
+    "displayName": "Sydney Swans v Winner of SF1",
+    "broadcasters": [
+      {
+        "broadcasterId": "broadcaster:kayo",
+        "broadcasterName": "Kayo Sports",
+        "platformType": "streaming",
+        "regionCode": "AU",
+        "live": true,
+        "replay": true,
+        "highlights": true,
+        "deeplinkUrl": "https://kayosports.com.au/"
+      },
+      {
+        "broadcasterId": "broadcaster:foxtel",
+        "broadcasterName": "Foxtel",
+        "platformType": "subscription",
+        "regionCode": "AU",
+        "live": true,
+        "replay": true,
+        "highlights": true,
+        "deeplinkUrl": "https://www.foxtel.com.au/"
+      }
+    ],
+    "hasLadderImplications": true,
+    "hasFinalsImplications": true,
+    "tags": [
+      "afl",
+      "all-fixtures",
+      "time-tbc"
+    ],
+    "createdAt": "2026-08-02T03:49:50.352Z",
+    "updatedAt": "2026-09-08T12:28:20.977Z",
+    "source": {
+      "provider": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/9026",
+      "sourceType": "official",
+      "checkedAt": "2026-09-08T12:28:20.977Z"
+    },
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "sport": "AFL",
+    "sourceName": "AFL",
+    "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+    "sourceType": "official",
+    "sourceRefs": [
+      "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+      "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+    ],
+    "canonicalSourceId": "CD_M20260142802",
+    "canonicalSourceName": "AFL",
+    "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9026",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
+    "canonicalSourceType": "official",
+    "isInternational": false,
+    "competitionScope": "domestic"
   },
   {
     "id": "epl-2026-27-128964",
@@ -39341,7 +39935,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640602",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8926",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -39465,7 +40059,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640603",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8928",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -39589,7 +40183,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640604",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8927",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -39713,7 +40307,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640605",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8930",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -39788,6 +40382,236 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T12:57:33.822Z",
       "stakes": 1
     }
+  },
+  {
+    "id": "event-afl-cd_m20260142801",
+    "name": "Hawthorn v Brisbane Lions",
+    "roundLabel": "Preliminary Finals",
+    "stage": "Preliminary Final",
+    "startTimeUtc": "2026-09-19T07:15:00.000Z",
+    "venue": "MCG",
+    "stakesScore": 5,
+    "summary": "First Preliminary Final. Teams, venue and time are pending the Semi Finals.",
+    "participantIds": [
+      "team:afl:cd_t80",
+      "team:afl:cd_t20"
+    ],
+    "participants": [
+      {
+        "id": "team:afl:cd_t80",
+        "name": "Hawthorn",
+        "role": "home"
+      },
+      {
+        "id": "team:afl:cd_t20",
+        "name": "Brisbane Lions",
+        "role": "away"
+      }
+    ],
+    "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports / Binge",
+    "broadcasterIds": [
+      "seven",
+      "foxtel",
+      "kayo"
+    ],
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel",
+      "7plus",
+      "Watch AFL"
+    ],
+    "viewingOptions": [
+      {
+        "providerId": "kayo",
+        "serviceId": "kayo",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      },
+      {
+        "providerId": "foxtel",
+        "serviceId": "foxtel",
+        "territory": "AU",
+        "accessType": "subscription",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      },
+      {
+        "providerId": "seven",
+        "serviceId": "seven",
+        "territory": "AU",
+        "accessType": "free",
+        "liveOrReplay": "live",
+        "rightsScope": "competition",
+        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
+        "verifiedAt": "2026-08-25T00:00:00.000Z"
+      }
+    ],
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142801",
+      "researchTier": "marquee",
+      "hook": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final.",
+      "synopsis": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
+      "threadIds": [
+        "thread:afl:finals-2026:first-wildcard-road"
+      ],
+      "factIds": [
+        "fact:afl-finals-2026:new-format",
+        "fact:afl-finals-2026:wildcard-results",
+        "fact:afl-finals-2026:week-two-path",
+        "fact:afl-finals-2026:carlton-revival",
+        "fact:afl-finals-2026:bulldogs-jones",
+        "fact:afl-finals-2026:destination"
+      ],
+      "sourceIds": [
+        "source:afl:2026-wildcard-format",
+        "source:afl:2026-bulldogs-wildcard",
+        "source:afl:2026-arty-jones",
+        "source:afl:2026-carlton-wildcard",
+        "source:afl:2026-week-two",
+        "source:afl:2026-grand-final-time"
+      ],
+      "dimensions": [
+        "format",
+        "form",
+        "path",
+        "history",
+        "schedule"
+      ],
+      "researchedAt": "2026-08-29T19:30:00.000Z",
+      "refreshAfter": "2026-09-03T10:00:00.000Z",
+      "generationMode": "verified-parent-child-projection"
+    },
+    "storyline": {
+      "stakes": 5,
+      "hookSpoilerOff": "Hawthorn v Brisbane Lions is coming up, with the main context and watch details in place.",
+      "hookSpoilerOn": "Hawthorn v Brisbane Lions is coming up, with the main context and watch details in place.",
+      "synopsisSpoilerOff": "Hawthorn v Brisbane Lions is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+      "synopsisSpoilerOn": "Hawthorn v Brisbane Lions is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+      "arcStage": "preview",
+      "intensity": 5,
+      "expectedSpectacle": 10,
+      "intensitySource": "computed"
+    },
+    "competitionPhase": "preliminary-final",
+    "isFinalRegularSeasonRound": false,
+    "stakesFloor": 5,
+    "codeId": "sport:afl",
+    "surfaceClassification": "code",
+    "key": "afl",
+    "cardKind": "fixture",
+    "competitionId": "competition:afl-premiership-2026",
+    "eventId": "event-afl-cd_m20260142801",
+    "canonicalEventId": "event:afl:cd_m20260142801",
+    "status": "upcoming",
+    "timePrecision": "exact",
+    "schedulingWindow": {
+      "startsOn": "2026-08-28",
+      "endsOn": "2026-09-26"
+    },
+    "date": "2026-09-19",
+    "displayTitleCompact": "Hawthorn v Brisbane Lions",
+    "time": "17:15",
+    "participantSlots": [],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcasts": [],
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "lastReviewedAt": "2026-09-15T04:44:28.561Z",
+    "sourceEventIds": [
+      "event:afl:cd_m20260142801",
+      "event-afl-cd_m20260142801"
+    ],
+    "sourceTrust": "verified",
+    "liveWindow": 3,
+    "round": "all",
+    "narrativeType": "all",
+    "expected": 10,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "sourceId": "CD_M20260142801",
+    "sportDomainId": "sport:afl",
+    "discoverySportId": "sport:afl-premiership",
+    "seasonLabel": "2026",
+    "roundNumber": 28,
+    "eventType": "match",
+    "scheduleStatus": "confirmed",
+    "localTimezone": "Australia/Melbourne",
+    "venueName": "To Be Confirmed",
+    "venueCity": "Victoria",
+    "venueCountryCode": "AU",
+    "homeParticipantId": "team:afl:cd_t80",
+    "awayParticipantId": "team:afl:cd_t20",
+    "displayName": "Hawthorn v Winner of SF2",
+    "broadcasters": [
+      {
+        "broadcasterId": "broadcaster:kayo",
+        "broadcasterName": "Kayo Sports",
+        "platformType": "streaming",
+        "regionCode": "AU",
+        "live": true,
+        "replay": true,
+        "highlights": true,
+        "deeplinkUrl": "https://kayosports.com.au/"
+      },
+      {
+        "broadcasterId": "broadcaster:foxtel",
+        "broadcasterName": "Foxtel",
+        "platformType": "subscription",
+        "regionCode": "AU",
+        "live": true,
+        "replay": true,
+        "highlights": true,
+        "deeplinkUrl": "https://www.foxtel.com.au/"
+      }
+    ],
+    "hasLadderImplications": true,
+    "hasFinalsImplications": true,
+    "tags": [
+      "afl",
+      "all-fixtures",
+      "time-tbc"
+    ],
+    "createdAt": "2026-08-02T03:49:50.352Z",
+    "updatedAt": "2026-09-08T12:28:20.977Z",
+    "source": {
+      "provider": "AFL",
+      "sourceUrl": "https://www.afl.com.au/afl/matches/9027",
+      "sourceType": "official",
+      "checkedAt": "2026-09-08T12:28:20.977Z"
+    },
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "sport": "AFL",
+    "sourceName": "AFL",
+    "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+    "sourceType": "official",
+    "sourceRefs": [
+      "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+      "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+    ],
+    "canonicalSourceId": "CD_M20260142801",
+    "canonicalSourceName": "AFL",
+    "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9027",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
+    "canonicalSourceType": "official",
+    "isInternational": false,
+    "competitionScope": "domestic"
   },
   {
     "sport": "NRL",
@@ -39874,6 +40698,135 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "cardKind": "event",
     "kind": "major_event"
+  },
+  {
+    "id": "major-match-nrl-finals-2026-semi-final-1",
+    "name": "Sydney Roosters v Cronulla-Sutherland Sharks",
+    "roundLabel": "Semi Final",
+    "stage": "Semi Final",
+    "startTimeUtc": "2026-09-19T09:50:00.000Z",
+    "venue": "Allianz Stadium",
+    "stakesScore": 5,
+    "summary": "Teams, venue and time are pending first-week results.",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:semi-final-1",
+      "researchTier": "marquee",
+      "hook": "loser of QF1 and winner of EF1 are in sudden death for a preliminary-final place.",
+      "synopsis": "loser of QF1 and winner of EF1 are in sudden death for a preliminary-final place. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
+      "threadIds": [
+        "thread:nrl:finals-2026:locked-eight-open-order"
+      ],
+      "factIds": [
+        "fact:nrl-finals-2026:locked-eight",
+        "fact:nrl-finals-2026:top-four-race",
+        "fact:nrl-finals-2026:rabbitohs-return",
+        "fact:nrl-finals-2026:newcomer-new-champion",
+        "fact:nrl-finals-2026:warriors-chase",
+        "fact:nrl-finals-2026:destination"
+      ],
+      "sourceIds": [
+        "source:nrl:2026-locked-eight",
+        "source:nrl:2026-warriors",
+        "source:nrl:2026-grand-final",
+        "source:nrl:2026-season"
+      ],
+      "dimensions": [
+        "matchup",
+        "path",
+        "form",
+        "history",
+        "schedule"
+      ],
+      "researchedAt": "2026-08-29T19:30:00.000Z",
+      "refreshAfter": "2026-09-01T12:00:00.000Z",
+      "generationMode": "verified-parent-child-projection"
+    },
+    "storyline": {
+      "stakes": 5,
+      "hookSpoilerOff": "Semi Final 1 - loser of QF1 v winner of EF1 is coming up, with the main context and watch details in place.",
+      "hookSpoilerOn": "Semi Final 1 - loser of QF1 v winner of EF1 is coming up, with the main context and watch details in place.",
+      "synopsisSpoilerOff": "Semi Final 1 - loser of QF1 v winner of EF1 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+      "synopsisSpoilerOn": "Semi Final 1 - loser of QF1 v winner of EF1 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+      "arcStage": "preview",
+      "intensity": 5,
+      "expectedSpectacle": 1,
+      "intensitySource": "computed"
+    },
+    "codeId": "sport:nrl",
+    "surfaceClassification": "code",
+    "key": "nrl",
+    "cardKind": "fixture",
+    "competitionId": "competition:nrl-premiership-2026",
+    "eventId": "major-match-nrl-finals-2026-semi-final-1",
+    "canonicalEventId": "major-match:nrl-finals-2026:semi-final-1",
+    "status": "upcoming",
+    "timePrecision": "exact",
+    "schedulingWindow": {
+      "startsOn": "2026-09-12",
+      "endsOn": "2026-10-04"
+    },
+    "date": "2026-09-19",
+    "displayTitleCompact": "Semi Final 1 - loser of QF1 v winner of EF1",
+    "time": "19:50",
+    "broadcaster": "Nine / 9Now, Fox League / Kayo Sports",
+    "participantIds": [
+      "team:nrl:331",
+      "team:nrl:333"
+    ],
+    "participantSlots": [],
+    "participants": [
+      {
+        "name": "Semi Final 1 - loser of QF1",
+        "role": "home"
+      },
+      {
+        "name": "winner of EF1",
+        "role": "away"
+      }
+    ],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [
+      "nine",
+      "foxtel",
+      "kayo"
+    ],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "lastReviewedAt": "2026-09-08T12:56:07.638Z",
+    "sourceEventIds": [
+      "major-match:nrl-finals-2026:semi-final-1",
+      "major-match-nrl-finals-2026-semi-final-1"
+    ],
+    "sourceTrust": "verified",
+    "liveWindow": 3,
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "sport": "NRL",
+    "sourceName": "NRL",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/",
+    "sourceType": "official",
+    "sourceRefs": [
+      "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/"
+    ],
+    "scheduleStatus": "confirmed"
   },
   {
     "id": "epl-2026-27-128972",
@@ -40886,7 +41839,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640606",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8929",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -40997,7 +41950,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640607",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8931",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -41121,7 +42074,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640608",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8932",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -41198,6 +42151,135 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
+    "id": "major-match-nrl-finals-2026-semi-final-2",
+    "name": "New Zealand Warriors v Newcastle Knights",
+    "roundLabel": "Semi Final",
+    "stage": "Semi Final",
+    "startTimeUtc": "2026-09-20T06:05:00.000Z",
+    "venue": "Eden Park",
+    "stakesScore": 5,
+    "summary": "Teams, venue and time are pending first-week results.",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:semi-final-2",
+      "researchTier": "marquee",
+      "hook": "loser of QF2 and winner of EF2 are in sudden death for a preliminary-final place.",
+      "synopsis": "loser of QF2 and winner of EF2 are in sudden death for a preliminary-final place. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
+      "threadIds": [
+        "thread:nrl:finals-2026:locked-eight-open-order"
+      ],
+      "factIds": [
+        "fact:nrl-finals-2026:locked-eight",
+        "fact:nrl-finals-2026:top-four-race",
+        "fact:nrl-finals-2026:rabbitohs-return",
+        "fact:nrl-finals-2026:newcomer-new-champion",
+        "fact:nrl-finals-2026:warriors-chase",
+        "fact:nrl-finals-2026:destination"
+      ],
+      "sourceIds": [
+        "source:nrl:2026-locked-eight",
+        "source:nrl:2026-warriors",
+        "source:nrl:2026-grand-final",
+        "source:nrl:2026-season"
+      ],
+      "dimensions": [
+        "matchup",
+        "path",
+        "form",
+        "history",
+        "schedule"
+      ],
+      "researchedAt": "2026-08-29T19:30:00.000Z",
+      "refreshAfter": "2026-09-01T12:00:00.000Z",
+      "generationMode": "verified-parent-child-projection"
+    },
+    "storyline": {
+      "stakes": 5,
+      "hookSpoilerOff": "Semi Final 2 - loser of QF2 v winner of EF2 is coming up, with the main context and watch details in place.",
+      "hookSpoilerOn": "Semi Final 2 - loser of QF2 v winner of EF2 is coming up, with the main context and watch details in place.",
+      "synopsisSpoilerOff": "Semi Final 2 - loser of QF2 v winner of EF2 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+      "synopsisSpoilerOn": "Semi Final 2 - loser of QF2 v winner of EF2 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+      "arcStage": "preview",
+      "intensity": 5,
+      "expectedSpectacle": 1,
+      "intensitySource": "computed"
+    },
+    "codeId": "sport:nrl",
+    "surfaceClassification": "code",
+    "key": "nrl",
+    "cardKind": "fixture",
+    "competitionId": "competition:nrl-premiership-2026",
+    "eventId": "major-match-nrl-finals-2026-semi-final-2",
+    "canonicalEventId": "major-match:nrl-finals-2026:semi-final-2",
+    "status": "upcoming",
+    "timePrecision": "exact",
+    "schedulingWindow": {
+      "startsOn": "2026-09-12",
+      "endsOn": "2026-10-04"
+    },
+    "date": "2026-09-20",
+    "displayTitleCompact": "Semi Final 2 - loser of QF2 v winner of EF2",
+    "time": "16:05",
+    "broadcaster": "Nine / 9Now, Fox League / Kayo Sports",
+    "participantIds": [
+      "team:nrl:321",
+      "team:nrl:325"
+    ],
+    "participantSlots": [],
+    "participants": [
+      {
+        "name": "Semi Final 2 - loser of QF2",
+        "role": "home"
+      },
+      {
+        "name": "winner of EF2",
+        "role": "away"
+      }
+    ],
+    "participantCountryCodes": [],
+    "representativeCountryCodes": [],
+    "broadcastOptions": [],
+    "broadcasterIds": [
+      "nine",
+      "foxtel",
+      "kayo"
+    ],
+    "broadcasts": [],
+    "viewingOptions": [],
+    "consensusTags": [],
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "selectedSentence": "",
+    "fullSpiel": "",
+    "lastReviewedAt": "2026-09-08T12:56:07.638Z",
+    "sourceEventIds": [
+      "major-match:nrl-finals-2026:semi-final-2",
+      "major-match-nrl-finals-2026-semi-final-2"
+    ],
+    "sourceTrust": "verified",
+    "liveWindow": 3,
+    "round": "all",
+    "narrativeType": "all",
+    "expected": null,
+    "replayEligible": false,
+    "highlightEligible": false,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "sport": "NRL",
+    "sourceName": "NRL",
+    "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/",
+    "sourceType": "official",
+    "sourceRefs": [
+      "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/"
+    ],
+    "scheduleStatus": "confirmed"
+  },
+  {
     "id": "event-aflw-cd_m20262640609",
     "eventId": "event-aflw-cd_m20262640609",
     "sport": "AFLW",
@@ -41245,7 +42327,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640609",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8933",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -42041,7 +43123,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640701",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8935",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -42165,7 +43247,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640702",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8934",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -42289,7 +43371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640703",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8936",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -42413,7 +43495,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640704",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8939",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -42537,7 +43619,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640705",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8937",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -42749,7 +43831,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20260142901",
     "canonicalSourceName": "AFL",
     "canonicalSourceUrl": "https://www.afl.com.au/afl/matches/9028",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
@@ -43178,7 +44260,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640707",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8938",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -43289,7 +44371,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640706",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8941",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -43413,7 +44495,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640708",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8940",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -43537,7 +44619,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640709",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8942",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -43832,7 +44914,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640801",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8943",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -44013,7 +45095,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640802",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8945",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -44150,7 +45232,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640803",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8946",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -44261,7 +45343,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640804",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8944",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -44385,7 +45467,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640805",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8947",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -44509,7 +45591,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640806",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8948",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -44887,7 +45969,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640807",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8949",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45011,7 +46093,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640808",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8950",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45135,7 +46217,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640809",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8953",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45526,7 +46608,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640901",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8951",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45600,7 +46682,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640902",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8952",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45743,7 +46825,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640903",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8955",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45848,7 +46930,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640904",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8954",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45922,7 +47004,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640905",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8958",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -45996,7 +47078,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640906",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8956",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -46749,7 +47831,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640907",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8957",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -46823,7 +47905,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640908",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8959",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -46897,7 +47979,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262640909",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8960",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -47476,7 +48558,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641001",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8961",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -47550,7 +48632,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641002",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8962",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -47624,7 +48706,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641003",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8964",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -47808,7 +48890,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641004",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8963",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -47882,7 +48964,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641005",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8966",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -48351,7 +49433,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641006",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8965",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -48456,7 +49538,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641007",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8967",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -48530,7 +49612,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641008",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8968",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -48604,7 +49686,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641009",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8969",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49187,7 +50269,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641101",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8970",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49340,7 +50422,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641102",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8971",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49414,7 +50496,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641103",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8974",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49488,7 +50570,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641104",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8972",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -49562,7 +50644,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641105",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8973",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -50124,7 +51206,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641106",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8977",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -50198,7 +51280,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641107",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8979",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -50272,7 +51354,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641108",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8976",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -50377,7 +51459,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641109",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8975",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -51074,7 +52156,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641201",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8978",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -51148,7 +52230,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641202",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8984",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -51222,7 +52304,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641203",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8980",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -51296,7 +52378,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641204",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8981",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -51370,7 +52452,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641205",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8982",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -52349,7 +53431,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641206",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8983",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -52423,7 +53505,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641207",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8986",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -52497,7 +53579,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641208",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8985",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -52571,7 +53653,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalSourceId": "CD_M20262641209",
     "canonicalSourceName": "AFLW",
     "canonicalSourceUrl": "https://www.afl.com.au/aflw/matches/8987",
-    "canonicalSourceCheckedAt": "2026-09-08T12:28:20.977Z",
+    "canonicalSourceCheckedAt": "2026-09-15T04:44:19.065Z",
     "canonicalSourceType": "official",
     "sportDomainId": "sport:afl",
     "competitionId": "competition:aflw-2026",
@@ -78962,436 +80044,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceTrust": "unverified"
   },
   {
-    "id": "event-afl-cd_m20260142801",
-    "name": "Hawthorn v Winner of SF2",
-    "roundLabel": "Preliminary Finals",
-    "stage": "Preliminary Finals",
-    "startTimeUtc": null,
-    "venue": "Venue TBC",
-    "stakesScore": 5,
-    "summary": "First Preliminary Final. Teams, venue and time are pending the Semi Finals.",
-    "participantIds": [
-      "team:afl:cd_t80",
-      "team:afl:cd_t3019"
-    ],
-    "participants": [
-      {
-        "id": "team:afl:cd_t80",
-        "participantId": "team:afl:cd_t80",
-        "name": "Hawthorn"
-      },
-      {
-        "id": "team:afl:cd_t3019",
-        "participantId": "team:afl:cd_t3019",
-        "name": "Winner of SF2"
-      }
-    ],
-    "broadcaster": "Kayo Sports",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel",
-      "seven"
-    ],
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel",
-      "7plus",
-      "Watch AFL"
-    ],
-    "viewingOptions": [
-      {
-        "providerId": "kayo",
-        "serviceId": "kayo",
-        "territory": "AU",
-        "accessType": "subscription",
-        "liveOrReplay": "live",
-        "rightsScope": "competition",
-        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
-        "verifiedAt": "2026-08-25T00:00:00.000Z"
-      },
-      {
-        "providerId": "foxtel",
-        "serviceId": "foxtel",
-        "territory": "AU",
-        "accessType": "subscription",
-        "liveOrReplay": "live",
-        "rightsScope": "competition",
-        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
-        "verifiedAt": "2026-08-25T00:00:00.000Z"
-      },
-      {
-        "providerId": "seven",
-        "serviceId": "seven",
-        "territory": "AU",
-        "accessType": "free",
-        "liveOrReplay": "live",
-        "rightsScope": "competition",
-        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
-        "verifiedAt": "2026-08-25T00:00:00.000Z"
-      }
-    ],
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142801",
-      "researchTier": "marquee",
-      "hook": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final.",
-      "synopsis": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-      "threadIds": [
-        "thread:afl:finals-2026:first-wildcard-road"
-      ],
-      "factIds": [
-        "fact:afl-finals-2026:new-format",
-        "fact:afl-finals-2026:wildcard-results",
-        "fact:afl-finals-2026:week-two-path",
-        "fact:afl-finals-2026:carlton-revival",
-        "fact:afl-finals-2026:bulldogs-jones",
-        "fact:afl-finals-2026:destination"
-      ],
-      "sourceIds": [
-        "source:afl:2026-wildcard-format",
-        "source:afl:2026-bulldogs-wildcard",
-        "source:afl:2026-arty-jones",
-        "source:afl:2026-carlton-wildcard",
-        "source:afl:2026-week-two",
-        "source:afl:2026-grand-final-time"
-      ],
-      "dimensions": [
-        "format",
-        "form",
-        "path",
-        "history",
-        "schedule"
-      ],
-      "researchedAt": "2026-08-29T19:30:00.000Z",
-      "refreshAfter": "2026-09-03T10:00:00.000Z",
-      "generationMode": "verified-parent-child-projection"
-    },
-    "storyline": {
-      "stakes": 5,
-      "hookSpoilerOff": "Hawthorn v Winner of SF2 is coming up, with the main context and watch details in place.",
-      "hookSpoilerOn": "Hawthorn v Winner of SF2 is coming up, with the main context and watch details in place.",
-      "synopsisSpoilerOff": "Hawthorn v Winner of SF2 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
-      "synopsisSpoilerOn": "Hawthorn v Winner of SF2 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
-      "arcStage": "preview",
-      "intensity": 5,
-      "expectedSpectacle": 1,
-      "intensitySource": "computed"
-    },
-    "competitionPhase": "preliminary-final",
-    "isFinalRegularSeasonRound": false,
-    "stakesFloor": 5,
-    "codeId": "sport:afl",
-    "surfaceClassification": "code",
-    "key": "afl",
-    "cardKind": "fixture",
-    "competitionId": "competition:afl-premiership-2026",
-    "eventId": "event-afl-cd_m20260142801",
-    "canonicalEventId": "event:afl:cd_m20260142801",
-    "status": "upcoming",
-    "timePrecision": "unconfirmed",
-    "schedulingWindow": {
-      "startsOn": "2026-08-28",
-      "endsOn": "2026-09-26"
-    },
-    "date": "",
-    "displayTitleCompact": "Hawthorn v Winner of SF2",
-    "time": null,
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
-    "broadcasts": [],
-    "consensusTags": [],
-    "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-    },
-    "selectedSentence": "",
-    "fullSpiel": "",
-    "lastReviewedAt": "2026-09-08T14:50:02.629Z",
-    "sourceEventIds": [
-      "event:afl:cd_m20260142801",
-      "event-afl-cd_m20260142801"
-    ],
-    "sourceTrust": "unverified",
-    "liveWindow": 3,
-    "round": "all",
-    "narrativeType": "all",
-    "expected": null,
-    "replayEligible": false,
-    "highlightEligible": false,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "sourceId": "CD_M20260142801",
-    "sportDomainId": "sport:afl",
-    "discoverySportId": "sport:afl-premiership",
-    "seasonLabel": "2026",
-    "roundNumber": 28,
-    "eventType": "match",
-    "scheduleStatus": "tbc",
-    "localTimezone": "Australia/Melbourne",
-    "venueName": "To Be Confirmed",
-    "venueCity": "Victoria",
-    "venueCountryCode": "AU",
-    "homeParticipantId": "team:afl:cd_t80",
-    "awayParticipantId": "team:afl:cd_t3019",
-    "displayName": "Hawthorn v Winner of SF2",
-    "broadcasters": [
-      {
-        "broadcasterId": "broadcaster:kayo",
-        "broadcasterName": "Kayo Sports",
-        "platformType": "streaming",
-        "regionCode": "AU",
-        "live": true,
-        "replay": true,
-        "highlights": true,
-        "deeplinkUrl": "https://kayosports.com.au/"
-      },
-      {
-        "broadcasterId": "broadcaster:foxtel",
-        "broadcasterName": "Foxtel",
-        "platformType": "subscription",
-        "regionCode": "AU",
-        "live": true,
-        "replay": true,
-        "highlights": true,
-        "deeplinkUrl": "https://www.foxtel.com.au/"
-      }
-    ],
-    "hasLadderImplications": true,
-    "hasFinalsImplications": true,
-    "tags": [
-      "afl",
-      "all-fixtures",
-      "time-tbc"
-    ],
-    "createdAt": "2026-08-02T03:49:50.352Z",
-    "updatedAt": "2026-09-08T12:28:20.977Z",
-    "source": {
-      "provider": "AFL",
-      "sourceUrl": "https://www.afl.com.au/afl/matches/9027",
-      "sourceType": "official",
-      "checkedAt": "2026-09-08T12:28:20.977Z"
-    },
-    "sourceCheckedAt": "2026-07-16T08:30:00+10:00"
-  },
-  {
-    "id": "event-afl-cd_m20260142802",
-    "name": "Sydney Swans v Winner of SF1",
-    "roundLabel": "Preliminary Finals",
-    "stage": "Preliminary Finals",
-    "startTimeUtc": null,
-    "venue": "Venue TBC",
-    "stakesScore": 5,
-    "summary": "Second Preliminary Final. Teams, venue and time are pending the Semi Finals.",
-    "participantIds": [
-      "team:afl:cd_t160",
-      "team:afl:cd_t3018"
-    ],
-    "participants": [
-      {
-        "id": "team:afl:cd_t3013",
-        "participantId": "team:afl:cd_t3013",
-        "name": "Winner of QF2"
-      },
-      {
-        "id": "team:afl:cd_t3018",
-        "participantId": "team:afl:cd_t3018",
-        "name": "Winner of SF1"
-      }
-    ],
-    "broadcaster": "Kayo Sports",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel",
-      "seven"
-    ],
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel",
-      "7plus",
-      "Watch AFL"
-    ],
-    "viewingOptions": [
-      {
-        "providerId": "kayo",
-        "serviceId": "kayo",
-        "territory": "AU",
-        "accessType": "subscription",
-        "liveOrReplay": "live",
-        "rightsScope": "competition",
-        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
-        "verifiedAt": "2026-08-25T00:00:00.000Z"
-      },
-      {
-        "providerId": "foxtel",
-        "serviceId": "foxtel",
-        "territory": "AU",
-        "accessType": "subscription",
-        "liveOrReplay": "live",
-        "rightsScope": "competition",
-        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
-        "verifiedAt": "2026-08-25T00:00:00.000Z"
-      },
-      {
-        "providerId": "seven",
-        "serviceId": "seven",
-        "territory": "AU",
-        "accessType": "free",
-        "liveOrReplay": "live",
-        "rightsScope": "competition",
-        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
-        "verifiedAt": "2026-08-25T00:00:00.000Z"
-      }
-    ],
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142802",
-      "researchTier": "marquee",
-      "hook": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final.",
-      "synopsis": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-      "threadIds": [
-        "thread:afl:finals-2026:first-wildcard-road"
-      ],
-      "factIds": [
-        "fact:afl-finals-2026:new-format",
-        "fact:afl-finals-2026:wildcard-results",
-        "fact:afl-finals-2026:week-two-path",
-        "fact:afl-finals-2026:carlton-revival",
-        "fact:afl-finals-2026:bulldogs-jones",
-        "fact:afl-finals-2026:destination"
-      ],
-      "sourceIds": [
-        "source:afl:2026-wildcard-format",
-        "source:afl:2026-bulldogs-wildcard",
-        "source:afl:2026-arty-jones",
-        "source:afl:2026-carlton-wildcard",
-        "source:afl:2026-week-two",
-        "source:afl:2026-grand-final-time"
-      ],
-      "dimensions": [
-        "format",
-        "form",
-        "path",
-        "history",
-        "schedule"
-      ],
-      "researchedAt": "2026-08-29T19:30:00.000Z",
-      "refreshAfter": "2026-09-03T10:00:00.000Z",
-      "generationMode": "verified-parent-child-projection"
-    },
-    "storyline": {
-      "stakes": 5,
-      "hookSpoilerOff": "Sydney Swans v Winner of SF1 is coming up, with the main context and watch details in place.",
-      "hookSpoilerOn": "Sydney Swans v Winner of SF1 is coming up, with the main context and watch details in place.",
-      "synopsisSpoilerOff": "Sydney Swans v Winner of SF1 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
-      "synopsisSpoilerOn": "Sydney Swans v Winner of SF1 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
-      "arcStage": "preview",
-      "intensity": 5,
-      "expectedSpectacle": 1,
-      "intensitySource": "computed"
-    },
-    "competitionPhase": "preliminary-final",
-    "isFinalRegularSeasonRound": false,
-    "stakesFloor": 5,
-    "codeId": "sport:afl",
-    "surfaceClassification": "code",
-    "key": "afl",
-    "cardKind": "fixture",
-    "competitionId": "competition:afl-premiership-2026",
-    "eventId": "event-afl-cd_m20260142802",
-    "canonicalEventId": "event:afl:cd_m20260142802",
-    "status": "upcoming",
-    "timePrecision": "unconfirmed",
-    "schedulingWindow": {
-      "startsOn": "2026-08-28",
-      "endsOn": "2026-09-26"
-    },
-    "date": "",
-    "displayTitleCompact": "Sydney Swans v Winner of SF1",
-    "time": null,
-    "participantSlots": [],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
-    "broadcasts": [],
-    "consensusTags": [],
-    "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-    },
-    "selectedSentence": "",
-    "fullSpiel": "",
-    "lastReviewedAt": "2026-09-08T14:50:02.629Z",
-    "sourceEventIds": [
-      "event:afl:cd_m20260142802",
-      "event-afl-cd_m20260142802"
-    ],
-    "sourceTrust": "unverified",
-    "liveWindow": 3,
-    "round": "all",
-    "narrativeType": "all",
-    "expected": null,
-    "replayEligible": false,
-    "highlightEligible": false,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "sourceId": "CD_M20260142802",
-    "sportDomainId": "sport:afl",
-    "discoverySportId": "sport:afl-premiership",
-    "seasonLabel": "2026",
-    "roundNumber": 28,
-    "eventType": "match",
-    "scheduleStatus": "tbc",
-    "localTimezone": "Australia/Melbourne",
-    "venueName": "To Be Confirmed",
-    "venueCity": "Victoria",
-    "venueCountryCode": "AU",
-    "homeParticipantId": "team:afl:cd_t160",
-    "awayParticipantId": "team:afl:cd_t3018",
-    "displayName": "Sydney Swans v Winner of SF1",
-    "broadcasters": [
-      {
-        "broadcasterId": "broadcaster:kayo",
-        "broadcasterName": "Kayo Sports",
-        "platformType": "streaming",
-        "regionCode": "AU",
-        "live": true,
-        "replay": true,
-        "highlights": true,
-        "deeplinkUrl": "https://kayosports.com.au/"
-      },
-      {
-        "broadcasterId": "broadcaster:foxtel",
-        "broadcasterName": "Foxtel",
-        "platformType": "subscription",
-        "regionCode": "AU",
-        "live": true,
-        "replay": true,
-        "highlights": true,
-        "deeplinkUrl": "https://www.foxtel.com.au/"
-      }
-    ],
-    "hasLadderImplications": true,
-    "hasFinalsImplications": true,
-    "tags": [
-      "afl",
-      "all-fixtures",
-      "time-tbc"
-    ],
-    "createdAt": "2026-08-02T03:49:50.352Z",
-    "updatedAt": "2026-09-08T12:28:20.977Z",
-    "source": {
-      "provider": "AFL",
-      "sourceUrl": "https://www.afl.com.au/afl/matches/9026",
-      "sourceType": "official",
-      "checkedAt": "2026-09-08T12:28:20.977Z"
-    },
-    "sourceCheckedAt": "2026-07-16T08:30:00+10:00"
-  },
-  {
     "id": "major-match-nrl-finals-2026-preliminary-final-1",
     "name": "Preliminary Final 1 - winner of QF1 v winner of SF2",
     "roundLabel": "Preliminary Final",
@@ -79607,234 +80259,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceEventIds": [
       "major-match:nrl-finals-2026:preliminary-final-2",
       "major-match-nrl-finals-2026-preliminary-final-2"
-    ],
-    "sourceTrust": "unverified",
-    "liveWindow": 3,
-    "round": "all",
-    "narrativeType": "all",
-    "expected": null,
-    "replayEligible": false,
-    "highlightEligible": false,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "sourceCheckedAt": "2026-07-16T08:30:00+10:00"
-  },
-  {
-    "id": "major-match-nrl-finals-2026-semi-final-1",
-    "name": "Semi Final 1 - loser of QF1 v winner of EF1",
-    "roundLabel": "Semi Final",
-    "stage": "Semi Final",
-    "startTimeUtc": null,
-    "venue": "Venue TBC",
-    "stakesScore": 5,
-    "summary": "Teams, venue and time are pending first-week results.",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:semi-final-1",
-      "researchTier": "marquee",
-      "hook": "loser of QF1 and winner of EF1 are in sudden death for a preliminary-final place.",
-      "synopsis": "loser of QF1 and winner of EF1 are in sudden death for a preliminary-final place. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-      "threadIds": [
-        "thread:nrl:finals-2026:locked-eight-open-order"
-      ],
-      "factIds": [
-        "fact:nrl-finals-2026:locked-eight",
-        "fact:nrl-finals-2026:top-four-race",
-        "fact:nrl-finals-2026:rabbitohs-return",
-        "fact:nrl-finals-2026:newcomer-new-champion",
-        "fact:nrl-finals-2026:warriors-chase",
-        "fact:nrl-finals-2026:destination"
-      ],
-      "sourceIds": [
-        "source:nrl:2026-locked-eight",
-        "source:nrl:2026-warriors",
-        "source:nrl:2026-grand-final",
-        "source:nrl:2026-season"
-      ],
-      "dimensions": [
-        "matchup",
-        "path",
-        "form",
-        "history",
-        "schedule"
-      ],
-      "researchedAt": "2026-08-29T19:30:00.000Z",
-      "refreshAfter": "2026-09-01T12:00:00.000Z",
-      "generationMode": "verified-parent-child-projection"
-    },
-    "storyline": {
-      "stakes": 5,
-      "hookSpoilerOff": "Semi Final 1 - loser of QF1 v winner of EF1 is coming up, with the main context and watch details in place.",
-      "hookSpoilerOn": "Semi Final 1 - loser of QF1 v winner of EF1 is coming up, with the main context and watch details in place.",
-      "synopsisSpoilerOff": "Semi Final 1 - loser of QF1 v winner of EF1 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
-      "synopsisSpoilerOn": "Semi Final 1 - loser of QF1 v winner of EF1 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
-      "arcStage": "preview",
-      "intensity": 5,
-      "expectedSpectacle": 1,
-      "intensitySource": "computed"
-    },
-    "codeId": "sport:nrl",
-    "surfaceClassification": "code",
-    "key": "nrl",
-    "cardKind": "fixture",
-    "competitionId": "competition:nrl-premiership-2026",
-    "eventId": "major-match-nrl-finals-2026-semi-final-1",
-    "canonicalEventId": "major-match:nrl-finals-2026:semi-final-1",
-    "status": "upcoming",
-    "timePrecision": "unconfirmed",
-    "schedulingWindow": {
-      "startsOn": "2026-09-12",
-      "endsOn": "2026-10-04"
-    },
-    "date": "",
-    "displayTitleCompact": "Semi Final 1 - loser of QF1 v winner of EF1",
-    "time": null,
-    "broadcaster": "",
-    "participantIds": [],
-    "participantSlots": [],
-    "participants": [
-      {
-        "name": "Semi Final 1 - loser of QF1",
-        "role": "home"
-      },
-      {
-        "name": "winner of EF1",
-        "role": "away"
-      }
-    ],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
-    "broadcastOptions": [],
-    "broadcasterIds": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "consensusTags": [],
-    "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-    },
-    "selectedSentence": "",
-    "fullSpiel": "",
-    "lastReviewedAt": "2026-09-08T12:56:07.638Z",
-    "sourceEventIds": [
-      "major-match:nrl-finals-2026:semi-final-1",
-      "major-match-nrl-finals-2026-semi-final-1"
-    ],
-    "sourceTrust": "unverified",
-    "liveWindow": 3,
-    "round": "all",
-    "narrativeType": "all",
-    "expected": null,
-    "replayEligible": false,
-    "highlightEligible": false,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "sourceCheckedAt": "2026-07-16T08:30:00+10:00"
-  },
-  {
-    "id": "major-match-nrl-finals-2026-semi-final-2",
-    "name": "Semi Final 2 - loser of QF2 v winner of EF2",
-    "roundLabel": "Semi Final",
-    "stage": "Semi Final",
-    "startTimeUtc": null,
-    "venue": "Venue TBC",
-    "stakesScore": 5,
-    "summary": "Teams, venue and time are pending first-week results.",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:semi-final-2",
-      "researchTier": "marquee",
-      "hook": "loser of QF2 and winner of EF2 are in sudden death for a preliminary-final place.",
-      "synopsis": "loser of QF2 and winner of EF2 are in sudden death for a preliminary-final place. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-      "threadIds": [
-        "thread:nrl:finals-2026:locked-eight-open-order"
-      ],
-      "factIds": [
-        "fact:nrl-finals-2026:locked-eight",
-        "fact:nrl-finals-2026:top-four-race",
-        "fact:nrl-finals-2026:rabbitohs-return",
-        "fact:nrl-finals-2026:newcomer-new-champion",
-        "fact:nrl-finals-2026:warriors-chase",
-        "fact:nrl-finals-2026:destination"
-      ],
-      "sourceIds": [
-        "source:nrl:2026-locked-eight",
-        "source:nrl:2026-warriors",
-        "source:nrl:2026-grand-final",
-        "source:nrl:2026-season"
-      ],
-      "dimensions": [
-        "matchup",
-        "path",
-        "form",
-        "history",
-        "schedule"
-      ],
-      "researchedAt": "2026-08-29T19:30:00.000Z",
-      "refreshAfter": "2026-09-01T12:00:00.000Z",
-      "generationMode": "verified-parent-child-projection"
-    },
-    "storyline": {
-      "stakes": 5,
-      "hookSpoilerOff": "Semi Final 2 - loser of QF2 v winner of EF2 is coming up, with the main context and watch details in place.",
-      "hookSpoilerOn": "Semi Final 2 - loser of QF2 v winner of EF2 is coming up, with the main context and watch details in place.",
-      "synopsisSpoilerOff": "Semi Final 2 - loser of QF2 v winner of EF2 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
-      "synopsisSpoilerOn": "Semi Final 2 - loser of QF2 v winner of EF2 is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
-      "arcStage": "preview",
-      "intensity": 5,
-      "expectedSpectacle": 1,
-      "intensitySource": "computed"
-    },
-    "codeId": "sport:nrl",
-    "surfaceClassification": "code",
-    "key": "nrl",
-    "cardKind": "fixture",
-    "competitionId": "competition:nrl-premiership-2026",
-    "eventId": "major-match-nrl-finals-2026-semi-final-2",
-    "canonicalEventId": "major-match:nrl-finals-2026:semi-final-2",
-    "status": "upcoming",
-    "timePrecision": "unconfirmed",
-    "schedulingWindow": {
-      "startsOn": "2026-09-12",
-      "endsOn": "2026-10-04"
-    },
-    "date": "",
-    "displayTitleCompact": "Semi Final 2 - loser of QF2 v winner of EF2",
-    "time": null,
-    "broadcaster": "",
-    "participantIds": [],
-    "participantSlots": [],
-    "participants": [
-      {
-        "name": "Semi Final 2 - loser of QF2",
-        "role": "home"
-      },
-      {
-        "name": "winner of EF2",
-        "role": "away"
-      }
-    ],
-    "participantCountryCodes": [],
-    "representativeCountryCodes": [],
-    "broadcastOptions": [],
-    "broadcasterIds": [],
-    "broadcasts": [],
-    "viewingOptions": [],
-    "consensusTags": [],
-    "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-    },
-    "selectedSentence": "",
-    "fullSpiel": "",
-    "lastReviewedAt": "2026-09-08T12:56:07.638Z",
-    "sourceEventIds": [
-      "major-match:nrl-finals-2026:semi-final-2",
-      "major-match-nrl-finals-2026-semi-final-2"
     ],
     "sourceTrust": "unverified",
     "liveWindow": 3,

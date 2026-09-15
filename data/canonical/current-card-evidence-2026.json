@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "current-card-evidence.v1",
+  "checkedAt": "2026-09-15T05:30:00.000Z",
+  "fixtureOverrides": [
+    {
+      "id": "event-afl-cd_m20260142802",
+      "canonicalId": "event:afl:cd_m20260142802",
+      "name": "Sydney Swans v Fremantle",
+      "sport": "AFL",
+      "key": "afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "date": "2026-09-18",
+      "time": "19:40",
+      "startTimeUtc": "2026-09-18T09:40:00.000Z",
+      "venue": "SCG",
+      "roundLabel": "Preliminary Finals",
+      "stage": "Preliminary Final",
+      "participantIds": ["team:afl:cd_t160", "team:afl:cd_t60"],
+      "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports / Binge",
+      "broadcasterIds": ["seven", "foxtel", "kayo"],
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+      "broadcastSourceUrl": "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+    },
+    {
+      "id": "event-afl-cd_m20260142801",
+      "canonicalId": "event:afl:cd_m20260142801",
+      "name": "Hawthorn v Brisbane Lions",
+      "sport": "AFL",
+      "key": "afl",
+      "competitionId": "competition:afl-premiership-2026",
+      "date": "2026-09-19",
+      "time": "17:15",
+      "startTimeUtc": "2026-09-19T07:15:00.000Z",
+      "venue": "MCG",
+      "roundLabel": "Preliminary Finals",
+      "stage": "Preliminary Final",
+      "participantIds": ["team:afl:cd_t80", "team:afl:cd_t20"],
+      "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports / Binge",
+      "broadcasterIds": ["seven", "foxtel", "kayo"],
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+      "broadcastSourceUrl": "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+    },
+    {
+      "id": "major-match-nrl-finals-2026-semi-final-1",
+      "canonicalId": "major-match:nrl-finals-2026:semi-final-1",
+      "name": "Sydney Roosters v Cronulla-Sutherland Sharks",
+      "sport": "NRL",
+      "key": "nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "date": "2026-09-19",
+      "time": "19:50",
+      "startTimeUtc": "2026-09-19T09:50:00.000Z",
+      "venue": "Allianz Stadium",
+      "roundLabel": "Semi Final",
+      "stage": "Semi Final",
+      "participantIds": ["team:nrl:331", "team:nrl:333"],
+      "broadcaster": "Nine / 9Now, Fox League / Kayo Sports",
+      "broadcasterIds": ["nine", "foxtel", "kayo"],
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/"
+    },
+    {
+      "id": "major-match-nrl-finals-2026-semi-final-2",
+      "canonicalId": "major-match:nrl-finals-2026:semi-final-2",
+      "name": "New Zealand Warriors v Newcastle Knights",
+      "sport": "NRL",
+      "key": "nrl",
+      "competitionId": "competition:nrl-premiership-2026",
+      "date": "2026-09-20",
+      "time": "16:05",
+      "startTimeUtc": "2026-09-20T06:05:00.000Z",
+      "venue": "Eden Park",
+      "roundLabel": "Semi Final",
+      "stage": "Semi Final",
+      "participantIds": ["team:nrl:321", "team:nrl:325"],
+      "broadcaster": "Nine / 9Now, Fox League / Kayo Sports",
+      "broadcasterIds": ["nine", "foxtel", "kayo"],
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/"
+    }
+  ],
+  "resultOverrides": [
+    {
+      "id": "major-match-nrl-finals-2026-elimination-final-1",
+      "endTimeUtc": "2026-09-12T12:50:00.000Z",
+      "endTimeBasis": "scheduled-live-window",
+      "score": "Sharks 26-16 Cowboys",
+      "outcomeText": "Sharks defeated Cowboys 26-16.",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/"
+    },
+    {
+      "id": "major-match-nrl-finals-2026-qualifying-final-1",
+      "endTimeUtc": "2026-09-13T09:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window",
+      "score": "Panthers 19-12 Roosters",
+      "outcomeText": "Panthers defeated Roosters 19-12.",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/13/finals-blockbuster-panthers-v-roosters/"
+    },
+    {
+      "id": "fixture-us-open-2026-official-ms-1701",
+      "canonicalId": "fixture:us-open-2026:official:ms:1701",
+      "endTimeUtc": "2026-09-13T21:33:00.000Z",
+      "actualEndTimeUtc": "2026-09-13T21:33:00.000Z",
+      "endTimeBasis": "official-start-plus-duration",
+      "score": "Zverev 6-3, 7-6(2), 5-7, 6-2 Shelton",
+      "outcomeText": "Alexander Zverev defeated Ben Shelton in four sets.",
+      "sourceName": "US Open",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule22.json"
+    },
+    {
+      "id": "fixture-us-open-2026-official-ws-2701",
+      "canonicalId": "fixture:us-open-2026:official:ws:2701",
+      "endTimeUtc": "2026-09-12T18:21:00.000Z",
+      "actualEndTimeUtc": "2026-09-12T18:21:00.000Z",
+      "endTimeBasis": "official-start-plus-duration",
+      "score": "Sabalenka 4-6, 7-5, 2-6 Rybakina",
+      "outcomeText": "Elena Rybakina defeated Aryna Sabalenka in three sets.",
+      "sourceName": "US Open",
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule21.json"
+    },
+    {
+      "id": "evt_motogp_2026_san_marino",
+      "date": "2026-09-13",
+      "time": "22:00",
+      "startTimeUtc": "2026-09-13T12:00:00.000Z",
+      "endTimeUtc": "2026-09-13T13:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window",
+      "timePrecision": "exact",
+      "timeTbc": false,
+      "scheduleStatus": "confirmed",
+      "score": "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
+      "outcomeText": "Marc Marquez won the San Marino Grand Prix.",
+      "sourceName": "MotoGP",
+      "sourceUrl": "https://stats.motogp.com/en/gp-results",
+      "scheduleSourceUrl": "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181"
+    }
+  ],
+  "broadcastOverrides": [
+    {
+      "ids": ["fixture:cricket:espn:1530203", "fixture:cricket:espn:1530204", "fixture:cricket:espn:1530205"],
+      "broadcaster": "Fox Cricket / Foxtel / Kayo Sports",
+      "broadcasterIds": ["foxtel", "kayo"],
+      "sourceName": "Cricket Australia / Fox Sports",
+      "sourceUrl": "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+      "broadcastSourceUrl": "https://www.foxsports.com.au/cricket/australia/cricket-2026-australia-vs-zimbabwe-and-south-africa-ultimate-guide-when-are-the-matches-scheduled-how-to-watch-and-stream-squads-latest-news/news-story/b5a37176056f8983cea072ee085c6277"
+    }
+  ]
+}
