@@ -15,6 +15,7 @@ const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" })
 const quickSteps = buildQuickSteps(["--quick", "--offline"]);
 assert.deepEqual(quickSteps, [["scripts/quick-results.js", "--offline"]], "quick score updates must run without active-follow snapshot access");
 const quickResultProjection = quickProjectionSteps(["AFL/NRL 1"]);
+assert(!quickResultProjection.some(step => step[0] === "scripts/build-follow-fixtures.js"), "quick score updates must leave personalised follow-fixture selection to the full refresh");
 for (const file of ["feeds/incoming/events.json", "data/events.json"]) {
   assert(quickResultProjection.some(step => step[0] === "scripts/qa-storyline-spoilers.js" && step.includes(file)), `quick score updates must run spoiler QA for ${file}`);
 }

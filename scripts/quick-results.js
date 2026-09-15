@@ -37,7 +37,6 @@ function projectionSteps(changes,{rebuild=false}={}){
   ['scripts/qa-storyline-spoilers.js','feeds/incoming/events.json'],
   ['scripts/qa-storyline-spoilers.js','data/events.json'],
  );}
- steps.push(['scripts/build-follow-fixtures.js']);
  if(feedChanged)steps.push(['scripts/build-paged-feed.js']);
  steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
  return steps;
