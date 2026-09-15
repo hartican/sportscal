@@ -7,7 +7,7 @@ const fs = require("node:fs");
 const vm = require("node:vm");
 
 function functionSource(source, name){
-  const marker = `async function ${name}(`;
+  const marker = 'let remoteFeedRefreshInFlight = null;';
   const start = source.indexOf(marker);
   if (start < 0) throw new Error(`${name} was not found`);
   const nextFunction = source.indexOf("\nasync function requestFeedRebuildAfterFollowChange", start);

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "deployment-manifest.v1",
+  "includeDirectories": ["api/", "lib/", "config/", "data/", "assets/", "icons/", "styles/"],
+  "includeFiles": ["package.json", "package-lock.json", "vercel.json", "feeds/provider-exports/tennis/us-open-2026-official-schedule.json"],
+  "rootExtensions": [".html", ".js", ".css", ".json", ".ico", ".png", ".svg", ".webmanifest", ".txt"],
+  "excludeDirectories": ["assets/brand/source/"],
+  "excludeFiles": ["config/deployment-manifest.json", "data/card-audit.json", "data/editorial-research-queue.v1.json"],
+  "preserveBytes": ["index.html", "service-worker.js", "data/feed-meta.json", "data/events.json", "app-version.json"],
+  "compactJson": true,
+  "acceptedBytes": 94300000
+}

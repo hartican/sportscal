@@ -1,0 +1,61 @@
+name: Sportscal production
+run-name: Deploy ${{ inputs.sha }} ${{ inputs.request_id }}
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: Full commit on main
+        required: true
+      request_id:
+        description: Request correlation ID
+        required: true
+      rebuild:
+        description: Intentionally rebuild unchanged code after environment changes
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: sportscal-production-and-cleanup
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      NS_SERIALIZED_DEPLOY: '1'
+      NS_FORCE_REDEPLOY: ${{ inputs.rebuild && '1' || '0' }}
+      NS_DEPLOY_REPORT_DIR: ${{ runner.temp }}/release-report
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Verify requested mainline release
+        env:
+          RELEASE_SHA: ${{ inputs.sha }}
+        run: |
+          [[ "$RELEASE_SHA" =~ ^[a-f0-9]{40}$ ]]
+          test "$RELEASE_SHA" = "$(git rev-parse origin/main)"
+          git checkout --detach "$RELEASE_SHA"
+      - run: npm ci && npm install --global vercel@59.1.4
+      - name: Bind project and preserve current production
+        run: node scripts/prepare-production-release.js
+      - name: Deploy or reuse exact release
+        run: bash scripts/deploy-current-commit.sh
+      - name: Verify public release
+        run: node scripts/verify-production-release.js
+      - name: Clean expired deployments
+        run: node scripts/hobby-deployment-cleanup.js --apply --report "$NS_DEPLOY_REPORT_DIR/cleanup.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: release-${{ inputs.sha }}
+          path: ${{ runner.temp }}/release-report
+          retention-days: 14

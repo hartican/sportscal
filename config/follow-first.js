@@ -392,8 +392,8 @@
     return tennis ? `tennis:${tennis[1]}` : id;
   }
 
-  function effectiveParticipantFollow(participantId, preferences, collectionsById = {}){
-    return participantFollowFromNormalized(participantId,migratePreferences(preferences),collectionsById);
+  function effectiveParticipantFollow(participantId, preferences, collectionsById = {}, preparedPreferences = null){
+    return participantFollowFromNormalized(participantId,preparedPreferences || migratePreferences(preferences),collectionsById);
   }
   function participantFollowFromNormalized(participantId, next, collectionsById = {}){
     const identityKey = participantFollowIdentityKey(participantId);

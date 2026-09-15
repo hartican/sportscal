@@ -7,16 +7,17 @@
 
   const SCHEMA_VERSION = "follow-feed-policy.v7";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
+  const SYDNEY_DATE = new Intl.DateTimeFormat('en-CA',{timeZone:SYDNEY_TIME_ZONE,year:'numeric',month:'2-digit',day:'2-digit'});
 
   function dateKey(value, timeZone = SYDNEY_TIME_ZONE){
     const date = value instanceof Date ? value : new Date(value);
     if (Number.isNaN(date.getTime())) return "";
-    return new Intl.DateTimeFormat("en-CA", {
+    return (timeZone === SYDNEY_TIME_ZONE ? SYDNEY_DATE : new Intl.DateTimeFormat("en-CA", {
       timeZone,
       year:"numeric",
       month:"2-digit",
       day:"2-digit",
-    }).format(date);
+    })).format(date);
   }
 
   function stakesScore(event){

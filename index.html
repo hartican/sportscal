@@ -11336,7 +11336,15 @@ async function loadPublicFeedFirstPage({cacheFirst=false}={}){
   return { source:"remote", eventCount:events.length, cardCount:derivedCardCache.derivedCards.length, rendered };
 }
 
-async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
+let remoteFeedRefreshInFlight = null;
+let feedViewGeneration = 0;
+function refreshRemoteFeed(options = {}){
+  if(remoteFeedRefreshInFlight)return remoteFeedRefreshInFlight;
+  const pending=performRemoteFeedRefresh(options).finally(()=>{if(remoteFeedRefreshInFlight===pending)remoteFeedRefreshInFlight=null;});
+  remoteFeedRefreshInFlight=pending;return pending;
+}
+async function performRemoteFeedRefresh({ quiet = false, signedInHint = false } = {}){
+  const generation=++feedViewGeneration;
   const interactionStartedAt = feedPerformanceNow();
   const hydration = startupFunnelFinished ? beginInSessionLoading("Refreshing Feed") : null;
   const authenticatedSessionAvailable = Boolean(
@@ -11358,6 +11366,7 @@ async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
     }
     if (centralRebuildRequested){
       const payload = await serverSyncClient.loadFeed({ cursor: 0, limit: FEED_PAGE_SIZE });
+      if(generation!==feedViewGeneration)return {source:'superseded',rendered:false};
       hydration?.progress(.82);
       feedPerformanceMetrics.initialPayloadBytes = new TextEncoder().encode(JSON.stringify(payload)).byteLength;
       publishFeedPerformanceMetrics();
@@ -11373,6 +11382,7 @@ async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
     if (!quiet) showToast(`Published feed loaded: ${result.eventCount} events.`);
     return result;
   }catch(err){
+    if(err?.code==='feed_request_superseded'||generation!==feedViewGeneration)return {source:'superseded',rendered:false};
     console.warn("Feed refresh failed", err);
     if (centralRebuildRequested && err?.status === 401){
       setServerPersistence({
@@ -11412,6 +11422,8 @@ async function refreshRemoteFeed({ quiet = false, signedInHint = false } = {}){
 }
 
 async function requestFeedRebuildAfterFollowChange(){
+  feedViewGeneration += 1;
+  serverSyncClient?.invalidateFeed?.();
   void loadFollowedScheduleFixtures().catch(error => console.warn("Followed schedule reconciliation unavailable",error));
   followFeedRefreshPending = true;
   followFeedRefreshGeneration += 1;
@@ -11426,6 +11438,7 @@ async function requestFeedRebuildAfterFollowChange(){
     try{
       await syncCurrentServerState();
       await clearCachedPersonalisedFeed(serverPersistence.user?.id || serverSyncClient.sessionSubject?.());
+      if(remoteFeedRefreshInFlight)await remoteFeedRefreshInFlight;
       const rebuilt = await refreshRemoteFeed({ quiet:true, signedInHint:true });
       if (rebuilt?.source !== "server") throw new Error("The personalised server feed is still unavailable");
       followFeedRefreshPending = requestedGeneration !== followFeedRefreshGeneration;
@@ -11468,12 +11481,15 @@ async function loadNextFeedPage(){
   const publicPage = publicFeedManifest?.pages?.[publicFeedNextPageIndex];
   if (!signedIn && !publicPage) return false;
   feedPageLoading = true;
+  const generation=feedViewGeneration;
   const hydration = beginInSessionLoading("Loading more Feed cards");
   const interactionStartedAt = feedPerformanceNow();
   let pageLoaded = false;
   try{
     if (signedIn){
-      applyServerFeed(await serverSyncClient.loadFeed({ cursor: serverFeedNextCursor, limit: FEED_PAGE_SIZE }));
+      const payload=await serverSyncClient.loadFeed({ cursor: serverFeedNextCursor, limit: FEED_PAGE_SIZE });
+      if(generation!==feedViewGeneration)return false;
+      applyServerFeed(payload);
     } else {
       const payload = await fetchJson(publicPage.path, { cache: "default" });
       const events = coerceEventList(payload);

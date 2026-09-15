@@ -455,7 +455,7 @@ assert(html.includes("setServerStateBaseline(result.state)"), "the sync baseline
 assert(html.includes("startupSessionStateBaseline || stateBeforeHydration"), "startup hydration must preserve only settings changed during the current session");
 assert(html.includes("{ preferences: settingsDraftBaseline }") && html.includes("{ preferences: userPreferences }"), "an open Settings draft must inherit newer untouched values while retaining edited fields");
 assert(html.includes("eventUserState: eventActions"), "archive and saved-card state must be included in server truth");
-assert(serverSyncSource.includes('authenticatedRequest(`/api/feed?${params.toString()}`)'), "signed-in Refresh must request a bounded authenticated feed page");
+assert(serverSyncSource.includes('authenticatedRequest(`/api/feed?${params.toString()}`,'), "signed-in Refresh must request a bounded authenticated feed page with conditional response support");
 assert(html.includes('payload?.schemaVersion !== "server-feed.v3"'), "the browser must accept only v3 so stale personalised v2 pages cannot flash");
 assert(html.includes('cache.buildOrigin !== "server"'), "the browser must require central card-cache provenance");
 assert(html.includes("serverSyncClient.loadFeed({ cursor: 0, limit: FEED_PAGE_SIZE })") && html.includes("const result = applyServerFeed(payload)"), "signed-in Refresh must apply the first bounded server-built page");

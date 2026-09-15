@@ -18,6 +18,21 @@ run_vercel() {
   fi
 }
 
+if [[ "${NS_DEPLOY_DRY_RUN:-0}" != "1" ]]; then
+  if [[ "${NS_SERIALIZED_DEPLOY:-0}" != "1" || "${GITHUB_ACTIONS:-false}" != "true" ]]; then
+    exec node scripts/dispatch-production-deploy.js "$DEPLOY_SHA"
+  fi
+  DEPLOY_DECISION="$(node scripts/check-production-deployment.js "$DEPLOY_SHA")"
+  if [[ "$DEPLOY_DECISION" == "reused" ]]; then
+    echo "Production already serves verified release $DEPLOY_SHA; no deployment created."
+    exit 0
+  fi
+  if [[ "$DEPLOY_DECISION" != "create" ]]; then
+    echo "Error: unknown deployment decision." >&2
+    exit 1
+  fi
+fi
+
 NS_DEPLOY_ROOT="$(mktemp -d /tmp/nothingsport-deploy.XXXXXX)"
 NS_DEPLOY_DIR="$NS_DEPLOY_ROOT/snapshot"
 test -n "${NS_DEPLOY_ROOT:-}"
@@ -29,7 +44,12 @@ trap cleanup EXIT
 
 # Blob-SHA verification plus isolated object fallback avoids the macOS SIGBUS
 # in Git's bulk paths while materialising only the requested commit tree.
-node scripts/materialize-git-tree.js "$DEPLOY_SHA" "${NS_DEPLOY_DIR:?}"
+node scripts/materialize-git-tree.js "$DEPLOY_SHA" "${NS_DEPLOY_DIR:?}" --deployment
+node scripts/validate-deployment-package.js "${NS_DEPLOY_DIR:?}"
+if [[ -n "${NS_DEPLOY_REPORT_DIR:-}" ]]; then
+  mkdir -p "$NS_DEPLOY_REPORT_DIR"
+  cp "$NS_DEPLOY_DIR/deployment-files.json" "$NS_DEPLOY_REPORT_DIR/deployment-files.json"
+fi
 
 if [[ -e "$NS_DEPLOY_DIR/$SECRET_PATH" ]]; then
   echo "Error: immutable deployment snapshot contains the excluded secret path." >&2
@@ -71,4 +91,5 @@ cp "$PROJECT_LINK" "$NS_DEPLOY_DIR/.vercel/project.json"
 run_vercel deploy "$NS_DEPLOY_DIR" --prod --yes \
   --scope "$VERCEL_SCOPE" \
   --meta "releaseGitSha=$DEPLOY_SHA" \
-  --meta "releaseGitRef=$DEPLOY_REF"
+  --meta "releaseGitRef=$DEPLOY_REF" \
+  --meta "rollbackDeploymentId=${NS_ROLLBACK_ID:?Verified rollback ID required}"

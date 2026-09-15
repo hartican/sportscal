@@ -102,7 +102,7 @@ for (let index = 1; index < occupiedDays.length; index += 1) {
 const apiSource = fs.readFileSync(path.join(ROOT, "api/feed.js"), "utf8");
 const calendarSource = fs.readFileSync(path.join(ROOT, "lib/calendar-catalogue.js"), "utf8");
 const browserSource = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-assert.match(apiSource, /require\("\.\.\/lib\/calendar-catalogue"\)[\s\S]*catalogue\(\)/,
+assert.match(apiSource, /require\(['"]\.\.\/lib\/calendar-catalogue['"]\)[\s\S]*catalogue\(\)/,
   "server Feed must start from the shared catalogue");
 assert.match(calendarSource, /manifest\.codes[\s\S]*majorDocument\.events[\s\S]*fixtureFromSubEvent/,
   "calendar catalogue must union published cards, Schedule chunks and Event fixtures");

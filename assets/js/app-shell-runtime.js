@@ -3362,8 +3362,8 @@
     return tennis ? `tennis:${tennis[1]}` : id;
   }
 
-  function effectiveParticipantFollow(participantId, preferences, collectionsById = {}){
-    return participantFollowFromNormalized(participantId,migratePreferences(preferences),collectionsById);
+  function effectiveParticipantFollow(participantId, preferences, collectionsById = {}, preparedPreferences = null){
+    return participantFollowFromNormalized(participantId,preparedPreferences || migratePreferences(preferences),collectionsById);
   }
   function participantFollowFromNormalized(participantId, next, collectionsById = {}){
     const identityKey = participantFollowIdentityKey(participantId);
@@ -3849,16 +3849,17 @@
 
   const SCHEMA_VERSION = "follow-feed-policy.v7";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
+  const SYDNEY_DATE = new Intl.DateTimeFormat('en-CA',{timeZone:SYDNEY_TIME_ZONE,year:'numeric',month:'2-digit',day:'2-digit'});
 
   function dateKey(value, timeZone = SYDNEY_TIME_ZONE){
     const date = value instanceof Date ? value : new Date(value);
     if (Number.isNaN(date.getTime())) return "";
-    return new Intl.DateTimeFormat("en-CA", {
+    return (timeZone === SYDNEY_TIME_ZONE ? SYDNEY_DATE : new Intl.DateTimeFormat("en-CA", {
       timeZone,
       year:"numeric",
       month:"2-digit",
       day:"2-digit",
-    }).format(date);
+    })).format(date);
   }
 
   function stakesScore(event){
@@ -6176,6 +6177,10 @@
     let session = null;
     let persistSession = true;
     let refreshInFlight = null;
+    let feedEpoch = 0;
+    const feedRequests = new Map(), feedResponses = new Map();
+    function invalidateFeed(){feedEpoch += 1;feedResponses.clear();feedRequests.clear();}
+    function staleFeedError(){const error=new Error('A newer feed request superseded this result.');error.code='feed_request_superseded';return error;}
     let guestChatSession = null;
     let guestRefreshInFlight = null;
     const refreshOwner = `${Date.now().toString(36)}:${Math.random().toString(36).slice(2)}`;
@@ -6191,10 +6196,14 @@
     async function jsonRequest(path, options = {}){
       if (typeof fetchImpl !== "function") throw new Error("Server sync is unavailable in this browser.");
       const controller = new AbortController();
+      const { signal:externalSignal, onResponse, cachedPayload, ...fetchOptions }=options;
+      const cancel=()=>controller.abort(externalSignal.reason);
+      if(externalSignal?.aborted)cancel();
+      externalSignal?.addEventListener('abort',cancel,{once:true});
       const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
       try{
       const response = await fetchImpl(path, {
-        ...options,
+        ...fetchOptions,
         signal:controller.signal,
         headers: {
           Accept: "application/json",
@@ -6202,6 +6211,7 @@
           ...(options.headers || {}),
         },
       });
+      if(response.status===304 && cachedPayload!==undefined)return cachedPayload;
       const payload = await response.json().catch(() => ({}));
       if (!response.ok){
         const error = new Error(payload.error || "Server sync request failed.");
@@ -6210,15 +6220,17 @@
         error.payload = payload;
         throw error;
       }
+      onResponse?.(response,payload);
       return payload;
       }catch(error){
+        if(externalSignal?.aborted)throw error;
         if (controller.signal.aborted){
           const timedOut = new Error("The server took too long to respond. Check confirmation before trying again.");
           timedOut.code = "request_timeout";
           throw timedOut;
         }
         throw error;
-      }finally{ clearTimeout(timeout); }
+      }finally{ clearTimeout(timeout);externalSignal?.removeEventListener('abort',cancel); }
     }
 
     function persistencePreference(){
@@ -6239,6 +6251,7 @@
     }
 
     function saveSession(next){
+      if(sessionSubject(next)!==sessionSubject(session || restoreStoredSession()))invalidateFeed();
       session = parseSession(next, now());
       if (persistSession){
         storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, session);
@@ -6258,6 +6271,7 @@
     });
 
     function clearSession(){
+      invalidateFeed();
       session = null;
       refreshInFlight = null;
       storageWrite(storage, SESSION_STORAGE_KEY, null);
@@ -6624,9 +6638,26 @@
       async nothingscoreMarquee(command){
         return authenticatedRequest("/api/nothingscore-marquee", { method:"POST", body:JSON.stringify(command || {}) });
       },
+      invalidateFeed,
       async loadFeed({ cursor = 0, limit = 20 } = {}){
         const params = new URLSearchParams({ cursor: String(cursor), limit: String(limit) });
-        return authenticatedRequest(`/api/feed?${params.toString()}`);
+        const owner=sessionSubject(session || restoreStoredSession()),epoch=feedEpoch;
+        const key=`${owner}:${epoch}:${params}`;
+        if(feedRequests.has(key))return feedRequests.get(key);
+        const cached=feedResponses.get(key);
+        const pending=authenticatedRequest(`/api/feed?${params.toString()}`,{
+          headers:cached?.etag?{'If-None-Match':cached.etag}:{},
+          cachedPayload:cached?.payload,
+          onResponse(response,payload){
+            if(epoch!==feedEpoch||owner!==sessionSubject(session || restoreStoredSession()))return;
+            const etag=response.headers?.get?.('etag');
+            if(etag){if(feedResponses.size>=20)feedResponses.delete(feedResponses.keys().next().value);feedResponses.set(key,{etag,payload});}
+          },
+        }).then(payload=>{
+          if(epoch!==feedEpoch||owner!==sessionSubject(session || restoreStoredSession()))throw staleFeedError();
+          return payload;
+        }).finally(()=>{if(feedRequests.get(key)===pending)feedRequests.delete(key);});
+        feedRequests.set(key,pending);return pending;
       },
       async sendProductEvents(events){
         const payload = await authenticatedRequest("/api/product-events", {
@@ -6644,10 +6675,12 @@
         return payload;
       },
       async savePatch(patch){
+        invalidateFeed();
         const payload = await authenticatedRequest("/api/user-state", {
           method: "PUT",
           body: JSON.stringify({ patch }),
         });
+        invalidateFeed();
         return {
           user: payload.user,
           state: stateFromDatabaseRow(payload.state),
@@ -6655,10 +6688,12 @@
         };
       },
       async resetPreferences(preferences){
+        invalidateFeed();
         const payload = await authenticatedRequest("/api/user-state", {
           method:"POST",
           body:JSON.stringify({ action:"reset-preferences", preferences }),
         });
+        invalidateFeed();
         return {
           user:payload.user,
           state:stateFromDatabaseRow(payload.state),
@@ -6666,10 +6701,12 @@
         };
       },
       async undoPreferencesReset(resetId){
+        invalidateFeed();
         const payload = await authenticatedRequest("/api/user-state", {
           method:"POST",
           body:JSON.stringify({ action:"undo-preferences-reset", resetId }),
         });
+        invalidateFeed();
         return {
           user:payload.user,
           state:stateFromDatabaseRow(payload.state),
