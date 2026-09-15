@@ -24,7 +24,7 @@ async function updatesFor(events,now=new Date(),fetchPage=fetchText,context=requ
  const known=events.filter(e=>e.key==='f1'&&Number.isFinite(+fixtureStart(e))&&Math.abs(fixtureStart(e)-now)<7*86400000&&fixtureStart(e)<=now);if(!known.length)return [];
  const index=await fetchPage(`https://www.formula1.com/en/results/${now.getUTCFullYear()}/races`),links=[...new Set([...index.matchAll(/href="(\/en\/results\/\d{4}\/races\/\d+\/[^/"?]+\/race-result)"/g)].map(m=>m[1]))],updates=[];
  for(const ev of known){
-  const name=ev.name.toLowerCase().replace('italian','italy').replace('australian','australia').replace('british','great britain').replace('canadian','canada').replace('dutch','netherlands').replace('japanese','japan').replace('chinese','china').replace('belgian','belgium').replace('hungarian','hungary').replace('austrian','austria').replace('brazilian','brazil');
+  const name=ev.name.toLowerCase().replace('italian','italy').replace('spanish','spain').replace('australian','australia').replace('british','great britain').replace('canadian','canada').replace('dutch','netherlands').replace('japanese','japan').replace('chinese','china').replace('belgian','belgium').replace('hungarian','hungary').replace('austrian','austria').replace('brazilian','brazil');
   const link=links.find(l=>name.includes(l.split('/').at(-2).replaceAll('-',' ')));if(!link)continue;
   const session=/qualifying/i.test(ev.name)?'qualifying':/sprint/i.test(ev.name)?'sprint-results':/race|grand prix/i.test(ev.name)?'race-result':null;if(!session)continue;
   const url='https://www.formula1.com'+link.replace('race-result',session),rows=resultRows(await fetchPage(url));if(rows.length<10||rows[0][0]!=='1')continue;

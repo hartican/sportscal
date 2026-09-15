@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-09-14T20:44:08.227Z",
+  "generatedAt": "2026-09-15T03:02:47.648Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/afl.json",
@@ -36,7 +36,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-14T20:44:08.227Z",
+      "freshAt": "2026-09-15T03:02:47.648Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -48,7 +48,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-08T13:33:26.093Z",
+      "freshAt": "2026-09-15T03:02:47.648Z",
       "parentSportId": "sport:nrl",
       "chunkPath": "data/code-inspector/nrlw.json"
     },
@@ -61,7 +61,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-08T13:33:26.093Z",
+      "freshAt": "2026-09-15T03:02:47.648Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -131,11 +131,11 @@
       "id": "sport:tennis",
       "slug": "tennis",
       "label": "Tennis",
-      "fixtureCount": 837,
+      "fixtureCount": 836,
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-08T13:33:26.093Z",
+      "freshAt": "2026-09-15T03:02:47.648Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -330,7 +330,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-08T13:33:26.093Z",
+      "freshAt": "2026-09-15T03:02:47.648Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/fiba-women.json"
     }

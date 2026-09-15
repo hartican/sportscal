@@ -5,6 +5,7 @@ const fs=require('node:fs'),{spawnSync}=require('node:child_process');
 const canonical=require('./refresh-canonical-sports');
 const tennis=require('./refresh-us-open-events');
 const pl=require('./refresh-premier-league-cards');
+const officialResults=require('./sync-official-card-results');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 const {storylineFor,spoilerSafeRootCopy}=require('./lib/storyline-card-rules');
@@ -22,12 +23,13 @@ function run(file,...args){const result=spawnSync(process.execPath,[file,...args
 function projectionSteps(changes,{rebuild=false}={}){
  if(!changes.length&&!rebuild)return [];
  const canonicalChanged=rebuild||changes.some(change=>change.startsWith('AFL/NRL'));
- const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Premier League|F1)/.test(change));
+ const feedChanged=canonicalChanged||rebuild||changes.some(change=>/^(Premier League|F1|Official results)/.test(change));
  const codes=new Set();
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
  if(changes.some(change=>change.startsWith('F1')))codes.add('motorsport');
  if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
+ if(changes.some(change=>change.startsWith('Official results')))['nrl','nrlw','motorsport','fiba-women','tennis','wrc'].forEach(code=>codes.add(code));
  const steps=[];
  if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/refresh-major-events-from-canonical.js']);}
  if(feedChanged){steps.push(
@@ -55,6 +57,8 @@ async function refresh({now=new Date(),offline=false}={}){
  try{if(existing.some(e=>e.id.startsWith('event:nrl:'))){const response=await json('https://mc.championdata.com/data/12999/fixture.json');if(!Array.isArray(response.fixture?.match))throw new Error('Malformed NRL fixtures');updates.push(...response.fixture.match.map(m=>canonical.buildNrlEvent(m,now.toISOString(),created).event));}}catch(error){failures.push(`nrl: ${error.message}`);}
  }
  const patched=patchKnown(bundle.events,updates.filter(near));if(patched.count){write(bundlePath,{...bundle,events:patched.events});changes.push(`AFL/NRL ${patched.count}`);}
+ const officialDocument=read('feeds/incoming/events.json'),officialSnapshot=read('data/canonical/official-card-results-2026.json'),official=officialResults.applyOfficialResults(officialDocument.events,officialSnapshot);
+ if(official.count){write('feeds/incoming/events.json',{...officialDocument,events:official.events});changes.push(`Official results ${official.count}`);}
  const majorPath='data/major-events.v1.json',major=read(majorPath),us=major.events.find(e=>e.id==='major:us-open-2026'||/US Open 2026/.test(e.name));
  if(!offline&&us&&us.startDate<=now.toISOString().slice(0,10)&&us.endDate>=now.toISOString().slice(0,10))try{
    const snapshot=await tennis.fetchOfficialSnapshot({quick:true,now,cached:read('feeds/provider-exports/tennis/us-open-2026-official-schedule.json')});tennis.fixturesFromSnapshot(snapshot);
@@ -69,6 +73,7 @@ async function refresh({now=new Date(),offline=false}={}){
  }catch(error){failures.push(`Premier League: ${error.message}`);}
  if(!offline)try{const doc=read('feeds/incoming/events.json'),updates=await require('./refresh-f1-results').updatesFor(doc.events,now),patched=patchKnown(doc.events,updates);if(patched.count){write('feeds/incoming/events.json',{...doc,events:patched.events});changes.push(`F1 ${patched.count}`);}}catch(error){failures.push(`F1: ${error.message}`);}
  for(const [file,...args] of projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}))run(file,...args);
+ run('scripts/verify-result-completeness.js','data/events.json');
 
  if(process.env.SUPABASE_SERVICE_ROLE_KEY||process.env.SUPABASE_SECRET_KEY)run('scripts/settle-nsc-foresight.js');
  console.log(JSON.stringify({mode:'quick',changed:changes,failures,aiCalls:0}));
