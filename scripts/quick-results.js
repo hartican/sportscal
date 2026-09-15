@@ -58,7 +58,8 @@ async function refresh({now=new Date(),offline=false}={}){
  }
  const patched=patchKnown(bundle.events,updates.filter(near));if(patched.count){write(bundlePath,{...bundle,events:patched.events});changes.push(`AFL/NRL ${patched.count}`);}
  const officialDocument=read('feeds/incoming/events.json'),officialSnapshot=read('data/canonical/official-card-results-2026.json'),official=officialResults.applyOfficialResults(officialDocument.events,officialSnapshot);
- if(official.count){write('feeds/incoming/events.json',{...officialDocument,events:official.events});changes.push(`Official results ${official.count}`);}
+ const officialReleaseChanged=officialDocument.version!==officialSnapshot.feedVersion;
+ if(official.count||officialReleaseChanged){write('feeds/incoming/events.json',{...officialDocument,version:officialSnapshot.feedVersion,publishedAt:officialSnapshot.checkedAt,events:official.events});changes.push(`Official results ${official.count}`);}
  const majorPath='data/major-events.v1.json',major=read(majorPath),us=major.events.find(e=>e.id==='major:us-open-2026'||/US Open 2026/.test(e.name));
  if(!offline&&us&&us.startDate<=now.toISOString().slice(0,10)&&us.endDate>=now.toISOString().slice(0,10))try{
    const snapshot=await tennis.fetchOfficialSnapshot({quick:true,now,cached:read('feeds/provider-exports/tennis/us-open-2026-official-schedule.json')});tennis.fixturesFromSnapshot(snapshot);

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-09-15T03:02:47.648Z",
+  "generatedAt": "2026-09-15T03:15:00.000Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/afl.json",
@@ -36,7 +36,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-15T03:02:47.648Z",
+      "freshAt": "2026-09-15T03:15:00.000Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -48,7 +48,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-15T03:02:47.648Z",
+      "freshAt": "2026-09-15T03:15:00.000Z",
       "parentSportId": "sport:nrl",
       "chunkPath": "data/code-inspector/nrlw.json"
     },
@@ -61,7 +61,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-15T03:02:47.648Z",
+      "freshAt": "2026-09-15T03:15:00.000Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -135,7 +135,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-15T03:02:47.648Z",
+      "freshAt": "2026-09-15T03:15:00.000Z",
       "chunkPath": "data/code-inspector/tennis.json"
     },
     {
@@ -330,7 +330,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-15T03:02:47.648Z",
+      "freshAt": "2026-09-15T03:15:00.000Z",
       "parentSportId": "sport:basketball",
       "chunkPath": "data/code-inspector/fiba-women.json"
     }

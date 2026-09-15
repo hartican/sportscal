@@ -1,5 +1,6 @@
 {
   "schemaVersion": "official-card-results.v1",
+  "feedVersion": "nothingsport-official-results-2026-09-15-v1",
   "checkedAt": "2026-09-15T03:15:00.000Z",
   "results": [
     { "id": "fixture-us-open-2026-official-ms-1503", "status": "completed", "score": "Tiafoe 5-7, 3-6, 7-5, 6-3, 7-6(6) Michelsen", "outcomeText": "Frances Tiafoe defeated Alex Michelsen in five sets.", "recapText": "Tiafoe recovered from two sets down to win the US Open quarterfinal 5-7, 3-6, 7-5, 6-3, 7-6(6).", "sourceName": "US Open", "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-08/frances_tiafoe_makes_epic_comeback_to_defeat_alex_michelsen_at_the_2026_us_open_qfs.html" },

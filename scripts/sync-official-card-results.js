@@ -44,7 +44,13 @@ function main(){
   const document = JSON.parse(fs.readFileSync(inputPath, "utf8"));
   const snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, "utf8"));
   const applied = applyOfficialResults(document.events || [], snapshot);
-  fs.writeFileSync(outputPath, `${JSON.stringify({ ...document, events:applied.events }, null, 2)}\n`);
+  const output = applied.count ? {
+    ...document,
+    version:snapshot.feedVersion,
+    publishedAt:snapshot.checkedAt,
+    events:applied.events,
+  } : { ...document, events:applied.events };
+  fs.writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`);
   console.log(`Applied ${applied.count} source-backed official card results.`);
 }
 
