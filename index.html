@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="259">
+<meta name="app-shell-version" content="260">
 <script src="/assets/js/app-update.js?v=254" defer></script>
 <link rel="preload" href="assets/js/app-shell-runtime.js?v=259" as="script">
 <meta property="og:type" content="website">
@@ -7245,10 +7245,16 @@ function fxAliases(event){
 function fxParticipants(event){
   return [...new Set([...(event?.participantIds||[]),...(event?.participantSlots||[]).map(slot=>slot?.participantId),event?.homeParticipantId,event?.awayParticipantId].map(value=>String(value||"").trim()).filter(Boolean))].sort();
 }
+function fxSportKey(event){
+  const explicit=String(event?.key||event?.sportKey||event?.sportId||event?.codeId||event?.sport||"").trim().toLowerCase().replace(/^(?:sport|competition):/,"");
+  if(explicit)return explicit;
+  const competition=String(event?.competitionId||event?.competition||"").trim().toLowerCase();
+  return competition.match(/^competition:([^:]+)/)?.[1]||competition||"fixture";
+}
 function fxKey(event){
   const participants=fxParticipants(event),start=Date.parse(event?.startTimeUtc||event?.timelineSortTimeUtc||"");
   if(participants.length<2||!Number.isFinite(start))return "";
-  return `${String(event?.competitionId||event?.competition||event?.sportId||event?.sport||"fixture").trim().toLowerCase()}|${new Date(start).toISOString()}|${participants.join("|")}`;
+  return `${fxSportKey(event)}|${new Date(start).toISOString()}|${participants.join("|")}`;
 }
 function fxFind(event,fixtures){
   const aliases=new Set(fxAliases(event)),semantic=fxKey(event);

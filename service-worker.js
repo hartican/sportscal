@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v259";
-const SHELL_VERSION = "259";
+const CACHE_NAME = "nothingsport-shell-v260";
+const SHELL_VERSION = "260";
 const APP_SHELL = [
   "/assets/js/app-update.js?v=254",
   // Navigations already share /index.html below; do not download/cache its
