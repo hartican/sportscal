@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="261">
+<meta name="app-shell-version" content="262">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=261" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=262" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6914,9 +6914,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=254">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=262">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=254">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=261">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=262">
 </head>
 <body>
 
@@ -6954,7 +6954,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost calendar-sync-action" id="calendarSyncBtn" type="button" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span></button>
       <button class="btn ghost" id="activeChatsBtn" type="button" aria-haspopup="dialog" aria-controls="chatDrawer" aria-label="Active chats" hidden><span data-vector-glyph="ui:message"></span> <span class="full-label">Chats</span><span class="active-chat-count" id="activeChatCount">0</span></button>
-      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-controls="nothingscoreDrawer" aria-label="Nothinger Leaderboard"><span class="nothing-score-label" aria-hidden="true">Nothinger<br>Leaderboard</span></button>
+      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-controls="nothingscoreDrawer" aria-label="Nothinger Leaderboard"><span class="nothing-score-label" aria-hidden="true">LEADER<br>BOARD</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
         <div class="loading-indicator-overlay" id="headerProgressRing" hidden></div>
         <time class="header-date-badge" id="calendarDateBadge"><span>MON</span><strong>24AUG</strong></time>
@@ -7211,7 +7211,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=261"></script>
+<script src="assets/js/app-shell-runtime.js?v=262"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8827,6 +8827,10 @@ let followFeedRefreshPending = false;
 let followFeedRefreshInFlight = null;
 let followFeedRefreshTimer = null;
 let followFeedRefreshGeneration = 0;
+let directoryFollowEffectsTimer = null;
+let followDirectoryParserWorker = null;
+let followDirectoryParserSequence = 0;
+const followDirectoryParserJobs = new Map();
 let serverStatusRequest = null;
 let serverStateBaseline = null;
 let startupSessionStateBaseline = null;
@@ -9397,7 +9401,7 @@ function loadPreferences(){
   return defaults;
 }
 
-function savePreferences(next,{viewOnly=false}={}){
+function savePreferences(next,{viewOnly=false,deferFollowEffects=false}={}){
   const priorFollowState = JSON.stringify({
     events:userPreferences?.followFirst?.followedMajorEventIds,
     excludedEvents:userPreferences?.followFirst?.excludedMajorEventIds,
@@ -9428,11 +9432,13 @@ function savePreferences(next,{viewOnly=false}={}){
     entities:(clean.preferenceGraph?.entityFollows || []).slice().sort((first, second) => String(first.participantId).localeCompare(String(second.participantId))),
     collections:(clean.followFirst?.collectionFollows || []).slice().sort(),
   });
-  if (!viewOnly) queueServerStateSync();
+  if (!viewOnly && !deferFollowEffects) queueServerStateSync();
   if (!viewOnly && document.readyState !== "loading" && clean.followFirst?.notifications?.enabled){
     void backfillWebPushReminders().catch(error => console.warn("Reminder backfill failed", error));
   }
-  if (priorFollowState !== nextFollowState && typeof activeEvents !== "undefined") void requestFeedRebuildAfterFollowChange();
+  if (priorFollowState !== nextFollowState && typeof activeEvents !== "undefined"){
+    if(deferFollowEffects)queueDirectoryFollowEffects();else void requestFeedRebuildAfterFollowChange();
+  }
   return profileSaved;
 }
 
@@ -10648,10 +10654,31 @@ async function loadFollowDirectoryManifest(){
   return followDirectoryManifestLoading;
 }
 
+function parseFollowDirectoryText(text){
+  if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
+  if(!followDirectoryParserWorker){
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=262");
+    followDirectoryParserWorker.addEventListener("message",event=>{
+      const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
+      followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
+      if(event.data.error)job.reject(new Error(event.data.error));else job.resolve(event.data.chunk);
+    });
+    followDirectoryParserWorker.addEventListener("error",error=>{
+      for(const job of followDirectoryParserJobs.values()){window.clearTimeout(job.timer);job.reject(error);}
+      followDirectoryParserJobs.clear();followDirectoryParserWorker?.terminate();followDirectoryParserWorker=null;
+    });
+  }
+  return new Promise((resolve,reject)=>{
+    const id=++followDirectoryParserSequence;
+    const timer=window.setTimeout(()=>{followDirectoryParserJobs.delete(id);reject(new Error("Follow directory parsing timed out"));},10000);
+    followDirectoryParserJobs.set(id,{resolve,reject,timer});followDirectoryParserWorker.postMessage({id,text});
+  });
+}
+
 async function fetchFollowDirectoryChunk(record){
   let chunk;
   if(globalThis.location?.protocol!=='file:'){
-    try{chunk=await fetchJson(record.jsonUrl,{cache:'no-cache'});}catch{}
+    try{const response=await fetch(record.jsonUrl,{cache:'no-cache'});if(!response.ok)throw new Error(`${record.jsonUrl} returned ${response.status}`);chunk=await parseFollowDirectoryText(await response.text());}catch{}
   }
   if(!chunk){await loadDeferredScript(record.scriptUrl);chunk=globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_CHUNKS?.[record.key];}
   if(!chunk||chunk.sportKey!==record.key)throw new Error(`${record.key} Follow directory chunk was invalid`);
@@ -11463,6 +11490,16 @@ async function requestFeedRebuildAfterFollowChange(){
       resolve(await followFeedRefreshInFlight);
     }, 500);
   });
+}
+
+function queueDirectoryFollowEffects(){
+  window.clearTimeout(directoryFollowEffectsTimer);
+  directoryFollowEffectsTimer=window.setTimeout(function waitForFollowIdle(){
+    if(scrollMomentumActive){directoryFollowEffectsTimer=window.setTimeout(waitForFollowIdle,180);return;}
+    directoryFollowEffectsTimer=null;
+    const run=()=>{void requestFeedRebuildAfterFollowChange();};
+    if(typeof window.requestIdleCallback==="function")window.requestIdleCallback(run,{timeout:1000});else window.setTimeout(run,0);
+  },350);
 }
 
 function warmNextFeedPageDuringIdle(){
@@ -19165,6 +19202,7 @@ function syncDirectoryFollowButton(button, participantId){
   button.dataset.followLevel = followed ? "follow" : "none";
   button.dataset.followSource = effective.source || "none";
   button.classList.toggle("active", followed);
+  button.closest(".follow-directory-row,.football-club-row")?.classList.toggle("is-followed",followed);
   button.setAttribute("aria-pressed", String(followed));
   button.textContent = followed ? (effective.source === "collection" ? "Following via group" : "Following") : "Follow";
 }
@@ -19184,40 +19222,12 @@ function buildDirectoryFollowButton(participantId, { sportKey = "football", leag
   return button;
 }
 
-function footballLeagueKeyForId(leagueId){
-  return {
-    "competition:premier-league": "premier-league",
-    "competition:bundesliga": "bundesliga",
-    "competition:la-liga": "la-liga",
-    "competition:serie-a": "serie-a",
-    "competition:ligue-1": "ligue-1",
-  }[leagueId] || null;
-}
-
 function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "football", leagueId = null, label = "Selection" } = {}){
   const next = clonePreferences(userPreferences);
   next.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(next.preferenceGraph, participantId, followLevel);
-  savePreferences(next);
+  savePreferences(next,{deferFollowEffects:true});
   recordPreferenceChange(followLevel === "none" || followLevel === "mute" ? "unfollow" : "follow", participantId.startsWith("team:") ? "team" : "player", { sport: sportKey });
   showToast(`${label}: ${followLevel === "none" ? "not followed" : followLevel}.`);
-  if (sportKey === "football"){
-    void loadFootballCoreEvents();
-    void loadFootballFollowIndex().then(async () => {
-      const leagueKey = footballLeagueKeyForId(leagueId);
-      await (leagueKey ? loadFootballLeagueFixtures(leagueKey) : loadFootballFixturesForCurrentFollows());
-      rebuildDerivedCardCache(activeEvents);
-      if (activeTab !== "follow") queueScrollIdleMutation(() => renderAll({ preserveViewport:true }));
-      else renderTabCounts();
-    });
-  }
-  if (sportKey === "nrl" || sportKey === "afl" || sportKey === "aflw"){
-    const loadIndex = sportKey === "nrl" ? loadNrlFollowIndex : sportKey === "aflw" ? loadAflwFollowIndex : loadAflFollowIndex;
-    void loadIndex().then(() => {
-      rebuildDerivedCardCache(activeEvents);
-      if (activeTab !== "follow") queueScrollIdleMutation(() => renderAll({ preserveViewport:true }));
-      else renderTabCounts();
-    });
-  }
   renderTabCounts();
 }
 
@@ -19443,8 +19453,10 @@ function renderFootballDirectory(container, {
   const list = document.createElement("div");
   list.className = "football-club-list";
   list.dataset.scrollList = `directory-teams:${sportKey}`;
+  const batchKey=JSON.stringify([`clubs:${sportKey}`,filters]);
+  const limit=followDirectoryBatchLimits.get(batchKey)||40;
   let competitionGroup='';
-  filtered.teams.forEach(team => {
+  filtered.teams.slice(0,limit).forEach(team => {
     const group=footballDirectoryApi.competitionGroup(team);
     if(group!==competitionGroup){competitionGroup=group;const heading=document.createElement('h3');heading.textContent=group;list.appendChild(heading);}
     const players = playersByTeam.get(team.id) || [];
@@ -19458,6 +19470,12 @@ function renderFootballDirectory(container, {
     list.appendChild(empty);
   }
   directory.appendChild(list);
+  if(filtered.teams.length>limit){
+    const more=document.createElement('button');more.type='button';more.className='btn ghost directory-load-more';
+    more.textContent=`Show more (${Math.min(limit,filtered.teams.length)} of ${filtered.teams.length})`;
+    more.onclick=()=>{followDirectoryBatchLimits.set(batchKey,limit+40);const anchor=captureViewportRenderAnchor();renderStandingsContext();restoreViewportRenderAnchor(anchor);};
+    directory.appendChild(more);
+  }
   container.appendChild(directory);
 }
 
@@ -25143,7 +25161,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=261");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=262");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
