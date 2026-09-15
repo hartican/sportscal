@@ -28,7 +28,7 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       NS_SERIALIZED_DEPLOY: '1'
       NS_FORCE_REDEPLOY: ${{ inputs.rebuild && '1' || '0' }}
-      NS_DEPLOY_REPORT_DIR: ${{ runner.temp }}/release-report
+      NS_DEPLOY_REPORT_DIR: /tmp/sportscal-release-report
     steps:
       - uses: actions/checkout@v5
         with:
@@ -65,5 +65,5 @@ jobs:
         if: always()
         with:
           name: release-${{ inputs.sha }}
-          path: ${{ runner.temp }}/release-report
+          path: /tmp/sportscal-release-report
           retention-days: 14
