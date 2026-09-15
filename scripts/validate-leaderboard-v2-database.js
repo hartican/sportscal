@@ -46,6 +46,9 @@ const assert=require('node:assert/strict'),fs=require('node:fs');
   if(other)await db.query("insert into nothingsports_score_votes values($1,$2,'impact',4,$3)",[b,name,ended]);
   await db.query('select nothingsports_resolve_predictions($1)',[name]);assert.equal((await db.query('select result from nothingsports_predictions where event_id=$1',[name])).rows[0].result,result);
  }
+ const beforeCancel=await points(a);await db.query("select nothingsports_resolve_predictions('match',$1,'abandoned')",[past]);
+ assert.equal(await points(a),beforeCancel,'abandonment never revokes a locked reward');
+ assert.equal((await db.query('select eligible from nothingsports_sport_stats where user_id=$1 and sport=$2',[a,'nrl'])).rows[0].eligible,0,'abandonment is excluded from Efficiency');
  assert.equal((await rate(c,'unconfirmed','heat',3,'scheduled',null,null)).pointsAwarded,1,'unconfirmed Heat still earns participation');
  assert.equal((await db.query("select result from nothingsports_predictions where event_id='unconfirmed'")).rows[0].result,'unscored');
  await Promise.all([rate(b,'parallel','heat',3,'scheduled',future,end),rate(b,'parallel','heat',3,'scheduled',future,end)]);

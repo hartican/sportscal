@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="259">
+<meta name="app-shell-version" content="261">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=259" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=261" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6916,7 +6916,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=254">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=254">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=255">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=261">
 </head>
 <body>
 
@@ -7211,7 +7211,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=259"></script>
+<script src="assets/js/app-shell-runtime.js?v=261"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -14997,7 +14997,9 @@ function buildSpoilerFacts(ev){
     wrap.appendChild(fact);
   };
 
-  addFact("Score", scoreLineForDisplay(ev, spoilerSafeDisplayTitle(ev), { score: facts.score }));
+  const tennisResult=['tennis','wimbledon'].includes(ev.key)&&CARD_RESULTS.tennisSets(ev,ev.name,{score:facts.score})?buildCompactResult(ev,ev.name):null;
+  if(tennisResult)wrap.appendChild(tennisResult);
+  else addFact("Score", scoreLineForDisplay(ev, spoilerSafeDisplayTitle(ev), { score: facts.score }));
   addFact("Outcome", spoilerOutcomeCopy(facts.outcome));
   const displayedSpiel = eventSpielForDisplay(ev).trim();
   const recapCopy = facts.recap === null || facts.recap === undefined ? "" : String(facts.recap).trim();
@@ -25135,7 +25137,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=254");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=261");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

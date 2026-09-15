@@ -419,6 +419,7 @@ return {gender,sport,badge};
       if(reverse)pair.reverse();sets.push({label:matchTiebreak?'Match TB':`Set ${sets.filter(s=>s.label!=='Match TB').length+1}`,scores:pair});
     }
     if(!sets.length)return null;
+    if(sets.length===1&&sets[0].label!=='Match TB'&&Math.max(...sets[0].scores.map(s=>s.games))<6&&!/\bRET(?:IRED)?\b/i.test(original))return null;
     return {names,sets,status:(original.match(/\b(?:RET(?:IRED)?|W\/?O|WALKOVER|ABD|ABANDONED)\b/i)||[])[0]||null};
   }
   return Object.freeze({ VERSION, structuredScore, scoreLine, tennisSets });

@@ -70,3 +70,7 @@ The maintenance switch closes the application path before the database returns. 
 ## Post-recovery proof
 
 Record SQL health, migration versions, backup location, advisor results, scheduler ownership, the US Open preference repair, Auth/REST/Storage/Realtime checks, physical push delivery, and the first 24-hour Supabase/Vercel resource comparison. The release target is at least an 80% reduction in fixture writes, transferred fixture bytes, and invocations without removing accepted product behavior.
+
+## Current project — 15 September 2026
+
+The user confirms that the app has migrated to **nothingSport-recovery**, project `mkghopnkhcxtmfrcjdbc`. That database responds to SQL and contains the current public profiles and reward ledger. Use it for the Nothinger Leaderboard migration. The `jljgtodyviwpslprxaao` incident and recovery instructions above are historical; do not use the original project for new features. Deletion of the original project is a separate cleanup action after dependency and backup verification, not part of the leaderboard scoring reset.

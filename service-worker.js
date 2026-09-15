@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v259";
-const SHELL_VERSION = "259";
+const CACHE_NAME = "nothingsport-shell-v261";
+const SHELL_VERSION = "261";
 const APP_SHELL = [
   "/assets/js/app-update.js?v=254",
   // Navigations already share /index.html below; do not download/cache its
@@ -13,9 +13,10 @@ const APP_SHELL = [
   "/terms.html",
   "/assets/styles/nothingsport-foundation.css?v=254",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=259",
-  "/assets/js/nsc-rankings-ui.js?v=254",
-  "/assets/styles/nsc-ladder.css?v=254",
+  "/assets/js/app-shell-runtime.js?v=261",
+  "/assets/js/nsc-rankings-ui.js?v=261",
+  "/assets/styles/nsc-ladder.css?v=261",
+  "/assets/styles/card-clarity.css?v=261",
   "/config/calendar-selection.js",
   "/config/sport-hierarchy.js",
   "/config/event-taxonomy-compat.js",
