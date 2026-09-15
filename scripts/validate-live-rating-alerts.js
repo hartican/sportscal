@@ -24,6 +24,7 @@ async function dispatchCase({prefs, phase='live', votes=[vote('jim')], friends=[
     if(table==='nothingsports_user_state')return [{preferences:prefs||{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}}}];
     if(table==='nothingsports_user_follows')return friends.map(followed_user_id=>({followed_user_id}));
     if(table==='votes')return votes;
+    if(table==='nothingsports_friend_activity')return votes.filter(v=>v.rating===5).map(v=>({rater_user_id:v.user_id,phase:v.phase}));
     if(table==='nothingsports_push_installations')return installations?[{installation_id:'device',endpoint:'https://push.test',p256dh:'key',auth_key:'auth'}]:[];
     if(table==='nothingsports_live_rating_deliveries')return deliveries;
     throw new Error('Unexpected table '+table);
@@ -49,7 +50,8 @@ async function dispatchCase({prefs, phase='live', votes=[vote('jim')], friends=[
   assert.equal((await dispatchCase({fail:[{statusCode:503},{statusCode:503},{statusCode:503},{statusCode:503}]})).sends,3,'retry cap');
   assert.equal((await dispatchCase({fail:[new Error('unknown outcome')]})).sends,1,'ambiguous delivery never blindly retries');
   assert.equal((await dispatchCase({concurrent:true})).complete,false,'concurrent sending worker keeps queue open');
-  for(const options of [{prefs:{}},{prefs:{followedSports:['tennis'],followFirst:{notifications:{liveRatingsEnabled:false}}}},{friends:[]},{visibility:'hidden'},{moderation:true},{votes:[vote('jim',4)]},{votes:[]},{installations:false},{phase:'missing'}])assert.equal((await dispatchCase(options)).sends,0,JSON.stringify(options));
+  for(const options of [{prefs:{followedSports:['tennis'],followFirst:{notifications:{liveRatingsEnabled:false}}}},{friends:[]},{visibility:'hidden'},{moderation:true},{votes:[vote('jim',4)]},{votes:[]},{installations:false},{phase:'missing'}])assert.equal((await dispatchCase(options)).sends,0,JSON.stringify(options));
+  for(const phase of ['heat','pulse','impact'])assert.equal((await dispatchCase({prefs:{},votes:[{...vote('jim'),phase}],phase:phase==='impact'?'completed':'live'})).sends,1,'all phases bypass sport follows');
   if(process.env.PGLITE_MODULE){
     const {PGlite}=require(process.env.PGLITE_MODULE),db=new PGlite();
     await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;create schema auth;create table auth.users(id uuid primary key);

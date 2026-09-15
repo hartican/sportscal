@@ -1,0 +1,17 @@
+/* Identity images and brand glyphs keep their original colour. */
+.event-card,.major-event-card,.sport-hub,.sport-hub-banner,.code-inspector-view,.selector-entity-card{--sport-color:var(--text)!important;--importance-color:var(--text)!important}
+.matchup-format-badge{border-color:var(--border);background:var(--soft-fill,var(--bg-card));color:var(--text);text-transform:none;white-space:normal;text-align:center;font-size:.63rem;line-height:1.25;max-width:110px}
+.nsc-inline-rating .nsc-rating-block{width:44px;min-width:44px;min-height:44px;background:transparent!important;border:0;color:var(--text)!important;padding:10px!important;box-shadow:none!important}
+.nsc-inline-rating .nsc-rating-block svg{width:15px!important;height:19px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.4}
+.nsc-inline-rating .nsc-rating-block.is-filled svg{fill:currentColor!important}.nsc-inline-rating .nsc-rating-block:focus-visible{outline:2px solid var(--text);outline-offset:1px;border-radius:5px}.nsc-rating-prompt,.nsc-inline-rating .nsc-rating-status{color:var(--text)!important}.nsc-rating-blocks{gap:0!important}.nsc-inline-rating.is-epic-burst{filter:none!important}
+.tennis-set-table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:12px;table-layout:auto}.tennis-set-table th,.tennis-set-table td{padding:5px;text-align:center;white-space:nowrap}.tennis-set-table th:first-child{text-align:left;white-space:normal;min-width:80px}.tennis-set-table thead{font-size:10px;color:var(--text-dim)}.tennis-set-table sup{font-size:9px;margin-left:1px}.card-result-line:has(.tennis-set-table){display:block;overflow-x:auto;max-width:100%}
+.selector-entity-card.selected,.follow-directory-row.is-followed,.follow-event-family.selected{border-color:var(--text);background:color-mix(in srgb,var(--text) 5%,var(--bg-card))}.sport-hub-tab.active,.code-inspector-tab.active{color:var(--text)}
+.nsc-inline-rating .nsc-rating-block{flex:0 0 44px;height:44px}.nsc-rating-prompt{text-shadow:none!important}.nsc-inline-rating .nsc-rating-block svg{filter:none!important}.nsc-friend-fixture{width:min(700px,calc(100vw - 20px));max-height:90vh;overflow:auto}
+.feed-view-actions [aria-pressed=true],.timeline-tools .btn,.event-card-disclosure,.follow-section-tab.active,.tab-btn.active{color:var(--text);border-color:var(--text)}
+.event-card .btn.primary,.follow-view .btn.primary,.calendar-dialog .btn.primary{background:var(--text);color:var(--bg-card);border-color:var(--text)}
+.event-card .tag,.event-card .chip,.major-event-card .tag,.code-inspector-fixture{--accent:var(--text);--accent-soft:var(--soft-fill)}
+.compact-card-stakes i.is-filled,.event-action-stakes i.is-filled{background:var(--text)}
+.nsc-ladder-row>:first-child{position:sticky;left:0;background:var(--bg-card);z-index:1}.nsc-ladder-row>:nth-child(2){position:sticky;left:60px;background:var(--bg-card);z-index:1}.nsc-ladder-header{z-index:2}
+
+.nsc-inline-rating.is-epic-burst::after{color:var(--text)}
+.nsc-peer-results,.nsc-peer-summary{--accent:var(--text)}

@@ -15,7 +15,7 @@
   const IMPACT_TAGS = Object.freeze(["Thrilling", "Eye-popping", "Mind-blowing", "Emotional", "Electric atmosphere", "Pure chaos"]);
   const HEAT_LOW_TAGS = Object.freeze(["Rising storyline", "Emerging talent", "Low expectations", "Bog standard", "Too one-sided", "Hard to care"]);
   const IMPACT_LOW_TAGS = Object.freeze(["Boring", "Standard", "Mediocre", "Underwhelming", "One-sided", "Disappointing"]);
-  const POINT_RULES = Object.freeze({ heat:2, first_like:1, watching:1, pulse:1, pulse_15m:1, impact:3, valid_tags:1 });
+  const POINT_RULES = Object.freeze({ heat:1, first_like:1, watching:1, pulse:1, pulse_15m:1, impact:3, valid_tags:1 });
   const PULSE_BUCKET_MS = 5 * 60 * 1000;
   const PULSE_FRESH_MS = 15 * 60 * 1000;
   // Watching is intentionally approximate after the one-minute bonus proof.

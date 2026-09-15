@@ -309,6 +309,45 @@
 
 ;
 
+;/* config/fixture-labels.js */
+(function(root,factory){const api=factory();if(typeof module!=='undefined')module.exports=api;root.NOTHINGSPORTS_FIXTURE_LABELS=api;})(globalThis,function(){
+'use strict';
+function gender(event){
+ const value=String(event.gender||event.genderCategory||event.competitionGender||event.metadata?.gender||event.competition?.gender||'').toLowerCase();
+ if(/^(women|womens|women's|female|w)$/.test(value))return 'women';
+ if(/^(men|mens|men's|male|m)$/.test(value))return 'men';
+ if(value==='mixed')return 'mixed';
+ const id=String(event.competitionId||'');
+ if(event.key==='aflw'||event.key==='nrlw'||/(?:^|:)wta(?:-|:|$)|(?:^|:)aflw(?:-|:|$)|(?:^|:)nrlw(?:-|:|$)/.test(id))return 'women';
+ if(event.key==='afl'||event.key==='nrl'||/(?:^|:)atp(?:-|:|$)|afl-premiership/.test(id))return 'men';
+ return null;
+}
+function sport(event){
+ const key=String(event.key||event.sportKey||event.sportDomainId||'').replace(/^sport:/,'');
+ const family=({wimbledon:'tennis','rugby-union':'rugby','rugby-league':'nrl','aussie-rules':'afl','premier-league':'football',fifa:'football'})[key]||key||'other';
+ if(family==='tennis')return family;
+ if(['aflw','nrlw'].includes(family))return family;
+ if(gender(event)==='women')return ({afl:'aflw',nrl:'nrlw'})[family]||family+'-women';
+ // Unknown gender never enters a men's-only leaderboard column.
+ if(['cricket','rugby'].includes(family)&&gender(event)!=='men')return family+'-open';
+ return family;
+}
+function badge(event){
+ const key=event.key,sex=gender(event),suffix=sex?({men:' Men',women:' Women',mixed:' Mixed'})[sex]:'';
+ if(['afl','aflw','nrl','nrlw'].includes(key))return (sex==='women'?({afl:'aflw',nrl:'nrlw'})[key]||key:key).toUpperCase();
+ const values=[event.format,event.matchFormat,event.playingFormat,event.competitionName,event.name].filter(Boolean).join(' ');
+ if(key==='cricket'){
+  const format=/\btest\b/i.test(values)?'Test Match':/\bt20i?\b/i.test(values)?'T20':/\bodi\b|one.day international/i.test(values)?'ODI':String(event.format||event.matchFormat||'');
+  return format?format+suffix:String(event.competitionName||'Cricket')+suffix;
+ }
+ const league=event.competitionName||event.leagueName||event.competition?.displayName||'';
+ return league?String(league).replace(/\s+(Men|Women|Mixed)$/i,'')+suffix:'';
+}
+return {gender,sport,badge};
+});
+
+;
+
 ;/* config/card-results.js */
 (function attachNothingSportsCardResults(root, factory){
   const api = factory();
@@ -361,7 +400,28 @@
     return compact || original;
   }
 
-  return Object.freeze({ VERSION, structuredScore, scoreLine });
+
+  function tennisSets(event, displayTitle, result){
+    if(!['tennis','wimbledon'].includes(event?.key))return null;
+    const sides=event.matchupSides?.map(s=>s.name||s.players?.map(p=>p.name||p.displayName).join(' / '));
+    const names=sides?.length===2?sides:String(displayTitle||event.name||'').split(/\s+v\.?\s+/i);
+    if(names.length!==2||names.some(n=>!n))return null;
+    const original=String(event.scoreDisplay||result?.score||event.result||'');
+    const first=original.indexOf(names[0]),second=original.indexOf(names[1]);
+    const reverse=second>=0&&(first<0||second<first);
+    const sets=[];
+    // A bracketed score is an explicitly supplied match tie-break, not a sixth set.
+    const pattern=/(\[)?(\d{1,2})(?:\((\d{1,2})\))?\s*[-–]\s*(\d{1,2})(?:\((\d{1,2})\))?(\])?/g;
+    for(const m of original.matchAll(pattern)){
+      const matchTiebreak=Boolean(m[1]&&m[6]);
+      const pair=[{games:Number(m[2]),tieBreak:m[3]==null?null:Number(m[3])},{games:Number(m[4]),tieBreak:m[5]==null?null:Number(m[5])}];
+      // Common 7-6(5) notation supplies only the losing player's tie-break points.
+      if(reverse)pair.reverse();sets.push({label:matchTiebreak?'Match TB':`Set ${sets.filter(s=>s.label!=='Match TB').length+1}`,scores:pair});
+    }
+    if(!sets.length)return null;
+    return {names,sets,status:(original.match(/\b(?:RET(?:IRED)?|W\/?O|WALKOVER|ABD|ABANDONED)\b/i)||[])[0]||null};
+  }
+  return Object.freeze({ VERSION, structuredScore, scoreLine, tennisSets });
 });
 
 ;
@@ -6621,7 +6681,7 @@
       async adminPanelRequest(command = null){
         return authenticatedRequest("/api/admin/panel", command ? { method:"POST", body:JSON.stringify(command) } : {});
       },
-      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, rewards = false } = {}, command = null){
+      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, picks = "", fixture = "", activity = null, handle = "", rewards = false } = {}, command = null){
         if (command){
           return authenticatedRequest("/api/nothingscore", { method:"POST", body:JSON.stringify(command) });
         }
@@ -6630,7 +6690,8 @@
         if (eventId) params.set("eventId", eventId);
         if (leaderboard) params.set("leaderboard", leaderboard);
         if(rewards)params.set("rewards","1");
-        if(ladder){params.set('ladder','1');params.set('cursor',String(ladder.cursor||0));}
+        if(ladder){params.set('ladder','1');Object.entries(ladder).forEach(([k,v])=>params.set(k,String(v)));}
+        if(fixture)params.set('fixture',fixture);if(picks)params.set('picks',picks);if(handle)params.set('handle',handle);if(activity){params.set('activity','1');params.set('cursor',String(activity.cursor||0));}
         if(rankings){params.set("rankings","1");Object.entries(rankings).forEach(([key,value])=>{if(value!==null&&value!==undefined)params.set(key,String(value));});}
         const target = `/api/nothingscore?${params.toString()}`;
         return session || restoreStoredSession() ? authenticatedRequest(target) : jsonRequest(target);

@@ -49,5 +49,26 @@
     return compact || original;
   }
 
-  return Object.freeze({ VERSION, structuredScore, scoreLine });
+
+  function tennisSets(event, displayTitle, result){
+    if(!['tennis','wimbledon'].includes(event?.key))return null;
+    const sides=event.matchupSides?.map(s=>s.name||s.players?.map(p=>p.name||p.displayName).join(' / '));
+    const names=sides?.length===2?sides:String(displayTitle||event.name||'').split(/\s+v\.?\s+/i);
+    if(names.length!==2||names.some(n=>!n))return null;
+    const original=String(event.scoreDisplay||result?.score||event.result||'');
+    const first=original.indexOf(names[0]),second=original.indexOf(names[1]);
+    const reverse=second>=0&&(first<0||second<first);
+    const sets=[];
+    // A bracketed score is an explicitly supplied match tie-break, not a sixth set.
+    const pattern=/(\[)?(\d{1,2})(?:\((\d{1,2})\))?\s*[-–]\s*(\d{1,2})(?:\((\d{1,2})\))?(\])?/g;
+    for(const m of original.matchAll(pattern)){
+      const matchTiebreak=Boolean(m[1]&&m[6]);
+      const pair=[{games:Number(m[2]),tieBreak:m[3]==null?null:Number(m[3])},{games:Number(m[4]),tieBreak:m[5]==null?null:Number(m[5])}];
+      // Common 7-6(5) notation supplies only the losing player's tie-break points.
+      if(reverse)pair.reverse();sets.push({label:matchTiebreak?'Match TB':`Set ${sets.filter(s=>s.label!=='Match TB').length+1}`,scores:pair});
+    }
+    if(!sets.length)return null;
+    return {names,sets,status:(original.match(/\b(?:RET(?:IRED)?|W\/?O|WALKOVER|ABD|ABANDONED)\b/i)||[])[0]||null};
+  }
+  return Object.freeze({ VERSION, structuredScore, scoreLine, tennisSets });
 });

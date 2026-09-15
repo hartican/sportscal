@@ -6916,6 +6916,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=254">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=254">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=255">
 </head>
 <body>
 
@@ -6944,7 +6945,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
     <div class="brand">
       <div class="brand-title-row">
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" fetchpriority="high" decoding="async"></h1>
-        <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span data-vector-glyph="ui:share"></span><span class="share-app-label">Share app</span></button>
+        <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span data-vector-glyph="ui:share"></span><span class="share-app-label">Share</span></button>
       </div>
       <div class="slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
     </div>
@@ -6953,7 +6954,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
       <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
       <button class="btn ghost calendar-sync-action" id="calendarSyncBtn" type="button" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span></button>
       <button class="btn ghost" id="activeChatsBtn" type="button" aria-haspopup="dialog" aria-controls="chatDrawer" aria-label="Active chats" hidden><span data-vector-glyph="ui:message"></span> <span class="full-label">Chats</span><span class="active-chat-count" id="activeChatCount">0</span></button>
-      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-controls="nothingscoreDrawer" aria-label="Nothing Score rankings"><span class="nothing-score-label" aria-hidden="true">Nothing<br>Score</span></button>
+      <button class="btn ghost" id="nothingscoreBtn" type="button" aria-controls="nothingscoreDrawer" aria-label="Nothinger Leaderboard"><span class="nothing-score-label" aria-hidden="true">Nothinger<br>Leaderboard</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
         <div class="loading-indicator-overlay" id="headerProgressRing" hidden></div>
         <time class="header-date-badge" id="calendarDateBadge"><span>MON</span><strong>24AUG</strong></time>
@@ -7201,7 +7202,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   <aside class="chat-drawer nsc-drawer" id="nothingscoreDrawer" role="region" aria-labelledby="nothingscoreTitle" aria-describedby="nothingscoreSubtitle">
     <header class="chat-head">
       <div class="chat-head-copy">
-        <h2 id="nothingscoreTitle">Nothing Score</h2>
+        <h2 id="nothingscoreTitle">Nothinger Leaderboard</h2>
         <p id="nothingscoreSubtitle">How the crowd ranks upcoming, live and past fixtures.</p>
       </div>
       <button class="chat-close" id="closeNothingscoreBtn" type="button" aria-label="Back">‹ Back</button>
@@ -7943,7 +7944,7 @@ function cricketPlayingFormatForEvent(ev){
 function buildMatchupIdentity(ev, displayTitle){
   const identities = matchupIdentityMatches(ev, displayTitle);
   if (identities.length !== 2) return null;
-  const playingFormat = cricketPlayingFormatForEvent(ev);
+  const playingFormat = NOTHINGSPORTS_FIXTURE_LABELS.badge(ev);
   const useDark = themeUsesDarkAssets();
   const identity = document.createElement("div");
   identity.className = "matchup-identity";
@@ -10303,6 +10304,7 @@ function normalizeServerArchiveReferences(references, profileId){
 
 function applyServerState(state){
   if (!state) return false;
+  setTimeout(()=>void followSharedHandle(),0);
   serverSyncApplying = true;
   try{
     const localBrowse=userPreferences.followBrowse;
@@ -13842,12 +13844,22 @@ async function syncAppRouteFromLocation(){
   window.requestAnimationFrame(() => window.scrollTo({ top: returnState.scrollY, behavior: "auto" }));
 }
 
+let notificationFixtureLoading=false;
+async function openFriendFixture(eventId){
+ const payload=await serverSyncClient.nothingscoreRequest({fixture:eventId});if(!payload.event)throw new Error('Fixture unavailable.');
+ const d=document.createElement('dialog');d.className='nsc-friend-fixture calendar-dialog';d.setAttribute('aria-label',payload.event.name);
+ const close=document.createElement('button');close.type='button';close.className='btn ghost';close.textContent='Close';close.onclick=()=>d.close();d.append(close,buildEventCard(payload.event));document.body.append(d);d.showModal();d.addEventListener('close',()=>d.remove(),{once:true});
+}
 function focusPendingNotificationEvent(){
   if (!pendingNotificationEventId) return false;
   const item = [...feedCardSlots.values()].find(item => String(item.event.eventId || item.event.id) === pendingNotificationEventId);
   if (item && !item.mounted){item.slot.replaceChildren(buildEventCard(item.event));item.slot.style.minHeight='';item.mounted=true;}
   const target = document.querySelector(`.event-card[data-event-id="${CSS.escape(pendingNotificationEventId)}"]`);
-  if (!target) return false;
+  if (!target){
+    if(!notificationFixtureLoading){notificationFixtureLoading=true;const id=pendingNotificationEventId;
+      void openFriendFixture(id).then(()=>{pendingNotificationEventId='';const url=new URL(location.href);url.searchParams.delete('event');url.searchParams.delete('liveRatings');history.replaceState(history.state,'',url);}).catch(e=>showToast(e.message)).finally(()=>{notificationFixtureLoading=false;});
+    }return false;
+  }
   const top = window.scrollY + target.getBoundingClientRect().top - stickyFeedChromeHeight() - 12;
   window.scrollTo({ top:Math.max(0, top), behavior:"auto" });
   target.focus({ preventScroll:true });
@@ -15014,6 +15026,12 @@ function buildCompactResult(ev, displayTitle = ""){
   wrap.className = "card-result-line";
   wrap.setAttribute("aria-label", "Final result");
 
+  const tennis=CARD_RESULTS.tennisSets(ev,displayTitle,result);
+  if(tennis){
+    const table=document.createElement('table');table.className='tennis-set-table';table.setAttribute('aria-label','Tennis result by set');
+    const header=document.createElement('tr');for(const label of ['Player',...tennis.sets.map(s=>s.label)]){const th=document.createElement('th');th.scope='col';th.textContent=label;header.append(th);}const thead=document.createElement('thead');thead.append(header);table.append(thead);
+    const tbody=document.createElement('tbody');tennis.names.forEach((name,i)=>{const row=document.createElement('tr'),player=document.createElement('th');player.scope='row';player.textContent=name;row.append(player);for(const set of tennis.sets){const cell=document.createElement('td'),score=set.scores[i];cell.textContent=String(score.games);if(score.tieBreak!==null){const sup=document.createElement('sup');sup.textContent=String(score.tieBreak);sup.setAttribute('aria-label',`${score.tieBreak} tie-break points`);cell.append(sup);}row.append(cell);}tbody.append(row);});table.append(tbody);wrap.append(table);if(tennis.status){const label=document.createElement('span');label.textContent=tennis.status;wrap.append(label);}return wrap;
+  }
   const score = document.createElement("span");
   score.className = "card-result-score";
   score.textContent = scoreLineForDisplay(ev, displayTitle, result);
@@ -15213,7 +15231,7 @@ function buildCompactCardSummary(ev){
   const icon=document.createElement('span');icon.className='compact-card-icon';renderEventIdentityMark(icon,ev,sportMetaForEvent(ev));
   const title=document.createElement('span');title.className='compact-card-name';
   const identities=matchupIdentityMatches(ev,compactFixtureName(ev));
-  if(identities.length===2){title.classList.add('compact-matchup-grid');title.appendChild(buildCompactParticipant(identities[0],ev));const middle=document.createElement('span');const stage=FOLLOW_FIRST?.stageLabel?.(ev);middle.className=stage?'matchup-stage-badge compact-stage-badge':'compact-matchup-v';middle.textContent=stage||'v';title.appendChild(middle);title.appendChild(buildCompactParticipant(identities[1],ev));}
+  if(identities.length===2){title.classList.add('compact-matchup-grid');title.appendChild(buildCompactParticipant(identities[0],ev));const middle=document.createElement('span');const stage=NOTHINGSPORTS_FIXTURE_LABELS.badge(ev)||FOLLOW_FIRST?.stageLabel?.(ev);middle.className=stage?'matchup-stage-badge compact-stage-badge':'compact-matchup-v';middle.textContent=stage||'v';title.appendChild(middle);title.appendChild(buildCompactParticipant(identities[1],ev));}
   else renderEventTitleIdentity(title,ev,compactFixtureName(ev),{compact:true});
   const time=document.createElement('span');time.className='compact-card-time';
   const start=ev.timePrecision==='follows'?null:FEED_CONTROLS.eventStart(ev);
@@ -16517,14 +16535,13 @@ function buildInlineCrowdRating(ev,snapshot){
   const status=document.createElement('span');status.className='nsc-rating-status';status.setAttribute('role','status');
   const id=nothingscoreEventId(ev),owner=serverPersistence.user?.id;
   let chosen=Number(snapshot?.currentUser?.contribution?.rating || snapshot?.currentUser?.submissions?.[phase]?.rating)||0;
-  const sealed=phase!=='pulse'&&chosen>0;
+  const sealed=false;
   const paint=value=>{group.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('is-filled',i<value);b.classList.toggle('is-selected',i+1===value);b.setAttribute('aria-pressed',String(i+1===value));});prompt.textContent=value?labels[value-1]:tip;prompt.dataset.rating=String(value||0);};
   for(let value=1;value<=5;value++){
     const b=document.createElement('button');b.type='button';b.className='nsc-rating-block';b.setAttribute('aria-label',`${value} out of 5: ${labels[value-1]}`);b.disabled=sealed||awaitingViewer;
     b.innerHTML='<svg viewBox="0 0 24 28" aria-hidden="true"><path d="M12 1c2 7-5 8-2 13 1-3 4-4 5-7 5 5 8 9 6 14-3 9-17 8-18 0C2 14 8 11 12 1Z"/></svg>';
     b.onclick=async()=>{
       if(!serverSyncClient?.sessionSubject()){status.textContent='Sign in to rate this fixture.';openSettings({section:'account'});return;}
-      if(phase!=='pulse'&&chosen){status.textContent='This rating is sealed.';return;}
       if(inlineRatingRequests.has(id))return;
       const previous=chosen;paint(value);status.textContent='Saving…';group.querySelectorAll('button').forEach(x=>x.disabled=true);
       const task=serverSyncClient.nothingscoreRequest({}, {action:phase==='pulse'?'pulse':'submit',eventId:id,phase,rating:value,tags:[]});inlineRatingRequests.set(id,task);
@@ -16537,7 +16554,7 @@ function buildInlineCrowdRating(ev,snapshot){
         const prior=nothingscoreSnapshots.get(id)||snapshot;mergeNothingscoreSnapshot({...prior,currentUser:{...prior.currentUser,contribution:{rating:value},submissions:{...prior.currentUser?.submissions,[phase]:receipt}}});
         const fresh=await serverSyncClient.nothingscoreRequest({eventId:id});if(owner===(serverPersistence.user?.id)&&fresh.detail)mergeNothingscoreSnapshot(fresh.detail);
       }catch(error){chosen=previous;status.textContent=`${error.message || 'Could not save.'} Tap to retry.`;paint(chosen);}
-      finally{inlineRatingRequests.delete(id);group.querySelectorAll('button').forEach(x=>x.disabled=phase!=='pulse'&&chosen>0);}
+      finally{inlineRatingRequests.delete(id);group.querySelectorAll('button').forEach(x=>x.disabled=false);}
     };group.appendChild(b);
   }
   if(awaitingViewer)status.textContent='Checking your rating…';
@@ -16622,7 +16639,7 @@ async function playNothingscoreImpactSound(prepared = prepareNothingscoreAudio()
   }
 }
 
-async function submitNothingscoreAction(command, panel, { success = "Your Nothing Score is in.", preparedAudio = null, event = null } = {}){
+async function submitNothingscoreAction(command, panel, { success = "Your Nothinger Leaderboard is in.", preparedAudio = null, event = null } = {}){
   if (!serverSyncClient?.nothingscoreRequest) return null;
   const submittedPhase = command.action === "submit" && ["heat", "impact"].includes(String(command.phase || ""))
     ? String(command.phase)
@@ -16747,7 +16764,7 @@ function buildNothingscorePanel(ev,snapshot){
  const back=document.createElement('button');back.type='button';back.className='btn ghost';back.textContent='Back to rankings';back.onclick=()=>{activeNothingscoreContributionEvent=null;renderCrowdRankings();};
  const timing=document.createElement('p');timing.textContent=ev.startTimeUtc?new Date(ev.startTimeUtc).toLocaleString('en-AU',{timeZone:'Australia/Sydney'}):'Time TBC';
  panel.append(back,timing,buildNothingscorePeerResults(ev,snapshot,{inDrawer:true}));
- const incentive=document.createElement('p');incentive.className='nsc-note';incentive.textContent='Call it early. Earn more when you’re right against the crowd.';panel.appendChild(incentive);
+ const incentive=document.createElement('p');incentive.className='nsc-note';incentive.textContent='Earn 1 point for Heat, plus 19 when another Nothinger matches it live or afterwards.';panel.appendChild(incentive);
  return panel;
 }
 
@@ -21911,8 +21928,8 @@ function appendPublicProfileAccountSettings(body){
     const visibility = document.createElement("p");
     visibility.className = "preference-help";
     visibility.textContent = profile.visibility === "hidden"
-      ? "Hidden from public Nothing Score and leaderboards. Your display name remains visible in rooms you join."
-      : "Visible on public Nothing Score and leaderboards. Your display name is also used in signed-in chat.";
+      ? "Hidden from public Nothinger Leaderboard and leaderboards. Your display name remains visible in rooms you join."
+      : "Visible on public Nothinger Leaderboard and leaderboards. Your display name is also used in signed-in chat.";
     const actions = document.createElement("div");
     actions.className = "account-sync-actions";
     const toggle = document.createElement("button");
@@ -22396,10 +22413,10 @@ function renderNotificationSettings(body){
   body.innerHTML = `<div class="preference-stack">
     <section class="filter-panel"><h3>Sounds, alerts and badges</h3>
       <p class="preference-help">Background notifications can arrive even when Nothing Sport is closed. Nothing Sport asks for system permission only when you tap the button below. Message previews stay private: lock-screen chat alerts name only the room.</p>
-      <label class="viewing-toggle"><input type="checkbox" id="liveRatingsEnabled" ${preferences.liveRatingsEnabled !== false ? "checked" : ""}><span><strong>Live ratings from people I follow</strong>Grouped EPIC alerts for fixtures in your Feed.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="liveRatingsEnabled" ${preferences.liveRatingsEnabled !== false ? "checked" : ""}><span><strong>5/5 ratings from people I follow</strong>Grouped Heat, Live and Impact alerts across all sports.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="chatAlertsEnabled" ${preferences.chatAlertsEnabled !== false ? "checked" : ""}><span><strong>Chat alerts</strong>Notify you about new messages from other room participants.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="sportingRemindersEnabled" ${preferences.sportingRemindersEnabled !== false ? "checked" : ""}><span><strong>Sporting reminders</strong>Send requested reminders 15 minutes before the sporting start.</span></label>
-      <label class="viewing-toggle"><input type="checkbox" id="notificationSoundsEnabled" ${preferences.soundsEnabled !== false ? "checked" : ""}><span><strong>In-app sounds</strong>Play a short cue for an incoming chat message. Impact sound has its own switch in Nothing Score.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="notificationSoundsEnabled" ${preferences.soundsEnabled !== false ? "checked" : ""}><span><strong>In-app sounds</strong>Play a short cue for an incoming chat message. Impact sound has its own switch in Nothinger Leaderboard.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="notificationBadgesEnabled" ${preferences.badgesEnabled !== false ? "checked" : ""}><span><strong>Unread badges</strong>Show the total unread chat message count on the app icon where supported.</span></label>
       <button class="btn ${permission === "granted" && enabled ? "ghost" : "primary"}" type="button" id="notificationPermissionBtn" ${permission === "unsupported" ? "disabled" : ""}>${actionLabel}</button>
       <button class="btn ghost" type="button" id="testChatSoundBtn">Play test sound</button>
@@ -23255,12 +23272,29 @@ async function shareOrCopyLink({ title, text, url }){
 }
 
 document.getElementById("calendarSyncBtn").addEventListener("click",showCalendarDialog);
-document.getElementById("shareAppBtn").addEventListener("click", () => {
-  void shareOrCopyLink({
-    title:"Nothing Sport",
-    text:"Live sport, nothing missed.",
-    url:canonicalAppShareUrl(),
-  });
+let pendingHandleFollow=false;
+async function followSharedHandle(){
+  const url=new URL(location.href),handle=url.searchParams.get('follow');
+  if(!handle||pendingHandleFollow)return;
+  if(!serverSyncClient.sessionSubject())return;
+  pendingHandleFollow=true;
+  try{const profile=await serverSyncClient.nothingscoreRequest({handle});
+    if(profile.profileId&&!profile.isViewer){await serverSyncClient.nothingscoreRequest({},{action:'follow-user',targetProfileId:profile.profileId,following:true});showToast(`Following @${profile.handle}.`);}
+    url.searchParams.delete('follow');history.replaceState(history.state,'',url);
+  }catch(error){showToast(error.message||'Could not follow this handle.');}finally{pendingHandleFollow=false;}
+}
+setTimeout(()=>void followSharedHandle(),0);
+document.getElementById("shareAppBtn").addEventListener("click",()=>{
+ const d=document.createElement('dialog');d.className='calendar-dialog';d.innerHTML='<h2>Share Nothing Sport</h2><div class="calendar-actions"><button class="btn" data-app>Share app</button><button class="btn" data-handle>Share my handle</button><button class="btn ghost" data-close>Close</button></div><p role="status"></p>';
+ d.querySelector('[data-close]').onclick=()=>d.close();
+ d.querySelector('[data-app]').onclick=()=>{d.close();void shareOrCopyLink({title:'Nothing Sport',text:'Live sport, nothing missed.',url:canonicalAppShareUrl()});};
+ d.querySelector('[data-handle]').onclick=async()=>{
+  if(!serverSyncClient.sessionSubject()){d.close();openSettings({section:'account'});return;}
+  try{const board=await serverSyncClient.nothingscoreRequest({ladder:{}});if(!board.viewer?.handle){d.querySelector('p').textContent='Set up a visible public profile in Settings to share your handle.';return;}
+  d.close();await shareOrCopyLink({title:'Follow me on Nothing Sport',text:`Follow @${board.viewer.handle} on Nothing Sport`,url:canonicalAppShareUrl()+'?follow='+encodeURIComponent(board.viewer.handle)});
+  }catch(error){d.querySelector('p').textContent=error.message;}
+ };
+ document.body.append(d);d.showModal();d.addEventListener('close',()=>d.remove(),{once:true});
 });
 document.getElementById("homeSpoilerToggle").addEventListener("click", () => {
   if(userPreferences.showSpoilers){setGlobalSpoilerPreference(false,{notify:true});return;}
@@ -23671,7 +23705,7 @@ function openChatSetup(event){
   if (!chatState.profile?.publicProfile){
     const required = document.createElement("p");
     required.className = "chat-disclosure";
-    required.textContent = "Create your global Public Profile before setting up a room. This display name is inherited by every signed-in chat and by Nothing Score.";
+    required.textContent = "Create your global Public Profile before setting up a room. This display name is inherited by every signed-in chat and by Nothinger Leaderboard.";
     body.appendChild(required);
     renderChatPublicProfileForm(body, { onSaved:() => openChatSetup(event) });
     return;
@@ -24127,7 +24161,7 @@ function renderChatPublicProfileForm(host, { onSaved } = {}){
   handleLabel.appendChild(handle);
   const help = document.createElement("p");
   help.className = "chat-empty";
-  help.textContent = "This global display name is inherited by every signed-in chat and by Nothing Score. Your @handle remains secondary; your email stays private.";
+  help.textContent = "This global display name is inherited by every signed-in chat and by Nothinger Leaderboard. Your @handle remains secondary; your email stays private.";
   const save = document.createElement("button");
   save.type = "submit";
   save.className = "btn primary";
@@ -24536,7 +24570,7 @@ function buildChatComposer({ focus = false } = {}){
   gif.className = "btn ghost";
   gif.textContent = "GIF";
   gif.dataset.chatGifTrigger = "true";
-  gif.title = chatState.capabilities.canUseGifs ? "Search GIFs" : "Requires 25 Nothing Score points";
+  gif.title = chatState.capabilities.canUseGifs ? "Search GIFs" : "Requires 25 points";
   gif.addEventListener("click", openChatGifPicker);
   tools.append(attach, fileInput, selfie, selfieInput, gif);
   const previews = document.createElement("div");
@@ -24631,7 +24665,7 @@ function renderOpenChatRoom({ autoScroll = true, showNew = false, focusComposer 
   if (room.viewer?.publicProfileRequired && !room.readOnly){
     const required = document.createElement("p");
     required.className = "chat-disclosure";
-    required.textContent = "Create your global Public Profile before posting. It will be inherited by every signed-in room and by Nothing Score.";
+    required.textContent = "Create your global Public Profile before posting. It will be inherited by every signed-in room and by Nothinger Leaderboard.";
     body.appendChild(required);
     renderChatPublicProfileForm(body, { onSaved:() => openChatRoom(room.roomId) });
   } else if (room.viewer?.canPost){
@@ -25035,7 +25069,7 @@ function nothingscoreProfileForm(){
   heading.textContent = existing ? "Public Profile" : "Create Public Profile";
   const disclosure = document.createElement("p");
   disclosure.className = "nsc-note";
-  disclosure.textContent = "Set this once for signed-in chat and Nothing Score. Your display name is your room name; the unique lowercase @handle stays secondary on Nothing Score and leaderboards. Email and account identifiers are never shown.";
+  disclosure.textContent = "Set this once for signed-in chat and Nothinger Leaderboard. Your display name is your room name; the unique lowercase @handle stays secondary on Nothinger Leaderboard and leaderboards. Email and account identifiers are never shown.";
   const displayLabel = document.createElement("label");
   displayLabel.className = "field-label";
   displayLabel.textContent = "Display name";
@@ -25122,7 +25156,7 @@ function buildMyNscAccountSection(){
   if (!serverPersistence.user){
     const copy = document.createElement("p");
     copy.className = "chat-disclosure";
-    copy.textContent = "Nothing Score is public to read. Sign in to rate; a public handle is optional.";
+    copy.textContent = "Nothinger Leaderboard is public to read. Sign in to rate; a public handle is optional.";
     const signIn = document.createElement("button");
     signIn.type = "button";
     signIn.className = "btn primary";
@@ -25142,7 +25176,7 @@ function buildMyNscAccountSection(){
     name.textContent = profile && profile.visibility !== "deleted" ? profile.displayName : "Rating privately";
     const handle = document.createElement("span");
     handle.textContent = profile && profile.visibility !== "deleted"
-      ? `${profile.handle || "No handle"}${profile.visibility === "hidden" ? " · Hidden from public Nothing Score" : ""}`
+      ? `${profile.handle || "No handle"}${profile.visibility === "hidden" ? " · Hidden from public Nothinger Leaderboard" : ""}`
       : "A public handle is optional for ratings and leaderboards.";
     summary.append(name, handle);
     const edit = document.createElement("button");
@@ -25207,7 +25241,7 @@ function renderNothingscoreDrawer(){
     }
     return;
   }
-  drawerTitle.textContent = "Nothing Score";
+  drawerTitle.textContent = "Nothinger Leaderboard";
   drawerSubtitle.textContent = "Your private contribution tools and leaderboard.";
   const sound = document.createElement("label");
   sound.className = "pilot-disclosure nsc-sound-setting";
@@ -25284,7 +25318,7 @@ function renderNothingscoreDrawer(){
 
   const heading = document.createElement("h3");
   heading.className = "chat-section-title";
-  heading.textContent = "Nothing Score leaderboard";
+  heading.textContent = "Nothinger Leaderboard leaderboard";
   const tabs = document.createElement("div");
   tabs.className = "nsc-leaderboard-tabs";
   [["weekly","This week"],["all-time","All time"]].forEach(([period,label]) => {
@@ -25313,7 +25347,7 @@ async function loadNothingscoreLeaderboard(){
     if (!payload.entries?.length){
       const empty = document.createElement("p");
       empty.className = "nsc-note";
-      empty.textContent = "No Nothing Score points yet. Early contributors set the pace.";
+      empty.textContent = "No points yet. Early contributors set the pace.";
       board.appendChild(empty);
       return;
     }

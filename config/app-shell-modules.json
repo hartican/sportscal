@@ -2,6 +2,7 @@
   "config/calendar-export.js",
   "config/brand-copy.js",
   "config/vector-assets.js",
+  "config/fixture-labels.js",
   "config/card-results.js",
   "config/ticketing.js",
   "config/country-flags.js",

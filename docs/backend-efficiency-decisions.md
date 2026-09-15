@@ -15,3 +15,9 @@ Authoritative MVP operating decisions, 14 September 2026. Nothing Sport has appr
 | Releases | A refresh with no tracked content change creates no commit or deployment. Production proof requires GitHub SHA, READY deployment, alias, `releaseGitSha`, cache-busted browser behaviour and database-path checks separately. |
 
 Regression: `node scripts/validate-backend-efficiency.js`, live fixture/API, chat, Nothing Score, notification, startup-budget and installed-PWA validators.
+
+## Leaderboard epoch and Friends activity — 15 September 2026
+
+Use the existing notification dispatcher for all three 5/5 rating phases. The transactional outbox groups delivery for five minutes; indexed activity records retain each rater/fixture/phase. Activity reads paginate 25 records with batch identity lookup. Leaderboard reads aggregate indexed server-owned reward/prediction records without triggering reward writes. Follow/copy bonuses have permanent uniqueness keys. Copying uses a preference compare-and-swap transaction so a concurrent edit is never overwritten. Award transactions serialize the small MVP reward workload to prevent cross-fixture deadlocks and preserve participation caps.
+
+Database target: **nothingSport-recovery**, project `mkghopnkhcxtmfrcjdbc`. The original project's recovery runbook is historical, not the current deployment target. Do not delete the old project as part of a feature deployment.

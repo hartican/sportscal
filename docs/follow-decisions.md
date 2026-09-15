@@ -78,3 +78,15 @@ Preference version 22 makes `eventFamilyDecisions.v1` authoritative. A legacy cl
 The latest accepted repair plan explicitly admits **all published F1 sessions** when F1 is followed. This supersedes the race/qualifying-only wording above; practice is eligible through the explicit competition choice, without becoming an editorial marquee or implying a driver follow. Event-family exclusions and participant mutes retain precedence. Regression: `validate-follow-decisions.js` and `validate-restored-feed-chat-contract.js`.
 
 The same accepted recovery plan changes followed-user EPIC grouping from 60 seconds to five minutes to meet the MVP infrastructure budget. Delivery remains once per recipient and fixture, and every privacy, opt-out, real-rating and Feed-eligibility check remains mandatory.
+
+## Nothinger Leaderboard and friend picks — 15 September 2026
+
+This explicitly supersedes the earlier live-only, Feed-eligible people-alert restriction. Every new real 5/5 Heat, Live or Impact rating by a followed public account produces a Friends activity entry, regardless of sporting follows. Preserve privacy, moderation and push opt-outs. Group push delivery for five minutes; deduplicate per recipient/rater/fixture/phase, without discarding separate raters or phases. Friends activity offers an explicit Add to Feed action; recommendations alone do not alter ordinary Feed eligibility.
+
+Public sporting follows can be previewed and selected through **See / copy follows → Follow their picks**. Copies add selections; they never replace existing follows or subscribe to future changes. Bulk selection skips exclusions; only individually selected excluded picks may override them. The copied account earns 20 points once per copier per sport, including a partial copy that adds at least one follow. First directed person follows earn both accounts one point; existing relationships and refollows earn no backfill. Shared handle links follow their public owner after authentication.
+
+Global and Nothing Friends leaderboards default to points, with an Efficiency sort option. The five additional Global columns are men's NRL, AFL, Cricket and Rugby Union, plus men's and women's Tennis. Other coverage and overall scoring remain unchanged. Friends displays each person's top three sports by Efficiency and its sample size.
+
+At launch, archive existing points/entitlements and start a new scoring epoch, preserving fixture ratings, profiles and follows. Heat earns one point; the latest confirmed pre-start prediction earns another 19 on the first exact Live/Impact match from another real registered user. Success is immutable. Close unmatched predictions 48 hours after confirmed completion. Efficiency is successes divided by resolved predictions with another rater; exclude pending, unrated, cancelled/abandoned and unconfirmed-time predictions. Social and participation points never inflate Efficiency. Legacy settlement jobs cannot restore pre-reset points.
+
+Regressions: `validate-leaderboard-v2-database.js`, `validate-leaderboard-v2-browser.js`, `validate-user-follows.js`, `validate-live-rating-alerts.js`, `validate-crowd-foresight.js`.

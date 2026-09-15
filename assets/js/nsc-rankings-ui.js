@@ -1,59 +1,82 @@
-// Read-only public ladder. Opening this page never syncs rewards or casts votes.
 (function(){
 'use strict';
-if(!document.querySelector('[data-nsc-ladder-style]')){const style=document.createElement('link');style.rel='stylesheet';style.href='assets/styles/nsc-ladder.css?v=247';style.dataset.nscLadderStyle='';document.head.append(style);}
-let observer=null,epoch=0;
-function clear(){++epoch;observer?.disconnect();observer=null;}
-function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
-function row(entry,frozen=false){
- const el=node('div',undefined,'nsc-ladder-row'+(entry.isViewer?' is-viewer':''));el.setAttribute('role','row');if(!frozen)el.dataset.ladderProfile=entry.profileId;
- const cell=(text,cls)=>{const c=node('div',text,cls);c.setAttribute('role','cell');el.append(c);return c;};
- cell(String(entry.rank),'nsc-ladder-rank');
- const avatar=cell(undefined,'nsc-ladder-avatar');avatar.setAttribute('aria-label',entry.name+' profile picture');
- avatar.textContent=String(entry.name||'?').split(/\s+/).map(p=>p[0]).slice(0,2).join('');
- if(/^https:\/\//.test(entry.avatarUrl||'')){const img=document.createElement('img');img.src=entry.avatarUrl;img.alt='';img.loading='lazy';img.referrerPolicy='no-referrer';img.onerror=()=>img.remove();avatar.append(img);}
- const identity=cell(undefined,'nsc-ladder-identity');identity.append(node('strong',entry.name||'Nothinger'),node('small','@'+(entry.handle||'nothinger')+(entry.isViewer?' · You':'')));
- if(entry.canFollow){const follow=node('button',entry.following?'Following':'Follow','btn ghost');follow.type='button';follow.setAttribute('aria-pressed',String(entry.following));follow.setAttribute('aria-label',`Follow ${entry.name}`);follow.onclick=async()=>{follow.disabled=true;try{const result=await serverSyncClient.nothingscoreRequest({},{action:'follow-user',targetProfileId:entry.profileId,following:!entry.following});entry.following=result.following;follow.textContent=entry.following?'Following':'Follow';follow.setAttribute('aria-pressed',String(entry.following));}catch(error){showToast(error.message||'Follow could not be saved.');}finally{follow.disabled=false;}};identity.append(follow);}
- cell(Number(entry.fixtures||0).toLocaleString('en-AU'),'nsc-ladder-number');
- cell(Number(entry.points||0).toLocaleString('en-AU'),'nsc-ladder-number');
- cell(entry.efficiency==null?'—':(Number(entry.efficiency)*100).toFixed(1)+'%','nsc-ladder-number');return el;
+if(!document.querySelector('[data-nsc-ladder-style]')){const style=document.createElement('link');style.rel='stylesheet';style.href='assets/styles/nsc-ladder.css?v=255';style.dataset.nscLadderStyle='';document.head.append(style);}
+let epoch=0,audience='global',sort='points',search='',sportPage=0;
+const sports=['nrl','afl','cricket','tennis','rugby'],sportNames={nrl:'NRL',afl:'AFL',cricket:'Cricket',tennis:'Tennis',rugby:'Rugby',nrlw:'NRLW',aflw:'AFLW','cricket-women':"Women's Cricket",'rugby-women':"Women's Rugby",'cricket-open':'Other Cricket','rugby-open':'Other Rugby'};
+const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
+const button=(label,action,cls='btn ghost')=>{const b=node('button',label,cls);b.type='button';b.onclick=action;return b;};
+const efficiency=x=>x?.efficiency==null?'—':`${(100*x.efficiency).toFixed(1)}% (${x.eligible})`;
+function clear(){epoch++;}
+function dialog(title){const d=node('dialog',undefined,'nsc-picks-dialog');d.append(node('h2',title),button('Close',()=>d.close()));document.body.append(d);d.addEventListener('close',()=>d.remove(),{once:true});d.showModal();return d;}
+async function picks(entry){
+ const d=dialog(`${entry.name}’s picks`),status=node('p','Loading…');d.append(status);
+ try{
+ const result=await serverSyncClient.nothingscoreRequest({picks:entry.profileId});if(!d.isConnected)return;status.remove();
+ const filter=node('select');filter.setAttribute('aria-label','Sport');filter.append(new Option('All sports',''));
+ [...new Set(result.items.map(x=>x.sport))].sort().forEach(s=>filter.append(new Option(sportNames[s]||s,s)));
+ const list=node('div',undefined,'nsc-picks-list'),message=node('p');const chosen=new Map();
+ const paint=()=>{list.replaceChildren();for(const item of result.items.filter(x=>!filter.value||x.sport===filter.value)){
+ const row=node('label',undefined,'nsc-pick'),input=node('input');input.type='checkbox';input.disabled=item.following;input.checked=item.following||chosen.has(item.kind+':'+item.id);input.onchange=()=>input.checked?chosen.set(item.kind+':'+item.id,item):chosen.delete(item.kind+':'+item.id);
+ row.append(input,node('span',`${item.label} · ${sportNames[item.sport]||item.sport}${item.following?' · Following':item.excluded?' · Excluded — select to override':''}`));list.append(row);
+ }if(!list.children.length)list.append(node('p','No shared picks in this sport.'));};filter.onchange=paint;
+ const all=button('Select this sport',()=>{for(const x of result.items)if(filter.value===x.sport&&!x.following&&!x.excluded)chosen.set(x.kind+':'+x.id,x);paint();});
+ const submit=button('Follow their picks',async()=>{
+ if(!serverSyncClient.sessionSubject()){openSettings({section:'account'});d.close();return;}
+ submit.disabled=true;try{
+ await syncCurrentServerState();
+ const added=await serverSyncClient.nothingscoreRequest({},{action:'copy-picks',targetProfileId:entry.profileId,items:[...chosen.values()].map(({id,kind})=>({id,kind})),overrideIds:[...chosen.values()].filter(x=>x.excluded).map(x=>x.id)});
+ await reconcileCurrentServerState();message.textContent=added.added?`${added.added} picks added. ${added.bonusAwarded?`${entry.name} earned ${added.bonusAwarded} points.`:''}`:'You already follow those picks.';chosen.clear();
+ }catch(e){message.textContent=e.message||'Could not copy picks. Retry.';}finally{submit.disabled=false;}
+ });d.append(filter,all,list,submit,message);paint();
+ }catch(e){status.textContent=e.message||'Picks unavailable.';}
 }
-window.NOTHINGSPORTS_CROWD_RANKINGS={clear,render:async function renderLadder(){
- clear();const generation=++nscRankingGeneration,owner=serverSyncClient.sessionSubject?.()||'guest',run=epoch;clearTimeout(nscRankingTimer);
- const body=document.getElementById('nothingscoreBody');body.replaceChildren();body.scrollTop=0;
- document.getElementById('nothingscoreTitle').textContent='Nothing Score';
- document.getElementById('nothingscoreSubtitle').textContent='All-time leaderboard';document.getElementById('nscMyAccountBtn')?.remove();
- const table=node('section',undefined,'nsc-ladder');table.setAttribute('role','table');table.setAttribute('aria-label','Nothing Score leaderboard');
- const header=node('div',undefined,'nsc-ladder-row nsc-ladder-header');header.setAttribute('role','row');
- for(const label of ['Rank','Photo','Name / handle','Fixtures','Points','Efficiency']){const c=node('div',label);c.setAttribute('role','columnheader');header.append(c);}
- table.append(header);body.append(table);
- const status=node('div',undefined,'nsc-ladder-status');status.setAttribute('role','status');body.append(status);
- const frozen=node('div',undefined,'nsc-ladder-frozen');frozen.hidden=true;body.append(frozen);
- const current=()=>run===epoch&&generation===nscRankingGeneration&&table.isConnected&&(serverSyncClient.sessionSubject?.()||'guest')===owner;
- let cursor=0,loading=false,viewer=null;
- if(location.protocol==='file:'){status.textContent='Nothing Score needs the hosted app. ';const link=node('a','Open Nothing Score');link.href=canonicalAppShareUrl()+'#nsc';status.append(link);return;}
- function trackViewer(){
-  observer?.disconnect();frozen.replaceChildren();frozen.hidden=true;if(!viewer)return;
-  frozen.append(row(viewer,true));frozen.setAttribute('aria-label','Your Nothing Score ranking');
-  const original=Array.from(table.querySelectorAll('[data-ladder-profile]')).find(e=>e.dataset.ladderProfile===viewer.profileId);
-  if(!original){frozen.hidden=false;return;}
-  observer=new IntersectionObserver(entries=>{if(current())frozen.hidden=entries[0].isIntersecting;},{root:body,threshold:.5});observer.observe(original);
- }
- async function load(){
-  if(loading)return;loading=true;status.replaceChildren(node('span','Loading leaderboard…'));
-  try{
-   const payload=await serverSyncClient.nothingscoreRequest({ladder:{cursor}});if(!current())return;
-   (payload.entries||[]).forEach(entry=>table.append(row(entry)));viewer=payload.viewer;trackViewer();status.replaceChildren();
-   if(!table.querySelector('[data-ladder-profile]'))status.append(node('p','No public scores yet. Rate a fixture to get started.'));
-   if(!payload.signedIn&&cursor===0)status.append(node('p','Sign in to see your position in the ladder.'));
-   else if(!viewer&&cursor===0)status.append(node('p','Your public profile is not on the ladder. Set up or enable it in Settings.'));
-   if(payload.nextCursor!=null){const more=node('button','Load more','btn ghost');more.type='button';more.onclick=()=>{cursor=payload.nextCursor;void load();};status.append(more);}
-   if(!body.querySelector('.nsc-ladder-explanation'))status.before(node('p','Efficiency is earned points divided by the maximum for the same settled votes. Pending predictions and votes with unknown historical rules are excluded.','nsc-ladder-explanation'));
-  }catch(error){
-   if(!current())return;status.replaceChildren(node('span',error.status===401?'Your session has expired. Sign in again or retry.':'Leaderboard unavailable. Your votes and points are safe.'));
-   const retry=node('button','Retry','btn ghost');retry.type='button';retry.onclick=()=>void load();status.append(retry);
-  }finally{loading=false;}
- }
+function row(entry){
+ const r=node('div',undefined,'nsc-ladder-row'+(entry.isViewer?' is-viewer':''));r.setAttribute('role','row');
+ const cell=(text,cls)=>{const c=node('div',text,cls);c.setAttribute('role','cell');r.append(c);return c;};
+ cell(String(entry.rank));const identity=cell(undefined,'nsc-ladder-identity');
+ if(entry.avatarUrl){const img=node('img');img.src=entry.avatarUrl;img.alt='';img.className='nsc-ladder-avatar';img.loading='lazy';identity.append(img);}
+ identity.append(node('strong',entry.name),node('small','@'+entry.handle+(entry.isViewer?' · You':'')));
+ if(entry.canFollow){const b=button(entry.following?'Following':'Follow',async()=>{b.disabled=true;try{const p=await serverSyncClient.nothingscoreRequest({},{action:'follow-user',targetProfileId:entry.profileId,following:!entry.following});entry.following=p.following;b.textContent=p.following?'Following':'Follow';b.setAttribute('aria-pressed',String(p.following));}catch(e){showToast(e.message);}finally{b.disabled=false;}});b.setAttribute('aria-pressed',String(entry.following));identity.append(b);}
+ if(audience==='global')cell(String(entry.fixtures||0),'nsc-ladder-number');cell(Number(entry.points||0).toLocaleString(),'nsc-ladder-number');
+ const e=cell(efficiency(entry),'nsc-ladder-number');e.append(button('See / copy follows',()=>picks(entry),'nsc-text-button'));
+ if(audience==='global'){
+ const stat=entry.sports?.[sports[sportPage]],c=cell(undefined,'nsc-sport-cell');c.append(node('strong',`${Number(stat?.points||0)} pts`),node('span',efficiency(stat)),node('small',stat?.rank?`Sport rank ${stat.rank}`:'No sport rank yet'));
+ }else{
+ const top=Object.entries(entry.sports||{}).filter(([,v])=>v.efficiency!=null).sort((a,b)=>b[1].efficiency-a[1].efficiency||b[1].eligible-a[1].eligible||a[0].localeCompare(b[0])).slice(0,3),c=cell(undefined,'nsc-top-sports');for(const [sport,value]of top)c.append(node('div',`${sportNames[sport]||sport}: ${efficiency(value)}`));if(!top.length)c.append(node('span','No resolved predictions yet'));
+ }return r;
+}
+async function activity(parent,current){
+ const box=node('section',undefined,'nsc-friends-activity');box.append(node('h3','Friends’ 5/5 picks'));parent.append(box);let cursor=0;
+ async function load(){const status=node('p','Loading recommendations…');box.append(status);try{const p=await serverSyncClient.nothingscoreRequest({activity:{cursor}});if(!current())return;status.remove();
+ for(const x of p.entries){const article=node('article');const link=node('a',x.fixture);link.href=`/?event=${encodeURIComponent(x.eventId)}&liveRatings=1`;link.onclick=e=>{e.preventDefault();void openFriendFixture(x.eventId).catch(error=>showToast(error.message));};article.append(node('p',`${x.name} · @${x.handle} · ${x.phase==='pulse'?'Live':x.phase==='heat'?'Heat':'Impact'} 5/5`),link);
+ article.append(button('Add to Feed',async()=>{if(!x.event){showToast('Fixture details unavailable. Please retry later.');return;}if(FOLLOW_FEED_POLICY.explicitlyExcluded(x.event,userPreferences)){showToast('Refollow the excluded competition or tournament before adding this fixture.');return;}updateEventAction(x.event,{addedToFixtures:true,addedToFixturesAt:new Date().toISOString(),addedFixture:{...x.event,manualPin:true},manualPin:true,dismissed:false});await syncCurrentServerState();requestFeedRebuildAfterFollowChange();showToast('Fixture added to Feed.');}));box.append(article);}
+ if(!p.entries.length&&cursor===0)box.append(node('p','Friends’ new 5/5 ratings will appear here, across all sports.'));
+ if(p.nextCursor!=null){const more=button('More activity',()=>{more.remove();cursor=p.nextCursor;void load();});box.append(more);}
+ }catch(e){status.textContent='Recommendations unavailable.';status.append(button('Retry',()=>{status.remove();void load();}));}}
  await load();
-}};
+}
+async function render(){
+ clear();const run=epoch,owner=serverSyncClient.sessionSubject(),body=document.getElementById('nothingscoreBody');clearTimeout(nscRankingTimer);body.replaceChildren();
+ document.getElementById('nothingscoreTitle').textContent='Nothinger Leaderboard';document.getElementById('nothingscoreSubtitle').textContent='Points earned. Picks proven.';document.getElementById('nscMyAccountBtn')?.remove();
+ const current=()=>epoch===run&&owner===serverSyncClient.sessionSubject();
+ const controls=node('div',undefined,'nsc-ladder-controls'),tabs=node('div',undefined,'nsc-ladder-tabs');tabs.setAttribute('role','tablist');
+ for(const [id,label]of [['friends','Nothing Friends'],['global','Global Leaderboard']]){const b=button(label,()=>{audience=id;void render();});b.setAttribute('role','tab');b.setAttribute('aria-selected',String(audience===id));tabs.append(b);}
+ const sortButton=button(`Sort: ${sort==='points'?'Points':'Efficiency'}`,()=>{sort=sort==='points'?'efficiency':'points';void render();});controls.append(tabs,sortButton);
+ if(audience==='global'){const form=node('form'),input=node('input');input.type='search';input.placeholder='Find a name or @handle';input.setAttribute('aria-label','Find people');input.value=search;form.append(input,button('Search',()=>{search=input.value;void render();}));form.onsubmit=e=>{e.preventDefault();search=input.value;void render();};controls.append(form);}
+ body.append(controls);
+ if(audience==='friends'&&!owner){body.append(node('p','Sign in to see and follow your friends.'));return;}
+ const viewport=node('div',undefined,'nsc-ladder-viewport'),table=node('section',undefined,'nsc-ladder');table.dataset.audience=audience;table.setAttribute('role','table');table.setAttribute('aria-label','Nothinger Leaderboard');viewport.append(table);body.append(viewport);
+ const head=node('div',undefined,'nsc-ladder-row nsc-ladder-header');head.setAttribute('role','row');
+ const headings=audience==='global'?['Rank','Name / Handle','Fixtures','Points','Efficiency',sportNames[sports[sportPage]]]:['Rank','Name / Handle','Points','Efficiency','Top 3 Sports Efficiency'];
+ headings.forEach((text,i)=>{const c=node('div',text);c.setAttribute('role','columnheader');if(audience==='global'&&i===5){c.append(button('‹',()=>{sportPage=(sportPage+4)%5;void render();}),button('›',()=>{sportPage=(sportPage+1)%5;void render();}));c.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-label',j?'Next sport':'Previous sport'));}head.append(c);});table.append(head);
+ const status=node('p','Loading leaderboard…');status.setAttribute('role','status');body.append(status);let cursor=0;
+ async function load(){try{const p=await serverSyncClient.nothingscoreRequest({ladder:{cursor,audience,sort,search:audience==='global'?search:''}});if(!current())return;status.replaceChildren();p.entries.forEach(x=>table.append(row(x)));
+ if(!p.entries.length&&cursor===0)status.append(node('span',audience==='friends'?'Follow people from Global Leaderboard to see them here.':'No matching public profiles.'));
+ if(p.nextCursor!=null)status.append(button('Load more',()=>{cursor=p.nextCursor;void load();}));
+ if(p.viewer&&!body.querySelector('.nsc-viewer-summary'))body.append(node('p',`You · Rank ${p.viewer.rank} · ${p.viewer.points} points · Efficiency ${efficiency(p.viewer)}`,'nsc-viewer-summary'));
+ }catch(e){if(!current())return;status.textContent='Leaderboard unavailable. Your ratings are safe.';status.append(button('Retry',load));}}
+ await load();if(!current())return;body.append(node('p','Efficiency = successful Heat predictions ÷ resolved predictions with another real rater. The number in brackets is the sample size. Pending and unrated fixtures are excluded.','nsc-ladder-explanation'));
+ if(audience==='friends')await activity(body,current);
+}
+window.NOTHINGSPORTS_CROWD_RANKINGS={clear,render};
 })();

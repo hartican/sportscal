@@ -1,0 +1,55 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs');
+(async()=>{
+ const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite');const db=new PGlite();
+ await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;create schema auth;create table auth.users(id uuid primary key,is_anonymous boolean default false);grant usage on schema public,auth to service_role;
+ create table public.nothingsports_nsc_profiles(user_id uuid primary key,profile_id uuid default gen_random_uuid(),display_name text,handle text,visibility text default 'visible',avatar_url text);
+ create table public.nothingsports_nsc_personas(user_id uuid,moderation_flag boolean default false);
+ create table public.nothingsports_nsc_points(ledger_id uuid default gen_random_uuid(),user_id uuid,event_id text,action_key text,points smallint constraint nothingsports_nsc_points_points_check check(points between 1 and 10),sydney_day date,awarded_at timestamptz default now(),unique(user_id,event_id,action_key));
+ create table public.nothingsports_nsc_reward_entitlements(user_id uuid);create table public.nothingsports_nsc_foresight_settlements(user_id uuid);
+ create table public.nothingsports_nsc_contributions(contribution_id uuid default gen_random_uuid(),user_id uuid,event_id text,phase text,bucket_start timestamptz,rating smallint,tags text[],submitted_at timestamptz,updated_at timestamptz,scoring_version text,maximum_points smallint constraint nothingsports_nsc_contributions_maximum_points_check check(maximum_points between 1 and 8),unique(event_id,user_id,phase,bucket_start));
+ create table public.nothingsports_user_state(user_id uuid primary key,preferences jsonb default '{}',event_user_state jsonb default '{}',updated_at timestamptz default now());
+ create table public.nothingsports_user_follows(follower_user_id uuid,followed_user_id uuid,created_at timestamptz default now(),primary key(follower_user_id,followed_user_id));
+ create table public.nothingsports_live_rating_alerts(id uuid primary key default gen_random_uuid(),recipient_user_id uuid,event_id text,created_at timestamptz default now(),ready_at timestamptz,completed_at timestamptz,unique(recipient_user_id,event_id));
+ grant all on all tables in schema public,auth to service_role;`);
+ const a='11111111-1111-4111-8111-111111111111',b='22222222-2222-4222-8222-222222222222',c='33333333-3333-4333-8333-333333333333';
+ for(const [id,name] of [[a,'Alice'],[b,'Bob'],[c,'Cara']]){await db.query('insert into auth.users(id) values($1)',[id]);await db.query('insert into nothingsports_nsc_profiles(user_id,profile_id,display_name,handle) values($1,$1,$2,$2)',[id,name]);}
+ await db.query("insert into nothingsports_nsc_points(user_id,event_id,action_key,points) values($1,'old','heat_rating',2)",[a]);
+ await db.exec(fs.readFileSync('supabase/migrations/20260915082933_leaderboard_epoch.sql','utf8'));
+ await db.exec('create trigger alert after insert or update on public.nothingsports_nsc_contributions for each row execute function public.nothingsports_enqueue_live_rating_alert();');
+ assert.equal((await db.query('select count(*) n from nothingsports_nsc_points')).rows[0].n,0);
+ assert.equal((await db.query('select count(*) n from nothingsports_score_archive')).rows[0].n,1);
+ const points=async id=>Number((await db.query('select coalesce(sum(points),0) n from nothingsports_nsc_points where user_id=$1',[id])).rows[0].n);
+ const rate=async(id,event,phase,rating,status,start,end)=> (await db.query('select nothingsports_rate_v2($1,$2,$3,$4,$5,$6,$7,$8,$9) r',[id,event,phase,rating,start,end,status,'nrl','men'])).rows[0].r;
+ const future=new Date(Date.now()+3600000).toISOString(),past=new Date(Date.now()-3600000).toISOString(),end=new Date(Date.now()+7200000).toISOString();
+ assert.equal((await rate(a,'match','heat',4,'scheduled',future,end)).pointsAwarded,1);
+ assert.equal((await rate(a,'match','heat',5,'scheduled',future,end)).pointsAwarded,0);
+ await db.query("update nothingsports_predictions set created_at=$1,updated_at=$1 where event_id='match'",[new Date(Date.now()-7200000).toISOString()]);
+ await rate(a,'match','pulse',5,'live',past,end);assert.equal(await points(a),3,'self vote cannot corroborate');
+ await rate(b,'match','pulse',4,'live',past,end);assert.equal(await points(a),3,'wrong rating cannot corroborate');
+ await rate(b,'match','pulse',5,'live',past,end);assert.equal(await points(a),22,'1 Heat + 2 Live + 19 success');
+ await rate(b,'match','pulse',1,'live',past,end);await rate(b,'match','pulse',5,'live',past,end);assert.equal(await points(a),22,'locked and idempotent success');
+ await assert.rejects(rate(a,'match','heat',3,'live',past,end),/phase_action_mismatch/);
+ await db.query('select nothingsports_follow_person($1,$2,true)',[a,b]);assert.equal(await points(a),23);const bp=await points(b);
+ await db.query('select nothingsports_follow_person($1,$2,false)',[a,b]);await db.query('select nothingsports_follow_person($1,$2,true)',[a,b]);assert.equal(await points(b),bp);
+ await rate(b,'recommend','heat',5,'scheduled',future,end);await rate(b,'recommend','heat',5,'scheduled',future,end);
+ assert.equal((await db.query('select count(*) n from nothingsports_friend_activity')).rows[0].n,1);
+ await rate(b,'recommend','pulse',5,'live',past,end);assert.equal((await db.query('select count(*) n from nothingsports_friend_activity')).rows[0].n,2,'separate phases retained');
+ const copy=async sports=>(await db.query("select nothingsports_copy_picks($1,$2,'{}','{}','{}','{}',$3) r",[a,b,sports])).rows[0].r;
+ assert.equal((await copy(['nrl'])).bonusAwarded,20);assert.equal((await copy(['nrl'])).bonusAwarded,0);assert.equal((await copy(['afl'])).bonusAwarded,20);
+ await assert.rejects(db.query("select nothingsports_copy_picks($1,$2,'{\"changed\":true}','{}','{}','{}','{nrl}')",[a,b]),/preferences_changed_retry/);
+ const board=(await db.query('select nothingsports_leaderboard_v2($1) r',[a])).rows[0].r;assert.equal(board.entries.length,3);assert(!JSON.stringify(board).includes('user_id'));assert.equal(board.entries.find(x=>x.profileId===a).efficiency,1);
+ for(const [name,result,other] of [['empty','unscored',false],['miss','miss',true],['cancel','cancelled',true]]){
+  const ended=new Date(Date.now()-72*3600000).toISOString(),started=new Date(Date.now()-76*3600000).toISOString();
+  await db.query('insert into nothingsports_score_fixtures values($1,$2,$3,$4,$5,$6)',[name,'tennis','women',started,ended,name==='cancel'?'cancelled':'completed']);
+  await db.query('insert into nothingsports_predictions(user_id,event_id,rating,updated_at) values($1,$2,5,$3)',[c,name,new Date(Date.now()-80*3600000).toISOString()]);
+  if(other)await db.query("insert into nothingsports_score_votes values($1,$2,'impact',4,$3)",[b,name,ended]);
+  await db.query('select nothingsports_resolve_predictions($1)',[name]);assert.equal((await db.query('select result from nothingsports_predictions where event_id=$1',[name])).rows[0].result,result);
+ }
+ assert.equal((await rate(c,'unconfirmed','heat',3,'scheduled',null,null)).pointsAwarded,1,'unconfirmed Heat still earns participation');
+ assert.equal((await db.query("select result from nothingsports_predictions where event_id='unconfirmed'")).rows[0].result,'unscored');
+ await Promise.all([rate(b,'parallel','heat',3,'scheduled',future,end),rate(b,'parallel','heat',3,'scheduled',future,end)]);
+ assert.equal((await db.query("select count(*) n from nothingsports_nsc_points where event_id='parallel' and action_key='heat_rating'")).rows[0].n,1);
+ await db.exec('set role anon');await assert.rejects(db.query('select * from nothingsports_score_archive'),/permission denied/);await assert.rejects(db.query('select nothingsports_leaderboard_v2()'),/permission denied/);await db.exec('reset role');
+ await db.close();console.log('Leaderboard v2 database: reset archive, exact match, self exclusion, immutable success, timing, social idempotency, activity phases, copy CAS, sorting and RLS passed.');
+})().catch(e=>{console.error(e);process.exitCode=1;});
