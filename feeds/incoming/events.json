@@ -1,8 +1,8 @@
 {
   "schemaVersion": "events.v1",
   "version": "nothingsport-marquee-visibility-2026-08-03-v1",
-  "publishedAt": "2026-09-14T20:44:08.227Z",
-  "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch.",
+  "publishedAt": "2026-09-15T03:02:47.648Z",
+  "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch. WRC rounds are sourced from the official WRC calendar and FIA senior championship tables.",
   "events": [
     {
       "id": "event-wrc-2026-round-01",
@@ -40,7 +40,7 @@
       "round": "all",
       "roundNumber": 1,
       "roundLabel": "Round 1",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
       "selectedSentence": "WRC Rallye Monte-Carlo is complete; the key moments are protected until you choose to reveal them.",
       "fullSpiel": "WRC Rallye Monte-Carlo is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
@@ -49,7 +49,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -171,7 +171,7 @@
       "round": "all",
       "roundNumber": 2,
       "roundLabel": "Round 2",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
       "selectedSentence": "WRC Rally Sweden is complete; the key moments are protected until you choose to reveal them.",
       "fullSpiel": "WRC Rally Sweden is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
@@ -180,7 +180,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -250,7 +250,7 @@
       "round": "all",
       "roundNumber": 3,
       "roundLabel": "Round 3",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
       "selectedSentence": "WRC Safari Rally Kenya is complete; the key moments are protected until you choose to reveal them.",
       "fullSpiel": "WRC Safari Rally Kenya is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
@@ -259,7 +259,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -329,7 +329,7 @@
       "round": "all",
       "roundNumber": 4,
       "roundLabel": "Round 4",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
       "selectedSentence": "WRC Croatia Rally is complete; the key moments are protected until you choose to reveal them.",
       "fullSpiel": "WRC Croatia Rally is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
@@ -338,7 +338,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -614,7 +614,7 @@
       "round": "all",
       "roundNumber": 5,
       "roundLabel": "Round 5",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
       "selectedSentence": "WRC Rally Islas Canarias is complete; the key moments are protected until you choose to reveal them.",
       "fullSpiel": "WRC Rally Islas Canarias is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
@@ -623,7 +623,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -693,7 +693,7 @@
       "round": "all",
       "roundNumber": 6,
       "roundLabel": "Round 6",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
       "selectedSentence": "WRC Vodafone Rally de Portugal is complete; the key moments are protected until you choose to reveal them.",
       "fullSpiel": "WRC Vodafone Rally de Portugal is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
@@ -702,7 +702,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -772,7 +772,7 @@
       "round": "all",
       "roundNumber": 7,
       "roundLabel": "Round 7",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
       "selectedSentence": "WRC FORUM8 Rally Japan is complete; the key moments are protected until you choose to reveal them.",
       "fullSpiel": "WRC FORUM8 Rally Japan is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
@@ -781,7 +781,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -1468,7 +1468,7 @@
       "round": "all",
       "roundNumber": 8,
       "roundLabel": "Round 8",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
       "selectedSentence": "WRC EKO Acropolis Rally Greece is complete; the key moments are protected until you choose to reveal them.",
       "fullSpiel": "WRC EKO Acropolis Rally Greece is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
@@ -1477,7 +1477,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -5438,7 +5438,7 @@
       "round": "all",
       "roundNumber": 9,
       "roundLabel": "Round 9",
-      "narrativeType": "result-pending",
+      "narrativeType": "championship-round",
       "status": "completed",
       "selectedSentence": "WRC Delfi Rally Estonia is complete; the key moments are protected until you choose to reveal them.",
       "fullSpiel": "WRC Delfi Rally Estonia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
@@ -5447,7 +5447,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -9004,7 +9004,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -18703,7 +18703,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:28:24.214Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -32612,7 +32612,7 @@
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "statusUpdatedAt": "2026-09-08T09:02:17.515Z",
       "matchupSides": [
         {
@@ -32644,7 +32644,7 @@
       ],
       "venue": "Arthur Ashe Stadium",
       "summary": "US Open 2026 · Men's singles · Quarterfinals · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-08/frances_tiafoe_makes_epic_comeback_to_defeat_alex_michelsen_at_the_2026_us_open_qfs.html",
       "eventId": "fixture-us-open-2026-official-ms-1503",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1503",
       "key": "tennis",
@@ -32681,18 +32681,18 @@
       "liveWindow": 3,
       "storyline": {
         "researchDepth": 5,
-        "arcStage": "preview",
-        "hookSpoilerOff": "Tiafoe and Michelsen meet with an American semifinal place guaranteed and the home-title drought still alive as a target.",
-        "hookSpoilerOn": "Tiafoe and Michelsen meet with an American semifinal place guaranteed and the home-title drought still alive as a target.",
-        "synopsisSpoilerOff": "Frances Tiafoe and Alex Michelsen can draw on the same home crowd, but this quarterfinal gives only one of them a place in the last four. They are part of a six-player American singles contingent in the quarterfinals, the country's largest here since 2002. Their match converts that collective promise into a guaranteed semifinal berth; the winner carries it into the closing days.",
-        "synopsisSpoilerOn": "Frances Tiafoe and Alex Michelsen can draw on the same home crowd, but this quarterfinal gives only one of them a place in the last four. They are part of a six-player American singles contingent in the quarterfinals, the country's largest here since 2002. Their match converts that collective promise into a guaranteed semifinal berth; the winner carries it into the closing days.",
+        "arcStage": "recap",
+        "hookSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Frances Tiafoe defeated Alex Michelsen in five sets.",
+        "synopsisSpoilerOff": "Frances Tiafoe v Alex Michelsen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Tiafoe recovered from two sets down to win the US Open quarterfinal 5-7, 3-6, 7-5, 6-3, 7-6(6).",
         "lastReviewedAt": "2026-09-08T12:00:00.000Z",
         "stakes": 5,
         "intensity": 5,
         "expectedSpectacle": 5,
         "intensitySource": "computed"
       },
-      "sourceName": "Frances Tiafoe v Alex Michelsen — official research 1",
+      "sourceName": "US Open",
       "sourceType": "official",
       "sourceTrust": "verified",
       "venueCountryCode": "US",
@@ -32711,10 +32711,10 @@
           "method": "published-schedule.v1"
         }
       ],
-      "selectedSentence": "Tiafoe and Michelsen meet with an American semifinal place guaranteed and the home-title drought still alive as a target.",
-      "fullSpiel": "Frances Tiafoe and Alex Michelsen can draw on the same home crowd, but this quarterfinal gives only one of them a place in the last four. They are part of a six-player American singles contingent in the quarterfinals, the country's largest here since 2002. Their match converts that collective promise into a guaranteed semifinal berth; the winner carries it into the closing days.",
-      "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-      "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+      "selectedSentence": "Frances Tiafoe v Alex Michelsen is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Frances Tiafoe v Alex Michelsen is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ms:1503",
@@ -32745,21 +32745,6 @@
         "refreshAfter": "2026-09-09T12:00:00.000Z",
         "generationMode": "researched"
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Frances Tiafoe v Alex Michelsen",
-        "contextSignals": [
-          "event-specific",
-          "narrative:matchup",
-          "narrative:history",
-          "narrative:path",
-          "narrative:schedule"
-        ],
-        "sourceName": "Frances Tiafoe v Alex Michelsen — official research 1",
-        "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-        "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-        "needsPreviewRefresh": false
-      },
       "sourceEventIds": [
         "fixture:us-open-2026:official:ms:1503",
         "fixture-us-open-2026-official-ms-1503"
@@ -32771,7 +32756,16 @@
       "briefingEligible": false,
       "catchupEligible": false,
       "taxonomyNodeId": "event-series:us-open",
-      "eventSeriesId": "event-series:us-open"
+      "eventSeriesId": "event-series:us-open",
+      "score": "Tiafoe 5-7, 3-6, 7-5, 6-3, 7-6(6) Michelsen",
+      "outcomeText": "Frances Tiafoe defeated Alex Michelsen in five sets.",
+      "recapText": "Tiafoe recovered from two sets down to win the US Open quarterfinal 5-7, 3-6, 7-5, 6-3, 7-6(6).",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Quarterfinals",
+        "Tiafoe 5-7, 3-6, 7-5, 6-3, 7-6(6) Michelsen",
+        "Official result"
+      ]
     },
     {
       "id": "fixture-us-open-2026-official-ws-2501",
@@ -32807,7 +32801,7 @@
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "statusUpdatedAt": "2026-09-08T09:02:17.515Z",
       "matchupSides": [
         {
@@ -32839,7 +32833,7 @@
       ],
       "venue": "Arthur Ashe Stadium",
       "summary": "US Open 2026 · Women's singles · Quarterfinals · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-08/aryna_sabalenka_vs_linda_noskova_at_the_2026_us_open.html",
       "eventId": "fixture-us-open-2026-official-ws-2501",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2501",
       "key": "tennis",
@@ -32876,18 +32870,18 @@
       "liveWindow": 3,
       "storyline": {
         "researchDepth": 5,
-        "arcStage": "preview",
-        "hookSpoilerOff": "Sabalenka's title defence and No. 1 hopes meet Wimbledon champion Noskova in the last eight.",
-        "hookSpoilerOn": "Sabalenka's title defence and No. 1 hopes meet Wimbledon champion Noskova in the last eight.",
-        "synopsisSpoilerOff": "Aryna Sabalenka needs the title to keep a chance of retaining No. 1, making this quarterfinal a test of both her New York defence and her standing in the game. Linda Noskova arrives with the authority of a Wimbledon champion. With Rybakina, Pegula and Gauff also in the ranking contest, this is a direct collision between two major winners with consequences beyond the next round.",
-        "synopsisSpoilerOn": "Aryna Sabalenka needs the title to keep a chance of retaining No. 1, making this quarterfinal a test of both her New York defence and her standing in the game. Linda Noskova arrives with the authority of a Wimbledon champion. With Rybakina, Pegula and Gauff also in the ranking contest, this is a direct collision between two major winners with consequences beyond the next round.",
+        "arcStage": "recap",
+        "hookSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Aryna Sabalenka defeated Linda Noskova in three sets.",
+        "synopsisSpoilerOff": "Aryna Sabalenka v Linda Noskova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Sabalenka reached the US Open semifinals with a 7-6(1), 3-6, 7-6(7) quarterfinal win.",
         "lastReviewedAt": "2026-09-08T12:00:00.000Z",
         "stakes": 5,
         "intensity": 5,
         "expectedSpectacle": 5,
         "intensitySource": "computed"
       },
-      "sourceName": "Aryna Sabalenka v Linda Noskova — official research 1",
+      "sourceName": "US Open",
       "sourceType": "official",
       "sourceTrust": "verified",
       "venueCountryCode": "US",
@@ -32906,10 +32900,10 @@
           "method": "published-schedule.v1"
         }
       ],
-      "selectedSentence": "Sabalenka's title defence and No. 1 hopes meet Wimbledon champion Noskova in the last eight.",
-      "fullSpiel": "Aryna Sabalenka needs the title to keep a chance of retaining No. 1, making this quarterfinal a test of both her New York defence and her standing in the game. Linda Noskova arrives with the authority of a Wimbledon champion. With Rybakina, Pegula and Gauff also in the ranking contest, this is a direct collision between two major winners with consequences beyond the next round.",
-      "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-      "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+      "selectedSentence": "Aryna Sabalenka v Linda Noskova is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Aryna Sabalenka v Linda Noskova is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ws:2501",
@@ -32940,21 +32934,6 @@
         "refreshAfter": "2026-09-09T12:00:00.000Z",
         "generationMode": "researched"
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Aryna Sabalenka v Linda Noskova",
-        "contextSignals": [
-          "event-specific",
-          "narrative:path",
-          "narrative:matchup",
-          "narrative:consequence",
-          "narrative:schedule"
-        ],
-        "sourceName": "Aryna Sabalenka v Linda Noskova — official research 1",
-        "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-        "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-        "needsPreviewRefresh": false
-      },
       "sourceEventIds": [
         "fixture:us-open-2026:official:ws:2501",
         "fixture-us-open-2026-official-ws-2501"
@@ -32966,7 +32945,16 @@
       "briefingEligible": false,
       "catchupEligible": false,
       "taxonomyNodeId": "event-series:us-open",
-      "eventSeriesId": "event-series:us-open"
+      "eventSeriesId": "event-series:us-open",
+      "score": "Sabalenka 7-6(1), 3-6, 7-6(7) Noskova",
+      "outcomeText": "Aryna Sabalenka defeated Linda Noskova in three sets.",
+      "recapText": "Sabalenka reached the US Open semifinals with a 7-6(1), 3-6, 7-6(7) quarterfinal win.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Quarterfinals",
+        "Sabalenka 7-6(1), 3-6, 7-6(7) Noskova",
+        "Official result"
+      ]
     },
     {
       "id": "evt_fiba_women_2026_qualification_day_1",
@@ -32998,14 +32986,14 @@
       "roundLabel": "Qualification to quarterfinals",
       "stage": "qualification",
       "narrativeType": "all",
-      "selectedSentence": "The first qualification games put World Cup survival on a single result.",
-      "fullSpiel": "The first qualification games put World Cup survival on a single result. Second- and third-placed teams meet for the remaining quarterfinal places.",
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "FIBA Women's World Cup — qualification day 1 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "FIBA",
+      "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:basketball",
       "discoverySportId": "sport:fiba-women",
       "competitionId": "competition:fiba-womens-world-cup",
@@ -33022,30 +33010,16 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "The first qualification games put World Cup survival on a single result.",
-        "hookSpoilerOn": "The first qualification games put World Cup survival on a single result.",
-        "synopsisSpoilerOff": "The first qualification games put World Cup survival on a single result. Second- and third-placed teams meet for the remaining quarterfinal places.",
-        "synopsisSpoilerOn": "The first qualification games put World Cup survival on a single result. Second- and third-placed teams meet for the remaining quarterfinal places.",
+        "hookSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Australia and China advanced to the quarterfinals.",
+        "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 5
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-fiba-women-2026-qualification-day-1",
@@ -33074,7 +33048,16 @@
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
         "generationMode": "researched"
-      }
+      },
+      "score": "Australia 82-80 Italy · China 75-72 Puerto Rico",
+      "outcomeText": "Australia and China advanced to the quarterfinals.",
+      "recapText": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Qualification to quarterfinals",
+        "Australia 82-80 Italy · China 75-72 Puerto Rico",
+        "Official result"
+      ]
     },
     {
       "id": "fixture-us-open-2026-official-ms-1504",
@@ -33110,7 +33093,7 @@
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "statusUpdatedAt": "2026-09-08T09:02:17.515Z",
       "matchupSides": [
         {
@@ -33142,7 +33125,7 @@
       ],
       "venue": "Arthur Ashe Stadium",
       "summary": "US Open 2026 · Men's singles · Quarterfinals · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-09/shelton_ends_alcarazs_us_open_title_defense_in_late-night_five-setter.html",
       "eventId": "fixture-us-open-2026-official-ms-1504",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1504",
       "key": "tennis",
@@ -33179,18 +33162,18 @@
       "liveWindow": 3,
       "storyline": {
         "researchDepth": 5,
-        "arcStage": "preview",
-        "hookSpoilerOff": "Shelton brings home support and a sharpened game to the defending champion's quarterfinal test.",
-        "hookSpoilerOn": "Shelton brings home support and a sharpened game to the defending champion's quarterfinal test.",
-        "synopsisSpoilerOff": "Ben Shelton went straight from beating Stefanos Tsitsipas to the practice court: reaching this quarterfinal was a step, not the destination. Carlos Alcaraz brings the defending champion's authority into an Ashe night session where Shelton can make the occasion feel very different. The American's challenge is to sustain that pressure against a player no American has beaten at a major.",
-        "synopsisSpoilerOn": "Ben Shelton went straight from beating Stefanos Tsitsipas to the practice court: reaching this quarterfinal was a step, not the destination. Carlos Alcaraz brings the defending champion's authority into an Ashe night session where Shelton can make the occasion feel very different. The American's challenge is to sustain that pressure against a player no American has beaten at a major.",
+        "arcStage": "recap",
+        "hookSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Ben Shelton defeated Carlos Alcaraz in five sets.",
+        "synopsisSpoilerOff": "Ben Shelton v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Shelton ended Alcaraz's title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarterfinal win.",
         "lastReviewedAt": "2026-09-08T12:00:00.000Z",
         "stakes": 5,
         "intensity": 5,
         "expectedSpectacle": 5,
         "intensitySource": "computed"
       },
-      "sourceName": "Ben Shelton v Carlos Alcaraz — official research 1",
+      "sourceName": "US Open",
       "sourceType": "official",
       "sourceTrust": "verified",
       "venueCountryCode": "US",
@@ -33209,10 +33192,10 @@
           "method": "published-schedule.v1"
         }
       ],
-      "selectedSentence": "Shelton brings home support and a sharpened game to the defending champion's quarterfinal test.",
-      "fullSpiel": "Ben Shelton went straight from beating Stefanos Tsitsipas to the practice court: reaching this quarterfinal was a step, not the destination. Carlos Alcaraz brings the defending champion's authority into an Ashe night session where Shelton can make the occasion feel very different. The American's challenge is to sustain that pressure against a player no American has beaten at a major.",
-      "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-      "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+      "selectedSentence": "Ben Shelton v Carlos Alcaraz is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Ben Shelton v Carlos Alcaraz is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ms:1504",
@@ -33243,21 +33226,6 @@
         "refreshAfter": "2026-09-09T12:00:00.000Z",
         "generationMode": "researched"
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Ben Shelton v Carlos Alcaraz",
-        "contextSignals": [
-          "event-specific",
-          "narrative:matchup",
-          "narrative:form",
-          "narrative:history",
-          "narrative:schedule"
-        ],
-        "sourceName": "Ben Shelton v Carlos Alcaraz — official research 1",
-        "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-        "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-        "needsPreviewRefresh": false
-      },
       "sourceEventIds": [
         "fixture:us-open-2026:official:ms:1504",
         "fixture-us-open-2026-official-ms-1504"
@@ -33269,7 +33237,16 @@
       "briefingEligible": false,
       "catchupEligible": false,
       "taxonomyNodeId": "event-series:us-open",
-      "eventSeriesId": "event-series:us-open"
+      "eventSeriesId": "event-series:us-open",
+      "score": "Shelton 6-7(5), 6-1, 6-3, 1-6, 7-6(7) Alcaraz",
+      "outcomeText": "Ben Shelton defeated Carlos Alcaraz in five sets.",
+      "recapText": "Shelton ended Alcaraz's title defence with a 6-7(5), 6-1, 6-3, 1-6, 7-6(7) quarterfinal win.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Quarterfinals",
+        "Shelton 6-7(5), 6-1, 6-3, 1-6, 7-6(7) Alcaraz",
+        "Official result"
+      ]
     },
     {
       "id": "fixture-us-open-2026-official-ws-2502",
@@ -33305,7 +33282,7 @@
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
-      "status": "upcoming",
+      "status": "completed",
       "statusUpdatedAt": "2026-09-08T09:02:17.515Z",
       "matchupSides": [
         {
@@ -33337,7 +33314,7 @@
       ],
       "venue": "Arthur Ashe Stadium",
       "summary": "US Open 2026 · Women's singles · Quarterfinals · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+      "sourceUrl": "https://www.usopen.org/en_US/news/articles/2026-09-08/pegula_rallies_past_navarro_sets_sabalenka_showdown_in_2026_us_open_sfs.html",
       "eventId": "fixture-us-open-2026-official-ws-2502",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2502",
       "key": "tennis",
@@ -33374,18 +33351,18 @@
       "liveWindow": 3,
       "storyline": {
         "researchDepth": 5,
-        "arcStage": "preview",
-        "hookSpoilerOff": "Pegula and Navarro put a guaranteed American semifinal place on the line, with a ranking prize still within Pegula's reach.",
-        "hookSpoilerOn": "Pegula and Navarro put a guaranteed American semifinal place on the line, with a ranking prize still within Pegula's reach.",
-        "synopsisSpoilerOff": "Jessica Pegula has already reached a US Open final; Emma Navarro is trying to turn her return to the last eight into another deep run at home. Their meeting guarantees an American semifinalist, but only one can keep building on a tournament that has brought six home players into the singles quarterfinals. Pegula also remains among the players with a chance of leaving New York as world No. 1.",
-        "synopsisSpoilerOn": "Jessica Pegula has already reached a US Open final; Emma Navarro is trying to turn her return to the last eight into another deep run at home. Their meeting guarantees an American semifinalist, but only one can keep building on a tournament that has brought six home players into the singles quarterfinals. Pegula also remains among the players with a chance of leaving New York as world No. 1.",
+        "arcStage": "recap",
+        "hookSpoilerOff": "Jessica Pegula v Emma Navarro is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Jessica Pegula defeated Emma Navarro in three sets.",
+        "synopsisSpoilerOff": "Jessica Pegula v Emma Navarro is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Pegula recovered from a set down to win the US Open quarterfinal 3-6, 6-4, 6-3.",
         "lastReviewedAt": "2026-09-08T12:00:00.000Z",
         "stakes": 5,
         "intensity": 5,
         "expectedSpectacle": 5,
         "intensitySource": "computed"
       },
-      "sourceName": "Jessica Pegula v Emma Navarro — official research 1",
+      "sourceName": "US Open",
       "sourceType": "official",
       "sourceTrust": "verified",
       "venueCountryCode": "US",
@@ -33404,10 +33381,10 @@
           "method": "published-schedule.v1"
         }
       ],
-      "selectedSentence": "Pegula and Navarro put a guaranteed American semifinal place on the line, with a ranking prize still within Pegula's reach.",
-      "fullSpiel": "Jessica Pegula has already reached a US Open final; Emma Navarro is trying to turn her return to the last eight into another deep run at home. Their meeting guarantees an American semifinalist, but only one can keep building on a tournament that has brought six home players into the singles quarterfinals. Pegula also remains among the players with a chance of leaving New York as world No. 1.",
-      "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-      "lastReviewedAt": "2026-09-08T12:00:00.000Z",
+      "selectedSentence": "Jessica Pegula v Emma Navarro is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Jessica Pegula v Emma Navarro is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:fixture-research:fixture:us-open-2026:official:ws:2502",
@@ -33440,22 +33417,6 @@
         "refreshAfter": "2026-09-09T12:00:00.000Z",
         "generationMode": "researched"
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Jessica Pegula v Emma Navarro",
-        "contextSignals": [
-          "event-specific",
-          "narrative:matchup",
-          "narrative:history",
-          "narrative:consequence",
-          "narrative:path",
-          "narrative:schedule"
-        ],
-        "sourceName": "Jessica Pegula v Emma Navarro — official research 1",
-        "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-        "sourceCheckedAt": "2026-09-08T12:00:00.000Z",
-        "needsPreviewRefresh": false
-      },
       "sourceEventIds": [
         "fixture:us-open-2026:official:ws:2502",
         "fixture-us-open-2026-official-ws-2502"
@@ -33467,7 +33428,16 @@
       "briefingEligible": false,
       "catchupEligible": false,
       "taxonomyNodeId": "event-series:us-open",
-      "eventSeriesId": "event-series:us-open"
+      "eventSeriesId": "event-series:us-open",
+      "score": "Pegula 3-6, 6-4, 6-3 Navarro",
+      "outcomeText": "Jessica Pegula defeated Emma Navarro in three sets.",
+      "recapText": "Pegula recovered from a set down to win the US Open quarterfinal 3-6, 6-4, 6-3.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Quarterfinals",
+        "Pegula 3-6, 6-4, 6-3 Navarro",
+        "Official result"
+      ]
     },
     {
       "id": "event-wrc-2026-round-12",
@@ -33506,15 +33476,15 @@
       "roundNumber": 12,
       "roundLabel": "Round 12",
       "narrativeType": "championship-round",
-      "status": "upcoming",
-      "selectedSentence": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Chile Bio Bío, Round 12 of 14.",
-      "fullSpiel": "WRC Rally Chile Bio Bío runs from 2026-09-10 to 2026-09-13 in Chile. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
-      "sourceName": "WRC official 2026 calendar",
-      "sourceUrl": "https://www.wrc.com/en/calendar",
-      "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
+      "status": "completed",
+      "selectedSentence": "WRC Rally Chile Bio Bío is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "WRC Rally Chile Bio Bío is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "WRC",
+      "sourceUrl": "https://www.wrc.com/en/news/solberg-wins-rally-chile-as-toyota-clinches-manufacturers-crown",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -33522,61 +33492,23 @@
       "storyline": {
         "stakes": 4,
         "intensity": 4,
-        "arcStage": "preview",
-        "hookSpoilerOff": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Chile Bio Bío, Round 12 of 14.",
-        "hookSpoilerOn": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Chile Bio Bío, Round 12 of 14.",
+        "arcStage": "recap",
+        "hookSpoilerOff": "WRC Rally Chile Bio Bío is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Oliver Solberg and Elliott Edmondson won Rally Chile Bio Bio.",
         "expectedSpectacle": 7,
         "intensitySource": "computed",
-        "synopsisSpoilerOff": "WRC Rally Chile Bio Bío runs from 2026-09-10 to 2026-09-13 in Chile. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
-        "synopsisSpoilerOn": "WRC Rally Chile Bio Bío runs from 2026-09-10 to 2026-09-13 in Chile. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
-        "researchDepth": 5,
-        "lastReviewedAt": "2026-09-08T12:57:33.822Z"
+        "synopsisSpoilerOff": "WRC Rally Chile Bio Bío is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Solberg and Edmondson won Rally Chile in 2:57:08.2 in a Toyota GR Yaris Rally1, 16.6 seconds clear of Sebastien Ogier and Vincent Landais."
       },
-      "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:rolling:event-wrc-2026-round-12",
-        "researchTier": "marquee",
-        "hook": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Chile Bio Bío, Round 12 of 14.",
-        "synopsis": "WRC Rally Chile Bio Bío runs from 2026-09-10 to 2026-09-13 in Chile. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 2 rounds remain after this one. Stan Sport lists live and replay coverage in Australia.",
-        "threadIds": [
-          "thread:rolling:wrc:2026"
-        ],
-        "factIds": [
-          "fact:rolling:event-wrc-2026-round-12:schedule",
-          "fact:rolling:event-wrc-2026-round-12:standings",
-          "fact:rolling:event-wrc-2026-round-12:path",
-          "fact:rolling:event-wrc-2026-round-12:viewing"
-        ],
-        "sourceIds": [
-          "source:rolling:wrc:calendar",
-          "source:rolling:wrc:driver-standings",
-          "source:rolling:wrc:stan-sport"
-        ],
-        "dimensions": [
-          "schedule",
-          "form",
-          "path",
-          "format"
-        ],
-        "researchedAt": "2026-09-08T12:57:33.822Z",
-        "refreshAfter": null,
-        "generationMode": "researched"
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 WRC title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:form",
-          "narrative:path",
-          "narrative:format"
-        ],
-        "sourceName": "WRC official 2026 calendar",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
-        "needsPreviewRefresh": false
-      }
+      "score": "Oliver Solberg / Elliott Edmondson — 2:57:08.2",
+      "outcomeText": "Oliver Solberg and Elliott Edmondson won Rally Chile Bio Bio.",
+      "recapText": "Solberg and Edmondson won Rally Chile in 2:57:08.2 in a Toyota GR Yaris Rally1, 16.6 seconds clear of Sebastien Ogier and Vincent Landais.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Round 12",
+        "Oliver Solberg / Elliott Edmondson — 2:57:08.2",
+        "Official result"
+      ]
     },
     {
       "id": "evt_fiba_women_2026_qualification_day_2",
@@ -33608,14 +33540,14 @@
       "roundLabel": "Qualification to quarterfinals",
       "stage": "qualification",
       "narrativeType": "all",
-      "selectedSentence": "The last qualification games complete the Women's World Cup quarterfinal field.",
-      "fullSpiel": "The last qualification games complete the Women's World Cup quarterfinal field. There is no pool-stage buffer now: winners advance and losers leave Berlin.",
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "FIBA Women's World Cup — qualification day 2 is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "FIBA",
+      "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:basketball",
       "discoverySportId": "sport:fiba-women",
       "competitionId": "competition:fiba-womens-world-cup",
@@ -33632,30 +33564,16 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "The last qualification games complete the Women's World Cup quarterfinal field.",
-        "hookSpoilerOn": "The last qualification games complete the Women's World Cup quarterfinal field.",
-        "synopsisSpoilerOff": "The last qualification games complete the Women's World Cup quarterfinal field. There is no pool-stage buffer now: winners advance and losers leave Berlin.",
-        "synopsisSpoilerOn": "The last qualification games complete the Women's World Cup quarterfinal field. There is no pool-stage buffer now: winners advance and losers leave Berlin.",
+        "hookSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Germany and Hungary advanced to the quarterfinals.",
+        "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 5
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-fiba-women-2026-qualification-day-2",
@@ -33684,7 +33602,16 @@
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
         "generationMode": "researched"
-      }
+      },
+      "score": "Germany 94-56 Korea · Hungary 84-63 Japan",
+      "outcomeText": "Germany and Hungary advanced to the quarterfinals.",
+      "recapText": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Qualification to quarterfinals",
+        "Germany 94-56 Korea · Hungary 84-63 Japan",
+        "Official result"
+      ]
     },
     {
       "id": "evt_fiba_women_2026_quarterfinals",
@@ -33716,14 +33643,14 @@
       "roundLabel": "Quarterfinals",
       "stage": "quarterfinal",
       "narrativeType": "all",
-      "selectedSentence": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
-      "fullSpiel": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day. Group winners re-enter against qualification survivors, with every title route now direct.",
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "FIBA Women's World Cup — quarterfinals is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "FIBA",
+      "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:basketball",
       "discoverySportId": "sport:fiba-women",
       "competitionId": "competition:fiba-womens-world-cup",
@@ -33740,31 +33667,17 @@
         "stakes": 4,
         "intensity": 5,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
-        "hookSpoilerOn": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
-        "synopsisSpoilerOff": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day. Group winners re-enter against qualification survivors, with every title route now direct.",
-        "synopsisSpoilerOn": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day. Group winners re-enter against qualification survivors, with every title route now direct.",
+        "hookSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Spain, Germany, France and USA reached the semifinals.",
+        "synopsisSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "archetype": "elimination",
         "researchDepth": 5
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-fiba-women-2026-quarterfinals",
@@ -33793,7 +33706,16 @@
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
         "generationMode": "researched"
-      }
+      },
+      "score": "Spain 89-66 Australia · Germany 93-74 Belgium · France 90-61 China · USA 108-56 Hungary",
+      "outcomeText": "Spain, Germany, France and USA reached the semifinals.",
+      "recapText": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Quarterfinals",
+        "Spain 89-66 Australia · Germany 93-74 Belgium · France 90-61 China · USA 108-56 Hungary",
+        "Official result"
+      ]
     },
     {
       "id": "evt_nrlw_2026_round_11_roosters_bulldogs",
@@ -33828,14 +33750,14 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
-      "fullSpiel": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure. The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/10/thursday-night-footy-roosters-v-bulldogs/",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:nrl",
       "discoverySportId": "sport:nrlw",
       "competitionId": "competition:nrlw-premiership-2026",
@@ -33882,30 +33804,16 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
-        "hookSpoilerOn": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
-        "synopsisSpoilerOff": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure. The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
-        "synopsisSpoilerOn": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure. The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
+        "hookSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs in Round 11: the result is available to reveal.",
+        "hookSpoilerOn": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs in Round 11.",
+        "synopsisSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "The Roosters completed an unbeaten regular season with a 42-12 Round 11 win.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-nrlw-2026-round-11-roosters-bulldogs",
@@ -33933,7 +33841,9 @@
         ],
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "hookSpoilerOn": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs in Round 11.",
+        "synopsisSpoilerOn": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs in Round 11. The Roosters completed an unbeaten regular season with a 42-12 Round 11 win."
       },
       "resultEditorialBranches": {
         "home": {
@@ -33957,7 +33867,18 @@
           "spoilerSafe": "Sydney Roosters v Canterbury-Bankstown Bulldogs in Round 11: the result is available to reveal.",
           "revealed": "Sydney Roosters and Canterbury-Bankstown Bulldogs finished level in Round 11."
         }
-      }
+      },
+      "homeScore": 42,
+      "awayScore": 12,
+      "score": "Sydney Roosters 42-12 Canterbury-Bankstown Bulldogs",
+      "outcomeText": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs 42-12.",
+      "recapText": "The Roosters completed an unbeaten regular season with a 42-12 Round 11 win.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Round 11",
+        "Sydney Roosters 42-12 Canterbury-Bankstown Bulldogs",
+        "Official result"
+      ]
     },
     {
       "id": "evt_nrlw_2026_round_11_wests_tigers_raiders",
@@ -33992,14 +33913,14 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
-      "fullSpiel": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season. A result at Leichhardt can alter both qualification and the first-week finals matchup.",
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/08/nrlw-team-lists-round-11/",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:nrl",
       "discoverySportId": "sport:nrlw",
       "competitionId": "competition:nrlw-premiership-2026",
@@ -34046,30 +33967,16 @@
         "stakes": 5,
         "intensity": 5,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 9,
-        "hookSpoilerOff": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
-        "hookSpoilerOn": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
-        "synopsisSpoilerOff": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season. A result at Leichhardt can alter both qualification and the first-week finals matchup.",
-        "synopsisSpoilerOn": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season. A result at Leichhardt can alter both qualification and the first-week finals matchup.",
+        "hookSpoilerOff": "Wests Tigers v Canberra Raiders in Round 11: the result is available to reveal.",
+        "hookSpoilerOn": "Canberra Raiders defeated Wests Tigers in Round 11.",
+        "synopsisSpoilerOff": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Canberra closed Round 11 with a 22-10 win over Wests Tigers.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-nrlw-2026-round-11-wests-tigers-raiders",
@@ -34097,7 +34004,9 @@
         ],
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "hookSpoilerOn": "Canberra Raiders defeated Wests Tigers in Round 11.",
+        "synopsisSpoilerOn": "Canberra Raiders defeated Wests Tigers in Round 11. Canberra closed Round 11 with a 22-10 win over Wests Tigers."
       },
       "resultEditorialBranches": {
         "home": {
@@ -34121,7 +34030,18 @@
           "spoilerSafe": "Wests Tigers v Canberra Raiders in Round 11: the result is available to reveal.",
           "revealed": "Wests Tigers and Canberra Raiders finished level in Round 11."
         }
-      }
+      },
+      "homeScore": 10,
+      "awayScore": 22,
+      "score": "Wests Tigers 10-22 Canberra Raiders",
+      "outcomeText": "Canberra Raiders defeated Wests Tigers 22-10.",
+      "recapText": "Canberra closed Round 11 with a 22-10 win over Wests Tigers.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Round 11",
+        "Wests Tigers 10-22 Canberra Raiders",
+        "Official result"
+      ]
     },
     {
       "id": "major-match-nrl-finals-2026-elimination-final-2",
@@ -34159,15 +34079,17 @@
         ],
         "researchedAt": "2026-09-08T13:00:00.000Z",
         "refreshAfter": "2026-09-09T12:00:00.000Z",
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "hookSpoilerOn": "Knights defeated Rabbitohs in Elimination Final.",
+        "synopsisSpoilerOn": "Knights defeated Rabbitohs in Elimination Final. Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win."
       },
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "Sixth meets seventh to open the finals, with one season ending on Friday.",
-        "hookSpoilerOn": "Sixth meets seventh to open the finals, with one season ending on Friday.",
-        "synopsisSpoilerOff": "South Sydney and Newcastle begin on the sudden-death side of the draw. Ponga is named at fullback for the Knights, opposite Dufty. Winning this elimination final earns another game against a top-four opponent; losing ends the premiership campaign.",
-        "synopsisSpoilerOn": "South Sydney and Newcastle begin on the sudden-death side of the draw. Ponga is named at fullback for the Knights, opposite Dufty. Winning this elimination final earns another game against a top-four opponent; losing ends the premiership campaign.",
-        "arcStage": "preview",
+        "hookSpoilerOff": "Rabbitohs v Knights in Elimination Final: the result is available to reveal.",
+        "hookSpoilerOn": "Knights defeated Rabbitohs in Elimination Final.",
+        "synopsisSpoilerOff": "Rabbitohs v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win.",
+        "arcStage": "recap",
         "intensity": 5,
         "expectedSpectacle": 1,
         "intensitySource": "computed",
@@ -34184,7 +34106,7 @@
       "date": "2026-09-11",
       "time": "19:50",
       "venueCountryCode": "AU",
-      "status": "upcoming",
+      "status": "completed",
       "participantIds": [
         "team:nrl:335",
         "team:nrl:325"
@@ -34209,9 +34131,9 @@
         "foxtel",
         "kayo"
       ],
-      "sourceName": "Rabbitohs v Knights — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/11/sudden-death-showdown-rabbitohs-v-knights/",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "canonicalEventId": "major-match:nrl-finals-2026:elimination-final-2",
@@ -34228,27 +34150,13 @@
       "broadcasts": [],
       "viewingOptions": [],
       "consensusTags": [],
-      "selectedSentence": "Sixth meets seventh to open the finals, with one season ending on Friday.",
-      "fullSpiel": "South Sydney and Newcastle begin on the sudden-death side of the draw. Ponga is named at fullback for the Knights, opposite Dufty. Winning this elimination final earns another game against a top-four opponent; losing ends the premiership campaign.",
-      "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+      "selectedSentence": "Rabbitohs v Knights is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Rabbitohs v Knights is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "sourceEventIds": [
         "major-match:nrl-finals-2026:elimination-final-2",
         "major-match-nrl-finals-2026-elimination-final-2"
       ],
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Rabbitohs v Knights",
-        "contextSignals": [
-          "event-specific",
-          "narrative:matchup",
-          "narrative:schedule",
-          "narrative:path"
-        ],
-        "sourceName": "Rabbitohs v Knights — official research 1",
-        "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-        "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
-        "needsPreviewRefresh": false
-      },
       "resultEditorialBranches": {
         "home": {
           "sourceIds": [
@@ -34279,7 +34187,18 @@
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "homeScore": 10,
+      "awayScore": 20,
+      "score": "Rabbitohs 10-20 Knights",
+      "outcomeText": "Knights defeated Rabbitohs 20-10.",
+      "recapText": "Newcastle eliminated South Sydney with a 20-10 Finals Week 1 win.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Elimination Final",
+        "Rabbitohs 10-20 Knights",
+        "Official result"
+      ]
     },
     {
       "id": "event-afl-cd_m20260142701",
@@ -34572,14 +34491,14 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
-      "fullSpiel": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks. The midday match carries the direct consequences of a compressed eleven-round campaign.",
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "Parramatta Eels v North Queensland Cowboys is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:nrl",
       "discoverySportId": "sport:nrlw",
       "competitionId": "competition:nrlw-premiership-2026",
@@ -34626,30 +34545,16 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 7,
-        "hookSpoilerOff": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
-        "hookSpoilerOn": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
-        "synopsisSpoilerOff": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks. The midday match carries the direct consequences of a compressed eleven-round campaign.",
-        "synopsisSpoilerOn": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks. The midday match carries the direct consequences of a compressed eleven-round campaign.",
+        "hookSpoilerOff": "Parramatta Eels v North Queensland Cowboys in Round 11: the result is available to reveal.",
+        "hookSpoilerOn": "Parramatta Eels defeated North Queensland Cowboys in Round 11.",
+        "synopsisSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-nrlw-2026-round-11-eels-cowboys",
@@ -34677,7 +34582,9 @@
         ],
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "hookSpoilerOn": "Parramatta Eels defeated North Queensland Cowboys in Round 11.",
+        "synopsisSpoilerOn": "Parramatta Eels defeated North Queensland Cowboys in Round 11. Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win."
       },
       "resultEditorialBranches": {
         "home": {
@@ -34701,7 +34608,18 @@
           "spoilerSafe": "Parramatta Eels v North Queensland Cowboys in Round 11: the result is available to reveal.",
           "revealed": "Parramatta Eels and North Queensland Cowboys finished level in Round 11."
         }
-      }
+      },
+      "homeScore": 33,
+      "awayScore": 28,
+      "score": "Parramatta Eels 33-28 North Queensland Cowboys",
+      "outcomeText": "Parramatta Eels defeated North Queensland Cowboys 33-28.",
+      "recapText": "Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Round 11",
+        "Parramatta Eels 33-28 North Queensland Cowboys",
+        "Official result"
+      ]
     },
     {
       "id": "event-aflw-cd_m20262640501",
@@ -35133,15 +35051,17 @@
         ],
         "researchedAt": "2026-09-08T13:00:00.000Z",
         "refreshAfter": "2026-09-09T12:00:00.000Z",
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "hookSpoilerOn": "Dolphins defeated Warriors in Qualifying Final.",
+        "synopsisSpoilerOn": "Dolphins defeated Warriors in Qualifying Final. The Dolphins came from behind to win 26-16 and advance to a preliminary final."
       },
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "The Dolphins begin their first finals campaign against second-placed New Zealand.",
-        "hookSpoilerOn": "The Dolphins begin their first finals campaign against second-placed New Zealand.",
-        "synopsisSpoilerOff": "The Dolphins arrive with Cobbo, Finefeuiaki and Nikorima returning. The Warriors regain Ford and Halasima for a qualifying final offering the winner a week off. A defeat preserves one life but adds a sudden-death semi-final to the route.",
-        "synopsisSpoilerOn": "The Dolphins arrive with Cobbo, Finefeuiaki and Nikorima returning. The Warriors regain Ford and Halasima for a qualifying final offering the winner a week off. A defeat preserves one life but adds a sudden-death semi-final to the route.",
-        "arcStage": "preview",
+        "hookSpoilerOff": "Warriors v Dolphins in Qualifying Final: the result is available to reveal.",
+        "hookSpoilerOn": "Dolphins defeated Warriors in Qualifying Final.",
+        "synopsisSpoilerOff": "Warriors v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "The Dolphins came from behind to win 26-16 and advance to a preliminary final.",
+        "arcStage": "recap",
         "intensity": 5,
         "expectedSpectacle": 1,
         "intensitySource": "computed",
@@ -35158,7 +35078,7 @@
       "date": "2026-09-12",
       "time": "16:05",
       "venueCountryCode": "NZ",
-      "status": "upcoming",
+      "status": "completed",
       "participantIds": [
         "team:nrl:321",
         "team:nrl:9538"
@@ -35183,9 +35103,9 @@
         "foxtel",
         "kayo"
       ],
-      "sourceName": "Warriors v Dolphins — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "canonicalEventId": "major-match:nrl-finals-2026:qualifying-final-2",
@@ -35202,28 +35122,13 @@
       "broadcasts": [],
       "viewingOptions": [],
       "consensusTags": [],
-      "selectedSentence": "The Dolphins begin their first finals campaign against second-placed New Zealand.",
-      "fullSpiel": "The Dolphins arrive with Cobbo, Finefeuiaki and Nikorima returning. The Warriors regain Ford and Halasima for a qualifying final offering the winner a week off. A defeat preserves one life but adds a sudden-death semi-final to the route.",
-      "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+      "selectedSentence": "Warriors v Dolphins is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Warriors v Dolphins is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "sourceEventIds": [
         "major-match:nrl-finals-2026:qualifying-final-2",
         "major-match-nrl-finals-2026-qualifying-final-2"
       ],
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Warriors v Dolphins",
-        "contextSignals": [
-          "event-specific",
-          "narrative:history",
-          "narrative:matchup",
-          "narrative:form",
-          "narrative:path"
-        ],
-        "sourceName": "Warriors v Dolphins — official research 1",
-        "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-        "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
-        "needsPreviewRefresh": false
-      },
       "resultEditorialBranches": {
         "home": {
           "sourceIds": [
@@ -35254,7 +35159,18 @@
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "homeScore": 16,
+      "awayScore": 26,
+      "score": "Warriors 16-26 Dolphins",
+      "outcomeText": "Dolphins defeated Warriors 26-16.",
+      "recapText": "The Dolphins came from behind to win 26-16 and advance to a preliminary final.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Qualifying Final",
+        "Warriors 16-26 Dolphins",
+        "Official result"
+      ]
     },
     {
       "id": "event-aflw-cd_m20262640504",
@@ -35420,14 +35336,14 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
-      "fullSpiel": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake. The final-round move adds a big-stage test just before elimination football begins.",
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:nrl",
       "discoverySportId": "sport:nrlw",
       "competitionId": "competition:nrlw-premiership-2026",
@@ -35474,30 +35390,16 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
-        "hookSpoilerOn": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
-        "synopsisSpoilerOff": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake. The final-round move adds a big-stage test just before elimination football begins.",
-        "synopsisSpoilerOn": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake. The final-round move adds a big-stage test just before elimination football begins.",
+        "hookSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons in Round 11: the result is available to reveal.",
+        "hookSpoilerOn": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons in Round 11.",
+        "synopsisSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Cronulla finished the regular season with a 16-8 Round 11 win.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-nrlw-2026-round-11-sharks-dragons",
@@ -35525,7 +35427,9 @@
         ],
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "hookSpoilerOn": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons in Round 11.",
+        "synopsisSpoilerOn": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons in Round 11. Cronulla finished the regular season with a 16-8 Round 11 win."
       },
       "resultEditorialBranches": {
         "home": {
@@ -35549,7 +35453,18 @@
           "spoilerSafe": "Cronulla-Sutherland Sharks v St George Illawarra Dragons in Round 11: the result is available to reveal.",
           "revealed": "Cronulla-Sutherland Sharks and St George Illawarra Dragons finished level in Round 11."
         }
-      }
+      },
+      "homeScore": 16,
+      "awayScore": 8,
+      "score": "Cronulla-Sutherland Sharks 16-8 St George Illawarra Dragons",
+      "outcomeText": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons 16-8.",
+      "recapText": "Cronulla finished the regular season with a 16-8 Round 11 win.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Round 11",
+        "Cronulla-Sutherland Sharks 16-8 St George Illawarra Dragons",
+        "Official result"
+      ]
     },
     {
       "sport": "NRL",
@@ -35935,15 +35850,17 @@
         ],
         "researchedAt": "2026-09-08T13:00:00.000Z",
         "refreshAfter": "2026-09-09T12:00:00.000Z",
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "hookSpoilerOn": "Sharks defeated Cowboys in Elimination Final.",
+        "synopsisSpoilerOn": "Sharks defeated Cowboys in Elimination Final. Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win."
       },
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "Trindall returns for Cronulla as fifth meets eighth with no second chance.",
-        "hookSpoilerOn": "Trindall returns for Cronulla as fifth meets eighth with no second chance.",
-        "synopsisSpoilerOff": "Trindall rejoins Hynes after a shoulder injury. The Cowboys regain Neame, Nanai and Laybutt, but their eighth-place finish leaves them on the elimination path. The winner must then get past a qualifying-final loser to reach the preliminary finals.",
-        "synopsisSpoilerOn": "Trindall rejoins Hynes after a shoulder injury. The Cowboys regain Neame, Nanai and Laybutt, but their eighth-place finish leaves them on the elimination path. The winner must then get past a qualifying-final loser to reach the preliminary finals.",
-        "arcStage": "preview",
+        "hookSpoilerOff": "Sharks v Cowboys in Elimination Final: the result is available to reveal.",
+        "hookSpoilerOn": "Sharks defeated Cowboys in Elimination Final.",
+        "synopsisSpoilerOff": "Sharks v Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win.",
+        "arcStage": "recap",
         "intensity": 5,
         "expectedSpectacle": 1,
         "intensitySource": "computed",
@@ -35960,7 +35877,7 @@
       "date": "2026-09-12",
       "time": "19:50",
       "venueCountryCode": "AU",
-      "status": "upcoming",
+      "status": "completed",
       "participantIds": [
         "team:nrl:333",
         "team:nrl:326"
@@ -35985,9 +35902,9 @@
         "foxtel",
         "kayo"
       ],
-      "sourceName": "Sharks v Cowboys — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "canonicalEventId": "major-match:nrl-finals-2026:elimination-final-1",
@@ -36004,27 +35921,13 @@
       "broadcasts": [],
       "viewingOptions": [],
       "consensusTags": [],
-      "selectedSentence": "Trindall returns for Cronulla as fifth meets eighth with no second chance.",
-      "fullSpiel": "Trindall rejoins Hynes after a shoulder injury. The Cowboys regain Neame, Nanai and Laybutt, but their eighth-place finish leaves them on the elimination path. The winner must then get past a qualifying-final loser to reach the preliminary finals.",
-      "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+      "selectedSentence": "Sharks v Cowboys is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Sharks v Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "sourceEventIds": [
         "major-match:nrl-finals-2026:elimination-final-1",
         "major-match-nrl-finals-2026-elimination-final-1"
       ],
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Sharks v Cowboys",
-        "contextSignals": [
-          "event-specific",
-          "narrative:matchup",
-          "narrative:form",
-          "narrative:path"
-        ],
-        "sourceName": "Sharks v Cowboys — official research 1",
-        "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-        "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
-        "needsPreviewRefresh": false
-      },
       "resultEditorialBranches": {
         "home": {
           "sourceIds": [
@@ -36055,7 +35958,18 @@
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "homeScore": 26,
+      "awayScore": 16,
+      "score": "Sharks 26-16 Cowboys",
+      "outcomeText": "Sharks defeated Cowboys 26-16.",
+      "recapText": "Cronulla eliminated North Queensland with a 26-16 Finals Week 1 win.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Elimination Final",
+        "Sharks 26-16 Cowboys",
+        "Official result"
+      ]
     },
     {
       "id": "epl-2026-27-128953",
@@ -36715,11 +36629,11 @@
       "id": "evt_28",
       "eventId": "evt_28",
       "displayTitleCompact": "R14 Spanish GP Qualifying",
-      "selectedSentence": "Kimi Antonelli leads by 66 points into R14 Spanish GP Qualifying; this session sets the grid and determines who controls the race start.",
-      "fullSpiel": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
-      "sourceName": "Formula 1 current driver standings",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-08T13:40:21.480Z",
+      "selectedSentence": "R14 Spanish GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "R14 Spanish GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "Formula 1",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "broadcastOptions": [
         "Kayo Sports"
       ],
@@ -36729,24 +36643,10 @@
       "highlightEligible": true,
       "briefingEligible": false,
       "catchupEligible": false,
-      "status": "upcoming",
+      "status": "completed",
       "sourceTrust": "unverified",
       "sourceType": "official",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 Formula 1 title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "Formula 1 current driver standings",
-        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-08T13:40:21.480Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T13:52:45.257Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-28",
@@ -36778,18 +36678,30 @@
       },
       "storyline": {
         "stakes": 3,
-        "hookSpoilerOff": "Kimi Antonelli leads by 66 points into R14 Spanish GP Qualifying; this session sets the grid and determines who controls the race start.",
-        "hookSpoilerOn": "Kimi Antonelli leads by 66 points into R14 Spanish GP Qualifying; this session sets the grid and determines who controls the race start.",
-        "synopsisSpoilerOff": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
-        "synopsisSpoilerOn": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
+        "hookSpoilerOff": "R14 Spanish GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Lando Norris took pole for the Spanish Grand Prix.",
+        "synopsisSpoilerOff": "R14 Spanish GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Norris qualified first ahead of Antonelli and Verstappen in Madrid.",
         "lastReviewedAt": "2026-09-08T13:52:45.257Z",
-        "arcStage": "preview",
-        "researchDepth": 5
+        "arcStage": "recap",
+        "researchDepth": 5,
+        "intensity": 3,
+        "expectedSpectacle": 6,
+        "intensitySource": "computed"
       },
       "startTimeUtc": "2026-09-12T14:00:00Z",
       "venueCountryCode": "ES",
       "timingSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-      "timingCheckedAt": "2026-09-08T14:50:00Z"
+      "timingCheckedAt": "2026-09-08T14:50:00Z",
+      "score": "1. Lando Norris · 2. Kimi Antonelli · 3. Max Verstappen",
+      "outcomeText": "Lando Norris took pole for the Spanish Grand Prix.",
+      "recapText": "Norris qualified first ahead of Antonelli and Verstappen in Madrid.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Result",
+        "1. Lando Norris · 2. Kimi Antonelli · 3. Max Verstappen",
+        "Official result"
+      ]
     },
     {
       "id": "evt_motogp_2026_san_marino",
@@ -36821,14 +36733,14 @@
       "roundLabel": "San Marino GP",
       "stage": "Grand Prix",
       "narrativeType": "all",
-      "selectedSentence": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-      "fullSpiel": "MotoGP's title fight heads to Misano for the San Marino Grand Prix. The Italian stop begins the final nine-race run to the Valencia decider.",
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "MotoGP San Marino Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "MotoGP San Marino Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "MotoGP",
+      "sourceUrl": "https://www.motogp.com/en/news/2026/07/16//1088005",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:motorsport",
       "discoverySportId": "sport:motogp",
       "competitionId": "competition:motogp",
@@ -36879,30 +36791,16 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-        "hookSpoilerOn": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-        "synopsisSpoilerOff": "MotoGP's title fight heads to Misano for the San Marino Grand Prix. The Italian stop begins the final nine-race run to the Valencia decider.",
-        "synopsisSpoilerOn": "MotoGP's title fight heads to Misano for the San Marino Grand Prix. The Italian stop begins the final nine-race run to the Valencia decider.",
+        "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
+        "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 5
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 MotoGP season — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "MotoGP 2026 calendar",
-        "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-motogp-2026-san-marino",
@@ -36931,7 +36829,16 @@
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
         "generationMode": "researched"
-      }
+      },
+      "score": "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
+      "outcomeText": "Marc Marquez won the San Marino Grand Prix.",
+      "recapText": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "San Marino GP",
+        "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
+        "Official result"
+      ]
     },
     {
       "id": "evt_fiba_women_2026_semifinals",
@@ -36963,14 +36870,14 @@
       "roundLabel": "Semifinals",
       "stage": "semifinal",
       "narrativeType": "all",
-      "selectedSentence": "The last four teams play for a place in the Women's World Cup final.",
-      "fullSpiel": "The last four teams play for a place in the Women's World Cup final. Two semifinals in one Berlin session decide who can still leave as world champion.",
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "FIBA Women's World Cup — semifinals is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "FIBA",
+      "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-semi-finals",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:basketball",
       "discoverySportId": "sport:fiba-women",
       "competitionId": "competition:fiba-womens-world-cup",
@@ -36987,31 +36894,17 @@
         "stakes": 4,
         "intensity": 5,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "The last four teams play for a place in the Women's World Cup final.",
-        "hookSpoilerOn": "The last four teams play for a place in the Women's World Cup final.",
-        "synopsisSpoilerOff": "The last four teams play for a place in the Women's World Cup final. Two semifinals in one Berlin session decide who can still leave as world champion.",
-        "synopsisSpoilerOn": "The last four teams play for a place in the Women's World Cup final. Two semifinals in one Berlin session decide who can still leave as world champion.",
+        "hookSpoilerOff": "FIBA Women's World Cup — semifinals is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "USA and France reached the World Cup final.",
+        "synopsisSpoilerOff": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "archetype": "elimination",
         "researchDepth": 5
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-fiba-women-2026-semifinals",
@@ -37040,7 +36933,16 @@
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
         "generationMode": "researched"
-      }
+      },
+      "score": "USA 76-66 Spain · France 86-64 Germany",
+      "outcomeText": "USA and France reached the World Cup final.",
+      "recapText": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Semifinals",
+        "USA 76-66 Spain · France 86-64 Germany",
+        "Official result"
+      ]
     },
     {
       "id": "epl-2026-27-128962",
@@ -37333,14 +37235,14 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
-      "fullSpiel": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections. The Sunday result can decide whether the defending premiers earn a shorter finals route.",
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "Brisbane Broncos v New Zealand Warriors is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:nrl",
       "discoverySportId": "sport:nrlw",
       "competitionId": "competition:nrlw-premiership-2026",
@@ -37388,30 +37290,16 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
-        "hookSpoilerOn": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
-        "synopsisSpoilerOff": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections. The Sunday result can decide whether the defending premiers earn a shorter finals route.",
-        "synopsisSpoilerOn": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections. The Sunday result can decide whether the defending premiers earn a shorter finals route.",
+        "hookSpoilerOff": "Brisbane Broncos v New Zealand Warriors in Round 11: the result is available to reveal.",
+        "hookSpoilerOn": "Brisbane Broncos defeated New Zealand Warriors in Round 11.",
+        "synopsisSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Brisbane scored seven second-half tries in a 52-18 Round 11 win.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-nrlw-2026-round-11-broncos-warriors",
@@ -37439,7 +37327,9 @@
         ],
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "hookSpoilerOn": "Brisbane Broncos defeated New Zealand Warriors in Round 11.",
+        "synopsisSpoilerOn": "Brisbane Broncos defeated New Zealand Warriors in Round 11. Brisbane scored seven second-half tries in a 52-18 Round 11 win."
       },
       "resultEditorialBranches": {
         "home": {
@@ -37463,7 +37353,18 @@
           "spoilerSafe": "Brisbane Broncos v New Zealand Warriors in Round 11: the result is available to reveal.",
           "revealed": "Brisbane Broncos and New Zealand Warriors finished level in Round 11."
         }
-      }
+      },
+      "homeScore": 52,
+      "awayScore": 18,
+      "score": "Brisbane Broncos 52-18 New Zealand Warriors",
+      "outcomeText": "Brisbane Broncos defeated New Zealand Warriors 52-18.",
+      "recapText": "Brisbane scored seven second-half tries in a 52-18 Round 11 win.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Round 11",
+        "Brisbane Broncos 52-18 New Zealand Warriors",
+        "Official result"
+      ]
     },
     {
       "id": "event-aflw-cd_m20262640505",
@@ -37760,14 +37661,14 @@
       "roundNumber": 11,
       "stage": "regular season",
       "narrativeType": "all",
-      "selectedSentence": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
-      "fullSpiel": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line. The last scheduled match can redraw the elimination pairings only days before finals begin.",
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "Newcastle Knights v Gold Coast Titans is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:nrl",
       "discoverySportId": "sport:nrlw",
       "competitionId": "competition:nrlw-premiership-2026",
@@ -37814,30 +37715,16 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
-        "hookSpoilerOn": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
-        "synopsisSpoilerOff": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line. The last scheduled match can redraw the elimination pairings only days before finals begin.",
-        "synopsisSpoilerOn": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line. The last scheduled match can redraw the elimination pairings only days before finals begin.",
+        "hookSpoilerOff": "Newcastle Knights v Gold Coast Titans in Round 11: the result is available to reveal.",
+        "hookSpoilerOn": "Gold Coast Titans defeated Newcastle Knights in Round 11.",
+        "synopsisSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 2
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 NRLW Premiership — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-        "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-nrlw-2026-round-11-knights-titans",
@@ -37865,7 +37752,9 @@
         ],
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "hookSpoilerOn": "Gold Coast Titans defeated Newcastle Knights in Round 11.",
+        "synopsisSpoilerOn": "Gold Coast Titans defeated Newcastle Knights in Round 11. Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory."
       },
       "resultEditorialBranches": {
         "home": {
@@ -37889,7 +37778,18 @@
           "spoilerSafe": "Newcastle Knights v Gold Coast Titans in Round 11: the result is available to reveal.",
           "revealed": "Newcastle Knights and Gold Coast Titans finished level in Round 11."
         }
-      }
+      },
+      "homeScore": 20,
+      "awayScore": 32,
+      "score": "Newcastle Knights 20-32 Gold Coast Titans",
+      "outcomeText": "Gold Coast Titans defeated Newcastle Knights 32-20.",
+      "recapText": "Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Round 11",
+        "Newcastle Knights 20-32 Gold Coast Titans",
+        "Official result"
+      ]
     },
     {
       "id": "event-aflw-cd_m20262640507",
@@ -38189,15 +38089,17 @@
         ],
         "researchedAt": "2026-09-08T13:00:00.000Z",
         "refreshAfter": "2026-09-09T12:00:00.000Z",
-        "generationMode": "researched"
+        "generationMode": "researched",
+        "hookSpoilerOn": "Panthers defeated Roosters in Qualifying Final.",
+        "synopsisSpoilerOn": "Panthers defeated Roosters in Qualifying Final. Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final."
       },
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "The minor premiers meet fourth-placed Sydney with a week off within reach.",
-        "hookSpoilerOn": "The minor premiers meet fourth-placed Sydney with a week off within reach.",
-        "synopsisSpoilerOff": "Penrith secured top spot in the final round. Nathan Cleary faces Daly Cherry-Evans in a qualifying final that rewards the winner with direct passage to a preliminary final. The loser gets another chance, but must play next week.",
-        "synopsisSpoilerOn": "Penrith secured top spot in the final round. Nathan Cleary faces Daly Cherry-Evans in a qualifying final that rewards the winner with direct passage to a preliminary final. The loser gets another chance, but must play next week.",
-        "arcStage": "preview",
+        "hookSpoilerOff": "Panthers v Roosters in Qualifying Final: the result is available to reveal.",
+        "hookSpoilerOn": "Panthers defeated Roosters in Qualifying Final.",
+        "synopsisSpoilerOff": "Panthers v Roosters is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final.",
+        "arcStage": "recap",
         "intensity": 5,
         "expectedSpectacle": 1,
         "intensitySource": "computed",
@@ -38214,7 +38116,7 @@
       "date": "2026-09-13",
       "time": "16:05",
       "venueCountryCode": "AU",
-      "status": "upcoming",
+      "status": "completed",
       "participantIds": [
         "team:nrl:329",
         "team:nrl:331"
@@ -38239,9 +38141,9 @@
         "foxtel",
         "kayo"
       ],
-      "sourceName": "Panthers v Roosters — official research 1",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
+      "sourceName": "NRL",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/13/finals-blockbuster-panthers-v-roosters/",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "canonicalEventId": "major-match:nrl-finals-2026:qualifying-final-1",
@@ -38258,27 +38160,13 @@
       "broadcasts": [],
       "viewingOptions": [],
       "consensusTags": [],
-      "selectedSentence": "The minor premiers meet fourth-placed Sydney with a week off within reach.",
-      "fullSpiel": "Penrith secured top spot in the final round. Nathan Cleary faces Daly Cherry-Evans in a qualifying final that rewards the winner with direct passage to a preliminary final. The loser gets another chance, but must play next week.",
-      "lastReviewedAt": "2026-09-08T13:00:00.000Z",
+      "selectedSentence": "Panthers v Roosters is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "Panthers v Roosters is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "sourceEventIds": [
         "major-match:nrl-finals-2026:qualifying-final-1",
         "major-match-nrl-finals-2026-qualifying-final-1"
       ],
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "Panthers v Roosters",
-        "contextSignals": [
-          "event-specific",
-          "narrative:matchup",
-          "narrative:form",
-          "narrative:path"
-        ],
-        "sourceName": "Panthers v Roosters — official research 1",
-        "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-        "sourceCheckedAt": "2026-09-08T13:00:00.000Z",
-        "needsPreviewRefresh": false
-      },
       "resultEditorialBranches": {
         "home": {
           "sourceIds": [
@@ -38309,7 +38197,18 @@
       "replayEligible": false,
       "highlightEligible": false,
       "briefingEligible": false,
-      "catchupEligible": false
+      "catchupEligible": false,
+      "homeScore": 19,
+      "awayScore": 12,
+      "score": "Panthers 19-12 Roosters",
+      "outcomeText": "Panthers defeated Roosters 19-12.",
+      "recapText": "Penrith won the qualifying final 19-12 to reach a seventh straight preliminary final.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Qualifying Final",
+        "Panthers 19-12 Roosters",
+        "Official result"
+      ]
     },
     {
       "id": "event-aflw-cd_m20262640509",
@@ -38584,11 +38483,11 @@
       "id": "evt_29",
       "eventId": "evt_29",
       "displayTitleCompact": "R14 Spanish GP Race",
-      "selectedSentence": "Kimi Antonelli leads by 66 points into R14 Spanish GP Race; this session is the points-paying chapter of the weekend.",
-      "fullSpiel": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-      "sourceName": "Formula 1 current driver standings",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-08T13:40:21.480Z",
+      "selectedSentence": "R14 Spanish GP Race is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "R14 Spanish GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "Formula 1",
+      "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-clinches-victory-over-verstappen-and-norris-in-spanish-gp.644ZZfPzRPEaUh2JBHcB9",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "broadcastOptions": [
         "Kayo Sports"
       ],
@@ -38598,24 +38497,10 @@
       "highlightEligible": true,
       "briefingEligible": true,
       "catchupEligible": true,
-      "status": "upcoming",
+      "status": "completed",
       "sourceTrust": "unverified",
       "sourceType": "official",
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 Formula 1 title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:form",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "Formula 1 current driver standings",
-        "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-        "sourceCheckedAt": "2026-09-08T13:40:21.480Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T13:52:45.257Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-29",
@@ -38647,18 +38532,30 @@
       },
       "storyline": {
         "stakes": 3,
-        "hookSpoilerOff": "Kimi Antonelli leads by 66 points into R14 Spanish GP Race; this session is the points-paying chapter of the weekend.",
-        "hookSpoilerOn": "Kimi Antonelli leads by 66 points into R14 Spanish GP Race; this session is the points-paying chapter of the weekend.",
-        "synopsisSpoilerOff": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-        "synopsisSpoilerOn": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+        "hookSpoilerOff": "R14 Spanish GP Race is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Kimi Antonelli won the Spanish Grand Prix.",
+        "synopsisSpoilerOff": "R14 Spanish GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Antonelli won in Madrid ahead of Verstappen and Norris to extend his championship lead.",
         "lastReviewedAt": "2026-09-08T13:52:45.257Z",
-        "arcStage": "preview",
-        "researchDepth": 5
+        "arcStage": "recap",
+        "researchDepth": 5,
+        "intensity": 4,
+        "expectedSpectacle": 7,
+        "intensitySource": "computed"
       },
       "startTimeUtc": "2026-09-13T13:00:00Z",
       "venueCountryCode": "ES",
       "timingSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-      "timingCheckedAt": "2026-09-08T14:50:00Z"
+      "timingCheckedAt": "2026-09-08T14:50:00Z",
+      "score": "1. Kimi Antonelli · 2. Max Verstappen · 3. Lando Norris",
+      "outcomeText": "Kimi Antonelli won the Spanish Grand Prix.",
+      "recapText": "Antonelli won in Madrid ahead of Verstappen and Norris to extend his championship lead.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Result",
+        "1. Kimi Antonelli · 2. Max Verstappen · 3. Lando Norris",
+        "Official result"
+      ]
     },
     {
       "id": "evt_fiba_women_2026_bronze",
@@ -38690,14 +38587,14 @@
       "roundLabel": "Third-place game",
       "stage": "medal",
       "narrativeType": "all",
-      "selectedSentence": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
-      "fullSpiel": "The semifinal losers have one final chance to leave Berlin with a World Cup medal. The bronze game rewards the team that can reset fastest after missing the final.",
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "FIBA Women's World Cup — bronze medal game is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "FIBA",
+      "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:basketball",
       "discoverySportId": "sport:fiba-women",
       "competitionId": "competition:fiba-womens-world-cup",
@@ -38714,30 +38611,16 @@
         "stakes": 5,
         "intensity": 4,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
-        "hookSpoilerOn": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
-        "synopsisSpoilerOff": "The semifinal losers have one final chance to leave Berlin with a World Cup medal. The bronze game rewards the team that can reset fastest after missing the final.",
-        "synopsisSpoilerOn": "The semifinal losers have one final chance to leave Berlin with a World Cup medal. The bronze game rewards the team that can reset fastest after missing the final.",
+        "hookSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "Spain defeated Germany 81-58 to win bronze.",
+        "synopsisSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "Spain secured the World Cup bronze medal with an 81-58 win over hosts Germany.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "researchDepth": 5
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-fiba-women-2026-bronze",
@@ -38766,7 +38649,18 @@
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
         "generationMode": "researched"
-      }
+      },
+      "homeScore": 81,
+      "awayScore": 58,
+      "score": "Spain 81-58 Germany",
+      "outcomeText": "Spain defeated Germany 81-58 to win bronze.",
+      "recapText": "Spain secured the World Cup bronze medal with an 81-58 win over hosts Germany.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Third-place game",
+        "Spain 81-58 Germany",
+        "Official result"
+      ]
     },
     {
       "id": "epl-2026-27-128960",
@@ -38927,14 +38821,14 @@
       "roundLabel": "Final",
       "stage": "final",
       "narrativeType": "all",
-      "selectedSentence": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
-      "fullSpiel": "Two teams remain for the Women's Basketball World Cup title in Berlin. The tournament closes with forty minutes separating the finalists from a world championship.",
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "selectedSentence": "FIBA Women's Basketball World Cup final is complete; the key moments are protected until you choose to reveal them.",
+      "fullSpiel": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "sourceName": "FIBA",
+      "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
+      "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:basketball",
       "discoverySportId": "sport:fiba-women",
       "competitionId": "competition:fiba-womens-world-cup",
@@ -38951,31 +38845,17 @@
         "stakes": 5,
         "intensity": 5,
         "intensitySource": "computed",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 10,
-        "hookSpoilerOff": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
-        "hookSpoilerOn": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
-        "synopsisSpoilerOff": "Two teams remain for the Women's Basketball World Cup title in Berlin. The tournament closes with forty minutes separating the finalists from a world championship.",
-        "synopsisSpoilerOn": "Two teams remain for the Women's Basketball World Cup title in Berlin. The tournament closes with forty minutes separating the finalists from a world championship.",
+        "hookSpoilerOff": "FIBA Women's Basketball World Cup final is complete; the key moments are protected until you choose to reveal them.",
+        "hookSpoilerOn": "USA defeated France 97-79 to win the World Cup.",
+        "synopsisSpoilerOff": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+        "synopsisSpoilerOn": "USA won a fifth consecutive and 12th overall Women's World Cup title with a 97-79 final victory.",
         "lastReviewedAt": "2026-09-08T12:57:33.822Z",
         "archetype": "championship decider",
         "researchDepth": 5
       },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 FIBA Women's Basketball World Cup — current path",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:format",
-          "narrative:consequence"
-        ],
-        "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-        "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-        "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-        "needsPreviewRefresh": false
-      },
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:15:00.000Z",
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
         "projectionId": "projection:rolling:evt-fiba-women-2026-final",
@@ -39004,7 +38884,18 @@
         "researchedAt": "2026-09-08T12:57:33.822Z",
         "refreshAfter": null,
         "generationMode": "researched"
-      }
+      },
+      "homeScore": 97,
+      "awayScore": 79,
+      "score": "USA 97-79 France",
+      "outcomeText": "USA defeated France 97-79 to win the World Cup.",
+      "recapText": "USA won a fifth consecutive and 12th overall Women's World Cup title with a 97-79 final victory.",
+      "resultPublishedAt": "2026-09-15T03:15:00.000Z",
+      "resultLabels": [
+        "Final",
+        "USA 97-79 France",
+        "Official result"
+      ]
     },
     {
       "id": "epl-2026-27-128958",
@@ -43858,14 +43749,14 @@
       "roundLabel": "Round 13",
       "narrativeType": "championship-round",
       "status": "upcoming",
-      "selectedSentence": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Italia Sardegna, Round 13 of 14.",
-      "fullSpiel": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04 in Italy. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 1 round remains after this one. Stan Sport lists live and replay coverage in Australia.",
-      "sourceName": "WRC official 2026 calendar",
+      "selectedSentence": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04, with multiple live stages on Stan Sport.",
+      "fullSpiel": "WRC Rally Italia Sardegna is Round 13 of the 2026 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with live coverage and replays on Stan Sport in Australia.",
+      "sourceName": "WRC",
       "sourceUrl": "https://www.wrc.com/en/calendar",
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -43874,59 +43765,12 @@
         "stakes": 4,
         "intensity": 4,
         "arcStage": "preview",
-        "hookSpoilerOff": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Italia Sardegna, Round 13 of 14.",
-        "hookSpoilerOn": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Italia Sardegna, Round 13 of 14.",
+        "hookSpoilerOff": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04, with multiple live stages on Stan Sport.",
+        "hookSpoilerOn": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04, with multiple live stages on Stan Sport.",
         "expectedSpectacle": 7,
         "intensitySource": "computed",
-        "synopsisSpoilerOff": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04 in Italy. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 1 round remains after this one. Stan Sport lists live and replay coverage in Australia.",
-        "synopsisSpoilerOn": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04 in Italy. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 1 round remains after this one. Stan Sport lists live and replay coverage in Australia.",
-        "researchDepth": 5,
-        "lastReviewedAt": "2026-09-08T12:57:33.822Z"
-      },
-      "editorialPreview": {
-        "status": "journalistic",
-        "angle": "2026 WRC title pressure",
-        "contextSignals": [
-          "event-specific",
-          "narrative:schedule",
-          "narrative:form",
-          "narrative:path",
-          "narrative:format"
-        ],
-        "sourceName": "WRC official 2026 calendar",
-        "sourceUrl": "https://www.wrc.com/en/calendar",
-        "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
-        "needsPreviewRefresh": false
-      },
-      "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:rolling:event-wrc-2026-round-13",
-        "researchTier": "marquee",
-        "hook": "Elfyn Evans carries a 20-point lead over Sami Pajari into WRC Rally Italia Sardegna, Round 13 of 14.",
-        "synopsis": "WRC Rally Italia Sardegna runs from 2026-10-01 to 2026-10-04 in Italy. Elfyn Evans leads Sami Pajari by 20 points in the official FIA driver standings, and 1 round remains after this one. Stan Sport lists live and replay coverage in Australia.",
-        "threadIds": [
-          "thread:rolling:wrc:2026"
-        ],
-        "factIds": [
-          "fact:rolling:event-wrc-2026-round-13:schedule",
-          "fact:rolling:event-wrc-2026-round-13:standings",
-          "fact:rolling:event-wrc-2026-round-13:path",
-          "fact:rolling:event-wrc-2026-round-13:viewing"
-        ],
-        "sourceIds": [
-          "source:rolling:wrc:calendar",
-          "source:rolling:wrc:driver-standings",
-          "source:rolling:wrc:stan-sport"
-        ],
-        "dimensions": [
-          "schedule",
-          "form",
-          "path",
-          "format"
-        ],
-        "researchedAt": "2026-09-08T12:57:33.822Z",
-        "refreshAfter": null,
-        "generationMode": "researched"
+        "synopsisSpoilerOff": "WRC Rally Italia Sardegna is Round 13 of the 2026 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with live coverage and replays on Stan Sport in Australia.",
+        "synopsisSpoilerOn": "WRC Rally Italia Sardegna is Round 13 of the 2026 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with live coverage and replays on Stan Sport in Australia."
       }
     },
     {
@@ -54129,7 +53973,7 @@
       "sourceCheckedAt": "2026-09-08T12:28:24.214Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "lastReviewedAt": "2026-09-08T13:33:31.827Z",
+      "lastReviewedAt": "2026-09-15T03:09:19.317Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": true,
@@ -54144,12 +53988,6 @@
         "intensitySource": "computed",
         "synopsisSpoilerOff": "WRC Rally Saudi Arabia is Round 14 of the 2026 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with live coverage and replays on Stan Sport in Australia.",
         "synopsisSpoilerOn": "WRC Rally Saudi Arabia is Round 14 of the 2026 FIA World Rally Championship. The rally is represented as one multi-day card rather than separate stage cards, with live coverage and replays on Stan Sport in Australia."
-      },
-      "editorialPreview": {
-        "status": "research-required",
-        "needsPreviewRefresh": true,
-        "editorialWindowDays": 10,
-        "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
       }
     },
     {

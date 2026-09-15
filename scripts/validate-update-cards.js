@@ -21,6 +21,8 @@ for (const file of ["feeds/incoming/events.json", "data/events.json"]) {
 }
 assert(quickResultProjection.some(step => step[0] === "scripts/enrich-storyline-cards.js"), "quick score updates must refresh result editorial before publication");
 assert(quickResultProjection.some(step => step[0] === "scripts/select-result-editorial.js"), "quick score updates must choose the verified spoiler-safe result branch before publication");
+assert(quickResultProjection.some(step => step[0] === "scripts/verify-result-completeness.js") === false, "quick completeness is enforced after projection rather than being conditional on changed sources");
+assert(localSteps.some(step => step[0] === "scripts/sync-official-card-results.js"), "full updates must project the reviewed official-result snapshot before publication");
 assert(localSteps.find(step=>step[0] === "scripts/publish-feed.js").includes("--preserve-known"),"canonical publication must preserve omitted known fixtures");
 for (const script of ["validate-fixture-snapshot","validate-fixture-visibility","validate-all-sport-visibility"]){
   assert(localSteps.some(step=>step[0] === `scripts/${script}.js`),`${script} must guard every canonical refresh`);
@@ -270,6 +272,7 @@ const quickResult = spawnSync(process.execPath, ["scripts/update-cards.js", "--q
 });
 assert.equal(quickResult.status, 0, `quick score updates must not require Supabase or active-follow data:\n${quickResult.stderr}`);
 assert.doesNotMatch(quickResult.stdout, /snapshot-active-follows/, "quick score updates must not access active-follow preferences");
+assert.match(quickResult.stdout, /Result completeness passed/, "quick score updates must fail closed when any due card still lacks a result");
 assert.match(updaterSource, /crypto\.randomBytes\(32\)\.toString\("base64"\)/, "follow snapshots must use an ephemeral 256-bit encryption key");
 assert.match(updaterSource, /fs\.chmodSync\(snapshotDirectory, 0o700\)/, "the temporary snapshot directory must be owner-only");
 assert.match(updaterSource, /finally[^]*fs\.rmSync\(snapshotDirectory, \{ recursive:true, force:true \}\)/, "the snapshot must be deleted even after a failed update step");

@@ -138,6 +138,7 @@ function buildSteps({ localOnly = false } = {}) {
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "feeds/incoming/events.json", "feeds/incoming/events.json"]]
   ), discoverCanonicalFixtureBundles()),
   ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
+  ["scripts/sync-official-card-results.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/refresh-premier-league-cards.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/enrich-legacy-cards.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/apply-representative-metadata.js", "feeds/incoming/events.json"],
