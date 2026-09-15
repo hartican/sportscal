@@ -26,12 +26,24 @@
     ].map(clean).filter(Boolean))).sort();
   }
 
+  function sportKey(event){
+    const explicit = clean(
+      event?.key
+      || event?.sportKey
+      || event?.sportId
+      || event?.codeId
+      || event?.sport
+    ).toLowerCase().replace(/^(?:sport|competition):/, "");
+    if (explicit) return explicit;
+    const competition = clean(event?.competitionId || event?.competition).toLowerCase();
+    return competition.match(/^competition:([^:]+)/)?.[1] || competition || "fixture";
+  }
+
   function semanticFixtureKey(event){
     const participants = participantIds(event);
     const parsedStart = Date.parse(event?.startTimeUtc || event?.timelineSortTimeUtc || "");
     if (participants.length < 2 || !Number.isFinite(parsedStart)) return "";
-    const competition = clean(event?.competitionId || event?.competition || event?.sportId || event?.sport || "fixture").toLowerCase();
-    return `${competition}|${new Date(parsedStart).toISOString()}|${participants.join("|")}`;
+    return `${sportKey(event)}|${new Date(parsedStart).toISOString()}|${participants.join("|")}`;
   }
 
   const cachedIndexes=new WeakMap();
