@@ -18,6 +18,31 @@ function patchKnown(events,updates){
 }
 async function json(url){const response=await fetch(url,{signal:AbortSignal.timeout(15000),headers:{Origin:'https://www.afl.com.au',Referer:'https://www.afl.com.au/'}});if(!response.ok)throw new Error(`${response.status} ${url}`);return response.json();}
 function run(file,...args){const result=spawnSync(process.execPath,[file,...args],{stdio:'inherit'});if(result.status!==0)throw new Error(`${file} failed`);}
+async function refreshNflResults(now){
+ const path='data/canonical/american-football-directory.v1.json',directory=read(path);
+ const response=await json(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${now.getFullYear()}&limit=1000`);
+ const updates=new Map((response.events||[]).map(event=>{
+   const competition=event.competitions?.[0]||{};
+   const slots=(competition.competitors||[]).map(side=>({
+     participantId:`team:nfl:${String(side?.team?.abbreviation||side?.team?.id||'').toLowerCase()}`,
+     label:side?.team?.displayName||side?.team?.shortDisplayName||null,
+     homeAway:side?.homeAway||null,
+     ...(side?.score?.displayValue!=null||side?.score!=null?{score:String(side?.score?.displayValue??side.score)}:{}),
+   }));
+   return [`fixture:nfl:${event.id}`,{status:event?.status?.type?.completed===true?'completed':event?.status?.type?.state==='in'?'live':'upcoming',slots}];
+ }));
+ let count=0;
+ const fixtures=directory.fixtures.map(fixture=>{
+   const update=updates.get(fixture.id);if(!update)return fixture;
+   const byId=new Map(update.slots.map(slot=>[slot.participantId,slot]));
+   const participantSlots=(fixture.participantSlots||[]).map(slot=>({...slot,...(byId.get(slot.participantId)||{})}));
+   const next={...fixture,status:update.status,participantSlots};
+   if(semantic(next)!==semantic(fixture))count++;
+   return next;
+ });
+ if(count)write(path,{...directory,generatedAt:response.timestamp||now.toISOString(),fixtures});
+ return count;
+}
 // Keep unrelated projections byte-for-byte intact. Source ingestion and the
 // atomic preservation boundary remain independent of deployment credentials.
 function projectionSteps(changes,{rebuild=false}={}){
@@ -27,9 +52,10 @@ function projectionSteps(changes,{rebuild=false}={}){
  const codes=new Set();
  if(canonicalChanged)['afl','aflw','nrl'].forEach(code=>codes.add(code));
  if(changes.some(change=>change.startsWith('Premier League')))codes.add('football');
- if(changes.some(change=>change.startsWith('F1')))codes.add('motorsport');
- if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
- if(changes.some(change=>change.startsWith('Official results')))['nrl','nrlw','motorsport','fiba-women','tennis','wrc'].forEach(code=>codes.add(code));
+ if(changes.some(change=>change.startsWith('F1')))['f1','motorsport'].forEach(code=>codes.add(code));
+  if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
+ if(changes.some(change=>change.startsWith('NFL')))codes.add('american-football');
+ if(changes.some(change=>change.startsWith('Official results')))['aflw','nrl','nrlw','motorsport','f1','motogp','fiba-women','tennis','wrc'].forEach(code=>codes.add(code));
  const steps=[];
  if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/refresh-major-events-from-canonical.js']);}
  if(feedChanged){steps.push(
@@ -40,7 +66,7 @@ function projectionSteps(changes,{rebuild=false}={}){
   ['scripts/qa-storyline-spoilers.js','data/events.json'],
  );}
  if(feedChanged)steps.push(['scripts/build-paged-feed.js']);
- steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
+ steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],...(rebuild?[['scripts/build-app-shell-runtime.js']]:[]),['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
  return steps;
 }
 async function refresh({now=new Date(),offline=false}={}){
@@ -57,11 +83,13 @@ async function refresh({now=new Date(),offline=false}={}){
  try{if(existing.some(e=>e.id.startsWith('event:nrl:'))){const response=await json('https://mc.championdata.com/data/12999/fixture.json');if(!Array.isArray(response.fixture?.match))throw new Error('Malformed NRL fixtures');updates.push(...response.fixture.match.map(m=>canonical.buildNrlEvent(m,now.toISOString(),created).event));}}catch(error){failures.push(`nrl: ${error.message}`);}
  }
  const patched=patchKnown(bundle.events,updates.filter(near));if(patched.count){write(bundlePath,{...bundle,events:patched.events});changes.push(`AFL/NRL ${patched.count}`);}
+ if(!offline)try{const count=await refreshNflResults(now);if(count)changes.push(`NFL ${count}`);}catch(error){failures.push(`NFL: ${error.message}`);}
  const officialDocument=read('feeds/incoming/events.json'),officialSnapshot=read('data/canonical/official-card-results-2026.json'),official=officialResults.applyOfficialResults(officialDocument.events,officialSnapshot);
  const officialReleaseChanged=officialDocument.version!==officialSnapshot.feedVersion;
  if(official.count||officialReleaseChanged){write('feeds/incoming/events.json',{...officialDocument,version:officialSnapshot.feedVersion,publishedAt:officialSnapshot.checkedAt,events:official.events});changes.push(`Official results ${official.count}`);}
  const majorPath='data/major-events.v1.json',major=read(majorPath),us=major.events.find(e=>e.id==='major:us-open-2026'||/US Open 2026/.test(e.name));
- if(!offline&&us&&us.startDate<=now.toISOString().slice(0,10)&&us.endDate>=now.toISOString().slice(0,10))try{
+ const usRetentionEnd=us?.endDate?new Date(`${us.endDate}T23:59:59.999Z`):null;if(usRetentionEnd)usRetentionEnd.setUTCDate(usRetentionEnd.getUTCDate()+14);
+ if(!offline&&us&&us.startDate<=now.toISOString().slice(0,10)&&now<=usRetentionEnd)try{
    const snapshot=await tennis.fetchOfficialSnapshot({quick:true,now,cached:read('feeds/provider-exports/tennis/us-open-2026-official-schedule.json')});tennis.fixturesFromSnapshot(snapshot);
    const next=tennis.mergeCatalogue(major,snapshot);
    // Only persist semantic fixture changes, not fetch timestamps.

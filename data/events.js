@@ -36642,9 +36642,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "displayTitleCompact": "R14 Spanish GP Qualifying",
     "selectedSentence": "R14 Spanish GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "R14 Spanish GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Formula 1",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceName": "Formula 1 official session results",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/races/1294/spain/qualifying",
+    "sourceCheckedAt": "2026-09-15T04:02:05.012Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -36690,9 +36690,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 3,
       "hookSpoilerOff": "R14 Spanish GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Lando Norris took pole for the Spanish Grand Prix.",
+      "hookSpoilerOn": "Lando Norris took pole for R14 Spanish GP Qualifying.",
       "synopsisSpoilerOff": "R14 Spanish GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Norris qualified first ahead of Antonelli and Verstappen in Madrid.",
+      "synopsisSpoilerOn": "Lando Norris took pole for R14 Spanish GP Qualifying. 1. Lando Norris (McLaren); 2. Kimi Antonelli (Mercedes); 3. Max Verstappen (Red Bull Racing).",
       "lastReviewedAt": "2026-09-08T13:52:45.257Z",
       "arcStage": "recap",
       "researchDepth": 5,
@@ -36705,8 +36705,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timingSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
     "timingCheckedAt": "2026-09-08T14:50:00Z",
     "score": "1. Lando Norris · 2. Kimi Antonelli · 3. Max Verstappen",
-    "outcomeText": "Lando Norris took pole for the Spanish Grand Prix.",
-    "recapText": "Norris qualified first ahead of Antonelli and Verstappen in Madrid.",
+    "outcomeText": "Lando Norris took pole for R14 Spanish GP Qualifying.",
+    "recapText": "Lando Norris took pole for R14 Spanish GP Qualifying. 1. Lando Norris (McLaren); 2. Kimi Antonelli (Mercedes); 3. Max Verstappen (Red Bull Racing).",
     "resultPublishedAt": "2026-09-15T03:15:00.000Z",
     "resultLabels": [
       "Result",
@@ -38496,9 +38496,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "displayTitleCompact": "R14 Spanish GP Race",
     "selectedSentence": "R14 Spanish GP Race is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "R14 Spanish GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Formula 1",
-    "sourceUrl": "https://www.formula1.com/en/latest/article/antonelli-clinches-victory-over-verstappen-and-norris-in-spanish-gp.644ZZfPzRPEaUh2JBHcB9",
-    "sourceCheckedAt": "2026-09-15T03:15:00.000Z",
+    "sourceName": "Formula 1 official session results",
+    "sourceUrl": "https://www.formula1.com/en/results/2026/races/1294/spain/race-result",
+    "sourceCheckedAt": "2026-09-15T04:02:05.012Z",
     "broadcastOptions": [
       "Kayo Sports"
     ],
@@ -38544,9 +38544,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 3,
       "hookSpoilerOff": "R14 Spanish GP Race is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Kimi Antonelli won the Spanish Grand Prix.",
+      "hookSpoilerOn": "Kimi Antonelli won R14 Spanish GP Race.",
       "synopsisSpoilerOff": "R14 Spanish GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Antonelli won in Madrid ahead of Verstappen and Norris to extend his championship lead.",
+      "synopsisSpoilerOn": "Kimi Antonelli won R14 Spanish GP Race. 1. Kimi Antonelli (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Lando Norris (McLaren).",
       "lastReviewedAt": "2026-09-08T13:52:45.257Z",
       "arcStage": "recap",
       "researchDepth": 5,
@@ -38559,8 +38559,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timingSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
     "timingCheckedAt": "2026-09-08T14:50:00Z",
     "score": "1. Kimi Antonelli · 2. Max Verstappen · 3. Lando Norris",
-    "outcomeText": "Kimi Antonelli won the Spanish Grand Prix.",
-    "recapText": "Antonelli won in Madrid ahead of Verstappen and Norris to extend his championship lead.",
+    "outcomeText": "Kimi Antonelli won R14 Spanish GP Race.",
+    "recapText": "Kimi Antonelli won R14 Spanish GP Race. 1. Kimi Antonelli (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Lando Norris (McLaren).",
     "resultPublishedAt": "2026-09-15T03:15:00.000Z",
     "resultLabels": [
       "Result",

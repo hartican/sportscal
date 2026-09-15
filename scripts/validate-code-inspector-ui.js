@@ -144,6 +144,18 @@ assert(canonicalAflwFixtures.length > 0, "the canonical AFLW schedule must not b
 assert(canonicalAflwFixtures.every(fixture => publishedAflwFixtureIds.has(fixture.id)), "every canonical AFLW fixture must be published in the AFLW chunk");
 assert(canonicalBundle.ladderSnapshots.some(snapshot => snapshot.competitionId === "competition:aflw-2026" && snapshot.entries?.length), "AFLW must have a published ladder for its Standings tab");
 const publishedFeed = JSON.parse(fs.readFileSync(path.join(ROOT, "data/events.json"), "utf8"));
+for (const codeId of ["sport:f1", "sport:aflw", "sport:nrlw", "competition:motogp"]){
+  const code=manifest.codes.find(item=>item.id===codeId);const chunk=JSON.parse(fs.readFileSync(path.join(ROOT,code.followSchedulePath),"utf8"));
+  const scoredIds=new Set(publishedFeed.events.filter(event=>event.status==="completed"&&(event.score||event.scoreDisplay||event.result)&&eventMatchesCode(event,{id:codeId,slug:code.slug})).map(event=>event.eventId||event.id));
+  assert(chunk.fixtures.filter(fixture=>scoredIds.has(fixture.id)).every(fixture=>fixture.status==="completed"&&(fixture.score||fixture.scoreDisplay||fixture.result)),`${codeId} Follow Schedule must retain published final scores`);
+}
+const nflCode=manifest.codes.find(item=>item.id==="sport:american-football");
+const nflChunk=JSON.parse(fs.readFileSync(path.join(ROOT,nflCode.followSchedulePath),"utf8"));
+const nflDirectory=JSON.parse(fs.readFileSync(path.join(ROOT,"data/canonical/american-football-directory.v1.json"),"utf8"));
+for(const fixture of nflDirectory.fixtures.filter(item=>item.status==="completed"&&item.participantSlots?.every(slot=>slot.score!=null)).slice(-16)){
+  const projected=nflChunk.fixtures.find(item=>item.id===fixture.id);
+  assert(projected?.status==="completed"&&projected.scoreDisplay,`${fixture.id} must publish its final NFL score`);
+}
 const placeholderPattern = /(?:winner|loser|highest|lowest)[ -]ranked|winner of|loser of|\bTBC\b/i;
 for (const fixture of canonicalBundle.events.filter(event => event.status === "scheduled" && /final/i.test(event.roundLabel || "") && event.participantIds?.length === 2 && !placeholderPattern.test(event.displayName || ""))){
   const card = publishedFeed.events.find(event => event.canonicalEventId === fixture.id);

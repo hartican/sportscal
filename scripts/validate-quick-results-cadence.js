@@ -24,5 +24,9 @@ assert.match(workflow, /QUICK_RESULTS: \$\{\{ steps\.cadence\.outputs\.quick \}\
 const release = fs.readFileSync("scripts/update-sportscal-cards-and-release.sh", "utf8");
 assert(release.indexOf("scripts/update-cards.js --quick") < release.indexOf("./scripts/redeploy-and-release.sh"), "the source refresh must complete before release begins");
 assert(!release.slice(0, release.indexOf("scripts/update-cards.js --quick")).includes("vercel whoami"), "deployment credentials must not gate source ingestion");
+const quick=fs.readFileSync("scripts/quick-results.js","utf8");
+for(const code of ["american-football","aflw","nrlw","f1","motogp"])assert(quick.includes(`'${code}'`),`${code} must be rebuilt by quick result projection`);
+assert(quick.includes("!cachedUrls.has(day.feedUrl)"),"quick US Open refresh must backfill newly released days");
+assert(quick.includes("usRetentionEnd.getUTCDate()+14"),"US Open result backfill must continue through card retention");
 
 console.log("Refresh cadence valid: one daily scheduler, Sunday full reconciliation, no AI path, and preservation before deployment auth.");
