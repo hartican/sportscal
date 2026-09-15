@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="255">
+<meta name="app-shell-version" content="257">
 <script src="/assets/js/app-update.js?v=254" defer></script>
 <link rel="preload" href="assets/js/app-shell-runtime.js?v=254" as="script">
 <meta property="og:type" content="website">
@@ -1865,6 +1865,7 @@ main{
 
 .matchup-stage-slot{ min-width:54px; display:flex; align-items:flex-start; justify-content:center; align-self:start; padding-top:3px; position:relative; z-index:2; }
 .matchup-stage-badge{ padding:3px 7px; border:1px solid color-mix(in srgb,var(--sport-color) 70%,var(--border)); border-radius:999px; background:color-mix(in srgb,var(--sport-color) 13%,var(--bg-card)); color:var(--text); font-size:.58rem; font-weight:950; letter-spacing:.055em; line-height:1; text-transform:uppercase; }
+.matchup-format-badge{ padding:3px 7px; border:1px solid color-mix(in srgb,var(--sport-color) 70%,var(--border)); border-radius:999px; background:color-mix(in srgb,var(--sport-color) 13%,var(--bg-card)); color:var(--text); font-size:.65rem; font-weight:900; letter-spacing:.04em; line-height:1; text-transform:uppercase; white-space:nowrap; }
 .follow-reason-tag{ display:inline-flex; align-items:center; width:fit-content; max-width:100%; margin:0 0 8px; padding:5px 9px; border:1px solid color-mix(in srgb,var(--accent) 38%,var(--border)); border-radius:999px; background:color-mix(in srgb,var(--accent) 8%,transparent); color:var(--accent); font-size:.66rem; font-weight:850; line-height:1.25; }
 .event-quick-actions{ display:flex; flex-wrap:wrap; gap:7px; margin-left:auto; }
 .event-quick-action{ min-height:34px; display:inline-flex; align-items:center; gap:6px; padding:7px 10px; border:1px solid var(--border); border-radius:999px; background:var(--soft-fill); color:var(--text); font:800 .68rem/1 'DM Sans',sans-serif; text-decoration:none; cursor:pointer; }
@@ -6685,6 +6686,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .new-tag,
 .follow-reason-tag,
 .matchup-stage-badge,
+.matchup-format-badge,
 .today-flag,
 .badge{
   box-sizing:border-box;
@@ -7914,15 +7916,40 @@ function participantProfileLink(id,label,key){
   link.onclick=event=>{event.stopPropagation();void openFeedParticipantProfile(id,label,key,link);};return link;
 }
 
+function cricketPlayingFormatForEvent(ev){
+  if(String(ev?.key || "").toLowerCase() !== "cricket") return "";
+  const candidates = [
+    ev?.playingFormat,
+    ev?.matchFormat,
+    ev?.format,
+    ev?.narrativeType,
+    ev?.roundLabel,
+    ev?.round,
+    ev?.stage,
+    ev?.displayTitleCompact,
+    ev?.name,
+    ev?.eventName,
+  ];
+  for(const candidate of candidates){
+    const value = String(candidate || "").trim();
+    if(!value) continue;
+    if(/\bt20(?:i|\s+international)?\b/i.test(value)) return "T20";
+    if(/\bodi\b|\bone[ -]day international\b/i.test(value)) return "ODI";
+    if(/\btest\b/i.test(value)) return "Test";
+  }
+  return "";
+}
+
 function buildMatchupIdentity(ev, displayTitle){
   const identities = matchupIdentityMatches(ev, displayTitle);
   if (identities.length !== 2) return null;
+  const playingFormat = cricketPlayingFormatForEvent(ev);
   const useDark = themeUsesDarkAssets();
   const identity = document.createElement("div");
   identity.className = "matchup-identity";
   const row = document.createElement("div");
   row.className = "matchup-identity-row";
-  row.setAttribute("aria-label", `${identities[0].label} versus ${identities[1].label}`);
+  row.setAttribute("aria-label", `${identities[0].label} versus ${identities[1].label}${playingFormat ? `, ${playingFormat}` : ""}`);
   const buildLogoSlot = ({ mark, label }) => {
     const slot = document.createElement("div");
     const surface = mark?.logo?.[useDark ? "backgroundDark" : "backgroundLight"] || "light";
@@ -7950,6 +7977,13 @@ function buildMatchupIdentity(ev, displayTitle){
   row.appendChild(buildLogoSlot(identities[0]));
   const stageSlot = document.createElement("div");
   stageSlot.className = "matchup-stage-slot";
+  if(playingFormat){
+    const formatBadge = document.createElement("span");
+    formatBadge.className = "matchup-format-badge";
+    formatBadge.textContent = playingFormat;
+    formatBadge.setAttribute("aria-hidden", "true");
+    stageSlot.appendChild(formatBadge);
+  }
   row.appendChild(stageSlot);
   row.appendChild(buildLogoSlot(identities[1]));
   const teamNames = document.createElement("div");

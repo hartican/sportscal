@@ -509,9 +509,10 @@ assert(html.includes('const displayedResult = status === "past" ? buildCompactRe
 assert(html.includes('if (displayedResult) nameWrap.appendChild(displayedResult);'), "revealed results must sit directly beneath the team names");
 assert(html.includes('className = "card-result-score"') && html.includes('.card-result-line{'), "past-card results must use the centred, prominent score treatment");
 assert(html.includes('const isTeamMatchup = CARD_IDENTITIES?.isTeamSportMatchup?.(ev, displayTitle) || false;') && html.includes('.event-top-row.has-team-matchup .event-name{'), "team matchup names must be centred independently of card badges without turning individual tennis fixtures into team cards");
-assert(html.includes('.matchup-identity-row{') && html.includes('grid-template-columns:minmax(0, 1fr) minmax(54px, auto) minmax(0, 1fr);') && html.includes('.matchup-team-logo-slot{ width:74px; height:70px;'), "matchup cards must reserve two equal logo columns and a collision-free finals-stage column");
+assert(html.includes('.matchup-identity-row{') && html.includes('grid-template-columns:minmax(0, 1fr) minmax(54px, auto) minmax(0, 1fr);') && html.includes('.matchup-team-logo-slot{ width:74px; height:70px;'), "matchup cards must reserve two equal logo columns and a collision-free centre-badge column");
 assert(html.includes('.event-card.is-logo-led-matchup.is-past{ opacity:0.86; }'), "logo-led past fixtures must retain enough contrast for their official team marks");
 assert(html.includes('.matchup-team-name-row{') && html.includes('grid-template-columns:minmax(0, 1fr) minmax(28px, auto) minmax(0, 1fr);') && html.includes('stageSlot.className = "matchup-stage-slot";') && html.includes('row.appendChild(stageSlot);') && html.includes('teamNames.append(firstTeam, versus, secondTeam);'), "finals badges must occupy the logo row while team A, a vertically centred v, and team B occupy their own aligned row");
+assert(html.includes('formatBadge.className = "matchup-format-badge";') && html.includes('stageSlot.appendChild(formatBadge);') && html.includes('.matchup-format-badge{'), "recognised cricket formats must render in the reserved centre slot without changing either logo column");
 assert(html.includes('background:transparent;\n  border:0;') && html.includes('.matchup-logo-surface-dark{ background:transparent; }'), "matchup logo boxes must remain transparent rather than placing official marks on artificial tiles");
 assert(html.includes('.matchup-team-logo-slot[data-logo-surface="dark"]{') && html.includes('background:#092e4f;'), "white official team marks without a day alternative must receive a contrast-safe fallback surface");
 assert(html.includes('logo.loading = "lazy";') && html.includes('.matchup-team-logo-slot{') && html.includes('width:min(100%, 88px);') && html.includes('height:90px;'), "off-screen matchup logos must defer their network work while retaining the reduced stable layout footprint");
@@ -1023,6 +1024,7 @@ globalThis.__test = {
   eventDateLabel,
   eventLocationLabel,
   eventTimeLabel,
+  cricketPlayingFormatForEvent,
   standingsEntriesForVisibility,
   standingsColumnsForCompetition,
   standingsFrothRank,
@@ -1032,6 +1034,13 @@ globalThis.__test = {
 };`;
 vm.runInContext(`${appPrelude}\n${expose}`, sandbox, { filename: "index.html" });
 const app = sandbox.__test;
+assert.equal(app.cricketPlayingFormatForEvent({ key:"cricket", playingFormat:"test" }), "Test", "explicit cricket Test format must normalise to the short badge label");
+assert.equal(app.cricketPlayingFormatForEvent({ key:"cricket", name:"Australia v England — First ODI" }), "ODI", "ODI titles must resolve to the short badge label");
+assert.equal(app.cricketPlayingFormatForEvent({ key:"cricket", name:"Australia v England — First T20 International" }), "T20", "T20 International titles must resolve to the short badge label");
+assert.equal(app.cricketPlayingFormatForEvent({ key:"cricket", matchFormat:"T20I", name:"Australia v England" }), "T20", "T20I metadata must resolve to the requested T20 label");
+assert.equal(app.cricketPlayingFormatForEvent({ key:"cricket", roundLabel:"1st ODI", name:"Australia v England" }), "ODI", "live schedule round labels must supply the format when the matchup title only contains team names");
+assert.equal(app.cricketPlayingFormatForEvent({ key:"cricket", name:"Australia v England" }), "", "ambiguous cricket fixtures must not invent a playing format");
+assert.equal(app.cricketPlayingFormatForEvent({ key:"rugby", narrativeType:"test", name:"Australia v England — Test" }), "", "rugby Tests must not receive a cricket format badge");
 app.setJointTournamentData(jointTournamentDocument);
 assert.equal(app.eventIsJointTournamentFeedChild({
   id: "tennis-tournament-atp-cincinnati-2026-2026-08-21",
