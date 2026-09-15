@@ -58,6 +58,10 @@ function parseOptions(argv = process.argv.slice(2), env = process.env) {
   };
 }
 
+function buildQuickSteps(argv = process.argv.slice(2)) {
+  return [["scripts/quick-results.js", ...argv.filter(arg => ["--offline", "--rebuild"].includes(arg))]];
+}
+
 function buildSteps({ localOnly = false } = {}) {
   const steps = [
   ["scripts/snapshot-active-follows.js"],
@@ -324,13 +328,16 @@ async function main() {
     return;
   }
   const quick=process.argv.includes("--quick");
-  let steps = quick ? [["scripts/snapshot-active-follows.js"],["scripts/quick-results.js",...process.argv.filter(arg=>["--offline","--rebuild"].includes(arg))]] : buildSteps(options);
+  let steps = quick ? buildQuickSteps() : buildSteps(options);
   const resumeIndex=process.argv.indexOf('--resume-from');
   if(resumeIndex>=0){const target=process.argv[resumeIndex+1],index=steps.findIndex(step=>step[0]===target);if(index<0)throw new Error('Unknown canonical resume step');steps=[['scripts/snapshot-active-follows.js'],...steps.slice(index)];}
-  const snapshotDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-follow-snapshot-"));
-  fs.chmodSync(snapshotDirectory, 0o700);
-  process.env.FOLLOW_SNAPSHOT_PATH = path.join(snapshotDirectory, "active-follows.enc.json");
-  process.env.FOLLOW_SNAPSHOT_KEY = crypto.randomBytes(32).toString("base64");
+  const needsFollowSnapshot = steps.some(step => step[0] === "scripts/snapshot-active-follows.js");
+  const snapshotDirectory = needsFollowSnapshot ? fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-follow-snapshot-")) : null;
+  if (snapshotDirectory) {
+    fs.chmodSync(snapshotDirectory, 0o700);
+    process.env.FOLLOW_SNAPSHOT_PATH = path.join(snapshotDirectory, "active-follows.enc.json");
+    process.env.FOLLOW_SNAPSHOT_KEY = crypto.randomBytes(32).toString("base64");
+  }
   if (options.localOnly) {
     console.log("Local-only update selected: refresh and validation will run without commit, push, or deployment.");
   }
@@ -344,7 +351,7 @@ async function main() {
   } finally {
     delete process.env.FOLLOW_SNAPSHOT_PATH;
     delete process.env.FOLLOW_SNAPSHOT_KEY;
-    fs.rmSync(snapshotDirectory, { recursive:true, force:true });
+    if (snapshotDirectory) fs.rmSync(snapshotDirectory, { recursive:true, force:true });
   }
 }
 
@@ -357,6 +364,7 @@ if (require.main === module) {
 
 module.exports = {
   buildSteps,
+  buildQuickSteps,
   discoverCanonicalFixtureBundles,
   parseOptions,
 };
