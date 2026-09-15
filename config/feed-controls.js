@@ -137,7 +137,9 @@
     const reference = now instanceof Date ? now : new Date(now);
     if (Number.isNaN(reference.getTime())) return null;
     const startMs = start.getTime();
-    const explicitEnd = Date.parse(event?.endTimeUtc || event?.resultPublishedAt || "");
+    // Result publication is editorial metadata, not event timing. A delayed
+    // score update must never make a days-old fixture look "Just Finished".
+    const explicitEnd = Date.parse(event?.endTimeUtc || event?.actualEndTimeUtc || "");
     const derivedEnd = startMs + inferredDurationHours(event) * 3600000;
     const endMs = Number.isFinite(explicitEnd) && explicitEnd >= startMs ? explicitEnd : derivedEnd;
     const nowMs = reference.getTime();

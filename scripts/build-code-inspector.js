@@ -130,6 +130,8 @@ function participantSlots(event){
       participantId: nationalTeamIdentities.canonicalId(slot.participantId) || nationalTeams[index]?.id || null,
       label: slot.label || canonicalParticipantNames.get(nationalTeamIdentities.canonicalId(slot.participantId)) || nationalTeams[index]?.displayName || null,
       logoUrl:nationalTeamIdentities.teamForId(slot.participantId)?.assetPath || slot.logoUrl || null,
+      ...(slot.homeAway ? { homeAway:slot.homeAway } : {}),
+      ...(slot.score != null ? { score:String(slot.score) } : {}),
     }));
   }
   if (Array.isArray(event?.participantIds) && event.participantIds.length){
@@ -176,6 +178,10 @@ function normalizeFixture(event, codeId, extra = {}){
   const confirmedParticipants = slots.length > 0 && slots.every(slot => slot.participantId || (slot.label && !/\b(?:winner|loser|\d+(?:st|nd|rd|th)|tbc)\b/i.test(slot.label)));
   const roundLabel = event.roundLabel || event.round || extra.roundLabel || null;
   const stage = event.stage || event.phaseLabel || extra.stage || null;
+  const scoredSlots = slots.filter(slot => slot.score != null && slot.score !== "");
+  const home = scoredSlots.find(slot => slot.homeAway === "home") || scoredSlots[0];
+  const away = scoredSlots.find(slot => slot.homeAway === "away") || scoredSlots[1];
+  const derivedScore = home && away ? `${home.label} ${home.score}-${away.score} ${away.label}` : null;
   return {
     id: stableId(event),
     sourceEventIds:[...new Set([event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].filter(Boolean))],
@@ -195,7 +201,9 @@ function normalizeFixture(event, codeId, extra = {}){
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
-    ...Object.fromEntries(['fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','scoreDisplay','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...(!event.scoreDisplay && derivedScore ? { scoreDisplay:derivedScore } : {}),
+    ...(!event.score && derivedScore ? { score:derivedScore } : {}),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','actualEndTimeUtc'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     venue: (event.venue || event.venueName) && !/tbc/i.test(event.venue || event.venueName) ? (event.venue || event.venueName) : null,
     status: event.status || "upcoming",

@@ -395,7 +395,8 @@ async function fetchOfficialSnapshot({quick=false,now=new Date(),cached=null}={}
   const scheduleDays = await fetchJson(SCHEDULE_DAYS_URL);
   const released = (scheduleDays?.eventDays || []).filter(day => day?.released && day?.feedUrl && day?.practice !== true);
   if (!released.length) throw new Error("US Open official schedule has no released competition day");
-  const selected=quick?released.filter(day=>{const date=sourceDate(day);return date>=new Date(+now-2*86400000).toISOString().slice(0,10)&&date<=new Date(+now+86400000).toISOString().slice(0,10);}):released;
+  const cachedUrls=new Set((cached?.scheduleFeeds||[]).map(feed=>feed?.sourceUrl));
+  const selected=quick?released.filter(day=>{const date=sourceDate(day);return !cachedUrls.has(day.feedUrl)||(date>=new Date(+now-2*86400000).toISOString().slice(0,10)&&date<=new Date(+now+86400000).toISOString().slice(0,10));}):released;
   const fresh = await Promise.all(selected.map(async day => ({ sourceUrl:day.feedUrl, payload:await fetchJson(day.feedUrl) })));
   const refreshed=new Set(fresh.map(feed=>feed.sourceUrl));
   const payloads=quick?[...(cached?.scheduleFeeds||[]).filter(feed=>!refreshed.has(feed.sourceUrl)),...fresh]:fresh;
