@@ -17,9 +17,11 @@ const LIVERPOOL_TEAM_ID = "team:football:epl:10";
 const DJOKOVIC_ID = "athlete:tennis:novak-djokovic";
 const DJOKOVIC_US_OPEN_ID = "fixture:us-open-2026:official:ms:1148";
 const ALCARAZ_US_OPEN_ID = "fixture:us-open-2026:official:ms:1164";
-const GWS_AFLW_FIXTURE_ID = "event:aflw:cd_m20262640404";
+const GWS_AFLW_FIXTURE_ID = "event:aflw:cd_m20262640606";
 const GWS_AFLW_TEAM_ID = "team:aflw:cd_t7889";
 const TARNI_EVANS_ID = "competitor:aflw:tarni-evans";
+const RAIDERS_NRLW_FIXTURE_ID = "event:nrlw:2026:round-11-wests-tigers-raiders";
+const RAIDERS_NRLW_TEAM_ID = "team:nrlw:raiders";
 
 function genericEvent(index){
   const start = new Date(Date.UTC(2026, 7, 30 + index, 9, 0));
@@ -130,7 +132,7 @@ function aflwFeed(preferences){
     events:publishedFeed.events,
     userId:"00000000-0000-4000-8000-000000000005",
     userState:{ preferences },
-    now:new Date("2026-09-04T21:43:09.000Z"),
+    now:new Date("2026-09-15T00:00:00.000Z"),
     limit:20,
   });
 }
@@ -140,7 +142,28 @@ const gwsTeamFeed = aflwFeed(aflwPreferences({
 }));
 assert(
   gwsTeamFeed.events.some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
-  "the released Brisbane Lions v GWS GIANTS fixture must surface despite its 1/5 stakes rating when GWS is followed",
+  "the released GWS GIANTS v Richmond fixture must surface when GWS is followed",
+);
+
+const raidersNrlwFeed = buildServerFeed({
+  events:publishedFeed.events,
+  userId:"00000000-0000-4000-8000-000000000006",
+  userState:{ preferences:{
+    version:18,
+    selectedSelectorEntityIds:["sport:nrlw"],
+    followedSports:["nrlw"],
+    preferenceGraph:{
+      domainPreferences:[{ sportDomainId:"sport:nrl", enabled:true, templateId:"template:like", includeAllFixtures:false, includeMajorEvents:true, includeFollowedTeams:true }],
+      competitionPreferences:[],
+      entityFollows:[{ participantId:RAIDERS_NRLW_TEAM_ID, followLevel:"follow" }],
+    },
+  } },
+  now:new Date("2026-09-15T00:00:00.000Z"),
+  limit:20,
+});
+assert(
+  raidersNrlwFeed.events.some(event => event.canonicalEventId === RAIDERS_NRLW_FIXTURE_ID),
+  "the completed Wests Tigers v Canberra Raiders fixture must remain in catch-up Feed when Canberra is followed",
 );
 
 const tarniEvansFeed = aflwFeed(aflwPreferences({

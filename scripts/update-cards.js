@@ -64,11 +64,14 @@ function buildQuickSteps(argv = process.argv.slice(2)) {
 
 function buildSteps({ localOnly = false } = {}) {
   const steps = [
-  ["scripts/snapshot-active-follows.js"],
+  ...((process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY)
+    ? [["scripts/snapshot-active-follows.js"]]
+    : []),
   ["scripts/refresh-source-coverage.js"],
   ["scripts/refresh-discovery.js"],
   ["scripts/build-athlete-participation.js"],
   ["scripts/refresh-canonical-sports.js"],
+  ["scripts/apply-current-card-evidence.js"],
   ["scripts/refresh-wrc-context.js"],
   ["scripts/refresh-wrc-context.js", "--check"],
   ["scripts/validate-wrc-context.js"],
@@ -137,6 +140,7 @@ function buildSteps({ localOnly = false } = {}) {
   ...canonicalStepSet(canonicalBundlePath => (
     [["scripts/sync-canonical-fixtures-to-feed.js", canonicalBundlePath, "feeds/incoming/events.json", "feeds/incoming/events.json"]]
   ), discoverCanonicalFixtureBundles()),
+  ["scripts/apply-current-card-evidence.js"],
   ["scripts/sync-requested-sports-to-feed.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/sync-official-card-results.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
   ["scripts/refresh-premier-league-cards.js", "feeds/incoming/events.json", "feeds/incoming/events.json"],
@@ -231,6 +235,8 @@ function buildSteps({ localOnly = false } = {}) {
   ), discoverCanonicalFixtureBundles()),
   ["scripts/verify-marquee-coverage.js", "data/canonical/australian-marquee-events-2026.json", "data/events.json"],
   ["scripts/validate-result-completeness-timing.js"],
+  ["scripts/apply-current-card-evidence.js", "--check"],
+  ["scripts/validate-current-card-coverage.js"],
   ["scripts/verify-result-completeness.js", "feeds/incoming/events.json"],
   ["scripts/verify-result-completeness.js", "data/events.json"],
   ["scripts/verify-pilot-readiness.js"],
