@@ -5,12 +5,21 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
-const { buildSteps, parseOptions } = require("./update-cards");
+const { buildQuickSteps, buildSteps, parseOptions } = require("./update-cards");
+const { projectionSteps: quickProjectionSteps } = require("./quick-results");
 
 const releaseStep = "scripts/redeploy-and-release.sh";
 const defaultSteps = buildSteps(parseOptions([], {}));
 const localSteps = buildSteps(parseOptions(["-p", "--local-only"], {}));
 const environmentLocalSteps = buildSteps(parseOptions([], { SKIP_RELEASE: "1" }));
+const quickSteps = buildQuickSteps(["--quick", "--offline"]);
+assert.deepEqual(quickSteps, [["scripts/quick-results.js", "--offline"]], "quick score updates must run without active-follow snapshot access");
+const quickResultProjection = quickProjectionSteps(["AFL/NRL 1"]);
+for (const file of ["feeds/incoming/events.json", "data/events.json"]) {
+  assert(quickResultProjection.some(step => step[0] === "scripts/qa-storyline-spoilers.js" && step.includes(file)), `quick score updates must run spoiler QA for ${file}`);
+}
+assert(quickResultProjection.some(step => step[0] === "scripts/enrich-storyline-cards.js"), "quick score updates must refresh result editorial before publication");
+assert(quickResultProjection.some(step => step[0] === "scripts/select-result-editorial.js"), "quick score updates must choose the verified spoiler-safe result branch before publication");
 assert(localSteps.find(step=>step[0] === "scripts/publish-feed.js").includes("--preserve-known"),"canonical publication must preserve omitted known fixtures");
 for (const script of ["validate-fixture-snapshot","validate-fixture-visibility","validate-all-sport-visibility"]){
   assert(localSteps.some(step=>step[0] === `scripts/${script}.js`),`${script} must guard every canonical refresh`);
@@ -244,6 +253,22 @@ const releaseScript = fs.readFileSync(path.join(projectRoot, "scripts/redeploy-a
 const snapshotScript = fs.readFileSync(path.join(projectRoot, "scripts/deploy-current-commit.sh"), "utf8");
 const vercelConfig = JSON.parse(fs.readFileSync(path.join(projectRoot, "vercel.json"), "utf8"));
 const updaterSource = fs.readFileSync(path.join(projectRoot, "scripts/update-cards.js"), "utf8");
+const quickEnvironment = { ...process.env };
+for (const name of [
+  "SUPABASE_URL",
+  "SUPABASE_SECRET_KEY",
+  "SUPABASE_SERVICE_ROLE_KEY",
+  "FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH",
+  "FOLLOW_SNAPSHOT_PRELOADED_PATH",
+  "FOLLOW_SNAPSHOT_PRELOADED_KEY",
+]) delete quickEnvironment[name];
+const quickResult = spawnSync(process.execPath, ["scripts/update-cards.js", "--quick", "--offline", "--local-only"], {
+  cwd:projectRoot,
+  env:quickEnvironment,
+  encoding:"utf8",
+});
+assert.equal(quickResult.status, 0, `quick score updates must not require Supabase or active-follow data:\n${quickResult.stderr}`);
+assert.doesNotMatch(quickResult.stdout, /snapshot-active-follows/, "quick score updates must not access active-follow preferences");
 assert.match(updaterSource, /crypto\.randomBytes\(32\)\.toString\("base64"\)/, "follow snapshots must use an ephemeral 256-bit encryption key");
 assert.match(updaterSource, /fs\.chmodSync\(snapshotDirectory, 0o700\)/, "the temporary snapshot directory must be owner-only");
 assert.match(updaterSource, /finally[^]*fs\.rmSync\(snapshotDirectory, \{ recursive:true, force:true \}\)/, "the snapshot must be deleted even after a failed update step");

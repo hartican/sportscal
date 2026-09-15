@@ -30,7 +30,13 @@ function projectionSteps(changes,{rebuild=false}={}){
  if(changes.some(change=>change.startsWith('US Open')))codes.add('tennis');
  const steps=[];
  if(canonicalChanged){steps.push(['scripts/sync-canonical-fixtures-to-feed.js','data/canonical/afl-nrl-2026.json','feeds/incoming/events.json','feeds/incoming/events.json'],['scripts/refresh-major-events-from-canonical.js']);}
- if(feedChanged){steps.push(['scripts/enrich-storyline-cards.js','--write'],['scripts/select-result-editorial.js'],['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--replace']);}
+ if(feedChanged){steps.push(
+  ['scripts/enrich-storyline-cards.js','--write'],
+  ['scripts/select-result-editorial.js'],
+  ['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--replace'],
+  ['scripts/qa-storyline-spoilers.js','feeds/incoming/events.json'],
+  ['scripts/qa-storyline-spoilers.js','data/events.json'],
+ );}
  steps.push(['scripts/build-follow-fixtures.js']);
  if(feedChanged)steps.push(['scripts/build-paged-feed.js']);
  steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
