@@ -1,7 +1,7 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "nothingsport-marquee-visibility-2026-08-03-v1",
-  "sourcePublishedAt": "2026-09-15T03:02:47.648Z",
+  "sourceVersion": "nothingsport-official-results-2026-09-15-v1",
+  "sourcePublishedAt": "2026-09-15T03:15:00.000Z",
   "pageSize": 20,
   "retentionDays": 14,
   "inputEventCount": 860,

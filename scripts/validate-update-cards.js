@@ -23,6 +23,7 @@ assert(quickResultProjection.some(step => step[0] === "scripts/enrich-storyline-
 assert(quickResultProjection.some(step => step[0] === "scripts/select-result-editorial.js"), "quick score updates must choose the verified spoiler-safe result branch before publication");
 assert(quickResultProjection.some(step => step[0] === "scripts/verify-result-completeness.js") === false, "quick completeness is enforced after projection rather than being conditional on changed sources");
 assert(localSteps.some(step => step[0] === "scripts/sync-official-card-results.js"), "full updates must project the reviewed official-result snapshot before publication");
+assert.equal(require("../data/canonical/official-card-results-2026.json").feedVersion, "nothingsport-official-results-2026-09-15-v1", "an official-result batch must advance the public feed revision so cached pages are replaced");
 assert(localSteps.find(step=>step[0] === "scripts/publish-feed.js").includes("--preserve-known"),"canonical publication must preserve omitted known fixtures");
 for (const script of ["validate-fixture-snapshot","validate-fixture-visibility","validate-all-sport-visibility"]){
   assert(localSteps.some(step=>step[0] === `scripts/${script}.js`),`${script} must guard every canonical refresh`);
