@@ -21,3 +21,7 @@ Regression: `node scripts/validate-backend-efficiency.js`, live fixture/API, cha
 Use the existing notification dispatcher for all three 5/5 rating phases. The transactional outbox groups delivery for five minutes; indexed activity records retain each rater/fixture/phase. Activity reads paginate 25 records with batch identity lookup. Leaderboard reads aggregate indexed server-owned reward/prediction records without triggering reward writes. Follow/copy bonuses have permanent uniqueness keys. Copying uses a preference compare-and-swap transaction so a concurrent edit is never overwritten. Award transactions serialize the small MVP reward workload to prevent cross-fixture deadlocks and preserve participation caps.
 
 Database target: **nothingSport-recovery**, project `mkghopnkhcxtmfrcjdbc`. The original project's recovery runbook is historical, not the current deployment target. Do not delete the old project as part of a feature deployment.
+
+## Rating authorization repair — 16 September 2026
+
+Registered-account eligibility is established by the authenticated API before the service-role-only rating RPC is called. The invoker-scoped RPC must not read `auth.users`: the service role bypasses RLS but is not granted direct access to Supabase Auth tables. The API rejects anonymous sessions, the RPC retains moderation and scoring checks, and foreign keys retain account existence integrity. Do not add a privileged definer solely to duplicate the API's authentication decision. Regression: `validate-leaderboard-v2-database.js`.

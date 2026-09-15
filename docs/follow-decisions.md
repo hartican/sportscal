@@ -90,3 +90,9 @@ Global and Nothing Friends leaderboards default to points, with an Efficiency so
 At launch, archive existing points/entitlements and start a new scoring epoch, preserving fixture ratings, profiles and follows. Heat earns one point; the latest confirmed pre-start prediction earns another 19 on the first exact Live/Impact match from another real registered user. Success is immutable. Close unmatched predictions 48 hours after confirmed completion. Efficiency is successes divided by resolved predictions with another rater; exclude pending, unrated, cancelled/abandoned and unconfirmed-time predictions. Social and participation points never inflate Efficiency. Legacy settlement jobs cannot restore pre-reset points.
 
 Regressions: `validate-leaderboard-v2-database.js`, `validate-leaderboard-v2-browser.js`, `validate-user-follows.js`, `validate-live-rating-alerts.js`, `validate-crowd-foresight.js`.
+
+## Follow interaction responsiveness — 16 September 2026
+
+Team and player Follow controls update locally before any fixture, Feed or cross-device work begins. Local preference persistence remains immediate; server state, schedule reconciliation and personalised Feed rebuilding are coalesced and deferred until scrolling and input are idle. A temporary network failure keeps the local choice and retries through the existing pending-sync path.
+
+Large Follow directories parse away from the main thread where Worker support is available. Football and legacy directories mount at most 40 initial rows, add further rows deliberately, and use off-screen rendering containment. Follow/unfollow must patch the existing row rather than rebuilding the directory. Regression: `validate-follow-interaction-performance.js` and `validate-follow-loading-regression.js`.

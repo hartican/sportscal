@@ -164,7 +164,7 @@ assert.match(html, /NOTHINGSCORE_SOUND_KEY/);
 assert.match(html, /prefers-reduced-motion: reduce/);
 assert.match(html, /This week/);
 assert.match(html, /All time/);
-assert.match(html, /<span class="nothing-score-label" aria-hidden="true">Nothinger<br>Leaderboard<\/span>/, "the compact header label must show Nothing Score on two lines");
+assert.match(html, /<span class="nothing-score-label" aria-hidden="true">LEADER<br>BOARD<\/span>/, "the compact header label must fit on two lines");
 assert.match(html, /<h2 id="nothingscoreTitle">Nothinger Leaderboard<\/h2>/, "the drawer title must use the Nothing Score name");
 assert.doesNotMatch(html, />NSC<|>Nothingscore</, "the old visible NSC and Nothingscore labels must stay retired");
 assert.match(api, /invalid_username_report/, "the owner-protected reporting API remains available");

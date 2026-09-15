@@ -102,6 +102,7 @@ button,input,select,textarea{font:inherit}
 .event-card.is-event-minimised .major-event-next-fixture{font-size:.85rem;margin:0}
 .event-competition-line{font-size:.75rem;color:var(--text-dim);line-height:1.4}
 .follow-directory-row{grid-template-columns:40px minmax(0,1fr) auto!important;gap:12px!important;min-height:64px}
+.follow-directory-row,.football-club-row{content-visibility:auto;contain-intrinsic-size:auto 64px}
 .follow-directory-identity{width:40px!important;height:40px!important;overflow:hidden;border-radius:8px;display:grid;place-items:center;flex:none}
 .follow-directory-identity img{width:40px;height:40px;object-fit:contain}
 .follow-directory-identity.is-athlete img{object-fit:cover;object-position:50% 0}
