@@ -27,13 +27,13 @@ assert(samples.every(Boolean),'All four published card families must be present'
    document.getElementById('listView').appendChild(host);
   },{samples,textScale});
   const rows=page.locator('#published-card-audit .event-card');
-  assert((await rows.nth(1).locator('.compact-card-name').textContent()).includes('US Open'),'Tournament shorthand must retain its recognisable name');
-  assert((await rows.nth(3).locator('.compact-card-name').textContent()).includes('/'),'Doubles shorthand must retain both players on each side');
+  assert((await rows.nth(1).locator('.compact-card-time').textContent()).includes('US Open'),'Tournament context must remain visible beneath participant-first shorthand');
+  assert.equal(await rows.nth(3).locator('.major-event-matchup-player').count(),4,'Doubles shorthand must retain both players on each side');
   const compact=await rows.evaluateAll(cards=>cards.map(card=>{
    const time=card.querySelector('.compact-card-time'),name=card.querySelector('.compact-card-name');
-   return {id:card.dataset.eventId,height:card.getBoundingClientRect().height,overflow:card.scrollWidth>card.clientWidth+1,timeClipped:time.scrollWidth>time.clientWidth+1,nameWidth:name.clientWidth,identities:card.querySelectorAll('.compact-card-icon img:not(.identity-image-placeholder img),.compact-card-icon svg').length};
+   return {id:card.dataset.eventId,height:card.getBoundingClientRect().height,overflow:card.scrollWidth>card.clientWidth+1,timeClipped:time.scrollWidth>time.clientWidth+1,nameWidth:name.clientWidth,eventLogos:card.querySelectorAll('.compact-card-icon,.event-brand-logo,.event-sport-logo').length};
   }));
-  assert(compact.every(c=>!c.timeClipped&&!c.overflow&&c.nameWidth>0&&c.identities<=1),JSON.stringify({width,textScale,compact}));
+  assert(compact.every(c=>!c.timeClipped&&!c.overflow&&c.nameWidth>0&&c.eventLogos===0),JSON.stringify({width,textScale,compact}));
   for(let i=0;i<samples.length;i++){
    const card=rows.nth(i);await card.locator('.compact-card-name').click();
    assert.equal(await card.getAttribute('data-card-level'),'L1');

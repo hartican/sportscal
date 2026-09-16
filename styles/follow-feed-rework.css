@@ -63,12 +63,9 @@ header.top .vector-glyph{width:20px;height:20px;}
 .event-card .event-why-it-matters,.event-card .nsc-peer-results{margin:4px 0;}
 /* L0 has its own geometry. No hero dimensions or second identity placeholder. */
 #listView .event-card.is-compact-row{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;box-sizing:border-box;width:100%;height:auto;min-height:48px;max-height:none;padding:0 44px 0 8px;gap:0;border-radius:10px;aspect-ratio:auto;contain-intrinsic-size:auto 48px;grid-template-columns:none;align-self:start;container:compact-row / inline-size;}
-#listView .compact-card-summary{display:grid;grid-template-columns:24px minmax(0,1fr);grid-template-rows:auto auto;align-items:center;gap:3px 7px;flex:1;width:100%;min-width:0;min-height:58px;line-height:1.25;font-size:.72rem;text-align:left;}
-.compact-card-icon,.compact-card-icon img,.compact-card-icon .vector-glyph{grid-row:1 / span 2;flex:0 0 24px;width:24px!important;height:24px!important;max-width:24px!important;max-height:24px!important;object-fit:contain;}
-.compact-card-icon{display:grid;place-items:center;overflow:hidden;}
-.compact-card-icon .identity-image-placeholder{display:none;}
-.compact-card-name{grid-column:2;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.compact-card-time{grid-column:2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.65rem;color:var(--text-dim);}
+#listView .compact-card-summary{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-items:center;gap:3px;flex:1;width:100%;min-width:0;min-height:58px;line-height:1.25;font-size:.72rem;text-align:left;}
+.compact-card-name{grid-column:1;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.compact-card-time{grid-column:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.65rem;color:var(--text-dim);}
 .compact-matchup-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;overflow:visible;}
 .compact-matchup-side{min-width:0;display:flex;align-items:center;gap:5px;overflow:hidden;}
 .compact-matchup-side:last-child{justify-content:flex-end;}
@@ -76,10 +73,13 @@ header.top .vector-glyph{width:20px;height:20px;}
 .compact-participant-mark,.compact-participant-fallback{width:22px;height:22px;flex:0 0 22px;object-fit:contain;display:grid;place-items:center;font-size:.52rem;font-weight:900;border-radius:50%;}
 .compact-participant-fallback{border:1px solid var(--border);color:var(--text-dim);}
 .compact-matchup-v{display:grid;place-items:center;min-width:20px;color:var(--text-dim);font-weight:900;}
-.compact-stage-badge{min-width:38px;height:28px!important;font-size:.7rem!important;}
+.compact-matchup-middle{display:grid;place-items:center;gap:2px;min-width:38px;max-width:112px;}
+.compact-format-badge{width:auto;max-width:112px;height:auto!important;min-height:22px;padding:4px 7px!important;font-size:.62rem!important;text-align:center;white-space:normal;}
+.compact-stage-label{max-width:100px;color:var(--text-dim);font-size:.54rem;line-height:1.05;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 #listView .event-card.is-compact-row:has(.event-card-disclosure){padding-left:44px;}
 .compact-card-name .major-event-matchup-sides{width:100%;margin:0;gap:4px;}
-.compact-card-name .major-event-matchup-player{display:block;overflow:hidden;}
+.compact-card-name .major-event-matchup-player{display:inline-flex;overflow:hidden;}
+.compact-card-name .major-event-matchup-player .country-flag{width:16px;height:12px;flex-basis:16px;}
 .compact-card-name .fixture-profile-link{max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;}
 .compact-card-name .team-name-with-logo{max-width:100%;overflow:hidden;vertical-align:middle;}
 .compact-card-name:has(.team-name-with-logo){display:flex;align-items:center;gap:3px;}
@@ -88,7 +88,7 @@ header.top .vector-glyph{width:20px;height:20px;}
 .feed-card-slot[data-card-state="compact"] .feed-card-placeholder{padding:8px 44px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.72rem;line-height:32px;}
 /* Text enlargement gets a readable second line instead of an invisible name. */
 @container compact-row (max-width:24rem){
-  #listView .compact-card-summary{grid-template-columns:24px minmax(0,1fr);padding:4px 0;box-sizing:border-box;}
+  #listView .compact-card-summary{grid-template-columns:minmax(0,1fr);padding:4px 0;box-sizing:border-box;}
   .compact-card-stakes{grid-column:3;grid-row:1;}
 }
 .compact-card-stakes,.event-action-stakes{display:inline-flex;align-items:center;gap:1px;flex:0 0 auto;}

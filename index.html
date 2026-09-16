@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="269">
+<meta name="app-shell-version" content="270">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=269" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=270" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -1024,33 +1024,6 @@ body.startup-logo-in-flight .header-brand-logo{ opacity:0 !important; }
   background: var(--pill-color, var(--accent));
   border-color: var(--pill-color, var(--accent));
   font-weight: 800;
-}
-
-.view-toggle{
-  display:flex;
-  gap: 4px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 3px;
-  width: fit-content;
-}
-
-.view-toggle button{
-  background: transparent;
-  border:none;
-  color: var(--text-dim);
-  padding: 7px 14px;
-  border-radius: 8px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  cursor:pointer;
-  font-family: inherit;
-}
-
-.view-toggle button.active{
-  background: var(--accent);
-  color: #05050a;
 }
 
 .preference-summary{
@@ -3096,145 +3069,6 @@ main{
   color: var(--importance-color, var(--sport-color));
 }
 
-.month-nav{
-  display:flex;
-  align-items:center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.month-nav h2{
-  font-size: 1.1rem;
-  font-weight: 800;
-  min-width: 180px;
-  text-align:center;
-}
-
-.month-nav button{
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text);
-  width: 36px;
-  height:36px;
-  border-radius: 8px;
-  cursor:pointer;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-.month-grid{
-  display:grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
-}
-
-.month-grid .dow{
-  text-align:center;
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: var(--text-faint);
-  text-transform: uppercase;
-  padding-bottom: 6px;
-}
-
-.month-cell{
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  min-height: 86px;
-  padding: 6px;
-  display:flex;
-  flex-direction:column;
-  gap: 3px;
-  overflow:hidden;
-}
-
-.month-cell.empty{
-  background: transparent;
-  border: none;
-}
-
-.month-cell.is-today{
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent) inset;
-}
-
-.month-cell .cell-date{
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--text-dim);
-}
-
-.month-cell .cell-event{
-  position: relative;
-  display:flex;
-  align-items:center;
-  gap: 8px;
-  font-size: 0.62rem;
-  padding: 3px 5px 3px 7px;
-  border-radius: 5px;
-  background: color-mix(in srgb, var(--sport-color, var(--accent)) 11%, var(--bg-card));
-  color: color-mix(in srgb, var(--text-dim) 84%, var(--text));
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow: ellipsis;
-  border-left: 2px solid color-mix(in srgb, var(--sport-color, var(--accent)) 52%, var(--border));
-  cursor: pointer;
-  opacity: 0.78;
-  filter: saturate(0.58);
-}
-
-.cell-event-label{
-  min-width:0;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.month-cell .cell-event.solid{
-  background: color-mix(in srgb, var(--sport-color, var(--accent)) 20%, var(--bg-card));
-  color: var(--text-dim);
-  border-left-color: color-mix(in srgb, var(--sport-color, var(--accent)) 78%, var(--border));
-  opacity: 0.9;
-  filter: saturate(0.82);
-}
-
-.month-cell .cell-event.priority-event{
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--sport-color, var(--accent)) 42%, var(--bg-card)), var(--bg-card) 70%),
-    color-mix(in srgb, var(--sport-color, var(--accent)) 32%, var(--bg-card));
-  color: var(--text);
-  border-left-color: var(--sport-color, var(--accent));
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sport-color, var(--accent)) 55%, transparent) inset,
-              0 0 14px color-mix(in srgb, var(--sport-color, var(--accent)) 28%, transparent);
-  font-weight: 800;
-  opacity: 1;
-  filter: saturate(1.35);
-}
-
-.month-cell .cell-event.priority-event::after{
-  content: "";
-  position:absolute;
-  right: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--sport-color, var(--accent));
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--sport-color, var(--accent)) 24%, transparent);
-}
-
-.month-cell .cell-event.priority-event{
-  padding-right: 18px;
-}
-
-.cell-more{
-  font-size: 0.6rem;
-  color: var(--text-faint);
-  padding-left: 4px;
-}
-
 .mw-tier{
   margin-bottom: 30px;
 }
@@ -5211,8 +5045,6 @@ body.settings-open .app-footer{
   .event-sport-wordmark{ right:-2px; bottom:-2px; font-size:7px; }
   .team-logo{ width:17px; height:17px; flex-basis:17px; }
   .team-logo-fallback.country-flag{ width:17px; height:13px; flex-basis:17px; }
-  .month-cell{ min-height: 64px; }
-  .month-cell .cell-event{ font-size: 0.55rem; }
   .header-actions .btn span.full-label{ display:none; }
   .onboarding-head{
     padding:
@@ -5364,7 +5196,7 @@ body.settings-open .app-footer{
     min-width:100%;
   }
   .feed-control{ width:132px; }
-  :where(.btn, .tab-btn, .pill, .view-toggle button, .settings-icon-btn){
+  :where(.btn, .tab-btn, .pill, .settings-icon-btn){
     min-height: 44px;
   }
   .header-actions{ gap:5px; }
@@ -6984,9 +6816,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=269">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=269">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=269">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=270">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=270">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=270">
 </head>
 <body>
 
@@ -7046,10 +6878,6 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 
 <div class="controls" id="calendarControls">
   <div class="preference-summary" id="preferenceSummary"></div>
-  <div class="view-toggle" id="feedViewToggle">
-    <button class="active" data-view="list">List View</button>
-    <button data-view="month">Month View</button>
-  </div>
 </div>
 
 <div class="timeline-tools" id="timelineTools" aria-label="Timeline controls" hidden>
@@ -7060,7 +6888,6 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 <main id="mainContent" tabindex="-1">
   <section class="standings-context" id="standingsContext"></section>
   <section id="listView"></section>
-  <section id="monthView" style="display:none;"></section>
 </main>
 
 <footer class="app-footer">
@@ -7281,7 +7108,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=269"></script>
+<script src="assets/js/app-shell-runtime.js?v=270"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8839,7 +8666,9 @@ let activeView = "list";
 let activeTab = "feed";
 if (startupReloadRestoreState){
   activeFilter = String(startupReloadRestoreState.activeFilter || activeFilter);
-  activeView = String(startupReloadRestoreState.activeView || activeView);
+  // Saved Month View sessions retain their route, filter and scroll/card anchor,
+  // but the retired view itself always resumes in the list timeline.
+  activeView = startupReloadRestoreState.activeView === "month" ? "list" : "list";
   activeTab = ["feed","events","follow"].includes(startupReloadRestoreState.activeTab) ? startupReloadRestoreState.activeTab : activeTab;
   eventsViewTab = ["major-events","ticket-alerts"].includes(startupReloadRestoreState.eventsViewTab) ? startupReloadRestoreState.eventsViewTab : eventsViewTab;
 }
@@ -8856,7 +8685,6 @@ let rankingSportFilters = null;
 let rankingKnownSportKeys = new Set();
 let standingsCompetitionExpansion = {};
 let todayMoreReveal = false;
-let monthCursor = new Date(2026, 6, 1); // July 2026 default
 let settingsSection = "main";
 let settingsNavigationStack = [];
 let legalDocumentRenderToken = 0;
@@ -10747,7 +10575,7 @@ async function loadFollowDirectoryManifest(){
 function parseFollowDirectoryText(text){
   if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
   if(!followDirectoryParserWorker){
-    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=269");
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=270");
     followDirectoryParserWorker.addEventListener("message",event=>{
       const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
       followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
@@ -13898,9 +13726,6 @@ function closeCodeInspector({ restoreViewport = true, preserveReturnState = fals
   }
   if (!preserveReturnState) inspectorReturnState = null;
   syncTopLevelNavigationState();
-  document.querySelectorAll(".view-toggle button").forEach(button => {
-    button.classList.toggle("active", button.dataset.view === activeView);
-  });
   renderAll();
   if (restoreViewport) restoreInspectorFeedViewport(returnState);
 }
@@ -15378,19 +15203,46 @@ function buildCompactParticipant(identity,ev){
   if(mark.url||mark.logo?.primary){const image=document.createElement('img');image.className='compact-participant-mark';image.alt='';image.loading='lazy';image.decoding='async';applyTeamLogoAsset(image,mark,'icon',themeUsesDarkAssets());image.onload=()=>fallback.remove();image.onerror=()=>image.remove();side.appendChild(image);}
   side.appendChild(participantProfileLink(identity.participant?.id||mark.id,identity.label,ev.key));return side;
 }
+function compactFixtureFormat(ev){
+  const values=[ev.format,ev.matchFormat,ev.playingFormat,ev.discipline,ev.drawName,ev.competitionFormat].filter(Boolean).join(' ');
+  const context=[values,ev.roundLabel,ev.round,ev.stage,ev.name,ev.displayTitleCompact].filter(Boolean).join(' ');
+  if(['tennis','wimbledon'].includes(ev.key)){
+    const gender=NOTHINGSPORTS_FIXTURE_LABELS.gender(ev);
+    const sides=Array.isArray(ev.matchupSides)?ev.matchupSides:[];
+    const doubles=/doubles/i.test(context)||sides.some(side=>(side.players||[]).length>1);
+    const eventType=doubles?'Doubles':'Singles';
+    return `${gender==='women'?"Women’s":gender==='mixed'?'Mixed':"Men’s"} ${eventType}`;
+  }
+  if(ev.key==='cricket')return cricketPlayingFormatForEvent(ev)||String(ev.format||ev.matchFormat||'').trim();
+  if(/\b(?:grand )?final\b/i.test(context))return 'Final';
+  return String(ev.format||ev.matchFormat||ev.playingFormat||ev.discipline||'').trim();
+}
+function compactFixtureStage(ev,format){
+  const stage=String(FOLLOW_FIRST?.stageLabel?.(ev)||ev.roundLabel||ev.round||ev.stage||'').trim();
+  return stage&&stage.toLowerCase()!==String(format||'').toLowerCase()?stage:'';
+}
+function buildCompactMatchupMiddle(ev){
+  const middle=document.createElement('span');middle.className='compact-matchup-middle';
+  const format=compactFixtureFormat(ev),stage=compactFixtureStage(ev,format);
+  if(format){const badge=document.createElement('span');badge.className='matchup-format-badge compact-format-badge';badge.textContent=format;middle.appendChild(badge);}
+  else{const versus=document.createElement('span');versus.className='compact-matchup-v';versus.textContent='v';middle.appendChild(versus);}
+  if(stage){const detail=document.createElement('small');detail.className='compact-stage-label';detail.textContent=stage;middle.appendChild(detail);}
+  return middle;
+}
 function buildCompactCardSummary(ev){
   const summary=document.createElement('div');summary.className='compact-card-summary';
-  const icon=document.createElement('span');icon.className='compact-card-icon';renderEventIdentityMark(icon,ev,sportMetaForEvent(ev));
   const title=document.createElement('span');title.className='compact-card-name';
   const identities=matchupIdentityMatches(ev,compactFixtureName(ev));
-  if(identities.length===2){title.classList.add('compact-matchup-grid');title.appendChild(buildCompactParticipant(identities[0],ev));const middle=document.createElement('span');const stage=NOTHINGSPORTS_FIXTURE_LABELS.badge(ev)||FOLLOW_FIRST?.stageLabel?.(ev);middle.className=stage?'matchup-stage-badge compact-stage-badge':'compact-matchup-v';middle.textContent=stage||'v';title.appendChild(middle);title.appendChild(buildCompactParticipant(identities[1],ev));}
+  const tennisLineup=['tennis','wimbledon'].includes(ev.key)?majorEventMatchupLineup(ev,{compact:true}):null;
+  if(tennisLineup){title.classList.add('has-compact-matchup');const versus=tennisLineup.querySelector('.major-event-matchup-v');if(versus)versus.replaceWith(buildCompactMatchupMiddle(ev));title.appendChild(tennisLineup);}
+  else if(identities.length===2){title.classList.add('compact-matchup-grid','has-compact-matchup');title.appendChild(buildCompactParticipant(identities[0],ev));title.appendChild(buildCompactMatchupMiddle(ev));title.appendChild(buildCompactParticipant(identities[1],ev));}
   else renderEventTitleIdentity(title,ev,compactFixtureName(ev),{compact:true});
   const time=document.createElement('span');time.className='compact-card-time';
   const start=ev.timePrecision==='follows'?null:FEED_CONTROLS.eventStart(ev);
   const timing=ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev);
-  const sportLabel=ev.key==='tennis'||ev.key==='wimbledon'?`Tennis${ev.competitionName||ev.majorEventName?' · '+(ev.competitionName||ev.majorEventName):''}`:(ev.sport||sportMetaForEvent(ev).label||ev.key).replace('American Football','NFL');time.textContent=`${timing} • ${sportLabel}`;
+  const format=compactFixtureFormat(ev);const tennisCompetition=ev.competitionName||ev.majorEventName||String(ev.summary||'').split(' · ')[0];const sportLabel=ev.key==='tennis'||ev.key==='wimbledon'?`Tennis${tennisCompetition?' · '+tennisCompetition:''}`:(ev.sport||sportMetaForEvent(ev).label||ev.key).replace('American Football','NFL');time.textContent=`${timing} • ${sportLabel}${!title.classList.contains('has-compact-matchup')&&format?' · '+format:''}`;
   summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${time.textContent}`);summary.title=summary.getAttribute('aria-label');
-  summary.append(icon,title,time);return summary;
+  summary.append(title,time);return summary;
 }
 
 function feedClockKey(){
@@ -18159,112 +18011,6 @@ function scheduleInitialCalendarJump(){
   });
 }
 
-function renderMonthView(){
-  const container = document.getElementById("monthView");
-  container.innerHTML = "";
-
-  const nav = document.createElement("div");
-  nav.className = "month-nav";
-  const prevBtn = document.createElement("button");
-  prevBtn.textContent = "‹";
-  prevBtn.addEventListener("click", () => {
-    monthCursor = new Date(monthCursor.getFullYear(), monthCursor.getMonth()-1, 1);
-    renderMonthView();
-  });
-  const nextBtn = document.createElement("button");
-  nextBtn.textContent = "›";
-  nextBtn.addEventListener("click", () => {
-    monthCursor = new Date(monthCursor.getFullYear(), monthCursor.getMonth()+1, 1);
-    renderMonthView();
-  });
-  const title = document.createElement("h2");
-  title.textContent = monthCursor.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
-  nav.appendChild(prevBtn);
-  nav.appendChild(title);
-  nav.appendChild(nextBtn);
-  container.appendChild(nav);
-
-  const grid = document.createElement("div");
-  grid.className = "month-grid";
-  ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].forEach(d => {
-    const dow = document.createElement("div");
-    dow.className = "dow";
-    dow.textContent = d;
-    grid.appendChild(dow);
-  });
-
-  const year = monthCursor.getFullYear();
-  const month = monthCursor.getMonth();
-  const firstDay = new Date(year, month, 1);
-  const startWeekday = firstDay.getDay();
-  const daysInMonth = new Date(year, month+1, 0).getDate();
-
-  const filtered = getFilteredEvents();
-  const eventsByDate = {};
-  filtered.forEach(ev => {
-    if (!eventsByDate[ev.date]) eventsByDate[ev.date] = [];
-    eventsByDate[ev.date].push(ev);
-  });
-
-  const todayStr = formatDateKey(nowAEST());
-
-  for (let i=0;i<startWeekday;i++){
-    const empty = document.createElement("div");
-    empty.className = "month-cell empty";
-    grid.appendChild(empty);
-  }
-
-  for (let day=1; day<=daysInMonth; day++){
-    const dateStr = `${year}-${String(month+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
-    const cell = document.createElement("div");
-    cell.className = "month-cell" + (dateStr === todayStr ? " is-today" : "");
-
-    const dateLabel = document.createElement("div");
-    dateLabel.className = "cell-date";
-    dateLabel.textContent = day;
-    cell.appendChild(dateLabel);
-
-    const dayEvents = orderSurfacedEvents(eventsByDate[dateStr] || []);
-    const maxShow = 3;
-    dayEvents.slice(0, maxShow).forEach(ev => {
-      const meta = SPORT_META[ev.key];
-      const displayTitle = spoilerSafeDisplayTitle(ev);
-      const evEl = document.createElement("div");
-      const presentation = surfacePresentationForEvent(ev);
-      const priorityClass = isPriorityEvent(ev) ? " priority-event" : (ev.expected >= 7 ? " solid" : " quiet");
-      evEl.className = "cell-event" + priorityClass + (presentation.isNew ? " is-new" : "");
-      evEl.dataset.feedBucket = presentation.feedBucket;
-      evEl.style.setProperty("--sport-color", meta.color);
-      if (presentation.isNew){
-        const newDot = document.createElement("span");
-        newDot.className = "new-dot";
-        newDot.setAttribute("aria-label", "New item");
-        evEl.appendChild(newDot);
-      }
-      const label = document.createElement("span");
-      label.className = "cell-event-label";
-      label.innerHTML = glyphMarkup(meta.glyph);
-      const labelCopy = document.createElement("span");
-      labelCopy.textContent = displayTitle;
-      label.appendChild(labelCopy);
-      evEl.appendChild(label);
-      evEl.title = `${displayTitle} — ${eventTimeLabel(ev)} — ${ev.broadcaster}${isPriorityEvent(ev) ? " — Priority event" : ""}`;
-      observeNewSurfaceItem(evEl, ev, presentation);
-      cell.appendChild(evEl);
-    });
-    if (dayEvents.length > maxShow){
-      const more = document.createElement("div");
-      more.className = "cell-more";
-      more.textContent = `+${dayEvents.length - maxShow} more`;
-      cell.appendChild(more);
-    }
-
-    grid.appendChild(cell);
-  }
-
-  container.appendChild(grid);
-}
-
 function sportHubCanonicalFixtures(sportKey = activeSportHubKey()){
   return SPORT_HUBS?.canonicalFixturesForSport(canonicalSportsData, sportKey) || [];
 }
@@ -20577,11 +20323,11 @@ function majorEventMatchupLineup(subEvent,{compact=false}={}){
         const name = compact ? participantProfileLink(player.id || player.playerId,fullName,subEvent.key || 'tennis') : document.createElement("span");
         name.textContent = compact ? fullName.trim().split(/\s+/).slice(-1)[0] : fullName;
         if(compact)name.title=fullName;
-        person.appendChild(name);
-        if (countryCode && !compact){
-          const flag = COUNTRY_FLAGS?.flagMarkup?.(countryCode, { label:`${player.name || player.displayName} nationality` });
+        if (countryCode){
+          const flag = COUNTRY_FLAGS?.flagMarkup?.(countryCode, { label:`${fullName} nationality` });
           if (flag) person.insertAdjacentHTML("beforeend", flag);
         }
+        person.appendChild(name);
         group.appendChild(person);
       });
     } else group.textContent = side.name || side.displayName || "Side TBC";
@@ -21273,7 +21019,7 @@ function activateTopLevelTab(nextTab, { resetViewport = true } = {}){
   if (resetViewport){
     window.requestAnimationFrame(() => {
       if(!['feed','events'].includes(activeTab)||!scrollActiveFeedToInitialAnchor())window.scrollTo({ top: 0, behavior: "auto" });
-      document.querySelectorAll("#listView, #monthView, .code-inspector-panel, .events-feed, .follow-view").forEach(panel => { panel.scrollTop = 0; });
+      document.querySelectorAll("#listView, .code-inspector-panel, .events-feed, .follow-view").forEach(panel => { panel.scrollTop = 0; });
     });
   }
 }
@@ -21291,16 +21037,6 @@ document.getElementById("tuneSheet").addEventListener("click", event => {
 document.getElementById("tuneSheet").addEventListener("keydown", trapTuneSheetFocus);
 window.addEventListener("popstate", () => { void syncAppRouteFromLocation(); });
 
-document.querySelectorAll(".view-toggle button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".view-toggle button").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    activeView = btn.dataset.view;
-    if (activeView === "list") calendarInitialJumpPending = true;
-    renderAll();
-  });
-});
-
 document.getElementById('timelineExpandBtn').addEventListener('click',()=>setFeedCompact(!userPreferences.feedCompact));
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
   calendarInitialJumpPending = false;
@@ -21311,13 +21047,6 @@ document.getElementById("jumpTodayBtn").addEventListener("click", () => {
       window.scrollTo({ top:Math.max(0, top), behavior:"smooth" });
     }
     return;
-  }
-  if (activeTab === "feed" && activeView !== "list"){
-    activeView = "list";
-    document.querySelectorAll(".view-toggle button").forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.view === "list");
-    });
-    renderAll();
   }
   window.requestAnimationFrame(() => {
     scrollActiveFeedToInitialAnchor({ behavior: "smooth" });
@@ -21369,11 +21098,7 @@ function renderCurrentSection(){
     renderStandingsContext();
   } else if (activeSportHubKey()){
     renderSportHub();
-  } else if (activeView === "list"){
-    renderListView();
-  } else {
-    renderMonthView();
-  }
+  } else renderListView();
   scheduleIdentityImageRecovery(document.getElementById("listView") || document);
 }
 
@@ -21419,19 +21144,14 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
   renderTabCounts();
   const calControls = document.getElementById("calendarControls");
   const preferenceSummary = document.getElementById("preferenceSummary");
-  const feedViewToggle = document.getElementById("feedViewToggle");
   const listView = document.getElementById("listView");
-  const monthView = document.getElementById("monthView");
   const jumpTodayBtn = document.getElementById("jumpTodayBtn");
 
-  [listView, monthView].forEach(view => {
-    view.style.display = "none";
-  });
+  listView.style.display = "none";
   calControls.style.display = "flex";
   if (activeInspectorCodeId){
     calControls.style.display = "none";
     preferenceSummary.style.display = "none";
-    feedViewToggle.style.display = "none";
     jumpTodayBtn.hidden = true;
     listView.style.display = "block";
     renderCodeInspector();
@@ -21444,37 +21164,29 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     const hubActive = Boolean(activeSportHubKey());
     calControls.style.display = hubActive ? "none" : "flex";
     preferenceSummary.style.display = hubActive ? "none" : "";
-    feedViewToggle.style.display = hubActive ? "none" : "flex";
     jumpTodayBtn.hidden = hubActive;
     if (hubActive){
       listView.style.display = "block";
       renderSportHub();
-    } else if (activeView === "list"){
+    } else {
       listView.style.display = "block";
       renderListView();
       window.requestAnimationFrame(syncContextualJumpButton);
-    } else {
-      jumpTodayBtn.setAttribute("aria-label", "Jump to today in the sports feed");
-      monthView.style.display = "block";
-      renderMonthView();
     }
   } else if (activeTab === "events"){
     calControls.style.display = "none";
     preferenceSummary.style.display = "none";
-    feedViewToggle.style.display = "none";
     jumpTodayBtn.hidden = false;
     listView.style.display = "flex";
     renderEventsView();
   } else if (activeTab === "follow"){
     calControls.style.display = "none";
     preferenceSummary.style.display = "none";
-    feedViewToggle.style.display = "none";
     jumpTodayBtn.hidden = true;
     listView.style.display = "grid";
     renderFollowView();
   } else {
     preferenceSummary.style.display = "none";
-    feedViewToggle.style.display = "none";
     jumpTodayBtn.hidden = true;
   }
   if (startupFeedRevealPending && !startupCoordinator.isHydrating()){
@@ -25512,7 +25224,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=269");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=270");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

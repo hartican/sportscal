@@ -267,7 +267,9 @@ assert(html.includes("renderStandingsContext({") && html.includes("competitions,
 assert(html.includes("userPreferences.showSpoilers && event.canonicalResultScoreline") && html.includes("Results are off. Scores stay hidden; this view does not promise video availability."), "hub Results must remain spoiler-safe without implying video availability");
 assert(html.includes("restoreCuratedFeedViewport(returnState)") && html.includes("curatedFeedReturnState"), "All sports must restore the curated feed viewport after leaving a sport hub");
 assert(html.includes("function sportRoundSummaryData") && html.includes("function buildSportRoundSummaryCard"), "the all-sports list must derive NRL/AFL round summaries at render time");
-assert(html.includes('activeFilter !== "all" || activeView !== "list"'), "round summaries must stay out of focused feeds and Month View");
+assert(html.includes('activeFilter !== "all" || activeView !== "list"'), "round summaries must stay out of focused feeds");
+assert(!html.includes('id="monthView"') && !html.includes('data-view="month"') && !html.includes('function renderMonthView'), "the retired Month View DOM, control and renderer must be absent");
+assert(html.includes('startupReloadRestoreState.activeView') && html.includes('activeView = "list"'), "saved Month View sessions must migrate to the list timeline while retaining the rest of their reload state");
 assert(html.includes("SPORT_HUBS.roundSummary") && html.includes("sportHubCuratedCanonicalIds"), "round summary counts must reuse canonical fixtures and the existing curated-feed rules");
 assert(html.includes("return domainPreference?.enabled !== false && sportHubFullCoverageAllowed(sportKey)") && html.includes("sportHubState.selectedRoundNumber = roundNumber"), "complete round summaries must be limited to sport-specific Froth coverage");
 assert(html.includes("appendSportRoundSummaries(container)"), "the all-sports List View must render its trust bridge without adding canonical events");
