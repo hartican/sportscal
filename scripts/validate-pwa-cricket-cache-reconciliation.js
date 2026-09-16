@@ -75,4 +75,16 @@ assert.deepEqual(
   "the installed browser path must retain one current Kayo-equipped card"
 );
 
-console.log("Installed-PWA cricket cache converges to one current Kayo-equipped fixture.");
+const canonicalF1 = {
+  id:"evt_30", eventId:"evt_30", canonicalEventId:"event:f1:2026:azerbaijan:qualifying",
+  key:"f1", name:"Azerbaijan GP · Qualifying", date:"2026-09-25", startTimeUtc:"2026-09-25T12:00:00.000Z",
+};
+const providerF1 = {
+  id:"provider:f1:991", eventId:"provider:f1:991", canonicalEventId:"provider:f1:991",
+  key:"f1", name:"Azerbaijan Grand Prix Qualifying", date:"2026-09-25", startTimeUtc:"2026-09-25T12:00:00.000Z",
+};
+assert.equal(reconciliation.feedFixtureIdentity(canonicalF1),reconciliation.feedFixtureIdentity(providerF1),"F1 session identity is independent of provider IDs");
+assert.equal(inlineContext.reconciliation.feedFixtureIdentity(canonicalF1),inlineContext.reconciliation.feedFixtureIdentity(providerF1),"installed browser uses the same F1 identity");
+assert.equal(inlineContext.reconciliation.reconcileFixtures([canonicalF1],[providerF1]).length,1,"installed browser renders one F1 card per session");
+
+console.log("Installed-PWA reconciliation converges Cricket and F1 provider records to one card.");
