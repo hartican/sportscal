@@ -22,6 +22,29 @@ assert.equal(
   eventActionIdentity.stableKey(nativeEditionAfterCorrection),
   "the same native card edition must stay dismissed after a schedule correction"
 );
+const winnipegDirectoryFixture = {
+  id:"fixture:nhl:2026010003",
+  eventId:"fixture:nhl:2026010003",
+  sourceEventIds:["fixture:nhl:2026010003"],
+  name:"Winnipeg Jets v Edmonton Oilers",
+};
+const winnipegMergedFeedFixture = {
+  id:"feed:ice-hockey:winnipeg-edmonton-2026-09-20",
+  eventId:"feed:ice-hockey:winnipeg-edmonton-2026-09-20",
+  canonicalEventId:"feed:ice-hockey:winnipeg-edmonton-2026-09-20",
+  sourceEventIds:["fixture:nhl:2026010003"],
+  name:"Winnipeg Jets v Edmonton Oilers",
+};
+const winnipegDismissal = eventActionIdentity.writeAction({}, winnipegDirectoryFixture, {
+  dismissed:true,
+  dismissedAt:"2026-09-16T00:00:00.000Z",
+  lastActionAt:"2026-09-16T00:00:00.000Z",
+});
+assert.equal(
+  eventActionIdentity.actionFor(winnipegMergedFeedFixture, winnipegDismissal).dismissed,
+  true,
+  "Winnipeg dismissal must survive a canonical Feed merge through its published source fixture ID"
+);
 
 const seededEditionBeforeRefresh = {
   id: "major-event:australian-grand-prix-2027",

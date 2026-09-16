@@ -9,6 +9,8 @@ const fs = require("node:fs");
 const ROOT = require("node:path").resolve(__dirname, "..");
 const notificationsPath = require.resolve("../api/notifications.js");
 const dispatchPath = require.resolve("../api/notification-dispatch.js");
+const socialAlertsPath = require.resolve("../lib/social-reward-alerts.js");
+const liveAlertsPath = require.resolve("../lib/live-rating-alerts.js");
 const serverPath = require.resolve("../lib/supabase-server.js");
 const webPushPath = require.resolve("web-push");
 
@@ -63,11 +65,13 @@ async function notificationsHarness({ user = null, serviceRequest }){
 }
 
 async function dispatchHarness({ serviceRequest, sendNotification }){
-  const restoreServer = withMockedModule(serverPath, { publicError, supabaseServiceRequest:serviceRequest });
+  const restoreServer = withMockedModule(serverPath, { publicError, supabaseMaintenanceMode:()=>false, supabaseServiceRequest:serviceRequest });
   const restoreWebPush = withMockedModule(webPushPath, {
     setVapidDetails(){},
     sendNotification,
   });
+  const restoreLiveAlerts = withMockedModule(liveAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
+  const restoreSocialAlerts = withMockedModule(socialAlertsPath, { dispatch:async()=>({ checked:0, sent:0, failed:0, skipped:0 }) });
   delete require.cache[dispatchPath];
   const handler = require(dispatchPath);
   return {
@@ -89,7 +93,7 @@ async function dispatchHarness({ serviceRequest, sendNotification }){
       }
       return response;
     },
-    close(){ delete require.cache[dispatchPath]; restoreWebPush(); restoreServer(); },
+    close(){ delete require.cache[dispatchPath]; restoreSocialAlerts(); restoreLiveAlerts(); restoreWebPush(); restoreServer(); },
   };
 }
 
@@ -98,6 +102,7 @@ async function main(){
   const worker = fs.readFileSync(`${ROOT}/service-worker.js`, "utf8");
   const migration = fs.readFileSync(`${ROOT}/supabase/reliable-web-push-reminders.sql`, "utf8");
   const installationMigration = fs.readFileSync(`${ROOT}/supabase/follow-first-user-meta-and-notifications.sql`, "utf8");
+  const socialMigration = fs.readFileSync(`${ROOT}/supabase/migrations/20260915231544_social_reward_notifications.sql`, "utf8");
   const vercel = JSON.parse(fs.readFileSync(`${ROOT}/vercel.json`, "utf8"));
   const quickReminder = html.match(/async function toggleQuickReminder[\s\S]*?\n\}/)?.[0] || "";
   assert(quickReminder.includes("return ensureWebPushReminder(ev, timing)") && quickReminder.includes("rollback:prior"), "optimistic Remind must await server confirmation and roll back failure");
@@ -107,7 +112,8 @@ async function main(){
   assert(!html.includes("scheduleBrowserReminders()"), "the retired active-app scheduler must not run alongside Web Push");
   assert(html.includes("backfillWebPushReminders") && html.includes('Notification.permission !== "granted"'), "already-permitted installations must backfill future reminders without prompting");
   assert(html.includes("await disablePushInstallation({ preserveSubscription:true })"), "sign-out must detach the current installation before the account session is cleared");
-  assert.match(html, /action:"register"[\s\S]{0,700}chatAlertsEnabled:[\s\S]{0,300}badgesEnabled:/, "push registration must send both saved chat-alert and badge preferences");
+  assert.match(html, /action:"register"[\s\S]{0,700}socialAlertsEnabled:[\s\S]{0,300}chatAlertsEnabled:[\s\S]{0,300}badgesEnabled:/, "push registration must send saved social, chat and badge preferences");
+  assert(html.includes('id="socialAlertsEnabled"')&&html.includes('New followers and bonus points'),"Settings must expose the social and externally earned points alert opt-out");
   assert(html.includes("Background notifications") && !html.includes("Local reminder—keep Nothing Sport open"), "notification copy must describe background delivery honestly");
   assert(worker.includes("new URL(targetUrl, self.location.origin)"), "notification taps must resolve an origin-safe event URL");
   assert(migration.includes("claimed_at timestamptz") && migration.includes("grant select, insert, update, delete"), "the database update must add claims and retain service-role grants");
@@ -121,6 +127,28 @@ async function main(){
     assert.match(source, /chat_alerts_enabled boolean not null default true/i, "chat alerts must default on per installation");
     assert.match(source, /badges_enabled boolean not null default true/i, "unread app badges must default on per installation");
   });
+  [installationMigration,socialMigration].forEach(source=>assert.match(source,/social_alerts_enabled boolean not null default true/i,"social and reward alerts default on per installation"));
+  assert.match(socialMigration,/nothingsports_social_notifications[\s\S]*enable row level security/i,"social notification outbox must use RLS");
+  assert.match(socialMigration,/nothingsports_claim_social_notifications[\s\S]*for update skip locked/i,"social notifications must be claimed transactionally");
+  assert.match(socialMigration,/nothingsports_copy_person_rewards[\s\S]*primary key \(copier_user_id, source_user_id\)/i,"copy bonuses must be permanently unique per copier and source person");
+  assert.match(socialMigration,/select distinct copier_id,source_id from public\.nothingsports_pick_rewards/i,"existing per-sport rewards must be backfilled into the person-wide ledger");
+  const socialPayload=require(socialAlertsPath).payload;
+  assert.match(socialPayload({id:'follow',kind:'profile_followed',points:1},'Amy').body,/earned 1 point/);
+  assert.match(socialPayload({id:'copy',kind:'follows_copied',points:20,sport:'nrl'},'Jim').body,/sporting follows.+once-off 20 points/);
+  const socialCalls=[],socialRows=[],socialPushes=[],socialNotification={id:'social-1',recipient_user_id:'recipient',actor_user_id:'actor',kind:'follows_copied',points:20,sport:'nrl'};
+  const socialDispatch=await require(socialAlertsPath).dispatch({
+    now:new Date('2026-09-16T00:00:00Z'),
+    api:{
+      identityMaps:async()=>({profiles:new Map([['actor',{display_name:'Amy',visibility:'visible'}]]),personas:new Map()}),
+      rows:async(table,params)=>{socialRows.push({table,params});return table==='nothingsports_push_installations'?[{installation_id:'install-1',endpoint:'https://push.test/social',p256dh:'key',auth_key:'auth'}]:[{notification_id:'social-1',installation_id:'install-1',status:'pending',attempts:0}];},
+    },
+    request:async(path,options={})=>{socialCalls.push({path,options});return path.includes('nothingsports_claim_social_notifications')?[socialNotification]:null;},
+    send:async(_subscription,body)=>socialPushes.push(JSON.parse(body)),
+  });
+  assert.deepEqual(socialDispatch,{checked:1,sent:1,failed:0,skipped:0});
+  assert.equal(socialPushes[0].title,'Amy copied your follows');
+  assert.match(socialPushes[0].body,/once-off 20 points/);
+  assert(socialRows.some(call=>call.table==='nothingsports_push_installations'&&call.params.social_alerts_enabled==='eq.true'),'social delivery must honour the per-installation opt-out');
   assert(!Array.isArray(vercel.crons) || !vercel.crons.some(cron => cron.path === "/api/notification-dispatch"), "cron-job.org must be the sole dispatcher scheduler");
 
   const pushQueueSource = html.match(/function createPushInstallationMutationQueue\(\)[\s\S]*?const enqueuePushInstallationMutation = createPushInstallationMutationQueue\(\);/)?.[0] || "";
@@ -153,7 +181,7 @@ async function main(){
   const notificationService = async (path, options = {}) => {
     serviceCalls.push({ path, options });
     if (path.includes("nothingsports_push_installations?installation_id=eq.")){
-      return [{ installation_id:installationId, user_id:"user-1", secret_hash:secretHash, chat_alerts_enabled:false, badges_enabled:false }];
+      return [{ installation_id:installationId, user_id:"user-1", secret_hash:secretHash, social_alerts_enabled:false, chat_alerts_enabled:false, badges_enabled:false }];
     }
     if (path.includes("nothingsports_push_installations?user_id=eq.")){
       return [{ installation_id:installationId }, { installation_id:secondInstallationId }];
@@ -168,11 +196,12 @@ async function main(){
     let registration = await notificationApi.run({
       action:"register", installationId, secret,
       subscription:{ endpoint:"https://push.example.test/subscription", keys:{ p256dh:"key", auth:"auth" } },
-      timezone:"Australia/Sydney", chatAlertsEnabled:false, badgesEnabled:false,
+      timezone:"Australia/Sydney", socialAlertsEnabled:false, chatAlertsEnabled:false, badgesEnabled:false,
     });
     assert.equal(registration.statusCode, 200);
     let registrationWrite = serviceCalls.find(call => call.path.includes("nothingsports_push_installations?on_conflict=installation_id"));
     assert.equal(registrationWrite.options.body.chat_alerts_enabled,false,"an explicit chat-alert opt-out must be persisted");
+    assert.equal(registrationWrite.options.body.social_alerts_enabled,false,"an explicit social-alert opt-out must be persisted");
     assert.equal(registrationWrite.options.body.badges_enabled,false,"an explicit badge opt-out must be persisted");
 
     serviceCalls.length = 0;
@@ -184,6 +213,7 @@ async function main(){
     assert.equal(registration.statusCode, 200);
     registrationWrite = serviceCalls.find(call => call.path.includes("nothingsports_push_installations?on_conflict=installation_id"));
     assert.equal(registrationWrite.options.body.chat_alerts_enabled,false,"an omitted legacy field must preserve an existing chat-alert opt-out");
+    assert.equal(registrationWrite.options.body.social_alerts_enabled,false,"an omitted legacy field must preserve an existing social-alert opt-out");
     assert.equal(registrationWrite.options.body.badges_enabled,false,"an omitted legacy field must preserve an existing badge opt-out");
 
     serviceCalls.length = 0;
@@ -197,7 +227,7 @@ async function main(){
       deliveryMode:"match-15",
       viewingUrl:"https://nothingsport.vercel.app/?event=event%3Afanout",
     });
-    assert.equal(response.statusCode, 200);
+    assert.equal(response.statusCode, 200, JSON.stringify(response.payload));
     const writes = serviceCalls.filter(call => call.path.startsWith("/rest/v1/nothingsports_reminders?on_conflict="));
     assert.equal(writes.length, 2, "signed-in reminder must fan out to every enabled account installation");
     const unchanged = writes.find(call => call.options.body.installation_id === installationId).options.body;
@@ -263,7 +293,7 @@ async function main(){
   const dispatcher = await dispatchHarness({ serviceRequest:dispatchService, sendNotification:async (_subscription, payload) => { sends += 1; dispatchedPayloads.push(JSON.parse(payload)); } });
   try{
     let response = await dispatcher.run();
-    assert.equal(response.statusCode, 200);
+    assert.equal(response.statusCode, 200, JSON.stringify(response.payload));
     assert.equal(sends, 1);
     assert.equal(response.payload.claimed, 1);
     assert.equal(dispatchedPayloads[0].title, "Claimed final", "push titles put the fixture first; timing belongs in the body");

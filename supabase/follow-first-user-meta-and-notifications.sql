@@ -78,6 +78,7 @@ create table if not exists public.nothingsports_push_installations (
   user_agent text not null default '',
   permission text not null default 'granted' check (permission in ('granted', 'denied', 'default')),
   chat_alerts_enabled boolean not null default true,
+  social_alerts_enabled boolean not null default true,
   badges_enabled boolean not null default true,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
@@ -86,6 +87,7 @@ create table if not exists public.nothingsports_push_installations (
 
 alter table public.nothingsports_push_installations
   add column if not exists chat_alerts_enabled boolean not null default true,
+  add column if not exists social_alerts_enabled boolean not null default true,
   add column if not exists badges_enabled boolean not null default true;
 
 create table if not exists public.nothingsports_reminders (

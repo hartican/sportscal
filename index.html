@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="262">
+<meta name="app-shell-version" content="263">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=262" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=263" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -158,9 +158,12 @@ html,body{
   min-height:100dvh;
   overscroll-behavior-y: none;
   -webkit-text-size-adjust: 100%;
+  width:100%;
+  max-width:100%;
+  overflow-x:clip;
 }
 
-html{ touch-action: manipulation; }
+html{ touch-action:manipulation; overscroll-behavior:none; }
 
 body{
   background:
@@ -168,7 +171,14 @@ body{
     radial-gradient(circle at 80% 10%, rgba(232,0,45,0.05), transparent 40%),
     var(--bg);
   padding-bottom: calc(124px + env(safe-area-inset-bottom));
+  min-width:0;
 }
+
+#mainContent,
+.container,
+.view,
+.events-feed,
+.feed-card-slot{ min-width:0; max-width:100%; }
 
 body.modal-open{ overflow:hidden; }
 
@@ -6914,9 +6924,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=262">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=263">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=254">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=262">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=263">
 </head>
 <body>
 
@@ -7211,7 +7221,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=262"></script>
+<script src="assets/js/app-shell-runtime.js?v=263"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10657,7 +10667,7 @@ async function loadFollowDirectoryManifest(){
 function parseFollowDirectoryText(text){
   if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
   if(!followDirectoryParserWorker){
-    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=262");
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=263");
     followDirectoryParserWorker.addEventListener("message",event=>{
       const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
       followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
@@ -15969,6 +15979,7 @@ async function ensurePushInstallation({ requestPermission = true } = {}){
       subscription:subscription.toJSON(),
       timezone:Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Sydney",
       liveRatingsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.liveRatingsEnabled !== false,
+      socialAlertsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.socialAlertsEnabled !== false,
       chatAlertsEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.chatAlertsEnabled !== false,
       badgesEnabled:(draftPreferences || userPreferences)?.followFirst?.notifications?.badgesEnabled !== false,
     }, { authenticated:Boolean(serverSyncClient.getSession?.() || serverSyncClient.getGuestChatSession?.()) });
@@ -22440,6 +22451,7 @@ function renderNotificationSettings(body){
     <section class="filter-panel"><h3>Sounds, alerts and badges</h3>
       <p class="preference-help">Background notifications can arrive even when Nothing Sport is closed. Nothing Sport asks for system permission only when you tap the button below. Message previews stay private: lock-screen chat alerts name only the room.</p>
       <label class="viewing-toggle"><input type="checkbox" id="liveRatingsEnabled" ${preferences.liveRatingsEnabled !== false ? "checked" : ""}><span><strong>5/5 ratings from people I follow</strong>Grouped Heat, Live and Impact alerts across all sports.</span></label>
+      <label class="viewing-toggle"><input type="checkbox" id="socialAlertsEnabled" ${preferences.socialAlertsEnabled !== false ? "checked" : ""}><span><strong>New followers and bonus points</strong>Notify you when someone follows your profile, copies your sporting follows, or earns you points.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="chatAlertsEnabled" ${preferences.chatAlertsEnabled !== false ? "checked" : ""}><span><strong>Chat alerts</strong>Notify you about new messages from other room participants.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="sportingRemindersEnabled" ${preferences.sportingRemindersEnabled !== false ? "checked" : ""}><span><strong>Sporting reminders</strong>Send requested reminders 15 minutes before the sporting start.</span></label>
       <label class="viewing-toggle"><input type="checkbox" id="notificationSoundsEnabled" ${preferences.soundsEnabled !== false ? "checked" : ""}><span><strong>In-app sounds</strong>Play a short cue for an incoming chat message. Impact sound has its own switch in Nothinger Leaderboard.</span></label>
@@ -22451,7 +22463,7 @@ function renderNotificationSettings(body){
       <p class="preference-help" id="notificationDiagnosticsStatus">Checking device and scheduler status…</p>
     </section>
   </div>`;
-  [["liveRatingsEnabled","liveRatingsEnabled"],["chatAlertsEnabled","chatAlertsEnabled"],["sportingRemindersEnabled","sportingRemindersEnabled"],["notificationSoundsEnabled","soundsEnabled"],["notificationBadgesEnabled","badgesEnabled"]].forEach(([id,key]) => {
+  [["liveRatingsEnabled","liveRatingsEnabled"],["socialAlertsEnabled","socialAlertsEnabled"],["chatAlertsEnabled","chatAlertsEnabled"],["sportingRemindersEnabled","sportingRemindersEnabled"],["notificationSoundsEnabled","soundsEnabled"],["notificationBadgesEnabled","badgesEnabled"]].forEach(([id,key]) => {
     document.getElementById(id).addEventListener("change", event => {
       draftPreferences.followFirst.notifications[key] = event.target.checked;
     });
@@ -25161,7 +25173,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=262");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=263");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

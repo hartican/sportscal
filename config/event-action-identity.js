@@ -22,6 +22,8 @@
       event?.canonicalEventId,
       event?.eventId,
       event?.id,
+      event?.sourceEventId,
+      ...(Array.isArray(event?.sourceEventIds) ? event.sourceEventIds : []),
     ]);
   }
 
@@ -132,10 +134,15 @@
     const key = stableKey(event);
     if (!key || !action) return next;
     const canonicalEventId = identifier(event?.canonicalEventId);
+    const sourceEventIds = unique([
+      event?.sourceEventId,
+      ...(Array.isArray(event?.sourceEventIds) ? event.sourceEventIds : []),
+    ]);
     next[key] = {
       ...action,
       actionKey: key,
       ...(canonicalEventId ? { canonicalEventId } : {}),
+      ...(sourceEventIds.length ? { sourceEventIds } : {}),
     };
     return next;
   }

@@ -3272,6 +3272,7 @@ return {gender,sport,badge};
         sportingRemindersEnabled:true,
         chatAlertsEnabled:true,
         liveRatingsEnabled:true,
+        socialAlertsEnabled:true,
         soundsEnabled:true,
         badgesEnabled:true,
         userChoice:null,
@@ -3394,6 +3395,7 @@ return {gender,sport,badge};
           sportingRemindersEnabled:prior.notifications?.sportingRemindersEnabled !== false,
           chatAlertsEnabled:prior.notifications?.chatAlertsEnabled !== false,
           liveRatingsEnabled:prior.notifications?.liveRatingsEnabled !== false,
+          socialAlertsEnabled:prior.notifications?.socialAlertsEnabled !== false,
           soundsEnabled:prior.notifications?.soundsEnabled !== false,
           badgesEnabled:prior.notifications?.badgesEnabled !== false,
           userChoice:typeof prior.notifications?.userChoice === "boolean"
@@ -5608,6 +5610,8 @@ return {gender,sport,badge};
       event?.canonicalEventId,
       event?.eventId,
       event?.id,
+      event?.sourceEventId,
+      ...(Array.isArray(event?.sourceEventIds) ? event.sourceEventIds : []),
     ]);
   }
 
@@ -5718,10 +5722,15 @@ return {gender,sport,badge};
     const key = stableKey(event);
     if (!key || !action) return next;
     const canonicalEventId = identifier(event?.canonicalEventId);
+    const sourceEventIds = unique([
+      event?.sourceEventId,
+      ...(Array.isArray(event?.sourceEventIds) ? event.sourceEventIds : []),
+    ]);
     next[key] = {
       ...action,
       actionKey: key,
       ...(canonicalEventId ? { canonicalEventId } : {}),
+      ...(sourceEventIds.length ? { sourceEventIds } : {}),
     };
     return next;
   }

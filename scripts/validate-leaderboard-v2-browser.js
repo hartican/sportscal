@@ -24,8 +24,26 @@ const assert=require('node:assert/strict'),{chromium}=require(process.env.PLAYWR
  assert.equal(headerGeometry.overlap,false,'compact leaderboard label must not overlap the date badge');
  await page.getByRole('tab',{name:'Global Leaderboard'}).waitFor();assert.equal(await page.locator('#nothingscoreTitle').textContent(),'Nothinger Leaderboard');await page.getByRole('button',{name:'Next sport'}).click();await page.getByRole('columnheader',{name:/AFL/}).waitFor();
  await page.getByRole('table').getByRole('button',{name:'See / copy follows'}).click();await page.locator('.nsc-pick').first().waitFor();assert.equal(await page.locator('.nsc-pick input:checked').count(),0);await page.locator('.nsc-picks-dialog select').selectOption('nrl');await page.getByRole('button',{name:'Select this sport'}).click();assert.equal(await page.locator('.nsc-pick input:checked').count(),1,'bulk does not override exclusions');await page.locator('.nsc-picks-dialog').getByRole('button',{name:'Close',exact:true}).click();
- await page.getByRole('tab',{name:'Nothing Friends'}).click();await page.locator('.nsc-ladder-frozen:not([hidden])').waitFor();assert.equal(await page.locator('.nsc-ladder-frozen').getByText('Jack Hartican',{exact:true}).count(),1);assert.equal(await page.locator('.nsc-ladder-frozen').getByText('@jack · You',{exact:true}).count(),1);await page.getByRole('button',{name:'Add to Feed'}).waitFor();await page.locator('.nsc-friends-activity a').click();await page.locator('.nsc-friend-fixture').waitFor();await page.locator('.nsc-friend-fixture').getByRole('button',{name:'Close',exact:true}).click();
+ await page.getByRole('tab',{name:'Nothing Friends'}).click();await page.locator('[data-ladder-profile="11111111-1111-4111-8111-111111111111"]').waitFor();
+ assert.equal(await page.locator('.nsc-ladder-frozen:not([hidden])').count(),0,'Friends must not obscure the mobile table with a duplicate frozen viewer row');
+ const friendActions=page.locator('[data-ladder-profile="11111111-1111-4111-8111-111111111111"] .nsc-ladder-actions');
+ assert.equal(await friendActions.getByRole('button',{name:'Following',exact:true}).count(),1);
+ assert.equal(await friendActions.getByRole('button',{name:'See / copy follows',exact:true}).count(),1,'copy follows belongs beside Follow');
+ assert.equal(await page.getByText(/once-off 20 points.+no matter how many sports/i).count(),1,'Friends screen explains the permanent person-wide copy reward');
+ if(width<=390){
+  const copyButton=friendActions.getByRole('button',{name:'See / copy follows',exact:true});
+  const geometry=await copyButton.evaluate(button=>{const row=button.closest('.nsc-ladder-row'),body=document.querySelector('#nothingscoreBody');return{button:button.getBoundingClientRect().toJSON(),row:row.getBoundingClientRect().toJSON(),body:body.getBoundingClientRect().toJSON(),documentOverflow:document.documentElement.scrollWidth-innerWidth,bodyOverflow:body.scrollWidth-body.clientWidth};});
+  assert(geometry.button.width>=120&&geometry.button.height>=44,'copy follows is a prominent mobile action');
+  assert(geometry.button.left>=geometry.body.left&&geometry.button.right<=geometry.body.right,'copy follows remains visible without sideways paging');
+  assert(geometry.row.width<=geometry.body.width+1,'Friends rows adapt to the mobile drawer width');
+  assert.equal(geometry.documentOverflow,0,'the app viewport never pans horizontally');
+  assert.equal(geometry.bodyOverflow,0,'the Nothing Friends screen owns no page-width overflow');
+ }
+ await page.getByRole('button',{name:'Add to Feed'}).waitFor();await page.locator('.nsc-friends-activity a').click();await page.locator('.nsc-friend-fixture').waitFor();await page.locator('.nsc-friend-fixture').getByRole('button',{name:'Close',exact:true}).click();
+ const accent=await friendActions.getByRole('button',{name:'See / copy follows',exact:true}).evaluate(button=>({background:getComputedStyle(button).backgroundColor,color:getComputedStyle(button).color}));
+ assert.equal(accent.background,'rgb(252, 169, 151)','social actions use the salmon sampled from the Nothing Sport logo');assert.equal(accent.color,'rgb(25, 22, 26)','salmon actions retain dark readable text');
  await page.screenshot({path:`/tmp/nothinger-leaderboard-${width}.png`});
+ if(width===390){await page.evaluate(()=>applyThemePreference('night'));await page.screenshot({path:'/tmp/nothinger-leaderboard-390-dark.png'});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await page.evaluate(()=>applyThemePreference('day'));}
  await page.evaluate(()=>{setNothingscoreDrawerOpen(false);setGlobalSpoilerPreference(true,{notify:false});const host=document.createElement('section');host.id='qa-clarity';host.style.cssText='padding:12px;background:var(--bg-card);position:relative;z-index:2';host.append(buildCompactResult(qaFixture,qaFixture.name),buildInlineCrowdRating({...qaFixture,status:'scheduled',startTimeUtc:'2026-09-20T00:00:00Z'},{phase:'heat'}));document.body.prepend(host);});
  assert.equal(await page.locator('.tennis-set-table tbody tr').count(),2);assert.equal(await page.locator('.tennis-set-table thead th').count(),6);assert.equal(await page.locator('.tennis-set-table sup').count(),3);
  const dimensions=await page.locator('#qa-clarity .nsc-rating-block').first().evaluate(e=>({button:e.getBoundingClientRect().height,flame:e.querySelector('svg').getBoundingClientRect().height,color:getComputedStyle(e).color}));assert(dimensions.button>=44);assert(dimensions.flame<=20);

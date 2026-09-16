@@ -241,6 +241,7 @@
         sportingRemindersEnabled:true,
         chatAlertsEnabled:true,
         liveRatingsEnabled:true,
+        socialAlertsEnabled:true,
         soundsEnabled:true,
         badgesEnabled:true,
         userChoice:null,
@@ -363,6 +364,7 @@
           sportingRemindersEnabled:prior.notifications?.sportingRemindersEnabled !== false,
           chatAlertsEnabled:prior.notifications?.chatAlertsEnabled !== false,
           liveRatingsEnabled:prior.notifications?.liveRatingsEnabled !== false,
+          socialAlertsEnabled:prior.notifications?.socialAlertsEnabled !== false,
           soundsEnabled:prior.notifications?.soundsEnabled !== false,
           badgesEnabled:prior.notifications?.badgesEnabled !== false,
           userChoice:typeof prior.notifications?.userChoice === "boolean"

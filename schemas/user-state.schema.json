@@ -46,6 +46,11 @@
         "actionKey": { "type": "string" },
         "canonicalEventId": { "type": "string" },
         "eventId": { "type": "string" },
+        "sourceEventIds": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
         "startTime": { "type": "string" },
         "addedToFixtures": { "type": "boolean" },
         "addedToFixturesAt": { "type": ["string", "null"], "format": "date-time" },
