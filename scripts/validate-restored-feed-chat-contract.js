@@ -10,7 +10,7 @@ const finals=JSON.parse(read('data/canonical/afl-nrl-finals-2026.json'));
 const golf=JSON.parse(read('data/canonical/golf-majors-2027.json'));
 const policy=require('../config/follow-feed-policy');
 const practice={id:'fixture:f1:practice-1',key:'f1',cardKind:'fixture',name:'Italian GP Practice 1',date:'2026-09-04'};
-assert(policy.eligibleForFollow(practice,{competitionFollow:true}),'all published F1 sessions follow an explicit F1 choice');
+assert(!policy.eligibleForFollow(practice,{competitionFollow:true}),'published F1 Practice sessions stay outside Feed');
 assert(!policy.eligibleForFollow(practice,{}),'published F1 sessions never create a follow');
 const {syncCanonicalFixtures}=require('./sync-canonical-fixtures-to-feed');
 const canonical=JSON.parse(read('data/canonical/afl-nrl-2026.json'));

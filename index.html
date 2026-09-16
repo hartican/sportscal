@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="265">
+<meta name="app-shell-version" content="267">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=265" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=267" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6933,9 +6933,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=265">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=265">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=265">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=267">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=267">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=267">
 </head>
 <body>
 
@@ -7230,7 +7230,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=265"></script>
+<script src="assets/js/app-shell-runtime.js?v=267"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7271,7 +7271,24 @@ function fxSportKey(event){
   const competition=String(event?.competitionId||event?.competition||"").trim().toLowerCase();
   return competition.match(/^competition:([^:]+)/)?.[1]||competition||"fixture";
 }
+function fxF1Session(event){
+  const value=[event?.sessionType,event?.stage,event?.roundLabel,event?.name].map(value=>String(value||"").trim()).join(" ").toLowerCase(),practice=value.match(/\b(?:practice|fp)\s*([123])\b/);
+  if(practice)return `practice-${practice[1]}`;
+  if(/\b(?:sprint qualifying|sprint shootout)\b/.test(value))return "sprint-qualifying";
+  if(/\bqualifying\b/.test(value))return "qualifying";
+  if(/\bsprint\b/.test(value))return "sprint";
+  if(/\brace\b/.test(value)||/\b(?:grand prix|gp)\b/.test(value))return "race";
+  return "";
+}
+function fxF1Identity(event){
+  if(fxSportKey(event)!=="f1")return "";
+  const canonical=fxAliases(event).map(value=>value.match(/^event:f1:(\d{4}):([^:]+):(practice-[123]|sprint-qualifying|sprint|qualifying|race)$/i)).find(Boolean);
+  if(canonical)return `f1|${canonical[1]}|${canonical[2].toLowerCase()}|${canonical[3].toLowerCase()}`;
+  const session=fxF1Session(event),year=String(event?.date||event?.startTimeUtc||"").match(/\b(20\d{2})\b/)?.[1]||"",rawRace=String(event?.name||"").trim().toLowerCase().replace(/^r\d+\s+/,"").replace(/\b(?:practice|fp)\s*[123]\b|\bsprint qualifying\b|\bsprint shootout\b|\bqualifying\b|\bsprint\b|\brace\b/gi," ").replace(/\b(?:grand prix|gp)\b/gi," ").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,""),race=({spanish:"spain","mexico-city":"mexico","sao-paulo":"brazil","abu-dhabi":"united-arab-emirates"})[rawRace]||rawRace;
+  return year&&race&&session?`f1|${year}|${race}|${session}`:"";
+}
 function fxKey(event){
+  const f1=fxF1Identity(event);if(f1)return f1;
   const participants=fxParticipants(event),start=Date.parse(event?.startTimeUtc||event?.timelineSortTimeUtc||"");
   if(participants.length<2||!Number.isFinite(start))return "";
   return `${fxSportKey(event)}|${new Date(start).toISOString()}|${participants.join("|")}`;
@@ -7282,6 +7299,7 @@ function fxFind(event,fixtures){
 }
 const FEED_FIXTURE_RECONCILIATION = Object.freeze({
   semanticFixtureKey:fxKey,
+  feedFixtureIdentity(event){return fxKey(event)||fxAliases(event).map(id=>`id|${id}`)[0]||""},
   repairSavedFixture(saved,fixtures){const fixture=fxFind(saved,fixtures)||saved;return{fixture,aliases:fxAliases(saved).filter(alias=>!fxAliases(fixture).includes(alias))}},
   reconcileFixtures(canonical,supplemental){const result=[...(canonical||[])];for(const event of supplemental||[]){if(!fxFind(event,result))result.push(event)}return result},
 });
@@ -8612,7 +8630,7 @@ function saveActiveProfileSections(sections){
 
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
-const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v9";
+const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v10";
 const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 const PERSONALISED_FEED_CACHE_MAX_STALE_MS = 7 * 24 * 60 * 60 * 1000;
 let publicFeedManifest = null;
@@ -10676,7 +10694,7 @@ async function loadFollowDirectoryManifest(){
 function parseFollowDirectoryText(text){
   if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
   if(!followDirectoryParserWorker){
-    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=265");
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=267");
     followDirectoryParserWorker.addEventListener("message",event=>{
       const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
       followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
@@ -11227,8 +11245,8 @@ async function fetchMajorEventsData({quiet=false,onReady=()=>{}}={}){
 function mergeCanonicalEventPages(current, incoming){
   const merged = new Map();
   [...(current || []), ...(incoming || [])].forEach(event => {
-    const id = event?.canonicalEventId || event?.eventId || event?.id;
-    if (id) merged.set(String(id), event);
+    const id = FEED_FIXTURE_RECONCILIATION?.feedFixtureIdentity?.(event) || event?.canonicalEventId || event?.eventId || event?.id;
+    if (id && !merged.has(String(id))) merged.set(String(id), event);
   });
   return Array.from(merged.values());
 }
@@ -14575,7 +14593,7 @@ function followFeedPolicySource(reason){
 }
 
 function eventFollowReason(ev, context){
-  if (!FOLLOW_FEED_POLICY.sportingFixture(ev) || FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences)) return null;
+  if (!FOLLOW_FEED_POLICY.sportingFixture(ev) || !FOLLOW_FEED_POLICY.feedEligibleSession(ev) || FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences)) return null;
   const followLevels = eventParticipantFollowLevels(ev);
   if (followLevels.includes("mute")) return null;
   if (getEventAction(ev).addedToFixtures || ev?.manualPin === true){
@@ -25237,7 +25255,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=265");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=267");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

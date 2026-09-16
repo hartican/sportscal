@@ -39,11 +39,47 @@
     return competition.match(/^competition:([^:]+)/)?.[1] || competition || "fixture";
   }
 
+  function f1SessionType(event){
+    const value = [event?.sessionType,event?.stage,event?.roundLabel,event?.name].map(clean).join(" ").toLowerCase();
+    const practice = value.match(/\b(?:practice|fp)\s*([123])\b/);
+    if (practice) return `practice-${practice[1]}`;
+    if (/\b(?:sprint qualifying|sprint shootout)\b/.test(value)) return "sprint-qualifying";
+    if (/\bqualifying\b/.test(value)) return "qualifying";
+    if (/\bsprint\b/.test(value)) return "sprint";
+    if (/\brace\b/.test(value) || /\b(?:grand prix|gp)\b/.test(value)) return "race";
+    return "";
+  }
+
+  function f1FixtureIdentity(event){
+    if (sportKey(event) !== "f1") return "";
+    const canonical = identityAliases(event).map(value => value.match(/^event:f1:(\d{4}):([^:]+):(practice-[123]|sprint-qualifying|sprint|qualifying|race)$/i)).find(Boolean);
+    if (canonical) return `f1|${canonical[1]}|${canonical[2].toLowerCase()}|${canonical[3].toLowerCase()}`;
+    const session = f1SessionType(event);
+    const year = String(event?.date || event?.startTimeUtc || "").match(/\b(20\d{2})\b/)?.[1] || "";
+    const rawRace = clean(event?.name)
+      .toLowerCase()
+      .replace(/^r\d+\s+/, "")
+      .replace(/\b(?:practice|fp)\s*[123]\b|\bsprint qualifying\b|\bsprint shootout\b|\bqualifying\b|\bsprint\b|\brace\b/gi, " ")
+      .replace(/\b(?:grand prix|gp)\b/gi, " ")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    const race = ({spanish:"spain","mexico-city":"mexico","sao-paulo":"brazil","abu-dhabi":"united-arab-emirates"})[rawRace] || rawRace;
+    return year && race && session ? `f1|${year}|${race}|${session}` : "";
+  }
+
   function semanticFixtureKey(event){
+    const f1 = f1FixtureIdentity(event);
+    if (f1) return f1;
     const participants = participantIds(event);
     const parsedStart = Date.parse(event?.startTimeUtc || event?.timelineSortTimeUtc || "");
     if (participants.length < 2 || !Number.isFinite(parsedStart)) return "";
     return `${sportKey(event)}|${new Date(parsedStart).toISOString()}|${participants.join("|")}`;
+  }
+
+  function feedFixtureIdentity(event){
+    return semanticFixtureKey(event) || identityAliases(event).map(id => `id|${id}`)[0] || "";
   }
 
   const cachedIndexes=new WeakMap();
@@ -97,7 +133,10 @@
   return Object.freeze({
     identityAliases,
     participantIds,
+    f1SessionType,
+    f1FixtureIdentity,
     semanticFixtureKey,
+    feedFixtureIdentity,
     canonicalFixtureFor,
     repairSavedFixture,
     reconcileFixtures,

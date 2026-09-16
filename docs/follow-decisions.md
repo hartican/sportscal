@@ -77,6 +77,10 @@ Preference version 22 makes `eventFamilyDecisions.v1` authoritative. A legacy cl
 
 The latest accepted repair plan explicitly admits **all published F1 sessions** when F1 is followed. This supersedes the race/qualifying-only wording above; practice is eligible through the explicit competition choice, without becoming an editorial marquee or implying a driver follow. Event-family exclusions and participant mutes retain precedence. Regression: `validate-follow-decisions.js` and `validate-restored-feed-chat-contract.js`.
 
+## F1 Feed session scope and identity — 16 September 2026
+
+This supersedes the 14 September all-session Feed rule. Keep official Practice sessions in the F1 schedule and Inspector, but exclude every Practice/FP1/FP2/FP3 session from Feed, including saved or followed paths. Feed retains qualifying, sprint qualifying, sprints and races. Deduplicate F1 cards by season, Grand Prix and session type rather than provider ID or participant identity; race sessions do not have the two-sided participant identity used by team fixtures. Apply the same identity to server composition, pagination, schedule overlays and installed-browser reconciliation. Regression: `validate-f1-parent-feed.js`, `validate-fixture-visibility.js`, `validate-follow-loading-regression.js` and `validate-pwa-cricket-cache-reconciliation.js`.
+
 The same accepted recovery plan changes followed-user EPIC grouping from 60 seconds to five minutes to meet the MVP infrastructure budget. Delivery remains once per recipient and fixture, and every privacy, opt-out, real-rating and Feed-eligibility check remains mandatory.
 
 ## Nothinger Leaderboard and friend picks — 15 September 2026
@@ -105,10 +109,14 @@ Following a source-backed player in a rostered team sport admits the published f
 
 Explicit selected selector IDs repair contradictory persisted graph flags on the server before fixture resolution and Feed admission. In particular, a checked F1 or AFLW choice cannot remain silently disabled by an older graph projection. Regression: `validate-followed-fixture-surfacing.js`.
 
+### Selected child versus unselected parent — 16 September 2026
+
+An explicitly selected child sport takes precedence over its unselected ancestor's derived disabled flag for that child's fixtures. A stored `sport:motorsport` disabled flag must not veto selected F1, MotoGP or WRC. Apply the same taxonomy-based specificity in the browser, followed-schedule loader and server; never enable the parent or infer follows for siblings. Child/competition exclusions, event-family exclusions, participant mutes and fixture dismissals retain their existing precedence. The F1 incident reproduced with F1 selected and enabled while Motorsport was disabled; previous tests covered the F1 flag alone and missed this parent veto. Regression: `node scripts/validate-f1-parent-feed.js`, required by canonical refresh and production deployment.
+
 ## Adaptive Follow grid and entity drill-down — 16 September 2026
 
 The Follow grid shows at most seven sports plus More. It contains only sports the current account follows, so an account with fewer than seven followed sports gets fewer icons rather than filler. Order is personal: count distinct Heat, Live and Impact interactions per fixture phase over the rolling prior 90 days, collapse F1, WRC and MotoGP into Motorsport, then sort by count, most recent interaction and the existing editorial order. Multiple edits or rating buckets in the same fixture phase count once. Rating history changes grid order only; it never admits a Feed card. Every followed sport outside the first seven remains in More.
 
-An explicit F1 follow admits every session published by the official Formula 1 race pages, including practices, sprint sessions, qualifying and races. The NBL Code uses the official NBL27 regular-season schedule and exposes Teams and Players as separate directory views, with Teams first. **Follow their picks** first filters by sport, then drills into sports, competitions, teams, players/athletes, collections, events and individual fixtures. Copying an individual team or athlete uses the existing additive, exclusion-aware copy transaction.
+An explicit F1 follow admits the competitive sessions published by the official Formula 1 race pages: sprint qualifying, sprints, qualifying and races. Practice remains in Schedule/Inspector and stays out of Feed. The NBL Code uses the official NBL27 regular-season schedule and exposes Teams and Players as separate directory views, with Teams first. **Follow their picks** first filters by sport, then drills into sports, competitions, teams, players/athletes, collections, events and individual fixtures. Copying an individual team or athlete uses the existing additive, exclusion-aware copy transaction.
 
 A broad Football follow alone does not admit an ordinary domestic fixture such as Internazionale v Udinese. Admission still requires an explicit participating team/player (including the accepted current-team inheritance), a qualifying explicit competition/event decision, or a manual fixture pin. Regression: `validate-adaptive-follow-grid.js`, `validate-adaptive-follow-grid-browser.js`, `validate-follow-decisions.js`, `validate-followed-fixture-surfacing.js`, and `validate-leaderboard-v2-browser.js`.

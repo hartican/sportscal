@@ -53,6 +53,7 @@ jobs:
           node scripts/validate-hobby-deployments.js
           node scripts/validate-server-feed.js
           node scripts/validate-follow-policy-parity.js
+          node scripts/validate-f1-parent-feed.js
       - name: Bind project and preserve current production
         run: node scripts/prepare-production-release.js
       - name: Deploy or reuse exact release
