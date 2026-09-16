@@ -105,6 +105,10 @@ Following a source-backed player in a rostered team sport admits the published f
 
 Explicit selected selector IDs repair contradictory persisted graph flags on the server before fixture resolution and Feed admission. In particular, a checked F1 or AFLW choice cannot remain silently disabled by an older graph projection. Regression: `validate-followed-fixture-surfacing.js`.
 
+### Selected child versus unselected parent — 16 September 2026
+
+An explicitly selected child sport takes precedence over its unselected ancestor's derived disabled flag for that child's fixtures. A stored `sport:motorsport` disabled flag must not veto selected F1, MotoGP or WRC. Apply the same taxonomy-based specificity in the browser, followed-schedule loader and server; never enable the parent or infer follows for siblings. Child/competition exclusions, event-family exclusions, participant mutes and fixture dismissals retain their existing precedence. The F1 incident reproduced with F1 selected and enabled while Motorsport was disabled; previous tests covered the F1 flag alone and missed this parent veto. Regression: `node scripts/validate-f1-parent-feed.js`, required by canonical refresh and production deployment.
+
 ## Adaptive Follow grid and entity drill-down — 16 September 2026
 
 The Follow grid shows at most seven sports plus More. It contains only sports the current account follows, so an account with fewer than seven followed sports gets fewer icons rather than filler. Order is personal: count distinct Heat, Live and Impact interactions per fixture phase over the rolling prior 90 days, collapse F1, WRC and MotoGP into Motorsport, then sort by count, most recent interaction and the existing editorial order. Multiple edits or rating buckets in the same fixture phase count once. Rating history changes grid order only; it never admits a Feed card. Every followed sport outside the first seven remains in More.

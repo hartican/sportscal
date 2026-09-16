@@ -255,6 +255,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-preference-reset-recovery.js"],
   ["scripts/validate-server-feed.js"],
   ["scripts/validate-followed-fixture-surfacing.js"],
+  ["scripts/validate-f1-parent-feed.js"],
   ["scripts/validate-authenticated-feed-startup.js"],
   ["scripts/validate-follow-fixture-resolver.js"],
   ["scripts/validate-update-cards.js"],

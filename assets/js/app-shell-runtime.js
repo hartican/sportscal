@@ -3915,7 +3915,7 @@ return {gender,sport,badge};
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildFollowFeedPolicy(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-feed-policy.v7";
+  const SCHEMA_VERSION = "follow-feed-policy.v8";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const SYDNEY_DATE = new Intl.DateTimeFormat('en-CA',{timeZone:SYDNEY_TIME_ZONE,year:'numeric',month:'2-digit',day:'2-digit'});
 
@@ -3973,11 +3973,22 @@ return {gender,sport,badge};
 
   function effectiveDomainPreferences(event, preferences){
     const domains=preferences?.preferenceGraph?.domainPreferences || [];
-    const child=premiershipDomainId(event);
-    // The old parent switch was derived as off when its premiership child was
-    // selected. That broad switch does not cancel a specific explicit choice.
-    return child && (preferences?.selectedSelectorEntityIds || []).includes(child)
-      ? domains.filter(p=>p.sportDomainId!==`sport:${sportKey(event)}`) : domains;
+    const taxonomy=globalThis.NOTHINGSPORTS_SELECTOR_TAXONOMY
+      || (typeof require === "function" ? require("./selector-taxonomy.js") : null);
+    const selected=new Set(preferences?.selectedSelectorEntityIds || []);
+    const ancestors=new Set();
+    // Parent switches are projections of selection, not independent exclusions
+    // of explicitly chosen children. Resolve specificity for this fixture only;
+    // never enable the parent or admit any unselected siblings.
+    for(const id of [premiershipDomainId(event),`sport:${sportKey(event)}`,event?.sportDomainId]){
+      if(!id || !selected.has(id))continue;
+      let parent=taxonomy?.byId?.[id]?.parentId;
+      while(parent?.startsWith("sport:") && !ancestors.has(parent)){
+        ancestors.add(parent);
+        parent=taxonomy?.byId?.[parent]?.parentId;
+      }
+    }
+    return ancestors.size ? domains.filter(p=>!ancestors.has(p.sportDomainId)) : domains;
   }
 
   function eventFamilyIds(event){
