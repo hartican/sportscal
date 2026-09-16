@@ -500,6 +500,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
     .forEach(name => fs.unlinkSync(path.join(outputDir, name)));
   const manifest = { schemaVersion: "code-inspector.v1", generatedAt: feed.publishedAt || null, codes };
   fs.writeFileSync(path.join(outputDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
+  require("./build-chat-fixture-registry").writeRegistry({ rootDir:ROOT });
   return manifest;
 }
 

@@ -86,6 +86,8 @@ async function run(){
   const worker = fs.readFileSync("service-worker.js", "utf8");
   const vercel = JSON.parse(fs.readFileSync("vercel.json", "utf8"));
   const feedManifest = JSON.parse(fs.readFileSync("data/feed/manifest.json", "utf8"));
+  const chatFixtureRegistry = JSON.parse(fs.readFileSync("data/chat-fixtures.v1.json", "utf8"));
+  const codeInspectorBuilder = fs.readFileSync("scripts/build-code-inspector.js", "utf8");
   for (const table of ["profiles", "rooms", "members", "messages", "reactions", "notification_deliveries", "anonymous_session_limits", "anonymous_signup_tickets"]){
     assert.match(sql, new RegExp(`nothingsports_chat_${table}[\\s\\S]+enable row level security`, "i"));
     assert.match(sql, new RegExp(`nothingsports_chat_${table}[\\s\\S]+force row level security`, "i"));
@@ -157,9 +159,37 @@ async function run(){
   assert.match(api, /messageQuery\.created_at = `gte\.\$\{after\}`/, "message polling must include simultaneous rows at the cursor instant");
   assert.doesNotMatch(api, /console\.(?:log|info|warn|error)[^\n]*capability/i, "share credentials must never enter server logs");
   const chatIncludeFiles = vercel.functions?.["api/chat.js"]?.includeFiles || "";
-  assert.match(chatIncludeFiles, /feed\/\*\.json/, "the deployed chat function must include canonical fixture pages");
-  assert.match(chatIncludeFiles, /follow-fixtures\.v1\.json/, "chat must include followed fixtures whose exact start is not yet known");
-  assert.match(chatIncludeFiles, /major-events\.v1\.json/, "chat must include the surfaced Event schedule");
+  assert.equal(chatIncludeFiles, "data/chat-fixtures.v1.json", "the deployed chat function must include only the compact canonical chat registry");
+  assert.equal(chatFixtureRegistry.schemaVersion, "chat-fixture-registry.v1");
+  assert.equal(chatFixtureRegistry.fixtureCount, chatFixtureRegistry.fixtures.length);
+  assert(chatFixtureRegistry.fixtureCount > feedManifest.eventCount, "chat eligibility must cover canonical Follow schedules beyond the personalised Feed projection");
+  assert.match(codeInspectorBuilder, /build-chat-fixture-registry[^\n]+writeRegistry/, "every Code Inspector schedule rebuild must refresh the compact chat registry");
+  const eligibilityNow = new Date("2026-09-16T00:00:00.000Z");
+  assert.equal(chatHandler._test.fixtureIsUpcomingOrLive({ status:"confirmed", startTimeUtc:"2026-09-18T07:30:00.000Z" }, eligibilityNow), true, "future confirmed fixtures must remain eligible");
+  assert.equal(chatHandler._test.fixtureIsUpcomingOrLive({ status:"completed", startTimeUtc:"2026-09-18T07:30:00.000Z" }, eligibilityNow), false, "completed fixtures must remain ineligible even when their scheduled time is in the future");
+  const fixtureMap = chatHandler._test.loadFixtureMap();
+  const firstOdi = fixtureMap.get("fixture:cricket:espn:1530203");
+  assert(firstOdi, "the first Zimbabwe–Australia ODI must exist in the chat registry");
+  assert.equal(fixtureMap.get("fixture:cricket:CA:40288"), firstOdi, "provider aliases must resolve to one canonical fixture");
+  for (const id of ["fixture:cricket:espn:1530204", "fixture:cricket:espn:1530205"]){
+    assert(fixtureMap.has(id), `${id} must be available for fixture chat creation`);
+  }
+  assert.throws(
+    () => chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:espn:1530203", eligibilityNow),
+    error => error?.status === 409 && error?.code === "fixture_not_chat_eligible",
+    "an elapsed fixture must remain unavailable for new room creation",
+  );
+  const aliasedSnapshot = chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:CA:40288", new Date("2026-09-15T06:00:00.000Z"));
+  assert.equal(aliasedSnapshot.canonicalFixtureId, "fixture:cricket:espn:1530203");
+  const fridayOdi = chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:espn:1530204", eligibilityNow);
+  assert.equal(fridayOdi.startTimeUtc, "2026-09-18T07:30:00.000Z");
+  assert.equal(fridayOdi.name, "Zimbabwe v Australia");
+  assert.equal(chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:espn:1530205", eligibilityNow).canonicalFixtureId, "fixture:cricket:espn:1530205");
+  assert.throws(
+    () => chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:unknown", eligibilityNow),
+    error => error?.status === 404 && error?.code === "fixture_not_found",
+    "unknown fixture IDs must fail closed",
+  );
   assert.match(api, /require\("@vercel\/functions"\)/, "chat must use the Vercel request-lifetime API");
   assert.match(api, /const notificationFanout = dispatchChatMessageNotifications\([\s\S]{0,300}waitUntil\(notificationFanout\)/, "push fan-out must continue after the message acknowledgement instead of blocking it");
   feedManifest.pages.forEach(page => {
@@ -513,6 +543,11 @@ async function run(){
     assert(adminSearch.body.users.every(user => user.email.endsWith("@example.com")), "emails may appear in the admin-only picker");
 
     const fixtureId = firstEligibleFixtureId();
+    const deniedCreate = await invoke(tokenRequest(`token-${ids.userA}`, {
+      method:"POST",
+      body:{ action:"create-room", canonicalFixtureId:"fixture:cricket:espn:1530204", roomName:"Not an admin", memberIds:[] },
+    }));
+    assert.equal(deniedCreate.statusCode, 403, "ordinary members must not create fixture rooms");
     const create = async (name, memberIds) => invoke(tokenRequest(`token-${ids.adminA}`, {
       method:"POST",
       body:{ action:"create-room", canonicalFixtureId:fixtureId, roomName:name, memberIds },

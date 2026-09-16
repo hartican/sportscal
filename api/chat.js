@@ -166,30 +166,14 @@ function validInstant(value){
 
 function loadFixtureMap(readFileSync = fs.readFileSync, root = path.join(__dirname, "..")){
   try{
-    const manifest = JSON.parse(readFileSync(path.join(root, "data/feed/manifest.json"), "utf8"));
+    const registry = JSON.parse(readFileSync(path.join(root, "data/chat-fixtures.v1.json"), "utf8"));
+    if (registry?.schemaVersion !== "chat-fixture-registry.v1" || !Array.isArray(registry.fixtures)) throw new Error("Unsupported chat fixture registry");
     const fixtures = new Map();
-    (manifest.pages || []).forEach(page => {
-      const document = JSON.parse(readFileSync(path.join(root, page.path), "utf8"));
-      (document.events || []).forEach(event => {
-        const ids = [event.canonicalEventId, event.eventId, event.id].map(value => String(value || "").trim()).filter(Boolean);
-        ids.forEach(id => fixtures.set(id, event));
-      });
-    });
-    const addFixture = event => {
-      if (!event || typeof event !== "object") return;
-      const ids = [event.canonicalEventId, event.eventId, event.id].map(value => String(value || "").trim()).filter(Boolean);
+    registry.fixtures.forEach(event => {
+      const ids = [event.canonicalEventId, event.eventId, event.id, ...(event.sourceEventIds || [])]
+        .map(value => String(value || "").trim()).filter(Boolean);
       ids.forEach(id => fixtures.set(id, event));
-    };
-    const followDocument = JSON.parse(readFileSync(path.join(root, "data/follow-fixtures.v1.json"), "utf8"));
-    (followDocument.events || []).forEach(addFixture);
-    const majorDocument = JSON.parse(readFileSync(path.join(root, "data/major-events.v1.json"), "utf8"));
-    const visit = event => {
-      addFixture(event);
-      for (const key of ["fixtures", "subEvents", "events", "schedule"]){
-        if (Array.isArray(event?.[key])) event[key].forEach(visit);
-      }
-    };
-    (majorDocument.events || []).forEach(visit);
+    });
     return fixtures;
   }catch(_error){
     throw new ChatRequestError(
