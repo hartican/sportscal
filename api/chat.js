@@ -409,23 +409,36 @@ async function handleActive(user, admin, profile){
   };
 }
 
-async function handleUserSearch(query, admin){
-  requireAdmin(admin);
+async function handleUserSearch(query, user, admin){
+  if (isAnonymousUser(user)) throw new ChatRequestError("Sign in to find people for a chat.", 401, "chat_sign_in_required");
   const q = String(query || "").trim().toLowerCase();
   if (Array.from(q).length < chatContract.LIMITS.userSearchMin){
     throw new ChatRequestError("Search with at least three characters.", 400, "chat_search_too_short");
   }
-  const users = (await knownAuthUsers())
-    .filter(user => String(user.email || "").toLowerCase().includes(q))
-    .slice(0, chatContract.LIMITS.userSearchResults);
-  const names = await displayNames(users.map(user => user.id));
+  const publicMatches = await supabaseServiceRequest("/rest/v1/rpc/nothingsports_chat_search_profiles", {
+    method:"POST",
+    body:{ target_query:q, target_limit:chatContract.LIMITS.userSearchResults },
+  });
+  const byAccount = new Map((Array.isArray(publicMatches) ? publicMatches : []).map(profile => [profile.account_id, {
+    accountId:profile.account_id,
+    displayName:profile.display_name,
+    handle:profile.handle ? `@${profile.handle}` : null,
+  }]));
+  if (admin){
+    const emailMatches = (await knownAuthUsers())
+      .filter(account => String(account.email || "").toLowerCase().includes(q))
+      .slice(0, chatContract.LIMITS.userSearchResults);
+    const names = await displayNames(emailMatches.map(account => account.id));
+    emailMatches.forEach(account => byAccount.set(account.id, {
+      ...byAccount.get(account.id),
+      accountId:account.id,
+      displayName:byAccount.get(account.id)?.displayName || names.get(account.id) || null,
+      email:String(account.email || "").toLowerCase(),
+    }));
+  }
   return {
     schemaVersion:chatContract.SCHEMA_VERSION,
-    users:users.map(user => ({
-      accountId:user.id,
-      email:String(user.email || "").toLowerCase(),
-      displayName:names.get(user.id) || null,
-    })),
+    users:[...byAccount.values()].filter(account => account.accountId !== user.id).slice(0, chatContract.LIMITS.userSearchResults),
   };
 }
 
@@ -574,6 +587,7 @@ async function handleRoomGet(request, user, admin, profile){
       ...publicRoom(room),
       memberCount:memberRows.length,
       canManage:admin,
+      canDeleteRoom:Boolean(admin || room.created_by === user.id),
       readOnly:room.status !== "open" || !member,
       viewer:{
         member:Boolean(member),
@@ -599,6 +613,7 @@ async function handleRoomGet(request, user, admin, profile){
       sentAt:message.created_at,
       senderName:senderName(message),
       own:message.sender_id === user.id,
+      canDelete:Boolean(admin || message.sender_id === user.id),
       deliveryState,
       attachments:attachmentsByMessage.get(message.id) || [],
       ...(message.reply_to_message_id ? (() => {
@@ -645,6 +660,25 @@ async function storageSignedDownload(bucket, objectPath){
 
 function encodedStoragePath(bucket, objectPath){
   return [bucket, ...String(objectPath || "").split("/")].map(encodeURIComponent).join("/");
+}
+
+async function deleteStoredObjects(attachments){
+  const byBucket = new Map();
+  for (const attachment of attachments || []){
+    if (!attachment?.object_path) continue;
+    const bucket = attachment.storage_bucket || CHAT_MEDIA_BUCKET;
+    const paths = byBucket.get(bucket) || [];
+    paths.push(attachment.object_path);
+    byBucket.set(bucket, paths);
+  }
+  for (const [bucket, paths] of byBucket){
+    for (let offset = 0; offset < paths.length; offset += 1000){
+      await supabaseServiceRequest(`/storage/v1/object/${encodeURIComponent(bucket)}`, {
+        method:"DELETE",
+        body:{ prefixes:paths.slice(offset, offset + 1000) },
+      });
+    }
+  }
 }
 
 function sniffAttachmentContentType(bytes){
@@ -892,8 +926,16 @@ async function attachmentDownload(request, user, admin){
   return storageSignedDownload(attachment.storage_bucket, attachment.object_path);
 }
 
-async function createRoom(body, user, admin){
-  requireAdmin(admin);
+function openRoomLimitError(error){
+  return error instanceof SupabaseRequestError && /at most 3 open chats|open chat limit/i.test(String(error.message || error.payload?.message || ""));
+}
+
+function throwOpenRoomLimit(){
+  throw new ChatRequestError("You can participate in at most three open chats at once.", 409, "chat_open_room_limit");
+}
+
+async function createRoom(body, user){
+  if (isAnonymousUser(user)) throw new ChatRequestError("Sign in to create a chat.", 401, "chat_sign_in_required");
   const roomName = chatContract.roomName(body.roomName);
   if (!roomName) throw new ChatRequestError("Use a room name between 1 and 80 characters.", 400, "invalid_chat_room_name");
   const fixture = canonicalFixtureSnapshot(body.canonicalFixtureId);
@@ -906,19 +948,25 @@ async function createRoom(body, user, admin){
   if ([...memberIds, ...requested].some(id => !knownIds.has(id))){
     throw new ChatRequestError("Every chat member must be an existing account.", 400, "unknown_chat_member");
   }
-  const result = await supabaseServiceRequest("/rest/v1/rpc/nothingsports_chat_create_room", {
-    method:"POST",
-    body:{
-      target_fixture_id:fixture.canonicalFixtureId,
-      target_fixture_snapshot:fixture,
-      target_room_name:roomName,
-      target_creator:user.id,
-      target_members:memberIds,
-    },
-  });
+  let result;
+  try{
+    result = await supabaseServiceRequest("/rest/v1/rpc/nothingsports_chat_create_room", {
+      method:"POST",
+      body:{
+        target_fixture_id:fixture.canonicalFixtureId,
+        target_fixture_snapshot:fixture,
+        target_room_name:roomName,
+        target_creator:user.id,
+        target_members:memberIds,
+      },
+    });
+  }catch(error){
+    if (openRoomLimitError(error)) throwOpenRoomLimit();
+    throw error;
+  }
   const roomId = Array.isArray(result) ? result[0] : result;
   const invitees=[...new Set(requested.filter(id=>id!==user.id))];
-  if(invitees.length)await inviteMembers({roomId,memberIds:invitees},user,admin);
+  if(invitees.length)await inviteMembers({roomId,memberIds:invitees},user);
   return { schemaVersion:chatContract.SCHEMA_VERSION, room:publicRoom(await roomById(roomId)) };
 }
 
@@ -957,17 +1005,23 @@ async function joinSharedRoom(body, user, profile){
   if (anonymous && !guestDisplayName){
     throw new ChatRequestError("Choose a guest name between 2 and 30 characters.", 400, "chat_guest_name_required");
   }
-  const result = await supabaseServiceRequest("/rest/v1/rpc/nothingsports_chat_join_shared_room", {
-    method:"POST",
-    body:{
-      target_room:parsed.roomId,
-      target_version:parsed.version,
-      target_nonce:parsed.nonce,
-      target_user:user.id,
-      target_member_kind:anonymous ? "guest" : "account",
-      target_guest_display_name:anonymous ? guestDisplayName : null,
-    },
-  });
+  let result;
+  try{
+    result = await supabaseServiceRequest("/rest/v1/rpc/nothingsports_chat_join_shared_room", {
+      method:"POST",
+      body:{
+        target_room:parsed.roomId,
+        target_version:parsed.version,
+        target_nonce:parsed.nonce,
+        target_user:user.id,
+        target_member_kind:anonymous ? "guest" : "account",
+        target_guest_display_name:anonymous ? guestDisplayName : null,
+      },
+    });
+  }catch(error){
+    if (!anonymous && openRoomLimitError(error)) throwOpenRoomLimit();
+    throw error;
+  }
   const joined=Array.isArray(result)?result[0]:result;
   if(joined?.outcome==="full")throw new ChatRequestError("This chat room already has 25 participants.",409,"chat_room_full");
   if(joined?.outcome==="closed")throw new ChatRequestError("This chat room is closed.",409,"chat_room_closed");
@@ -1049,14 +1103,14 @@ async function addMembers(body, user, admin){
       if (error instanceof SupabaseRequestError && /25 members|member limit/i.test(String(error.message || ""))){
         throw new ChatRequestError("A chat room may have at most 25 members.", 409, "chat_member_limit");
       }
+      if (openRoomLimitError(error)) throwOpenRoomLimit();
       throw error;
     }
   }
   return { schemaVersion:chatContract.SCHEMA_VERSION, added:additions.length };
 }
 
-async function inviteMembers(body, user, admin){
-  requireAdmin(admin);
+async function inviteMembers(body, user){
   const roomId = requireUuid(body.roomId, "room ID");
   const requested = [...new Set((Array.isArray(body.memberIds) ? body.memberIds : []).map(value => requireUuid(value)))];
   if (!requested.length) return { schemaVersion:chatContract.SCHEMA_VERSION, invited:0 };
@@ -1078,7 +1132,13 @@ async function resolveInvitation(body,user){
   const invitationId=requireUuid(body.invitationId,"invitation ID");
   const resolution=body.resolution==="accept"?"accepted":body.resolution==="reject"?"rejected":null;
   if(!resolution)throw new ChatRequestError("Choose accept or reject.",400,"invalid_chat_invitation_resolution");
-  const result=await supabaseServiceRequest('/rest/v1/rpc/nothingsports_chat_resolve_invitation',{method:'POST',body:{target_invitation:invitationId,target_invitee:user.id,target_resolution:resolution}});
+  let result;
+  try{
+    result=await supabaseServiceRequest('/rest/v1/rpc/nothingsports_chat_resolve_invitation',{method:'POST',body:{target_invitation:invitationId,target_invitee:user.id,target_resolution:resolution}});
+  }catch(error){
+    if(openRoomLimitError(error))throwOpenRoomLimit();
+    throw error;
+  }
   const resolved=Array.isArray(result)?result[0]:result;
   if(!resolved)throw new ChatRequestError("That invitation is no longer available.",404,"chat_invitation_not_found");
   return {schemaVersion:chatContract.SCHEMA_VERSION,resolution,roomId:resolved.room_id||resolved.roomId};
@@ -1302,6 +1362,32 @@ async function deleteSavedMedia(body, user){
   return { schemaVersion:chatContract.SCHEMA_VERSION, deleted:true, savedMediaId };
 }
 
+async function deleteMessage(body, user, admin){
+  const roomId = requireUuid(body.roomId, "room ID");
+  const messageId = requireUuid(body.messageId, "message ID");
+  await requireRoomAccess(roomId, user, admin);
+  const message = (await rows(TABLES.messages, {
+    id:`eq.${messageId}`,
+    room_id:`eq.${roomId}`,
+    select:"id,sender_id",
+    limit:"1",
+  }))[0] || null;
+  if (!message) throw new ChatRequestError("That message is no longer available.", 404, "chat_message_not_found");
+  if (!admin && message.sender_id !== user.id){
+    throw new ChatRequestError("Only the message author or an app admin may delete it.", 403, "chat_message_delete_forbidden");
+  }
+  const attachments = await rows(TABLES.attachments, {
+    message_id:`eq.${messageId}`,
+    select:"storage_bucket,object_path",
+  });
+  await deleteStoredObjects(attachments);
+  await supabaseServiceRequest(restPath(TABLES.messages, { id:`eq.${messageId}`, room_id:`eq.${roomId}` }), {
+    method:"DELETE",
+    headers:{ Prefer:"return=minimal" },
+  });
+  return { schemaVersion:chatContract.SCHEMA_VERSION, deleted:true, messageId };
+}
+
 async function toggleReaction(body, user, admin){
   const roomId = requireUuid(body.roomId, "room ID");
   const messageId = requireUuid(body.messageId, "message ID");
@@ -1400,12 +1486,56 @@ async function closeRoom(body, user, admin){
   return { schemaVersion:chatContract.SCHEMA_VERSION, room:publicRoom(saved?.[0] || await roomById(roomId)) };
 }
 
+async function deleteRoom(body, user, admin){
+  const roomId = requireUuid(body.roomId, "room ID");
+  let room = await roomById(roomId);
+  if (!room) throw new ChatRequestError("Chat room not found.", 404, "chat_room_not_found");
+  if (!admin && room.created_by !== user.id){
+    throw new ChatRequestError("Only the chat creator or an app admin may delete it.", 403, "chat_room_delete_forbidden");
+  }
+  const originalShare = {
+    guest_share_enabled:room.guest_share_enabled,
+    guest_share_enabled_at:room.guest_share_enabled_at,
+    guest_share_disabled_at:room.guest_share_disabled_at,
+  };
+  const transitioned = room.status === "open";
+  if (transitioned){
+    const closing = await supabaseServiceRequest(restPath(TABLES.rooms, { id:`eq.${roomId}`, status:"eq.open", select:"*" }), {
+      method:"PATCH",
+      headers:{ Prefer:"return=representation" },
+      body:{ status:"closing", closed_by:user.id },
+    });
+    room = closing?.[0] || await roomById(roomId);
+  }
+  const attachments = await rows(TABLES.attachments, {
+    room_id:`eq.${roomId}`,
+    select:"storage_bucket,object_path",
+  });
+  try{
+    await deleteStoredObjects(attachments);
+  }catch(error){
+    if (transitioned){
+      await supabaseServiceRequest(restPath(TABLES.rooms, { id:`eq.${roomId}`, status:"eq.closing" }), {
+        method:"PATCH",
+        headers:{ Prefer:"return=minimal" },
+        body:{ status:"open", ...originalShare },
+      });
+    }
+    throw error;
+  }
+  await supabaseServiceRequest(restPath(TABLES.rooms, { id:`eq.${roomId}` }), {
+    method:"DELETE",
+    headers:{ Prefer:"return=minimal" },
+  });
+  return { schemaVersion:chatContract.SCHEMA_VERSION, deleted:true, roomId };
+}
+
 async function handlePost(request, user, admin, profile){
   const body = requestBody(request);
   switch (body.action){
     case "set-display-name": return setDisplayName(body, user, profile);
     case "join-shared-room": return joinSharedRoom(body, user, profile);
-    case "create-room": return createRoom(body, user, admin);
+    case "create-room": return createRoom(body, user);
     case "enable-share": return configureGuestShare(body, user, admin, "enable");
     case "rotate-share": return configureGuestShare(body, user, admin, "rotate");
     case "disable-share": return configureGuestShare(body, user, admin, "disable");
@@ -1421,10 +1551,12 @@ async function handlePost(request, user, admin, profile){
     case "gif-import": return gifImport(body, user, admin);
     case "attachment-save": return saveAttachment(body, user, admin);
     case "saved-media-delete": return deleteSavedMedia(body, user);
+    case "delete-message": return deleteMessage(body, user, admin);
     case "toggle-reaction": return toggleReaction(body, user, admin);
     case "mark-read": return markRead(body, user, admin);
     case "mark-delivered": return markRead(body, user, admin, true);
     case "close-room": return closeRoom(body, user, admin);
+    case "delete-room": return deleteRoom(body, user, admin);
     default: throw new ChatRequestError("Unknown chat action.", 400, "unknown_chat_action");
   }
 }
@@ -1449,7 +1581,7 @@ async function chatHandler(request, response){
     if ((request.method || "GET") === "GET"){
       const mode = String(queryValue(request, "mode") || "").trim();
       if (mode === "active") payload = await handleActive(user, admin, profile);
-      else if (mode === "users") payload = await handleUserSearch(queryValue(request, "q"), admin);
+      else if (mode === "users") payload = await handleUserSearch(queryValue(request, "q"), user, admin);
       else if (mode === "gif-config") payload = await gifConfig(user);
       else if (mode === "saved-media") payload = await listSavedMedia(user);
       else if (mode === "attachment"){

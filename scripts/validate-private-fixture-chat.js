@@ -58,7 +58,7 @@ function firstEligibleFixtureId(){
 async function run(){
   assert.equal(chatContract.SCHEMA_VERSION, "private-fixture-chat.v2");
   assert.equal(chatContract.LIMITS.membersPerRoom, 25);
-  assert.equal(chatContract.LIMITS.openRoomsPerFixture, 10);
+  assert.equal(chatContract.LIMITS.openRoomsPerUser, 3);
   assert.equal(chatContract.LIMITS.messageCodePoints, 500);
   assert.equal(chatContract.LIMITS.messagesPerMinute, 30);
   assert.equal(chatContract.LIMITS.historyPage, 100);
@@ -99,8 +99,9 @@ async function run(){
   assert.match(sql, /old\.status = 'closed'[\s\S]+cannot be reopened/i);
   assert.match(sql, />= 30[\s\S]+Chat message rate limit exceeded/i);
   assert.match(sql, />= 25[\s\S]+at most 25 members/i);
-  assert.match(sql, />= 10[\s\S]+at most 10 open chat rooms/i);
-  assert.match(sql, /pg_advisory_xact_lock[\s\S]+nothingsports-chat-room-limit/);
+  assert.doesNotMatch(sql, /at most 10 open chat rooms/i);
+  assert.match(sql, />= 3[\s\S]+at most 3 open chats/i);
+  assert.match(sql, /pg_advisory_xact_lock[\s\S]+nothingsports-chat-open-user-limit/);
   assert.match(sql, /pg_advisory_xact_lock[\s\S]+nothingsports-chat-member-limit/);
   assert.match(sql, /pg_advisory_xact_lock[\s\S]+nothingsports-chat-message-rate/);
   assert.match(sql, /from public\.nothingsports_chat_rooms[\s\S]+for update;/i);
@@ -129,6 +130,9 @@ async function run(){
   assert.match(sql, /nothingsports_chat_unread_totals\(target_users uuid\[\]\)[\s\S]+unread\.sender_id <> requested\.user_id[\s\S]+unread\.created_at > membership\.last_read_at/i);
   assert.match(sql, /revoke all on function public\.nothingsports_chat_unread_totals\(uuid\[\]\) from public, anon, authenticated/i);
   assert.match(sql, /grant execute on function public\.nothingsports_chat_unread_totals\(uuid\[\]\) to service_role/i);
+  assert.match(sql, /nothingsports_chat_search_profiles\([\s\S]{0,160}target_query text[\s\S]{0,160}target_limit integer default 10[\s\S]+visibility = 'visible'[\s\S]+display_name[\s\S]+handle/i);
+  assert.match(sql, /revoke all on function public\.nothingsports_chat_search_profiles\(text, integer\) from public, anon, authenticated/i);
+  assert.match(sql, /grant execute on function public\.nothingsports_chat_search_profiles\(text, integer\) to service_role/i);
   assert.match(sql, /badges_enabled boolean not null default true/i);
   assert.match(notifications, /chat_alerts_enabled=eq\.true/, "chat push must exclude installations that explicitly opted out");
   assert.match(sql, /is_anonymous is true[\s\S]+interval '30 days'/i);
@@ -144,6 +148,11 @@ async function run(){
   assert.match(api, /CHAT_ADMIN_EMAILS/);
   assert.match(api, /authenticatedUser\(bearerToken\(request\)\)/);
   assert.match(api, /supabaseServiceRequest/);
+  assert.match(api, /async function createRoom\(body, user\)[\s\S]+isAnonymousUser\(user\)[\s\S]+target_members:memberIds/i, "signed-in room creation must use the authenticated creator as the initial member");
+  assert.doesNotMatch(api, /async function createRoom\(body, user(?:, [^)]+)?\)[\s\S]{0,300}requireAdmin/i, "room creation must not remain admin-only");
+  assert.match(api, /async function deleteMessage\(body, user, admin\)[\s\S]+message\.sender_id !== user\.id[\s\S]+method:"DELETE"/i, "message authors and admins must be able to delete messages");
+  assert.match(api, /async function deleteRoom\(body, user, admin\)[\s\S]+room\.created_by !== user\.id[\s\S]+deleteStoredObjects[\s\S]+method:"DELETE"/i, "room creators and admins must be able to delete whole chats");
+  assert.match(api, /async function deleteStoredObjects[\s\S]+\/storage\/v1\/object\//i, "chat deletion must remove attachment objects through the Storage API");
   assert.doesNotMatch(api, /console\.(?:log|info|warn|error)/, "chat content must never enter ordinary server logs");
   assert.match(capabilitySource,/randomBytes\(32\)/i);
   assert.match(capabilitySource,/anonymousSignupTicketHash[\s\S]+createHash\("sha256"\)/i);
@@ -224,7 +233,11 @@ async function run(){
   assert.match(html, /\.chat-composer\[hidden\]\{ display:none; \}/, "the message composer must stay hidden during room setup");
   assert.match(html, /copy\.className = "chat-user-copy"/);
   assert.match(html, /name\.className = "chat-user-name"/);
-  assert.match(html, /email\.className = "chat-user-email"/, "member names and email addresses must render as separate rows");
+  assert.match(html, /renderChatUserSearch/);
+  assert.match(html, /account\.handle \|\| account\.email \|\| "Public profile"/, "ordinary search results must render public handles without requiring email disclosure");
+  assert.match(html, /action:"delete-message"/);
+  assert.match(html, /action:"delete-room"/);
+  assert.match(html, /Remove from list/, "personal archiving must not be labelled as destructive deletion");
   assert(worker.includes(`nothingsport-shell-v${html.match(/name="app-shell-version" content="(\d+)"/)?.[1]}`));
   assert(html.match(/name="app-shell-version" content="(\d+)"/)?.[1]);
   assert(require("./offline-shell-module")("config/chat-contract.js"), "chat contract must be available offline, individually or bundled");
@@ -252,6 +265,7 @@ async function run(){
   const tokenUsers = new Map(accounts.map(account => [`token-${account.id}`, account]));
   const profiles = new Map();
   const publicProfiles = new Map([
+    [ids.adminA, { user_id:ids.adminA, display_name:"Admin One", handle:"admin_one", visibility:"visible" }],
     [ids.userA, { user_id:ids.userA, display_name:"Public Member One", handle:"member_one", visibility:"visible" }],
     [ids.userB, { user_id:ids.userB, display_name:"Public Member Two", handle:"member_two", visibility:"visible" }],
   ]);
@@ -291,7 +305,23 @@ async function run(){
       return user ? fetchResponse(user) : fetchResponse({ code:"invalid_access_token", message:"Invalid session" }, 401);
     }
     if (url.pathname === "/auth/v1/admin/users") return fetchResponse({ users:accounts });
+    if (url.pathname === "/rest/v1/rpc/nothingsports_chat_search_profiles"){
+      const query = String(body.target_query || "").trim().toLowerCase();
+      const limit = Math.min(Number(body.target_limit || 10), 10);
+      return fetchResponse([...publicProfiles.values()]
+        .filter(profile => profile.visibility === "visible")
+        .filter(profile => `${profile.display_name} ${profile.handle}`.toLowerCase().includes(query))
+        .slice(0, limit)
+        .map(profile => ({ account_id:profile.user_id, display_name:profile.display_name, handle:profile.handle })));
+    }
     if (url.pathname === "/rest/v1/rpc/nothingsports_chat_create_room"){
+      const openMemberships = members.filter(member => (
+        member.user_id === body.target_creator
+        && rooms.some(room => room.id === member.room_id && room.status === "open")
+      )).length;
+      if (openMemberships >= chatContract.LIMITS.openRoomsPerUser){
+        return fetchResponse({ message:"An account may participate in at most 3 open chats" }, 409);
+      }
       const id = `aaaaaaaa-aaaa-4aaa-8aaa-${String(roomSequence++).padStart(12, "0")}`;
       const createdAt = timestamp();
       rooms.push({
@@ -348,6 +378,10 @@ async function run(){
       }
       const roomMembers=members.filter(item=>item.room_id===room.id);
       if(roomMembers.length>=25)return fetchResponse([{outcome:"full",existing_member:false,member_count:roomMembers.length}]);
+      if(body.target_member_kind==="account"){
+        const openMemberships=members.filter(member=>member.user_id===body.target_user&&rooms.some(candidate=>candidate.id===member.room_id&&candidate.status==="open")).length;
+        if(openMemberships>=chatContract.LIMITS.openRoomsPerUser)return fetchResponse({message:"An account may participate in at most 3 open chats"},409);
+      }
       members.push({room_id:room.id,user_id:body.target_user,added_by:body.target_user,member_kind:body.target_member_kind,guest_display_name:body.target_guest_display_name,joined_at:timestamp(),last_read_at:timestamp()});
       return fetchResponse([{outcome:"joined",existing_member:false,member_count:roomMembers.length+1}]);
     }
@@ -356,7 +390,11 @@ async function run(){
       if(!invitation)return fetchResponse([]);
       if(invitation.status==='pending'){
         invitation.status=body.target_resolution;
-        if(invitation.status==='accepted')members.push({room_id:invitation.room_id,user_id:invitation.invitee_id,added_by:invitation.inviter_id,member_kind:'account',joined_at:timestamp(),last_read_at:timestamp()});
+        if(invitation.status==='accepted'){
+          const openMemberships=members.filter(member=>member.user_id===invitation.invitee_id&&rooms.some(room=>room.id===member.room_id&&room.status==='open')).length;
+          if(openMemberships>=chatContract.LIMITS.openRoomsPerUser){invitation.status='pending';return fetchResponse({message:'An account may participate in at most 3 open chats'},409);}
+          members.push({room_id:invitation.room_id,user_id:invitation.invitee_id,added_by:invitation.inviter_id,member_kind:'account',joined_at:timestamp(),last_read_at:timestamp()});
+        }
       }
       return fetchResponse([{room_id:invitation.room_id,status:invitation.status}]);
     }
@@ -429,6 +467,16 @@ async function run(){
         }
         return fetchResponse([room]);
       }
+      if (options.method === "DELETE"){
+        if (!room) return fetchResponse(null);
+        for (let index = rooms.length - 1; index >= 0; index -= 1) if (rooms[index].id === roomId) rooms.splice(index, 1);
+        for (let index = members.length - 1; index >= 0; index -= 1) if (members[index].room_id === roomId) members.splice(index, 1);
+        for (let index = invitations.length - 1; index >= 0; index -= 1) if (invitations[index].room_id === roomId) invitations.splice(index, 1);
+        const deletedMessageIds = new Set(messages.filter(message => message.room_id === roomId).map(message => message.id));
+        for (let index = messages.length - 1; index >= 0; index -= 1) if (messages[index].room_id === roomId) messages.splice(index, 1);
+        for (let index = reactions.length - 1; index >= 0; index -= 1) if (deletedMessageIds.has(reactions[index].message_id)) reactions.splice(index, 1);
+        return fetchResponse(null);
+      }
       if(roomId.startsWith("in.("))return fetchResponse(rooms.filter(item=>roomId.slice(4,-1).split(",").includes(item.id)));
       return fetchResponse(room ? [room] : []);
     }
@@ -447,11 +495,13 @@ async function run(){
       }
       if (options.method === "POST"){
         const additions = Array.isArray(body) ? body : [body];
-        additions.forEach(member => {
+        for (const member of additions){
           if (!members.some(existing => existing.room_id === member.room_id && existing.user_id === member.user_id)){
+            const openMemberships=members.filter(existing=>existing.user_id===member.user_id&&rooms.some(room=>room.id===existing.room_id&&room.status==='open')).length;
+            if(member.member_kind==='account'&&openMemberships>=chatContract.LIMITS.openRoomsPerUser)return fetchResponse({message:'An account may participate in at most 3 open chats'},409);
             members.push({ ...member, joined_at:timestamp(), last_read_at:timestamp() });
           }
-        });
+        }
         return fetchResponse([]);
       }
       return fetchResponse(members.filter(member => (!roomId || member.room_id === roomId) && (!userId || member.user_id === userId) && (!url.searchParams.has("archived_at") || member.archived_at)));
@@ -470,6 +520,12 @@ async function run(){
         const saved = { id, ...body, created_at:timestamp() };
         messages.push(saved);
         return fetchResponse([saved]);
+      }
+      if (options.method === "DELETE"){
+        const deletedIds = new Set(messages.filter(message => (!messageId || message.id === messageId) && (!roomId || message.room_id === roomId)).map(message => message.id));
+        for (let index = messages.length - 1; index >= 0; index -= 1) if (deletedIds.has(messages[index].id)) messages.splice(index, 1);
+        for (let index = reactions.length - 1; index >= 0; index -= 1) if (deletedIds.has(reactions[index].message_id)) reactions.splice(index, 1);
+        return fetchResponse(null);
       }
       let selected = messages.filter(message => (!messageId || message.id === messageId) && (!roomId || message.room_id === roomId) && (!senderId || message.sender_id === senderId) && (!clientId || message.client_id === clientId));
       const createdFilter = url.searchParams.get("created_at") || "";
@@ -526,6 +582,7 @@ async function run(){
       if (after) selected = selected.filter(item => item.updated_at > after);
       return fetchResponse(selected);
     }
+    if (url.pathname.startsWith("/storage/v1/object/")) return fetchResponse({});
     return fetchResponse({ message:`Unexpected test request ${url.pathname}` }, 500);
   };
 
@@ -534,8 +591,14 @@ async function run(){
     assert.equal(missing.statusCode, 401, "missing sessions must fail closed");
     assert.equal(missing.headers["Cache-Control"], "private, no-store, max-age=0");
 
-    const deniedSearch = await invoke(tokenRequest(`token-${ids.userA}`, { query:{ mode:"users", q:"mem" } }));
-    assert.equal(deniedSearch.statusCode, 403, "ordinary users must not access the email account picker");
+    const memberSearch = await invoke(tokenRequest(`token-${ids.userA}`, { query:{ mode:"users", q:"member" } }));
+    assert.equal(memberSearch.statusCode, 200, "signed-in users must be able to find visible public profiles");
+    assert.equal(memberSearch.body.users.length, 1, "ordinary search must exclude the requester");
+    assert.equal(memberSearch.body.users[0].handle, "@member_two");
+    assert.equal(Object.hasOwn(memberSearch.body.users[0], "email"), false, "ordinary search must never expose account email addresses");
+
+    const guestSearch = await invoke(tokenRequest(`token-${ids.guest}`, { query:{ mode:"users", q:"member" } }));
+    assert.equal(guestSearch.statusCode, 401, "anonymous guests must not search accounts");
 
     const adminSearch = await invoke(tokenRequest(`token-${ids.adminA}`, { query:{ mode:"users", q:"member" } }));
     assert.equal(adminSearch.statusCode, 200);
@@ -543,19 +606,35 @@ async function run(){
     assert(adminSearch.body.users.every(user => user.email.endsWith("@example.com")), "emails may appear in the admin-only picker");
 
     const fixtureId = firstEligibleFixtureId();
-    const deniedCreate = await invoke(tokenRequest(`token-${ids.userA}`, {
+    const profilelessCreate = await invoke(tokenRequest(`token-${ids.outsider}`, {
       method:"POST",
-      body:{ action:"create-room", canonicalFixtureId:"fixture:cricket:espn:1530204", roomName:"Not an admin", memberIds:[] },
+      body:{ action:"create-room", canonicalFixtureId:fixtureId, roomName:"No public profile", memberIds:[] },
     }));
-    assert.equal(deniedCreate.statusCode, 403, "ordinary members must not create fixture rooms");
-    const create = async (name, memberIds) => invoke(tokenRequest(`token-${ids.adminA}`, {
+    assert.equal(profilelessCreate.statusCode, 200, "every signed-in account may create a room even before setting a public profile");
+    const profilelessDelete = await invoke(tokenRequest(`token-${ids.outsider}`, {
+      method:"POST",
+      body:{ action:"delete-room", roomId:profilelessCreate.body.room.roomId },
+    }));
+    assert.equal(profilelessDelete.statusCode, 200, "a profileless signed-in creator must retain room deletion rights");
+    const guestCreate = await invoke(tokenRequest(`token-${ids.guest}`, {
+      method:"POST",
+      body:{ action:"create-room", canonicalFixtureId:fixtureId, roomName:"Guest room", memberIds:[] },
+    }));
+    assert.equal(guestCreate.statusCode, 401);
+    assert.equal(guestCreate.body.code, "chat_sign_in_required");
+    const create = async (name, memberIds) => invoke(tokenRequest(`token-${ids.userA}`, {
       method:"POST",
       body:{ action:"create-room", canonicalFixtureId:fixtureId, roomName:name, memberIds },
     }));
-    const firstRoom = await create("Friends", [ids.userA, ids.userB]);
+    const firstRoom = await create("Friends", [ids.userB]);
     const secondRoom = await create("Second screen", [ids.userB]);
+    const thirdRoom = await create("Family", [ids.userB]);
+    const fourthRoom = await create("One too many", []);
     assert.equal(firstRoom.statusCode, 200);
     assert.equal(secondRoom.statusCode, 200, "multiple rooms per fixture must be supported");
+    assert.equal(thirdRoom.statusCode, 200, "the third simultaneous chat must remain available");
+    assert.equal(fourthRoom.statusCode, 409, "a fourth open chat membership must be rejected");
+    assert.equal(fourthRoom.body.code, "chat_open_room_limit");
     assert.notEqual(firstRoom.body.room.roomId, secondRoom.body.room.roomId);
     members.push({
       room_id:secondRoom.body.room.roomId,user_id:ids.legacyGuest,added_by:ids.adminA,
@@ -570,9 +649,22 @@ async function run(){
       assert.equal(accepted.statusCode,200);
     }
     const activeMember = await invoke(tokenRequest(`token-${ids.userB}`, { query:{ mode:"active" } }));
-    assert.equal(activeMember.body.rooms.length, 2, "membership, not follows, must drive Active chats");
+    assert.equal(activeMember.body.rooms.length, 3, "membership, not follows, must drive Active chats up to the three-room ceiling");
     const activeAdmin = await invoke(tokenRequest(`token-${ids.adminB}`, { query:{ mode:"active" } }));
-    assert.equal(activeAdmin.body.rooms.length, 2, "every allowlisted admin may inspect open rooms");
+    assert.equal(activeAdmin.body.rooms.length, 3, "every allowlisted admin may inspect open rooms");
+
+    const invitationLimitRoom = await invoke(tokenRequest(`token-${ids.adminA}`, {
+      method:"POST",
+      body:{ action:"create-room", canonicalFixtureId:fixtureId, roomName:"Invitation limit", memberIds:[ids.userB] },
+    }));
+    assert.equal(invitationLimitRoom.statusCode, 200);
+    const limitInvitation = invitations.find(invitation => invitation.room_id === invitationLimitRoom.body.room.roomId && invitation.invitee_id === ids.userB);
+    const limitedInvitation = await invoke(tokenRequest(`token-${ids.userB}`, {
+      method:"POST",
+      body:{ action:"resolve-invitation", invitationId:limitInvitation.invitation_id, resolution:"accept" },
+    }));
+    assert.equal(limitedInvitation.statusCode, 409, "accepting an invitation must not create a fourth open chat membership");
+    assert.equal(limitedInvitation.body.code, "chat_open_room_limit");
 
     const roomId = firstRoom.body.room.roomId;
     const isolated = await invoke(tokenRequest(`token-${ids.outsider}`, { query:{ roomId } }));
@@ -699,6 +791,33 @@ async function run(){
     assert.equal(roomRead.body.messages[0].senderName, "Public Member One");
     assert.equal(Object.hasOwn(roomRead.body.messages[0], "email"), false, "members must receive display names without emails");
 
+    const authoredForDeletion = await invoke(tokenRequest(`token-${ids.userA}`, {
+      method:"POST",
+      body:{ action:"send-message", roomId, clientId:"author-delete-0001", body:"Author can delete this" },
+    }));
+    const deniedMessageDelete = await invoke(tokenRequest(`token-${ids.userB}`, {
+      method:"POST",
+      body:{ action:"delete-message", roomId, messageId:authoredForDeletion.body.message.messageId },
+    }));
+    assert.equal(deniedMessageDelete.statusCode, 403, "another member must not delete someone else's message");
+    const authorDeleted = await invoke(tokenRequest(`token-${ids.userA}`, {
+      method:"POST",
+      body:{ action:"delete-message", roomId, messageId:authoredForDeletion.body.message.messageId },
+    }));
+    assert.equal(authorDeleted.statusCode, 200, "the message author must be able to delete their post");
+    assert(!messages.some(message => message.id === authoredForDeletion.body.message.messageId));
+
+    const adminDeletionTarget = await invoke(tokenRequest(`token-${ids.userA}`, {
+      method:"POST",
+      body:{ action:"send-message", roomId, clientId:"admin-delete-0001", body:"Admin can delete this" },
+    }));
+    const adminDeleted = await invoke(tokenRequest(`token-${ids.adminA}`, {
+      method:"POST",
+      body:{ action:"delete-message", roomId, messageId:adminDeletionTarget.body.message.messageId },
+    }));
+    assert.equal(adminDeleted.statusCode, 200, "an app admin must be able to delete any post");
+    assert(!messages.some(message => message.id === adminDeletionTarget.body.message.messageId));
+
     const disabledShare = await invoke(tokenRequest(`token-${ids.adminA}`, {
       method:"POST",
       body:{ action:"disable-share", roomId },
@@ -801,6 +920,21 @@ async function run(){
     const memberLimit = await create("Too large", tooManyMembers);
     assert.equal(memberLimit.statusCode, 409);
     assert.equal(memberLimit.body.code, "chat_member_limit");
+
+    const deniedRoomDelete = await invoke(tokenRequest(`token-${ids.userB}`, {
+      method:"POST", body:{ action:"delete-room", roomId:secondRoomId },
+    }));
+    assert.equal(deniedRoomDelete.statusCode, 403, "a room member who did not create the chat must not delete it");
+    const creatorDeleted = await invoke(tokenRequest(`token-${ids.userA}`, {
+      method:"POST", body:{ action:"delete-room", roomId:thirdRoom.body.room.roomId },
+    }));
+    assert.equal(creatorDeleted.statusCode, 200, "the chat creator must be able to delete the whole room");
+    assert(!rooms.some(room => room.id === thirdRoom.body.room.roomId));
+    const adminDeletedRoom = await invoke(tokenRequest(`token-${ids.adminA}`, {
+      method:"POST", body:{ action:"delete-room", roomId:secondRoomId },
+    }));
+    assert.equal(adminDeletedRoom.statusCode, 200, "an app admin must be able to delete a room created by another user");
+    assert(!rooms.some(room => room.id === secondRoomId));
   } finally {
     global.fetch = originalFetch;
     if (originalEnvironment.url === undefined) delete process.env.SUPABASE_URL; else process.env.SUPABASE_URL = originalEnvironment.url;
@@ -886,7 +1020,7 @@ async function run(){
     webpush.setVapidDetails = originalSetVapidDetails;
   }
 
-  console.log("Private fixture chat validation passed: forced server boundary, signed capabilities, guests, profiles, replies, reactions, notification idempotency, limits and closure.");
+  console.log("Private fixture chat validation passed: signed-in creation, three-open-chat enforcement, multiple fixture rooms, author/admin deletion, forced server boundary, guests, profiles, replies, reactions, notification idempotency and closure.");
 }
 
 run().catch(error => {

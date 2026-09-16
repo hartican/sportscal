@@ -369,31 +369,8 @@ create trigger protect_nothingsports_chat_room_lifecycle
 before update of status, closed_at, purge_at on public.nothingsports_chat_rooms
 for each row execute function public.protect_nothingsports_chat_room_lifecycle();
 
-create or replace function public.enforce_nothingsports_chat_room_limit()
-returns trigger
-language plpgsql
-security invoker
-set search_path = ''
-as $$
-begin
-  perform pg_catalog.pg_advisory_xact_lock(
-    pg_catalog.hashtextextended('nothingsports-chat-room-limit:' || new.canonical_fixture_id, 0)
-  );
-  if (
-    select count(*)
-    from public.nothingsports_chat_rooms
-    where canonical_fixture_id = new.canonical_fixture_id and status = 'open'
-  ) >= 10 then
-    raise exception 'A fixture may have at most 10 open chat rooms';
-  end if;
-  return new;
-end;
-$$;
-
 drop trigger if exists enforce_nothingsports_chat_room_limit on public.nothingsports_chat_rooms;
-create trigger enforce_nothingsports_chat_room_limit
-before insert on public.nothingsports_chat_rooms
-for each row execute function public.enforce_nothingsports_chat_room_limit();
+drop function if exists public.enforce_nothingsports_chat_room_limit();
 
 create or replace function public.enforce_nothingsports_chat_member_limit()
 returns trigger
@@ -402,6 +379,19 @@ security invoker
 set search_path = ''
 as $$
 begin
+  if new.member_kind = 'account' then
+    perform pg_catalog.pg_advisory_xact_lock(
+      pg_catalog.hashtextextended('nothingsports-chat-open-user-limit:' || new.user_id::text, 0)
+    );
+    if (
+      select count(*)
+      from public.nothingsports_chat_members existing
+      join public.nothingsports_chat_rooms room on room.id = existing.room_id
+      where existing.user_id = new.user_id and room.status = 'open'
+    ) >= 3 then
+      raise exception 'An account may participate in at most 3 open chats';
+    end if;
+  end if;
   perform pg_catalog.pg_advisory_xact_lock(
     pg_catalog.hashtextextended('nothingsports-chat-member-limit:' || new.room_id::text, 0)
   );
@@ -631,6 +621,35 @@ as $$
     (select max(latest.created_at) from public.nothingsports_chat_messages latest where latest.room_id = r.id),
     r.created_at
   ) desc;
+$$;
+
+create or replace function public.nothingsports_chat_search_profiles(
+  target_query text,
+  target_limit integer default 10
+)
+returns table (
+  account_id uuid,
+  display_name text,
+  handle text
+)
+language sql
+stable
+security invoker
+set search_path = ''
+as $$
+  select profile.user_id, profile.display_name, profile.handle
+  from public.nothingsports_nsc_profiles profile
+  where profile.visibility = 'visible'
+    and char_length(btrim(coalesce(target_query, ''))) >= 3
+    and (
+      lower(profile.display_name) like '%' || lower(btrim(target_query)) || '%'
+      or lower(profile.handle) like '%' || lower(btrim(target_query)) || '%'
+    )
+  order by
+    case when lower(profile.handle) = lower(btrim(target_query)) then 0 else 1 end,
+    lower(profile.display_name),
+    profile.user_id
+  limit least(greatest(coalesce(target_limit, 10), 1), 10);
 $$;
 
 create or replace function public.nothingsports_chat_unread_totals(target_users uuid[])
@@ -959,6 +978,7 @@ grant select, delete on table public.nothingsports_chat_anonymous_signup_tickets
 
 revoke all on function public.nothingsports_chat_create_room(text, jsonb, text, uuid, uuid[]) from public, anon, authenticated;
 revoke all on function public.nothingsports_chat_active_rooms(uuid, boolean) from public, anon, authenticated;
+revoke all on function public.nothingsports_chat_search_profiles(text, integer) from public, anon, authenticated;
 revoke all on function public.nothingsports_chat_unread_totals(uuid[]) from public, anon, authenticated;
 revoke all on function public.nothingsports_chat_authorize_anonymous_session(uuid, integer, text, text, text) from public, anon, authenticated;
 revoke all on function public.nothingsports_chat_join_shared_room(uuid, integer, text, uuid, text, text) from public, anon, authenticated;
@@ -966,6 +986,7 @@ revoke all on function public.nothingsports_chat_configure_guest_share(uuid, boo
 revoke all on function public.nothingsports_chat_claim_notification_delivery(uuid, uuid, timestamptz, timestamptz) from public, anon, authenticated;
 grant execute on function public.nothingsports_chat_create_room(text, jsonb, text, uuid, uuid[]) to service_role;
 grant execute on function public.nothingsports_chat_active_rooms(uuid, boolean) to service_role;
+grant execute on function public.nothingsports_chat_search_profiles(text, integer) to service_role;
 grant execute on function public.nothingsports_chat_unread_totals(uuid[]) to service_role;
 grant execute on function public.nothingsports_chat_authorize_anonymous_session(uuid, integer, text, text, text) to service_role;
 grant execute on function public.nothingsports_chat_join_shared_room(uuid, integer, text, uuid, text, text) to service_role;
@@ -1022,6 +1043,7 @@ comment on table public.nothingsports_chat_reactions is 'Server-only fixed-palet
 comment on table public.nothingsports_chat_notification_deliveries is 'Idempotent privacy-safe chat push delivery ledger; senders are excluded.';
 comment on table public.nothingsports_chat_anonymous_session_limits is 'Server-only per-room anonymous-session counters keyed by an HMAC of the Vercel client IP; raw IP addresses are never stored.';
 comment on table public.nothingsports_chat_anonymous_signup_tickets is 'One-use, five-minute anonymous Auth tickets. Only SHA-256 hashes are stored; raw bearer tickets never enter the database.';
+comment on function public.nothingsports_chat_search_profiles(text, integer) is 'Server-only chat invitation search over visible public display names and handles; emails are never returned to ordinary users.';
 comment on function public.nothingsports_before_user_created(jsonb) is 'Supabase Before User Created hook: ordinary accounts pass, anonymous users require and consume a server-issued chat signup ticket.';
 
 -- pg_cron is a managed Supabase extension and must be enabled for the project

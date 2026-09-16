@@ -29,3 +29,9 @@ Registered-account eligibility is established by the authenticated API before th
 ## Follow-grid affinity read — 16 September 2026
 
 Load Follow-grid affinity only for the signed-in account and only when Follow opens. Query the preceding 90 days of contribution rows through the existing authenticated Nothing Score endpoint, supported by the `(user_id, updated_at desc)` index with fixture and phase columns included. Deduplicate edits in application code by fixture and phase; return only per-sport counts and last-interaction timestamps. Anonymous accounts use the ordinary followed-sport order without a database read. This aggregate controls presentation order only and cannot alter Feed admission.
+
+## Fixture-chat ownership and deletion — 16 September 2026
+
+Any signed-in account may create an eligible upcoming/live fixture chat. A fixture may have multiple rooms with different participant combinations; the database enforces a race-safe ceiling of three open room memberships per signed-in account across creation, invitation acceptance, account guest-link joins and admin additions. Anonymous guest memberships remain governed by the 25-member room ceiling and do not count against an account limit. Existing Public Profile requirements still apply before an account can post a message.
+
+The room creator or an app admin may permanently delete the complete chat. A message author or an app admin may permanently delete an individual message. Before relational deletion, transient attachment objects are removed through the private Storage API; explicitly saved account-owned copies remain separate. Direct browser table access remains denied and all authorization stays at the authenticated server API plus database-trigger boundary. Personal archive remains a reversible “Remove from list” action and is not presented as deletion. These ownership changes do not alter the established polling intervals or scheduler budgets.

@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="267">
+<meta name="app-shell-version" content="268">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=267" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=268" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6933,9 +6933,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=267">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=267">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=267">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=268">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=268">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=268">
 </head>
 <body>
 
@@ -7230,7 +7230,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=267"></script>
+<script src="assets/js/app-shell-runtime.js?v=268"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10694,7 +10694,7 @@ async function loadFollowDirectoryManifest(){
 function parseFollowDirectoryText(text){
   if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
   if(!followDirectoryParserWorker){
-    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=267");
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=268");
     followDirectoryParserWorker.addEventListener("message",event=>{
       const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
       followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
@@ -23460,7 +23460,7 @@ function chatFixtureEligible(event){
 function appendFixtureChatActions(container, event){
   if (!serverSyncClient?.chatRequest || !CHAT) return;
   const rooms = chatRoomsForFixture(event);
-  const canSetUp = chatState.isAdmin && chatFixtureEligible(event);
+  const canSetUp = Boolean(serverPersistence.user && !chatState.isGuest && chatFixtureEligible(event));
   if (rooms.length || canSetUp){
     const chat = document.createElement("button");
     chat.type = "button";
@@ -23656,7 +23656,7 @@ function renderActiveChats(){
   document.getElementById("shareRoomHeaderBtn").hidden = true;
   const disclosure = document.createElement("p");
   disclosure.className = "chat-disclosure";
-  disclosure.textContent = "New rooms begin members-only. Administrators may enable an unlisted guest link; closed rooms revoke participant access and remain read-only to administrators for seven days.";
+  disclosure.textContent = `Signed-in users can create private fixture chats and participate in up to ${CHAT.LIMITS.openRoomsPerUser} open chats at once. Administrators may enable an unlisted guest link.`;
   body.appendChild(disclosure);
   for(const invitation of chatState.invitations){const row=document.createElement('section');row.className='chat-room-row';const copy=document.createElement('span');copy.innerHTML=`<strong></strong><span></span>`;copy.querySelector('strong').textContent=invitation.room?.roomName||'Chat invitation';copy.querySelector('span').textContent=invitation.room?.fixture?.name||'Fixture chat';const actions=document.createElement('span');actions.className='chat-form-actions';for(const [resolution,label] of [['accept','Accept'],['reject','Reject']]){const button=document.createElement('button');button.type='button';button.className=`btn ${resolution==='accept'?'primary':'ghost'}`;button.textContent=label;button.onclick=async()=>{button.disabled=true;await serverSyncClient.chatRequest({}, {action:'resolve-invitation',invitationId:invitation.invitationId,resolution});await refreshChatActive({rerenderOpenList:true});};actions.appendChild(button);}row.append(copy,actions);body.appendChild(row);}
   if (!chatState.isGuest){
@@ -23667,13 +23667,11 @@ function renderActiveChats(){
     savedMedia.addEventListener("click", () => { void renderSavedGameMedia(); });
     body.appendChild(savedMedia);
   }
-  if(chatState.rooms.length&&!chatState.isGuest){const controls=document.createElement('div');controls.className='chat-form-actions';const edit=document.createElement('button');edit.type='button';edit.className='btn ghost';edit.textContent=chatState.chatSelectionMode?'Cancel':'Select chats';edit.onclick=()=>{chatState.chatSelectionMode=!chatState.chatSelectionMode;chatState.selectedRoomIds=[];renderActiveChats();};controls.appendChild(edit);if(chatState.chatSelectionMode){const all=document.createElement('button');all.type='button';all.className='btn ghost';all.textContent='Select all';all.onclick=()=>{chatState.selectedRoomIds=chatState.rooms.map(room=>room.roomId);renderActiveChats();};const remove=document.createElement('button');remove.type='button';remove.className='btn primary';remove.textContent='Delete selected';remove.title='Remove selected chats from your list. Other members keep their messages.';remove.onclick=()=>deleteSelectedChats(remove);controls.append(all,remove);}body.appendChild(controls);}
+  if(chatState.rooms.length&&!chatState.isGuest){const controls=document.createElement('div');controls.className='chat-form-actions';const edit=document.createElement('button');edit.type='button';edit.className='btn ghost';edit.textContent=chatState.chatSelectionMode?'Cancel':'Select chats';edit.onclick=()=>{chatState.chatSelectionMode=!chatState.chatSelectionMode;chatState.selectedRoomIds=[];renderActiveChats();};controls.appendChild(edit);if(chatState.chatSelectionMode){const all=document.createElement('button');all.type='button';all.className='btn ghost';all.textContent='Select all';all.onclick=()=>{chatState.selectedRoomIds=chatState.rooms.map(room=>room.roomId);renderActiveChats();};const remove=document.createElement('button');remove.type='button';remove.className='btn primary';remove.textContent='Remove from list';remove.title='Remove selected chats from your list. Other members keep their messages.';remove.onclick=()=>deleteSelectedChats(remove);controls.append(all,remove);}body.appendChild(controls);}
   if (!chatState.rooms.length){
     const empty = document.createElement("p");
     empty.className = "chat-empty";
-    empty.textContent = chatState.isAdmin
-      ? "There are no open rooms. Use Set up chat on an upcoming or live fixture."
-      : "You have no active fixture chats.";
+    empty.textContent = "You have no active fixture chats. Open an upcoming or live fixture card to create one.";
     body.appendChild(empty);
     return;
   }
@@ -23739,7 +23737,7 @@ function renderFixtureRoomChooser(event){
   list.className = "chat-room-list";
   rooms.forEach(room => list.appendChild(chatRoomRow(room)));
   body.appendChild(list);
-  if (chatState.isAdmin && chatFixtureEligible(event)){
+  if (serverPersistence.user && !chatState.isGuest && chatFixtureEligible(event)){
     const setup = document.createElement("button");
     setup.type = "button";
     setup.className = "btn ghost";
@@ -23757,10 +23755,10 @@ function openFixtureChats(event){
   else renderFixtureRoomChooser(event);
 }
 
-function renderAdminUserSearch(host, { exclude = new Set(), onSelection } = {}){
+function renderChatUserSearch(host, { exclude = new Set(), onSelection } = {}){
   const label = document.createElement("label");
   label.className = "field-label";
-  label.textContent = "Find existing accounts";
+  label.textContent = "Find people";
   const input = document.createElement("input");
   input.type = "search";
   input.autocomplete = "off";
@@ -23783,7 +23781,7 @@ function renderAdminUserSearch(host, { exclude = new Set(), onSelection } = {}){
     try{
       const payload = await serverSyncClient.chatRequest({ mode:"users", q:input.value.trim() });
       const visible = payload.users.filter(account => !exclude.has(account.accountId));
-      status.textContent = visible.length ? "Choose accounts to invite." : "No matching accounts are available.";
+      status.textContent = visible.length ? "Choose people to invite." : "No matching people are available.";
       visible.forEach(account => {
         const row = document.createElement("label");
         row.className = "chat-user-row";
@@ -23792,10 +23790,10 @@ function renderAdminUserSearch(host, { exclude = new Set(), onSelection } = {}){
         const name = document.createElement("strong");
         name.className = "chat-user-name";
         name.textContent = account.displayName || "Display name not set";
-        const email = document.createElement("span");
-        email.className = "chat-user-email";
-        email.textContent = account.email;
-        copy.append(name, email);
+        const identity = document.createElement("span");
+        identity.className = "chat-user-email";
+        identity.textContent = account.handle || account.email || "Public profile";
+        copy.append(name, identity);
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.value = account.accountId;
@@ -23810,7 +23808,7 @@ function renderAdminUserSearch(host, { exclude = new Set(), onSelection } = {}){
 }
 
 function openChatSetup(event){
-  if (!chatState.isAdmin) return;
+  if (!serverPersistence.user || chatState.isGuest) return;
   prepareChatAudio();
   chatSetupFixture = event;
   chatState.currentRoom = null;
@@ -23818,21 +23816,13 @@ function openChatSetup(event){
   chatState.olderCursor = null;
   setChatDrawerOpen(true);
   setChatHeading("Set up chat", event.name || "Upcoming fixture");
-  chatConnection("Admin setup", "connected");
+  chatConnection("Chat setup", "connected");
   document.getElementById("shareRoomHeaderBtn").hidden = true;
   const body = document.getElementById("chatBody");
   body.replaceChildren();
-  if (!chatState.profile?.publicProfile){
-    const required = document.createElement("p");
-    required.className = "chat-disclosure";
-    required.textContent = "Create your global Public Profile before setting up a room. This display name is inherited by every signed-in chat and by Nothinger Leaderboard.";
-    body.appendChild(required);
-    renderChatPublicProfileForm(body, { onSaved:() => openChatSetup(event) });
-    return;
-  }
   const disclosure = document.createElement("p");
   disclosure.className = "chat-disclosure";
-  disclosure.textContent = "Invited members and app admins can read the open room. Closing is irreversible; app admins retain read-only access for seven days before permanent purge.";
+  disclosure.textContent = `Invite a different combination of people for this fixture. You can participate in up to ${CHAT.LIMITS.openRoomsPerUser} open chats at once.`;
   const form = document.createElement("form");
   form.className = "chat-form";
   const nameLabel = document.createElement("label");
@@ -23845,7 +23835,7 @@ function openChatSetup(event){
   nameLabel.appendChild(nameInput);
   const selected = new Set();
   form.appendChild(nameLabel);
-  renderAdminUserSearch(form, {
+  renderChatUserSearch(form, {
     exclude:new Set([serverPersistence.user?.id].filter(Boolean)),
     onSelection(account, checked){
       if (checked) selected.add(account.accountId);
@@ -24144,6 +24134,25 @@ async function saveChatAttachment(message, attachment, save){
   if (!outcome.ok) chatConnection(outcome.error?.message || "That media could not be saved. Tap Retry save.", "retrying");
 }
 
+async function deleteChatMessage(message, control){
+  const room = chatState.currentRoom;
+  if (!room || !message?.canDelete || message.pending) return;
+  if (!window.confirm("Delete this message? This cannot be undone.")) return;
+  control.disabled = true;
+  try{
+    await serverSyncClient.chatRequest({}, { action:"delete-message", roomId:room.roomId, messageId:message.messageId });
+    chatState.messages = chatState.messages
+      .filter(item => item.messageId !== message.messageId)
+      .map(item => item.replyTo?.messageId === message.messageId ? { ...item, replyTo:null } : item);
+    if (chatState.replyToMessageId === message.messageId) chatState.replyToMessageId = null;
+    refreshChatMessageStream({ autoScroll:false, preserveScroll:true });
+    void refreshChatActive();
+  }catch(error){
+    chatConnection(error.message || "That message could not be deleted.", "retrying");
+    control.disabled = false;
+  }
+}
+
 function chatMessageElement(message){
   const item = document.createElement("article");
   item.className = `chat-message${message.own ? " own" : ""}`;
@@ -24243,6 +24252,15 @@ function chatMessageElement(message){
   });
   react.addEventListener("click", () => { picker.hidden = !picker.hidden; });
   if (chatState.currentRoom?.viewer?.canPost) actions.append(reply, react, picker);
+  if (message.canDelete && !message.pending){
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "chat-message-action";
+    remove.textContent = "Delete";
+    remove.setAttribute("aria-label", `Delete message from ${message.senderName}`);
+    remove.addEventListener("click", () => { void deleteChatMessage(message, remove); });
+    actions.appendChild(remove);
+  }
   if (reactions.childElementCount) item.appendChild(reactions);
   if (actions.childElementCount) item.appendChild(actions);
   const status=document.createElement("div");status.className="chat-message-status";
@@ -24338,94 +24356,98 @@ function renderChatAdminControls(host, room){
     list.appendChild(row);
   });
   host.appendChild(list);
-  if (!chatState.isAdmin || room.status !== "open") return;
-  const add = document.createElement("section");
-  add.className = "chat-form";
-  const selected = new Set();
-  renderAdminUserSearch(add, {
-    exclude:memberIds,
-    onSelection(account, checked){
-      if (checked) selected.add(account.accountId);
-      else selected.delete(account.accountId);
-    },
-  });
-  const addButton = document.createElement("button");
-  addButton.type = "button";
-  addButton.className = "btn ghost";
-  addButton.textContent = "Add selected members";
-  addButton.addEventListener("click", async () => {
-    if (!selected.size) return;
-    addButton.disabled = true;
-    try{
-      await serverSyncClient.chatRequest({}, { action:"add-members", roomId:room.roomId, memberIds:[...selected] });
-      await openChatRoom(room.roomId);
-    }catch(error){
-      chatConnection(error.message || "Members could not be added.", "retrying");
-      addButton.disabled = false;
-    }
-  });
-  add.appendChild(addButton);
-  const close = document.createElement("button");
-  close.type = "button";
-  close.className = "btn ghost";
-  close.textContent = "Close room permanently";
-  close.addEventListener("click", async () => {
-    close.disabled = true;
-    try{
-      const payload = await serverSyncClient.chatRequest({}, { action:"close-room", roomId:room.roomId });
-      chatState.currentRoom = { ...room, ...payload.room, readOnly:true };
-      renderOpenChatRoom({ autoScroll:false });
-      void refreshChatActive();
-    }catch(error){
-      chatConnection(error.message || "The room could not be closed.", "retrying");
-      close.disabled = false;
-    }
-  });
-  const share = document.createElement("section");
-  share.className = "chat-share-panel";
-  const shareTitle = document.createElement("strong");
-  shareTitle.textContent = "Guest link";
-  const shareCopy = document.createElement("p");
-  shareCopy.className = "chat-empty";
-  shareCopy.textContent = room.guestShareEnabled
-    ? "Anyone with the unlisted link can join without a visible sign-in. It is not listed publicly."
-    : "Members only. Enable an unlisted guest link when you are ready to share this room.";
-  share.append(shareTitle, shareCopy);
-  if (chatState.shareCapability){
-    const link = document.createElement("input");
-    link.className = "chat-share-link";
-    link.readOnly = true;
-    link.value = roomGuestShareUrl(chatState.shareCapability);
-    link.addEventListener("focus", () => link.select());
-    share.appendChild(link);
-  }
-  const shareActions = document.createElement("div");
-  shareActions.className = "chat-form-actions";
-  const shareButton = document.createElement("button");
-  shareButton.type = "button";
-  shareButton.className = "btn primary";
-  shareButton.textContent = room.guestShareEnabled ? "Copy / Share" : "Enable guest link";
-  shareButton.addEventListener("click", () => { void shareRoomWithGuests(room, "enable"); });
-  shareActions.appendChild(shareButton);
-  if (room.guestShareEnabled){
-    const rotate = document.createElement("button");
-    rotate.type = "button";
-    rotate.className = "btn ghost";
-    rotate.textContent = "Rotate link";
-    rotate.addEventListener("click", () => {
-      if (window.confirm("Rotate this guest link? The old link will stop admitting new guests; guests who already joined stay in the room.")) void shareRoomWithGuests(room, "rotate");
+  if (room.status === "open" && chatState.isAdmin){
+    const add = document.createElement("section");
+    add.className = "chat-form";
+    const selected = new Set();
+    renderChatUserSearch(add, {
+      exclude:memberIds,
+      onSelection(account, checked){
+        if (checked) selected.add(account.accountId);
+        else selected.delete(account.accountId);
+      },
     });
-    const disable = document.createElement("button");
-    disable.type = "button";
-    disable.className = "btn ghost";
-    disable.textContent = "Disable guest access";
-    disable.addEventListener("click", () => {
-      if (window.confirm("Disable guest access? The link will stop working and all guest memberships will be removed immediately.")) void disableRoomGuestSharing(room);
+    const addButton = document.createElement("button");
+    addButton.type = "button";
+    addButton.className = "btn ghost";
+    addButton.textContent = "Add selected members";
+    addButton.addEventListener("click", async () => {
+      if (!selected.size) return;
+      addButton.disabled = true;
+      try{
+        await serverSyncClient.chatRequest({}, { action:"add-members", roomId:room.roomId, memberIds:[...selected] });
+        await openChatRoom(room.roomId);
+      }catch(error){
+        chatConnection(error.message || "Members could not be added.", "retrying");
+        addButton.disabled = false;
+      }
     });
-    shareActions.append(rotate, disable);
+    add.appendChild(addButton);
+    const share = document.createElement("section");
+    share.className = "chat-share-panel";
+    const shareTitle = document.createElement("strong");
+    shareTitle.textContent = "Guest link";
+    const shareCopy = document.createElement("p");
+    shareCopy.className = "chat-empty";
+    shareCopy.textContent = room.guestShareEnabled
+      ? "Anyone with the unlisted link can join without a visible sign-in. It is not listed publicly."
+      : "Members only. Enable an unlisted guest link when you are ready to share this room.";
+    share.append(shareTitle, shareCopy);
+    if (chatState.shareCapability){
+      const link = document.createElement("input");
+      link.className = "chat-share-link";
+      link.readOnly = true;
+      link.value = roomGuestShareUrl(chatState.shareCapability);
+      link.addEventListener("focus", () => link.select());
+      share.appendChild(link);
+    }
+    const shareActions = document.createElement("div");
+    shareActions.className = "chat-form-actions";
+    const shareButton = document.createElement("button");
+    shareButton.type = "button";
+    shareButton.className = "btn primary";
+    shareButton.textContent = room.guestShareEnabled ? "Copy / Share" : "Enable guest link";
+    shareButton.addEventListener("click", () => { void shareRoomWithGuests(room, "enable"); });
+    shareActions.appendChild(shareButton);
+    if (room.guestShareEnabled){
+      const rotate = document.createElement("button");
+      rotate.type = "button";
+      rotate.className = "btn ghost";
+      rotate.textContent = "Rotate link";
+      rotate.addEventListener("click", () => {
+        if (window.confirm("Rotate this guest link? The old link will stop admitting new guests; guests who already joined stay in the room.")) void shareRoomWithGuests(room, "rotate");
+      });
+      const disable = document.createElement("button");
+      disable.type = "button";
+      disable.className = "btn ghost";
+      disable.textContent = "Disable guest access";
+      disable.addEventListener("click", () => {
+        if (window.confirm("Disable guest access? The link will stop working and all guest memberships will be removed immediately.")) void disableRoomGuestSharing(room);
+      });
+      shareActions.append(rotate, disable);
+    }
+    share.appendChild(shareActions);
+    host.append(add, share);
   }
-  share.appendChild(shareActions);
-  host.append(add, share, close);
+  if (room.canDeleteRoom){
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "btn ghost";
+    remove.textContent = "Delete chat";
+    remove.addEventListener("click", async () => {
+      if (!window.confirm("Delete this chat and every message in it? This cannot be undone.")) return;
+      remove.disabled = true;
+      try{
+        await serverSyncClient.chatRequest({}, { action:"delete-room", roomId:room.roomId });
+        setChatDrawerOpen(false);
+        await refreshChatActive();
+      }catch(error){
+        chatConnection(error.message || "The chat could not be deleted.", "retrying");
+        remove.disabled = false;
+      }
+    });
+    host.appendChild(remove);
+  }
 }
 
 function roomGuestShareUrl(capability){
@@ -25255,7 +25277,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=267");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=268");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

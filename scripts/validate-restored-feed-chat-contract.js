@@ -28,7 +28,9 @@ assert.match(html,/fixture-participant-pager/,'F1 followed participants need a o
 assert.match(html,/time\.textContent=`\$\{timing\} • \$\{sportLabel\}`/,'compact cards need an explicit sport label');
 assert.match(html,/Chat sound on/,'chat sound activation needs acknowledgement');
 assert.match(html,/chatIncomingBanner/,'incoming chat needs an exact-room banner');
-assert.match(html,/Delete selected/,'past chats need bulk delete controls');
+assert.match(html,/Remove from list/,'bulk personal archiving must remain distinct from destructive chat deletion');
+assert.match(html,/action:"delete-room"/,'room creators and admins need destructive whole-chat deletion');
+assert.match(html,/action:"delete-message"/,'message authors and admins need post deletion');
 assert.match(html,/message\.deliveryState/,'messages need receipt state');
 assert.match(html,/status\.appendChild\(time\)/,'receipts need a sent-time anchor');
 assert.match(chat,/target_members:memberIds/);

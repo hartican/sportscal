@@ -9,7 +9,7 @@
   const REACTION_EMOJIS = Object.freeze(["👍", "❤️", "😂", "😮", "😢", "👏"]);
   const LIMITS = Object.freeze({
     membersPerRoom:25,
-    openRoomsPerFixture:10,
+    openRoomsPerUser:3,
     messageCodePoints:500,
     messagesPerMinute:30,
     historyPage:100,
