@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "nbl-directory.v1",
+  "generatedAt": "2026-09-15T00:00:00.000Z",
+  "sources": [
+    "https://www.nbl.com.au/players",
+    "https://league.nbl.com.au/news/nbl27-roster-tracker-every-signing-extension-and-departure"
+  ],
+  "teams": [
+    { "id":"team:nbl:adelaide-36ers", "displayName":"Adelaide 36ers", "leagueId":"competition:nbl", "sourceRefs":["https://www.nbl.com.au/teams/adelaide-36ers"] },
+    { "id":"team:nbl:brisbane-bullets", "displayName":"Brisbane Bullets", "leagueId":"competition:nbl", "sourceRefs":["https://www.nbl.com.au/teams/brisbane-bullets"] },
+    { "id":"team:nbl:cairns-taipans", "displayName":"Cairns Taipans", "leagueId":"competition:nbl", "sourceRefs":["https://www.nbl.com.au/teams/cairns-taipans"] },
+    { "id":"team:nbl:illawarra-hawks", "displayName":"Illawarra Hawks", "leagueId":"competition:nbl", "sourceRefs":["https://www.nbl.com.au/teams/illawarra-hawks"] },
+    { "id":"team:nbl:melbourne-united", "displayName":"Melbourne United", "leagueId":"competition:nbl", "sourceRefs":["https://www.nbl.com.au/teams/melbourne-united"] },
+    { "id":"team:nbl:new-zealand-breakers", "displayName":"New Zealand Breakers", "leagueId":"competition:nbl", "sourceRefs":["https://www.nbl.com.au/teams/new-zealand-breakers"] },
+    { "id":"team:nbl:perth-wildcats", "displayName":"Perth Wildcats", "leagueId":"competition:nbl", "sourceRefs":["https://www.nbl.com.au/teams/perth-wildcats"] },
+    { "id":"team:nbl:south-east-melbourne-phoenix", "displayName":"South East Melbourne Phoenix", "leagueId":"competition:nbl", "sourceRefs":["https://www.nbl.com.au/teams/south-east-melbourne-phoenix"] },
+    { "id":"team:nbl:sydney-kings", "displayName":"Sydney Kings", "leagueId":"competition:nbl", "sourceRefs":["https://www.nbl.com.au/teams/sydney-kings"] },
+    { "id":"team:nbl:tasmania-jackjumpers", "displayName":"Tasmania JackJumpers", "leagueId":"competition:nbl", "sourceRefs":["https://www.nbl.com.au/teams/tasmania-jackjumpers"] }
+  ],
+  "players": [
+    { "id":"competitor:nbl:bryce-cotton", "displayName":"Bryce Cotton", "currentTeamId":"team:nbl:adelaide-36ers" },
+    { "id":"competitor:nbl:isaac-humphries", "displayName":"Isaac Humphries", "currentTeamId":"team:nbl:adelaide-36ers" },
+    { "id":"competitor:nbl:nate-hinton", "displayName":"Nate Hinton", "currentTeamId":"team:nbl:brisbane-bullets" },
+    { "id":"competitor:nbl:jack-mcveigh", "displayName":"Jack McVeigh", "currentTeamId":"team:nbl:cairns-taipans" },
+    { "id":"competitor:nbl:keanu-pinder", "displayName":"Keanu Pinder", "currentTeamId":"team:nbl:cairns-taipans" },
+    { "id":"competitor:nbl:milton-doyle", "displayName":"Milton Doyle", "currentTeamId":"team:nbl:illawarra-hawks" },
+    { "id":"competitor:nbl:kelan-martin", "displayName":"Kelan Martin", "currentTeamId":"team:nbl:illawarra-hawks" },
+    { "id":"competitor:nbl:cole-anthony", "displayName":"Cole Anthony", "currentTeamId":"team:nbl:melbourne-united" },
+    { "id":"competitor:nbl:joe-ingles", "displayName":"Joe Ingles", "currentTeamId":"team:nbl:melbourne-united" },
+    { "id":"competitor:nbl:luke-travers", "displayName":"Luke Travers", "currentTeamId":"team:nbl:melbourne-united" },
+    { "id":"competitor:nbl:parker-jackson-cartwright", "displayName":"Parker Jackson-Cartwright", "currentTeamId":"team:nbl:new-zealand-breakers" },
+    { "id":"competitor:nbl:dejan-vasiljevic", "displayName":"Dejan Vasiljevic", "currentTeamId":"team:nbl:new-zealand-breakers" },
+    { "id":"competitor:nbl:dylan-windler", "displayName":"Dylan Windler", "currentTeamId":"team:nbl:perth-wildcats" },
+    { "id":"competitor:nbl:kristian-doolittle", "displayName":"Kristian Doolittle", "currentTeamId":"team:nbl:perth-wildcats" },
+    { "id":"competitor:nbl:skylar-mays", "displayName":"Skylar Mays", "currentTeamId":"team:nbl:south-east-melbourne-phoenix" },
+    { "id":"competitor:nbl:nathan-sobey", "displayName":"Nathan Sobey", "currentTeamId":"team:nbl:south-east-melbourne-phoenix" },
+    { "id":"competitor:nbl:torrey-craig", "displayName":"Torrey Craig", "currentTeamId":"team:nbl:sydney-kings" },
+    { "id":"competitor:nbl:matthew-dellavedova", "displayName":"Matthew Dellavedova", "currentTeamId":"team:nbl:sydney-kings" },
+    { "id":"competitor:nbl:xavier-cooks", "displayName":"Xavier Cooks", "currentTeamId":"team:nbl:sydney-kings" },
+    { "id":"competitor:nbl:taran-armstrong", "displayName":"Taran Armstrong", "currentTeamId":"team:nbl:tasmania-jackjumpers" },
+    { "id":"competitor:nbl:dakota-mathias", "displayName":"Dakota Mathias", "currentTeamId":"team:nbl:tasmania-jackjumpers" },
+    { "id":"competitor:nbl:will-magnay", "displayName":"Will Magnay", "currentTeamId":"team:nbl:tasmania-jackjumpers" }
+  ]
+}

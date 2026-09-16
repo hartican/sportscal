@@ -14,7 +14,7 @@ const wrcContext = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/wr
 assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow']);
 assert(html.includes('Back to Follow')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
 assert(html.includes('inspectorReturnState')&&html.includes('popstate'),'dedicated screens retain navigation state');
-assert(html.includes('follow-sport-track')&&html.includes('follow-sport-pager')&&html.includes('follow-sport-pages'),'Follow uses a paged horizontal sport track');
+assert(html.includes('follow-more-trigger')&&html.includes('follow-more-dialog')&&html.includes("['sport:afl','sport:nrl','sport:rugby','sport:football','sport:cricket','sport:tennis']"),'Follow uses the fixed primary order and a deliberate More picker');
 assert(!html.includes('open.textContent = "Inspect"'),'sport icons replace Inspect');
 for(const label of ['Schedule','Teams & players','Major Events','Ladder','Standings'])assert(html.includes(label));
 assert(html.includes('renderCodeInspectorIdentity')&&html.includes('codeInspectorParticipantMark'),'Schedule reuses canonical identities');

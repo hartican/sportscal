@@ -29,6 +29,7 @@
     { id:"sailgp", selectorId:"sport:sailgp", label:"SailGP" },
     { id:"rugby", selectorId:"sport:rugby", label:"Rugby Union" },
     { id:"nba", selectorId:"sport:nba", label:"Basketball" },
+    { id:"nbl", selectorId:"sport:nbl", label:"NBL" },
     { id:"fiba-women", selectorId:"sport:fiba-women", label:"FIBA Women" },
     { id:"american-football", selectorId:"sport:american-football", label:"American Football" },
     { id:"ice-hockey", selectorId:"sport:ice-hockey", label:"Ice Hockey" },

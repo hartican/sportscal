@@ -49,8 +49,8 @@ for (const [entityId, expectedMinimum] of [
 }
 
 const playerState = state(follow("competitor:football:espn:134283"));
-assert(!expandedFollowEntityIds(playerState).has("team:football:club:real-madrid"), "club membership is not confirmed participation");
-assert.equal(resolveUserFollowFixtures({ events:[], userState:playerState }).events.length, 0, "unconfirmed current-team fixtures must not be inferred");
+assert(expandedFollowEntityIds(playerState).has("team:football:club:real-madrid"), "a rostered football player follow must inherit the current club schedule");
+assert(resolveUserFollowFixtures({ events:[], userState:playerState }).events.length > 0, "current-team fixtures must resolve without claiming lineup participation");
 const confirmedPlayerFixture={id:"confirmed-player",cardKind:"fixture",key:"football",participantIds:["competitor:football:espn:134283"],participantsConfirmed:true};
 assert(resolveUserFollowFixtures({events:[confirmedPlayerFixture],userState:playerState}).events.some(e=>e.id==="confirmed-player"), "confirmed participation resolves the followed player fixture");
 const mutedTeamState = state(follow("competitor:football:espn:134283"), follow("team:football:club:real-madrid", "mute"));
@@ -92,15 +92,15 @@ nflPlayerState.preferences.preferenceGraph.domainPreferences = [{
   includeFollowedTeams:true,
 }];
 const nflPlayerResolved = resolveUserFollowFixtures({ events:[], userState:nflPlayerState });
-assert(!expandedFollowEntityIds(nflPlayerState).has("team:nfl:ari"), "NFL club membership alone does not confirm fixture participation");
-assert(!buildServerFeed({
+assert(expandedFollowEntityIds(nflPlayerState).has("team:nfl:ari"), "a rostered NFL player follow must inherit the current team schedule");
+assert(buildServerFeed({
   events:nflPlayerResolved.events,
   userId:"00000000-0000-4000-8000-000000000001",
   userState:nflPlayerState,
   participants:nflPlayerResolved.participants,
   now:new Date("2026-08-29T12:00:00.000Z"),
   limit:20,
-}).events.length, "unconfirmed player fixtures must not pass the server filter");
+}).events.length, "current-team NFL fixtures must pass without claiming player participation");
 
 const lowStakesFollow = {
   id:"fixture:test:low-stakes-follow",

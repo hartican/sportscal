@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-if(!document.querySelector('[data-nsc-ladder-style]')){const style=document.createElement('link');style.rel='stylesheet';style.href='assets/styles/nsc-ladder.css?v=263';style.dataset.nscLadderStyle='';document.head.append(style);}
+if(!document.querySelector('[data-nsc-ladder-style]')){const style=document.createElement('link');style.rel='stylesheet';style.href='assets/styles/nsc-ladder.css?v=264';style.dataset.nscLadderStyle='';document.head.append(style);}
 let epoch=0,audience='global',sort='points',search='',sportPage=0;const pageCache=new Map();let viewerObserver=null;
 const sports=['nrl','afl','cricket','tennis','rugby'],sportNames={nrl:'NRL',afl:'AFL',cricket:'Cricket',tennis:'Tennis',rugby:'Rugby',nrlw:'NRLW',aflw:'AFLW','cricket-women':"Women's Cricket",'rugby-women':"Women's Rugby",'cricket-open':'Other Cricket','rugby-open':'Other Rugby'};
 const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};

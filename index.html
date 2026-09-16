@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="263">
+<meta name="app-shell-version" content="264">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=263" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=264" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -5488,7 +5488,11 @@ body.settings-open .app-footer{
 
 .chat-backdrop{
   position:fixed;
-  inset:0;
+  top:var(--chat-viewport-top, 0px);
+  right:0;
+  bottom:auto;
+  left:0;
+  height:var(--chat-viewport-height, 100dvh);
   z-index:260;
   display:none;
   justify-content:flex-end;
@@ -5537,6 +5541,7 @@ body.settings-open .app-footer{
   overflow-y:auto;
   overscroll-behavior:contain;
   padding:16px 18px;
+  scroll-padding-bottom:max(18px, env(safe-area-inset-bottom));
 }
 .chat-connection{
   color:var(--text-dim);
@@ -5715,12 +5720,16 @@ button.chat-room-row{ cursor:pointer; }
 }
 .chat-reply-preview strong{ display:block; margin-bottom:2px; color:var(--text); }
 .chat-room-composer{
+  position:sticky;
+  bottom:0;
+  z-index:3;
   display:grid;
   grid-template-columns:1fr;
   gap:8px;
   width:100%;
   margin-top:10px;
   padding-bottom:max(2px, env(safe-area-inset-bottom));
+  background:var(--panel-bg);
 }
 .chat-room-composer textarea{
   box-sizing:border-box;
@@ -6924,9 +6933,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=263">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=254">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=263">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=264">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=264">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=264">
 </head>
 <body>
 
@@ -7221,7 +7230,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=263"></script>
+<script src="assets/js/app-shell-runtime.js?v=264"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10667,7 +10676,7 @@ async function loadFollowDirectoryManifest(){
 function parseFollowDirectoryText(text){
   if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
   if(!followDirectoryParserWorker){
-    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=263");
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=264");
     followDirectoryParserWorker.addEventListener("message",event=>{
       const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
       followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
@@ -10849,7 +10858,12 @@ function mergeFootballFixtureEvents(events,overlays=liveFixtureEvents){
       semanticallyMerged.push(event);
       return;
     }
-    semanticallyMerged[existingIndex] = { ...semanticallyMerged[existingIndex], ...event };
+    const existing=semanticallyMerged[existingIndex];
+    semanticallyMerged[existingIndex] = {
+      ...existing,
+      ...event,
+      sourceEventIds:uniqueArray([existing.canonicalEventId,existing.eventId,existing.id,event.canonicalEventId,event.eventId,event.id,...(existing.sourceEventIds||[]),...(event.sourceEventIds||[])]),
+    };
   });
   return globalThis.NOTHINGSPORTS_FIXTURE_IDENTITY.mergeOverlays(semanticallyMerged,overlays).filter(event=>eventMeetsDerivedRetention(event));
 }
@@ -14503,6 +14517,7 @@ function buildFollowEligibilityContext(){
     ...(directoryFollowIndex().players || []),
     ...(footballDirectoryData?.players || []),
     ...Object.values(leagueDirectoryState).flatMap(state => state.data?.players || []),
+    ...[...followDirectoryChunks.values()].flatMap(chunk => (chunk.records || []).filter(record => record.currentTeamId)),
   ].map(player => [player.id, player.currentTeamId]));
   const participantsById=new Map();
   cardIdentityParticipants().forEach(participant=>{
@@ -14528,6 +14543,17 @@ function automaticEventFollowReason(ev, context=buildFollowEligibilityContext())
   ].filter(Boolean)));
   const eventParticipantIdSet = new Set(eventParticipantIds);
   const {playerTeams,participantsById,collectionsById}=context;
+  const entityFollows = Array.isArray(userPreferences?.preferenceGraph?.entityFollows) ? userPreferences.preferenceGraph.entityFollows : [];
+  const mutedEntityIds = new Set(entityFollows.filter(follow => follow.followLevel === "mute").map(follow => follow.participantId));
+  const inheritedPlayer = entityFollows.find(follow => (
+    ["follow", "priority"].includes(follow.followLevel)
+    && playerTeams.get(follow.participantId)
+    && eventParticipantIdSet.has(playerTeams.get(follow.participantId))
+    && !mutedEntityIds.has(playerTeams.get(follow.participantId))
+  ));
+  if (inheritedPlayer){
+    return { type:"athlete", entityKind:"participant", id:inheritedPlayer.participantId, label:`${followedParticipantLabel(inheritedPlayer.participantId)} · current team`, displayTag:true };
+  }
   const eligibilityEvent = {
     ...ev,
     participantIds:eventParticipantIds,
@@ -19947,44 +19973,37 @@ function renderFollowView(){
   container.className='follow-view';container.dataset.scrollList='follow';
   const state=followBrowseState();
   const sports=orderSelectorEntities(BASE_SPORT_SELECTOR_ENTITIES.filter(entity=>Number(entity.level)===2));
-  const pageSize=window.innerWidth<=600?4:window.innerWidth<=1000?6:8;
-  const pageCount=Math.max(1,Math.ceil(sports.length/pageSize));
-  let page=Math.max(0,Math.min(pageCount-1,Number(state.page)||0));
   if(!retainedBar){
   const bar=document.createElement('nav');bar.className='follow-sport-bar';bar.setAttribute('aria-label','Choose sport');
-  bar.style.setProperty('--follow-page-size',String(pageSize));
-  const previous=document.createElement('button');previous.className='btn ghost';previous.type='button';previous.textContent='‹';previous.setAttribute('aria-label','Previous sports');
-  const pager=document.createElement('div');pager.className='follow-sport-pager';
-  const track=document.createElement('div');track.className='follow-sport-track';track.setAttribute('aria-label',`Sports, page ${page+1} of ${pageCount}`);
-  const next=document.createElement('button');next.className='btn ghost';next.type='button';next.textContent='›';next.setAttribute('aria-label','Next sports');
-  sports.forEach(entity=>{
+  const primaryIds=['sport:afl','sport:nrl','sport:rugby','sport:football','sport:cricket','sport:tennis'];
+  const primaryLabels={'sport:afl':'AFL','sport:nrl':'NRL','sport:rugby':'Rugby Union','sport:football':'Football','sport:cricket':'Cricket','sport:tennis':'Tennis'};
+  const countByKey=new Map((followDirectoryManifest?.sports||[]).map(item=>[item.key,Number(item.recordCount||0)]));
+  const moreSports=sports.filter(entity=>!primaryIds.includes(entity.id)).sort((a,b)=>{
+    const priority=id=>id==='sport:american-football'?0:id==='sport:nbl'?1:2;
+    const priorityDifference=priority(a.id)-priority(b.id);if(priorityDifference)return priorityDifference;
+    const count=entity=>Math.max(...(entity.canonicalSportKeys||[]).map(key=>countByKey.get(key)||0),countByKey.get(entity.id.replace(/^sport:/,''))||0);
+    return count(b)-count(a) || Number(a.editorialOrder||999)-Number(b.editorialOrder||999);
+  });
+  const addSportButton=(entity,label=entity.label,host=bar)=>{
     const button=document.createElement('button');button.type='button';button.className=`follow-sport-icon${entity.id===state.sportId?' active':''}`;
     button.dataset.followSport=entity.id;button.setAttribute('aria-pressed',String(entity.id===state.sportId));
     const sport={key:entity.preferenceKey||entity.sportKey||({ 'rugby-union':'rugby',basketball:'nba','afl-premiership':'afl','nrl-premiership':'nrl' })[entity.id.replace('sport:','')]||entity.id.replace('sport:','')};
     const mark=document.createElement('span');mark.className='follow-sport-mark';renderEventIdentityMark(mark,sport,{...sportMetaForEvent(sport),label:entity.label});
-    const label=document.createElement('span');label.textContent=entity.label;button.append(mark,label);
-    button.addEventListener('click',()=>{saveFollowBrowse({sportId:entity.id,categoryId:'',section:'teams-players',page});renderFollowView();});track.appendChild(button);
-  });
-  const dots=document.createElement('div');dots.className='follow-sport-pages';dots.setAttribute('aria-label','Sport pages');
-  const paintPager=()=>{
-    previous.disabled=page===0;next.disabled=page===pageCount-1;track.setAttribute('aria-label',`Sports, page ${page+1} of ${pageCount}`);
-    dots.querySelectorAll('span').forEach((dot,index)=>{dot.classList.toggle('active',index===page);dot.setAttribute('aria-current',index===page?'page':'false');});
+    const text=document.createElement('span');text.textContent=label;button.append(mark,text);
+    button.addEventListener('click',()=>{host.closest('dialog')?.close();saveFollowBrowse({sportId:entity.id,categoryId:'',section:'teams-players'});renderFollowView();});host.appendChild(button);
+    return button;
   };
-  const updatePager=({persist=false}={})=>{
-    page=Math.max(0,Math.min(pageCount-1,Math.round(track.scrollLeft/Math.max(1,track.clientWidth))));
-    paintPager();
-    if(persist)saveFollowBrowse({page});
-  };
-  for(let index=0;index<pageCount;index++){
-    const dot=document.createElement('span');dot.setAttribute('aria-hidden','true');dots.appendChild(dot);
-  }
-  const go=direction=>{page=Math.max(0,Math.min(pageCount-1,page+direction));paintPager();saveFollowBrowse({page});track.scrollTo({left:page*track.clientWidth,behavior:'smooth'});};
-  previous.onclick=()=>go(-1);next.onclick=()=>go(1);
-  track.addEventListener('scroll',()=>{clearTimeout(track.saveTimer);track.saveTimer=setTimeout(()=>{if(track.isConnected)updatePager({persist:true});},140);},{passive:true});
-  pager.append(track,dots);bar.append(previous,pager,next);container.appendChild(bar);
-  requestAnimationFrame(()=>{track.scrollLeft=page*track.clientWidth;updatePager();});
+  primaryIds.map(selectorEntityById).filter(Boolean).forEach(entity=>addSportButton(entity,primaryLabels[entity.id]));
+  const more=document.createElement('button');more.type='button';more.className=`follow-sport-icon follow-more-trigger${moreSports.some(entity=>entity.id===state.sportId)?' active':''}`;more.setAttribute('aria-haspopup','dialog');more.setAttribute('aria-label','More sports');
+  const moreMark=document.createElement('span');moreMark.className='follow-sport-mark follow-more-mark';moreMark.textContent='⋯';const moreLabel=document.createElement('span');moreLabel.textContent='More';more.append(moreMark,moreLabel);bar.appendChild(more);
+  const dialog=document.createElement('dialog');dialog.className='follow-more-dialog';dialog.setAttribute('aria-label','More sports');
+  const dialogHead=document.createElement('div');dialogHead.className='follow-more-head';const title=document.createElement('h2');title.textContent='More sports';const close=document.createElement('button');close.type='button';close.className='btn ghost';close.textContent='Close';close.onclick=()=>dialog.close();dialogHead.append(title,close);
+  const moreGrid=document.createElement('div');moreGrid.className='follow-more-grid';moreSports.forEach(entity=>addSportButton(entity,entity.id==='sport:american-football'?'NFL':entity.label,moreGrid));dialog.append(dialogHead,moreGrid);bar.appendChild(dialog);
+  more.onclick=()=>dialog.showModal();
+  container.appendChild(bar);
   } else {
     retainedBar.querySelectorAll('[data-follow-sport]').forEach(button=>{const selected=button.dataset.followSport===state.sportId;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));});
+    retainedBar.querySelector('.follow-more-trigger')?.classList.toggle('active',!['sport:afl','sport:nrl','sport:rugby','sport:football','sport:cricket','sport:tennis'].includes(state.sportId));
   }
   const root=selectorEntityById(state.sportId) || sports[0];
   const children=(root.childIds || []).map(selectorEntityById).filter(Boolean);
@@ -22645,6 +22664,7 @@ const PREFERENCE_TO_CANONICAL_DOMAIN = Object.freeze({
   "sport:rugby": "sport:rugby-union",
   "sport:cricket": "sport:cricket",
   "sport:nba": "sport:basketball",
+  "sport:nbl": "sport:basketball",
   "sport:nfl": "sport:american-football",
   "sport:skiing": "sport:skiing",
   "sport:champions-league": "competition:uefa-champions-league",
@@ -23442,13 +23462,15 @@ function lockChatViewport(){
   body.style.top = `${-scrollY}px`;
   body.style.width = "100%";
   body.style.overflow = "hidden";
-  const syncHeight = () => document.documentElement.style.setProperty(
-    "--chat-viewport-height",
-    `${Math.round(window.visualViewport?.height || window.innerHeight)}px`
-  );
+  const syncHeight = () => {
+    const viewport = window.visualViewport;
+    document.documentElement.style.setProperty("--chat-viewport-height", `${Math.round(viewport?.height || window.innerHeight)}px`);
+    document.documentElement.style.setProperty("--chat-viewport-top", `${Math.round(viewport?.offsetTop || 0)}px`);
+  };
   chatViewportLock.syncHeight = syncHeight;
   syncHeight();
   window.visualViewport?.addEventListener("resize", syncHeight);
+  window.visualViewport?.addEventListener("scroll", syncHeight);
 }
 
 function unlockChatViewport(){
@@ -23456,7 +23478,9 @@ function unlockChatViewport(){
   const lock = chatViewportLock;
   chatViewportLock = null;
   window.visualViewport?.removeEventListener("resize", lock.syncHeight);
+  window.visualViewport?.removeEventListener("scroll", lock.syncHeight);
   document.documentElement.style.removeProperty("--chat-viewport-height");
+  document.documentElement.style.removeProperty("--chat-viewport-top");
   document.body.style.position = lock.position;
   document.body.style.top = lock.top;
   document.body.style.width = lock.width;
@@ -25173,7 +25197,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=263");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=264");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

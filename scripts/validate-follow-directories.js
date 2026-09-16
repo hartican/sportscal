@@ -7,7 +7,7 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "..");
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/manifest.v1.json"), "utf8"));
 assert.equal(manifest.schemaVersion, "follow-directory-manifest.v1");
-assert.equal(manifest.sports.length, 26, "all exposed top-level sports plus AFLW, NRLW, F1, MotoGP and WRC child codes require lazy chunks");
+assert.equal(manifest.sports.length, 27, "all exposed sports plus NBL and the published child codes require lazy chunks");
 for (const supportKey of ["hockey", "multi-sport"]){
   const supportChunk = JSON.parse(fs.readFileSync(path.join(ROOT, `data/follow-directory/${supportKey}.v1.json`), "utf8"));
   assert(supportChunk.records.some(record => record.teamKind === "national"), `${supportKey}: hidden national-team support data must remain current without becoming a top-level Follow category`);
@@ -93,6 +93,10 @@ assert.ok(motorsport.records.some(record => String(record.id).startsWith("compet
 assert.ok(motorsport.records.some(record => String(record.id).startsWith("competitor:wrc:")), "general Motorsport must include WRC discovery");
 const nrlw = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/nrlw.v1.json"), "utf8"));
 assert.equal(nrlw.records.filter(record => record.entityType === "team").length, 12, "NRLW must expose all twelve current clubs");
+const nbl = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/nbl.v1.json"), "utf8"));
+assert.equal(nbl.records.filter(record => record.entityType === "team").length, 10, "NBL must expose all ten current clubs");
+assert.ok(nbl.records.filter(record => record.entityType === "athlete").every(record => record.currentTeamId), "NBL player follows require a current official roster mapping");
+assert.ok(nbl.records.every(record => record.sourceRefs.some(ref => /^https:\/\/(?:league\.)?nbl\.com\.au\//.test(ref))), "NBL follows require official source provenance");
 assert.ok(nrlw.records.every(record => record.genderCategory === "female"), "NRLW directory records must retain the women's competition scope");
 const fibaWomen = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/fiba-women.v1.json"), "utf8"));
 assert.equal(fibaWomen.records.filter(record => record.entityType === "team").length, 16, "FIBA Women must expose all sixteen World Cup teams");

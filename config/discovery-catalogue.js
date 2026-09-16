@@ -47,7 +47,7 @@
     "sport:extreme-sports": ["sport:extreme"],
     "sport:surfing": ["sport:surf"],
     "sport:winter-sports": ["sport:skiing"],
-    "sport:basketball": ["sport:nba"],
+    "sport:basketball": ["sport:nba", "sport:nbl"],
     "competition:fiba-womens-world-cup": ["sport:fiba-women"],
     "competition:fiba-womens-world-cup-2026": ["sport:fiba-women"],
     "competition:motogp": ["sport:motogp"],

@@ -98,3 +98,9 @@ Regressions: `validate-leaderboard-v2-database.js`, `validate-leaderboard-v2-bro
 Team and player Follow controls update locally before any fixture, Feed or cross-device work begins. Local preference persistence remains immediate; server state, schedule reconciliation and personalised Feed rebuilding are coalesced and deferred until scrolling and input are idle. A temporary network failure keeps the local choice and retries through the existing pending-sync path.
 
 Large Follow directories parse away from the main thread where Worker support is available. Football and legacy directories mount at most 40 initial rows, add further rows deliberately, and use off-screen rendering containment. Follow/unfollow must patch the existing row rather than rebuilding the directory. Regression: `validate-follow-interaction-performance.js` and `validate-follow-loading-regression.js`.
+
+## Current-team player inheritance — 16 September 2026
+
+Following a source-backed player in a rostered team sport admits the published fixtures of that player's current official team. This is schedule inheritance only: the card must say it came via the player's current team and must not claim lineup or match participation. An explicit player mute removes that inheritance, an explicit team mute wins over a player follow, and a source-backed transfer moves future inheritance when the roster mapping changes. Direct team follows retain their existing behaviour. Sports without a current sourced player-to-team mapping do not guess one. Regression: `validate-followed-fixture-surfacing.js`.
+
+Explicit selected selector IDs repair contradictory persisted graph flags on the server before fixture resolution and Feed admission. In particular, a checked F1 or AFLW choice cannot remain silently disabled by an older graph projection. Regression: `validate-followed-fixture-surfacing.js`.

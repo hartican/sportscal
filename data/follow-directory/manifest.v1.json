@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-08T13:40:21.541Z",
+  "generatedAt": "2026-09-15T19:58:09.007Z",
   "sports": [
     {
       "key": "afl",
@@ -94,7 +94,7 @@
       "key": "rugby",
       "label": "Rugby Union",
       "status": "available",
-      "recordCount": 182,
+      "recordCount": 195,
       "jsonUrl": "data/follow-directory/rugby.v1.json",
       "scriptUrl": "data/follow-directory/rugby.v1.js"
     },
@@ -126,7 +126,7 @@
       "key": "cricket",
       "label": "Cricket",
       "status": "available",
-      "recordCount": 272,
+      "recordCount": 299,
       "jsonUrl": "data/follow-directory/cricket.v1.json",
       "scriptUrl": "data/follow-directory/cricket.v1.js"
     },
@@ -137,6 +137,14 @@
       "recordCount": 47,
       "jsonUrl": "data/follow-directory/nba.v1.json",
       "scriptUrl": "data/follow-directory/nba.v1.js"
+    },
+    {
+      "key": "nbl",
+      "label": "NBL",
+      "status": "available",
+      "recordCount": 32,
+      "jsonUrl": "data/follow-directory/nbl.v1.json",
+      "scriptUrl": "data/follow-directory/nbl.v1.js"
     },
     {
       "key": "fiba-women",

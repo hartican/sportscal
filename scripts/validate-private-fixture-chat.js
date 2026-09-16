@@ -713,8 +713,13 @@ async function run(){
     assert.equal(olderPage.body.messages.length, 5, "the older cursor must retrieve the remaining history");
     assert.equal(olderPage.body.olderCursor, null);
 
-    const deniedManage = await invoke(tokenRequest(`token-${ids.userB}`, { method:"POST", body:{ action:"add-members", roomId, memberIds:[ids.outsider] } }));
+    const deniedManage = await invoke(tokenRequest(`token-${ids.userB}`, { method:"POST", body:{ action:"add-members", roomId, memberIds:[ids.adminB] } }));
     assert.equal(deniedManage.statusCode, 403, "ordinary members must not manage rooms");
+    const addedMember = await invoke(tokenRequest(`token-${ids.adminA}`, { method:"POST", body:{ action:"add-members", roomId, memberIds:[ids.adminB] } }));
+    assert.equal(addedMember.statusCode, 200);
+    assert.equal(addedMember.body.added, 1, "Add selected members must create membership immediately");
+    const roomWithAddedMember = await invoke(tokenRequest(`token-${ids.adminA}`, { query:{ roomId } }));
+    assert(roomWithAddedMember.body.room.members.some(member => member.accountId === ids.adminB), "the added account must appear in the refreshed room member list");
     const removed = await invoke(tokenRequest(`token-${ids.adminA}`, { method:"POST", body:{ action:"remove-member", roomId, accountId:ids.userA } }));
     assert.equal(removed.statusCode, 200);
     const removedRead = await invoke(tokenRequest(`token-${ids.userA}`, { query:{ roomId } }));

@@ -33,9 +33,9 @@ included(fixture("excluded",{key:"motorsport",participantIds:["competitor:f1:max
 included(fixture("muted",{round:"Final",participantIds:["athlete:tennis:muted"]}),{followedSports:["tennis"],preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"mute"}]}},false,"explicit mute overrides broad follow");
 included(fixture("empty-preferences",{key:"rugby",round:"Final",stakesScore:5}),{},false,"no follows means no unsolicited fixture");
 const footballPlayer=require('../data/canonical/football-follow-index.v1.json').players.find(player=>player.currentTeamId);
-for(const fields of [{},{participantsConfirmed:true},{excludedParticipantIds:[footballPlayer.id]}]){
+for(const [fields,expected] of [[{},true],[{participantsConfirmed:true},true],[{excludedParticipantIds:[footballPlayer.id]},false]]){
   const event=fixture('excluded-team-inheritance',{key:'football',participantIds:[footballPlayer.currentTeamId],...fields});
-  assert.equal(buildServerFeed({events:[event],userId:'qa',userState:{preferences:{preferenceGraph:{entityFollows:[{participantId:footballPlayer.id,followLevel:'follow'}]}}},now}).events.length,0,'team membership alone never confirms fixture participation');
+  assert.equal(buildServerFeed({events:[event],userId:'qa',userState:{preferences:{preferenceGraph:{entityFollows:[{participantId:footballPlayer.id,followLevel:'follow'}]}}},now}).events.length>0,expected,'current-team schedule inheritance respects explicit player exclusions');
 }
 const order=require('../config/football-directory');
 assert.deepEqual(order.followOrder([{id:'club-a',teamKind:'club'},{id:'national',teamKind:'national'},{id:'club-b',teamKind:'club'}],{preferenceGraph:{entityFollows:[{participantId:'club-b',followLevel:'follow'}]}}).map(record=>record.id),['club-b','club-a','national']);

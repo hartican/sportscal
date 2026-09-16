@@ -18,7 +18,7 @@ try{
  assert(delayed>0,'The test must actually hold fresh source requests');
  assert.deepEqual(await ids(),initial,'Cached Feed must become usable before held requests finish');
  await page.getByRole('button',{name:'Follow',exact:true}).click();
- const track=await page.locator('.follow-sport-track').elementHandle();
+ const track=await page.locator('.follow-sport-bar').elementHandle();
  const browse=await page.evaluate(()=>JSON.parse(JSON.stringify(userPreferences.followBrowse)));
  // Server restoration changes account data, not this device's browsing position.
  await page.evaluate(()=>applyServerState({preferences:{...userPreferences,followBrowse:{sportId:'sport:afl',page:0,section:'major-events'},feedCompact:false},eventUserState:eventActions,ratings}));

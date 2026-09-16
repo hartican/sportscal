@@ -23,6 +23,15 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    assert.equal(result.drawer.width,width);assert.equal(result.drawer.height,844);assert.equal(result.drawer.x,0);assert.equal(result.drawer.y,0);
    assert.deepEqual(result.rows.map(row=>row.ticks),['✓','✓✓','✓✓']);
    assert(result.rows.every(row=>row.time&&row.aligned&&row.separated&&row.date==='2026-09-14T00:30:00Z'));
+   if(width<=390){
+    const keyboardFit=await page.evaluate(()=>{
+      document.documentElement.style.setProperty('--chat-viewport-height','420px');
+      document.documentElement.style.setProperty('--chat-viewport-top','96px');
+      const composer=document.createElement('form');composer.className='chat-room-composer';const input=document.createElement('textarea');input.value='Hello';composer.appendChild(input);document.getElementById('chatBody').appendChild(composer);input.focus();input.scrollIntoView({block:'nearest'});
+      const drawer=document.getElementById('chatDrawer').getBoundingClientRect();const field=input.getBoundingClientRect();return {drawerTop:drawer.top,drawerBottom:drawer.bottom,fieldBottom:field.bottom};
+    });
+    assert.equal(keyboardFit.drawerTop,96);assert.equal(keyboardFit.drawerBottom,516);assert(keyboardFit.fieldBottom<=keyboardFit.drawerBottom,'composer must remain above the simulated keyboard');
+   }
    console.log(`${width}px full-screen chat and timestamp/receipt alignment passed`);
    await page.close();
   }

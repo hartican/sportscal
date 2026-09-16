@@ -26,7 +26,7 @@ try{for(const width of [390,768,1280]){
  assert.equal(await page.locator('.is-compact-row').count(),0,'normal mode clears legacy minimise');
  await page.screenshot({path:`/tmp/sportscal-standard-${width}.png`});
  await page.locator('.tab-btn[data-tab="events"]').click();assert.equal(await page.locator('.nsc-rating-block').count(),0);assert.equal(await page.locator('.calendar-selection-toolbar').count(),0);assert(!await page.locator('#calendarSyncBtn').isVisible());
- await page.locator('.tab-btn[data-tab="follow"]').click();const track=page.locator('.follow-sport-track');const followPageSize=width<=600?4:width<=1000?6:8;await page.getByRole('button',{name:'Next sports',exact:true}).click();await page.waitForTimeout(350);await track.locator('button').nth(followPageSize).click();await page.waitForFunction(()=>followBrowseState().page===1&&Math.round(document.querySelector('.follow-sport-track').scrollLeft/Math.max(1,document.querySelector('.follow-sport-track').clientWidth))===1);
+ await page.locator('.tab-btn[data-tab="follow"]').click();await page.getByRole('button',{name:'More sports',exact:true}).click();await page.locator('.follow-more-dialog [data-follow-sport]').first().click();await page.waitForFunction(()=>!['sport:afl','sport:nrl','sport:rugby','sport:football','sport:cricket','sport:tennis'].includes(followBrowseState().sportId));
  // Isolated synthetic session and intercepted requests exercise the real one-tap client.
  let ratingWrites=0;
  const ratingDetail={eventId:'qa-inline',phase:'heat',peerResults:{average:3.5,count:6},currentUser:{contribution:null}};
@@ -44,5 +44,5 @@ try{for(const width of [390,768,1280]){
  await page.locator('.nsc-fixture-row').first().waitFor();
  await page.screenshot({path:`/tmp/sportscal-crowd-${width}.png`});
  assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1));assert.deepEqual(errors,[]);
- evidence.push({width,realFixtures:geometry.length,maxCompactHeight:Math.max(...geometry.map(x=>x.height)),rapidToggle:toggles,calendarRowSelection:true,stickyToolbar:true,followTrackRetained:true,crowdTabs:true,oneTapRatingAndSeal:true,consoleErrors:errors});await page.close();
+ evidence.push({width,realFixtures:geometry.length,maxCompactHeight:Math.max(...geometry.map(x=>x.height)),rapidToggle:toggles,calendarRowSelection:true,stickyToolbar:true,followNavigationContained:true,crowdTabs:true,oneTapRatingAndSeal:true,consoleErrors:errors});await page.close();
 }}finally{await browser.close();}console.log(JSON.stringify(evidence,null,2));})().catch(error=>{console.error(error);process.exitCode=1;});

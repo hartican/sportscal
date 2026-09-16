@@ -4,7 +4,7 @@
 
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
-const { buildServerFeed } = require("../lib/server-feed-pipeline");
+const { buildServerFeed, normalizeUserFollowState } = require("../lib/server-feed-pipeline");
 const { resolveUserFollowFixtures } = require("../lib/follow-fixture-resolver");
 const followFeedPolicy = require("../config/follow-feed-policy");
 const majorEventsConfig = require("../config/major-events");
@@ -22,6 +22,16 @@ const GWS_AFLW_TEAM_ID = "team:aflw:cd_t7889";
 const TARNI_EVANS_ID = "competitor:aflw:tarni-evans";
 const RAIDERS_NRLW_FIXTURE_ID = "event:nrlw:2026:round-11-wests-tigers-raiders";
 const RAIDERS_NRLW_TEAM_ID = "team:nrlw:raiders";
+
+const staleF1State = normalizeUserFollowState({ preferences:{
+  selectedSelectorEntityIds:["sport:f1"],
+  followedSports:["f1"],
+  preferenceGraph:{ domainPreferences:[{ sportDomainId:"sport:f1", enabled:false, templateId:"template:like", includeAllFixtures:true }], competitionPreferences:[], entityFollows:[] },
+} });
+assert.equal(staleF1State.preferences.preferenceGraph.domainPreferences.find(item => item.sportDomainId === "sport:f1")?.enabled, true, "an explicitly selected F1 checkbox must repair a stale disabled graph domain");
+const f1Feed = buildServerFeed({ events:publishedFeed.events, userId:"00000000-0000-4000-8000-000000000009", userState:staleF1State, now:new Date("2026-09-15T00:00:00.000Z"), limit:100 });
+assert(f1Feed.events.some(event => event.key === "f1" && /Qualifying/i.test(event.name)), "selected F1 must surface published qualifying sessions");
+assert(f1Feed.events.some(event => event.key === "f1" && /Race/i.test(event.name)), "selected F1 must surface published races");
 
 function genericEvent(index){
   const start = new Date(Date.UTC(2026, 7, 30 + index, 9, 0));
@@ -170,8 +180,8 @@ const tarniEvansFeed = aflwFeed(aflwPreferences({
   entityFollows:[{ participantId:TARNI_EVANS_ID, followLevel:"follow" }],
 }));
 assert(
-  !tarniEvansFeed.events.some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
-  "club membership alone must not claim Tarni Evans participated in the fixture",
+  tarniEvansFeed.events.some(event => event.canonicalEventId === GWS_AFLW_FIXTURE_ID),
+  "following Tarni Evans must inherit the current GWS AFLW team schedule without claiming lineup participation",
 );
 
 const combinedGwsFeed = aflwFeed(aflwPreferences({

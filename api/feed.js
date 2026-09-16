@@ -56,7 +56,8 @@ function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new
     try{
       let t=performance.now();d=load();mark('init',performance.now()-t);
       t=performance.now();const accessToken=d.bearerToken(request);const user=await d.authenticatedUser(accessToken);mark('auth',performance.now()-t);
-      t=performance.now();const userState=await d.loadUserState(user.id, accessToken);mark('state',performance.now()-t);
+      t=performance.now();const loadedUserState=await d.loadUserState(user.id, accessToken);mark('state',performance.now()-t);
+      const userState=loadedUserState ? d.normalizeUserFollowState(loadedUserState) : null;
       if(!userState)throw new d.SupabaseRequestError('Your synced profile must be saved before the feed can rebuild.',{status:409,payload:{code:'user_state_missing'}});
       const bounded=(value,fallback,max)=>Number.isFinite(Number(value))?Math.min(max,Math.max(1,Math.floor(Number(value)))):fallback;
       const limit=request.url?bounded(route.searchParams.get('limit')||20,20,50):d.eventFeed.events.length;
@@ -65,7 +66,7 @@ function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new
       t=performance.now();const snapshot=await d.readLiveSnapshots().catch(()=>null);mark('live',performance.now()-t);
       const now=clock();
       const {SERVER_FEED_BUILD_VERSION,SERVER_FEED_SCHEMA_VERSION,eventFeed}=d;
-      const key=digest({userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v1'});
+      const key=digest({userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
       const hit=cache.get(key,+now);
       if(hit){response.setHeader('X-Feed-Cache','HIT');return send(hit,request.headers?.['if-none-match']===hit.etag?304:200);}
       t=performance.now();const resolved=d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,copyEvents:false});mark('resolve',performance.now()-t);

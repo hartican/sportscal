@@ -19,7 +19,7 @@ const base=process.env.QA_BASE_URL||'http://127.0.0.1:8887';
  await page.locator('.follow-section-tabs').getByRole('button',{name:'Teams & players',exact:true}).waitFor();
  await page.waitForTimeout(600);
  const directory=await page.locator('#listView').evaluate(c=>({elements:c.querySelectorAll('*').length,images:c.querySelectorAll('img').length}));
- const track=await page.locator('.follow-sport-track').elementHandle();
+ const track=await page.locator('.follow-sport-bar').elementHandle();
  await page.getByRole('button',{name:'Major Events',exact:true}).click();
  const retained=await track.evaluate(n=>n.isConnected);
  await page.getByRole('button',{name:'Feed',exact:true}).click();await page.waitForTimeout(600);
@@ -31,7 +31,7 @@ const base=process.env.QA_BASE_URL||'http://127.0.0.1:8887';
  if(JSON.stringify(cold.ids)!==JSON.stringify(navigated.ids)||JSON.stringify(cold.ids)!==JSON.stringify(reloaded.ids))failures.push('Feed membership depends on visiting Follow');
  if(cold.startup-cold.firstCard>1000)failures.push('Usable Feed is blocked after first card renders');
  if(clipped.length)failures.push('Compact clips start times');
- if(!retained)failures.push('Follow destroys its sport track');
+ if(!retained)failures.push('Follow destroys its sport navigation');
  assert.deepEqual(failures,[]);
  assert(directory.elements<1000,'The initial directory must be bounded');
  // Real pointer input on a published fixture. Samples record the first animation

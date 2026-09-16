@@ -934,7 +934,7 @@ async function createRoom(body, user, admin){
   });
   const roomId = Array.isArray(result) ? result[0] : result;
   const invitees=[...new Set(requested.filter(id=>id!==user.id))];
-  if(invitees.length)await addMembers({roomId,memberIds:invitees},user,admin);
+  if(invitees.length)await inviteMembers({roomId,memberIds:invitees},user,admin);
   return { schemaVersion:chatContract.SCHEMA_VERSION, room:publicRoom(await roomById(roomId)) };
 }
 
@@ -1041,26 +1041,24 @@ async function addMembers(body, user, admin){
   const requested = [...new Set((Array.isArray(body.memberIds) ? body.memberIds : []).map(value => requireUuid(value)))];
   if (!requested.length) throw new ChatRequestError("Choose at least one account.", 400, "chat_members_required");
   const current = await rows(TABLES.members, { room_id:`eq.${roomId}`, select:"user_id" });
-  const pending = await rows(TABLES.invitations, { room_id:`eq.${roomId}`, status:"eq.pending", select:"invitee_id" });
   const currentIds = new Set(current.map(item => item.user_id));
-  const pendingIds = new Set(pending.map(item => item.invitee_id));
-  const additions = requested.filter(id => !currentIds.has(id) && !pendingIds.has(id));
-  if (current.length + pending.length + additions.length > chatContract.LIMITS.membersPerRoom){
+  const additions = requested.filter(id => !currentIds.has(id));
+  if (current.length + additions.length > chatContract.LIMITS.membersPerRoom){
     throw new ChatRequestError("A chat room may have at most 25 members.", 409, "chat_member_limit");
   }
   const knownIds = new Set((await knownAuthUsers()).map(account => account.id));
   if (additions.some(id => !knownIds.has(id))) throw new ChatRequestError("Every chat member must be an existing account.", 400, "unknown_chat_member");
   if (additions.length){
     try{
-      await supabaseServiceRequest(restPath(TABLES.invitations, { on_conflict:"room_id,invitee_id" }), {
+      await supabaseServiceRequest(restPath(TABLES.members, { on_conflict:"room_id,user_id" }), {
         method:"POST",
         headers:{ Prefer:"resolution=merge-duplicates,return=minimal" },
         body:additions.map(accountId => ({
           room_id:roomId,
-          inviter_id:user.id,
-          invitee_id:accountId,
-          status:"pending",
-          resolved_at:null,
+          user_id:accountId,
+          added_by:user.id,
+          member_kind:"account",
+          archived_at:null,
         })),
       });
     }catch(error){
@@ -1070,7 +1068,26 @@ async function addMembers(body, user, admin){
       throw error;
     }
   }
-  return { schemaVersion:chatContract.SCHEMA_VERSION, invited:additions.length };
+  return { schemaVersion:chatContract.SCHEMA_VERSION, added:additions.length };
+}
+
+async function inviteMembers(body, user, admin){
+  requireAdmin(admin);
+  const roomId = requireUuid(body.roomId, "room ID");
+  const requested = [...new Set((Array.isArray(body.memberIds) ? body.memberIds : []).map(value => requireUuid(value)))];
+  if (!requested.length) return { schemaVersion:chatContract.SCHEMA_VERSION, invited:0 };
+  await supabaseServiceRequest(restPath(TABLES.invitations, { on_conflict:"room_id,invitee_id" }), {
+    method:"POST",
+    headers:{ Prefer:"resolution=merge-duplicates,return=minimal" },
+    body:requested.map(accountId => ({
+      room_id:roomId,
+      inviter_id:user.id,
+      invitee_id:accountId,
+      status:"pending",
+      resolved_at:null,
+    })),
+  });
+  return { schemaVersion:chatContract.SCHEMA_VERSION, invited:requested.length };
 }
 
 async function resolveInvitation(body,user){

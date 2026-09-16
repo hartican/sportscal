@@ -83,7 +83,7 @@ assert.doesNotThrow(() => new Function(scriptMatch[1]), "the full inline app scr
 
 const tabOrder = Array.from(html.matchAll(/class="tab-btn(?: active)?" data-tab="([^"]+)"/g), match => match[1]);
 assert.deepEqual(tabOrder, ["feed", "events", "follow"], "Feed, Events and Follow must remain the ordered routed destinations");
-assert(!html.includes('id="tuneNavBtn"') && html.includes("follow-sport-track"), "Follow must own the sport directory without a duplicate primary destination");
+assert(!html.includes('id="tuneNavBtn"') && html.includes("follow-more-trigger"), "Follow must own the sport directory without a duplicate primary destination");
 assert(!html.includes("Code Inspector"), "the retired Code Inspector label must not remain user-facing");
 const requiredSlogan = "Live sport, nothing missed.";
 assert.equal(brand.descriptor, requiredSlogan, "the canonical descriptor must match the supplied slogan exactly");
@@ -255,7 +255,7 @@ assert(!/createOscillator|elevator|epic orchestral|heavy metal/i.test(soundtrack
 assert(!html.includes('join(" vs ")'), "fixture formatters must never emit the superseded vs separator");
 assert(html.includes('PROFILE_STORAGE.commitSections(localStorage, activeProfileBundle'), "settings writes must target one stable profile transaction");
 assert.deepEqual(preferenceSystem.templates.map(template => template.slug), ["froth", "like", "casual", "custom"], "every selected domain must share the four canonical templates");
-assert(html.includes("follow-sport-track") && html.includes("follow-section-tabs"), "Follow must expose sport entry points and drill-down controls");
+assert(html.includes("follow-more-dialog") && html.includes("follow-section-tabs"), "Follow must expose fixed sport entry points and drill-down controls");
 assert(html.includes("function setCodeInspectorFixtureAdded") && html.includes("addedFixture:snapshot") && html.includes("added?'Remove from Feed':'Add to Feed'"), "Schedule must persist Add to Feed and Remove from Feed against the stable fixture snapshot");
 assert(html.includes("function eventUsesFocusedSportFrothOverride(ev)") && html.includes("if (activeSportHubKey()) return false;"), "complete NRL/AFL hubs must not mutate or impersonate the saved Froth preference");
 assert(html.includes("function openCodeInspector(codeId") && html.includes("history.pushState({ codeInspector: codeId, inspectorParent: true }") && !html.includes("openDiscoverySport(nodeId)"), "Inspect actions must use isolated history state rather than mutating the feed filter");

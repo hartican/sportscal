@@ -13,7 +13,7 @@ try{
  await page.getByRole('button',{name:'Follow',exact:true}).click();
  await page.locator('.follow-directory-row').first().waitFor();
  const count=await page.locator('.follow-directory-row').count();assert(count<=40);
- const track=await page.locator('.follow-sport-track').elementHandle();
+ const track=await page.locator('.follow-sport-bar').elementHandle();
  await page.getByRole('button',{name:/Show more \(/}).click();
  assert(await page.locator('.follow-directory-row').count()>count);assert(await track.evaluate(node=>node.isConnected));
  const schedule=page.locator('.follow-section-tabs').getByRole('button',{name:'Schedule',exact:true});
