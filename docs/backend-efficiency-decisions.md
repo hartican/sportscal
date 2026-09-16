@@ -8,7 +8,7 @@ Authoritative MVP operating decisions, 14 September 2026. Nothing Sport has appr
 | Live fixtures | Visible cards request at most 60 fixture IDs. Supabase reads current per-fixture rows with a three-second deadline. Live or imminent sources refresh every two minutes; other sources wait 30 minutes. |
 | Failure mode | Published static fixtures and the last good client snapshot remain usable when Supabase is slow or unavailable. Optional enrichment never empties Feed or Follow. |
 | Fixture writes | Unchanged source hashes update only lease/check metadata. Full source JSON and revision history are written only when fixture facts change. |
-| Chat | Poll an open active room every five seconds, slow to 30 seconds after one quiet minute, and stop while hidden or closed. Requests use message/reaction cursors. |
+| Chat | Poll an open active room every second, slow to 30 seconds after one quiet minute, and stop while hidden or closed. Requests use message/reaction cursors and incrementally patch stable message nodes. |
 | Nothing Score | Visible live summaries refresh every two minutes. The watching bonus remains enabled: record entry, confirm after one minute, then heartbeat every five minutes. Watcher counts are approximate over ten minutes. |
 | Notifications | Claim reminder batches in one transaction. EPIC alerts inspect the outbox before loading event snapshots and group for five minutes. |
 | Scheduled refresh | One GitHub workflow owns canonical refresh: incremental on six days and full on Sunday. `node scripts/update-cards.js` remains the only refresh entrypoint. A separate protected two-minute live scheduler owns live source updates. |

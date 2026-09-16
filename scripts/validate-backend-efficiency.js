@@ -37,7 +37,7 @@ async function main(){
   assert.match(handler,/snapshot=\{sources:\[\],revision:'published-fallback'/,"the static library must remain available without Supabase");
   assert.match(html,/setInterval\(\(\)=>void refreshLiveFixtureSnapshot\(\),120000\)/);
   assert.match(html,/Date\.now\(\)-liveFixtureLastRequestedAt<30_000/);
-  assert.deepEqual(require("../config/chat-contract").POLLING,{roomMs:5000,quietMs:30000,quietAfterMs:60000,activeMs:30000,failureMs:30000});
+  assert.deepEqual(require("../config/chat-contract").POLLING,{roomMs:1000,quietMs:30000,quietAfterMs:60000,activeMs:30000,failureMs:30000});
   assert.equal(require("../config/nothingscore").PRESENCE_TTL_MS,10*60*1000);
   assert.match(html,/scheduleNothingscoreHeartbeat\(60_000\)/,"the first confirmation must remain one minute after entry");
   assert.match(html,/5\*60_000/,"confirmed watching must settle to five-minute heartbeats");

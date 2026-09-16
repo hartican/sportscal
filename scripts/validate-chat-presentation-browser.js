@@ -23,6 +23,46 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    assert.equal(result.drawer.width,width);assert.equal(result.drawer.height,844);assert.equal(result.drawer.x,0);assert.equal(result.drawer.y,0);
    assert.deepEqual(result.rows.map(row=>row.ticks),['✓','✓✓','✓✓']);
    assert(result.rows.every(row=>row.time&&row.aligned&&row.separated&&row.date==='2026-09-14T00:30:00Z'));
+   if(width===390){
+    const n2=await page.evaluate(()=>{
+      chatState=createChatState({
+        currentRoom:{roomId:'test',roomName:'Long room',status:'open',fixture:{name:'Fixture'},members:[],memberCount:0,viewer:{canPost:true,member:true},readOnly:false},
+        profile:{displayName:'Jim',publicProfile:true},
+        messages:Array.from({length:20},(_,index)=>({messageId:`long-${index}`,clientId:`client-${index}`,body:index===19?'See https://example.com/watch?game=1':'Long room message '+index,sentAt:new Date(Date.parse('2026-09-14T00:00:00Z')+index*1000).toISOString(),senderName:'Jim',own:true,deliveryState:'sent',reactions:[],attachments:[]})),
+      });
+      chatState.visibleMessageStart=chatWindowStart(chatState.messages);
+      const host=document.getElementById('chatBody');host.replaceChildren(buildChatMessageList(),buildChatComposer());
+      const initialCount=host.querySelectorAll('[data-message-id]').length;
+      const hasOlder=Boolean(host.querySelector('.chat-load-older'));
+      const composer=host.querySelector('#chatRoomComposer');
+      const stable=host.querySelector('[data-message-id="long-5"]')||host.querySelector('[data-message-id]');
+      stable.dataset.identityProbe='kept';
+      mergeChatMessages([{messageId:'long-20',clientId:'client-20',body:'Newest',sentAt:'2026-09-14T00:00:21Z',senderName:'Jim',own:true,deliveryState:'sent',reactions:[],attachments:[]}]);
+      refreshChatMessageStream({autoScroll:false,preserveScroll:true});
+      const link=host.querySelector('.chat-message-link');
+      const preview=host.querySelector('.chat-link-preview');
+      host.scrollTop=0;updateChatJumpButton();
+      const imageMessages=Array.from({length:7},(_,index)=>({body:'',attachments:[{kind:'image'}],sentAt:new Date(index).toISOString()}));
+      return {
+        initialCount,hasOlder,
+        composerPreserved:composer===host.querySelector('#chatRoomComposer'),
+        stablePreserved:Boolean(host.querySelector('[data-identity-probe="kept"]')),
+        linkHref:link?.href,linkRel:link?.rel,previewHref:preview?.href,
+        reactionIcon:[...host.querySelectorAll('.chat-message-action')].some(button=>button.textContent==='🙂'),
+        jumpVisible:document.getElementById('chatNewMessagesBtn').classList.contains('show'),
+        imageWindowCount:imageMessages.length-chatWindowStart(imageMessages),
+      };
+    });
+    assert.equal(n2.initialCount,15,'initial scroll-back must render only the latest 15 text messages');
+    assert.equal(n2.imageWindowCount,5,'initial scroll-back must render only the latest five image messages');
+    assert.equal(n2.hasOlder,true);
+    assert.equal(n2.composerPreserved,true,'incremental stream patches must retain the composer node');
+    assert.equal(n2.stablePreserved,true,'unchanged message nodes must survive incremental patches');
+    assert.equal(n2.linkHref,'https://example.com/watch?game=1');
+    assert.match(n2.linkRel,/noopener/);assert.match(n2.linkRel,/noreferrer/);
+    assert.equal(n2.previewHref,'https://example.com/watch?game=1');
+    assert.equal(n2.reactionIcon,true);assert.equal(n2.jumpVisible,true);
+   }
    if(width<=390){
     const keyboardFit=await page.evaluate(()=>{
       document.documentElement.style.setProperty('--chat-viewport-height','420px');

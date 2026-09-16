@@ -62,7 +62,7 @@ async function run(){
   assert.equal(chatContract.LIMITS.messageCodePoints, 500);
   assert.equal(chatContract.LIMITS.messagesPerMinute, 30);
   assert.equal(chatContract.LIMITS.historyPage, 100);
-  assert.equal(chatContract.POLLING.roomMs, 5000);
+  assert.equal(chatContract.POLLING.roomMs, 1000);
   assert.equal(chatContract.POLLING.quietMs, 30000);
   assert.equal(chatContract.POLLING.quietAfterMs, 60000);
   assert.equal(chatContract.POLLING.activeMs, 30000);
@@ -220,8 +220,18 @@ async function run(){
   assert.match(html, /chat\.textContent = "Chat"/);
   assert.match(html, /if \(rooms\.length\) openFixtureChats\(event\);[\s\S]+else openChatSetup\(event\);/);
   assert.match(html, /class="chat-drawer"[\s\S]+role="dialog"[\s\S]+aria-modal="true"/);
-  assert.match(html, /body\.textContent = message\.body/, "messages must render as plain text");
+  assert.match(html, /appendChatMessageText\(body, message\.body\)/, "messages must render through safe DOM text/link nodes");
   assert.doesNotMatch(html, /chat-message-body[^\n]+innerHTML/, "message bodies must never render as HTML");
+  assert.match(html, /link\.rel = "noopener noreferrer external"/, "message links and previews must use safe external-link isolation");
+  assert.match(html, /function chatLinkPreview\(url\)/, "URL messages must expose a compact rich preview");
+  assert.match(html, /function patchChatMessageList\(list\)/, "polling must incrementally patch stable message nodes");
+  assert.doesNotMatch(html, /list\.replaceWith\(replacement\)/, "polling must not rebuild the complete message list");
+  assert.match(html, /CHAT_SCROLLBACK_TEXT_LIMIT = 15/);
+  assert.match(html, /CHAT_SCROLLBACK_IMAGE_LIMIT = 5/);
+  assert.match(html, /chatLoadingIndicator\("Opening chat…"\)/);
+  assert.match(html, /chatLoadingIndicator\("Loading older messages…"/);
+  assert.match(html, /id="chatNewMessagesBtn"[^>]+aria-label="Jump to latest message"[^>]*>∨<\/button>/);
+  assert.match(html, /react\.textContent = "🙂"/);
   assert.match(html, /Load older messages/);
   assert.match(html, /loadOlderChatMessages/);
   assert.match(html, /Closed and read-only\.[\s\S]+administrators retain this archive for seven days/);

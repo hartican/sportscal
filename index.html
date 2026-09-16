@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="268">
+<meta name="app-shell-version" content="269">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=268" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=269" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -5501,6 +5501,7 @@ body.settings-open .app-footer{
 }
 .chat-backdrop.show{ display:flex; }
 .chat-drawer{
+  position:relative;
   width:100%;
   height:var(--chat-viewport-height, 100dvh);
   display:flex;
@@ -5540,8 +5541,8 @@ body.settings-open .app-footer{
   flex:1 1 auto;
   overflow-y:auto;
   overscroll-behavior:contain;
-  padding:16px 18px;
-  scroll-padding-bottom:max(18px, env(safe-area-inset-bottom));
+  padding:16px 18px 0;
+  scroll-padding-bottom:0;
 }
 .chat-connection{
   color:var(--text-dim);
@@ -5628,6 +5629,7 @@ button.chat-room-row{ cursor:pointer; }
 .chat-receipt{letter-spacing:-.18em;padding-right:.18em;font-weight:950;color:var(--text-dim)}
 .chat-receipt.read{color:var(--accent)}
 .chat-message-body{ white-space:pre-wrap; overflow-wrap:anywhere; font-size:.8rem; line-height:1.45; }
+.chat-message-link{ color:var(--accent); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
 .chat-message-quote{
   display:block;
   width:100%;
@@ -5654,6 +5656,8 @@ button.chat-room-row{ cursor:pointer; }
   gap:5px;
   margin-top:7px;
 }
+.chat-message-actions{ flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; }
+.chat-message-actions::-webkit-scrollbar{ display:none; }
 .chat-message-action,
 .chat-reaction{
   min-height:30px;
@@ -5726,9 +5730,9 @@ button.chat-room-row{ cursor:pointer; }
   display:grid;
   grid-template-columns:1fr;
   gap:8px;
-  width:100%;
-  margin-top:10px;
-  padding-bottom:max(2px, env(safe-area-inset-bottom));
+  width:calc(100% + 36px);
+  margin:10px -18px 0;
+  padding:10px 18px max(2px, env(safe-area-inset-bottom));
   background:var(--panel-bg);
 }
 .chat-room-composer textarea{
@@ -5752,13 +5756,60 @@ button.chat-room-row{ cursor:pointer; }
 .chat-guest-preview h3{ font-size:1rem; }
 .chat-guest-preview .field-label input{ width:100%; }
 .chat-new-messages{
-  position:sticky;
-  bottom:8px;
+  position:absolute;
+  z-index:8;
+  left:50%;
+  bottom:calc(var(--chat-composer-height, 76px) + 10px);
+  width:44px;
+  min-width:44px;
   min-height:44px;
-  margin:10px auto 0;
+  margin:0;
+  padding:0;
+  border-radius:999px;
+  transform:translateX(-50%);
+  font-size:1.2rem;
   display:none;
 }
 .chat-new-messages.show{ display:flex; }
+.chat-loading{
+  min-height:150px;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:10px;
+  color:var(--text-dim);
+  font-size:.72rem;
+  text-align:center;
+}
+.chat-loading-wheel{
+  width:44px;
+  height:44px;
+  display:block;
+  border:2px solid color-mix(in srgb, var(--accent) 24%, var(--border));
+  border-top-color:var(--accent);
+  border-radius:50%;
+  background:url("assets/brand/web/nothingsport-app-icon.png") center / 24px 24px no-repeat;
+  animation:chat-loading-spin .82s linear infinite;
+}
+.chat-loading.is-compact{ min-height:44px; grid-template-columns:auto 1fr; display:inline-grid; }
+.chat-loading.is-compact .chat-loading-wheel{ width:24px; height:24px; background-size:14px 14px; }
+@keyframes chat-loading-spin{ to{ transform:rotate(360deg); } }
+.chat-link-preview{
+  display:grid;
+  gap:2px;
+  margin-top:7px;
+  padding:8px 9px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:color-mix(in srgb, var(--panel-bg) 82%, transparent);
+  color:var(--text);
+  text-decoration:none;
+  overflow:hidden;
+}
+.chat-link-preview strong,
+.chat-link-preview span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.chat-link-preview strong{ font-size:.68rem; }
+.chat-link-preview span{ color:var(--text-dim); font-size:.62rem; }
 .chat-composer{
   flex:0 0 auto;
   display:grid;
@@ -6933,9 +6984,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=268">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=268">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=268">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=269">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=269">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=269">
 </head>
 <body>
 
@@ -7211,7 +7262,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
       </div>
     </header>
     <div class="chat-body" id="chatBody"></div>
-    <button class="btn primary chat-new-messages" id="chatNewMessagesBtn" type="button">New messages</button>
+    <button class="btn primary chat-new-messages" id="chatNewMessagesBtn" type="button" aria-label="Jump to latest message" title="Jump to latest message">∨</button>
   </aside>
 </div>
 
@@ -7230,7 +7281,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=268"></script>
+<script src="assets/js/app-shell-runtime.js?v=269"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8888,6 +8939,8 @@ function createChatState(overrides = {}){
     currentRoom:null,
     messages:[],
     olderCursor:null,
+    visibleMessageStart:0,
+    historyExpanded:false,
     draftBody:"",
     pendingAttachments:[],
     replyToMessageId:null,
@@ -10694,7 +10747,7 @@ async function loadFollowDirectoryManifest(){
 function parseFollowDirectoryText(text){
   if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
   if(!followDirectoryParserWorker){
-    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=268");
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=269");
     followDirectoryParserWorker.addEventListener("message",event=>{
       const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
       followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
@@ -23587,6 +23640,8 @@ function setChatDrawerOpen(open){
     chatState.currentRoom = null;
     chatState.messages = [];
     chatState.olderCursor = null;
+    chatState.visibleMessageStart = 0;
+    chatState.historyExpanded = false;
     chatState.reactionCursor = "";
     chatState.shareCapability = "";
     document.getElementById("shareRoomHeaderBtn").hidden = true;
@@ -23649,6 +23704,8 @@ function renderActiveChats(){
   chatState.currentRoom = null;
   chatState.messages = [];
   chatState.olderCursor = null;
+  chatState.visibleMessageStart = 0;
+  chatState.historyExpanded = false;
   setChatHeading("Active chats", "Fixture rooms you have joined.");
   chatConnection(navigator.onLine ? "Connected" : "Offline — polling paused", navigator.onLine ? "connected" : "retrying");
   const body = document.getElementById("chatBody");
@@ -23728,6 +23785,8 @@ function renderFixtureRoomChooser(event){
   chatState.currentRoom = null;
   chatState.messages = [];
   chatState.olderCursor = null;
+  chatState.visibleMessageStart = 0;
+  chatState.historyExpanded = false;
   const rooms = chatRoomsForFixture(event);
   setChatHeading(event.name || "Fixture chats", rooms.length === 1 ? "One room" : `${rooms.length} rooms`);
   const body = document.getElementById("chatBody");
@@ -23814,6 +23873,8 @@ function openChatSetup(event){
   chatState.currentRoom = null;
   chatState.messages = [];
   chatState.olderCursor = null;
+  chatState.visibleMessageStart = 0;
+  chatState.historyExpanded = false;
   setChatDrawerOpen(true);
   setChatHeading("Set up chat", event.name || "Upcoming fixture");
   chatConnection("Chat setup", "connected");
@@ -24153,6 +24214,55 @@ async function deleteChatMessage(message, control){
   }
 }
 
+function chatMessageUrls(value){
+  const matches = String(value || "").match(/https?:\/\/[^\s<>"']+/gi) || [];
+  return [...new Set(matches.map(url => url.replace(/[),.!?;:]+$/g, "")).filter(url => {
+    try{ return ["http:", "https:"].includes(new URL(url).protocol); }
+    catch(_error){ return false; }
+  }))].slice(0, 3);
+}
+
+function appendChatMessageText(host, value){
+  const text = String(value || "");
+  const pattern = /https?:\/\/[^\s<>"']+/gi;
+  let cursor = 0;
+  for (const match of text.matchAll(pattern)){
+    const index = match.index;
+    const raw = match[0];
+    const url = raw.replace(/[),.!?;:]+$/g, "");
+    let parsed;
+    try{ parsed = new URL(url); }
+    catch(_error){ continue; }
+    if (!["http:", "https:"].includes(parsed.protocol)) continue;
+    if (index > cursor) host.appendChild(document.createTextNode(text.slice(cursor, index)));
+    const link = document.createElement("a");
+    link.className = "chat-message-link";
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer external";
+    link.textContent = url;
+    host.appendChild(link);
+    if (raw.length > url.length) host.appendChild(document.createTextNode(raw.slice(url.length)));
+    cursor = index + raw.length;
+  }
+  if (cursor < text.length) host.appendChild(document.createTextNode(text.slice(cursor)));
+}
+
+function chatLinkPreview(url){
+  const parsed = new URL(url);
+  const link = document.createElement("a");
+  link.className = "chat-link-preview";
+  link.href = parsed.href;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer external";
+  const title = document.createElement("strong");
+  title.textContent = parsed.hostname.replace(/^www\./i, "");
+  const path = document.createElement("span");
+  path.textContent = `${parsed.pathname}${parsed.search}` || "/";
+  link.append(title, path);
+  return link;
+}
+
 function chatMessageElement(message){
   const item = document.createElement("article");
   item.className = `chat-message${message.own ? " own" : ""}`;
@@ -24168,7 +24278,7 @@ function chatMessageElement(message){
   }).format(new Date(message.sentAt));
   const body = document.createElement("div");
   body.className = "chat-message-body";
-  body.textContent = message.body;
+  appendChatMessageText(body, message.body);
   meta.append(sender);
   item.appendChild(meta);
   if (message.replyTo){
@@ -24184,6 +24294,7 @@ function chatMessageElement(message){
     item.appendChild(quote);
   }
   item.appendChild(body);
+  chatMessageUrls(message.body).forEach(url => item.appendChild(chatLinkPreview(url)));
   if (message.attachments?.length){
     const media = document.createElement("div");
     media.className = "chat-message-media";
@@ -24202,12 +24313,6 @@ function chatMessageElement(message){
         const link = document.createElement("a");
         link.href = attachment.url || "#"; link.target = "_blank"; link.rel = "noopener noreferrer";
         link.textContent = attachment.fileName || "Open attachment"; wrap.appendChild(link);
-      }
-      if (message.own && !chatState.isGuest && !attachment.saved && !attachment.external){
-        const save = document.createElement("button");
-        save.type = "button"; save.className = "chat-message-action"; save.textContent = "Save";
-        save.addEventListener("click", () => { void saveChatAttachment(message, attachment, save); });
-        wrap.appendChild(save);
       }
       media.appendChild(wrap);
     });
@@ -24237,7 +24342,9 @@ function chatMessageElement(message){
   const react = document.createElement("button");
   react.type = "button";
   react.className = "chat-message-action";
-  react.textContent = "React";
+  react.textContent = "🙂";
+  react.setAttribute("aria-label", "React to message");
+  react.title = "React";
   const picker = document.createElement("div");
   picker.className = "chat-reaction-picker";
   picker.hidden = true;
@@ -24252,6 +24359,16 @@ function chatMessageElement(message){
   });
   react.addEventListener("click", () => { picker.hidden = !picker.hidden; });
   if (chatState.currentRoom?.viewer?.canPost) actions.append(reply, react, picker);
+  (message.attachments || []).forEach(attachment => {
+    if (!message.own || chatState.isGuest || attachment.saved || attachment.external) return;
+    const save = document.createElement("button");
+    save.type = "button";
+    save.className = "chat-message-action";
+    save.textContent = "Save";
+    save.setAttribute("aria-label", `Save ${attachment.fileName || "attachment"}`);
+    save.addEventListener("click", () => { void saveChatAttachment(message, attachment, save); });
+    actions.appendChild(save);
+  });
   if (message.canDelete && !message.pending){
     const remove = document.createElement("button");
     remove.type = "button";
@@ -24531,6 +24648,7 @@ function buildChatReplyPreview(){
 function sizeChatComposerInput(input){
   input.style.height = "auto";
   input.style.height = `${Math.min(180, Math.max(52, input.scrollHeight))}px`;
+  syncChatComposerOffset();
 }
 
 let chatMediaUi = null;
@@ -24560,6 +24678,7 @@ function pendingAttachmentPreview(item){
 
 function refreshChatAttachmentPreviews(){
   chatMediaUi?.refreshPreviews();
+  syncChatComposerOffset();
 }
 
 async function chooseChatFiles(input, options = {}){
@@ -24612,7 +24731,7 @@ async function sendChatMessage(form){
       body:replyToMessage.body,
     } : null,
   };
-  mergeChatMessages([optimisticMessage]);
+  mergeChatMessages([optimisticMessage], { followLatest:true });
   chatState.draftBody = "";
   chatState.pendingAttachments = [];
   chatState.replyToMessageId = null;
@@ -24638,7 +24757,7 @@ async function sendChatMessage(form){
         url:item.url || optimisticAttachments.get(item.attachmentId)?.url || null,
       }));
     }
-    mergeChatMessages([payload.message]);
+    mergeChatMessages([payload.message], { followLatest:true });
     pendingAttachments.forEach(item => { item.status = "sent"; });
     chatMediaUi?.notifyGifSent?.(pendingAttachments);
     try{ sessionStorage.removeItem(chatDraftStorageKey(room.roomId)); }catch(_error){}
@@ -24732,28 +24851,103 @@ function buildChatComposer({ focus = false } = {}){
   return form;
 }
 
+const CHAT_SCROLLBACK_TEXT_LIMIT = 15;
+const CHAT_SCROLLBACK_IMAGE_LIMIT = 5;
+
+function chatWindowStart(messages, end = messages.length){
+  let textCount = 0;
+  let imageCount = 0;
+  let start = Math.max(0, Math.min(end, messages.length));
+  while (start > 0){
+    const message = messages[start - 1];
+    const addsText = Boolean(String(message.body || "").trim());
+    const addsImages = (message.attachments || []).filter(attachment => ["image", "gif"].includes(attachment.kind)).length;
+    if ((addsText && textCount >= CHAT_SCROLLBACK_TEXT_LIMIT) || (addsImages && imageCount + addsImages > CHAT_SCROLLBACK_IMAGE_LIMIT)) break;
+    start -= 1;
+    if (addsText) textCount += 1;
+    imageCount += addsImages;
+  }
+  return start;
+}
+
+function visibleChatMessages(){
+  const start = Math.max(0, Math.min(Number(chatState.visibleMessageStart || 0), chatState.messages.length));
+  return chatState.messages.slice(start);
+}
+
+function chatMessageRenderSignature(message){
+  return JSON.stringify({
+    body:message.body,
+    senderName:message.senderName,
+    sentAt:message.sentAt,
+    own:message.own,
+    pending:message.pending,
+    deliveryState:message.deliveryState,
+    canDelete:message.canDelete,
+    replyTo:message.replyTo,
+    attachments:(message.attachments || []).map(item => [item.attachmentId,item.url,item.saved,item.fileName,item.kind]),
+    reactions:message.reactions || [],
+  });
+}
+
+function chatOlderButton(){
+  const older = document.createElement("button");
+  older.type = "button";
+  older.className = "btn ghost chat-load-older";
+  older.textContent = "Load older messages";
+  older.addEventListener("click", () => { void loadOlderChatMessages(older); });
+  return older;
+}
+
 function buildChatMessageList(){
   const list = document.createElement("div");
   list.className = "chat-message-list";
   list.setAttribute("role", "log");
   list.setAttribute("aria-live", "polite");
-  if (chatState.olderCursor){
-    const older = document.createElement("button");
-    older.type = "button";
-    older.className = "btn ghost";
-    older.textContent = "Load older messages";
-    older.addEventListener("click", () => { void loadOlderChatMessages(older); });
-    list.appendChild(older);
-  }
+  if (chatState.visibleMessageStart > 0 || chatState.olderCursor) list.appendChild(chatOlderButton());
   if (!chatState.messages.length){
     const empty = document.createElement("p");
     empty.className = "chat-empty";
     empty.textContent = "No messages yet.";
     list.appendChild(empty);
   } else {
-    chatState.messages.forEach(message => list.appendChild(chatMessageElement(message)));
+    visibleChatMessages().forEach(message => {
+      const element = chatMessageElement(message);
+      element.dataset.renderSignature = chatMessageRenderSignature(message);
+      list.appendChild(element);
+    });
   }
   return list;
+}
+
+function patchChatMessageList(list){
+  const messages = visibleChatMessages();
+  const existing = new Map([...list.querySelectorAll(":scope > [data-message-id]")].map(element => [element.dataset.messageId, element]));
+  list.querySelector(":scope > .chat-empty")?.remove();
+  messages.forEach(message => {
+    const signature = chatMessageRenderSignature(message);
+    let element = existing.get(message.messageId);
+    if (!element || element.dataset.renderSignature !== signature){
+      const replacement = chatMessageElement(message);
+      replacement.dataset.renderSignature = signature;
+      if (element) element.replaceWith(replacement);
+      element = replacement;
+    }
+    list.appendChild(element);
+    existing.delete(message.messageId);
+  });
+  existing.forEach(element => element.remove());
+  let older = list.querySelector(":scope > .chat-load-older");
+  if (chatState.visibleMessageStart > 0 || chatState.olderCursor){
+    if (!older) older = chatOlderButton();
+    list.insertBefore(older, list.firstChild);
+  } else older?.remove();
+  if (!messages.length){
+    const empty = document.createElement("p");
+    empty.className = "chat-empty";
+    empty.textContent = "No messages yet.";
+    list.appendChild(empty);
+  }
 }
 
 function refreshChatMessageStream({ autoScroll = false, showNew = false, preserveScroll = true } = {}){
@@ -24771,15 +24965,14 @@ function refreshChatMessageStream({ autoScroll = false, showNew = false, preserv
     ? { messageId:visibleAnchor.dataset.messageId, offset:visibleAnchor.getBoundingClientRect().top - bodyTop }
     : null;
   const previousScrollTop = body.scrollTop;
-  const replacement = buildChatMessageList();
-  list.replaceWith(replacement);
-  document.getElementById("chatNewMessagesBtn").classList.toggle("show", Boolean(showNew));
+  patchChatMessageList(list);
   if (autoScroll) body.scrollTop = body.scrollHeight;
   else if (anchorState){
-    const nextAnchor = [...replacement.querySelectorAll("[data-message-id]")].find(item => item.dataset.messageId === anchorState.messageId);
+    const nextAnchor = [...list.querySelectorAll("[data-message-id]")].find(item => item.dataset.messageId === anchorState.messageId);
     if (nextAnchor) body.scrollTop += nextAnchor.getBoundingClientRect().top - bodyTop - anchorState.offset;
     else body.scrollTop = previousScrollTop;
   } else if (preserveScroll) body.scrollTop = previousScrollTop;
+  updateChatJumpButton(Boolean(showNew));
 }
 
 function renderOpenChatRoom({ autoScroll = true, showNew = false, focusComposer = false, preserveScroll = false } = {}){
@@ -24815,20 +25008,25 @@ function renderOpenChatRoom({ autoScroll = true, showNew = false, focusComposer 
     if (reply) body.appendChild(reply);
     body.appendChild(buildChatComposer({ focus:focusComposer }));
   }
-  const newer = document.getElementById("chatNewMessagesBtn");
-  newer.classList.toggle("show", Boolean(showNew));
   if (autoScroll) body.scrollTop = body.scrollHeight;
   else if (anchorState){
     const replacement = [...body.querySelectorAll("[data-message-id]")].find(item => item.dataset.messageId === anchorState.messageId);
     if (replacement) body.scrollTop += replacement.getBoundingClientRect().top - bodyTop - anchorState.offset;
     else body.scrollTop = previousScrollTop;
   } else if (preserveScroll) body.scrollTop = previousScrollTop;
+  syncChatComposerOffset();
+  updateChatJumpButton(Boolean(showNew));
   chatConnection(room.status === "closed" ? "Closed · admin read-only" : (navigator.onLine ? "Connected" : "Offline — polling paused"), room.status === "closed" || !navigator.onLine ? "retrying" : "connected");
 }
 
 function chatBodyAtBottom(){
   const body = document.getElementById("chatBody");
   return body.scrollHeight - body.scrollTop - body.clientHeight < 56;
+}
+
+function updateChatJumpButton(force = false){
+  const button = document.getElementById("chatNewMessagesBtn");
+  button.classList.toggle("show", Boolean(chatState.currentRoom && (force || !chatBodyAtBottom())));
 }
 
 async function markCurrentChatRead(){
@@ -24851,7 +25049,7 @@ function mergeChatReceipts(changes){
   return changed;
 }
 
-function mergeChatMessages(messages){
+function mergeChatMessages(messages, { followLatest = false } = {}){
   const byId = new Map(chatState.messages.map(message => [message.messageId, message]));
   (messages || []).forEach(message => {
     if (message.clientId){
@@ -24861,6 +25059,7 @@ function mergeChatMessages(messages){
     byId.set(message.messageId, message);
   });
   chatState.messages = [...byId.values()].sort((first, second) => Date.parse(first.sentAt) - Date.parse(second.sentAt));
+  if (followLatest && !chatState.historyExpanded) chatState.visibleMessageStart = chatWindowStart(chatState.messages);
 }
 
 function mergeChatReactionChanges(changes){
@@ -24881,6 +25080,26 @@ function laterChatReactionCursor(first, second){
   return Date.parse(second || "") > Date.parse(first || "") ? second : first || second || "";
 }
 
+function chatLoadingIndicator(label, { compact = false } = {}){
+  const loading = document.createElement("div");
+  loading.className = `chat-loading${compact ? " is-compact" : ""}`;
+  loading.setAttribute("role", "status");
+  const wheel = document.createElement("span");
+  wheel.className = "chat-loading-wheel";
+  wheel.setAttribute("aria-hidden", "true");
+  const copy = document.createElement("span");
+  copy.textContent = label;
+  loading.append(wheel, copy);
+  return loading;
+}
+
+function syncChatComposerOffset(){
+  window.requestAnimationFrame(() => {
+    const composer = document.getElementById("chatRoomComposer");
+    document.getElementById("chatDrawer").style.setProperty("--chat-composer-height", `${Math.ceil(composer?.getBoundingClientRect().height || 56)}px`);
+  });
+}
+
 async function openChatRoom(roomId){
   hideChatIncomingBanner();
   window.clearTimeout(chatRoomTimer);
@@ -24896,12 +25115,15 @@ async function openChatRoom(roomId){
     chatState.replyToMessageId = null;
   }
   chatConnection("Connecting…");
+  document.getElementById("chatBody").replaceChildren(chatLoadingIndicator("Opening chat…"));
   try{
     const payload = await serverSyncClient.chatRequest({ roomId });
     chatState.isAdmin = payload.isAdmin === undefined ? chatState.isAdmin : Boolean(payload.isAdmin);
     chatState.capabilities = payload.capabilities || chatState.capabilities;
     chatState.currentRoom = payload.room;
     chatState.messages = payload.messages || [];
+    chatState.visibleMessageStart = chatWindowStart(chatState.messages);
+    chatState.historyExpanded = false;
     mergeChatReactionChanges(payload.reactionChanges);
     chatState.reactionCursor = laterChatReactionCursor(chatState.reactionCursor, payload.reactionCursor);
     chatState.olderCursor = payload.olderCursor || null;
@@ -24930,13 +25152,26 @@ async function openChatRoom(roomId){
 async function loadOlderChatMessages(button){
   const room = chatState.currentRoom;
   const before = chatState.olderCursor;
-  if (!room || !before) return;
+  if (!room) return;
   button.disabled = true;
+  button.replaceChildren(chatLoadingIndicator("Loading older messages…", { compact:true }));
+  if (chatState.visibleMessageStart > 0){
+    await new Promise(resolve => window.requestAnimationFrame(resolve));
+    chatState.visibleMessageStart = chatWindowStart(chatState.messages, chatState.visibleMessageStart);
+    chatState.historyExpanded = true;
+    refreshChatMessageStream({ autoScroll:false, preserveScroll:true });
+    return;
+  }
+  if (!before) return;
   try{
+    const previousFirstMessageId = chatState.messages[0]?.messageId || null;
     const payload = await serverSyncClient.chatRequest({ roomId:room.roomId, before });
     chatState.currentRoom = payload.room;
     const receiptsChanged=mergeChatReceipts(payload.receiptChanges);
     mergeChatMessages(payload.messages);
+    const previousFirstIndex = previousFirstMessageId ? chatState.messages.findIndex(message => message.messageId === previousFirstMessageId) : chatState.messages.length;
+    chatState.visibleMessageStart = chatWindowStart(chatState.messages, Math.max(0, previousFirstIndex));
+    chatState.historyExpanded = true;
     const deliveredAt=(payload.messages||[]).at(-1)?.sentAt;
     if(deliveredAt && !payload.room.readOnly)void serverSyncClient.chatRequest({}, {action:"mark-delivered",roomId:payload.room.roomId,readAt:deliveredAt}).catch(()=>null);
     mergeChatReactionChanges(payload.reactionChanges);
@@ -24974,7 +25209,7 @@ async function pollChatRoom(){
     const payload = await serverSyncClient.chatRequest({ roomId:chatState.currentRoom.roomId, after, reactionAfter:chatState.reactionCursor });
     chatState.currentRoom = payload.room;
     const receiptsChanged=mergeChatReceipts(payload.receiptChanges);
-    mergeChatMessages(payload.messages);
+    mergeChatMessages(payload.messages, { followLatest:atBottom });
     const deliveredAt=(payload.messages||[]).at(-1)?.sentAt;
     if(deliveredAt && !payload.room.readOnly)void serverSyncClient.chatRequest({}, {action:"mark-delivered",roomId:payload.room.roomId,readAt:deliveredAt}).catch(()=>null);
     const incoming = (payload.messages || []).filter(message => !beforeIds.has(message.messageId) && !message.own);
@@ -25277,7 +25512,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=268");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=269");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -25577,10 +25812,14 @@ document.getElementById("chatBackdrop").addEventListener("click", event => {
 document.getElementById("chatNewMessagesBtn").addEventListener("click", () => {
   const body = document.getElementById("chatBody");
   body.scrollTop = body.scrollHeight;
+  updateChatJumpButton();
   void markCurrentChatRead();
 });
 document.getElementById("chatBody").addEventListener("scroll", () => {
-  if (document.getElementById("chatNewMessagesBtn").classList.contains("show") && chatBodyAtBottom()) void markCurrentChatRead();
+  const button = document.getElementById("chatNewMessagesBtn");
+  const wasShowing = button.classList.contains("show");
+  updateChatJumpButton();
+  if (wasShowing && chatBodyAtBottom()) void markCurrentChatRead();
 }, { passive:true });
 document.addEventListener("keydown", event => {
   if (document.getElementById("chatGifPicker")?.classList.contains("show") && event.key === "Escape"){

@@ -31,7 +31,7 @@ function assertOrder(source, markers, message){
 const brandRow = section(html, '<div class="brand-title-row">', '<div class="slogan"');
 assert.match(brandRow, /id="shareAppBtn"/);
 assert.match(brandRow, /data-vector-glyph="ui:share"/);
-assert.match(brandRow, />Share app</);
+assert.match(brandRow, /class="share-app-label">Share</);
 const appShare = section(html, "function canonicalAppShareUrl()", 'document.getElementById("homeSpoilerToggle")');
 assert.match(html, /<link rel="canonical" href="https:\/\/nothingsport\.vercel\.app\/">/, "the clean production app URL must be configured independently of preview origins");
 assert.match(appShare, /document\.querySelector\('link\[rel="canonical"\]'\)/);
@@ -92,7 +92,7 @@ assert.doesNotMatch(members, /details\.open\s*=\s*true/, "members must start col
 assert.match(members, /renderChatAdminControls\(content, room\)/, "admin controls must remain inside the disclosure");
 assert.match(roomRender, /shareHeader\.hidden = !\(chatState\.isAdmin && room\.status === "open"\)/);
 assert.match(roomRender, /shareHeader\.textContent = "Share room"/);
-assert.match(html, /\.chat-room-composer\{[\s\S]*?grid-template-columns:1fr;[\s\S]*?width:100%;/);
+assert.match(html, /\.chat-room-composer\{[\s\S]*?grid-template-columns:1fr;[\s\S]*?width:calc\(100% \+ 36px\);/);
 assert.match(html, /\.chat-room-composer textarea\{[\s\S]*?width:100%;/);
 assert.match(html, /\.chat-room-composer \.btn\{ width:100%;/);
 assert.doesNotMatch(html, /<form[^>]+class="chat-composer"/, "the retired fixed drawer composer must not render");
@@ -101,7 +101,7 @@ assert.doesNotMatch(html, /<form[^>]+class="chat-composer"/, "the retired fixed 
 const sendMessage = section(html, "async function sendChatMessage(form)", "function buildChatComposer");
 assert.match(sendMessage, /const replyToMessageId = chatState\.replyToMessageId/);
 assertOrder(sendMessage, [
-  "mergeChatMessages([optimisticMessage])",
+  "mergeChatMessages([optimisticMessage], { followLatest:true })",
   "refreshChatMessageStream({ autoScroll:true",
   "await serverSyncClient.chatRequest",
 ], "optimistic chat send");
@@ -116,6 +116,8 @@ assert.match(html, /const CHAT_REACTION_EMOJIS = Object\.freeze\(\["👍", "❤�
 assert.match(messageView, /CHAT_REACTION_EMOJIS\.forEach\(emoji =>/);
 assert.match(messageView, /`\$\{reaction\.emoji\} \$\{reaction\.count\}`/);
 assert.match(messageView, /aria-pressed[\s\S]*reaction\.own/);
+assert.match(messageView, /react\.textContent = "🙂"/);
+assert.match(messageView, /save\.textContent = "Save"[\s\S]+actions\.appendChild\(save\)/, "Save must share the compact message action row");
 assert.match(html, /action:"toggle-reaction"/);
 const polling = section(html, "async function pollChatRoom()", "async function refreshChatActive");
 assert.match(polling, /reactionAfter:chatState\.reactionCursor/);
