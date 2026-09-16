@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="270">
+<meta name="app-shell-version" content="271">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=270" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=271" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -5417,6 +5417,22 @@ button.chat-room-row{ cursor:pointer; }
 .chat-room-row span{ display:block; }
 .chat-room-row > :first-child,
 .chat-member-row > :first-child{ min-width:0; overflow-wrap:anywhere; }
+.chat-member-identity{ display:flex; min-width:0; align-items:center; gap:9px; }
+.chat-avatar{
+  position:relative;
+  display:inline-grid;
+  place-items:center;
+  flex:0 0 auto;
+  overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--accent) 36%,var(--border));
+  border-radius:50%;
+  background:var(--soft-fill);
+  color:var(--text-dim);
+  font:900 .52rem/1 'DM Sans',sans-serif;
+  letter-spacing:-.03em;
+}
+.chat-avatar img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.chat-member-avatar{ width:32px; height:32px; }
 .chat-room-row span{ margin-top:3px; color:var(--text-dim); font-size:.68rem; }
 .chat-user-copy{ min-width:0; }
 .chat-user-name,
@@ -5456,7 +5472,9 @@ button.chat-room-row{ cursor:pointer; }
   color:var(--text-dim);
   font-size:.63rem;
 }
-.chat-message-meta strong{ min-width:0; overflow-wrap:anywhere; color:var(--text); font-size:.68rem; }
+.chat-message-meta strong{ min-width:0; display:inline-flex; align-items:center; gap:4px; overflow-wrap:anywhere; color:var(--text); font-size:.68rem; }
+.chat-message-avatar{ width:1em; height:1em; font-size:.42rem; }
+.chat-message.group-continuation{ margin-top:-4px; }
 .chat-message-status{display:flex;justify-content:flex-end;align-items:center;gap:5px;margin-top:4px;color:var(--text-dim);font-size:.62rem;font-variant-numeric:tabular-nums}
 .chat-receipt{letter-spacing:-.18em;padding-right:.18em;font-weight:950;color:var(--text-dim)}
 .chat-receipt.read{color:var(--accent)}
@@ -5508,6 +5526,23 @@ button.chat-room-row{ cursor:pointer; }
 }
 .chat-reaction-picker{ display:flex; flex-wrap:wrap; gap:4px; }
 .chat-reaction-picker[hidden]{ display:none; }
+.public-profile-avatar-editor{
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr);
+  align-items:center;
+  gap:12px;
+  min-height:76px;
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--soft-fill);
+  color:var(--text);
+  cursor:pointer;
+}
+.public-profile-avatar-preview{ width:60px; height:60px; font-size:1rem; }
+.public-profile-avatar-editor > span:not(.chat-avatar){ display:grid; gap:3px; min-width:0; }
+.public-profile-avatar-editor small{ color:var(--text-dim); font-size:.65rem; line-height:1.35; }
+.public-profile-avatar-editor input{ grid-column:1 / -1; width:100%; min-height:44px; }
 .chat-members{
   margin:0 0 14px;
   border:1px solid var(--border);
@@ -6816,9 +6851,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=270">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=270">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=270">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=271">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=271">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=271">
 </head>
 <body>
 
@@ -7108,7 +7143,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=270"></script>
+<script src="assets/js/app-shell-runtime.js?v=271"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8761,7 +8796,7 @@ function createChatState(overrides = {}){
   return {
     isAdmin:false,
     isGuest:false,
-    profile:{ displayName:null },
+    profile:{ displayName:null, avatarUrl:null },
     capabilities:{ lifetimeNscPoints:0, gifMinimumPoints:25, canUseGifs:false },
     rooms:[],
     currentRoom:null,
@@ -8779,7 +8814,7 @@ function createChatState(overrides = {}){
     selectedRoomIds:[],
     activeSignature:"",
     ...overrides,
-    profile:{ displayName:null, ...(overrides.profile || {}) },
+    profile:{ displayName:null, avatarUrl:null, ...(overrides.profile || {}) },
     capabilities:{ lifetimeNscPoints:0, gifMinimumPoints:25, canUseGifs:false, ...(overrides.capabilities || {}) },
     rooms:Array.isArray(overrides.rooms) ? overrides.rooms : [],
     invitations:Array.isArray(overrides.invitations) ? overrides.invitations : [],
@@ -10575,7 +10610,7 @@ async function loadFollowDirectoryManifest(){
 function parseFollowDirectoryText(text){
   if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
   if(!followDirectoryParserWorker){
-    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=270");
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=271");
     followDirectoryParserWorker.addEventListener("message",event=>{
       const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
       followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
@@ -23975,14 +24010,72 @@ function chatLinkPreview(url){
   return link;
 }
 
-function chatMessageElement(message){
+function publicProfileInitials(displayName){
+  const parts=String(displayName||"Member").trim().split(/\s+/).filter(Boolean);
+  return (parts.length>1?`${parts[0][0]}${parts.at(-1)[0]}`:parts[0]?.slice(0,2)||"NS").toUpperCase();
+}
+
+function chatAvatarElement({ avatarUrl = null, displayName = "Member", className = "" } = {}){
+  const avatar=document.createElement("span");
+  avatar.className=["chat-avatar",className].filter(Boolean).join(" ");
+  avatar.textContent=publicProfileInitials(displayName);
+  avatar.setAttribute("aria-hidden","true");
+  if(avatarUrl){
+    const image=document.createElement("img");
+    image.src=avatarUrl;
+    image.alt="";
+    image.loading="lazy";
+    image.decoding="async";
+    image.referrerPolicy="no-referrer";
+    image.addEventListener("error",()=>image.remove(),{once:true});
+    avatar.appendChild(image);
+  }
+  return avatar;
+}
+
+async function processPublicProfileAvatar(file){
+  if(!file)return null;
+  if(file.size>8*1024*1024)throw new Error("Choose an image smaller than 8 MB before cropping.");
+  const bitmap=await createImageBitmap(file),size=Math.min(bitmap.width,bitmap.height),canvas=document.createElement("canvas");
+  canvas.width=canvas.height=512;
+  canvas.getContext("2d").drawImage(bitmap,(bitmap.width-size)/2,(bitmap.height-size)/2,size,size,0,0,512,512);
+  bitmap.close?.();
+  let quality=.9,blob;
+  do{blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/webp",quality));quality-=.1;}while(blob&&blob.size>1024*1024&&quality>=.4);
+  if(!blob||blob.size>1024*1024)throw new Error("That picture could not be reduced below 1 MB.");
+  return await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(blob);});
+}
+
+function buildPublicProfileAvatarEditor({ avatarUrl = null, displayName = "Member" } = {}){
+  const editor=document.createElement("label");
+  editor.className="public-profile-avatar-editor";
+  const preview=chatAvatarElement({avatarUrl,displayName,className:"public-profile-avatar-preview"});
+  const copy=document.createElement("span");
+  const title=document.createElement("strong");title.textContent=avatarUrl?"Change profile picture":"Upload profile picture";
+  const detail=document.createElement("small");detail.textContent="JPEG, PNG or WebP · square crop · up to 1 MB after processing";
+  copy.append(title,detail);
+  const input=document.createElement("input");input.type="file";input.accept="image/jpeg,image/png,image/webp";
+  let objectUrl="";
+  input.addEventListener("change",()=>{
+    if(objectUrl)URL.revokeObjectURL(objectUrl);
+    const file=input.files?.[0];if(!file)return;
+    objectUrl=URL.createObjectURL(file);
+    const image=document.createElement("img");image.src=objectUrl;image.alt="Selected profile picture preview";image.addEventListener("error",()=>image.remove(),{once:true});
+    preview.querySelector("img")?.remove();preview.appendChild(image);title.textContent="Profile picture selected";
+  });
+  editor.append(preview,copy,input);
+  return { element:editor, dataUrl:()=>processPublicProfileAvatar(input.files?.[0]) };
+}
+
+function chatMessageElement(message,{groupStart=true}={}){
   const item = document.createElement("article");
-  item.className = `chat-message${message.own ? " own" : ""}`;
+  item.className = `chat-message${message.own ? " own" : ""}${groupStart ? " group-start" : " group-continuation"}`;
   item.dataset.messageId = message.messageId;
   const meta = document.createElement("div");
   meta.className = "chat-message-meta";
   const sender = document.createElement("strong");
   sender.textContent = message.senderName;
+  sender.prepend(chatAvatarElement({avatarUrl:message.avatarUrl,displayName:message.senderName,className:"chat-message-avatar"}));
   const time = document.createElement("time");
   time.dateTime = message.sentAt;
   time.textContent = new Intl.DateTimeFormat("en-AU", {
@@ -24133,15 +24226,14 @@ function renderChatPublicProfileForm(host, { onSaved } = {}){
   save.type = "submit";
   save.className = "btn primary";
   save.textContent = "Save Public Profile";
-  const avatarLabel=document.createElement('label');avatarLabel.className='field-label';avatarLabel.textContent='Profile picture';const avatar=document.createElement('input');avatar.type='file';avatar.accept='image/jpeg,image/png,image/webp';avatarLabel.appendChild(avatar);
-  const processedAvatar=async()=>{const file=avatar.files?.[0];if(!file)return null;if(file.size>8*1024*1024)throw new Error('Choose an image smaller than 8 MB before cropping.');const bitmap=await createImageBitmap(file);const size=Math.min(bitmap.width,bitmap.height),canvas=document.createElement('canvas');canvas.width=canvas.height=512;canvas.getContext('2d').drawImage(bitmap,(bitmap.width-size)/2,(bitmap.height-size)/2,size,size,0,0,512,512);let quality=.9,blob;do{blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/webp',quality));quality-=.1;}while(blob&&blob.size>1024*1024&&quality>=.4);if(!blob||blob.size>1024*1024)throw new Error('That picture could not be reduced below 1 MB.');return await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(blob);});};
-  form.append(heading, displayLabel, handleLabel, avatarLabel, help, save);
+  const avatarEditor=buildPublicProfileAvatarEditor({avatarUrl:nothingscoreViewer.profile?.avatarUrl,displayName:nothingscoreViewer.profile?.displayName||"Member"});
+  form.append(heading, displayLabel, handleLabel, avatarEditor.element, help, save);
   form.addEventListener("submit", async submitEvent => {
     submitEvent.preventDefault();
     save.disabled = true;
     try{
       await serverSyncClient.nothingscoreRequest({}, { action:"profile", displayName:display.value, handle:handle.value });
-      const dataUrl=await processedAvatar();if(dataUrl)await serverSyncClient.nothingscoreRequest({}, {action:'profile-avatar',dataUrl});
+      const dataUrl=await avatarEditor.dataUrl();if(dataUrl)await serverSyncClient.nothingscoreRequest({}, {action:'profile-avatar',dataUrl});
       await refreshNothingscoreViewer();
       await refreshChatActive();
       await onSaved?.();
@@ -24161,9 +24253,12 @@ function renderChatAdminControls(host, room){
     if (member.accountId) memberIds.add(member.accountId);
     const row = document.createElement("div");
     row.className = "chat-member-row";
+    const identity = document.createElement("span");
+    identity.className = "chat-member-identity";
     const name = document.createElement("span");
     name.textContent = member.displayName;
-    row.appendChild(name);
+    identity.append(chatAvatarElement({avatarUrl:member.avatarUrl,displayName:member.displayName,className:"chat-member-avatar"}),name);
+    row.appendChild(identity);
     if (chatState.isAdmin && room.status === "open" && member.accountId && member.accountId !== serverPersistence.user?.id){
       const remove = document.createElement("button");
       remove.type = "button";
@@ -24434,6 +24529,7 @@ async function sendChatMessage(form){
     body,
     sentAt:new Date().toISOString(),
     senderName:chatState.profile?.displayName || room.viewer?.displayName || "You",
+    avatarUrl:chatState.profile?.avatarUrl || room.viewer?.avatarUrl || null,
     own:true,
     pending:true,
     attachments:pendingAttachments,
@@ -24587,10 +24683,16 @@ function visibleChatMessages(){
   return chatState.messages.slice(start);
 }
 
-function chatMessageRenderSignature(message){
+function chatSenderGroupKey(message){
+  return `${message.own?"own":"other"}|${message.senderName||""}|${message.avatarUrl||""}`;
+}
+
+function chatMessageRenderSignature(message,groupStart=true){
   return JSON.stringify({
     body:message.body,
     senderName:message.senderName,
+    avatarUrl:message.avatarUrl || null,
+    groupStart,
     sentAt:message.sentAt,
     own:message.own,
     pending:message.pending,
@@ -24623,9 +24725,10 @@ function buildChatMessageList(){
     empty.textContent = "No messages yet.";
     list.appendChild(empty);
   } else {
-    visibleChatMessages().forEach(message => {
-      const element = chatMessageElement(message);
-      element.dataset.renderSignature = chatMessageRenderSignature(message);
+    visibleChatMessages().forEach((message,index,messages) => {
+      const groupStart=index===0||chatSenderGroupKey(messages[index-1])!==chatSenderGroupKey(message);
+      const element = chatMessageElement(message,{groupStart});
+      element.dataset.renderSignature = chatMessageRenderSignature(message,groupStart);
       list.appendChild(element);
     });
   }
@@ -24636,11 +24739,12 @@ function patchChatMessageList(list){
   const messages = visibleChatMessages();
   const existing = new Map([...list.querySelectorAll(":scope > [data-message-id]")].map(element => [element.dataset.messageId, element]));
   list.querySelector(":scope > .chat-empty")?.remove();
-  messages.forEach(message => {
-    const signature = chatMessageRenderSignature(message);
+  messages.forEach((message,index) => {
+    const groupStart=index===0||chatSenderGroupKey(messages[index-1])!==chatSenderGroupKey(message);
+    const signature = chatMessageRenderSignature(message,groupStart);
     let element = existing.get(message.messageId);
     if (!element || element.dataset.renderSignature !== signature){
-      const replacement = chatMessageElement(message);
+      const replacement = chatMessageElement(message,{groupStart});
       replacement.dataset.renderSignature = signature;
       if (element) element.replaceWith(replacement);
       element = replacement;
@@ -24989,7 +25093,7 @@ async function refreshChatActive({ rerenderOpenList = false } = {}){
       ...chatState,
       isAdmin:Boolean(payload.isAdmin),
       isGuest:!serverPersistence.user && Boolean(serverSyncClient.getGuestChatSession?.()),
-      profile:payload.profile || { displayName:null },
+      profile:payload.profile || { displayName:null, avatarUrl:null },
       capabilities:payload.capabilities || chatState.capabilities,
       rooms:nextRooms,
       invitations:payload.invitations||[],
@@ -25184,6 +25288,10 @@ function nothingscoreProfileForm(){
   handle.placeholder = "your_handle";
   handle.value = existing ? String(nothingscoreViewer.profile.handle || "").replace(/^@/, "") : "";
   handleLabel.appendChild(handle);
+  const avatarEditor=buildPublicProfileAvatarEditor({
+    avatarUrl:existing?nothingscoreViewer.profile.avatarUrl:null,
+    displayName:existing?nothingscoreViewer.profile.displayName:"Member",
+  });
   const save = document.createElement("button");
   save.type = "submit";
   save.className = "btn primary";
@@ -25191,13 +25299,15 @@ function nothingscoreProfileForm(){
   const status = document.createElement("p");
   status.className = "nsc-status";
   status.setAttribute("role", "status");
-  form.append(heading, disclosure, displayLabel, handleLabel, save, status);
+  form.append(heading, disclosure, displayLabel, handleLabel, avatarEditor.element, save, status);
   form.addEventListener("submit", async event => {
     event.preventDefault();
     save.disabled = true;
     status.textContent = "Saving…";
     try{
       await serverSyncClient.nothingscoreRequest({}, { action:"profile", displayName:display.value, handle:handle.value });
+      const dataUrl=await avatarEditor.dataUrl();
+      if(dataUrl)await serverSyncClient.nothingscoreRequest({}, { action:"profile-avatar", dataUrl });
       await refreshNothingscoreViewer();
       void refreshChatActive();
       if (document.getElementById("settingsModal")?.classList.contains("show") && settingsSection === "account") renderSettingsScreen();
@@ -25224,7 +25334,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=270");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=271");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

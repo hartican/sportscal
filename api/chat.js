@@ -299,7 +299,7 @@ async function profileForUser(user){
   }))[0] || null;
   const publicProfile = (await rows(TABLES.publicProfiles, {
     user_id:`eq.${requireUuid(user.id)}`,
-    select:"user_id,display_name,handle,visibility,updated_at",
+    select:"user_id,display_name,handle,avatar_url,visibility,updated_at",
     limit:"1",
   }))[0] || null;
   const email = String(user.email || "").trim().toLowerCase();
@@ -321,6 +321,7 @@ async function profileForUser(user){
       display_name:publicProfile && publicProfile.visibility !== "deleted" ? publicProfile.display_name : legacy.display_name,
       public_profile:Boolean(publicProfile && publicProfile.visibility !== "deleted"),
       public_profile_visibility:publicProfile?.visibility || null,
+      avatar_url:publicProfile && publicProfile.visibility !== "deleted" ? publicProfile.avatar_url || null : null,
       legacy_display_name:legacy.display_name || null,
     };
   }
@@ -329,17 +330,18 @@ async function profileForUser(user){
     display_name:publicProfile && publicProfile.visibility !== "deleted" ? publicProfile.display_name : existing?.display_name,
     public_profile:Boolean(publicProfile && publicProfile.visibility !== "deleted"),
     public_profile_visibility:publicProfile?.visibility || null,
+    avatar_url:publicProfile && publicProfile.visibility !== "deleted" ? publicProfile.avatar_url || null : null,
     legacy_display_name:existing?.display_name || null,
   };
 }
 
-async function displayNames(userIds){
+async function displayProfiles(userIds){
   const ids = [...new Set((userIds || []).filter(value => UUID_PATTERN.test(String(value || ""))))];
   if (!ids.length) return new Map();
   const [publicProfiles, legacyProfiles] = await Promise.all([
     rows(TABLES.publicProfiles, {
       user_id:`in.(${ids.join(",")})`,
-      select:"user_id,display_name,visibility",
+      select:"user_id,display_name,avatar_url,visibility",
     }),
     rows(TABLES.profiles, {
       user_id:`in.(${ids.join(",")})`,
@@ -350,9 +352,15 @@ async function displayNames(userIds){
   const legacyById = new Map(legacyProfiles.map(profile => [profile.user_id, profile.display_name || null]));
   return new Map(ids.map(id => {
     const canonical = publicById.get(id);
-    if (canonical) return [id, canonical.visibility === "deleted" ? "Member" : canonical.display_name || "Member"];
-    return [id, legacyById.get(id) || "Member"];
+    if (canonical) return [id, canonical.visibility === "deleted"
+      ? { displayName:"Member", avatarUrl:null }
+      : { displayName:canonical.display_name || "Member", avatarUrl:canonical.avatar_url || null }];
+    return [id, { displayName:legacyById.get(id) || "Member", avatarUrl:null }];
   }));
+}
+async function displayNames(userIds){
+  const profiles=await displayProfiles(userIds);
+  return new Map([...profiles].map(([id,profile])=>[id,profile.displayName]));
 }
 
 function publicRoom(row){
@@ -400,6 +408,7 @@ async function handleActive(user, admin, profile){
     isAdmin:admin,
     profile:{
       displayName:profile?.display_name || null,
+      avatarUrl:profile?.avatar_url || null,
       publicProfile:Boolean(profile?.public_profile),
       canPost:Boolean(profile?.public_profile),
     },
@@ -529,7 +538,7 @@ async function handleRoomGet(request, user, admin, profile){
     room_id:`eq.${room.id}`,
     select:"id,sender_id,body,sender_display_name",
   }) : [];
-  const names = await displayNames([
+  const profiles = await displayProfiles([
     ...memberRows.filter(item => item.member_kind !== "guest").map(item => item.user_id),
     ...messages.map(item => item.sender_id),
     ...replyRows.map(item => item.sender_id),
@@ -538,7 +547,7 @@ async function handleRoomGet(request, user, admin, profile){
     .filter(item => item.member_kind === "guest")
     .map(item => [item.user_id, item.guest_display_name || "Guest"]));
   const senderName = item => {
-    const accountName = names.get(item.sender_id);
+    const accountName = profiles.get(item.sender_id)?.displayName;
     return guestNames.get(item.sender_id)
       || (accountName && accountName !== "Member" ? accountName : null)
       || item.sender_display_name
@@ -593,12 +602,14 @@ async function handleRoomGet(request, user, admin, profile){
         member:Boolean(member),
         kind:member?.member_kind || (admin ? "admin" : null),
         displayName:viewerName,
+        avatarUrl:member?.member_kind === "guest" ? null : profile?.avatar_url || null,
         canPost,
         publicProfileRequired:Boolean(member && member.member_kind !== "guest" && !profile?.public_profile),
       },
       members:memberRows.map(item => ({
         ...(admin ? { accountId:item.user_id } : {}),
-        displayName:item.member_kind === "guest" ? item.guest_display_name || "Guest" : names.get(item.user_id) || "Member",
+        displayName:item.member_kind === "guest" ? item.guest_display_name || "Guest" : profiles.get(item.user_id)?.displayName || "Member",
+        avatarUrl:item.member_kind === "guest" ? null : profiles.get(item.user_id)?.avatarUrl || null,
         kind:item.member_kind || "account",
         joinedAt:item.joined_at,
       })),
@@ -612,6 +623,7 @@ async function handleRoomGet(request, user, admin, profile){
       body:message.body,
       sentAt:message.created_at,
       senderName:senderName(message),
+      avatarUrl:guestNames.has(message.sender_id) ? null : profiles.get(message.sender_id)?.avatarUrl || null,
       own:message.sender_id === user.id,
       canDelete:Boolean(admin || message.sender_id === user.id),
       deliveryState,
@@ -638,7 +650,7 @@ async function setDisplayName(_body, user, profile){
   }
   return {
     schemaVersion:chatContract.SCHEMA_VERSION,
-    profile:{ displayName:profile.display_name, publicProfile:true },
+    profile:{ displayName:profile.display_name, avatarUrl:profile.avatar_url || null, publicProfile:true },
   };
 }
 
@@ -1275,6 +1287,7 @@ async function sendMessage(body, user, admin, profile){
       body:row.body,
       sentAt:row.created_at,
       senderName:senderDisplayName,
+      avatarUrl:guest ? null : profile?.avatar_url || null,
       own:true,
       deliveryState:"sent",
       attachments:messageAttachments.map(item => ({

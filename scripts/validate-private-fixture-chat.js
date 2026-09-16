@@ -153,6 +153,9 @@ async function run(){
   assert.match(api, /async function deleteMessage\(body, user, admin\)[\s\S]+message\.sender_id !== user\.id[\s\S]+method:"DELETE"/i, "message authors and admins must be able to delete messages");
   assert.match(api, /async function deleteRoom\(body, user, admin\)[\s\S]+room\.created_by !== user\.id[\s\S]+deleteStoredObjects[\s\S]+method:"DELETE"/i, "room creators and admins must be able to delete whole chats");
   assert.match(api, /async function deleteStoredObjects[\s\S]+\/storage\/v1\/object\//i, "chat deletion must remove attachment objects through the Storage API");
+  assert.match(api, /select:"user_id,display_name,avatar_url,visibility"/, "chat identity lookup must include public-profile avatars");
+  assert.match(api, /members:memberRows\.map[\s\S]+avatarUrl:/, "room members must expose their optional public avatar URL");
+  assert.match(api, /messages:messages\.map[\s\S]+avatarUrl:/, "chat messages must expose their sender avatar URL");
   assert.doesNotMatch(api, /console\.(?:log|info|warn|error)/, "chat content must never enter ordinary server logs");
   assert.match(capabilitySource,/randomBytes\(32\)/i);
   assert.match(capabilitySource,/anonymousSignupTicketHash[\s\S]+createHash\("sha256"\)/i);

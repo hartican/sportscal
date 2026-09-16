@@ -80,13 +80,13 @@ async function serverContract(){
     const server = require(serverPath);
     const hiddenProfile={profile_id:"profile-hidden",display_name:"Private Person",handle:"private_person",visibility:"hidden"};
     assert.deepEqual(server.ownerProfile(hiddenProfile),{
-      profileId:"profile-hidden",displayName:"Private Person",handle:"@private_person",visibility:"hidden",hidden:true,deleted:false,
+      profileId:"profile-hidden",displayName:"Private Person",handle:"@private_person",avatarUrl:null,visibility:"hidden",hidden:true,deleted:false,
     },"the signed-in owner must receive their real hidden Public Profile fields");
     assert.deepEqual(server.publicProfile(hiddenProfile),{
-      displayName:"Hidden contributor",handle:null,hidden:true,
+      displayName:"Hidden contributor",handle:null,avatarUrl:null,hidden:true,
     },"public contributor surfaces must continue anonymising hidden profiles");
     assert.deepEqual(server.ownerProfile({...hiddenProfile,visibility:"deleted"}),{
-      profileId:"profile-hidden",displayName:null,handle:null,visibility:"deleted",hidden:true,deleted:true,
+      profileId:"profile-hidden",displayName:null,handle:null,avatarUrl:null,visibility:"deleted",hidden:true,deleted:true,
     },"a deleted profile must remain a recreation sentinel rather than exposing deleted placeholder values");
     const receipt=await server.submitRating("user-one","fixture-one","heat",5,["Big stakes"],"2026-08-30T01:00:00.000Z");
     assert.equal(calls.length,1);

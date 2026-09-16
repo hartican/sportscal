@@ -51,6 +51,10 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
         reactionIcon:[...host.querySelectorAll('.chat-message-action')].some(button=>button.textContent==='🙂'),
         jumpVisible:document.getElementById('chatNewMessagesBtn').classList.contains('show'),
         imageWindowCount:imageMessages.length-chatWindowStart(imageMessages),
+        avatarCount:host.querySelectorAll('.chat-message-avatar').length,
+        initials:[...host.querySelectorAll('.chat-message-avatar')].every(avatar=>avatar.textContent.trim()==='JI'),
+        groupedContinuations:host.querySelectorAll('.chat-message.group-continuation').length,
+        profileAvatarEditor:Boolean(buildPublicProfileAvatarEditor({displayName:'Jim Example'}).element.querySelector('input[type=file]')),
       };
     });
     assert.equal(n2.initialCount,15,'initial scroll-back must render only the latest 15 text messages');
@@ -62,6 +66,10 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
     assert.match(n2.linkRel,/noopener/);assert.match(n2.linkRel,/noreferrer/);
     assert.equal(n2.previewHref,'https://example.com/watch?game=1');
     assert.equal(n2.reactionIcon,true);assert.equal(n2.jumpVisible,true);
+    assert.equal(n2.avatarCount,16,'every visible post must carry its mini public-profile avatar or initials fallback');
+    assert.equal(n2.initials,true,'missing pictures must use display-name initials');
+    assert(n2.groupedContinuations>=14,'consecutive messages from one sender must be marked as one visual group');
+    assert.equal(n2.profileAvatarEditor,true,'Public Profile must expose a profile-picture upload control');
    }
    if(width<=390){
     const keyboardFit=await page.evaluate(()=>{
