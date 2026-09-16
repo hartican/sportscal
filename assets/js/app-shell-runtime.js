@@ -1924,6 +1924,7 @@ return {gender,sport,badge};
     ["discipline:basketball:professional", "Professional basketball", "discipline", "sport:basketball"],
     ["discipline:basketball:international", "International basketball", "discipline", "sport:basketball"],
     ["competition:nba", "National Basketball Association", "competition", "discipline:basketball:professional", ["NBA"]],
+    ["competition:nbl", "National Basketball League", "competition", "discipline:basketball:professional", ["NBL"]],
     ["competition:fiba-womens-world-cup", "FIBA Women's Basketball World Cup", "competition", "discipline:basketball:international", ["FIBA Women's World Cup"]],
 
     ["sport:american-football", "American football", "sport"],
@@ -2058,6 +2059,7 @@ return {gender,sport,badge};
     aflw: "competition:aflw",
     cricket: "competition:cricket-international",
     nba: "competition:nba",
+    nbl: "competition:nbl",
     masters: "event-series:masters-tournament",
     lemans: "event-series:le-mans-24-hours",
     nfl: "event-series:super-bowl",
@@ -6694,7 +6696,7 @@ return {gender,sport,badge};
       async adminPanelRequest(command = null){
         return authenticatedRequest("/api/admin/panel", command ? { method:"POST", body:JSON.stringify(command) } : {});
       },
-      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, picks = "", fixture = "", activity = null, handle = "", rewards = false } = {}, command = null){
+      async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, picks = "", fixture = "", activity = null, handle = "", rewards = false, ratingAffinity = false } = {}, command = null){
         if (command){
           return authenticatedRequest("/api/nothingscore", { method:"POST", body:JSON.stringify(command) });
         }
@@ -6706,6 +6708,7 @@ return {gender,sport,badge};
         if(ladder){params.set('ladder','1');Object.entries(ladder).forEach(([k,v])=>params.set(k,String(v)));}
         if(fixture)params.set('fixture',fixture);if(picks)params.set('picks',picks);if(handle)params.set('handle',handle);if(activity){params.set('activity','1');params.set('cursor',String(activity.cursor||0));}
         if(rankings){params.set("rankings","1");Object.entries(rankings).forEach(([key,value])=>{if(value!==null&&value!==undefined)params.set(key,String(value));});}
+        if(ratingAffinity)params.set("ratingAffinity","1");
         const target = `/api/nothingscore?${params.toString()}`;
         return session || restoreStoredSession() ? authenticatedRequest(target) : jsonRequest(target);
       },
@@ -11445,6 +11448,22 @@ return {gender,sport,badge};
     const url = `https://cdn.nba.com/logos/nba/${nbaId}/global/L/logo.svg`;
     return [id, teamMark(id, label, url, "https://www.nba.com/teams", [label], id === "team:nba:toronto-raptors" ? "CA" : "US")];
   })));
+  const NBL_TEAM_ASSETS = Object.freeze({
+    "team:nbl:adelaide-36ers":["Adelaide 36ers","adl"],
+    "team:nbl:brisbane-bullets":["Brisbane Bullets","bri"],
+    "team:nbl:cairns-taipans":["Cairns Taipans","cns"],
+    "team:nbl:illawarra-hawks":["Illawarra Hawks","hwk"],
+    "team:nbl:melbourne-united":["Melbourne United","mel"],
+    "team:nbl:new-zealand-breakers":["New Zealand Breakers","nzl"],
+    "team:nbl:perth-wildcats":["Perth Wildcats","per"],
+    "team:nbl:south-east-melbourne-phoenix":["South East Melbourne Phoenix","pnx"],
+    "team:nbl:sydney-kings":["Sydney Kings","syd"],
+    "team:nbl:tasmania-jackjumpers":["Tasmania JackJumpers","tas"],
+  });
+  const nblTeamMarks = Object.freeze(Object.fromEntries(Object.entries(NBL_TEAM_ASSETS).map(([id,[label,slug]]) => {
+    const url=`https://a.espncdn.com/i/teamlogos/nbl/500/${slug}.png`;
+    return [id,referenceMark(`participant:${id}`,label,url,"https://www.espn.com/nbl/teams",{assetSource:url})];
+  })));
 
   // Lightweight NFL identities are available on a cold Feed before Follow
   // loads the full player directory. The canonical refresh script keeps this
@@ -11491,6 +11510,7 @@ return {gender,sport,badge};
     ...Object.entries(f1TeamMarks),
     ...Object.entries(premierLeagueTeamMarks),
     ...Object.entries(nbaTeamMarks),
+    ...Object.entries(nblTeamMarks),
     ...Object.entries(nflTeamMarks),
   ]));
   // Lightweight club identities are available on a cold Feed before Follow loads.

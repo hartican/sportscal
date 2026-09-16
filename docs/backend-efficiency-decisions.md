@@ -25,3 +25,7 @@ Database target: **nothingSport-recovery**, project `mkghopnkhcxtmfrcjdbc`. The 
 ## Rating authorization repair — 16 September 2026
 
 Registered-account eligibility is established by the authenticated API before the service-role-only rating RPC is called. The invoker-scoped RPC must not read `auth.users`: the service role bypasses RLS but is not granted direct access to Supabase Auth tables. The API rejects anonymous sessions, the RPC retains moderation and scoring checks, and foreign keys retain account existence integrity. Do not add a privileged definer solely to duplicate the API's authentication decision. Regression: `validate-leaderboard-v2-database.js`.
+
+## Follow-grid affinity read — 16 September 2026
+
+Load Follow-grid affinity only for the signed-in account and only when Follow opens. Query the preceding 90 days of contribution rows through the existing authenticated Nothing Score endpoint, supported by the `(user_id, updated_at desc)` index with fixture and phase columns included. Deduplicate edits in application code by fixture and phase; return only per-sport counts and last-interaction timestamps. Anonymous accounts use the ordinary followed-sport order without a database read. This aggregate controls presentation order only and cannot alter Feed admission.

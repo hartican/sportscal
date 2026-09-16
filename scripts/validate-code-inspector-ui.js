@@ -14,7 +14,7 @@ const wrcContext = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/wr
 assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow']);
 assert(html.includes('Back to Follow')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
 assert(html.includes('inspectorReturnState')&&html.includes('popstate'),'dedicated screens retain navigation state');
-assert(html.includes('follow-more-trigger')&&html.includes('follow-more-dialog')&&html.includes("['sport:afl','sport:nrl','sport:rugby','sport:football','sport:cricket','sport:tennis']"),'Follow uses the fixed primary order and a deliberate More picker');
+assert(html.includes('follow-more-trigger')&&html.includes('follow-more-dialog')&&html.includes('rankedFollowGridSports')&&html.includes('.slice(0,7)'),'Follow ranks up to seven followed sports and keeps the remainder in More');
 assert(!html.includes('open.textContent = "Inspect"'),'sport icons replace Inspect');
 for(const label of ['Schedule','Teams & players','Major Events','Ladder','Standings'])assert(html.includes(label));
 assert(html.includes('renderCodeInspectorIdentity')&&html.includes('codeInspectorParticipantMark'),'Schedule reuses canonical identities');
@@ -43,6 +43,8 @@ assert(aflwCode, "AFLW must be published as a separate Follow code");
 assert.equal(aflwCode.slug, "aflw");
 assert.equal(aflwCode.label, "AFLW");
 assert.equal(aflwCode.parentSportId, "sport:afl", "AFLW must remain grouped under AFL");
+const nblCode=manifest.codes.find(code=>code.id==="sport:nbl");
+assert(nblCode&&nblCode.fixtureCount===165&&nblCode.coverageStatus==="complete","NBL must publish its complete official regular-season schedule as a separate Code");
 const aflCode = manifest.codes.find(code => code.id === "sport:afl");
 assert(aflCode, "AFL must remain available beside its AFLW child code");
 assert.equal(eventMatchesCode({

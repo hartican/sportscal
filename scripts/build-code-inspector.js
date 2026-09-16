@@ -48,6 +48,7 @@ const CODE_KEYS = Object.freeze({
   "sport:f1": ["f1"],
   "sport:wrc": ["wrc"],
   "sport:nrlw": ["nrlw"],
+  "sport:nbl": ["nbl"],
   "competition:motogp": ["motogp"],
   "competition:sailgp": ["sailgp"],
   "competition:fiba-womens-world-cup": ["fiba-women"],
@@ -117,6 +118,7 @@ function isAflwFixture(event){
 const CHILD_CODE_IDS = new Set([
   "sport:aflw",
   "sport:nrlw",
+  "sport:nbl",
   "competition:motogp",
   "competition:sailgp",
   "competition:fiba-womens-world-cup",
@@ -125,6 +127,7 @@ const CHILD_CODE_IDS = new Set([
 function childCodeId(event){
   if (isAflwFixture(event)) return "sport:aflw";
   if (event?.discoverySportId === "sport:nrlw" || event?.competitionId === "competition:nrlw-premiership-2026" || event?.key === "nrlw") return "sport:nrlw";
+  if (event?.discoverySportId === "sport:nbl" || event?.competitionId === "competition:nbl" || event?.key === "nbl") return "sport:nbl";
   const explicit = String(event?.codeId || event?.taxonomyNodeId || "");
   if (CHILD_CODE_IDS.has(explicit)) return explicit;
   return null;
@@ -430,6 +433,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
     parentSportId:"sport:motorsport",
   };
   const f1Code = {id:"sport:f1",slug:"f1",name:"F1",parentSportId:"sport:motorsport"};
+  const nblCode = {id:"sport:nbl",slug:"nbl",name:"NBL",parentSportId:"sport:basketball"};
   const nrlwCompetition = taxonomy.competitions.find(competition => competition.id === "competition:nrlw-premiership-2026");
   if (!nrlwCompetition) throw new Error("The canonical NRLW competition is missing from the taxonomy.");
   const nrlwCode = { id:"sport:nrlw", slug:"nrlw", name:"NRLW", parentSportId:"sport:nrl" };
@@ -449,6 +453,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
         if (code.id === nrlwCode.parentSportId) childCodes.push(nrlwCode);
         if (code.id === wrcCode.parentSportId) childCodes.push(wrcCode);
         if (code.id === f1Code.parentSportId) childCodes.push(f1Code);
+        if (code.id === nblCode.parentSportId) childCodes.push(nblCode);
         return [code, ...childCodes];
       }),
     championsLeagueCode,
@@ -461,7 +466,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
     const fileName = `${code.slug}.json`;
     const coverageStatus = fixtures.length === 0
       ? "unavailable"
-      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:nrlw", "sport:wrc", "sport:american-football", "sport:ice-hockey", "competition:motogp", "competition:sailgp", "competition:fiba-womens-world-cup"].includes(code.id) ? "complete" : "partial";
+      : ["sport:afl", "sport:aflw", "sport:nrl", "sport:nrlw", "sport:wrc", "sport:nbl", "sport:american-football", "sport:ice-hockey", "competition:motogp", "competition:sailgp", "competition:fiba-womens-world-cup"].includes(code.id) ? "complete" : "partial";
     const freshAt = code.id === "competition:uefa-champions-league" ? canonicalChampionsLeague.generatedAt : code.id === "sport:wrc" ? canonicalWrc.generatedAt : feed.publishedAt || null;
     const parentSportId = code.parentSportId || (code.id === "competition:uefa-champions-league" ? code.sportDomainId : null);
     fs.writeFileSync(path.join(outputDir, fileName), `${JSON.stringify({

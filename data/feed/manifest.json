@@ -4,217 +4,287 @@
   "sourcePublishedAt": "2026-09-15T19:58:19.486Z",
   "pageSize": 20,
   "retentionDays": 14,
-  "inputEventCount": 860,
-  "eventCount": 585,
+  "inputEventCount": 1061,
+  "eventCount": 786,
   "pages": [
     {
       "index": 0,
       "path": "data/feed/page-001.json",
       "eventCount": 20,
       "firstEventId": "event:aflw:cd_m20262640601",
-      "lastEventId": "event:aflw:cd_m20262640608"
+      "lastEventId": "event:aflw:cd_m20262640606"
     },
     {
       "index": 1,
       "path": "data/feed/page-002.json",
       "eventCount": 20,
-      "firstEventId": "major-match:nrl-finals-2026:semi-final-2",
-      "lastEventId": "event:aflw:cd_m20262640709"
+      "firstEventId": "event:aflw:cd_m20262640607",
+      "lastEventId": "event:aflw:cd_m20262640702"
     },
     {
       "index": 2,
       "path": "data/feed/page-003.json",
       "eventCount": 20,
-      "firstEventId": "rugby-australia-south-africa-2026-09-27",
-      "lastEventId": "event:aflw:cd_m20262640903"
+      "firstEventId": "event:aflw:cd_m20262640703",
+      "lastEventId": "event:wrc:2026:round-13"
     },
     {
       "index": 3,
       "path": "data/feed/page-004.json",
       "eventCount": 20,
-      "firstEventId": "event:aflw:cd_m20262640904",
-      "lastEventId": "rlwc-australia-new-zealand-2026"
+      "firstEventId": "event:aflw:cd_m20262640801",
+      "lastEventId": "event:nbl:2026-27:36fdee6b-58ad-11f1-ac5d-19f7d3a187d4"
     },
     {
       "index": 4,
       "path": "data/feed/page-005.json",
       "eventCount": 20,
-      "firstEventId": "event:aflw:cd_m20262641001",
-      "lastEventId": "event:premier-league:128991"
+      "firstEventId": "event:aflw:cd_m20262640808",
+      "lastEventId": "event:aflw:cd_m20262640906"
     },
     {
       "index": 5,
       "path": "data/feed/page-006.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128992",
-      "lastEventId": "event:premier-league:128998"
+      "firstEventId": "event:nbl:2026-27:3705bd4d-58ad-11f1-8baa-ede76c1d904d",
+      "lastEventId": "event:nbl:2026-27:3706e834-58ad-11f1-8519-a362560fc147"
     },
     {
       "index": 6,
       "path": "data/feed/page-007.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129000",
-      "lastEventId": "event:premier-league:129003"
+      "firstEventId": "event:nbl:2026-27:36fd506c-58ad-11f1-a57f-6d6fb61b331b",
+      "lastEventId": "event:aflw:cd_m20262641008"
     },
     {
       "index": 7,
       "path": "data/feed/page-008.json",
       "eventCount": 20,
-      "firstEventId": "evt_36",
-      "lastEventId": "event:premier-league:129022"
+      "firstEventId": "event:nbl:2026-27:371032f3-58ad-11f1-a72d-69c2b72ae0a9",
+      "lastEventId": "event:aflw:cd_m20262641105"
     },
     {
       "index": 8,
       "path": "data/feed/page-009.json",
       "eventCount": 20,
-      "firstEventId": "evt_38",
-      "lastEventId": "event:premier-league:129029"
+      "firstEventId": "event:nbl:2026-27:3711a017-58ad-11f1-b649-93b9302663c0",
+      "lastEventId": "event:premier-league:129002"
     },
     {
       "index": 9,
       "path": "data/feed/page-010.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129030",
-      "lastEventId": "event:premier-league:129041"
+      "firstEventId": "event:f1:2026:united-states:race",
+      "lastEventId": "event:premier-league:129005"
     },
     {
       "index": 10,
       "path": "data/feed/page-011.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129042",
-      "lastEventId": "event:premier-league:129056"
+      "firstEventId": "event:premier-league:129007",
+      "lastEventId": "event:nbl:2026-27:3723e003-58ad-11f1-b68b-09df0c3978fa"
     },
     {
       "index": 11,
       "path": "data/feed/page-012.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129057",
-      "lastEventId": "event:premier-league:129074"
+      "firstEventId": "event:nbl:2026-27:3723d8e8-58ad-11f1-b04c-17c1a1f1f487",
+      "lastEventId": "event:nbl:2026-27:37289ea9-58ad-11f1-9790-bd240d5ec994"
     },
     {
       "index": 12,
       "path": "data/feed/page-013.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129075",
-      "lastEventId": "event:premier-league:129093"
+      "firstEventId": "rugby-england-australia-2026-11-09",
+      "lastEventId": "event:f1:2026:las-vegas:practice-2"
     },
     {
       "index": 13,
       "path": "data/feed/page-014.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129094",
-      "lastEventId": "evt_91"
+      "firstEventId": "event:nbl:2026-27:37779e30-58ad-11f1-a2d6-d729b42cc855",
+      "lastEventId": "rugby-wales-australia-2026-11-22"
     },
     {
       "index": 14,
       "path": "data/feed/page-015.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129113",
-      "lastEventId": "event:premier-league:129132"
+      "firstEventId": "event:f1:2026:las-vegas:race",
+      "lastEventId": "event:premier-league:129040"
     },
     {
       "index": 15,
       "path": "data/feed/page-016.json",
       "eventCount": 20,
-      "firstEventId": "calendar-nothingsport-manual-seed-big-wave-nazare-2026",
-      "lastEventId": "event:premier-league:129151"
+      "firstEventId": "event:premier-league:129041",
+      "lastEventId": "event:nbl:2026-27:3751fcc5-58ad-11f1-a32f-279e256f2655"
     },
     {
       "index": 16,
       "path": "data/feed/page-017.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129152",
-      "lastEventId": "event:premier-league:129170"
+      "firstEventId": "event:f1:2026:united-arab-emirates:practice-1",
+      "lastEventId": "cricket-australia-new-zealand-test-2026"
     },
     {
       "index": 17,
       "path": "data/feed/page-018.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129171",
-      "lastEventId": "event:premier-league:129190"
+      "firstEventId": "event:nbl:2026-27:3747bba2-58ad-11f1-b586-c9fe4bf38829",
+      "lastEventId": "event:nbl:2026-27:375d497d-58ad-11f1-bfc4-7b56785c5eab"
     },
     {
       "index": 18,
       "path": "data/feed/page-019.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129191",
-      "lastEventId": "event:premier-league:129206"
+      "firstEventId": "event:nbl:2026-27:375a042e-58ad-11f1-a652-5bbfc6dce39b",
+      "lastEventId": "evt_90"
     },
     {
       "index": 19,
       "path": "data/feed/page-020.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129207",
-      "lastEventId": "event:premier-league:129225"
+      "firstEventId": "event:nbl:2026-27:3763a871-58ad-11f1-bb01-15ea51636534",
+      "lastEventId": "event:premier-league:129097"
     },
     {
       "index": 20,
       "path": "data/feed/page-021.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129226",
-      "lastEventId": "event:premier-league:129245"
+      "firstEventId": "event:premier-league:129098",
+      "lastEventId": "event:premier-league:129112"
     },
     {
       "index": 21,
       "path": "data/feed/page-022.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129246",
-      "lastEventId": "event:premier-league:129265"
+      "firstEventId": "event:nbl:2026-27:377a706f-58ad-11f1-9081-95101c4b3f9d",
+      "lastEventId": "event:nbl:2026-27:37811115-58ad-11f1-8a48-93b9302663c0"
     },
     {
       "index": 22,
       "path": "data/feed/page-023.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129266",
-      "lastEventId": "event:premier-league:129285"
+      "firstEventId": "event:nbl:2026-27:3784706a-58ad-11f1-962d-09df0c3978fa",
+      "lastEventId": "event:nbl:2026-27:3788eca5-58ad-11f1-a7af-754512109772"
     },
     {
       "index": 23,
       "path": "data/feed/page-024.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:129286",
-      "lastEventId": "major-match:nrl-finals-2026:preliminary-final-2"
+      "firstEventId": "event:nbl:2026-27:37b85f23-58ad-11f1-9eb0-2bbb920071b5",
+      "lastEventId": "event:nbl:2026-27:37882039-58ad-11f1-b46f-4bbabfa2dd4f"
     },
     {
       "index": 24,
       "path": "data/feed/page-025.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128958",
-      "lastEventId": "major-match:nrl-finals-2026:qualifying-final-1"
+      "firstEventId": "event:nbl:2026-27:378d7045-58ad-11f1-be6f-59142d8bd7d5",
+      "lastEventId": "event:nbl:2026-27:379afd67-58ad-11f1-bee5-37c9e1eacb09"
     },
     {
       "index": 25,
       "path": "data/feed/page-026.json",
       "eventCount": 20,
-      "firstEventId": "event:aflw:cd_m20262640509",
-      "lastEventId": "event:fiba-women:2026:quarterfinals"
+      "firstEventId": "event:nbl:2026-27:3796b045-58ad-11f1-ad75-2572c13c410b",
+      "lastEventId": "event:premier-league:129164"
     },
     {
       "index": 26,
       "path": "data/feed/page-027.json",
       "eventCount": 20,
-      "firstEventId": "event:nrlw:2026:round-11-roosters-bulldogs",
-      "lastEventId": "event:fiba-women:2026:group-nigeria-france"
+      "firstEventId": "event:premier-league:129165",
+      "lastEventId": "event:premier-league:129176"
     },
     {
       "index": 27,
       "path": "data/feed/page-028.json",
       "eventCount": 20,
-      "firstEventId": "event:premier-league:128944",
-      "lastEventId": "event:premier-league:128946"
+      "firstEventId": "event:premier-league:129177",
+      "lastEventId": "event:premier-league:129196"
     },
     {
       "index": 28,
       "path": "data/feed/page-029.json",
       "eventCount": 20,
-      "firstEventId": "evt_27",
-      "lastEventId": "event:nrl:129992703"
+      "firstEventId": "event:premier-league:129197",
+      "lastEventId": "event:premier-league:129212"
     },
     {
       "index": 29,
       "path": "data/feed/page-030.json",
-      "eventCount": 5,
-      "firstEventId": "fixture:us-open-2026:official:ms:1222",
+      "eventCount": 20,
+      "firstEventId": "evt_103",
+      "lastEventId": "event:premier-league:129230"
+    },
+    {
+      "index": 30,
+      "path": "data/feed/page-031.json",
+      "eventCount": 20,
+      "firstEventId": "event:premier-league:129231",
+      "lastEventId": "event:premier-league:129250"
+    },
+    {
+      "index": 31,
+      "path": "data/feed/page-032.json",
+      "eventCount": 20,
+      "firstEventId": "event:premier-league:129251",
+      "lastEventId": "event:premier-league:129270"
+    },
+    {
+      "index": 32,
+      "path": "data/feed/page-033.json",
+      "eventCount": 20,
+      "firstEventId": "event:premier-league:129271",
+      "lastEventId": "event:premier-league:129289"
+    },
+    {
+      "index": 33,
+      "path": "data/feed/page-034.json",
+      "eventCount": 20,
+      "firstEventId": "event:premier-league:129290",
+      "lastEventId": "event:fiba-women:2026:bronze"
+    },
+    {
+      "index": 34,
+      "path": "data/feed/page-035.json",
+      "eventCount": 20,
+      "firstEventId": "event:premier-league:128960",
+      "lastEventId": "event:aflw:cd_m20262640509"
+    },
+    {
+      "index": 35,
+      "path": "data/feed/page-036.json",
+      "eventCount": 20,
+      "firstEventId": "event:f1:2026:spain:race",
+      "lastEventId": "event:fiba-women:2026:qualification-day-2"
+    },
+    {
+      "index": 36,
+      "path": "data/feed/page-037.json",
+      "eventCount": 20,
+      "firstEventId": "event:fiba-women:2026:quarterfinals",
+      "lastEventId": "event:fiba-women:2026:group-hungary-korea"
+    },
+    {
+      "index": 37,
+      "path": "data/feed/page-038.json",
+      "eventCount": 20,
+      "firstEventId": "event:fiba-women:2026:group-nigeria-france",
+      "lastEventId": "event:fiba-women:2026:group-china-czechia"
+    },
+    {
+      "index": 38,
+      "path": "data/feed/page-039.json",
+      "eventCount": 20,
+      "firstEventId": "event:premier-league:128946",
+      "lastEventId": "event:afl:cd_m20260142603"
+    },
+    {
+      "index": 39,
+      "path": "data/feed/page-040.json",
+      "eventCount": 6,
+      "firstEventId": "event:nrl:129992703",
       "lastEventId": "event:afl:cd_m20260142601"
     }
   ]

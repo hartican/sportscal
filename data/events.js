@@ -29928,17 +29928,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Spain Sail Grand Prix — race day 2 is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete.",
+      "hookSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete; the official outcome is still pending.",
       "synopsisSpoilerOff": "Spain Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete, but the official results page had not published a verified outcome at the latest check.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-valencia-day-2",
@@ -29973,7 +29972,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-06T14:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Event 10",
+      "contextSignals": [
+        "official-schedule",
+        "fleet racing"
+      ],
+      "sourceName": "SailGP 2026 calendar",
+      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_group_china_czechia",
@@ -30074,17 +30086,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "China v Czechia is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "China defeated Czechia 74-70 after overtime.",
       "synopsisSpoilerOff": "China v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "China beat Czechia 74-70 after overtime in the FIBA Women's Basketball World Cup group stage.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-china-czechia",
@@ -30119,7 +30130,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-06T15:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "epl-2026-27-128946",
@@ -31207,17 +31231,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Puerto Rico v Belgium is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Belgium won 76–64.",
       "synopsisSpoilerOff": "Puerto Rico v Belgium is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Puerto Rico 64–76 Belgium in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-08T14:06:42.638Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-puerto-rico-belgium",
@@ -31252,7 +31275,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-06T18:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_group_italy_usa",
@@ -31353,17 +31389,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Italy v USA is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "USA won 55–52.",
       "synopsisSpoilerOff": "Italy v USA is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Italy 52–55 USA in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-08T14:06:42.638Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-italy-usa",
@@ -31398,7 +31433,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-06T21:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_group_belgium_australia",
@@ -31499,17 +31547,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Belgium v Australian Opals is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Belgium won 80–68.",
       "synopsisSpoilerOff": "Belgium v Australian Opals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Belgium 80–68 Australian Opals in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-08T14:06:42.638Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-belgium-australia",
@@ -31544,7 +31591,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-07T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_group_puerto_rico_turkiye",
@@ -31645,17 +31705,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 3,
       "intensity": 3,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "hookSpoilerOff": "Puerto Rico v Türkiye is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Puerto Rico won 75–71.",
       "synopsisSpoilerOff": "Puerto Rico v Türkiye is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Puerto Rico 75–71 Türkiye in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-08T14:06:42.638Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-puerto-rico-turkiye",
@@ -31690,7 +31749,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-07T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_group_hungary_korea",
@@ -31791,17 +31863,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 3,
       "intensity": 3,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 6,
       "hookSpoilerOff": "Hungary v Korea is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Hungary won 82–73.",
       "synopsisSpoilerOff": "Hungary v Korea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Hungary 82–73 Korea in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-08T14:06:42.638Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-08T14:06:42.638Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-hungary-korea",
@@ -31836,7 +31907,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-07T15:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_group_nigeria_france",
@@ -31937,17 +32021,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Nigeria v France is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "France won 111–56.",
       "synopsisSpoilerOff": "Nigeria v France is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Nigeria 56–111 France in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-08T14:06:42.638Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-nigeria-france",
@@ -31982,7 +32065,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-07T15:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "fixture-us-open-2026-official-wd-4301",
@@ -32287,17 +32383,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 7,
       "hookSpoilerOff": "Germany v Mali is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Germany won 83–58.",
       "synopsisSpoilerOff": "Germany v Mali is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Germany 83–58 Mali in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-08T14:06:42.638Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-germany-mali",
@@ -32332,7 +32427,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-07T18:50:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_group_japan_spain",
@@ -32433,17 +32541,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Japan v Spain is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "Spain won 79–59.",
       "synopsisSpoilerOff": "Japan v Spain is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Japan 59–79 Spain in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-08T14:06:42.638Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-japan-spain",
@@ -32478,7 +32585,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-07T18:50:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_group_italy_china",
@@ -32579,17 +32699,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Italy v China is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "China won 71–51.",
       "synopsisSpoilerOff": "Italy v China is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "Italy 51–71 China in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-08T14:06:42.638Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-italy-china",
@@ -32624,7 +32743,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-07T21:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_group_usa_czechia",
@@ -32725,17 +32857,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "recap",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "USA v Czechia is complete; the key moments are protected until you choose to reveal them.",
       "hookSpoilerOn": "USA won 105–64.",
       "synopsisSpoilerOff": "USA v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
       "synopsisSpoilerOn": "USA 105–64 Czechia in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-08T14:06:42.638Z",
-      "researchDepth": 2
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-group-usa-czechia",
@@ -32770,7 +32901,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "generationMode": "researched"
     },
     "endTimeUtc": "2026-09-07T21:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-08",
@@ -33289,14 +33433,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Qualification to quarterfinals",
     "stage": "qualification",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's World Cup — qualification day 1 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA",
-    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "The first qualification games put World Cup survival on a single result.",
+    "fullSpiel": "Second- and third-placed teams meet for the remaining quarterfinal places.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:fiba-women",
     "competitionId": "competition:fiba-womens-world-cup",
@@ -33312,17 +33456,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Australia and China advanced to the quarterfinals.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "hookSpoilerOff": "The first qualification games put World Cup survival on a single result.",
+      "hookSpoilerOn": "The first qualification games put World Cup survival on a single result.",
+      "synopsisSpoilerOff": "Second- and third-placed teams meet for the remaining quarterfinal places.",
+      "synopsisSpoilerOn": "Second- and third-placed teams meet for the remaining quarterfinal places.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-qualification-day-1",
@@ -33362,7 +33505,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-08T18:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "event",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualification to quarterfinals",
+      "contextSignals": [
+        "official-schedule",
+        "qualification"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "fixture-us-open-2026-official-ms-1504",
@@ -33845,14 +34001,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Qualification to quarterfinals",
     "stage": "qualification",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's World Cup — qualification day 2 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA",
-    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "The last qualification games complete the Women's World Cup quarterfinal field.",
+    "fullSpiel": "There is no pool-stage buffer now: winners advance and losers leave Berlin.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:fiba-women",
     "competitionId": "competition:fiba-womens-world-cup",
@@ -33868,17 +34024,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Germany and Hungary advanced to the quarterfinals.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — qualification day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "hookSpoilerOff": "The last qualification games complete the Women's World Cup quarterfinal field.",
+      "hookSpoilerOn": "The last qualification games complete the Women's World Cup quarterfinal field.",
+      "synopsisSpoilerOff": "There is no pool-stage buffer now: winners advance and losers leave Berlin.",
+      "synopsisSpoilerOn": "There is no pool-stage buffer now: winners advance and losers leave Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-qualification-day-2",
@@ -33918,7 +34073,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-09T18:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "event",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualification to quarterfinals",
+      "contextSignals": [
+        "official-schedule",
+        "qualification"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_quarterfinals",
@@ -33950,14 +34118,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Quarterfinals",
     "stage": "quarterfinal",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's World Cup — quarterfinals is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA",
-    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
+    "fullSpiel": "Group winners re-enter against qualification survivors, with every title route now direct.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:fiba-women",
     "competitionId": "competition:fiba-womens-world-cup",
@@ -33973,18 +34141,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 5,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Spain, Germany, France and USA reached the semifinals.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — quarterfinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "archetype": "elimination",
-      "researchDepth": 5
+      "hookSpoilerOff": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
+      "hookSpoilerOn": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
+      "synopsisSpoilerOff": "Group winners re-enter against qualification survivors, with every title route now direct.",
+      "synopsisSpoilerOn": "Group winners re-enter against qualification survivors, with every title route now direct.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-quarterfinals",
@@ -34024,7 +34190,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-10T19:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "event",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Quarterfinals",
+      "contextSignals": [
+        "official-schedule",
+        "quarterfinal"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_nrlw_2026_round_11_roosters_bulldogs",
@@ -34059,14 +34238,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL",
-    "sourceUrl": "https://www.nrl.com/news/2026/09/10/thursday-night-footy-roosters-v-bulldogs/",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
+    "fullSpiel": "The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:nrl",
     "discoverySportId": "sport:nrlw",
     "competitionId": "competition:nrlw-premiership-2026",
@@ -34112,17 +34291,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs in Round 11: the result is available to reveal.",
-      "hookSpoilerOn": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs in Round 11.",
-      "synopsisSpoilerOff": "Sydney Roosters v Canterbury-Bankstown Bulldogs is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "The Roosters completed an unbeaten regular season with a 42-12 Round 11 win.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 2
+      "hookSpoilerOff": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
+      "hookSpoilerOn": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
+      "synopsisSpoilerOff": "The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
+      "synopsisSpoilerOn": "The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-roosters-bulldogs",
@@ -34189,7 +34367,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-10T12:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_nrlw_2026_round_11_wests_tigers_raiders",
@@ -34224,14 +34415,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Wests Tigers v Canberra Raiders is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL",
-    "sourceUrl": "https://www.nrl.com/news/2026/09/08/nrlw-team-lists-round-11/",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
+    "fullSpiel": "A result at Leichhardt can alter both qualification and the first-week finals matchup.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:nrl",
     "discoverySportId": "sport:nrlw",
     "competitionId": "competition:nrlw-premiership-2026",
@@ -34277,17 +34468,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 9,
-      "hookSpoilerOff": "Wests Tigers v Canberra Raiders in Round 11: the result is available to reveal.",
-      "hookSpoilerOn": "Canberra Raiders defeated Wests Tigers in Round 11.",
-      "synopsisSpoilerOff": "Wests Tigers v Canberra Raiders is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Canberra closed Round 11 with a 22-10 win over Wests Tigers.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 2
+      "hookSpoilerOff": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
+      "hookSpoilerOn": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
+      "synopsisSpoilerOff": "A result at Leichhardt can alter both qualification and the first-week finals matchup.",
+      "synopsisSpoilerOn": "A result at Leichhardt can alter both qualification and the first-week finals matchup.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-wests-tigers-raiders",
@@ -34354,7 +34544,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-11T10:40:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "major-match-nrl-finals-2026-elimination-final-2",
@@ -34808,14 +35011,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Parramatta Eels v North Queensland Cowboys is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL",
-    "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
+    "fullSpiel": "The midday match carries the direct consequences of a compressed eleven-round campaign.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:nrl",
     "discoverySportId": "sport:nrlw",
     "competitionId": "competition:nrlw-premiership-2026",
@@ -34861,17 +35064,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 7,
-      "hookSpoilerOff": "Parramatta Eels v North Queensland Cowboys in Round 11: the result is available to reveal.",
-      "hookSpoilerOn": "Parramatta Eels defeated North Queensland Cowboys in Round 11.",
-      "synopsisSpoilerOff": "Parramatta Eels v North Queensland Cowboys is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 2
+      "hookSpoilerOff": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
+      "hookSpoilerOn": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
+      "synopsisSpoilerOff": "The midday match carries the direct consequences of a compressed eleven-round campaign.",
+      "synopsisSpoilerOn": "The midday match carries the direct consequences of a compressed eleven-round campaign.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-eels-cowboys",
@@ -34938,7 +35140,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-12T05:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "event-aflw-cd_m20262640501",
@@ -35665,14 +35880,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL",
-    "sourceUrl": "https://www.nrl.com/news/2026/09/12/nrlw-saturday-eels-v-cowboys-sharks-v-dragons/",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
+    "fullSpiel": "The final-round move adds a big-stage test just before elimination football begins.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:nrl",
     "discoverySportId": "sport:nrlw",
     "competitionId": "competition:nrlw-premiership-2026",
@@ -35718,17 +35933,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons in Round 11: the result is available to reveal.",
-      "hookSpoilerOn": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons in Round 11.",
-      "synopsisSpoilerOff": "Cronulla-Sutherland Sharks v St George Illawarra Dragons is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Cronulla finished the regular season with a 16-8 Round 11 win.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 2
+      "hookSpoilerOff": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
+      "hookSpoilerOn": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
+      "synopsisSpoilerOff": "The final-round move adds a big-stage test just before elimination football begins.",
+      "synopsisSpoilerOn": "The final-round move adds a big-stage test just before elimination football begins.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-sharks-dragons",
@@ -35795,7 +36009,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-12T10:10:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "sport": "NRL",
@@ -36955,36 +37182,37 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayScore": 0
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R14 Spanish GP Qualifying",
+    "name": "Spanish GP · Qualifying",
     "date": "2026-09-13",
     "time": "00:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 6,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 8,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_28",
     "eventId": "evt_28",
-    "displayTitleCompact": "R14 Spanish GP Qualifying",
+    "displayTitleCompact": "Spanish GP · Qualifying",
     "selectedSentence": "R14 Spanish GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "R14 Spanish GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Formula 1 official session results",
-    "sourceUrl": "https://www.formula1.com/en/results/2026/races/1294/spain/qualifying",
-    "sourceCheckedAt": "2026-09-15T19:58:08.955Z",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
-    "replayEligible": false,
+    "replayEligible": true,
     "highlightEligible": true,
-    "briefingEligible": false,
-    "catchupEligible": false,
+    "briefingEligible": true,
+    "catchupEligible": true,
     "status": "completed",
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-28",
@@ -37027,7 +37255,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 6,
       "intensitySource": "computed"
     },
-    "startTimeUtc": "2026-09-12T14:00:00Z",
+    "startTimeUtc": "2026-09-12T14:00:00.000Z",
     "venueCountryCode": "ES",
     "timingSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
     "timingCheckedAt": "2026-09-08T14:50:00Z",
@@ -37041,7 +37269,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-12T17:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "canonicalEventId": "event:f1:2026:spain:qualifying",
+    "cardKind": "fixture",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 4,
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_semifinals",
@@ -37073,14 +37332,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Semifinals",
     "stage": "semifinal",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's World Cup — semifinals is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA",
-    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-semi-finals",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "The last four teams play for a place in the Women's World Cup final.",
+    "fullSpiel": "Two semifinals in one Berlin session decide who can still leave as world champion.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:fiba-women",
     "competitionId": "competition:fiba-womens-world-cup",
@@ -37096,18 +37355,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 5,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 10,
-      "hookSpoilerOff": "FIBA Women's World Cup — semifinals is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "USA and France reached the World Cup final.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — semifinals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "archetype": "elimination",
-      "researchDepth": 5
+      "hookSpoilerOff": "The last four teams play for a place in the Women's World Cup final.",
+      "hookSpoilerOn": "The last four teams play for a place in the Women's World Cup final.",
+      "synopsisSpoilerOff": "Two semifinals in one Berlin session decide who can still leave as world champion.",
+      "synopsisSpoilerOn": "Two semifinals in one Berlin session decide who can still leave as world champion.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-semifinals",
@@ -37147,7 +37404,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-12T22:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "event",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Semifinals",
+      "contextSignals": [
+        "official-schedule",
+        "semifinal"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "epl-2026-27-128962",
@@ -37440,14 +37710,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Brisbane Broncos v New Zealand Warriors is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL",
-    "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
+    "fullSpiel": "The Sunday result can decide whether the defending premiers earn a shorter finals route.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:nrl",
     "discoverySportId": "sport:nrlw",
     "competitionId": "competition:nrlw-premiership-2026",
@@ -37494,17 +37764,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Brisbane Broncos v New Zealand Warriors in Round 11: the result is available to reveal.",
-      "hookSpoilerOn": "Brisbane Broncos defeated New Zealand Warriors in Round 11.",
-      "synopsisSpoilerOff": "Brisbane Broncos v New Zealand Warriors is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Brisbane scored seven second-half tries in a 52-18 Round 11 win.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 2
+      "hookSpoilerOff": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
+      "hookSpoilerOn": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
+      "synopsisSpoilerOff": "The Sunday result can decide whether the defending premiers earn a shorter finals route.",
+      "synopsisSpoilerOn": "The Sunday result can decide whether the defending premiers earn a shorter finals route.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-broncos-warriors",
@@ -37571,7 +37840,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-13T05:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "event-aflw-cd_m20262640505",
@@ -37872,14 +38154,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundNumber": 11,
     "stage": "regular season",
     "narrativeType": "all",
-    "selectedSentence": "Newcastle Knights v Gold Coast Titans is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "NRL",
-    "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrlw-sunday-broncos-v-warriors-knights-v-titans/",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
+    "fullSpiel": "The last scheduled match can redraw the elimination pairings only days before finals begin.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:nrl",
     "discoverySportId": "sport:nrlw",
     "competitionId": "competition:nrlw-premiership-2026",
@@ -37925,17 +38207,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "Newcastle Knights v Gold Coast Titans in Round 11: the result is available to reveal.",
-      "hookSpoilerOn": "Gold Coast Titans defeated Newcastle Knights in Round 11.",
-      "synopsisSpoilerOff": "Newcastle Knights v Gold Coast Titans is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 2
+      "hookSpoilerOff": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
+      "hookSpoilerOn": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
+      "synopsisSpoilerOff": "The last scheduled match can redraw the elimination pairings only days before finals begin.",
+      "synopsisSpoilerOn": "The last scheduled match can redraw the elimination pairings only days before finals begin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-round-11-knights-titans",
@@ -38002,7 +38283,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-13T06:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "event-aflw-cd_m20262640507",
@@ -38574,10 +38868,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "MotoGP San Marino Grand Prix",
     "displayTitleCompact": "MotoGP San Marino Grand Prix",
     "date": "2026-09-13",
-    "time": "22:00",
-    "timeTbc": false,
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
     "broadcaster": "Fox Sports via Kayo / Foxtel",
     "broadcastOptions": [
       "Kayo Sports",
@@ -38595,14 +38889,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "San Marino GP",
     "stage": "Grand Prix",
     "narrativeType": "all",
-    "selectedSentence": "MotoGP San Marino Grand Prix is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "MotoGP San Marino Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "MotoGP",
-    "sourceUrl": "https://stats.motogp.com/en/gp-results",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
+    "fullSpiel": "The Italian stop begins the final nine-race run to the Valencia decider.",
+    "sourceName": "MotoGP 2026 calendar",
+    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:motorsport",
     "discoverySportId": "sport:motogp",
     "competitionId": "competition:motogp",
@@ -38652,17 +38946,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
-      "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "hookSpoilerOff": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
+      "hookSpoilerOn": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
+      "synopsisSpoilerOff": "The Italian stop begins the final nine-race run to the Valencia decider.",
+      "synopsisSpoilerOn": "The Italian stop begins the final nine-race run to the Valencia decider.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-motogp-2026-san-marino",
@@ -38708,7 +39001,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "https://stats.motogp.com/en/gp-results",
       "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181",
       "https://www.motogp.com/en/news/2026/07/16//1088005"
-    ]
+    ],
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "San Marino GP",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "epl-2026-27-128956",
@@ -38840,25 +39146,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayScore": 5
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R14 Spanish GP Race",
+    "name": "Spanish GP · Race",
     "date": "2026-09-13",
     "time": "23:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 7,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 9,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_29",
     "eventId": "evt_29",
-    "displayTitleCompact": "R14 Spanish GP Race",
+    "displayTitleCompact": "Spanish GP · Race",
     "selectedSentence": "R14 Spanish GP Race is complete; the key moments are protected until you choose to reveal them.",
     "fullSpiel": "R14 Spanish GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Formula 1 official session results",
-    "sourceUrl": "https://www.formula1.com/en/results/2026/races/1294/spain/race-result",
-    "sourceCheckedAt": "2026-09-15T19:58:08.955Z",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -38867,9 +39174,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "completed",
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-29",
@@ -38912,7 +39219,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "expectedSpectacle": 7,
       "intensitySource": "computed"
     },
-    "startTimeUtc": "2026-09-13T13:00:00Z",
+    "startTimeUtc": "2026-09-13T13:00:00.000Z",
     "venueCountryCode": "ES",
     "timingSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
     "timingCheckedAt": "2026-09-08T14:50:00Z",
@@ -38926,7 +39233,38 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-13T16:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "canonicalEventId": "event:f1:2026:spain:race",
+    "cardKind": "fixture",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 5,
+    "roundLabel": "Race",
+    "stage": "Race",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Race",
+      "contextSignals": [
+        "official-schedule",
+        "Race"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "evt_fiba_women_2026_bronze",
@@ -38958,14 +39296,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Third-place game",
     "stage": "medal",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's World Cup — bronze medal game is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA",
-    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
+    "fullSpiel": "The bronze game rewards the team that can reset fastest after missing the final.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:fiba-women",
     "competitionId": "competition:fiba-womens-world-cup",
@@ -38981,17 +39319,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 4,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 8,
-      "hookSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Spain defeated Germany 81-58 to win bronze.",
-      "synopsisSpoilerOff": "FIBA Women's World Cup — bronze medal game is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Spain secured the World Cup bronze medal with an 81-58 win over hosts Germany.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "hookSpoilerOff": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
+      "hookSpoilerOn": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
+      "synopsisSpoilerOff": "The bronze game rewards the team that can reset fastest after missing the final.",
+      "synopsisSpoilerOn": "The bronze game rewards the team that can reset fastest after missing the final.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-bronze",
@@ -39033,7 +39370,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-13T17:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Third-place game",
+      "contextSignals": [
+        "official-schedule",
+        "medal"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "epl-2026-27-128960",
@@ -39194,14 +39544,14 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "roundLabel": "Final",
     "stage": "final",
     "narrativeType": "all",
-    "selectedSentence": "FIBA Women's Basketball World Cup final is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA",
-    "sourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "selectedSentence": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
+    "fullSpiel": "The tournament closes with forty minutes separating the finalists from a world championship.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
-    "status": "completed",
+    "status": "upcoming",
     "sportDomainId": "sport:basketball",
     "discoverySportId": "sport:fiba-women",
     "competitionId": "competition:fiba-womens-world-cup",
@@ -39217,18 +39567,16 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
-      "arcStage": "recap",
+      "intensitySource": "manual",
+      "arcStage": "preview",
       "expectedSpectacle": 10,
-      "hookSpoilerOff": "FIBA Women's Basketball World Cup final is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "USA defeated France 97-79 to win the World Cup.",
-      "synopsisSpoilerOff": "FIBA Women's Basketball World Cup final is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "USA won a fifth consecutive and 12th overall Women's World Cup title with a 97-79 final victory.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "archetype": "championship decider",
-      "researchDepth": 5
+      "hookSpoilerOff": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
+      "hookSpoilerOn": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
+      "synopsisSpoilerOff": "The tournament closes with forty minutes separating the finalists from a world championship.",
+      "synopsisSpoilerOn": "The tournament closes with forty minutes separating the finalists from a world championship.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
-    "lastReviewedAt": "2026-09-15T05:30:00.000Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-fiba-women-2026-final",
@@ -39270,7 +39618,20 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "Official result"
     ],
     "endTimeUtc": "2026-09-13T21:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window"
+    "endTimeBasis": "scheduled-live-window",
+    "cardKind": "fixture",
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Final",
+      "contextSignals": [
+        "official-schedule",
+        "final"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    }
   },
   {
     "id": "epl-2026-27-128958",
@@ -40993,7 +41354,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "fleet racing",
     "narrativeType": "all",
     "selectedSentence": "Lake Geneva opens the final European SailGP weekend of the 2026 season.",
-    "fullSpiel": "Lake Geneva opens the final European SailGP weekend of the 2026 season. The tight waterfront course gives the thirteen-team fleet little room to recover from a poor start.",
+    "fullSpiel": "The tight waterfront course gives the thirteen-team fleet little room to recover from a poor start.",
     "sourceName": "SailGP 2026 calendar",
     "sourceUrl": "https://sailgp.com/general/2026/calendar/",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -41045,31 +41406,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Lake Geneva opens the final European SailGP weekend of the 2026 season.",
       "hookSpoilerOn": "Lake Geneva opens the final European SailGP weekend of the 2026 season.",
-      "synopsisSpoilerOff": "Lake Geneva opens the final European SailGP weekend of the 2026 season. The tight waterfront course gives the thirteen-team fleet little room to recover from a poor start.",
-      "synopsisSpoilerOn": "Lake Geneva opens the final European SailGP weekend of the 2026 season. The tight waterfront course gives the thirteen-team fleet little room to recover from a poor start.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "The tight waterfront course gives the thirteen-team fleet little room to recover from a poor start.",
+      "synopsisSpoilerOn": "The tight waterfront course gives the thirteen-team fleet little room to recover from a poor start.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 SailGP season — current path",
+      "angle": "Event 11",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "fleet racing"
       ],
       "sourceName": "SailGP 2026 calendar",
       "sourceUrl": "https://sailgp.com/general/2026/calendar/",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-geneva-day-1",
@@ -41098,7 +41456,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-128965",
@@ -41533,7 +41892,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Grand Prix",
     "narrativeType": "all",
     "selectedSentence": "The Red Bull Ring's hard acceleration zones give the MotoGP field a different title test.",
-    "fullSpiel": "The Red Bull Ring's hard acceleration zones give the MotoGP field a different title test. Braking stability and drive out of slow corners shape the Austrian championship swing.",
+    "fullSpiel": "Braking stability and drive out of slow corners shape the Austrian championship swing.",
     "sourceName": "MotoGP 2026 calendar",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -41589,31 +41948,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "The Red Bull Ring's hard acceleration zones give the MotoGP field a different title test.",
       "hookSpoilerOn": "The Red Bull Ring's hard acceleration zones give the MotoGP field a different title test.",
-      "synopsisSpoilerOff": "The Red Bull Ring's hard acceleration zones give the MotoGP field a different title test. Braking stability and drive out of slow corners shape the Austrian championship swing.",
-      "synopsisSpoilerOn": "The Red Bull Ring's hard acceleration zones give the MotoGP field a different title test. Braking stability and drive out of slow corners shape the Austrian championship swing.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "Braking stability and drive out of slow corners shape the Austrian championship swing.",
+      "synopsisSpoilerOn": "Braking stability and drive out of slow corners shape the Austrian championship swing.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 MotoGP season — current path",
+      "angle": "Austrian GP",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "Grand Prix"
       ],
       "sourceName": "MotoGP 2026 calendar",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-motogp-2026-austria",
@@ -41642,7 +41998,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-128971",
@@ -42834,7 +43191,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "fleet racing",
     "narrativeType": "all",
     "selectedSentence": "Geneva's final races turn European points into the qualification picture for the UAE finale.",
-    "fullSpiel": "Geneva's final races turn European points into the qualification picture for the UAE finale. The event winner and championship positions are decided before the two-event finish in the Emirates.",
+    "fullSpiel": "The event winner and championship positions are decided before the two-event finish in the Emirates.",
     "sourceName": "SailGP 2026 calendar",
     "sourceUrl": "https://sailgp.com/general/2026/calendar/",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -42886,31 +43243,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Geneva's final races turn European points into the qualification picture for the UAE finale.",
       "hookSpoilerOn": "Geneva's final races turn European points into the qualification picture for the UAE finale.",
-      "synopsisSpoilerOff": "Geneva's final races turn European points into the qualification picture for the UAE finale. The event winner and championship positions are decided before the two-event finish in the Emirates.",
-      "synopsisSpoilerOn": "Geneva's final races turn European points into the qualification picture for the UAE finale. The event winner and championship positions are decided before the two-event finish in the Emirates.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "The event winner and championship positions are decided before the two-event finish in the Emirates.",
+      "synopsisSpoilerOn": "The event winner and championship positions are decided before the two-event finish in the Emirates.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 SailGP season — current path",
+      "angle": "Event 11",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "fleet racing"
       ],
       "sourceName": "SailGP 2026 calendar",
       "sourceUrl": "https://sailgp.com/general/2026/calendar/",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-geneva-day-2",
@@ -42939,7 +43293,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-128967",
@@ -43696,25 +44051,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R15 Azerbaijan GP Qualifying",
+    "name": "Azerbaijan GP · Qualifying",
     "date": "2026-09-25",
     "time": "22:00",
-    "broadcaster": "Kayo Sports",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
     "expected": 8,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_30",
     "eventId": "evt_30",
-    "displayTitleCompact": "R15 Azerbaijan GP Qualifying",
+    "displayTitleCompact": "Azerbaijan GP · Qualifying",
     "selectedSentence": "One lap must reconcile Baku's long full-throttle run with a wall-lined old town that forgives almost nothing.",
     "fullSpiel": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
-    "sourceName": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
+    "sourceName": "Formula 1 official race hub",
     "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -43736,7 +44092,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Baku's walls and passing straight",
@@ -43751,7 +44107,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "sourceType": "official",
     "startTimeUtc": "2026-09-25T12:00:00.000Z",
     "editorialNarrative": {
@@ -43781,7 +44137,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-09-23T12:00:00.000Z",
       "generationMode": "researched"
-    }
+    },
+    "canonicalEventId": "event:f1:2026:azerbaijan:qualifying",
+    "cardKind": "fixture",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 4,
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": []
   },
   {
     "id": "event-afl-cd_m20260142901",
@@ -44113,25 +44488,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "kind": "major_event"
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R15 Azerbaijan GP Race",
+    "name": "Azerbaijan GP · Race",
     "date": "2026-09-26",
     "time": "21:00",
-    "broadcaster": "Kayo Sports",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
     "expected": 9,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_31",
     "eventId": "evt_31",
-    "displayTitleCompact": "R15 Azerbaijan GP Race",
+    "displayTitleCompact": "Azerbaijan GP · Race",
     "selectedSentence": "Baku offers a passing straight, a wall-lined old town and almost no clean compromise between them.",
     "fullSpiel": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
-    "sourceName": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
+    "sourceName": "Formula 1 official race hub",
     "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-    "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -44153,7 +44529,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-08-29T23:56:41.761Z",
       "researchDepth": 4
     },
-    "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "Baku's walls and passing straight",
@@ -44168,7 +44544,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
       "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "sourceType": "official",
     "startTimeUtc": "2026-09-26T11:00:00.000Z",
     "editorialNarrative": {
@@ -44197,7 +44573,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-09-25T14:00:00.000Z",
       "generationMode": "researched"
-    }
+    },
+    "canonicalEventId": "event:f1:2026:azerbaijan:race",
+    "cardKind": "fixture",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 5,
+    "roundLabel": "Race",
+    "stage": "Race",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": []
   },
   {
     "id": "event-aflw-cd_m20262640706",
@@ -45698,7 +46093,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Grand Prix",
     "narrativeType": "all",
     "selectedSentence": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
-    "fullSpiel": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure. Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
+    "fullSpiel": "Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
     "sourceName": "MotoGP 2026 calendar",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -45754,31 +46149,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
       "hookSpoilerOn": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
-      "synopsisSpoilerOff": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure. Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
-      "synopsisSpoilerOn": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure. Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
+      "synopsisSpoilerOn": "Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 MotoGP season — current path",
+      "angle": "Japanese GP",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "Grand Prix"
       ],
       "sourceName": "MotoGP 2026 calendar",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-motogp-2026-japan",
@@ -45807,7 +46199,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "evt_nrlw_2026_grand_final",
@@ -45842,7 +46235,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "final",
     "narrativeType": "all",
     "selectedSentence": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-    "fullSpiel": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
+    "fullSpiel": "The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
     "sourceName": "Official 2026 NRL and NRLW Grand Final",
     "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -45864,32 +46257,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 10,
       "hookSpoilerOff": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
       "hookSpoilerOn": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-      "synopsisSpoilerOff": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-      "synopsisSpoilerOn": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "archetype": "championship decider",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
+      "synopsisSpoilerOn": "The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 NRLW Premiership — current path",
+      "angle": "Grand Final",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "final"
       ],
       "sourceName": "Official 2026 NRL and NRLW Grand Final",
       "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-nrlw-2026-grand-final",
@@ -45919,7 +46308,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "event-aflw-cd_m20262640807",
@@ -47214,7 +47604,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Grand Prix",
     "narrativeType": "all",
     "selectedSentence": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
-    "fullSpiel": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends. Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
+    "fullSpiel": "Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
     "sourceName": "MotoGP 2026 calendar",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -47270,31 +47660,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 4,
       "intensity": 4,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 8,
       "hookSpoilerOff": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
       "hookSpoilerOn": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
-      "synopsisSpoilerOff": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends. Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
-      "synopsisSpoilerOn": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends. Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
+      "synopsisSpoilerOn": "Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 MotoGP season — current path",
+      "angle": "Indonesian GP",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "Grand Prix"
       ],
       "sourceName": "MotoGP 2026 calendar",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-motogp-2026-indonesia",
@@ -47323,7 +47710,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-128974",
@@ -47642,25 +48030,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R16 Singapore GP Qualifying",
+    "name": "Singapore GP · Qualifying",
     "date": "2026-10-11",
-    "time": "01:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 7,
+    "time": "00:00",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 8,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_32",
     "eventId": "evt_32",
-    "displayTitleCompact": "R16 Singapore GP Qualifying",
+    "displayTitleCompact": "Singapore GP · Qualifying",
     "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Qualifying.",
     "fullSpiel": "R16 Singapore GP Qualifying is scheduled for 2026-10-11 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-    "sourceName": "Formula 1 official source",
-    "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-    "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -47669,7 +48058,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified",
+    "sourceTrust": "verified",
     "sourceType": "official",
     "editorialPreview": {
       "status": "journalistic",
@@ -47702,7 +48091,40 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
       "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
       "needsPreviewRefresh": false
-    }
+    },
+    "canonicalEventId": "event:f1:2026:singapore:qualifying",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-10-10T13:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 4,
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Singapore GP.",
+      "hookSpoilerOn": "Qualifying at the Singapore GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
     "id": "epl-2026-27-128981",
@@ -48164,25 +48586,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R16 Singapore GP Race",
-    "date": "2026-10-12",
-    "time": "00:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 8,
+    "name": "Singapore GP · Race",
+    "date": "2026-10-11",
+    "time": "23:00",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 9,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_33",
     "eventId": "evt_33",
-    "displayTitleCompact": "R16 Singapore GP Race",
+    "displayTitleCompact": "Singapore GP · Race",
     "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Race.",
     "fullSpiel": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-    "sourceName": "Formula 1 official source",
-    "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-    "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -48202,7 +48625,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-28T05:16:10.213Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialPreview": {
       "status": "journalistic",
       "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
@@ -48235,8 +48658,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
       "needsPreviewRefresh": false
     },
-    "sourceTrust": "unverified",
-    "sourceType": "official"
+    "sourceTrust": "verified",
+    "sourceType": "official",
+    "canonicalEventId": "event:f1:2026:singapore:race",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-10-11T12:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 5,
+    "roundLabel": "Race",
+    "stage": "Race",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": []
   },
   {
     "id": "epl-2026-27-128980",
@@ -50780,7 +51223,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Grand Prix",
     "narrativeType": "all",
     "selectedSentence": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
-    "fullSpiel": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
+    "fullSpiel": "Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
     "sourceName": "MotoGP 2026 calendar",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -50836,31 +51279,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 10,
       "hookSpoilerOff": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
       "hookSpoilerOn": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
-      "synopsisSpoilerOff": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
-      "synopsisSpoilerOn": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
+      "synopsisSpoilerOn": "Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 MotoGP season — current path",
+      "angle": "Australian GP",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "Grand Prix"
       ],
       "sourceName": "MotoGP 2026 calendar",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-motogp-2026-australia",
@@ -50889,7 +51329,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-128993",
@@ -51129,25 +51570,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R17 US GP (COTA) Qualifying",
+    "name": "United States GP · Qualifying",
     "date": "2026-10-25",
-    "time": "09:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 7,
+    "time": "08:00",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 8,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_34",
     "eventId": "evt_34",
-    "displayTitleCompact": "R17 US GP (COTA) Qualifying",
+    "displayTitleCompact": "United States GP · Qualifying",
     "selectedSentence": "Grid-setting session with direct consequences for the race.",
     "fullSpiel": "R17 US GP (COTA) Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -51156,7 +51598,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:united-states:qualifying",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-10-24T21:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 4,
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the United States GP.",
+      "hookSpoilerOn": "Qualifying at the United States GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
     "id": "event-aflw-cd_m20262641106",
@@ -51951,25 +52439,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R17 US GP (COTA) Race",
+    "name": "United States GP · Race",
     "date": "2026-10-26",
     "time": "07:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 8,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 9,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_35",
     "eventId": "evt_35",
-    "displayTitleCompact": "R17 US GP (COTA) Race",
+    "displayTitleCompact": "United States GP · Race",
     "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
     "fullSpiel": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -51989,14 +52478,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
       "editorialWindowDays": 10,
       "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:united-states:race",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-10-25T20:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 5,
+    "roundLabel": "Race",
+    "stage": "Race",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": []
   },
   {
     "sport": "Cricket",
@@ -52658,7 +53168,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Grand Prix",
     "narrativeType": "all",
     "selectedSentence": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
-    "fullSpiel": "Sepang keeps the MotoGP field in the heat as the available championship points shrink. Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
+    "fullSpiel": "Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
     "sourceName": "MotoGP 2026 calendar",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -52714,31 +53224,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
       "hookSpoilerOn": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
-      "synopsisSpoilerOff": "Sepang keeps the MotoGP field in the heat as the available championship points shrink. Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
-      "synopsisSpoilerOn": "Sepang keeps the MotoGP field in the heat as the available championship points shrink. Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
+      "synopsisSpoilerOn": "Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 MotoGP season — current path",
+      "angle": "Malaysian GP",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "Grand Prix"
       ],
       "sourceName": "MotoGP 2026 calendar",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-motogp-2026-malaysia",
@@ -52767,7 +53274,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-129004",
@@ -53323,25 +53831,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R18 Mexico City GP Qualifying",
+    "name": "Mexico City GP · Qualifying",
     "date": "2026-11-01",
     "time": "08:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 7,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 8,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_36",
     "eventId": "evt_36",
-    "displayTitleCompact": "R18 Mexico City GP Qualifying",
+    "displayTitleCompact": "Mexico City GP · Qualifying",
     "selectedSentence": "Grid-setting session with direct consequences for the race.",
     "fullSpiel": "R18 Mexico City GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -53350,7 +53859,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:mexico:qualifying",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-10-31T21:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 4,
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Mexico City GP.",
+      "hookSpoilerOn": "Qualifying at the Mexico City GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
     "id": "event-aflw-cd_m20262641206",
@@ -53759,25 +54314,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R18 Mexico City GP Race",
+    "name": "Mexico City GP · Race",
     "date": "2026-11-02",
     "time": "07:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 8,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 9,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_37",
     "eventId": "evt_37",
-    "displayTitleCompact": "R18 Mexico City GP Race",
+    "displayTitleCompact": "Mexico City GP · Race",
     "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
     "fullSpiel": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -53797,14 +54353,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
       "editorialWindowDays": 10,
       "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:mexico:race",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-11-01T20:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 5,
+    "roundLabel": "Race",
+    "stage": "Race",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": []
   },
   {
     "id": "epl-2026-27-129011",
@@ -53955,7 +54532,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Grand Prix",
     "narrativeType": "all",
     "selectedSentence": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
-    "fullSpiel": "Lusail's night race carries MotoGP into the final three rounds of 2026. Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
+    "fullSpiel": "Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
     "sourceName": "MotoGP 2026 calendar",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -54011,31 +54588,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
       "hookSpoilerOn": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
-      "synopsisSpoilerOff": "Lusail's night race carries MotoGP into the final three rounds of 2026. Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
-      "synopsisSpoilerOn": "Lusail's night race carries MotoGP into the final three rounds of 2026. Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
+      "synopsisSpoilerOn": "Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 MotoGP season — current path",
+      "angle": "Qatar GP",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "Grand Prix"
       ],
       "sourceName": "MotoGP 2026 calendar",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-motogp-2026-qatar",
@@ -54064,7 +54638,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-129013",
@@ -54857,25 +55432,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R19 Brazilian GP Qualifying",
+    "name": "São Paulo GP · Qualifying",
     "date": "2026-11-08",
     "time": "05:00",
-    "broadcaster": "Kayo Sports",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
     "expected": 8,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_38",
     "eventId": "evt_38",
-    "displayTitleCompact": "R19 Brazilian GP Qualifying",
+    "displayTitleCompact": "São Paulo GP · Qualifying",
     "selectedSentence": "Grid-setting session with direct consequences for the race.",
     "fullSpiel": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -54895,14 +55471,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
       "editorialWindowDays": 10,
       "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:brazil:qualifying",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-11-07T18:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 4,
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": []
   },
   {
     "id": "rugby-england-australia-2026-11-09",
@@ -54974,25 +55571,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R19 Brazilian GP Race",
+    "name": "São Paulo GP · Race",
     "date": "2026-11-09",
     "time": "04:00",
-    "broadcaster": "Kayo Sports",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
     "expected": 9,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_39",
     "eventId": "evt_39",
-    "displayTitleCompact": "R19 Brazilian GP Race",
+    "displayTitleCompact": "São Paulo GP · Race",
     "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
     "fullSpiel": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -55012,14 +55610,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
       "editorialWindowDays": 10,
       "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:brazil:race",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-11-08T17:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 5,
+    "roundLabel": "Race",
+    "stage": "Race",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": []
   },
   {
     "id": "event-wrc-2026-round-14",
@@ -55481,7 +56100,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "fleet racing",
     "narrativeType": "all",
     "selectedSentence": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
-    "fullSpiel": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure. The penultimate event leaves the fleet only one weekend to repair any points damage.",
+    "fullSpiel": "The penultimate event leaves the fleet only one weekend to repair any points damage.",
     "sourceName": "SailGP 2026 calendar",
     "sourceUrl": "https://sailgp.com/general/2026/calendar/",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -55533,31 +56152,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
       "hookSpoilerOn": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
-      "synopsisSpoilerOff": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure. The penultimate event leaves the fleet only one weekend to repair any points damage.",
-      "synopsisSpoilerOn": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure. The penultimate event leaves the fleet only one weekend to repair any points damage.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "The penultimate event leaves the fleet only one weekend to repair any points damage.",
+      "synopsisSpoilerOn": "The penultimate event leaves the fleet only one weekend to repair any points damage.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 SailGP season — current path",
+      "angle": "Event 12",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "fleet racing"
       ],
       "sourceName": "SailGP 2026 calendar",
       "sourceUrl": "https://sailgp.com/general/2026/calendar/",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-dubai-day-1",
@@ -55586,28 +56202,30 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R20 Las Vegas GP Qualifying",
+    "name": "Las Vegas GP · Qualifying",
     "date": "2026-11-21",
     "time": "15:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 7,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 8,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_40",
     "eventId": "evt_40",
-    "displayTitleCompact": "R20 Las Vegas GP Qualifying",
+    "displayTitleCompact": "Las Vegas GP · Qualifying",
     "selectedSentence": "Grid-setting session with direct consequences for the race.",
     "fullSpiel": "R20 Las Vegas GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -55616,7 +56234,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:las-vegas:qualifying",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-11-21T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 4,
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Las Vegas GP.",
+      "hookSpoilerOn": "Qualifying at the Las Vegas GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
     "id": "cricket-australia-england-first-t20-2026",
@@ -55748,7 +56412,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Grand Prix",
     "narrativeType": "all",
     "selectedSentence": "Portimão's elevation changes host MotoGP's penultimate round.",
-    "fullSpiel": "Portimão's elevation changes host MotoGP's penultimate round. Only Valencia remains after Portugal, so every point has immediate championship consequence.",
+    "fullSpiel": "Only Valencia remains after Portugal, so every point has immediate championship consequence.",
     "sourceName": "MotoGP 2026 calendar",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -55804,31 +56468,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Portimão's elevation changes host MotoGP's penultimate round.",
       "hookSpoilerOn": "Portimão's elevation changes host MotoGP's penultimate round.",
-      "synopsisSpoilerOff": "Portimão's elevation changes host MotoGP's penultimate round. Only Valencia remains after Portugal, so every point has immediate championship consequence.",
-      "synopsisSpoilerOn": "Portimão's elevation changes host MotoGP's penultimate round. Only Valencia remains after Portugal, so every point has immediate championship consequence.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "Only Valencia remains after Portugal, so every point has immediate championship consequence.",
+      "synopsisSpoilerOn": "Only Valencia remains after Portugal, so every point has immediate championship consequence.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 MotoGP season — current path",
+      "angle": "Portuguese GP",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "Grand Prix"
       ],
       "sourceName": "MotoGP 2026 calendar",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-motogp-2026-portugal",
@@ -55857,7 +56518,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "evt_sailgp_2026_dubai_day_2",
@@ -55890,7 +56552,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "fleet racing",
     "narrativeType": "all",
     "selectedSentence": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
-    "fullSpiel": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi. A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
+    "fullSpiel": "A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
     "sourceName": "SailGP 2026 calendar",
     "sourceUrl": "https://sailgp.com/general/2026/calendar/",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -55942,31 +56604,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 9,
       "hookSpoilerOff": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
       "hookSpoilerOn": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
-      "synopsisSpoilerOff": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi. A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
-      "synopsisSpoilerOn": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi. A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
+      "synopsisSpoilerOn": "A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 SailGP season — current path",
+      "angle": "Event 12",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "fleet racing"
       ],
       "sourceName": "SailGP 2026 calendar",
       "sourceUrl": "https://sailgp.com/general/2026/calendar/",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-dubai-day-2",
@@ -55995,7 +56654,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-129023",
@@ -56856,25 +57516,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R20 Las Vegas GP Race",
+    "name": "Las Vegas GP · Race",
     "date": "2026-11-22",
     "time": "15:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 8,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 9,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_41",
     "eventId": "evt_41",
-    "displayTitleCompact": "R20 Las Vegas GP Race",
+    "displayTitleCompact": "Las Vegas GP · Race",
     "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
     "fullSpiel": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -56894,14 +57555,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
       "editorialWindowDays": 10,
       "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:las-vegas:race",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-11-22T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 5,
+    "roundLabel": "Race",
+    "stage": "Race",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": []
   },
   {
     "id": "cricket-australia-england-second-t20-2026",
@@ -57200,7 +57882,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "fleet racing",
     "narrativeType": "all",
     "selectedSentence": "The Abu Dhabi Grand Final opens with the season championship still alive.",
-    "fullSpiel": "The Abu Dhabi Grand Final opens with the season championship still alive. Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
+    "fullSpiel": "Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
     "sourceName": "SailGP 2026 calendar",
     "sourceUrl": "https://sailgp.com/general/2026/calendar/",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -57252,31 +57934,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 10,
       "hookSpoilerOff": "The Abu Dhabi Grand Final opens with the season championship still alive.",
       "hookSpoilerOn": "The Abu Dhabi Grand Final opens with the season championship still alive.",
-      "synopsisSpoilerOff": "The Abu Dhabi Grand Final opens with the season championship still alive. Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
-      "synopsisSpoilerOn": "The Abu Dhabi Grand Final opens with the season championship still alive. Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
+      "synopsisSpoilerOn": "Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 SailGP season — current path",
+      "angle": "Grand Final",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "fleet racing"
       ],
       "sourceName": "SailGP 2026 calendar",
       "sourceUrl": "https://sailgp.com/general/2026/calendar/",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-abu-dhabi-day-1",
@@ -57305,7 +57984,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "evt_motogp_2026_valencia",
@@ -57338,7 +58018,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "Season finale",
     "narrativeType": "all",
     "selectedSentence": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
-    "fullSpiel": "Valencia closes the 2026 MotoGP season and settles any championship still alive. The compact stadium circuit is the last chance for a rider to change the final standings.",
+    "fullSpiel": "The compact stadium circuit is the last chance for a rider to change the final standings.",
     "sourceName": "MotoGP 2026 calendar",
     "sourceUrl": "https://www.motogp.com/en/calendar/2026",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -57394,31 +58074,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 10,
       "hookSpoilerOff": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
       "hookSpoilerOn": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
-      "synopsisSpoilerOff": "Valencia closes the 2026 MotoGP season and settles any championship still alive. The compact stadium circuit is the last chance for a rider to change the final standings.",
-      "synopsisSpoilerOn": "Valencia closes the 2026 MotoGP season and settles any championship still alive. The compact stadium circuit is the last chance for a rider to change the final standings.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "The compact stadium circuit is the last chance for a rider to change the final standings.",
+      "synopsisSpoilerOn": "The compact stadium circuit is the last chance for a rider to change the final standings.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 MotoGP season — current path",
+      "angle": "Valencia GP",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "Season finale"
       ],
       "sourceName": "MotoGP 2026 calendar",
       "sourceUrl": "https://www.motogp.com/en/calendar/2026",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-motogp-2026-valencia",
@@ -57447,7 +58124,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "evt_sailgp_2026_abu_dhabi_day_2",
@@ -57480,7 +58158,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "stage": "championship",
     "narrativeType": "all",
     "selectedSentence": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
-    "fullSpiel": "SailGP's last race crowns the 2026 champion in Abu Dhabi. A full season of fleet racing ends in the championship's decisive final contest.",
+    "fullSpiel": "A full season of fleet racing ends in the championship's decisive final contest.",
     "sourceName": "SailGP 2026 calendar",
     "sourceUrl": "https://sailgp.com/general/2026/calendar/",
     "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
@@ -57532,31 +58210,28 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "storyline": {
       "stakes": 5,
       "intensity": 5,
-      "intensitySource": "computed",
+      "intensitySource": "manual",
       "arcStage": "preview",
       "expectedSpectacle": 10,
       "hookSpoilerOff": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
       "hookSpoilerOn": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
-      "synopsisSpoilerOff": "SailGP's last race crowns the 2026 champion in Abu Dhabi. A full season of fleet racing ends in the championship's decisive final contest.",
-      "synopsisSpoilerOn": "SailGP's last race crowns the 2026 champion in Abu Dhabi. A full season of fleet racing ends in the championship's decisive final contest.",
-      "lastReviewedAt": "2026-09-08T12:57:33.822Z",
-      "researchDepth": 5
+      "synopsisSpoilerOff": "A full season of fleet racing ends in the championship's decisive final contest.",
+      "synopsisSpoilerOn": "A full season of fleet racing ends in the championship's decisive final contest.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "2026 SailGP season — current path",
+      "angle": "Grand Final",
       "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
+        "official-schedule",
+        "championship"
       ],
       "sourceName": "SailGP 2026 calendar",
       "sourceUrl": "https://sailgp.com/general/2026/calendar/",
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-08T12:57:33.822Z",
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:rolling:evt-sailgp-2026-abu-dhabi-day-2",
@@ -57585,7 +58260,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
       "generationMode": "researched"
-    }
+    },
+    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-129033",
@@ -58378,25 +59054,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R21 Qatar GP Qualifying",
+    "name": "Qatar GP · Qualifying",
     "date": "2026-11-29",
     "time": "05:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 7,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 8,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_42",
     "eventId": "evt_42",
-    "displayTitleCompact": "R21 Qatar GP Qualifying",
+    "displayTitleCompact": "Qatar GP · Qualifying",
     "selectedSentence": "Grid-setting session with direct consequences for the race.",
     "fullSpiel": "R21 Qatar GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -58405,7 +59082,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:qatar:qualifying",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-11-28T18:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 4,
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Qatar GP.",
+      "hookSpoilerOn": "Qualifying at the Qatar GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
     "id": "cricket-australia-england-fourth-t20-2026",
@@ -58520,25 +59243,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R21 Qatar GP Race",
+    "name": "Qatar GP · Race",
     "date": "2026-11-30",
     "time": "03:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 7,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 9,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_43",
     "eventId": "evt_43",
-    "displayTitleCompact": "R21 Qatar GP Race",
+    "displayTitleCompact": "Qatar GP · Race",
     "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
     "fullSpiel": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -58547,7 +59271,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:qatar:race",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-11-29T16:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 5,
+    "roundLabel": "Race",
+    "stage": "Race",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Race at the Qatar GP.",
+      "hookSpoilerOn": "Race at the Qatar GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Race",
+      "contextSignals": [
+        "official-schedule",
+        "Race"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
     "id": "cricket-australia-england-fifth-t20-2026",
@@ -59452,25 +60222,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R22 Abu Dhabi GP Qualifying",
+    "name": "Abu Dhabi GP · Qualifying",
     "date": "2026-12-06",
     "time": "01:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 7,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 8,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_44",
     "eventId": "evt_44",
-    "displayTitleCompact": "R22 Abu Dhabi GP Qualifying",
+    "displayTitleCompact": "Abu Dhabi GP · Qualifying",
     "selectedSentence": "Grid-setting session with direct consequences for the race.",
     "fullSpiel": "R22 Abu Dhabi GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -59479,7 +60250,53 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": true,
     "catchupEligible": true,
     "status": "upcoming",
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:united-arab-emirates:qualifying",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-12-05T14:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 4,
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Abu Dhabi GP.",
+      "hookSpoilerOn": "Qualifying at the Abu Dhabi GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
     "id": "epl-2026-27-129053",
@@ -60272,25 +61089,26 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "F1",
+    "sport": "Formula 1",
     "key": "f1",
-    "name": "R22 Abu Dhabi GP Race",
+    "name": "Abu Dhabi GP · Race",
     "date": "2026-12-07",
     "time": "00:00",
-    "broadcaster": "Kayo Sports",
-    "expected": 8,
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "expected": 9,
     "venue": null,
     "liveWindow": 3,
     "id": "evt_45",
     "eventId": "evt_45",
-    "displayTitleCompact": "R22 Abu Dhabi GP Race",
+    "displayTitleCompact": "Abu Dhabi GP · Race",
     "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
     "fullSpiel": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Bundled nothingsport seed data",
-    "sourceUrl": "https://github.com/hartican/sportscal",
-    "sourceCheckedAt": "2026-07-10T08:30:00+10:00",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
     "broadcastOptions": [
-      "Kayo Sports"
+      "Kayo Sports",
+      "Foxtel"
     ],
     "round": "all",
     "narrativeType": "all",
@@ -60310,14 +61128,35 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
       "intensitySource": "computed"
     },
-    "lastReviewedAt": "2026-08-14T02:56:19.695Z",
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
     "editorialPreview": {
       "status": "research-required",
       "needsPreviewRefresh": true,
       "editorialWindowDays": 10,
       "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
-    "sourceTrust": "unverified"
+    "sourceTrust": "verified",
+    "canonicalEventId": "event:f1:2026:united-arab-emirates:race",
+    "cardKind": "fixture",
+    "startTimeUtc": "2026-12-06T13:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "stakesScore": 5,
+    "roundLabel": "Race",
+    "stage": "Race",
+    "sourceType": "official",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": []
   },
   {
     "id": "cricket-australia-new-zealand-test-2026",
@@ -80270,5 +81109,20775 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "briefingEligible": false,
     "catchupEligible": false,
     "sourceCheckedAt": "2026-07-16T08:30:00+10:00"
+  },
+  {
+    "id": "evt_golf_masters_2027",
+    "eventId": "evt_golf_masters_2027",
+    "canonicalEventId": "event:golf:masters-2027",
+    "sport": "Golf",
+    "key": "golf",
+    "name": "2027 Masters Tournament",
+    "cardKind": "fixture",
+    "displayTitleCompact": "2027 Masters Tournament",
+    "date": "2027-04-08",
+    "endDate": "2027-04-11",
+    "time": "22:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Broadcast TBC",
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "Augusta National Golf Club, Georgia",
+    "liveWindow": 12,
+    "round": "all",
+    "roundLabel": null,
+    "stage": "Major",
+    "narrativeType": "all",
+    "selectedSentence": "The first men's major of 2027 returns to Augusta National.",
+    "fullSpiel": "Four championship days at Augusta open the men's major season; tee times and the field will replace this schedule card when officially published.",
+    "sourceName": "PGA TOUR 2027 schedule",
+    "sourceUrl": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
+    "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:golf",
+    "discoverySportId": "sport:golf",
+    "competitionId": "competition:golf:masters-2027",
+    "taxonomyNodeId": "event-series:masters-tournament",
+    "codeId": "sport:golf",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "The first men's major of 2027 returns to Augusta National.",
+      "hookSpoilerOn": "The first men's major of 2027 returns to Augusta National.",
+      "synopsisSpoilerOff": "Four championship days at Augusta open the men's major season; tee times and the field will replace this schedule card when officially published.",
+      "synopsisSpoilerOn": "Four championship days at Augusta open the men's major season; tee times and the field will replace this schedule card when officially published.",
+      "lastReviewedAt": "2026-09-06T00:00:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Major",
+      "contextSignals": [
+        "official-schedule",
+        "Major"
+      ],
+      "sourceName": "PGA TOUR 2027 schedule",
+      "sourceUrl": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
+      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T00:00:00.000Z"
+  },
+  {
+    "id": "evt_golf_pga_championship_2027",
+    "eventId": "evt_golf_pga_championship_2027",
+    "canonicalEventId": "event:golf:pga-championship-2027",
+    "sport": "Golf",
+    "key": "golf",
+    "name": "2027 PGA Championship",
+    "cardKind": "fixture",
+    "displayTitleCompact": "2027 PGA Championship",
+    "date": "2027-05-20",
+    "endDate": "2027-05-23",
+    "time": "22:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Broadcast TBC",
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "PGA Frisco, Texas",
+    "liveWindow": 12,
+    "round": "all",
+    "roundLabel": null,
+    "stage": "Major",
+    "narrativeType": "all",
+    "selectedSentence": "The PGA Championship brings the strongest available men's field to PGA Frisco.",
+    "fullSpiel": "The official championship window is queued now; tee times and player cards will follow the published field and draw.",
+    "sourceName": "PGA Championship",
+    "sourceUrl": "https://www.pgachampionship.com/about-us",
+    "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:golf",
+    "discoverySportId": "sport:golf",
+    "competitionId": "competition:golf:pga-championship-2027",
+    "taxonomyNodeId": "event-series:pga-championship",
+    "codeId": "sport:golf",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "The PGA Championship brings the strongest available men's field to PGA Frisco.",
+      "hookSpoilerOn": "The PGA Championship brings the strongest available men's field to PGA Frisco.",
+      "synopsisSpoilerOff": "The official championship window is queued now; tee times and player cards will follow the published field and draw.",
+      "synopsisSpoilerOn": "The official championship window is queued now; tee times and player cards will follow the published field and draw.",
+      "lastReviewedAt": "2026-09-06T00:00:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Major",
+      "contextSignals": [
+        "official-schedule",
+        "Major"
+      ],
+      "sourceName": "PGA Championship",
+      "sourceUrl": "https://www.pgachampionship.com/about-us",
+      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T00:00:00.000Z"
+  },
+  {
+    "id": "evt_golf_us_open_2027",
+    "eventId": "evt_golf_us_open_2027",
+    "canonicalEventId": "event:golf:us-open-2027",
+    "sport": "Golf",
+    "key": "golf",
+    "name": "2027 U.S. Open",
+    "cardKind": "fixture",
+    "displayTitleCompact": "2027 U.S. Open",
+    "date": "2027-06-17",
+    "endDate": "2027-06-20",
+    "time": "22:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Broadcast TBC",
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "Pebble Beach Golf Links, California",
+    "liveWindow": 12,
+    "round": "all",
+    "roundLabel": null,
+    "stage": "Major",
+    "narrativeType": "all",
+    "selectedSentence": "Pebble Beach hosts the 2027 U.S. Open and its national-championship test.",
+    "fullSpiel": "The official four-day championship window is queued, with tee times and player detail to follow the final field.",
+    "sourceName": "USGA 2027 U.S. Open",
+    "sourceUrl": "https://www.usopen.com/content/usopen/2027/tickets.html",
+    "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:golf",
+    "discoverySportId": "sport:golf",
+    "competitionId": "competition:golf:us-open-2027",
+    "taxonomyNodeId": "event-series:us-open-golf",
+    "codeId": "sport:golf",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "Pebble Beach hosts the 2027 U.S. Open and its national-championship test.",
+      "hookSpoilerOn": "Pebble Beach hosts the 2027 U.S. Open and its national-championship test.",
+      "synopsisSpoilerOff": "The official four-day championship window is queued, with tee times and player detail to follow the final field.",
+      "synopsisSpoilerOn": "The official four-day championship window is queued, with tee times and player detail to follow the final field.",
+      "lastReviewedAt": "2026-09-06T00:00:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Major",
+      "contextSignals": [
+        "official-schedule",
+        "Major"
+      ],
+      "sourceName": "USGA 2027 U.S. Open",
+      "sourceUrl": "https://www.usopen.com/content/usopen/2027/tickets.html",
+      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T00:00:00.000Z"
+  },
+  {
+    "id": "evt_golf_the_open_2027",
+    "eventId": "evt_golf_the_open_2027",
+    "canonicalEventId": "event:golf:the-open-2027",
+    "sport": "Golf",
+    "key": "golf",
+    "name": "The 155th Open",
+    "cardKind": "fixture",
+    "displayTitleCompact": "The 155th Open",
+    "date": "2027-07-15",
+    "endDate": "2027-07-18",
+    "time": "16:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Broadcast TBC",
+    "broadcastOptions": [],
+    "broadcasterIds": [],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "The Old Course, St Andrews",
+    "liveWindow": 12,
+    "round": "all",
+    "roundLabel": null,
+    "stage": "Major",
+    "narrativeType": "all",
+    "selectedSentence": "The Open returns to St Andrews for the 155th Championship.",
+    "fullSpiel": "The men's final major of 2027 is queued across its official championship dates; tee times and field-specific cards will follow publication.",
+    "sourceName": "The Open 2027",
+    "sourceUrl": "https://www.theopen.com/st-andrews-2027",
+    "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:golf",
+    "discoverySportId": "sport:golf",
+    "competitionId": "competition:golf:the-open-2027",
+    "taxonomyNodeId": "event-series:the-open",
+    "codeId": "sport:golf",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "The Open returns to St Andrews for the 155th Championship.",
+      "hookSpoilerOn": "The Open returns to St Andrews for the 155th Championship.",
+      "synopsisSpoilerOff": "The men's final major of 2027 is queued across its official championship dates; tee times and field-specific cards will follow publication.",
+      "synopsisSpoilerOn": "The men's final major of 2027 is queued across its official championship dates; tee times and field-specific cards will follow publication.",
+      "lastReviewedAt": "2026-09-06T00:00:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Major",
+      "contextSignals": [
+        "official-schedule",
+        "Major"
+      ],
+      "sourceName": "The Open 2027",
+      "sourceUrl": "https://www.theopen.com/st-andrews-2027",
+      "sourceCheckedAt": "2026-09-06T00:00:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T00:00:00.000Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36dbeb55_58ad_11f1_a69b_43a6b5595d3e",
+    "eventId": "evt_nbl_2026_27_36dbeb55_58ad_11f1_a69b_43a6b5595d3e",
+    "canonicalEventId": "event:nbl:2026-27:36dbeb55-58ad-11f1-a69b-43a6b5595d3e",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Adelaide 36ers",
+    "date": "2026-09-19",
+    "time": "19:30",
+    "startTimeUtc": "2026-09-19T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 1",
+    "roundNumber": 1,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 1 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 1 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 1 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 1",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36e0e11c_58ad_11f1_93d0_e78395b5c13c",
+    "eventId": "evt_nbl_2026_27_36e0e11c_58ad_11f1_93d0_e78395b5c13c",
+    "canonicalEventId": "event:nbl:2026-27:36e0e11c-58ad-11f1-93d0-e78395b5c13c",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v South East Melbourne Phoenix",
+    "date": "2026-09-19",
+    "time": "21:30",
+    "startTimeUtc": "2026-09-19T11:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 1",
+    "roundNumber": 1,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 1 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 1 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 1 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 1",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3700706c_58ad_11f1_ae9e_a93048d70593",
+    "eventId": "evt_nbl_2026_27_3700706c_58ad_11f1_ae9e_a93048d70593",
+    "canonicalEventId": "event:nbl:2026-27:3700706c-58ad-11f1-ae9e-a93048d70593",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Illawarra Hawks",
+    "date": "2026-09-20",
+    "time": "15:00",
+    "startTimeUtc": "2026-09-20T05:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 1",
+    "roundNumber": 1,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 1 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 1 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 1 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 1",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36e225dc_58ad_11f1_b0d4_e94b8c35b649",
+    "eventId": "evt_nbl_2026_27_36e225dc_58ad_11f1_b0d4_e94b8c35b649",
+    "canonicalEventId": "event:nbl:2026-27:36e225dc-58ad-11f1-b0d4-e94b8c35b649",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Cairns Taipans",
+    "date": "2026-09-20",
+    "time": "17:00",
+    "startTimeUtc": "2026-09-20T07:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 1",
+    "roundNumber": 1,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 1 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 1 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 1 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 1",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36e80b8c_58ad_11f1_ab03_2572c13c410b",
+    "eventId": "evt_nbl_2026_27_36e80b8c_58ad_11f1_ab03_2572c13c410b",
+    "canonicalEventId": "event:nbl:2026-27:36e80b8c-58ad-11f1-ab03-2572c13c410b",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v South East Melbourne Phoenix",
+    "date": "2026-09-21",
+    "time": "19:30",
+    "startTimeUtc": "2026-09-21T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 1",
+    "roundNumber": 1,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 1 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 1 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 1 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 1",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36e7aa3c_58ad_11f1_b88d_1138b8cb68ba",
+    "eventId": "evt_nbl_2026_27_36e7aa3c_58ad_11f1_b88d_1138b8cb68ba",
+    "canonicalEventId": "event:nbl:2026-27:36e7aa3c-58ad-11f1-b88d-1138b8cb68ba",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v New Zealand Breakers",
+    "date": "2026-09-22",
+    "time": "19:30",
+    "startTimeUtc": "2026-09-22T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Pat Rafter Arena *subject to change",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 1",
+    "roundNumber": 1,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 1 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 1 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 1 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 1",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36e0818b_58ad_11f1_89d2_fb9d3a8baf78",
+    "eventId": "evt_nbl_2026_27_36e0818b_58ad_11f1_89d2_fb9d3a8baf78",
+    "canonicalEventId": "event:nbl:2026-27:36e0818b-58ad-11f1-89d2-fb9d3a8baf78",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Tasmania JackJumpers",
+    "date": "2026-09-23",
+    "time": "19:30",
+    "startTimeUtc": "2026-09-23T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 2",
+    "roundNumber": 2,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 2 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 2 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 2 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 2",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3705a1db_58ad_11f1_af46_11cc539397b9",
+    "eventId": "evt_nbl_2026_27_3705a1db_58ad_11f1_af46_11cc539397b9",
+    "canonicalEventId": "event:nbl:2026-27:3705a1db-58ad-11f1-af46-11cc539397b9",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Melbourne United",
+    "date": "2026-09-24",
+    "time": "19:30",
+    "startTimeUtc": "2026-09-24T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 2",
+    "roundNumber": 2,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 2 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Melbourne United in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 2 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 2 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 2",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36e93c3b_58ad_11f1_8215_c5dc2cf09b1f",
+    "eventId": "evt_nbl_2026_27_36e93c3b_58ad_11f1_8215_c5dc2cf09b1f",
+    "canonicalEventId": "event:nbl:2026-27:36e93c3b-58ad-11f1-8215-c5dc2cf09b1f",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Adelaide 36ers",
+    "date": "2026-09-24",
+    "time": "21:30",
+    "startTimeUtc": "2026-09-24T11:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 2",
+    "roundNumber": 2,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 2 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 2 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 2 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 2",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36f361e7_58ad_11f1_a449_59142d8bd7d5",
+    "eventId": "evt_nbl_2026_27_36f361e7_58ad_11f1_a449_59142d8bd7d5",
+    "canonicalEventId": "event:nbl:2026-27:36f361e7-58ad-11f1-a449-59142d8bd7d5",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Illawarra Hawks",
+    "date": "2026-09-25",
+    "time": "19:30",
+    "startTimeUtc": "2026-09-25T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 2",
+    "roundNumber": 2,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 2 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 2 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 2 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 2",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36f4ac8b_58ad_11f1_bf00_2942781e7154",
+    "eventId": "evt_nbl_2026_27_36f4ac8b_58ad_11f1_bf00_2942781e7154",
+    "canonicalEventId": "event:nbl:2026-27:36f4ac8b-58ad-11f1-bf00-2942781e7154",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v New Zealand Breakers",
+    "date": "2026-09-26",
+    "time": "21:30",
+    "startTimeUtc": "2026-09-26T11:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 2",
+    "roundNumber": 2,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 2 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 2 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 2 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 2",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36f8857c_58ad_11f1_9db7_b15d4ea6aed8",
+    "eventId": "evt_nbl_2026_27_36f8857c_58ad_11f1_9db7_b15d4ea6aed8",
+    "canonicalEventId": "event:nbl:2026-27:36f8857c-58ad-11f1-9db7-b15d4ea6aed8",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Cairns Taipans",
+    "date": "2026-09-27",
+    "time": "16:00",
+    "startTimeUtc": "2026-09-27T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 2",
+    "roundNumber": 2,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 2 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 2 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 2 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 2",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3715a95f_58ad_11f1_9621_61e4f965035a",
+    "eventId": "evt_nbl_2026_27_3715a95f_58ad_11f1_9621_61e4f965035a",
+    "canonicalEventId": "event:nbl:2026-27:3715a95f-58ad-11f1-9621-61e4f965035a",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Illawarra Hawks",
+    "date": "2026-09-27",
+    "time": "18:00",
+    "startTimeUtc": "2026-09-27T08:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 2",
+    "roundNumber": 2,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 2 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 2 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 2 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 2",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36f8c608_58ad_11f1_aa0e_2bbb920071b5",
+    "eventId": "evt_nbl_2026_27_36f8c608_58ad_11f1_aa0e_2bbb920071b5",
+    "canonicalEventId": "event:nbl:2026-27:36f8c608-58ad-11f1-aa0e-2bbb920071b5",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Cairns Taipans",
+    "date": "2026-09-30",
+    "time": "17:30",
+    "startTimeUtc": "2026-09-30T07:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 3",
+    "roundNumber": 3,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 3 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 3 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 3 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 3",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3718a994_58ad_11f1_add9_d98e318e0a1e",
+    "eventId": "evt_nbl_2026_27_3718a994_58ad_11f1_add9_d98e318e0a1e",
+    "canonicalEventId": "event:nbl:2026-27:3718a994-58ad-11f1-add9-d98e318e0a1e",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Brisbane Bullets",
+    "date": "2026-09-30",
+    "time": "19:30",
+    "startTimeUtc": "2026-09-30T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 3",
+    "roundNumber": 3,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 3 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 3 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 3 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 3",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36f713cb_58ad_11f1_b8d2_f1316c48f9c2",
+    "eventId": "evt_nbl_2026_27_36f713cb_58ad_11f1_b8d2_f1316c48f9c2",
+    "canonicalEventId": "event:nbl:2026-27:36f713cb-58ad-11f1-b8d2-f1316c48f9c2",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Melbourne United",
+    "date": "2026-10-01",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-01T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 3",
+    "roundNumber": 3,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 3 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 3 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 3 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 3",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36f2e004_58ad_11f1_aa96_6775645a7b9a",
+    "eventId": "evt_nbl_2026_27_36f2e004_58ad_11f1_aa96_6775645a7b9a",
+    "canonicalEventId": "event:nbl:2026-27:36f2e004-58ad-11f1-aa96-6775645a7b9a",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Adelaide 36ers",
+    "date": "2026-10-02",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-02T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 3",
+    "roundNumber": 3,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 3 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 3 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 3 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 3",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3724384a_58ad_11f1_bbdc_6d6f61141df2",
+    "eventId": "evt_nbl_2026_27_3724384a_58ad_11f1_bbdc_6d6f61141df2",
+    "canonicalEventId": "event:nbl:2026-27:3724384a-58ad-11f1-bbdc-6d6f61141df2",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v South East Melbourne Phoenix",
+    "date": "2026-10-02",
+    "time": "21:30",
+    "startTimeUtc": "2026-10-02T11:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 3",
+    "roundNumber": 3,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 3 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 3 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 3 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 3",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37007b03_58ad_11f1_89e4_67a8251482c3",
+    "eventId": "evt_nbl_2026_27_37007b03_58ad_11f1_89e4_67a8251482c3",
+    "canonicalEventId": "event:nbl:2026-27:37007b03-58ad-11f1-89e4-67a8251482c3",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Tasmania JackJumpers",
+    "date": "2026-10-03",
+    "time": "17:30",
+    "startTimeUtc": "2026-10-03T07:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 3",
+    "roundNumber": 3,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 3 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 3 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 3 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 3",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36fd4a13_58ad_11f1_9ca2_a9a6cbaba447",
+    "eventId": "evt_nbl_2026_27_36fd4a13_58ad_11f1_9ca2_a9a6cbaba447",
+    "canonicalEventId": "event:nbl:2026-27:36fd4a13-58ad-11f1-9ca2-a9a6cbaba447",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Cairns Taipans",
+    "date": "2026-10-03",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-03T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 3",
+    "roundNumber": 3,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 3 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 3 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 3 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 3",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36fdee6b_58ad_11f1_ac5d_19f7d3a187d4",
+    "eventId": "evt_nbl_2026_27_36fdee6b_58ad_11f1_ac5d_19f7d3a187d4",
+    "canonicalEventId": "event:nbl:2026-27:36fdee6b-58ad-11f1-ac5d-19f7d3a187d4",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Illawarra Hawks",
+    "date": "2026-10-04",
+    "time": "15:00",
+    "startTimeUtc": "2026-10-04T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 3",
+    "roundNumber": 3,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 3 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 3 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 3 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 3",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36fff950_58ad_11f1_8de3_37c9e1eacb09",
+    "eventId": "evt_nbl_2026_27_36fff950_58ad_11f1_8de3_37c9e1eacb09",
+    "canonicalEventId": "event:nbl:2026-27:36fff950-58ad-11f1-8de3-37c9e1eacb09",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v New Zealand Breakers",
+    "date": "2026-10-04",
+    "time": "17:00",
+    "startTimeUtc": "2026-10-04T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 3",
+    "roundNumber": 3,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 3 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 3 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 3 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 3",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36fc0fd6_58ad_11f1_8ed4_c9ba3efad88d",
+    "eventId": "evt_nbl_2026_27_36fc0fd6_58ad_11f1_8ed4_c9ba3efad88d",
+    "canonicalEventId": "event:nbl:2026-27:36fc0fd6-58ad-11f1-8ed4-c9ba3efad88d",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Melbourne United",
+    "date": "2026-10-07",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-07T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 4",
+    "roundNumber": 4,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 4 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 4 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 4 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 4",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37023ff5_58ad_11f1_88e1_6f9744c8d3ab",
+    "eventId": "evt_nbl_2026_27_37023ff5_58ad_11f1_88e1_6f9744c8d3ab",
+    "canonicalEventId": "event:nbl:2026-27:37023ff5-58ad-11f1-88e1-6f9744c8d3ab",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Brisbane Bullets",
+    "date": "2026-10-08",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-08T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 4",
+    "roundNumber": 4,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 4 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 4 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 4 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 4",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36fe21e3_58ad_11f1_ba69_dd12ee8972e9",
+    "eventId": "evt_nbl_2026_27_36fe21e3_58ad_11f1_ba69_dd12ee8972e9",
+    "canonicalEventId": "event:nbl:2026-27:36fe21e3-58ad-11f1-ba69-dd12ee8972e9",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Tasmania JackJumpers",
+    "date": "2026-10-09",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-09T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 4",
+    "roundNumber": 4,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 4 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 4 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 4 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 4",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3703c23b_58ad_11f1_bf9b_db7d6019155e",
+    "eventId": "evt_nbl_2026_27_3703c23b_58ad_11f1_bf9b_db7d6019155e",
+    "canonicalEventId": "event:nbl:2026-27:3703c23b-58ad-11f1-bf9b-db7d6019155e",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Melbourne United",
+    "date": "2026-10-10",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-10T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 4",
+    "roundNumber": 4,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 4 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Melbourne United in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 4 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 4 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 4",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3705bd4d_58ad_11f1_8baa_ede76c1d904d",
+    "eventId": "evt_nbl_2026_27_3705bd4d_58ad_11f1_8baa_ede76c1d904d",
+    "canonicalEventId": "event:nbl:2026-27:3705bd4d-58ad-11f1-8baa-ede76c1d904d",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v New Zealand Breakers",
+    "date": "2026-10-10",
+    "time": "21:30",
+    "startTimeUtc": "2026-10-10T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 4",
+    "roundNumber": 4,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 4 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 4 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 4 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 4",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36fffdc1_58ad_11f1_b499_f3575d2dc39f",
+    "eventId": "evt_nbl_2026_27_36fffdc1_58ad_11f1_b499_f3575d2dc39f",
+    "canonicalEventId": "event:nbl:2026-27:36fffdc1-58ad-11f1-b499-f3575d2dc39f",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Adelaide 36ers",
+    "date": "2026-10-11",
+    "time": "15:00",
+    "startTimeUtc": "2026-10-11T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 4",
+    "roundNumber": 4,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 4 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 4 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 4 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 4",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36fb1b72_58ad_11f1_a2a4_7da015763581",
+    "eventId": "evt_nbl_2026_27_36fb1b72_58ad_11f1_a2a4_7da015763581",
+    "canonicalEventId": "event:nbl:2026-27:36fb1b72-58ad-11f1-a2a4-7da015763581",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Cairns Taipans",
+    "date": "2026-10-11",
+    "time": "17:00",
+    "startTimeUtc": "2026-10-11T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 4",
+    "roundNumber": 4,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 4 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 4 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 4 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 4",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3706e834_58ad_11f1_8519_a362560fc147",
+    "eventId": "evt_nbl_2026_27_3706e834_58ad_11f1_8519_a362560fc147",
+    "canonicalEventId": "event:nbl:2026-27:3706e834-58ad-11f1-8519-a362560fc147",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v New Zealand Breakers",
+    "date": "2026-10-14",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-14T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "AIS Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 5",
+    "roundNumber": 5,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 5 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 5 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 5 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 5",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_36fd506c_58ad_11f1_a57f_6d6fb61b331b",
+    "eventId": "evt_nbl_2026_27_36fd506c_58ad_11f1_a57f_6d6fb61b331b",
+    "canonicalEventId": "event:nbl:2026-27:36fd506c-58ad-11f1-a57f-6d6fb61b331b",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v South East Melbourne Phoenix",
+    "date": "2026-10-15",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-15T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 5",
+    "roundNumber": 5,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 5 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 5 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 5 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 5",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3700bf63_58ad_11f1_89a0_03625b994063",
+    "eventId": "evt_nbl_2026_27_3700bf63_58ad_11f1_89a0_03625b994063",
+    "canonicalEventId": "event:nbl:2026-27:3700bf63-58ad-11f1-89a0-03625b994063",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Adelaide 36ers",
+    "date": "2026-10-16",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-16T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 5",
+    "roundNumber": 5,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 5 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 5 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 5 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 5",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37082c14_58ad_11f1_8882_9bf90a853321",
+    "eventId": "evt_nbl_2026_27_37082c14_58ad_11f1_8882_9bf90a853321",
+    "canonicalEventId": "event:nbl:2026-27:37082c14-58ad-11f1-8882-9bf90a853321",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Cairns Taipans",
+    "date": "2026-10-17",
+    "time": "17:30",
+    "startTimeUtc": "2026-10-17T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 5",
+    "roundNumber": 5,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 5 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 5 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 5 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 5",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3707e960_58ad_11f1_a8d4_819ec06531e4",
+    "eventId": "evt_nbl_2026_27_3707e960_58ad_11f1_a8d4_819ec06531e4",
+    "canonicalEventId": "event:nbl:2026-27:3707e960-58ad-11f1-a8d4-819ec06531e4",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Perth Wildcats",
+    "date": "2026-10-17",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-17T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 5",
+    "roundNumber": 5,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 5 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 5 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 5 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 5",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37085418_58ad_11f1_9e12_411a11259918",
+    "eventId": "evt_nbl_2026_27_37085418_58ad_11f1_9e12_411a11259918",
+    "canonicalEventId": "event:nbl:2026-27:37085418-58ad-11f1-9e12-411a11259918",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v New Zealand Breakers",
+    "date": "2026-10-18",
+    "time": "15:00",
+    "startTimeUtc": "2026-10-18T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 5",
+    "roundNumber": 5,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 5 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 5 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 5 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 5",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_371032f3_58ad_11f1_a72d_69c2b72ae0a9",
+    "eventId": "evt_nbl_2026_27_371032f3_58ad_11f1_a72d_69c2b72ae0a9",
+    "canonicalEventId": "event:nbl:2026-27:371032f3-58ad-11f1-a72d-69c2b72ae0a9",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Illawarra Hawks",
+    "date": "2026-10-18",
+    "time": "17:00",
+    "startTimeUtc": "2026-10-18T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 5",
+    "roundNumber": 5,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 5 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 5 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 5 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 5",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_370d79db_58ad_11f1_8bd9_59a0fb078f66",
+    "eventId": "evt_nbl_2026_27_370d79db_58ad_11f1_8bd9_59a0fb078f66",
+    "canonicalEventId": "event:nbl:2026-27:370d79db-58ad-11f1-8bd9-59a0fb078f66",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Brisbane Bullets",
+    "date": "2026-10-21",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-21T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 6",
+    "roundNumber": 6,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 6 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 6 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 6 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 6",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_370e679e_58ad_11f1_acba_8b618b817e22",
+    "eventId": "evt_nbl_2026_27_370e679e_58ad_11f1_acba_8b618b817e22",
+    "canonicalEventId": "event:nbl:2026-27:370e679e-58ad-11f1-acba-8b618b817e22",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Sydney Kings",
+    "date": "2026-10-22",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-22T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 6",
+    "roundNumber": 6,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 6 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 6 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 6 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 6",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_371130fd_58ad_11f1_aac7_754512109772",
+    "eventId": "evt_nbl_2026_27_371130fd_58ad_11f1_aac7_754512109772",
+    "canonicalEventId": "event:nbl:2026-27:371130fd-58ad-11f1-aac7-754512109772",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Melbourne United",
+    "date": "2026-10-23",
+    "time": "21:30",
+    "startTimeUtc": "2026-10-23T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 6",
+    "roundNumber": 6,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 6 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 6 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 6 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 6",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37106a00_58ad_11f1_a7e9_87e414b8c2d5",
+    "eventId": "evt_nbl_2026_27_37106a00_58ad_11f1_a7e9_87e414b8c2d5",
+    "canonicalEventId": "event:nbl:2026-27:37106a00-58ad-11f1-a7e9-87e414b8c2d5",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Brisbane Bullets",
+    "date": "2026-10-24",
+    "time": "17:30",
+    "startTimeUtc": "2026-10-24T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 6",
+    "roundNumber": 6,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 6 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 6 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 6 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 6",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3711a017_58ad_11f1_b649_93b9302663c0",
+    "eventId": "evt_nbl_2026_27_3711a017_58ad_11f1_b649_93b9302663c0",
+    "canonicalEventId": "event:nbl:2026-27:3711a017-58ad-11f1-b649-93b9302663c0",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Adelaide 36ers",
+    "date": "2026-10-24",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-24T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 6",
+    "roundNumber": 6,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 6 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 6 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 6 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 6",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3714bc12_58ad_11f1_bdd2_69207a436dad",
+    "eventId": "evt_nbl_2026_27_3714bc12_58ad_11f1_bdd2_69207a436dad",
+    "canonicalEventId": "event:nbl:2026-27:3714bc12-58ad-11f1-bdd2-69207a436dad",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v New Zealand Breakers",
+    "date": "2026-10-25",
+    "time": "15:00",
+    "startTimeUtc": "2026-10-25T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 6",
+    "roundNumber": 6,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 6 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 6 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 6 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 6",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3716743f_58ad_11f1_8c04_1fa229f84a5e",
+    "eventId": "evt_nbl_2026_27_3716743f_58ad_11f1_8c04_1fa229f84a5e",
+    "canonicalEventId": "event:nbl:2026-27:3716743f-58ad-11f1-8c04-1fa229f84a5e",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Sydney Kings",
+    "date": "2026-10-25",
+    "time": "17:00",
+    "startTimeUtc": "2026-10-25T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 6",
+    "roundNumber": 6,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 6 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 6 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 6 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 6",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_371aff1e_58ad_11f1_b4cd_0919017f2391",
+    "eventId": "evt_nbl_2026_27_371aff1e_58ad_11f1_b4cd_0919017f2391",
+    "canonicalEventId": "event:nbl:2026-27:371aff1e-58ad-11f1-b4cd-0919017f2391",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Sydney Kings",
+    "date": "2026-10-28",
+    "time": "21:30",
+    "startTimeUtc": "2026-10-28T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 7",
+    "roundNumber": 7,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 7 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 7 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 7 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 7",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37196322_58ad_11f1_9f91_61e38b2284ba",
+    "eventId": "evt_nbl_2026_27_37196322_58ad_11f1_9f91_61e38b2284ba",
+    "canonicalEventId": "event:nbl:2026-27:37196322-58ad-11f1-9f91-61e38b2284ba",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Cairns Taipans",
+    "date": "2026-10-29",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-29T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 7",
+    "roundNumber": 7,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 7 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 7 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 7 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 7",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_371d934c_58ad_11f1_8edf_4b570c3bab13",
+    "eventId": "evt_nbl_2026_27_371d934c_58ad_11f1_8edf_4b570c3bab13",
+    "canonicalEventId": "event:nbl:2026-27:371d934c-58ad-11f1-8edf-4b570c3bab13",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Adelaide 36ers",
+    "date": "2026-10-30",
+    "time": "17:30",
+    "startTimeUtc": "2026-10-30T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 7",
+    "roundNumber": 7,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 7 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 7 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 7 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 7",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3718733a_58ad_11f1_b000_3ffa71afcf53",
+    "eventId": "evt_nbl_2026_27_3718733a_58ad_11f1_b000_3ffa71afcf53",
+    "canonicalEventId": "event:nbl:2026-27:3718733a-58ad-11f1-b000-3ffa71afcf53",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Sydney Kings",
+    "date": "2026-10-30",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-30T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Silverdome",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 7",
+    "roundNumber": 7,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 7 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 7 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 7 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 7",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3719f6ce_58ad_11f1_b7b9_736e6b79ac99",
+    "eventId": "evt_nbl_2026_27_3719f6ce_58ad_11f1_b7b9_736e6b79ac99",
+    "canonicalEventId": "event:nbl:2026-27:3719f6ce-58ad-11f1-b7b9-736e6b79ac99",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Melbourne United",
+    "date": "2026-10-31",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-31T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 7",
+    "roundNumber": 7,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 7 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 7 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 7 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 7",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37214b47_58ad_11f1_9b38_e78395b5c13c",
+    "eventId": "evt_nbl_2026_27_37214b47_58ad_11f1_9b38_e78395b5c13c",
+    "canonicalEventId": "event:nbl:2026-27:37214b47-58ad-11f1-9b38-e78395b5c13c",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Illawarra Hawks",
+    "date": "2026-10-31",
+    "time": "21:30",
+    "startTimeUtc": "2026-10-31T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 7",
+    "roundNumber": 7,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 7 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 7 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 7 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 7",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_374fd3d1_58ad_11f1_945e_cbcb1725dbfe",
+    "eventId": "evt_nbl_2026_27_374fd3d1_58ad_11f1_945e_cbcb1725dbfe",
+    "canonicalEventId": "event:nbl:2026-27:374fd3d1-58ad-11f1-945e-cbcb1725dbfe",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Tasmania JackJumpers",
+    "date": "2026-11-01",
+    "time": "15:00",
+    "startTimeUtc": "2026-11-01T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 7",
+    "roundNumber": 7,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 7 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 7 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 7 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 7",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_372517f1_58ad_11f1_b481_53622f199a68",
+    "eventId": "evt_nbl_2026_27_372517f1_58ad_11f1_b481_53622f199a68",
+    "canonicalEventId": "event:nbl:2026-27:372517f1-58ad-11f1-b481-53622f199a68",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Brisbane Bullets",
+    "date": "2026-11-01",
+    "time": "17:00",
+    "startTimeUtc": "2026-11-01T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 7",
+    "roundNumber": 7,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 7 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 7 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 7 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 7",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_372b8b55_58ad_11f1_9407_d95637fbed2b",
+    "eventId": "evt_nbl_2026_27_372b8b55_58ad_11f1_9407_d95637fbed2b",
+    "canonicalEventId": "event:nbl:2026-27:372b8b55-58ad-11f1-9407-d95637fbed2b",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v New Zealand Breakers",
+    "date": "2026-11-02",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-02T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 7",
+    "roundNumber": 7,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 7 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Melbourne United face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 7 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 7 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 7",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3729bbac_58ad_11f1_b394_cbe0cbdf48fe",
+    "eventId": "evt_nbl_2026_27_3729bbac_58ad_11f1_b394_cbe0cbdf48fe",
+    "canonicalEventId": "event:nbl:2026-27:3729bbac-58ad-11f1-b394-cbe0cbdf48fe",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Perth Wildcats",
+    "date": "2026-11-04",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-04T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Nissan Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 8",
+    "roundNumber": 8,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 8 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 8 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 8 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 8",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3723e003_58ad_11f1_b68b_09df0c3978fa",
+    "eventId": "evt_nbl_2026_27_3723e003_58ad_11f1_b68b_09df0c3978fa",
+    "canonicalEventId": "event:nbl:2026-27:3723e003-58ad-11f1-b68b-09df0c3978fa",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Illawarra Hawks",
+    "date": "2026-11-05",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-05T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 8",
+    "roundNumber": 8,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 8 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 8 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 8 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 8",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3723d8e8_58ad_11f1_b04c_17c1a1f1f487",
+    "eventId": "evt_nbl_2026_27_3723d8e8_58ad_11f1_b04c_17c1a1f1f487",
+    "canonicalEventId": "event:nbl:2026-27:3723d8e8-58ad-11f1-b04c-17c1a1f1f487",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v New Zealand Breakers",
+    "date": "2026-11-06",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-06T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Silverdome",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 8",
+    "roundNumber": 8,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 8 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 8 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 8 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 8",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37256511_58ad_11f1_b841_b5c487635207",
+    "eventId": "evt_nbl_2026_27_37256511_58ad_11f1_b841_b5c487635207",
+    "canonicalEventId": "event:nbl:2026-27:37256511-58ad-11f1-b841-b5c487635207",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Illawarra Hawks",
+    "date": "2026-11-07",
+    "time": "17:30",
+    "startTimeUtc": "2026-11-07T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 8",
+    "roundNumber": 8,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 8 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 8 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 8 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 8",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3723d03c_58ad_11f1_9032_15ea51636534",
+    "eventId": "evt_nbl_2026_27_3723d03c_58ad_11f1_9032_15ea51636534",
+    "canonicalEventId": "event:nbl:2026-27:3723d03c-58ad-11f1-9032-15ea51636534",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Brisbane Bullets",
+    "date": "2026-11-07",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-07T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 8",
+    "roundNumber": 8,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 8 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 8 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 8 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 8",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37495c97_58ad_11f1_8f28_d7e4e018b88d",
+    "eventId": "evt_nbl_2026_27_37495c97_58ad_11f1_8f28_d7e4e018b88d",
+    "canonicalEventId": "event:nbl:2026-27:37495c97-58ad-11f1-8f28-d7e4e018b88d",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v South East Melbourne Phoenix",
+    "date": "2026-11-08",
+    "time": "15:00",
+    "startTimeUtc": "2026-11-08T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 8",
+    "roundNumber": 8,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 8 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 8 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 8 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 8",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37289ea9_58ad_11f1_9790_bd240d5ec994",
+    "eventId": "evt_nbl_2026_27_37289ea9_58ad_11f1_9790_bd240d5ec994",
+    "canonicalEventId": "event:nbl:2026-27:37289ea9-58ad-11f1-9790-bd240d5ec994",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Cairns Taipans",
+    "date": "2026-11-08",
+    "time": "17:00",
+    "startTimeUtc": "2026-11-08T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 8",
+    "roundNumber": 8,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 8 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 8 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 8 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 8",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37541928_58ad_11f1_86bd_87c06d92085a",
+    "eventId": "evt_nbl_2026_27_37541928_58ad_11f1_86bd_87c06d92085a",
+    "canonicalEventId": "event:nbl:2026-27:37541928-58ad-11f1-86bd-87c06d92085a",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Illawarra Hawks",
+    "date": "2026-11-11",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-11T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "State Basketball Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 9",
+    "roundNumber": 9,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 9 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 9 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 9 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 9",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_375813e7_58ad_11f1_8c9c_2572c13c410b",
+    "eventId": "evt_nbl_2026_27_375813e7_58ad_11f1_8c9c_2572c13c410b",
+    "canonicalEventId": "event:nbl:2026-27:375813e7-58ad-11f1-8c9c-2572c13c410b",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Melbourne United",
+    "date": "2026-11-12",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-12T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 9",
+    "roundNumber": 9,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 9 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 9 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 9 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 9",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_373d1fa2_58ad_11f1_ac10_0b8a9f33c19f",
+    "eventId": "evt_nbl_2026_27_373d1fa2_58ad_11f1_ac10_0b8a9f33c19f",
+    "canonicalEventId": "event:nbl:2026-27:373d1fa2-58ad-11f1-ac10-0b8a9f33c19f",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Tasmania JackJumpers",
+    "date": "2026-11-12",
+    "time": "21:30",
+    "startTimeUtc": "2026-11-12T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 9",
+    "roundNumber": 9,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 9 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 9 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 9 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 9",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_374d40eb_58ad_11f1_926c_d7c956f67204",
+    "eventId": "evt_nbl_2026_27_374d40eb_58ad_11f1_926c_d7c956f67204",
+    "canonicalEventId": "event:nbl:2026-27:374d40eb-58ad-11f1-926c-d7c956f67204",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Brisbane Bullets",
+    "date": "2026-11-13",
+    "time": "17:30",
+    "startTimeUtc": "2026-11-13T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 9",
+    "roundNumber": 9,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 9 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 9 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 9 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 9",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3746d2f5_58ad_11f1_9032_1138b8cb68ba",
+    "eventId": "evt_nbl_2026_27_3746d2f5_58ad_11f1_9032_1138b8cb68ba",
+    "canonicalEventId": "event:nbl:2026-27:3746d2f5-58ad-11f1-9032-1138b8cb68ba",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Sydney Kings",
+    "date": "2026-11-13",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-13T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 9",
+    "roundNumber": 9,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 9 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 9 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 9 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 9",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_377ccd38_58ad_11f1_9384_d30081aaf8c6",
+    "eventId": "evt_nbl_2026_27_377ccd38_58ad_11f1_9384_d30081aaf8c6",
+    "canonicalEventId": "event:nbl:2026-27:377ccd38-58ad-11f1-9384-d30081aaf8c6",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v South East Melbourne Phoenix",
+    "date": "2026-11-14",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-14T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 9",
+    "roundNumber": 9,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 9 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Melbourne United face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 9 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 9 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 9",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3743885e_58ad_11f1_b2f7_c9ba3efad88d",
+    "eventId": "evt_nbl_2026_27_3743885e_58ad_11f1_b2f7_c9ba3efad88d",
+    "canonicalEventId": "event:nbl:2026-27:3743885e-58ad-11f1-b2f7-c9ba3efad88d",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Illawarra Hawks",
+    "date": "2026-11-14",
+    "time": "21:30",
+    "startTimeUtc": "2026-11-14T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 9",
+    "roundNumber": 9,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 9 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 9 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 9 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 9",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3746a5e8_58ad_11f1_8707_7d800a023985",
+    "eventId": "evt_nbl_2026_27_3746a5e8_58ad_11f1_8707_7d800a023985",
+    "canonicalEventId": "event:nbl:2026-27:3746a5e8-58ad-11f1-8707-7d800a023985",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v New Zealand Breakers",
+    "date": "2026-11-15",
+    "time": "15:00",
+    "startTimeUtc": "2026-11-15T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 9",
+    "roundNumber": 9,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 9 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 9 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 9 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 9",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37470d73_58ad_11f1_9bf1_130129845108",
+    "eventId": "evt_nbl_2026_27_37470d73_58ad_11f1_9bf1_130129845108",
+    "canonicalEventId": "event:nbl:2026-27:37470d73-58ad-11f1-9bf1-130129845108",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Tasmania JackJumpers",
+    "date": "2026-11-15",
+    "time": "17:00",
+    "startTimeUtc": "2026-11-15T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 9",
+    "roundNumber": 9,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 9 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 9 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 9 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 9",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3748f8f0_58ad_11f1_bb02_b15d4ea6aed8",
+    "eventId": "evt_nbl_2026_27_3748f8f0_58ad_11f1_bb02_b15d4ea6aed8",
+    "canonicalEventId": "event:nbl:2026-27:3748f8f0-58ad-11f1-bb02-b15d4ea6aed8",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v South East Melbourne Phoenix",
+    "date": "2026-11-18",
+    "time": "17:30",
+    "startTimeUtc": "2026-11-18T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 10",
+    "roundNumber": 10,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 10 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 10 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 10 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 10",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3748b33b_58ad_11f1_9f9a_71e9315f7411",
+    "eventId": "evt_nbl_2026_27_3748b33b_58ad_11f1_9f9a_71e9315f7411",
+    "canonicalEventId": "event:nbl:2026-27:3748b33b-58ad-11f1-9f9a-71e9315f7411",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Adelaide 36ers",
+    "date": "2026-11-19",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-19T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 10",
+    "roundNumber": 10,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 10 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 10 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 10 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 10",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37779e30_58ad_11f1_a2d6_d729b42cc855",
+    "eventId": "evt_nbl_2026_27_37779e30_58ad_11f1_a2d6_d729b42cc855",
+    "canonicalEventId": "event:nbl:2026-27:37779e30-58ad-11f1-a2d6-d729b42cc855",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Perth Wildcats",
+    "date": "2026-11-20",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-20T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 10",
+    "roundNumber": 10,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 10 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 10 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 10 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 10",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37726ee0_58ad_11f1_8d86_85bf0639ac6b",
+    "eventId": "evt_nbl_2026_27_37726ee0_58ad_11f1_8d86_85bf0639ac6b",
+    "canonicalEventId": "event:nbl:2026-27:37726ee0-58ad-11f1-8d86-85bf0639ac6b",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Illawarra Hawks",
+    "date": "2026-11-21",
+    "time": "17:30",
+    "startTimeUtc": "2026-11-21T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 10",
+    "roundNumber": 10,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 10 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 10 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 10 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 10",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3750b552_58ad_11f1_a12d_7ddf75ccac0d",
+    "eventId": "evt_nbl_2026_27_3750b552_58ad_11f1_a12d_7ddf75ccac0d",
+    "canonicalEventId": "event:nbl:2026-27:3750b552-58ad-11f1-a12d-7ddf75ccac0d",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v New Zealand Breakers",
+    "date": "2026-11-21",
+    "time": "19:30",
+    "startTimeUtc": "2026-11-21T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 10",
+    "roundNumber": 10,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 10 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Melbourne United face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 10 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 10 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 10",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37514d45_58ad_11f1_917b_0f009f2e4d02",
+    "eventId": "evt_nbl_2026_27_37514d45_58ad_11f1_917b_0f009f2e4d02",
+    "canonicalEventId": "event:nbl:2026-27:37514d45-58ad-11f1-917b-0f009f2e4d02",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Cairns Taipans",
+    "date": "2026-11-22",
+    "time": "15:00",
+    "startTimeUtc": "2026-11-22T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 10",
+    "roundNumber": 10,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 10 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 10 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 10 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 10",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_374c5a9d_58ad_11f1_8829_1daf76a0ede8",
+    "eventId": "evt_nbl_2026_27_374c5a9d_58ad_11f1_8829_1daf76a0ede8",
+    "canonicalEventId": "event:nbl:2026-27:374c5a9d-58ad-11f1-8829-1daf76a0ede8",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Sydney Kings",
+    "date": "2026-11-22",
+    "time": "17:00",
+    "startTimeUtc": "2026-11-22T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 10",
+    "roundNumber": 10,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 10 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 10 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 10 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 10",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_374bfa7a_58ad_11f1_80a5_a590ae8a6049",
+    "eventId": "evt_nbl_2026_27_374bfa7a_58ad_11f1_80a5_a590ae8a6049",
+    "canonicalEventId": "event:nbl:2026-27:374bfa7a-58ad-11f1-80a5-a590ae8a6049",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v South East Melbourne Phoenix",
+    "date": "2026-12-02",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-02T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 11 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 11 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 11 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3748a57b_58ad_11f1_a4fa_fb9d3a8baf78",
+    "eventId": "evt_nbl_2026_27_3748a57b_58ad_11f1_a4fa_fb9d3a8baf78",
+    "canonicalEventId": "event:nbl:2026-27:3748a57b-58ad-11f1-a4fa-fb9d3a8baf78",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Perth Wildcats",
+    "date": "2026-12-03",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-03T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 11 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 11 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 11 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37509e79_58ad_11f1_9e3b_fbbd24deadd3",
+    "eventId": "evt_nbl_2026_27_37509e79_58ad_11f1_9e3b_fbbd24deadd3",
+    "canonicalEventId": "event:nbl:2026-27:37509e79-58ad-11f1-9e3b-fbbd24deadd3",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Melbourne United",
+    "date": "2026-12-04",
+    "time": "17:30",
+    "startTimeUtc": "2026-12-04T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 11 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Melbourne United in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 11 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 11 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3751fcc5_58ad_11f1_a32f_279e256f2655",
+    "eventId": "evt_nbl_2026_27_3751fcc5_58ad_11f1_a32f_279e256f2655",
+    "canonicalEventId": "event:nbl:2026-27:3751fcc5-58ad-11f1-a32f-279e256f2655",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Sydney Kings",
+    "date": "2026-12-04",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-04T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 11 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 11 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 11 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37770bc1_58ad_11f1_a93a_ebcda8a5e5b1",
+    "eventId": "evt_nbl_2026_27_37770bc1_58ad_11f1_a93a_ebcda8a5e5b1",
+    "canonicalEventId": "event:nbl:2026-27:37770bc1-58ad-11f1-a93a-ebcda8a5e5b1",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v South East Melbourne Phoenix",
+    "date": "2026-12-05",
+    "time": "17:30",
+    "startTimeUtc": "2026-12-05T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 11 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 11 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 11 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3747bbe2_58ad_11f1_a09d_892c4438c413",
+    "eventId": "evt_nbl_2026_27_3747bbe2_58ad_11f1_a09d_892c4438c413",
+    "canonicalEventId": "event:nbl:2026-27:3747bbe2-58ad-11f1-a09d-892c4438c413",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Tasmania JackJumpers",
+    "date": "2026-12-05",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-05T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 11 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 11 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 11 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_374e0e41_58ad_11f1_a41a_bf8ef84c1f3a",
+    "eventId": "evt_nbl_2026_27_374e0e41_58ad_11f1_a41a_bf8ef84c1f3a",
+    "canonicalEventId": "event:nbl:2026-27:374e0e41-58ad-11f1-a41a-bf8ef84c1f3a",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Brisbane Bullets",
+    "date": "2026-12-06",
+    "time": "15:00",
+    "startTimeUtc": "2026-12-06T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 11 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 11 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 11 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3752cf25_58ad_11f1_9654_2942781e7154",
+    "eventId": "evt_nbl_2026_27_3752cf25_58ad_11f1_9654_2942781e7154",
+    "canonicalEventId": "event:nbl:2026-27:3752cf25-58ad-11f1-9654-2942781e7154",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Perth Wildcats",
+    "date": "2026-12-06",
+    "time": "17:00",
+    "startTimeUtc": "2026-12-06T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 11 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 11 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 11 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3747bba2_58ad_11f1_b586_c9fe4bf38829",
+    "eventId": "evt_nbl_2026_27_3747bba2_58ad_11f1_b586_c9fe4bf38829",
+    "canonicalEventId": "event:nbl:2026-27:3747bba2-58ad-11f1-b586-c9fe4bf38829",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Adelaide 36ers",
+    "date": "2026-12-09",
+    "time": "18:30",
+    "startTimeUtc": "2026-12-09T07:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "TBC",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 12",
+    "roundNumber": 12,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 12 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 12 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 12 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 12",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37754382_58ad_11f1_a2bf_754528413e51",
+    "eventId": "evt_nbl_2026_27_37754382_58ad_11f1_a2bf_754528413e51",
+    "canonicalEventId": "event:nbl:2026-27:37754382-58ad-11f1-a2bf-754528413e51",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Tasmania JackJumpers",
+    "date": "2026-12-10",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-10T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 12",
+    "roundNumber": 12,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 12 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 12 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 12 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 12",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37788a52_58ad_11f1_b28e_b7b6f460181f",
+    "eventId": "evt_nbl_2026_27_37788a52_58ad_11f1_b28e_b7b6f460181f",
+    "canonicalEventId": "event:nbl:2026-27:37788a52-58ad-11f1-b28e-b7b6f460181f",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Sydney Kings",
+    "date": "2026-12-11",
+    "time": "17:30",
+    "startTimeUtc": "2026-12-11T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 12",
+    "roundNumber": 12,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 12 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 12 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 12 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 12",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37510e22_58ad_11f1_b8d1_0361ae94d7e7",
+    "eventId": "evt_nbl_2026_27_37510e22_58ad_11f1_b8d1_0361ae94d7e7",
+    "canonicalEventId": "event:nbl:2026-27:37510e22-58ad-11f1-b8d1-0361ae94d7e7",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Brisbane Bullets",
+    "date": "2026-12-12",
+    "time": "17:30",
+    "startTimeUtc": "2026-12-12T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 12",
+    "roundNumber": 12,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 12 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 12 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 12 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 12",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3754cc1a_58ad_11f1_bc46_67e3bf80bedf",
+    "eventId": "evt_nbl_2026_27_3754cc1a_58ad_11f1_bc46_67e3bf80bedf",
+    "canonicalEventId": "event:nbl:2026-27:3754cc1a-58ad-11f1-bc46-67e3bf80bedf",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Tasmania JackJumpers",
+    "date": "2026-12-12",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-12T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 12",
+    "roundNumber": 12,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 12 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 12 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 12 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 12",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_375da128_58ad_11f1_86da_f1316c48f9c2",
+    "eventId": "evt_nbl_2026_27_375da128_58ad_11f1_86da_f1316c48f9c2",
+    "canonicalEventId": "event:nbl:2026-27:375da128-58ad-11f1-86da-f1316c48f9c2",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Sydney Kings",
+    "date": "2026-12-13",
+    "time": "15:00",
+    "startTimeUtc": "2026-12-13T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 12",
+    "roundNumber": 12,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 12 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 12 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 12 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 12",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37529d1c_58ad_11f1_8656_3fa3ca05d3dc",
+    "eventId": "evt_nbl_2026_27_37529d1c_58ad_11f1_8656_3fa3ca05d3dc",
+    "canonicalEventId": "event:nbl:2026-27:37529d1c-58ad-11f1-8656-3fa3ca05d3dc",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Perth Wildcats",
+    "date": "2026-12-13",
+    "time": "17:00",
+    "startTimeUtc": "2026-12-13T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Gippsland Regional Indoor Sports Stadium",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 12",
+    "roundNumber": 12,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 12 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 12 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 12 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 12",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3755d06f_58ad_11f1_9b2c_679c79eacdbc",
+    "eventId": "evt_nbl_2026_27_3755d06f_58ad_11f1_9b2c_679c79eacdbc",
+    "canonicalEventId": "event:nbl:2026-27:3755d06f-58ad-11f1-9b2c-679c79eacdbc",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Melbourne United",
+    "date": "2026-12-16",
+    "time": "21:30",
+    "startTimeUtc": "2026-12-16T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 13",
+    "roundNumber": 13,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 13 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 13 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 13 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 13",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3754e87b_58ad_11f1_bcdd_c1f492925f49",
+    "eventId": "evt_nbl_2026_27_3754e87b_58ad_11f1_bcdd_c1f492925f49",
+    "canonicalEventId": "event:nbl:2026-27:3754e87b-58ad-11f1-bcdd-c1f492925f49",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Cairns Taipans",
+    "date": "2026-12-17",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-17T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "AIS Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 13",
+    "roundNumber": 13,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 13 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 13 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 13 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 13",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_375d497d_58ad_11f1_bfc4_7b56785c5eab",
+    "eventId": "evt_nbl_2026_27_375d497d_58ad_11f1_bfc4_7b56785c5eab",
+    "canonicalEventId": "event:nbl:2026-27:375d497d-58ad-11f1-bfc4-7b56785c5eab",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Tasmania JackJumpers",
+    "date": "2026-12-18",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-18T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "TBC",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 13",
+    "roundNumber": 13,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 13 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 13 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 13 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 13",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_375a042e_58ad_11f1_a652_5bbfc6dce39b",
+    "eventId": "evt_nbl_2026_27_375a042e_58ad_11f1_a652_5bbfc6dce39b",
+    "canonicalEventId": "event:nbl:2026-27:375a042e-58ad-11f1-a652-5bbfc6dce39b",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Brisbane Bullets",
+    "date": "2026-12-19",
+    "time": "17:30",
+    "startTimeUtc": "2026-12-19T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 13",
+    "roundNumber": 13,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 13 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 13 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 13 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 13",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_375df79f_58ad_11f1_b396_39b3918ccc00",
+    "eventId": "evt_nbl_2026_27_375df79f_58ad_11f1_b396_39b3918ccc00",
+    "canonicalEventId": "event:nbl:2026-27:375df79f-58ad-11f1-b396-39b3918ccc00",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Sydney Kings",
+    "date": "2026-12-19",
+    "time": "20:00",
+    "startTimeUtc": "2026-12-19T09:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 13",
+    "roundNumber": 13,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 13 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 13 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 13 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 13",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3761d184_58ad_11f1_84ea_411a11259918",
+    "eventId": "evt_nbl_2026_27_3761d184_58ad_11f1_84ea_411a11259918",
+    "canonicalEventId": "event:nbl:2026-27:3761d184-58ad-11f1-84ea-411a11259918",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Melbourne United",
+    "date": "2026-12-20",
+    "time": "15:00",
+    "startTimeUtc": "2026-12-20T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 13",
+    "roundNumber": 13,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 13 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 13 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 13 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 13",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3757e2b3_58ad_11f1_801d_e3b03d7fb141",
+    "eventId": "evt_nbl_2026_27_3757e2b3_58ad_11f1_801d_e3b03d7fb141",
+    "canonicalEventId": "event:nbl:2026-27:3757e2b3-58ad-11f1-801d-e3b03d7fb141",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Perth Wildcats",
+    "date": "2026-12-20",
+    "time": "17:00",
+    "startTimeUtc": "2026-12-20T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 13",
+    "roundNumber": 13,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 13 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 13 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 13 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 13",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37596f75_58ad_11f1_af00_fdfc50d4d18e",
+    "eventId": "evt_nbl_2026_27_37596f75_58ad_11f1_af00_fdfc50d4d18e",
+    "canonicalEventId": "event:nbl:2026-27:37596f75-58ad-11f1-af00-fdfc50d4d18e",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Adelaide 36ers",
+    "date": "2026-12-21",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-21T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 13",
+    "roundNumber": 13,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 13 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 13 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 13 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 13",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_375b49f9_58ad_11f1_94c1_5dfcf5a874c7",
+    "eventId": "evt_nbl_2026_27_375b49f9_58ad_11f1_94c1_5dfcf5a874c7",
+    "canonicalEventId": "event:nbl:2026-27:375b49f9-58ad-11f1-94c1-5dfcf5a874c7",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Brisbane Bullets",
+    "date": "2026-12-22",
+    "time": "17:30",
+    "startTimeUtc": "2026-12-22T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 13",
+    "roundNumber": 13,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 13 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 13 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 13 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 13",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3759b81c_58ad_11f1_a957_a93048d70593",
+    "eventId": "evt_nbl_2026_27_3759b81c_58ad_11f1_a957_a93048d70593",
+    "canonicalEventId": "event:nbl:2026-27:3759b81c-58ad-11f1-a957-a93048d70593",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Cairns Taipans",
+    "date": "2026-12-23",
+    "time": "20:00",
+    "startTimeUtc": "2026-12-23T09:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 14",
+    "roundNumber": 14,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 14 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 14 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 14 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 14",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_377fd891_58ad_11f1_a6fa_c1b6941c6419",
+    "eventId": "evt_nbl_2026_27_377fd891_58ad_11f1_a6fa_c1b6941c6419",
+    "canonicalEventId": "event:nbl:2026-27:377fd891-58ad-11f1-a6fa-c1b6941c6419",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Perth Wildcats",
+    "date": "2026-12-24",
+    "time": "19:00",
+    "startTimeUtc": "2026-12-24T08:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 14",
+    "roundNumber": 14,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 14 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 14 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 14 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 14",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3761c65a_58ad_11f1_85ee_9bf90a853321",
+    "eventId": "evt_nbl_2026_27_3761c65a_58ad_11f1_85ee_9bf90a853321",
+    "canonicalEventId": "event:nbl:2026-27:3761c65a-58ad-11f1-85ee-9bf90a853321",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Illawarra Hawks",
+    "date": "2026-12-25",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-25T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 14",
+    "roundNumber": 14,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 14 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 14 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 14 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 14",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3763a871_58ad_11f1_bb01_15ea51636534",
+    "eventId": "evt_nbl_2026_27_3763a871_58ad_11f1_bb01_15ea51636534",
+    "canonicalEventId": "event:nbl:2026-27:3763a871-58ad-11f1-bb01-15ea51636534",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v South East Melbourne Phoenix",
+    "date": "2026-12-26",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-26T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 14",
+    "roundNumber": 14,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 14 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 14 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 14 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 14",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3770b91e_58ad_11f1_9efe_a362560fc147",
+    "eventId": "evt_nbl_2026_27_3770b91e_58ad_11f1_9efe_a362560fc147",
+    "canonicalEventId": "event:nbl:2026-27:3770b91e-58ad-11f1-9efe-a362560fc147",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v New Zealand Breakers",
+    "date": "2026-12-27",
+    "time": "15:00",
+    "startTimeUtc": "2026-12-27T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 14",
+    "roundNumber": 14,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 14 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 14 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 14 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 14",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_379201a1_58ad_11f1_a7bf_ede76c1d904d",
+    "eventId": "evt_nbl_2026_27_379201a1_58ad_11f1_a7bf_ede76c1d904d",
+    "canonicalEventId": "event:nbl:2026-27:379201a1-58ad-11f1-a7bf-ede76c1d904d",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Cairns Taipans",
+    "date": "2026-12-27",
+    "time": "17:00",
+    "startTimeUtc": "2026-12-27T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 14",
+    "roundNumber": 14,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 14 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 14 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 14 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 14",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37699500_58ad_11f1_888a_e79a703f0b90",
+    "eventId": "evt_nbl_2026_27_37699500_58ad_11f1_888a_e79a703f0b90",
+    "canonicalEventId": "event:nbl:2026-27:37699500-58ad-11f1-888a-e79a703f0b90",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Melbourne United",
+    "date": "2026-12-29",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-29T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 14",
+    "roundNumber": 14,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 14 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 14 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 14 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 14",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_376b0d82_58ad_11f1_ba1c_11cc539397b9",
+    "eventId": "evt_nbl_2026_27_376b0d82_58ad_11f1_ba1c_11cc539397b9",
+    "canonicalEventId": "event:nbl:2026-27:376b0d82-58ad-11f1-ba1c-11cc539397b9",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Adelaide 36ers",
+    "date": "2026-12-30",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-30T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 15",
+    "roundNumber": 15,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 15 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 15 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 15 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 15",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_376b1b7d_58ad_11f1_9638_61e4f965035a",
+    "eventId": "evt_nbl_2026_27_376b1b7d_58ad_11f1_9638_61e4f965035a",
+    "canonicalEventId": "event:nbl:2026-27:376b1b7d-58ad-11f1-9638-61e4f965035a",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v South East Melbourne Phoenix",
+    "date": "2026-12-31",
+    "time": "17:30",
+    "startTimeUtc": "2026-12-31T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 15",
+    "roundNumber": 15,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 15 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 15 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 15 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 15",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3769a2ba_58ad_11f1_ba9d_6f9744c8d3ab",
+    "eventId": "evt_nbl_2026_27_3769a2ba_58ad_11f1_ba9d_6f9744c8d3ab",
+    "canonicalEventId": "event:nbl:2026-27:3769a2ba-58ad-11f1-ba9d-6f9744c8d3ab",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v New Zealand Breakers",
+    "date": "2026-12-31",
+    "time": "19:30",
+    "startTimeUtc": "2026-12-31T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 15",
+    "roundNumber": 15,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 15 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 15 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 15 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 15",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_378eac70_58ad_11f1_89d4_c958368c756f",
+    "eventId": "evt_nbl_2026_27_378eac70_58ad_11f1_89d4_c958368c756f",
+    "canonicalEventId": "event:nbl:2026-27:378eac70-58ad-11f1-89d4-c958368c756f",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Perth Wildcats",
+    "date": "2027-01-01",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-01T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 15",
+    "roundNumber": 15,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 15 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 15 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 15 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 15",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3791ec9a_58ad_11f1_8e37_819ec06531e4",
+    "eventId": "evt_nbl_2026_27_3791ec9a_58ad_11f1_8e37_819ec06531e4",
+    "canonicalEventId": "event:nbl:2026-27:3791ec9a-58ad-11f1-8e37-819ec06531e4",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Cairns Taipans",
+    "date": "2027-01-02",
+    "time": "17:30",
+    "startTimeUtc": "2027-01-02T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 15",
+    "roundNumber": 15,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 15 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 15 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 15 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 15",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_376dd566_58ad_11f1_a40d_e78395b5c13c",
+    "eventId": "evt_nbl_2026_27_376dd566_58ad_11f1_a40d_e78395b5c13c",
+    "canonicalEventId": "event:nbl:2026-27:376dd566-58ad-11f1-a40d-e78395b5c13c",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v South East Melbourne Phoenix",
+    "date": "2027-01-02",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-02T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 15",
+    "roundNumber": 15,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 15 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 15 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 15 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 15",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_377a706f_58ad_11f1_9081_95101c4b3f9d",
+    "eventId": "evt_nbl_2026_27_377a706f_58ad_11f1_9081_95101c4b3f9d",
+    "canonicalEventId": "event:nbl:2026-27:377a706f-58ad-11f1-9081-95101c4b3f9d",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Perth Wildcats",
+    "date": "2027-01-03",
+    "time": "15:00",
+    "startTimeUtc": "2027-01-03T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 15",
+    "roundNumber": 15,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 15 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 15 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 15 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 15",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_377c8615_58ad_11f1_9f3b_1fa229f84a5e",
+    "eventId": "evt_nbl_2026_27_377c8615_58ad_11f1_9f3b_1fa229f84a5e",
+    "canonicalEventId": "event:nbl:2026-27:377c8615-58ad-11f1-9f3b-1fa229f84a5e",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Melbourne United",
+    "date": "2027-01-03",
+    "time": "17:00",
+    "startTimeUtc": "2027-01-03T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 15",
+    "roundNumber": 15,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 15 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 15 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 15 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 15",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3778a221_58ad_11f1_93c2_61e38b2284ba",
+    "eventId": "evt_nbl_2026_27_3778a221_58ad_11f1_93c2_61e38b2284ba",
+    "canonicalEventId": "event:nbl:2026-27:3778a221-58ad-11f1-93c2-61e38b2284ba",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Tasmania JackJumpers",
+    "date": "2027-01-04",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-04T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 15",
+    "roundNumber": 15,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 15 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 15 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 15 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 15",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_377af928_58ad_11f1_af79_ad562dad26a0",
+    "eventId": "evt_nbl_2026_27_377af928_58ad_11f1_af79_ad562dad26a0",
+    "canonicalEventId": "event:nbl:2026-27:377af928-58ad-11f1-af79-ad562dad26a0",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Tasmania JackJumpers",
+    "date": "2027-01-06",
+    "time": "17:30",
+    "startTimeUtc": "2027-01-06T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "State Basketball Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 16",
+    "roundNumber": 16,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 16 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 16 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 16 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 16",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_377ea044_58ad_11f1_bd17_43a6b5595d3e",
+    "eventId": "evt_nbl_2026_27_377ea044_58ad_11f1_bd17_43a6b5595d3e",
+    "canonicalEventId": "event:nbl:2026-27:377ea044-58ad-11f1-bd17-43a6b5595d3e",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Perth Wildcats",
+    "date": "2027-01-06",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-06T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 16",
+    "roundNumber": 16,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 16 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 16 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 16 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 16",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_377cd763_58ad_11f1_8114_69c2b72ae0a9",
+    "eventId": "evt_nbl_2026_27_377cd763_58ad_11f1_8114_69c2b72ae0a9",
+    "canonicalEventId": "event:nbl:2026-27:377cd763-58ad-11f1-8114-69c2b72ae0a9",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Adelaide 36ers",
+    "date": "2027-01-07",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-07T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Red Energy Arena (Bendigo)",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 16",
+    "roundNumber": 16,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 16 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 16 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 16 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 16",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37810606_58ad_11f1_9339_69207a436dad",
+    "eventId": "evt_nbl_2026_27_37810606_58ad_11f1_9339_69207a436dad",
+    "canonicalEventId": "event:nbl:2026-27:37810606-58ad-11f1-9339-69207a436dad",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Illawarra Hawks",
+    "date": "2027-01-08",
+    "time": "17:30",
+    "startTimeUtc": "2027-01-08T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 16",
+    "roundNumber": 16,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 16 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 16 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 16 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 16",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_377f12e2_58ad_11f1_a03f_e94b8c35b649",
+    "eventId": "evt_nbl_2026_27_377f12e2_58ad_11f1_a03f_e94b8c35b649",
+    "canonicalEventId": "event:nbl:2026-27:377f12e2-58ad-11f1-a03f-e94b8c35b649",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Sydney Kings",
+    "date": "2027-01-08",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-08T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 16",
+    "roundNumber": 16,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 16 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 16 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 16 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 16",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37811115_58ad_11f1_8a48_93b9302663c0",
+    "eventId": "evt_nbl_2026_27_37811115_58ad_11f1_8a48_93b9302663c0",
+    "canonicalEventId": "event:nbl:2026-27:37811115-58ad-11f1-8a48-93b9302663c0",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Tasmania JackJumpers",
+    "date": "2027-01-09",
+    "time": "17:30",
+    "startTimeUtc": "2027-01-09T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 16",
+    "roundNumber": 16,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 16 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 16 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 16 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 16",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3784706a_58ad_11f1_962d_09df0c3978fa",
+    "eventId": "evt_nbl_2026_27_3784706a_58ad_11f1_962d_09df0c3978fa",
+    "canonicalEventId": "event:nbl:2026-27:3784706a-58ad-11f1-962d-09df0c3978fa",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Perth Wildcats",
+    "date": "2027-01-09",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-09T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 16",
+    "roundNumber": 16,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 16 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 16 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 16 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 16",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37876f5f_58ad_11f1_b7ed_b5c487635207",
+    "eventId": "evt_nbl_2026_27_37876f5f_58ad_11f1_b7ed_b5c487635207",
+    "canonicalEventId": "event:nbl:2026-27:37876f5f-58ad-11f1-b7ed-b5c487635207",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v New Zealand Breakers",
+    "date": "2027-01-10",
+    "time": "15:00",
+    "startTimeUtc": "2027-01-10T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "State Basketball Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 16",
+    "roundNumber": 16,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 16 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 16 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 16 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 16",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3784d7da_58ad_11f1_88d9_53622f199a68",
+    "eventId": "evt_nbl_2026_27_3784d7da_58ad_11f1_88d9_53622f199a68",
+    "canonicalEventId": "event:nbl:2026-27:3784d7da-58ad-11f1-88d9-53622f199a68",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Melbourne United",
+    "date": "2027-01-10",
+    "time": "17:00",
+    "startTimeUtc": "2027-01-10T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 16",
+    "roundNumber": 16,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 16 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 16 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 16 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 16",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37a7ea49_58ad_11f1_903e_c9ba3efad88d",
+    "eventId": "evt_nbl_2026_27_37a7ea49_58ad_11f1_903e_c9ba3efad88d",
+    "canonicalEventId": "event:nbl:2026-27:37a7ea49-58ad-11f1-903e-c9ba3efad88d",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Cairns Taipans",
+    "date": "2027-01-13",
+    "time": "21:30",
+    "startTimeUtc": "2027-01-13T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 17",
+    "roundNumber": 17,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 17 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 17 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 17 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 17",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_378cef96_58ad_11f1_a398_d95637fbed2b",
+    "eventId": "evt_nbl_2026_27_378cef96_58ad_11f1_a398_d95637fbed2b",
+    "canonicalEventId": "event:nbl:2026-27:378cef96-58ad-11f1-a398-d95637fbed2b",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v South East Melbourne Phoenix",
+    "date": "2027-01-14",
+    "time": "21:30",
+    "startTimeUtc": "2027-01-14T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 17",
+    "roundNumber": 17,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 17 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 17 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 17 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 17",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37b32cce_58ad_11f1_8d47_bd240d5ec994",
+    "eventId": "evt_nbl_2026_27_37b32cce_58ad_11f1_8d47_bd240d5ec994",
+    "canonicalEventId": "event:nbl:2026-27:37b32cce-58ad-11f1-8d47-bd240d5ec994",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v New Zealand Breakers",
+    "date": "2027-01-15",
+    "time": "21:30",
+    "startTimeUtc": "2027-01-15T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 17",
+    "roundNumber": 17,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 17 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 17 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 17 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 17",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37abe4a4_58ad_11f1_9473_fb9d3a8baf78",
+    "eventId": "evt_nbl_2026_27_37abe4a4_58ad_11f1_9473_fb9d3a8baf78",
+    "canonicalEventId": "event:nbl:2026-27:37abe4a4-58ad-11f1-9473-fb9d3a8baf78",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Adelaide 36ers",
+    "date": "2027-01-16",
+    "time": "21:30",
+    "startTimeUtc": "2027-01-16T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 17",
+    "roundNumber": 17,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 17 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 17 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 17 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 17",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3786d8e9_58ad_11f1_9a23_c5dc2cf09b1f",
+    "eventId": "evt_nbl_2026_27_3786d8e9_58ad_11f1_9a23_c5dc2cf09b1f",
+    "canonicalEventId": "event:nbl:2026-27:3786d8e9-58ad-11f1-9a23-c5dc2cf09b1f",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Illawarra Hawks",
+    "date": "2027-01-17",
+    "time": "17:00",
+    "startTimeUtc": "2027-01-17T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 17",
+    "roundNumber": 17,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 17 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 17 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 17 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 17",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37b09e5c_58ad_11f1_8cc2_3f7e445158a4",
+    "eventId": "evt_nbl_2026_27_37b09e5c_58ad_11f1_8cc2_3f7e445158a4",
+    "canonicalEventId": "event:nbl:2026-27:37b09e5c-58ad-11f1-8cc2-3f7e445158a4",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Tasmania JackJumpers",
+    "date": "2027-01-20",
+    "time": "17:30",
+    "startTimeUtc": "2027-01-20T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Red Energy Arena (Bendigo)",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 18",
+    "roundNumber": 18,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 18 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 18 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 18 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 18",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3788eca5_58ad_11f1_a7af_754512109772",
+    "eventId": "evt_nbl_2026_27_3788eca5_58ad_11f1_a7af_754512109772",
+    "canonicalEventId": "event:nbl:2026-27:3788eca5-58ad-11f1-a7af-754512109772",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v New Zealand Breakers",
+    "date": "2027-01-20",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-20T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 18",
+    "roundNumber": 18,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 18 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 18 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 18 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 18",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37b85f23_58ad_11f1_9eb0_2bbb920071b5",
+    "eventId": "evt_nbl_2026_27_37b85f23_58ad_11f1_9eb0_2bbb920071b5",
+    "canonicalEventId": "event:nbl:2026-27:37b85f23-58ad-11f1-9eb0-2bbb920071b5",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Adelaide 36ers",
+    "date": "2027-01-21",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-21T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "State Basketball Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 18",
+    "roundNumber": 18,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 18 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 18 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 18 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 18",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_378ad286_58ad_11f1_b7d9_03625b994063",
+    "eventId": "evt_nbl_2026_27_378ad286_58ad_11f1_b7d9_03625b994063",
+    "canonicalEventId": "event:nbl:2026-27:378ad286-58ad-11f1-b7d9-03625b994063",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Cairns Taipans",
+    "date": "2027-01-22",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-22T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 18",
+    "roundNumber": 18,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 18 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 18 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 18 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 18",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37b72cf1_58ad_11f1_9c01_6775645a7b9a",
+    "eventId": "evt_nbl_2026_27_37b72cf1_58ad_11f1_9c01_6775645a7b9a",
+    "canonicalEventId": "event:nbl:2026-27:37b72cf1-58ad-11f1-9c01-6775645a7b9a",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Sydney Kings",
+    "date": "2027-01-22",
+    "time": "21:30",
+    "startTimeUtc": "2027-01-22T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 18",
+    "roundNumber": 18,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 18 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 18 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 18 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 18",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_378a267b_58ad_11f1_b1d5_67a8251482c3",
+    "eventId": "evt_nbl_2026_27_378a267b_58ad_11f1_b1d5_67a8251482c3",
+    "canonicalEventId": "event:nbl:2026-27:378a267b-58ad-11f1-b1d5-67a8251482c3",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Illawarra Hawks",
+    "date": "2027-01-23",
+    "time": "17:30",
+    "startTimeUtc": "2027-01-23T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 18",
+    "roundNumber": 18,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 18 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 18 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 18 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 18",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3794465d_58ad_11f1_a534_cb26a6dd9fe9",
+    "eventId": "evt_nbl_2026_27_3794465d_58ad_11f1_a534_cb26a6dd9fe9",
+    "canonicalEventId": "event:nbl:2026-27:3794465d-58ad-11f1-a534-cb26a6dd9fe9",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Melbourne United",
+    "date": "2027-01-23",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-23T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 18",
+    "roundNumber": 18,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 18 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 18 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 18 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 18",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_378b3988_58ad_11f1_a999_cb5b62df0525",
+    "eventId": "evt_nbl_2026_27_378b3988_58ad_11f1_a999_cb5b62df0525",
+    "canonicalEventId": "event:nbl:2026-27:378b3988-58ad-11f1-a999-cb5b62df0525",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Cairns Taipans",
+    "date": "2027-01-24",
+    "time": "15:00",
+    "startTimeUtc": "2027-01-24T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 18",
+    "roundNumber": 18,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 18 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 18 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 18 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 18",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3787b813_58ad_11f1_a901_7da015763581",
+    "eventId": "evt_nbl_2026_27_3787b813_58ad_11f1_a901_7da015763581",
+    "canonicalEventId": "event:nbl:2026-27:3787b813-58ad-11f1-a901-7da015763581",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Perth Wildcats",
+    "date": "2027-01-24",
+    "time": "17:00",
+    "startTimeUtc": "2027-01-24T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "State Basketball Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 18",
+    "roundNumber": 18,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 18 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 18 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 18 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 18",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37b5f457_58ad_11f1_bb17_2d4587dc1484",
+    "eventId": "evt_nbl_2026_27_37b5f457_58ad_11f1_bb17_2d4587dc1484",
+    "canonicalEventId": "event:nbl:2026-27:37b5f457-58ad-11f1-bb17-2d4587dc1484",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Brisbane Bullets",
+    "date": "2027-01-25",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-25T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 18",
+    "roundNumber": 18,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 18 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 18 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 18 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 18",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37882039_58ad_11f1_b46f_4bbabfa2dd4f",
+    "eventId": "evt_nbl_2026_27_37882039_58ad_11f1_b46f_4bbabfa2dd4f",
+    "canonicalEventId": "event:nbl:2026-27:37882039-58ad-11f1-b46f-4bbabfa2dd4f",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Illawarra Hawks",
+    "date": "2027-01-27",
+    "time": "17:30",
+    "startTimeUtc": "2027-01-27T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 19",
+    "roundNumber": 19,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 19 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 19 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 19 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 19",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_378d7045_58ad_11f1_be6f_59142d8bd7d5",
+    "eventId": "evt_nbl_2026_27_378d7045_58ad_11f1_be6f_59142d8bd7d5",
+    "canonicalEventId": "event:nbl:2026-27:378d7045-58ad-11f1-be6f-59142d8bd7d5",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Sydney Kings",
+    "date": "2027-01-27",
+    "time": "18:30",
+    "startTimeUtc": "2027-01-27T07:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "TBC",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 19",
+    "roundNumber": 19,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 19 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 19 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 19 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 19",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37947616_58ad_11f1_a290_8da1c4ae1ac0",
+    "eventId": "evt_nbl_2026_27_37947616_58ad_11f1_a290_8da1c4ae1ac0",
+    "canonicalEventId": "event:nbl:2026-27:37947616-58ad-11f1-a290-8da1c4ae1ac0",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v South East Melbourne Phoenix",
+    "date": "2027-01-28",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-28T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 19",
+    "roundNumber": 19,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 19 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 19 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 19 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 19",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37b7122e_58ad_11f1_9780_077ff55f3c82",
+    "eventId": "evt_nbl_2026_27_37b7122e_58ad_11f1_9780_077ff55f3c82",
+    "canonicalEventId": "event:nbl:2026-27:37b7122e-58ad-11f1-9780-077ff55f3c82",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Adelaide 36ers",
+    "date": "2027-01-28",
+    "time": "21:30",
+    "startTimeUtc": "2027-01-28T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 19",
+    "roundNumber": 19,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 19 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 19 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 19 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 19",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_379304e6_58ad_11f1_a000_6d6f61141df2",
+    "eventId": "evt_nbl_2026_27_379304e6_58ad_11f1_a000_6d6f61141df2",
+    "canonicalEventId": "event:nbl:2026-27:379304e6-58ad-11f1-a000-6d6f61141df2",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Melbourne United",
+    "date": "2027-01-29",
+    "time": "17:30",
+    "startTimeUtc": "2027-01-29T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 19",
+    "roundNumber": 19,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 19 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Melbourne United in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 19 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 19 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 19",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37912f47_58ad_11f1_a905_9b50298fb358",
+    "eventId": "evt_nbl_2026_27_37912f47_58ad_11f1_a905_9b50298fb358",
+    "canonicalEventId": "event:nbl:2026-27:37912f47-58ad-11f1-a905-9b50298fb358",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Perth Wildcats",
+    "date": "2027-01-30",
+    "time": "17:30",
+    "startTimeUtc": "2027-01-30T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 19",
+    "roundNumber": 19,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 19 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 19 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 19 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 19",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37927ea9_58ad_11f1_816a_db7d6019155e",
+    "eventId": "evt_nbl_2026_27_37927ea9_58ad_11f1_816a_db7d6019155e",
+    "canonicalEventId": "event:nbl:2026-27:37927ea9-58ad-11f1-816a-db7d6019155e",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v Sydney Kings",
+    "date": "2027-01-30",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-30T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 19",
+    "roundNumber": 19,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 19 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 19 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 19 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 19",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3794848c_58ad_11f1_8498_35ee37a73882",
+    "eventId": "evt_nbl_2026_27_3794848c_58ad_11f1_8498_35ee37a73882",
+    "canonicalEventId": "event:nbl:2026-27:3794848c-58ad-11f1-8498-35ee37a73882",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v South East Melbourne Phoenix",
+    "date": "2027-01-31",
+    "time": "17:00",
+    "startTimeUtc": "2027-01-31T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 19",
+    "roundNumber": 19,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 19 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 19 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 19 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 19",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37931e61_58ad_11f1_982d_a93048d70593",
+    "eventId": "evt_nbl_2026_27_37931e61_58ad_11f1_982d_a93048d70593",
+    "canonicalEventId": "event:nbl:2026-27:37931e61-58ad-11f1-982d-a93048d70593",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Brisbane Bullets",
+    "date": "2027-01-31",
+    "time": "19:30",
+    "startTimeUtc": "2027-01-31T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 19",
+    "roundNumber": 19,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 19 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 19 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 19 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 19",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_379682fb_58ad_11f1_bbe4_a9a6cbaba447",
+    "eventId": "evt_nbl_2026_27_379682fb_58ad_11f1_bbe4_a9a6cbaba447",
+    "canonicalEventId": "event:nbl:2026-27:379682fb-58ad-11f1-bbe4-a9a6cbaba447",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Illawarra Hawks v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Illawarra Hawks v Brisbane Bullets",
+    "date": "2027-02-04",
+    "time": "19:30",
+    "startTimeUtc": "2027-02-04T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "WIN Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 20",
+    "roundNumber": 20,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Illawarra Hawks face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 20 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:illawarra-hawks",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Illawarra Hawks face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Illawarra Hawks face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 20 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 20 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 20",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_379afd67_58ad_11f1_bee5_37c9e1eacb09",
+    "eventId": "evt_nbl_2026_27_379afd67_58ad_11f1_bee5_37c9e1eacb09",
+    "canonicalEventId": "event:nbl:2026-27:379afd67-58ad-11f1-bee5-37c9e1eacb09",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v South East Melbourne Phoenix",
+    "date": "2027-02-04",
+    "time": "19:30",
+    "startTimeUtc": "2027-02-04T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "TBC",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 20",
+    "roundNumber": 20,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 20 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 20 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 20 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 20",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3796b045_58ad_11f1_ad75_2572c13c410b",
+    "eventId": "evt_nbl_2026_27_3796b045_58ad_11f1_ad75_2572c13c410b",
+    "canonicalEventId": "event:nbl:2026-27:3796b045-58ad-11f1-ad75-2572c13c410b",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Melbourne United",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Melbourne United",
+    "date": "2027-02-05",
+    "time": "19:30",
+    "startTimeUtc": "2027-02-05T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 20",
+    "roundNumber": 20,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Melbourne United in NBL27.",
+    "fullSpiel": "Official NBL27 Round 20 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:melbourne-united"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Melbourne United in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Melbourne United in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 20 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 20 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 20",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_379a322b_58ad_11f1_9321_87e414b8c2d5",
+    "eventId": "evt_nbl_2026_27_379a322b_58ad_11f1_9321_87e414b8c2d5",
+    "canonicalEventId": "event:nbl:2026-27:379a322b-58ad-11f1-9321-87e414b8c2d5",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Cairns Taipans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Cairns Taipans",
+    "date": "2027-02-05",
+    "time": "21:30",
+    "startTimeUtc": "2027-02-05T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 20",
+    "roundNumber": 20,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Cairns Taipans in NBL27.",
+    "fullSpiel": "Official NBL27 Round 20 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:cairns-taipans"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Cairns Taipans in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Cairns Taipans in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 20 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 20 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 20",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37bd67c8_58ad_11f1_9904_6d6fb61b331b",
+    "eventId": "evt_nbl_2026_27_37bd67c8_58ad_11f1_9904_6d6fb61b331b",
+    "canonicalEventId": "event:nbl:2026-27:37bd67c8-58ad-11f1-9904-6d6fb61b331b",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Brisbane Bullets v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Bullets v Adelaide 36ers",
+    "date": "2027-02-06",
+    "time": "17:30",
+    "startTimeUtc": "2027-02-06T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Brisbane Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 20",
+    "roundNumber": 20,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane Bullets face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 20 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:brisbane-bullets",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Brisbane Bullets face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Brisbane Bullets face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 20 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 20 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 20",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_379c3809_58ad_11f1_a3c5_0919017f2391",
+    "eventId": "evt_nbl_2026_27_379c3809_58ad_11f1_a3c5_0919017f2391",
+    "canonicalEventId": "event:nbl:2026-27:379c3809-58ad-11f1-a3c5-0919017f2391",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Sydney Kings",
+    "date": "2027-02-06",
+    "time": "19:30",
+    "startTimeUtc": "2027-02-06T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 20",
+    "roundNumber": 20,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 20 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 20 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 20 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 20",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3799258e_58ad_11f1_9453_39f5f9ac4ced",
+    "eventId": "evt_nbl_2026_27_3799258e_58ad_11f1_9453_39f5f9ac4ced",
+    "canonicalEventId": "event:nbl:2026-27:3799258e-58ad-11f1-9453-39f5f9ac4ced",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Tasmania JackJumpers",
+    "date": "2027-02-07",
+    "time": "15:00",
+    "startTimeUtc": "2027-02-07T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 20",
+    "roundNumber": 20,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 20 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 20 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 20 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 20",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37995628_58ad_11f1_a2d1_491075c94f1a",
+    "eventId": "evt_nbl_2026_27_37995628_58ad_11f1_a2d1_491075c94f1a",
+    "canonicalEventId": "event:nbl:2026-27:37995628-58ad-11f1-a2d1-491075c94f1a",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Perth Wildcats",
+    "date": "2027-02-07",
+    "time": "17:00",
+    "startTimeUtc": "2027-02-07T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 20",
+    "roundNumber": 20,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 20 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 20 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 20 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 20",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3797a4ad_58ad_11f1_bd80_679c79eacdbc",
+    "eventId": "evt_nbl_2026_27_3797a4ad_58ad_11f1_bd80_679c79eacdbc",
+    "canonicalEventId": "event:nbl:2026-27:3797a4ad-58ad-11f1-bd80-679c79eacdbc",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Tasmania JackJumpers v Perth Wildcats",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Tasmania JackJumpers v Perth Wildcats",
+    "date": "2027-02-10",
+    "time": "19:30",
+    "startTimeUtc": "2027-02-10T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "MyState Bank Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 21",
+    "roundNumber": 21,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Tasmania JackJumpers face Perth Wildcats in NBL27.",
+    "fullSpiel": "Official NBL27 Round 21 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:tasmania-jackjumpers",
+      "team:nbl:perth-wildcats"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Tasmania JackJumpers face Perth Wildcats in NBL27.",
+      "hookSpoilerOn": "Tasmania JackJumpers face Perth Wildcats in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 21 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 21 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 21",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37995304_58ad_11f1_bced_f323fa41d58d",
+    "eventId": "evt_nbl_2026_27_37995304_58ad_11f1_bced_f323fa41d58d",
+    "canonicalEventId": "event:nbl:2026-27:37995304-58ad-11f1-bced-f323fa41d58d",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "New Zealand Breakers v Sydney Kings",
+    "cardKind": "fixture",
+    "displayTitleCompact": "New Zealand Breakers v Sydney Kings",
+    "date": "2027-02-11",
+    "time": "17:30",
+    "startTimeUtc": "2027-02-11T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Spark Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 21",
+    "roundNumber": 21,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "New Zealand Breakers face Sydney Kings in NBL27.",
+    "fullSpiel": "Official NBL27 Round 21 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "NZ",
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:new-zealand-breakers",
+      "team:nbl:sydney-kings"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "New Zealand Breakers face Sydney Kings in NBL27.",
+      "hookSpoilerOn": "New Zealand Breakers face Sydney Kings in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 21 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 21 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 21",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_3797f6e3_58ad_11f1_87a8_fbbd24deadd3",
+    "eventId": "evt_nbl_2026_27_3797f6e3_58ad_11f1_87a8_fbbd24deadd3",
+    "canonicalEventId": "event:nbl:2026-27:3797f6e3-58ad-11f1-87a8-fbbd24deadd3",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v South East Melbourne Phoenix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v South East Melbourne Phoenix",
+    "date": "2027-02-11",
+    "time": "19:30",
+    "startTimeUtc": "2027-02-11T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 21",
+    "roundNumber": 21,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face South East Melbourne Phoenix in NBL27.",
+    "fullSpiel": "Official NBL27 Round 21 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:south-east-melbourne-phoenix"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face South East Melbourne Phoenix in NBL27.",
+      "hookSpoilerOn": "Melbourne United face South East Melbourne Phoenix in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 21 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 21 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 21",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37974b51_58ad_11f1_85a6_d3f8eb4e543c",
+    "eventId": "evt_nbl_2026_27_37974b51_58ad_11f1_85a6_d3f8eb4e543c",
+    "canonicalEventId": "event:nbl:2026-27:37974b51-58ad-11f1-85a6-d3f8eb4e543c",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Cairns Taipans v Adelaide 36ers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cairns Taipans v Adelaide 36ers",
+    "date": "2027-02-12",
+    "time": "19:30",
+    "startTimeUtc": "2027-02-12T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Cairns Convention Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 21",
+    "roundNumber": 21,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cairns Taipans face Adelaide 36ers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 21 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:cairns-taipans",
+      "team:nbl:adelaide-36ers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:cairns-taipans",
+        "name": "Cairns Taipans",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:cairns-taipans",
+        "label": "Cairns Taipans"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Cairns Taipans face Adelaide 36ers in NBL27.",
+      "hookSpoilerOn": "Cairns Taipans face Adelaide 36ers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 21 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 21 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 21",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37be2ab4_58ad_11f1_841c_2942781e7154",
+    "eventId": "evt_nbl_2026_27_37be2ab4_58ad_11f1_841c_2942781e7154",
+    "canonicalEventId": "event:nbl:2026-27:37be2ab4-58ad-11f1-841c-2942781e7154",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Perth Wildcats v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Perth Wildcats v Brisbane Bullets",
+    "date": "2027-02-12",
+    "time": "21:30",
+    "startTimeUtc": "2027-02-12T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "RAC Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 21",
+    "roundNumber": 21,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Perth Wildcats face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 21 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:perth-wildcats",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:perth-wildcats",
+        "name": "Perth Wildcats",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:perth-wildcats",
+        "label": "Perth Wildcats"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Perth Wildcats face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "Perth Wildcats face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 21 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 21 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 21",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_379c1ff2_58ad_11f1_b2ec_411a11259918",
+    "eventId": "evt_nbl_2026_27_379c1ff2_58ad_11f1_b2ec_411a11259918",
+    "canonicalEventId": "event:nbl:2026-27:379c1ff2-58ad-11f1-b2ec-411a11259918",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Melbourne United v Illawarra Hawks",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Melbourne United v Illawarra Hawks",
+    "date": "2027-02-13",
+    "time": "17:30",
+    "startTimeUtc": "2027-02-13T06:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 21",
+    "roundNumber": 21,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Melbourne United face Illawarra Hawks in NBL27.",
+    "fullSpiel": "Official NBL27 Round 21 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:melbourne-united",
+      "team:nbl:illawarra-hawks"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:melbourne-united",
+        "name": "Melbourne United",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:illawarra-hawks",
+        "name": "Illawarra Hawks",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:melbourne-united",
+        "label": "Melbourne United"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:illawarra-hawks",
+        "label": "Illawarra Hawks"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Melbourne United face Illawarra Hawks in NBL27.",
+      "hookSpoilerOn": "Melbourne United face Illawarra Hawks in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 21 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 21 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 21",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_37c1c5ea_58ad_11f1_956b_892c4438c413",
+    "eventId": "evt_nbl_2026_27_37c1c5ea_58ad_11f1_956b_892c4438c413",
+    "canonicalEventId": "event:nbl:2026-27:37c1c5ea-58ad-11f1-956b-892c4438c413",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Sydney Kings v Tasmania JackJumpers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Kings v Tasmania JackJumpers",
+    "date": "2027-02-13",
+    "time": "19:30",
+    "startTimeUtc": "2027-02-13T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Afterpay Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 21",
+    "roundNumber": 21,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Sydney Kings face Tasmania JackJumpers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 21 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:sydney-kings",
+      "team:nbl:tasmania-jackjumpers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:sydney-kings",
+        "name": "Sydney Kings",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:tasmania-jackjumpers",
+        "name": "Tasmania JackJumpers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:sydney-kings",
+        "label": "Sydney Kings"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:tasmania-jackjumpers",
+        "label": "Tasmania JackJumpers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Sydney Kings face Tasmania JackJumpers in NBL27.",
+      "hookSpoilerOn": "Sydney Kings face Tasmania JackJumpers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 21 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 21 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 21",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_379eac2d_58ad_11f1_90d4_d98e318e0a1e",
+    "eventId": "evt_nbl_2026_27_379eac2d_58ad_11f1_90d4_d98e318e0a1e",
+    "canonicalEventId": "event:nbl:2026-27:379eac2d-58ad-11f1-90d4-d98e318e0a1e",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "Adelaide 36ers v New Zealand Breakers",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Adelaide 36ers v New Zealand Breakers",
+    "date": "2027-02-14",
+    "time": "15:00",
+    "startTimeUtc": "2027-02-14T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "Adelaide Entertainment Centre",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 21",
+    "roundNumber": 21,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Adelaide 36ers face New Zealand Breakers in NBL27.",
+    "fullSpiel": "Official NBL27 Round 21 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nbl:adelaide-36ers",
+      "team:nbl:new-zealand-breakers"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:adelaide-36ers",
+        "name": "Adelaide 36ers",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:new-zealand-breakers",
+        "name": "New Zealand Breakers",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:adelaide-36ers",
+        "label": "Adelaide 36ers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:new-zealand-breakers",
+        "label": "New Zealand Breakers"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "Adelaide 36ers face New Zealand Breakers in NBL27.",
+      "hookSpoilerOn": "Adelaide 36ers face New Zealand Breakers in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 21 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 21 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 21",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_nbl_2026_27_379fc3fc_58ad_11f1_9644_736e6b79ac99",
+    "eventId": "evt_nbl_2026_27_379fc3fc_58ad_11f1_9644_736e6b79ac99",
+    "canonicalEventId": "event:nbl:2026-27:379fc3fc-58ad-11f1-9644-736e6b79ac99",
+    "sport": "NBL",
+    "key": "basketball",
+    "name": "South East Melbourne Phoenix v Brisbane Bullets",
+    "cardKind": "fixture",
+    "displayTitleCompact": "South East Melbourne Phoenix v Brisbane Bullets",
+    "date": "2027-02-14",
+    "time": "17:00",
+    "startTimeUtc": "2027-02-14T06:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Disney+ / Kayo / Foxtel",
+    "broadcastOptions": [
+      "Disney+",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 5,
+    "stakesScore": 3,
+    "venue": "John Cain Arena",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Round 21",
+    "roundNumber": 21,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "South East Melbourne Phoenix face Brisbane Bullets in NBL27.",
+    "fullSpiel": "Official NBL27 Round 21 fixture.",
+    "sourceName": "NBL official schedule",
+    "sourceUrl": "https://schedule.nbl.com.au/nbl",
+    "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:nbl",
+    "competitionId": "competition:nbl",
+    "taxonomyNodeId": "sport:nbl",
+    "codeId": "sport:nbl",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nbl:south-east-melbourne-phoenix",
+      "team:nbl:brisbane-bullets"
+    ],
+    "participants": [
+      {
+        "id": "team:nbl:south-east-melbourne-phoenix",
+        "name": "South East Melbourne Phoenix",
+        "role": "home"
+      },
+      {
+        "id": "team:nbl:brisbane-bullets",
+        "name": "Brisbane Bullets",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nbl:south-east-melbourne-phoenix",
+        "label": "South East Melbourne Phoenix"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nbl:brisbane-bullets",
+        "label": "Brisbane Bullets"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 5,
+      "hookSpoilerOff": "South East Melbourne Phoenix face Brisbane Bullets in NBL27.",
+      "hookSpoilerOn": "South East Melbourne Phoenix face Brisbane Bullets in NBL27.",
+      "synopsisSpoilerOff": "Official NBL27 Round 21 fixture.",
+      "synopsisSpoilerOn": "Official NBL27 Round 21 fixture.",
+      "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 21",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "NBL official schedule",
+      "sourceUrl": "https://schedule.nbl.com.au/nbl",
+      "sourceCheckedAt": "2026-09-16T07:13:37.204Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:37.204Z"
+  },
+  {
+    "id": "evt_f1_2026_spain_practice_1",
+    "eventId": "evt_f1_2026_spain_practice_1",
+    "canonicalEventId": "event:f1:2026:spain:practice-1",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Spanish GP · Practice 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Spanish GP · Practice 1",
+    "date": "2026-09-11",
+    "time": "21:30",
+    "startTimeUtc": "2026-09-11T11:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 1",
+    "stage": "Practice 1",
+    "narrativeType": "all",
+    "selectedSentence": "Spanish GP · Practice 1 is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Spanish GP · Practice 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Spanish GP · Practice 1 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Spanish GP · Practice 1 is complete; the official outcome is still pending.",
+      "synopsisSpoilerOff": "Spanish GP · Practice 1 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Spanish GP · Practice 1 is complete, but the official results page had not published a verified outcome at the latest check.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 1",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 1"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_spain_practice_2",
+    "eventId": "evt_f1_2026_spain_practice_2",
+    "canonicalEventId": "event:f1:2026:spain:practice-2",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Spanish GP · Practice 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Spanish GP · Practice 2",
+    "date": "2026-09-12",
+    "time": "01:00",
+    "startTimeUtc": "2026-09-11T15:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 2",
+    "stage": "Practice 2",
+    "narrativeType": "all",
+    "selectedSentence": "Spanish GP · Practice 2 is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Spanish GP · Practice 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Spanish GP · Practice 2 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Spanish GP · Practice 2 is complete; the official outcome is still pending.",
+      "synopsisSpoilerOff": "Spanish GP · Practice 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Spanish GP · Practice 2 is complete, but the official results page had not published a verified outcome at the latest check.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 2",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 2"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_spain_practice_3",
+    "eventId": "evt_f1_2026_spain_practice_3",
+    "canonicalEventId": "event:f1:2026:spain:practice-3",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Spanish GP · Practice 3",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Spanish GP · Practice 3",
+    "date": "2026-09-12",
+    "time": "20:30",
+    "startTimeUtc": "2026-09-12T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 3",
+    "stage": "Practice 3",
+    "narrativeType": "all",
+    "selectedSentence": "Spanish GP · Practice 3 is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Spanish GP · Practice 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Spanish GP · Practice 3 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Spanish GP · Practice 3 is complete; the official outcome is still pending.",
+      "synopsisSpoilerOff": "Spanish GP · Practice 3 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Spanish GP · Practice 3 is complete, but the official results page had not published a verified outcome at the latest check.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 3",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 3"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_azerbaijan_practice_1",
+    "eventId": "evt_f1_2026_azerbaijan_practice_1",
+    "canonicalEventId": "event:f1:2026:azerbaijan:practice-1",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Azerbaijan GP · Practice 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Azerbaijan GP · Practice 1",
+    "date": "2026-09-24",
+    "time": "18:30",
+    "startTimeUtc": "2026-09-24T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 1",
+    "stage": "Practice 1",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 1 at the Azerbaijan GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 1 at the Azerbaijan GP.",
+      "hookSpoilerOn": "Practice 1 at the Azerbaijan GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 1",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 1"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_azerbaijan_practice_2",
+    "eventId": "evt_f1_2026_azerbaijan_practice_2",
+    "canonicalEventId": "event:f1:2026:azerbaijan:practice-2",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Azerbaijan GP · Practice 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Azerbaijan GP · Practice 2",
+    "date": "2026-09-24",
+    "time": "22:00",
+    "startTimeUtc": "2026-09-24T12:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 2",
+    "stage": "Practice 2",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 2 at the Azerbaijan GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 2 at the Azerbaijan GP.",
+      "hookSpoilerOn": "Practice 2 at the Azerbaijan GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 2",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 2"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_azerbaijan_practice_3",
+    "eventId": "evt_f1_2026_azerbaijan_practice_3",
+    "canonicalEventId": "event:f1:2026:azerbaijan:practice-3",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Azerbaijan GP · Practice 3",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Azerbaijan GP · Practice 3",
+    "date": "2026-09-25",
+    "time": "18:30",
+    "startTimeUtc": "2026-09-25T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 3",
+    "stage": "Practice 3",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 3 at the Azerbaijan GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 3 at the Azerbaijan GP.",
+      "hookSpoilerOn": "Practice 3 at the Azerbaijan GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 3",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 3"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_bahrain_practice_1",
+    "eventId": "evt_f1_2026_bahrain_practice_1",
+    "canonicalEventId": "event:f1:2026:bahrain:practice-1",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Bahrain GP · Practice 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Bahrain GP · Practice 1",
+    "date": "2026-10-02",
+    "time": "14:30",
+    "startTimeUtc": "2026-10-02T04:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 1",
+    "stage": "Practice 1",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 1 at the Bahrain GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 1 at the Bahrain GP.",
+      "hookSpoilerOn": "Practice 1 at the Bahrain GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 1",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 1"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_bahrain_practice_2",
+    "eventId": "evt_f1_2026_bahrain_practice_2",
+    "canonicalEventId": "event:f1:2026:bahrain:practice-2",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Bahrain GP · Practice 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Bahrain GP · Practice 2",
+    "date": "2026-10-02",
+    "time": "18:00",
+    "startTimeUtc": "2026-10-02T08:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 2",
+    "stage": "Practice 2",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 2 at the Bahrain GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 2 at the Bahrain GP.",
+      "hookSpoilerOn": "Practice 2 at the Bahrain GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 2",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 2"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_bahrain_practice_3",
+    "eventId": "evt_f1_2026_bahrain_practice_3",
+    "canonicalEventId": "event:f1:2026:bahrain:practice-3",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Bahrain GP · Practice 3",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Bahrain GP · Practice 3",
+    "date": "2026-10-03",
+    "time": "14:30",
+    "startTimeUtc": "2026-10-03T04:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 3",
+    "stage": "Practice 3",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 3 at the Bahrain GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 3 at the Bahrain GP.",
+      "hookSpoilerOn": "Practice 3 at the Bahrain GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 3",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 3"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_bahrain_qualifying",
+    "eventId": "evt_f1_2026_bahrain_qualifying",
+    "canonicalEventId": "event:f1:2026:bahrain:qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Bahrain GP · Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Bahrain GP · Qualifying",
+    "date": "2026-10-03",
+    "time": "18:00",
+    "startTimeUtc": "2026-10-03T08:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "Qualifying at the Bahrain GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Bahrain GP.",
+      "hookSpoilerOn": "Qualifying at the Bahrain GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_bahrain_race",
+    "eventId": "evt_f1_2026_bahrain_race",
+    "canonicalEventId": "event:f1:2026:bahrain:race",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Bahrain GP · Race",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Bahrain GP · Race",
+    "date": "2026-10-04",
+    "time": "18:00",
+    "startTimeUtc": "2026-10-04T07:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Race",
+    "stage": "Race",
+    "narrativeType": "all",
+    "selectedSentence": "Race at the Bahrain GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Race at the Bahrain GP.",
+      "hookSpoilerOn": "Race at the Bahrain GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Race",
+      "contextSignals": [
+        "official-schedule",
+        "Race"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/bahrain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_singapore_practice_1",
+    "eventId": "evt_f1_2026_singapore_practice_1",
+    "canonicalEventId": "event:f1:2026:singapore:practice-1",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Singapore GP · Practice 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Singapore GP · Practice 1",
+    "date": "2026-10-09",
+    "time": "19:30",
+    "startTimeUtc": "2026-10-09T08:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 1",
+    "stage": "Practice 1",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 1 at the Singapore GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 1 at the Singapore GP.",
+      "hookSpoilerOn": "Practice 1 at the Singapore GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 1",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 1"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_singapore_sprint_qualifying",
+    "eventId": "evt_f1_2026_singapore_sprint_qualifying",
+    "canonicalEventId": "event:f1:2026:singapore:sprint-qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Singapore GP · Sprint Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Singapore GP · Sprint Qualifying",
+    "date": "2026-10-09",
+    "time": "23:30",
+    "startTimeUtc": "2026-10-09T12:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Sprint Qualifying",
+    "stage": "Sprint Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "Sprint Qualifying at the Singapore GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Sprint Qualifying at the Singapore GP.",
+      "hookSpoilerOn": "Sprint Qualifying at the Singapore GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Sprint Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Sprint Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_singapore_sprint",
+    "eventId": "evt_f1_2026_singapore_sprint",
+    "canonicalEventId": "event:f1:2026:singapore:sprint",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Singapore GP · Sprint",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Singapore GP · Sprint",
+    "date": "2026-10-10",
+    "time": "20:00",
+    "startTimeUtc": "2026-10-10T09:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Sprint",
+    "stage": "Sprint",
+    "narrativeType": "all",
+    "selectedSentence": "Sprint at the Singapore GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Sprint at the Singapore GP.",
+      "hookSpoilerOn": "Sprint at the Singapore GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Sprint",
+      "contextSignals": [
+        "official-schedule",
+        "Sprint"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_united_states_practice_1",
+    "eventId": "evt_f1_2026_united_states_practice_1",
+    "canonicalEventId": "event:f1:2026:united-states:practice-1",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "United States GP · Practice 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "United States GP · Practice 1",
+    "date": "2026-10-24",
+    "time": "04:30",
+    "startTimeUtc": "2026-10-23T17:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 1",
+    "stage": "Practice 1",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 1 at the United States GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 1 at the United States GP.",
+      "hookSpoilerOn": "Practice 1 at the United States GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 1",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 1"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_united_states_practice_2",
+    "eventId": "evt_f1_2026_united_states_practice_2",
+    "canonicalEventId": "event:f1:2026:united-states:practice-2",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "United States GP · Practice 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "United States GP · Practice 2",
+    "date": "2026-10-24",
+    "time": "08:00",
+    "startTimeUtc": "2026-10-23T21:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 2",
+    "stage": "Practice 2",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 2 at the United States GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 2 at the United States GP.",
+      "hookSpoilerOn": "Practice 2 at the United States GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 2",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 2"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_united_states_practice_3",
+    "eventId": "evt_f1_2026_united_states_practice_3",
+    "canonicalEventId": "event:f1:2026:united-states:practice-3",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "United States GP · Practice 3",
+    "cardKind": "fixture",
+    "displayTitleCompact": "United States GP · Practice 3",
+    "date": "2026-10-25",
+    "time": "04:30",
+    "startTimeUtc": "2026-10-24T17:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 3",
+    "stage": "Practice 3",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 3 at the United States GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 3 at the United States GP.",
+      "hookSpoilerOn": "Practice 3 at the United States GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 3",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 3"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_mexico_practice_1",
+    "eventId": "evt_f1_2026_mexico_practice_1",
+    "canonicalEventId": "event:f1:2026:mexico:practice-1",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Mexico City GP · Practice 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Mexico City GP · Practice 1",
+    "date": "2026-10-31",
+    "time": "05:30",
+    "startTimeUtc": "2026-10-30T18:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 1",
+    "stage": "Practice 1",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 1 at the Mexico City GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 1 at the Mexico City GP.",
+      "hookSpoilerOn": "Practice 1 at the Mexico City GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 1",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 1"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_mexico_practice_2",
+    "eventId": "evt_f1_2026_mexico_practice_2",
+    "canonicalEventId": "event:f1:2026:mexico:practice-2",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Mexico City GP · Practice 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Mexico City GP · Practice 2",
+    "date": "2026-10-31",
+    "time": "09:00",
+    "startTimeUtc": "2026-10-30T22:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 2",
+    "stage": "Practice 2",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 2 at the Mexico City GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 2 at the Mexico City GP.",
+      "hookSpoilerOn": "Practice 2 at the Mexico City GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 2",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 2"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_mexico_practice_3",
+    "eventId": "evt_f1_2026_mexico_practice_3",
+    "canonicalEventId": "event:f1:2026:mexico:practice-3",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Mexico City GP · Practice 3",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Mexico City GP · Practice 3",
+    "date": "2026-11-01",
+    "time": "04:30",
+    "startTimeUtc": "2026-10-31T17:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 3",
+    "stage": "Practice 3",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 3 at the Mexico City GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 3 at the Mexico City GP.",
+      "hookSpoilerOn": "Practice 3 at the Mexico City GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 3",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 3"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_brazil_practice_1",
+    "eventId": "evt_f1_2026_brazil_practice_1",
+    "canonicalEventId": "event:f1:2026:brazil:practice-1",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "São Paulo GP · Practice 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "São Paulo GP · Practice 1",
+    "date": "2026-11-07",
+    "time": "02:30",
+    "startTimeUtc": "2026-11-06T15:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 1",
+    "stage": "Practice 1",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 1 at the São Paulo GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 1 at the São Paulo GP.",
+      "hookSpoilerOn": "Practice 1 at the São Paulo GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 1",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 1"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_brazil_practice_2",
+    "eventId": "evt_f1_2026_brazil_practice_2",
+    "canonicalEventId": "event:f1:2026:brazil:practice-2",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "São Paulo GP · Practice 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "São Paulo GP · Practice 2",
+    "date": "2026-11-07",
+    "time": "06:00",
+    "startTimeUtc": "2026-11-06T19:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 2",
+    "stage": "Practice 2",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 2 at the São Paulo GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 2 at the São Paulo GP.",
+      "hookSpoilerOn": "Practice 2 at the São Paulo GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 2",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 2"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_brazil_practice_3",
+    "eventId": "evt_f1_2026_brazil_practice_3",
+    "canonicalEventId": "event:f1:2026:brazil:practice-3",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "São Paulo GP · Practice 3",
+    "cardKind": "fixture",
+    "displayTitleCompact": "São Paulo GP · Practice 3",
+    "date": "2026-11-08",
+    "time": "01:30",
+    "startTimeUtc": "2026-11-07T14:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 3",
+    "stage": "Practice 3",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 3 at the São Paulo GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 3 at the São Paulo GP.",
+      "hookSpoilerOn": "Practice 3 at the São Paulo GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 3",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 3"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_las_vegas_practice_1",
+    "eventId": "evt_f1_2026_las_vegas_practice_1",
+    "canonicalEventId": "event:f1:2026:las-vegas:practice-1",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Las Vegas GP · Practice 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Las Vegas GP · Practice 1",
+    "date": "2026-11-20",
+    "time": "11:30",
+    "startTimeUtc": "2026-11-20T00:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 1",
+    "stage": "Practice 1",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 1 at the Las Vegas GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 1 at the Las Vegas GP.",
+      "hookSpoilerOn": "Practice 1 at the Las Vegas GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 1",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 1"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_las_vegas_practice_2",
+    "eventId": "evt_f1_2026_las_vegas_practice_2",
+    "canonicalEventId": "event:f1:2026:las-vegas:practice-2",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Las Vegas GP · Practice 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Las Vegas GP · Practice 2",
+    "date": "2026-11-20",
+    "time": "15:00",
+    "startTimeUtc": "2026-11-20T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 2",
+    "stage": "Practice 2",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 2 at the Las Vegas GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 2 at the Las Vegas GP.",
+      "hookSpoilerOn": "Practice 2 at the Las Vegas GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 2",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 2"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_las_vegas_practice_3",
+    "eventId": "evt_f1_2026_las_vegas_practice_3",
+    "canonicalEventId": "event:f1:2026:las-vegas:practice-3",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Las Vegas GP · Practice 3",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Las Vegas GP · Practice 3",
+    "date": "2026-11-21",
+    "time": "11:30",
+    "startTimeUtc": "2026-11-21T00:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 3",
+    "stage": "Practice 3",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 3 at the Las Vegas GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 3 at the Las Vegas GP.",
+      "hookSpoilerOn": "Practice 3 at the Las Vegas GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 3",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 3"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_qatar_practice_1",
+    "eventId": "evt_f1_2026_qatar_practice_1",
+    "canonicalEventId": "event:f1:2026:qatar:practice-1",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Qatar GP · Practice 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Qatar GP · Practice 1",
+    "date": "2026-11-28",
+    "time": "00:30",
+    "startTimeUtc": "2026-11-27T13:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 1",
+    "stage": "Practice 1",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 1 at the Qatar GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 1 at the Qatar GP.",
+      "hookSpoilerOn": "Practice 1 at the Qatar GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 1",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 1"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_qatar_practice_2",
+    "eventId": "evt_f1_2026_qatar_practice_2",
+    "canonicalEventId": "event:f1:2026:qatar:practice-2",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Qatar GP · Practice 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Qatar GP · Practice 2",
+    "date": "2026-11-28",
+    "time": "04:00",
+    "startTimeUtc": "2026-11-27T17:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 2",
+    "stage": "Practice 2",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 2 at the Qatar GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 2 at the Qatar GP.",
+      "hookSpoilerOn": "Practice 2 at the Qatar GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 2",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 2"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_qatar_practice_3",
+    "eventId": "evt_f1_2026_qatar_practice_3",
+    "canonicalEventId": "event:f1:2026:qatar:practice-3",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Qatar GP · Practice 3",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Qatar GP · Practice 3",
+    "date": "2026-11-29",
+    "time": "01:30",
+    "startTimeUtc": "2026-11-28T14:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 3",
+    "stage": "Practice 3",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 3 at the Qatar GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 3 at the Qatar GP.",
+      "hookSpoilerOn": "Practice 3 at the Qatar GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 3",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 3"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_united_arab_emirates_practice_1",
+    "eventId": "evt_f1_2026_united_arab_emirates_practice_1",
+    "canonicalEventId": "event:f1:2026:united-arab-emirates:practice-1",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Abu Dhabi GP · Practice 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Abu Dhabi GP · Practice 1",
+    "date": "2026-12-04",
+    "time": "20:30",
+    "startTimeUtc": "2026-12-04T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 1",
+    "stage": "Practice 1",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 1 at the Abu Dhabi GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 1 at the Abu Dhabi GP.",
+      "hookSpoilerOn": "Practice 1 at the Abu Dhabi GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 1",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 1"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_united_arab_emirates_practice_2",
+    "eventId": "evt_f1_2026_united_arab_emirates_practice_2",
+    "canonicalEventId": "event:f1:2026:united-arab-emirates:practice-2",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Abu Dhabi GP · Practice 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Abu Dhabi GP · Practice 2",
+    "date": "2026-12-05",
+    "time": "00:00",
+    "startTimeUtc": "2026-12-04T13:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 2",
+    "stage": "Practice 2",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 2 at the Abu Dhabi GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 2 at the Abu Dhabi GP.",
+      "hookSpoilerOn": "Practice 2 at the Abu Dhabi GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 2",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 2"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_f1_2026_united_arab_emirates_practice_3",
+    "eventId": "evt_f1_2026_united_arab_emirates_practice_3",
+    "canonicalEventId": "event:f1:2026:united-arab-emirates:practice-3",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Abu Dhabi GP · Practice 3",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Abu Dhabi GP · Practice 3",
+    "date": "2026-12-05",
+    "time": "21:30",
+    "startTimeUtc": "2026-12-05T10:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 4,
+    "stakesScore": 2,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Practice 3",
+    "stage": "Practice 3",
+    "narrativeType": "all",
+    "selectedSentence": "Practice 3 at the Abu Dhabi GP.",
+    "fullSpiel": "Published Formula 1 session from the official 2026 race hub.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 2,
+      "intensity": 2,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 4,
+      "hookSpoilerOff": "Practice 3 at the Abu Dhabi GP.",
+      "hookSpoilerOn": "Practice 3 at the Abu Dhabi GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Practice 3",
+      "contextSignals": [
+        "official-schedule",
+        "Practice 3"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   }
 ];

@@ -14,8 +14,21 @@ const ROOT = path.resolve(__dirname, "..");
 const SCHEDULE_PATHS = [
   path.join(ROOT, "data/canonical/fiba-women-sailgp-motogp-2026.json"),
   path.join(ROOT, "data/canonical/golf-majors-2027.json"),
+  path.join(ROOT, "data/canonical/nbl-2026-27.json"),
+  path.join(ROOT, "data/canonical/f1-sessions-2026.json"),
 ];
 const SOURCE_CHECKED_AT = "2026-09-06T00:00:00.000Z";
+const F1_LEGACY_STABLE_IDS = Object.freeze({
+  "spain:qualifying":"evt_28", "spain:race":"evt_29",
+  "azerbaijan:qualifying":"evt_30", "azerbaijan:race":"evt_31",
+  "singapore:qualifying":"evt_32", "singapore:race":"evt_33",
+  "united-states:qualifying":"evt_34", "united-states:race":"evt_35",
+  "mexico:qualifying":"evt_36", "mexico:race":"evt_37",
+  "brazil:qualifying":"evt_38", "brazil:race":"evt_39",
+  "las-vegas:qualifying":"evt_40", "las-vegas:race":"evt_41",
+  "qatar:qualifying":"evt_42", "qatar:race":"evt_43",
+  "united-arab-emirates:qualifying":"evt_44", "united-arab-emirates:race":"evt_45",
+});
 
 function stableCardId(canonicalEventId){
   return `evt_${String(canonicalEventId || "")
@@ -29,6 +42,7 @@ function broadcasterFor(sportKey){
     return { label:"Nine / 9Now / Fox Sports / Kayo", options:["9Now", "Kayo Sports", "Foxtel"], ids:["nine", "kayo", "foxtel"] };
   }
   if (sportKey === "fiba-women") return { label:"ESPN via Kayo / Foxtel", options:["Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
+  if (sportKey === "nbl") return { label:"ESPN via Disney+ / Kayo / Foxtel", options:["Disney+", "Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
   if (sportKey === "golf") return { label:"Broadcast TBC", options:[], ids:[] };
   return { label:"Fox Sports via Kayo / Foxtel", options:["Kayo Sports", "Foxtel"], ids:["kayo", "foxtel"] };
 }
@@ -39,6 +53,8 @@ function sportLabel(sportKey){
     "fiba-women":"FIBA Women",
     sailgp:"SailGP",
     motogp:"MotoGP",
+    f1:"Formula 1",
+    nbl:"NBL",
     golf:"Golf",
   })[sportKey] || sportKey;
 }
@@ -73,7 +89,8 @@ function cardForEvent(event, schedule, participantsById){
     .filter(Boolean);
   const id = stableCardId(event.id);
   const stakes = event.round === "final" ? 5 : event.round === "semifinal" || event.round === "quarterfinal" ? 4 : Math.max(2, Math.ceil(Number(event.expected) / 2));
-  const completed = Boolean(result);
+  const completed = Boolean(result) || event.status === "completed";
+  const sourceCheckedAt = event.sourceCheckedAt || source.checkedAt || schedule.generatedAt || SOURCE_CHECKED_AT;
   const spoilerSafeHook = `${event.name} is complete; the key moments are protected until you choose to reveal them.`;
   const spoilerSafeSynopsis = `${event.name} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`;
   const revealedHook = result?.status === "official" ? result.outcomeText : `${event.name} is complete; the official outcome is still pending.`;
@@ -83,7 +100,7 @@ function cardForEvent(event, schedule, participantsById){
     eventId:id,
     canonicalEventId:event.id,
     sport:sportLabel(event.sportKey),
-    key:event.sportKey,
+    key:event.sportKey === "nbl" ? "basketball" : event.sportKey,
     name:event.name,
     cardKind:aggregateSchedule ? "event" : "fixture",
     displayTitleCompact:event.name,
@@ -110,10 +127,10 @@ function cardForEvent(event, schedule, participantsById){
     fullSpiel:completed ? spoilerSafeSynopsis : event.context,
     sourceName:source.name,
     sourceUrl:source.url,
-    sourceCheckedAt:SOURCE_CHECKED_AT,
+    sourceCheckedAt,
     sourceType:source.type,
     sourceTrust:"verified",
-    status:completed ? "completed" : "upcoming",
+    status:event.status || (completed ? "completed" : "upcoming"),
     ...(result ? {
       resultStatus:result.status,
       resultSourceUrl:resultSource.url,
@@ -129,14 +146,16 @@ function cardForEvent(event, schedule, participantsById){
     sportDomainId:event.sportKey === "golf" ? "sport:golf"
       : event.sportKey === "sailgp" ? "sport:sailing"
       : event.sportKey === "fiba-women" ? "sport:basketball"
+        : event.sportKey === "nbl" ? "sport:basketball"
+        : event.sportKey === "f1" ? "sport:f1"
         : event.sportKey === "nrlw" ? "sport:nrl"
           : "sport:motorsport",
     discoverySportId:`sport:${event.sportKey}`,
     competitionId:event.competitionId,
     taxonomyNodeId:event.taxonomyNodeId || (event.sportKey === "nrlw" ? "competition:nrlw-premiership" : event.codeId),
     codeId:event.codeId,
-    competitionScope:event.sportKey === "nrlw" ? "domestic" : "international",
-    isInternational:event.sportKey !== "nrlw",
+    competitionScope:["nrlw","nbl"].includes(event.sportKey) ? "domestic" : "international",
+    isInternational:!["nrlw","nbl"].includes(event.sportKey),
     representativeCountryCodes:Array.from(new Set(representativeCountryCodes)),
     ...(fieldEvent && participants.length ? {
       participantIds:eventParticipantIds,
@@ -160,7 +179,7 @@ function cardForEvent(event, schedule, participantsById){
       hookSpoilerOn:completed ? revealedHook : event.hook,
       synopsisSpoilerOff:completed ? spoilerSafeSynopsis : event.context,
       synopsisSpoilerOn:completed ? revealedSynopsis : event.context,
-      lastReviewedAt:SOURCE_CHECKED_AT,
+      lastReviewedAt:sourceCheckedAt,
     },
     editorialPreview:{
       status:"journalistic",
@@ -168,10 +187,10 @@ function cardForEvent(event, schedule, participantsById){
       contextSignals:["official-schedule", event.stage || "competition"],
       sourceName:source.name,
       sourceUrl:source.url,
-      sourceCheckedAt:SOURCE_CHECKED_AT,
+      sourceCheckedAt,
       needsPreviewRefresh:false,
     },
-    lastReviewedAt:SOURCE_CHECKED_AT,
+    lastReviewedAt:sourceCheckedAt,
   };
 }
 
@@ -185,9 +204,16 @@ function main(){
     return (schedule.events || []).map(event => cardForEvent(event, schedule, participantsById));
   });
   const canonicalIds = new Set(cards.map(card => card.canonicalEventId));
+  const sessionType=value=>/sprint qualifying/i.test(value)?"sprint-qualifying":/sprint/i.test(value)?"sprint":/practice\s*1|fp1/i.test(value)?"practice-1":/practice\s*2|fp2/i.test(value)?"practice-2":/practice\s*3|fp3/i.test(value)?"practice-3":/qualifying/i.test(value)?"qualifying":/race/i.test(value)?"race":"";
+  const f1Identity=event=>event.key==="f1"?`${String(event.sourceUrl||"").match(/\/racing\/2026\/([^/?#]+)/)?.[1]||""}:${sessionType([event.sessionType,event.stage,event.roundLabel,event.name].join(" "))}`:"";
+  const incomingF1=new Set(cards.map(f1Identity).filter(Boolean));
+  const legacyF1Ids=new Set(Object.values(F1_LEGACY_STABLE_IDS));
+  const existingByF1=new Map((feed.events||[]).map(event=>[f1Identity(event),event]).filter(([key])=>key));
+  const existingById=new Map((feed.events||[]).map(event=>[event.id,event]));
+  cards.forEach((card,index)=>{const identity=f1Identity(card),legacyId=F1_LEGACY_STABLE_IDS[identity],existing=existingByF1.get(identity)||existingById.get(legacyId);if(identity)cards[index]={...card,...(legacyId?{id:legacyId,eventId:legacyId}:{}),...Object.fromEntries(["storyline","editorialNarrative","editorialPreview","selectedSentence","fullSpiel"].filter(key=>existing?.[key]).map(key=>[key,existing[key]]))};});
   const next = normalizeFeed({
     ...feed,
-    events:[...(feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId)), ...cards],
+    events:[...(feed.events || []).filter(event => !canonicalIds.has(event.canonicalEventId) && !incomingF1.has(f1Identity(event)) && !legacyF1Ids.has(event.id)), ...cards],
   });
   const errors = validateFeed(next);
   if (errors.length) throw new Error(`Requested sports feed is invalid:\n- ${errors.join("\n- ")}`);

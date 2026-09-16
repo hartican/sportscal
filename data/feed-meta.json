@@ -29,7 +29,9 @@
     "downhill-mtb",
     "big-wave",
     "ski",
-    "goodwood"
+    "goodwood",
+    "golf",
+    "basketball"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -41,8 +43,8 @@
     },
     "status": "scaffolded",
     "firstEventDate": "2026-01-22",
-    "lastEventDate": "2027-07-10",
-    "daysAhead": 298,
+    "lastEventDate": "2027-07-15",
+    "daysAhead": 303,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {
@@ -91,7 +93,7 @@
         "lastEventDate": "2026-07-27"
       },
       "f1": {
-        "count": 30,
+        "count": 62,
         "firstEventDate": "2026-07-05",
         "lastEventDate": "2027-03-07"
       },
@@ -174,6 +176,16 @@
         "count": 1,
         "firstEventDate": "2027-07-10",
         "lastEventDate": "2027-07-10"
+      },
+      "golf": {
+        "count": 4,
+        "firstEventDate": "2027-04-08",
+        "lastEventDate": "2027-07-15"
+      },
+      "basketball": {
+        "count": 165,
+        "firstEventDate": "2026-09-19",
+        "lastEventDate": "2027-02-14"
       }
     }
   }

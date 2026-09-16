@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-if(!document.querySelector('[data-nsc-ladder-style]')){const style=document.createElement('link');style.rel='stylesheet';style.href='assets/styles/nsc-ladder.css?v=264';style.dataset.nscLadderStyle='';document.head.append(style);}
+if(!document.querySelector('[data-nsc-ladder-style]')){const style=document.createElement('link');style.rel='stylesheet';style.href='assets/styles/nsc-ladder.css?v=265';style.dataset.nscLadderStyle='';document.head.append(style);}
 let epoch=0,audience='global',sort='points',search='',sportPage=0;const pageCache=new Map();let viewerObserver=null;
 const sports=['nrl','afl','cricket','tennis','rugby'],sportNames={nrl:'NRL',afl:'AFL',cricket:'Cricket',tennis:'Tennis',rugby:'Rugby',nrlw:'NRLW',aflw:'AFLW','cricket-women':"Women's Cricket",'rugby-women':"Women's Rugby",'cricket-open':'Other Cricket','rugby-open':'Other Rugby'};
 const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
@@ -14,12 +14,18 @@ async function picks(entry){
  const result=await serverSyncClient.nothingscoreRequest({picks:entry.profileId});if(!d.isConnected)return;status.remove();
  const filter=node('select');filter.setAttribute('aria-label','Sport');filter.append(new Option('All sports',''));
  [...new Set(result.items.map(x=>x.sport))].sort().forEach(s=>filter.append(new Option(sportNames[s]||s,s)));
+ const typeFilter=node('select');typeFilter.setAttribute('aria-label','Pick type');
+ const typeLabels={sport:'Sports',competition:'Competitions',team:'Teams',athlete:'Players & athletes',collection:'Collections',event:'Events',fixture:'Fixtures',selector:'Competitions'};
+ typeFilter.append(new Option('All picks',''));
+ [...new Set(result.items.map(x=>x.entityType||x.kind))].sort((a,b)=>(typeLabels[a]||a).localeCompare(typeLabels[b]||b)).forEach(type=>typeFilter.append(new Option(typeLabels[type]||type,type)));
  const list=node('div',undefined,'nsc-picks-list'),message=node('p');const chosen=new Map();
- const paint=()=>{list.replaceChildren();for(const item of result.items.filter(x=>!filter.value||x.sport===filter.value)){
+ const visible=()=>result.items.filter(x=>(!filter.value||x.sport===filter.value)&&(!typeFilter.value||(x.entityType||x.kind)===typeFilter.value));
+ const paint=()=>{list.replaceChildren();let group='';for(const item of visible()){
+ const nextGroup=typeLabels[item.entityType||item.kind]||item.entityType||item.kind;if(nextGroup!==group){group=nextGroup;list.append(node('h3',group,'nsc-picks-group'));}
  const row=node('label',undefined,'nsc-pick'),input=node('input');input.type='checkbox';input.disabled=item.following;input.checked=item.following||chosen.has(item.kind+':'+item.id);input.onchange=()=>input.checked?chosen.set(item.kind+':'+item.id,item):chosen.delete(item.kind+':'+item.id);
  row.append(input,node('span',`${item.label} · ${sportNames[item.sport]||item.sport}${item.following?' · Following':item.excluded?' · Excluded — select to override':''}`));list.append(row);
- }if(!list.children.length)list.append(node('p','No shared picks in this sport.'));};filter.onchange=paint;
- const all=button('Select this sport',()=>{for(const x of result.items)if(filter.value===x.sport&&!x.following&&!x.excluded)chosen.set(x.kind+':'+x.id,x);paint();});
+ }if(!list.children.length)list.append(node('p','No shared picks match these filters.'));};filter.onchange=paint;typeFilter.onchange=paint;
+ const all=button('Select visible picks',()=>{for(const x of visible())if(!x.following&&!x.excluded)chosen.set(x.kind+':'+x.id,x);paint();});
  const submit=button('Follow their picks',async()=>{
  if(!serverSyncClient.sessionSubject()){openSettings({section:'account'});d.close();return;}
  submit.disabled=true;try{
@@ -27,7 +33,7 @@ async function picks(entry){
  const added=await serverSyncClient.nothingscoreRequest({},{action:'copy-picks',targetProfileId:entry.profileId,items:[...chosen.values()].map(({id,kind})=>({id,kind})),overrideIds:[...chosen.values()].filter(x=>x.excluded).map(x=>x.id)});
  await reconcileCurrentServerState();pageCache.clear();message.textContent=added.added?`${added.added} picks added. ${added.bonusAwarded?`${entry.name} earned ${added.bonusAwarded} points.`:''}`:'You already follow those picks.';chosen.clear();
  }catch(e){message.textContent=e.message||'Could not copy picks. Retry.';}finally{submit.disabled=false;}
- });d.append(filter,all,list,submit,message);paint();
+ });d.append(filter,typeFilter,all,list,submit,message);paint();
  }catch(e){status.textContent=e.message||'Picks unavailable.';}
 }
 function row(entry){

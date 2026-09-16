@@ -406,6 +406,22 @@
     const url = `https://cdn.nba.com/logos/nba/${nbaId}/global/L/logo.svg`;
     return [id, teamMark(id, label, url, "https://www.nba.com/teams", [label], id === "team:nba:toronto-raptors" ? "CA" : "US")];
   })));
+  const NBL_TEAM_ASSETS = Object.freeze({
+    "team:nbl:adelaide-36ers":["Adelaide 36ers","adl"],
+    "team:nbl:brisbane-bullets":["Brisbane Bullets","bri"],
+    "team:nbl:cairns-taipans":["Cairns Taipans","cns"],
+    "team:nbl:illawarra-hawks":["Illawarra Hawks","hwk"],
+    "team:nbl:melbourne-united":["Melbourne United","mel"],
+    "team:nbl:new-zealand-breakers":["New Zealand Breakers","nzl"],
+    "team:nbl:perth-wildcats":["Perth Wildcats","per"],
+    "team:nbl:south-east-melbourne-phoenix":["South East Melbourne Phoenix","pnx"],
+    "team:nbl:sydney-kings":["Sydney Kings","syd"],
+    "team:nbl:tasmania-jackjumpers":["Tasmania JackJumpers","tas"],
+  });
+  const nblTeamMarks = Object.freeze(Object.fromEntries(Object.entries(NBL_TEAM_ASSETS).map(([id,[label,slug]]) => {
+    const url=`https://a.espncdn.com/i/teamlogos/nbl/500/${slug}.png`;
+    return [id,referenceMark(`participant:${id}`,label,url,"https://www.espn.com/nbl/teams",{assetSource:url})];
+  })));
 
   // Lightweight NFL identities are available on a cold Feed before Follow
   // loads the full player directory. The canonical refresh script keeps this
@@ -452,6 +468,7 @@
     ...Object.entries(f1TeamMarks),
     ...Object.entries(premierLeagueTeamMarks),
     ...Object.entries(nbaTeamMarks),
+    ...Object.entries(nblTeamMarks),
     ...Object.entries(nflTeamMarks),
   ]));
   // Lightweight club identities are available on a cold Feed before Follow loads.

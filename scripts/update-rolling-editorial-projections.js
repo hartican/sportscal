@@ -12,6 +12,7 @@ const CONTEXT_PATH = "data/canonical/afl-nrl-2026.json";
 const F1_PATH = "data/canonical/f1-context-2026.json";
 const WRC_PATH = "data/canonical/wrc-context-2026.json";
 const REQUESTED_SPORTS_PATH = "data/canonical/fiba-women-sailgp-motogp-2026.json";
+const NBL_PATH = "data/canonical/nbl-2026-27.json";
 
 function readJson(path){ return JSON.parse(fs.readFileSync(path, "utf8")); }
 function writeJson(path, value){ fs.writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`); }
@@ -194,6 +195,7 @@ function requestedSportNarrative(event, requestedSports, reference){
     "fiba-women":{ label:"2026 FIBA Women's Basketball World Cup", subjectKind:"competition", fieldSourceId:"fiba-teams", contextSourceId:"fiba-broadcast-au", fieldStatement:"Sixteen national teams are listed in the official 2026 FIBA Women's Basketball World Cup field." },
     sailgp:{ label:"2026 SailGP season", subjectKind:"series", fieldSourceId:"sailgp-teams", contextSourceId:"sailgp-broadcast-au", fieldStatement:"Thirteen national F50 teams are listed for the 2026 SailGP season." },
     motogp:{ label:"2026 MotoGP season", subjectKind:"series", fieldSourceId:"motogp-riders", contextSourceId:"motogp-broadcast-au", fieldStatement:"Twenty-two riders are listed in the official 2026 MotoGP field." },
+    nbl:{ label:"2026–27 NBL season", subjectKind:"competition", fieldSourceId:"nbl27-schedule", contextSourceId:"nbl27-schedule", fieldStatement:"Ten clubs are listed in the official NBL27 regular-season schedule." },
   }[sourceEvent.sportKey];
   if (!config) return null;
   const sourceIds = Array.from(new Set([sourceEvent.sourceId, config.fieldSourceId, sourceEvent.broadcastSourceId, config.contextSourceId, sourceEvent.result?.sourceId].filter(Boolean)));
@@ -230,6 +232,12 @@ function requestedSportNarrative(event, requestedSports, reference){
   const spoilerSafeSynopsis = `${sourceEvent.name} is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.`;
   const revealedHook = sourceEvent.result?.status === "official" ? sourceEvent.result.outcomeText : `${sourceEvent.name} is complete; the official outcome is still pending.`;
   const revealedSynopsis = sourceEvent.result?.status === "official" ? sourceEvent.result.recapText : `${sourceEvent.name} is complete, but the official results page had not published a verified outcome at the latest check.`;
+  const scheduledHook = sourceEvent.sportKey === "nbl"
+    ? `${sourceEvent.name} is set for ${sourceEvent.roundLabel} on ${sourceEvent.date}, one game in the official 165-match NBL27 regular season.`
+    : sourceEvent.hook;
+  const scheduledSynopsis = sourceEvent.sportKey === "nbl"
+    ? `${sourceEvent.name} is published in the official NBL27 schedule for ${sourceEvent.roundLabel} on ${sourceEvent.date} ${timeText}${venueText}. The fixture keeps both clubs connected to the full 165-game regular-season path.`
+    : `${sourceEvent.hook} ${sourceEvent.context}`;
   return {
     label:config.label,
     subjectKind:config.subjectKind,
@@ -237,8 +245,8 @@ function requestedSportNarrative(event, requestedSports, reference){
     threadId:`thread:rolling:${sourceEvent.sportKey}:2026`,
     sources,
     facts,
-    hook:fit(completed ? spoilerSafeHook : sourceEvent.hook, 180),
-    synopsis:fit(completed ? spoilerSafeSynopsis : `${sourceEvent.hook} ${sourceEvent.context}`, 700),
+    hook:fit(completed ? spoilerSafeHook : scheduledHook, 180),
+    synopsis:fit(completed ? spoilerSafeSynopsis : scheduledSynopsis, 700),
     ...(completed ? { hookSpoilerOn:fit(revealedHook, 180), synopsisSpoilerOn:fit(revealedSynopsis, 700) } : {}),
     reference,
   };
@@ -493,7 +501,15 @@ function main(){
   const reference = new Date(process.env.NS_EDITORIAL_REFERENCE || Date.now());
   if (Number.isNaN(reference.getTime())) throw new Error("NS_EDITORIAL_REFERENCE must be valid");
   const knowledge = readJson(KNOWLEDGE_PATH);
-  const generated = build({ knowledge, feed:readJson(FEED_PATH), context:readJson(CONTEXT_PATH), f1:readJson(F1_PATH), wrc:readJson(WRC_PATH), requestedSports:readJson(REQUESTED_SPORTS_PATH), reference });
+  const requested=readJson(REQUESTED_SPORTS_PATH),nbl=readJson(NBL_PATH);
+  const requestedSports={
+    ...requested,
+    generatedAt:[requested.generatedAt,nbl.generatedAt].filter(Boolean).sort().at(-1),
+    sources:{...(requested.sources||{}),...(nbl.sources||{})},
+    participants:[...(requested.participants||[]),...(nbl.participants||[])],
+    events:[...(requested.events||[]),...(nbl.events||[])],
+  };
+  const generated = build({ knowledge, feed:readJson(FEED_PATH), context:readJson(CONTEXT_PATH), f1:readJson(F1_PATH), wrc:readJson(WRC_PATH), requestedSports, reference });
   const issues = validateKnowledge(knowledge);
   if (issues.length) throw new Error(`Rolling editorial invalid:\n- ${issues.join("\n- ")}`);
   if (write) writeJson(KNOWLEDGE_PATH, knowledge);

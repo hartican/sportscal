@@ -135,6 +135,7 @@
     ["discipline:basketball:professional", "Professional basketball", "discipline", "sport:basketball"],
     ["discipline:basketball:international", "International basketball", "discipline", "sport:basketball"],
     ["competition:nba", "National Basketball Association", "competition", "discipline:basketball:professional", ["NBA"]],
+    ["competition:nbl", "National Basketball League", "competition", "discipline:basketball:professional", ["NBL"]],
     ["competition:fiba-womens-world-cup", "FIBA Women's Basketball World Cup", "competition", "discipline:basketball:international", ["FIBA Women's World Cup"]],
 
     ["sport:american-football", "American football", "sport"],
@@ -269,6 +270,7 @@
     aflw: "competition:aflw",
     cricket: "competition:cricket-international",
     nba: "competition:nba",
+    nbl: "competition:nbl",
     masters: "event-series:masters-tournament",
     lemans: "event-series:le-mans-24-hours",
     nfl: "event-series:super-bowl",
