@@ -806,6 +806,46 @@
       "id": "subject:fixture-research:fixture:us-open-2026:official:wd:4301",
       "kind": "event",
       "name": "Katerina Siniakova / Taylor Townsend v Storm Hunter / Desirae Krawczyk"
+    },
+    {
+      "id": "subject:fixture-research:event-afl-cd_m20260142802",
+      "kind": "event",
+      "name": "Sydney Swans v Fremantle"
+    },
+    {
+      "id": "subject:fixture-research:event-afl-cd_m20260142801",
+      "kind": "event",
+      "name": "Hawthorn v Brisbane Lions"
+    },
+    {
+      "id": "subject:fixture-research:evt_82",
+      "kind": "event",
+      "name": "NRL Finals Week 2"
+    },
+    {
+      "id": "subject:fixture-research:major-match-nrl-finals-2026-semi-final-1",
+      "kind": "event",
+      "name": "Sydney Roosters v Cronulla-Sutherland Sharks"
+    },
+    {
+      "id": "subject:fixture-research:major-match-nrl-finals-2026-semi-final-2",
+      "kind": "event",
+      "name": "New Zealand Warriors v Newcastle Knights"
+    },
+    {
+      "id": "subject:fixture-research:evt_motogp_2026_austria",
+      "kind": "event",
+      "name": "MotoGP Austrian Grand Prix"
+    },
+    {
+      "id": "subject:fixture-research:evt_sailgp_2026_geneva_day_1",
+      "kind": "event",
+      "name": "Geneva Sail Grand Prix - race day 1"
+    },
+    {
+      "id": "subject:fixture-research:evt_sailgp_2026_geneva_day_2",
+      "kind": "event",
+      "name": "Geneva Sail Grand Prix - race day 2"
     }
   ],
   "sources": [
@@ -3090,6 +3130,174 @@
       "url": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
       "sourceType": "official",
       "checkedAt": "2026-09-08T14:18:59.684Z"
+    },
+    {
+      "id": "source:fixture-research:event-afl-cd_m20260142802:0",
+      "name": "Sydney Swans v Fremantle — official research 1",
+      "url": "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:event-afl-cd_m20260142802:1",
+      "name": "Sydney Swans v Fremantle — official research 2",
+      "url": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:event-afl-cd_m20260142802:2",
+      "name": "Sydney Swans v Fremantle — official research 3",
+      "url": "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:event-afl-cd_m20260142801:0",
+      "name": "Hawthorn v Brisbane Lions — official research 1",
+      "url": "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:event-afl-cd_m20260142801:1",
+      "name": "Hawthorn v Brisbane Lions — official research 2",
+      "url": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:event-afl-cd_m20260142801:2",
+      "name": "Hawthorn v Brisbane Lions — official research 3",
+      "url": "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_82:0",
+      "name": "NRL Finals Week 2 — official research 1",
+      "url": "https://www.nrl.com/news/2026/09/17/finals-week-2-everything-you-need-to-know/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_82:1",
+      "name": "NRL Finals Week 2 — official research 2",
+      "url": "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_82:2",
+      "name": "NRL Finals Week 2 — official research 3",
+      "url": "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:0",
+      "name": "Sydney Roosters v Cronulla-Sutherland Sharks — official research 1",
+      "url": "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:1",
+      "name": "Sydney Roosters v Cronulla-Sutherland Sharks — official research 2",
+      "url": "https://www.nrl.com/news/2026/09/17/finals-week-2-everything-you-need-to-know/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:2",
+      "name": "Sydney Roosters v Cronulla-Sutherland Sharks — official research 3",
+      "url": "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:0",
+      "name": "New Zealand Warriors v Newcastle Knights — official research 1",
+      "url": "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:1",
+      "name": "New Zealand Warriors v Newcastle Knights — official research 2",
+      "url": "https://www.nrl.com/news/2026/09/17/finals-week-2-everything-you-need-to-know/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:2",
+      "name": "New Zealand Warriors v Newcastle Knights — official research 3",
+      "url": "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_motogp_2026_austria:0",
+      "name": "MotoGP Austrian Grand Prix — official research 1",
+      "url": "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_motogp_2026_austria:1",
+      "name": "MotoGP Austrian Grand Prix — official research 2",
+      "url": "https://www.motogp.com/fr/news/2026/09/14/hot-headlines-all-level-as-motogp-readies-for-spielberg-thriller-in-austria/1090065",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_motogp_2026_austria:2",
+      "name": "MotoGP Austrian Grand Prix — official research 3",
+      "url": "https://www.motogp.com/fr/news/2026/09/16/time-schedule-qatar-airways-grand-prix-of-austria/1090066",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_sailgp_2026_geneva_day_1:0",
+      "name": "Geneva Sail Grand Prix - race day 1 — official research 1",
+      "url": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_sailgp_2026_geneva_day_1:1",
+      "name": "Geneva Sail Grand Prix - race day 1 — official research 2",
+      "url": "https://sailgp.com/news/26/kahena-kunze-returns-mubadala-brazil-line-up-final-three-events/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_sailgp_2026_geneva_day_1:2",
+      "name": "Geneva Sail Grand Prix - race day 1 — official research 3",
+      "url": "https://tickets.sailgp.com/geneve/en/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_sailgp_2026_geneva_day_2:0",
+      "name": "Geneva Sail Grand Prix - race day 2 — official research 1",
+      "url": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_sailgp_2026_geneva_day_2:1",
+      "name": "Geneva Sail Grand Prix - race day 2 — official research 2",
+      "url": "https://sailgp.com/news/26/kahena-kunze-returns-mubadala-brazil-line-up-final-three-events/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:evt_sailgp_2026_geneva_day_2:2",
+      "name": "Geneva Sail Grand Prix - race day 2 — official research 3",
+      "url": "https://tickets.sailgp.com/geneve/en/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:22:14.102Z"
     }
   ],
   "narrativeFacts": [
@@ -13495,6 +13703,436 @@
       ],
       "observedAt": "2026-09-08T14:15:34.766Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event-afl-cd_m20260142802:0",
+      "subjectIds": [
+        "subject:fixture-research:event-afl-cd_m20260142802"
+      ],
+      "statement": "Sydney have home ground and a week to prepare; minor premier Fremantle must earn its Grand Final place away.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:event-afl-cd_m20260142802:0",
+        "source:fixture-research:event-afl-cd_m20260142802:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event-afl-cd_m20260142802:1",
+      "subjectIds": [
+        "subject:fixture-research:event-afl-cd_m20260142802"
+      ],
+      "statement": "The SCG brings together two different finals routes: Sydney arrive rested, while Fremantle have come through the semi-final weekend.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:event-afl-cd_m20260142802:0"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event-afl-cd_m20260142802:2",
+      "subjectIds": [
+        "subject:fixture-research:event-afl-cd_m20260142802"
+      ],
+      "statement": "Luke Jackson and Shai Bolton give the Dockers big-stage experience. Friday decides who takes the first place in the Grand Final; there is no remaining safety net.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:event-afl-cd_m20260142802:0",
+        "source:fixture-research:event-afl-cd_m20260142802:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event-afl-cd_m20260142802:3",
+      "subjectIds": [
+        "subject:fixture-research:event-afl-cd_m20260142802"
+      ],
+      "statement": "Sydney hosts Fremantle at the SCG on Friday 18 September at 7.40pm AEST.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:event-afl-cd_m20260142802:2"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event-afl-cd_m20260142801:0",
+      "subjectIds": [
+        "subject:fixture-research:event-afl-cd_m20260142801"
+      ],
+      "statement": "A rested Hawthorn stands between Brisbane and another shot at three straight flags.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:event-afl-cd_m20260142801:0",
+        "source:fixture-research:event-afl-cd_m20260142801:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event-afl-cd_m20260142801:1",
+      "subjectIds": [
+        "subject:fixture-research:event-afl-cd_m20260142801"
+      ],
+      "statement": "Hawthorn earned the week off and now get the MCG.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:event-afl-cd_m20260142801:0"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event-afl-cd_m20260142801:2",
+      "subjectIds": [
+        "subject:fixture-research:event-afl-cd_m20260142801"
+      ],
+      "statement": "Brisbane bring the experience of the past two premierships and eight wins from their last ten games at the ground. The Hawks must turn their preparation advantage into sustained pressure; the Lions must keep their three-peat bid alive in another elimination game.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:event-afl-cd_m20260142801:0",
+        "source:fixture-research:event-afl-cd_m20260142801:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:event-afl-cd_m20260142801:3",
+      "subjectIds": [
+        "subject:fixture-research:event-afl-cd_m20260142801"
+      ],
+      "statement": "Hawthorn hosts Brisbane at the MCG on Saturday 19 September at 5.15pm AEST.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:event-afl-cd_m20260142801:2"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_82:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_82"
+      ],
+      "statement": "Two semi-finals, two remaining preliminary-final places, and no second chances.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:evt_82:0",
+        "source:fixture-research:evt_82:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_82:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_82"
+      ],
+      "statement": "Roosters-Sharks at Allianz on Saturday and Warriors-Knights at Eden Park on Sunday complete the next step of the bracket.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_82:0"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_82:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_82"
+      ],
+      "statement": "The Roosters have a chance to reverse last season's finals loss to Cronulla. Auckland then gets a home knockout with Kalyn Ponga directing Newcastle's challenge. Both winners advance; both losers are finished.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:evt_82:0",
+        "source:fixture-research:evt_82:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_82:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_82"
+      ],
+      "statement": "NRL Week 2 comprises Roosters v Sharks at Allianz Stadium on Saturday and Warriors v Knights at Eden Park on Sunday.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:evt_82:2"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:0",
+      "subjectIds": [
+        "subject:fixture-research:major-match-nrl-finals-2026-semi-final-1"
+      ],
+      "statement": "Cronulla bring continuity; the Roosters face another sudden-death meeting with Walker still sidelined.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:0",
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:1",
+      "subjectIds": [
+        "subject:fixture-research:major-match-nrl-finals-2026-semi-final-1"
+      ],
+      "statement": "Sam Walker remains unavailable with an ankle injury.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:0"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:2",
+      "subjectIds": [
+        "subject:fixture-research:major-match-nrl-finals-2026-semi-final-1"
+      ],
+      "statement": "Angus Crichton is expected back from his foot problem, while Egan Butcher is out with concussion and Salesi Foketi is named to start in the back row. Cronulla expect no late changes. That contrast puts the focus on combinations under pressure, with a preliminary-final place on the line.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:0",
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:3",
+      "subjectIds": [
+        "subject:fixture-research:major-match-nrl-finals-2026-semi-final-1"
+      ],
+      "statement": "NRL Week 2 comprises Roosters v Sharks at Allianz Stadium on Saturday and Warriors v Knights at Eden Park on Sunday.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:2"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:0",
+      "subjectIds": [
+        "subject:fixture-research:major-match-nrl-finals-2026-semi-final-2"
+      ],
+      "statement": "Eden Park gives the Warriors the home stage; Ponga gives Newcastle a route to disrupt it.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:0",
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:1",
+      "subjectIds": [
+        "subject:fixture-research:major-match-nrl-finals-2026-semi-final-2"
+      ],
+      "statement": "The named halves are Te Maire Martin and Chanel Harris-Tavita for the Warriors, against Sandon Smith and Fletcher Sharpe for Newcastle.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:0"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:2",
+      "subjectIds": [
+        "subject:fixture-research:major-match-nrl-finals-2026-semi-final-2"
+      ],
+      "statement": "Kalyn Ponga starts at fullback for the Knights. The question is which spine can control a knockout afternoon when one mistake can end the season. Kick-off is Sunday at 4.05pm AEST.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:0",
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:3",
+      "subjectIds": [
+        "subject:fixture-research:major-match-nrl-finals-2026-semi-final-2"
+      ],
+      "statement": "NRL Week 2 comprises Roosters v Sharks at Allianz Stadium on Saturday and Warriors v Knights at Eden Park on Sunday.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:2"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_motogp_2026_austria:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_austria"
+      ],
+      "statement": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_austria:0"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_motogp_2026_austria:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_austria"
+      ],
+      "statement": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_austria:0"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_motogp_2026_austria:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_austria"
+      ],
+      "statement": "Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_austria:0"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_motogp_2026_austria:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_austria"
+      ],
+      "statement": "Austria is the final stop before the flyaway races begin.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_austria:2"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_sailgp_2026_geneva_day_1:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_sailgp_2026_geneva_day_1"
+      ],
+      "statement": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:0",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_sailgp_2026_geneva_day_1:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_sailgp_2026_geneva_day_1"
+      ],
+      "statement": "The eleventh stop of the championship puts the fleet back on Lake Geneva.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:0"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_sailgp_2026_geneva_day_1:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_sailgp_2026_geneva_day_1"
+      ],
+      "statement": "Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:0",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_sailgp_2026_geneva_day_1:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_sailgp_2026_geneva_day_1"
+      ],
+      "statement": "The Geneva Sail Grand Prix runs on 19 and 20 September 2026.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:2"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_sailgp_2026_geneva_day_2:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_sailgp_2026_geneva_day_2"
+      ],
+      "statement": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:0",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_sailgp_2026_geneva_day_2:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_sailgp_2026_geneva_day_2"
+      ],
+      "statement": "Sunday closes the Switzerland event before the championship's final two rounds.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:0"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_sailgp_2026_geneva_day_2:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_sailgp_2026_geneva_day_2"
+      ],
+      "statement": "Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:0",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:1"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_sailgp_2026_geneva_day_2:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_sailgp_2026_geneva_day_2"
+      ],
+      "statement": "The Geneva Sail Grand Prix runs on 19 and 20 September 2026.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:2"
+      ],
+      "observedAt": "2026-09-17T23:22:14.102Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -15677,6 +16315,134 @@
       ],
       "status": "active",
       "updatedAt": "2026-09-08T14:15:34.766Z"
+    },
+    {
+      "id": "thread:fixture-research:event-afl-cd_m20260142802",
+      "subjectIds": [
+        "subject:fixture-research:event-afl-cd_m20260142802"
+      ],
+      "title": "Sydney Swans v Fremantle",
+      "summary": "The SCG brings together two different finals routes: Sydney arrive rested, while Fremantle have come through the semi-final weekend. Luke Jackson and Shai Bolton give the Dockers big-stage experience. Friday decides who takes the first place in the Grand Final; there is no remaining safety net.",
+      "factIds": [
+        "fact:fixture-research:event-afl-cd_m20260142802:0",
+        "fact:fixture-research:event-afl-cd_m20260142802:1",
+        "fact:fixture-research:event-afl-cd_m20260142802:2",
+        "fact:fixture-research:event-afl-cd_m20260142802:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "thread:fixture-research:event-afl-cd_m20260142801",
+      "subjectIds": [
+        "subject:fixture-research:event-afl-cd_m20260142801"
+      ],
+      "title": "Hawthorn v Brisbane Lions",
+      "summary": "Hawthorn earned the week off and now get the MCG. Brisbane bring the experience of the past two premierships and eight wins from their last ten games at the ground. The Hawks must turn their preparation advantage into sustained pressure; the Lions must keep their three-peat bid alive in another elimination game.",
+      "factIds": [
+        "fact:fixture-research:event-afl-cd_m20260142801:0",
+        "fact:fixture-research:event-afl-cd_m20260142801:1",
+        "fact:fixture-research:event-afl-cd_m20260142801:2",
+        "fact:fixture-research:event-afl-cd_m20260142801:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_82",
+      "subjectIds": [
+        "subject:fixture-research:evt_82"
+      ],
+      "title": "NRL Finals Week 2",
+      "summary": "Roosters-Sharks at Allianz on Saturday and Warriors-Knights at Eden Park on Sunday complete the next step of the bracket. The Roosters have a chance to reverse last season's finals loss to Cronulla. Auckland then gets a home knockout with Kalyn Ponga directing Newcastle's challenge. Both winners advance; both losers are finished.",
+      "factIds": [
+        "fact:fixture-research:evt_82:0",
+        "fact:fixture-research:evt_82:1",
+        "fact:fixture-research:evt_82:2",
+        "fact:fixture-research:evt_82:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "thread:fixture-research:major-match-nrl-finals-2026-semi-final-1",
+      "subjectIds": [
+        "subject:fixture-research:major-match-nrl-finals-2026-semi-final-1"
+      ],
+      "title": "Sydney Roosters v Cronulla-Sutherland Sharks",
+      "summary": "Sam Walker remains unavailable with an ankle injury. Angus Crichton is expected back from his foot problem, while Egan Butcher is out with concussion and Salesi Foketi is named to start in the back row. Cronulla expect no late changes. That contrast puts the focus on combinations under pressure, with a preliminary-final place on the line.",
+      "factIds": [
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:0",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:1",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:2",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "thread:fixture-research:major-match-nrl-finals-2026-semi-final-2",
+      "subjectIds": [
+        "subject:fixture-research:major-match-nrl-finals-2026-semi-final-2"
+      ],
+      "title": "New Zealand Warriors v Newcastle Knights",
+      "summary": "The named halves are Te Maire Martin and Chanel Harris-Tavita for the Warriors, against Sandon Smith and Fletcher Sharpe for Newcastle. Kalyn Ponga starts at fullback for the Knights. The question is which spine can control a knockout afternoon when one mistake can end the season. Kick-off is Sunday at 4.05pm AEST.",
+      "factIds": [
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:0",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:1",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:2",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_motogp_2026_austria",
+      "subjectIds": [
+        "subject:fixture-research:evt_motogp_2026_austria"
+      ],
+      "title": "MotoGP Austrian Grand Prix",
+      "summary": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
+      "factIds": [
+        "fact:fixture-research:evt_motogp_2026_austria:0",
+        "fact:fixture-research:evt_motogp_2026_austria:1",
+        "fact:fixture-research:evt_motogp_2026_austria:2",
+        "fact:fixture-research:evt_motogp_2026_austria:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_sailgp_2026_geneva_day_1",
+      "subjectIds": [
+        "subject:fixture-research:evt_sailgp_2026_geneva_day_1"
+      ],
+      "title": "Geneva Sail Grand Prix - race day 1",
+      "summary": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
+      "factIds": [
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:0",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:1",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:2",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_sailgp_2026_geneva_day_2",
+      "subjectIds": [
+        "subject:fixture-research:evt_sailgp_2026_geneva_day_2"
+      ],
+      "title": "Geneva Sail Grand Prix - race day 2",
+      "summary": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
+      "factIds": [
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:0",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:1",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:2",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-17T23:22:14.102Z"
     }
   ],
   "audienceMemories": [],
@@ -16074,35 +16840,6 @@
       ],
       "researchedAt": "2026-08-29T23:56:41.761Z",
       "refreshAfter": "2026-09-07T12:00:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-08-29T23:56:41.761Z"
-      }
-    },
-    {
-      "id": "projection:feed:nrl-finals-week-two-2026",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_82"
-      ],
-      "stakes": 4,
-      "hook": "Week 2 is the collision between the top-four sides denied a rest and the elimination winners still alive.",
-      "synopsis": "The teams cannot be named before Week 1 resolves, but the consequence is fixed: qualifying-final losers host elimination survivors in two sudden-death semi-finals. Each winner moves within one match of the Grand Final at Accor Stadium.",
-      "threadIds": [
-        "thread:nrl:finals-2026:week-two-sudden-death"
-      ],
-      "factIds": [
-        "fact:nrl-week2:semifinal-path",
-        "fact:nrl-week2:rest-versus-survival",
-        "fact:nrl-week2:destination"
-      ],
-      "sourceIds": [
-        "source:nrl:finals-format-explainer",
-        "source:nrl:2026-grand-final"
-      ],
-      "researchedAt": "2026-08-29T23:56:41.761Z",
-      "refreshAfter": "2026-09-14T12:00:00.000Z",
       "generationMode": "researched",
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
@@ -18577,99 +19314,6 @@
         "source:rolling:fiba-women:fiba-schedule",
         "source:rolling:fiba-women:fiba-teams",
         "source:rolling:fiba-women:fiba-broadcast-au"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-08T12:57:33.822Z"
-      }
-    },
-    {
-      "id": "projection:rolling:evt-sailgp-2026-geneva-day-1",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_sailgp_2026_geneva_day_1"
-      ],
-      "researchDepth": 5,
-      "hook": "Lake Geneva opens the final European SailGP weekend of the 2026 season.",
-      "synopsis": "Lake Geneva opens the final European SailGP weekend of the 2026 season. The tight waterfront course gives the thirteen-team fleet little room to recover from a poor start.",
-      "threadIds": [
-        "thread:rolling:sailgp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-sailgp-2026-geneva-day-1:schedule",
-        "fact:rolling:event-sailgp-2026-geneva-day-1:field",
-        "fact:rolling:event-sailgp-2026-geneva-day-1:viewing",
-        "fact:rolling:event-sailgp-2026-geneva-day-1:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:sailgp:sailgp-calendar",
-        "source:rolling:sailgp:sailgp-teams",
-        "source:rolling:sailgp:sailgp-broadcast-au"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-08T12:57:33.822Z"
-      }
-    },
-    {
-      "id": "projection:rolling:evt-motogp-2026-austria",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_motogp_2026_austria"
-      ],
-      "researchDepth": 5,
-      "hook": "The Red Bull Ring's hard acceleration zones give the MotoGP field a different title test.",
-      "synopsis": "The Red Bull Ring's hard acceleration zones give the MotoGP field a different title test. Braking stability and drive out of slow corners shape the Austrian championship swing.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-austria:schedule",
-        "fact:rolling:event-motogp-2026-austria:field",
-        "fact:rolling:event-motogp-2026-austria:viewing",
-        "fact:rolling:event-motogp-2026-austria:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-08T12:57:33.822Z"
-      }
-    },
-    {
-      "id": "projection:rolling:evt-sailgp-2026-geneva-day-2",
-      "targetType": "feed-event",
-      "targetIds": [
-        "evt_sailgp_2026_geneva_day_2"
-      ],
-      "researchDepth": 5,
-      "hook": "Geneva's final races turn European points into the qualification picture for the UAE finale.",
-      "synopsis": "Geneva's final races turn European points into the qualification picture for the UAE finale. The event winner and championship positions are decided before the two-event finish in the Emirates.",
-      "threadIds": [
-        "thread:rolling:sailgp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-sailgp-2026-geneva-day-2:schedule",
-        "fact:rolling:event-sailgp-2026-geneva-day-2:field",
-        "fact:rolling:event-sailgp-2026-geneva-day-2:viewing",
-        "fact:rolling:event-sailgp-2026-geneva-day-2:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:sailgp:sailgp-calendar",
-        "source:rolling:sailgp:sailgp-teams",
-        "source:rolling:sailgp:sailgp-broadcast-au"
       ],
       "researchedAt": "2026-09-08T12:57:33.822Z",
       "refreshAfter": null,
@@ -23120,6 +23764,254 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-09-08T14:50:03.143Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event-afl-cd_m20260142802",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142802"
+      ],
+      "researchDepth": 5,
+      "hook": "Sydney have home ground and a week to prepare; minor premier Fremantle must earn its Grand Final place away.",
+      "synopsis": "The SCG brings together two different finals routes: Sydney arrive rested, while Fremantle have come through the semi-final weekend. Luke Jackson and Shai Bolton give the Dockers big-stage experience. Friday decides who takes the first place in the Grand Final; there is no remaining safety net.",
+      "threadIds": [
+        "thread:fixture-research:event-afl-cd_m20260142802"
+      ],
+      "factIds": [
+        "fact:fixture-research:event-afl-cd_m20260142802:0",
+        "fact:fixture-research:event-afl-cd_m20260142802:1",
+        "fact:fixture-research:event-afl-cd_m20260142802:2",
+        "fact:fixture-research:event-afl-cd_m20260142802:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event-afl-cd_m20260142802:0",
+        "source:fixture-research:event-afl-cd_m20260142802:1",
+        "source:fixture-research:event-afl-cd_m20260142802:2"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-17T23:22:14.102Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:event-afl-cd_m20260142801",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142801"
+      ],
+      "researchDepth": 5,
+      "hook": "A rested Hawthorn stands between Brisbane and another shot at three straight flags.",
+      "synopsis": "Hawthorn earned the week off and now get the MCG. Brisbane bring the experience of the past two premierships and eight wins from their last ten games at the ground. The Hawks must turn their preparation advantage into sustained pressure; the Lions must keep their three-peat bid alive in another elimination game.",
+      "threadIds": [
+        "thread:fixture-research:event-afl-cd_m20260142801"
+      ],
+      "factIds": [
+        "fact:fixture-research:event-afl-cd_m20260142801:0",
+        "fact:fixture-research:event-afl-cd_m20260142801:1",
+        "fact:fixture-research:event-afl-cd_m20260142801:2",
+        "fact:fixture-research:event-afl-cd_m20260142801:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:event-afl-cd_m20260142801:0",
+        "source:fixture-research:event-afl-cd_m20260142801:1",
+        "source:fixture-research:event-afl-cd_m20260142801:2"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-17T23:22:14.102Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_82",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_82"
+      ],
+      "researchDepth": 5,
+      "hook": "Two semi-finals, two remaining preliminary-final places, and no second chances.",
+      "synopsis": "Roosters-Sharks at Allianz on Saturday and Warriors-Knights at Eden Park on Sunday complete the next step of the bracket. The Roosters have a chance to reverse last season's finals loss to Cronulla. Auckland then gets a home knockout with Kalyn Ponga directing Newcastle's challenge. Both winners advance; both losers are finished.",
+      "threadIds": [
+        "thread:fixture-research:evt_82"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_82:0",
+        "fact:fixture-research:evt_82:1",
+        "fact:fixture-research:evt_82:2",
+        "fact:fixture-research:evt_82:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_82:0",
+        "source:fixture-research:evt_82:1",
+        "source:fixture-research:evt_82:2"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-17T23:22:14.102Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:major-match-nrl-finals-2026-semi-final-1",
+      "targetType": "feed-event",
+      "targetIds": [
+        "major-match-nrl-finals-2026-semi-final-1"
+      ],
+      "researchDepth": 5,
+      "hook": "Cronulla bring continuity; the Roosters face another sudden-death meeting with Walker still sidelined.",
+      "synopsis": "Sam Walker remains unavailable with an ankle injury. Angus Crichton is expected back from his foot problem, while Egan Butcher is out with concussion and Salesi Foketi is named to start in the back row. Cronulla expect no late changes. That contrast puts the focus on combinations under pressure, with a preliminary-final place on the line.",
+      "threadIds": [
+        "thread:fixture-research:major-match-nrl-finals-2026-semi-final-1"
+      ],
+      "factIds": [
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:0",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:1",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:2",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-1:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:0",
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:1",
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-1:2"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-17T23:22:14.102Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:major-match-nrl-finals-2026-semi-final-2",
+      "targetType": "feed-event",
+      "targetIds": [
+        "major-match-nrl-finals-2026-semi-final-2"
+      ],
+      "researchDepth": 5,
+      "hook": "Eden Park gives the Warriors the home stage; Ponga gives Newcastle a route to disrupt it.",
+      "synopsis": "The named halves are Te Maire Martin and Chanel Harris-Tavita for the Warriors, against Sandon Smith and Fletcher Sharpe for Newcastle. Kalyn Ponga starts at fullback for the Knights. The question is which spine can control a knockout afternoon when one mistake can end the season. Kick-off is Sunday at 4.05pm AEST.",
+      "threadIds": [
+        "thread:fixture-research:major-match-nrl-finals-2026-semi-final-2"
+      ],
+      "factIds": [
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:0",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:1",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:2",
+        "fact:fixture-research:major-match-nrl-finals-2026-semi-final-2:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:0",
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:1",
+        "source:fixture-research:major-match-nrl-finals-2026-semi-final-2:2"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-17T23:22:14.102Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_motogp_2026_austria",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_motogp_2026_austria"
+      ],
+      "researchDepth": 5,
+      "hook": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
+      "synopsis": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
+      "threadIds": [
+        "thread:fixture-research:evt_motogp_2026_austria"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_motogp_2026_austria:0",
+        "fact:fixture-research:evt_motogp_2026_austria:1",
+        "fact:fixture-research:evt_motogp_2026_austria:2",
+        "fact:fixture-research:evt_motogp_2026_austria:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_austria:0",
+        "source:fixture-research:evt_motogp_2026_austria:1",
+        "source:fixture-research:evt_motogp_2026_austria:2"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-17T23:22:14.102Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_sailgp_2026_geneva_day_1",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_sailgp_2026_geneva_day_1"
+      ],
+      "researchDepth": 5,
+      "hook": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
+      "synopsis": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
+      "threadIds": [
+        "thread:fixture-research:evt_sailgp_2026_geneva_day_1"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:0",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:1",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:2",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:0",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:1",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:2"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-17T23:22:14.102Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_sailgp_2026_geneva_day_2",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_sailgp_2026_geneva_day_2"
+      ],
+      "researchDepth": 5,
+      "hook": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
+      "synopsis": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
+      "threadIds": [
+        "thread:fixture-research:evt_sailgp_2026_geneva_day_2"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:0",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:1",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:2",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:0",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:1",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:2"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-17T23:22:14.102Z"
       }
     }
   ]

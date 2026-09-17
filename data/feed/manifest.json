@@ -1,11 +1,11 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "nothingsport-official-results-2026-09-15-v1",
-  "sourcePublishedAt": "2026-09-15T19:58:19.486Z",
+  "sourceVersion": "weekend-editorial-20260917233453038",
+  "sourcePublishedAt": "2026-09-17T23:34:53.038Z",
   "pageSize": 20,
   "retentionDays": 14,
   "inputEventCount": 1061,
-  "eventCount": 786,
+  "eventCount": 781,
   "pages": [
     {
       "index": 0,
@@ -283,9 +283,9 @@
     {
       "index": 39,
       "path": "data/feed/page-040.json",
-      "eventCount": 6,
+      "eventCount": 1,
       "firstEventId": "event:nrl:129992703",
-      "lastEventId": "event:afl:cd_m20260142601"
+      "lastEventId": "event:nrl:129992703"
     }
   ]
 }
