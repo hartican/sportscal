@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-09-15T19:58:19.486Z",
+  "generatedAt": "2026-09-17T23:34:53.038Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/afl.json",
@@ -11,7 +11,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-15T19:58:19.486Z",
+      "freshAt": "2026-09-17T23:34:53.038Z",
       "chunkPath": "data/code-inspector/afl.json"
     },
     {
@@ -36,7 +36,7 @@
       "hasStandings": true,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-15T19:58:19.486Z",
+      "freshAt": "2026-09-17T23:34:53.038Z",
       "chunkPath": "data/code-inspector/nrl.json"
     },
     {
@@ -61,7 +61,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-15T19:58:19.486Z",
+      "freshAt": "2026-09-17T23:34:53.038Z",
       "chunkPath": "data/code-inspector/motorsport.json"
     },
     {
@@ -317,7 +317,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-15T19:58:19.486Z",
+      "freshAt": "2026-09-17T23:34:53.038Z",
       "parentSportId": "sport:motorsport",
       "chunkPath": "data/code-inspector/motogp.json"
     },
@@ -330,7 +330,7 @@
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "complete",
-      "freshAt": "2026-09-15T19:58:19.486Z",
+      "freshAt": "2026-09-17T23:34:53.038Z",
       "parentSportId": "sport:sailing",
       "chunkPath": "data/code-inspector/sailgp.json"
     },

@@ -35,3 +35,11 @@ Load Follow-grid affinity only for the signed-in account and only when Follow op
 Any signed-in account may create an eligible upcoming/live fixture chat. A fixture may have multiple rooms with different participant combinations; the database enforces a race-safe ceiling of three open room memberships per signed-in account across creation, invitation acceptance, account guest-link joins and admin additions. Anonymous guest memberships remain governed by the 25-member room ceiling and do not count against an account limit. Existing Public Profile requirements still apply before an account can post a message.
 
 The room creator or an app admin may permanently delete the complete chat. A message author or an app admin may permanently delete an individual message. Before relational deletion, transient attachment objects are removed through the private Storage API; explicitly saved account-owned copies remain separate. Direct browser table access remains denied and all authorization stays at the authenticated server API plus database-trigger boundary. Personal archive remains a reversible “Remove from list” action and is not presented as deletion. These ownership changes do not alter the established polling intervals or scheduler budgets.
+
+## Lite weekend editorial - 18 September 2026
+
+Friday 09:00 Australia/Sydney editorial maintenance covers existing 4-5/5 stakes
+cards dated Friday through Monday inclusive. It uses the weekend-editorial mode
+of update-cards.js, not a second canonical ingestion scheduler. It reads no user
+preferences, preserves fixture facts and avoids a release when copy is unchanged.
+See docs/weekend-editorial.md for the bounded research and release procedure.

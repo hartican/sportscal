@@ -307,6 +307,10 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function main() {
   const options = parseOptions();
+  if(process.argv.includes('--weekend-editorial')){
+    require('./weekend-editorial').main(process.argv.slice(2));
+    return;
+  }
   if(process.argv.includes('--discovery')){
     await require('./refresh-discovery').refreshDiscovery();
     runStep(['scripts/build-athlete-participation.js']);
