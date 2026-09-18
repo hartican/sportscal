@@ -74604,7 +74604,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-06T15:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_puerto_rico_belgium",
@@ -74727,7 +74729,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-06T18:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_italy_usa",
@@ -74850,7 +74854,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-06T21:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_belgium_australia",
@@ -74973,7 +74979,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-07T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_puerto_rico_turkiye",
@@ -75096,7 +75104,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-07T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_hungary_korea",
@@ -75219,7 +75229,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-07T15:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_nigeria_france",
@@ -75342,7 +75354,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-07T15:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_japan_spain",
@@ -75465,7 +75479,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-07T18:50:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_germany_mali",
@@ -75588,7 +75604,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-07T18:50:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_usa_czechia",
@@ -75711,7 +75729,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-07T21:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_group_italy_china",
@@ -75834,7 +75854,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-07T21:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_fiba_women_2026_qualification_day_1",
@@ -76406,7 +76428,9 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "endTimeUtc": "2026-09-06T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_sailgp_2026_geneva_day_1",
@@ -77128,10 +77152,10 @@
       "cardKind": "fixture",
       "displayTitleCompact": "MotoGP San Marino Grand Prix",
       "date": "2026-09-13",
-      "time": "00:00",
-      "timeTbc": true,
-      "timePrecision": "tbc",
-      "scheduleStatus": "tbc",
+      "time": "22:00",
+      "timeTbc": false,
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
       "broadcaster": "Fox Sports via Kayo / Foxtel",
       "broadcastOptions": [
         "Kayo Sports",
@@ -77151,12 +77175,12 @@
       "narrativeType": "all",
       "selectedSentence": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
       "fullSpiel": "The Italian stop begins the final nine-race run to the Valencia decider.",
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "sourceName": "MotoGP",
+      "sourceUrl": "https://stats.motogp.com/en/gp-results",
+      "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:motorsport",
       "discoverySportId": "sport:motogp",
       "competitionId": "competition:motogp",
@@ -77207,12 +77231,12 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "manual",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-        "hookSpoilerOn": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-        "synopsisSpoilerOff": "The Italian stop begins the final nine-race run to the Valencia decider.",
-        "synopsisSpoilerOn": "The Italian stop begins the final nine-race run to the Valencia decider.",
+        "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
+        "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
         "lastReviewedAt": "2026-09-06T18:20:00.000Z"
       },
       "editorialPreview": {
@@ -77227,7 +77251,17 @@
         "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+      "startTimeUtc": "2026-09-13T12:00:00.000Z",
+      "endTimeUtc": "2026-09-13T13:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window",
+      "score": "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
+      "outcomeText": "Marc Marquez won the San Marino Grand Prix.",
+      "sourceRefs": [
+        "https://stats.motogp.com/en/gp-results",
+        "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181",
+        "https://www.motogp.com/en/calendar/2026"
+      ]
     },
     {
       "id": "evt_motogp_2026_austria",
@@ -96532,7 +96566,9 @@
         "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z",
+      "endTimeUtc": "2026-09-11T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_f1_2026_spain_practice_2",
@@ -96609,7 +96645,9 @@
         "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z",
+      "endTimeUtc": "2026-09-11T18:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_f1_2026_spain_practice_3",
@@ -96686,7 +96724,9 @@
         "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
         "needsPreviewRefresh": false
       },
-      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z",
+      "endTimeUtc": "2026-09-12T13:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_28",
@@ -96793,7 +96833,9 @@
         "researchedAt": "2026-09-08T13:52:45.257Z",
         "refreshAfter": null,
         "generationMode": "researched"
-      }
+      },
+      "endTimeUtc": "2026-09-12T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_29",
@@ -96900,7 +96942,9 @@
         "researchedAt": "2026-09-08T13:52:45.257Z",
         "refreshAfter": null,
         "generationMode": "researched"
-      }
+      },
+      "endTimeUtc": "2026-09-13T16:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "evt_f1_2026_azerbaijan_practice_1",

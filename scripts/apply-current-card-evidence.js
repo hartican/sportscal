@@ -51,6 +51,11 @@ function fixtureSeed(override, checkedAt){
   }, override, checkedAt);
 }
 function normalizeCompletedTiming(record){
+  if(record.status === "completed" && record.storyline && record.storyline.arcStage !== "recap"){
+    const safe = `${record.name || record.displayName || 'This event'} is complete. Reveal results for the outcome.`;
+    const result = record.outcomeText || record.scoreDisplay || record.score;
+    if(result) record = {...record,storyline:{...record.storyline,arcStage:"recap",hookSpoilerOff:safe,synopsisSpoilerOff:safe,hookSpoilerOn:result,synopsisSpoilerOn:record.recapText || result}};
+  }
   if(record.status !== "completed" || record.endTimeUtc || !record.startTimeUtc) return record;
   const start = Date.parse(record.startTimeUtc);
   if(!Number.isFinite(start)) return record;
@@ -67,12 +72,15 @@ function applyArray(records, overrides, checkedAt, { upsert=false } = {}){
 }
 function applyEvidence({ check=false } = {}){
   const evidence = read("data/canonical/current-card-evidence-2026.json");
+  // Reviewed results are final facts, not merely score text on upcoming cards.
+  evidence.resultOverrides = evidence.resultOverrides.map(result => ({ ...result, status:"completed" }));
   const documents = Object.fromEntries(TARGETS.map(file => [file, read(file)]));
   const canonical = documents[TARGETS[0]];
   canonical.events = applyArray(canonical.events || [], evidence.fixtureOverrides, evidence.checkedAt);
   const feed = documents[TARGETS[1]];
   feed.events = applyArray(applyArray(feed.events || [], evidence.fixtureOverrides, evidence.checkedAt, { upsert:true }), evidence.resultOverrides, evidence.checkedAt);
   const coverage = documents[TARGETS[2]];
+  coverage.events = applyArray(coverage.events || [], evidence.resultOverrides, evidence.checkedAt);
   for(const group of evidence.broadcastOverrides) coverage.events = (coverage.events || []).map(record => group.ids.includes(identity(record)) ? mergeRecord(record, group, evidence.checkedAt) : record);
   const results = documents[TARGETS[3]];
   const byId = new Map((results.results || []).map(record => [record.id, record]));
@@ -94,7 +102,8 @@ function applyEvidence({ check=false } = {}){
     }
     for(const override of evidence.resultOverrides){
       const record = feed.events.find(item => matches(item, override))
-        || majorEvents.events.flatMap(event => event.subEvents || []).find(item => matches(item, override));
+        || majorEvents.events.flatMap(event => event.subEvents || []).find(item => matches(item, override))
+        || coverage.events.find(item => matches(item, override));
       assert(record, `${override.id} must exist in Feed or detailed Event fixtures`);
       assert.equal(record.score, override.score, `${override.id} score`);
       assert(record.endTimeUtc, `${override.id} must have a stable completion boundary`);

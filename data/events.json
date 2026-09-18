@@ -1,7 +1,7 @@
 {
   "schemaVersion": "events.v1",
-  "version": "weekend-editorial-20260917233453038",
-  "publishedAt": "2026-09-17T23:34:53.038Z",
+  "version": "fixture-details-20260918035501087",
+  "publishedAt": "2026-09-18T03:55:01.095Z",
   "sourceNote": "Source-backed historical results, completed legacy card copy, and a transparent 2027 Melbourne ticket watch. WRC rounds are sourced from the official WRC calendar and FIA senior championship tables.",
   "events": [
     {
@@ -38900,7 +38900,7 @@
       "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
       "sourceType": "official",
       "sourceTrust": "verified",
-      "status": "upcoming",
+      "status": "completed",
       "sportDomainId": "sport:motorsport",
       "discoverySportId": "sport:motogp",
       "competitionId": "competition:motogp",
@@ -38951,12 +38951,12 @@
         "stakes": 4,
         "intensity": 4,
         "intensitySource": "manual",
-        "arcStage": "preview",
+        "arcStage": "recap",
         "expectedSpectacle": 8,
-        "hookSpoilerOff": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-        "hookSpoilerOn": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-        "synopsisSpoilerOff": "The Italian stop begins the final nine-race run to the Valencia decider.",
-        "synopsisSpoilerOn": "The Italian stop begins the final nine-race run to the Valencia decider.",
+        "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
+        "hookSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
+        "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
+        "synopsisSpoilerOn": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
         "lastReviewedAt": "2026-09-06T18:20:00.000Z"
       },
       "lastReviewedAt": "2026-09-06T18:20:00.000Z",

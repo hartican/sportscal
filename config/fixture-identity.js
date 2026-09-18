@@ -99,6 +99,20 @@
       const ids=aliases(event);if(!ids.length)continue;
       const key=semanticKey(event),match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined)??(key?semanticIndexes.get(key):undefined),index=match??result.length;
       const base=result[index];
+      if(base && !event.enrichmentOnly){
+        const missing=value=>value==null || value==='' || (Array.isArray(value)&&!value.length) || (typeof value==='string'&&/^(?:tbc|tbd|unknown|venue tbc)$/i.test(value));
+        // Score providers commonly omit venue and broadcast rights. Absence is
+        // not a retraction of separately verified fixture details.
+        for(const field of ['venue','venueName','venueCity','broadcaster','broadcasterIds','broadcastOptions','broadcasts','viewingOptions']){
+          if(missing(event[field])&&!missing(base[field]))event[field]=base[field];
+        }
+        if(!event.startTimeUtc && base.startTimeUtc && !['postponed','cancelled','abandoned'].includes(event.status)){
+          for(const field of ['date','time','startTimeUtc','timePrecision','scheduleStatus','timeTbc']){
+            if(base[field]!==undefined)event[field]=base[field];
+          }
+        }
+        if(/^won by\b/i.test(event.scoreDisplay||'') && String(base.scoreDisplay||'').endsWith(event.scoreDisplay))event.scoreDisplay=base.scoreDisplay;
+      }
       // A cached draw placeholder cannot erase a subsequently published fixture.
       // Real postponements, cancellations and live results still use the normal path.
       if(base?.date && (base.time || base.startTimeUtc) && event.scheduleStatus==='provisional' && !event.date && !event.startTimeUtc && !event.time && !['postponed','cancelled','abandoned','live','finished'].includes(event.status))continue;

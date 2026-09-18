@@ -2168,7 +2168,9 @@
       "broadcasterIds": [],
       "broadcasts": [],
       "viewingOptions": [],
-      "consensusTags": []
+      "consensusTags": [],
+      "endTimeUtc": "2026-09-05T18:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "rugby-argentina-australia-mendoza-2026-09-06",
@@ -2241,7 +2243,9 @@
       "broadcasterIds": [],
       "broadcasts": [],
       "viewingOptions": [],
-      "consensusTags": []
+      "consensusTags": [],
+      "endTimeUtc": "2026-09-06T00:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:sa-nz-women:2026-09-05",
@@ -2290,7 +2294,9 @@
       "sourceUrl": "https://www.allblacks.com/news/black-ferns/remaining-black-ferns-2026-fixtures-confirmed",
       "resultSourceUrl": "https://www.allblacks.com/?url=https%3A%2F%2Fwww.allblacks.com%2Ffixtures%2Fall-blacks",
       "sourceCheckedAt": "2026-09-08",
-      "sourceType": "official"
+      "sourceType": "official",
+      "endTimeUtc": "2026-09-05T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1546441",
@@ -2388,7 +2394,9 @@
         }
       ],
       "numberOfDays": 4,
-      "endDate": "2026-09-09"
+      "endDate": "2026-09-09",
+      "endTimeUtc": "2026-09-06T07:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549964",
@@ -2477,7 +2485,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-08"
+      "endDate": "2026-09-08",
+      "endTimeUtc": "2026-09-08T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549965",
@@ -2566,7 +2576,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-08"
+      "endDate": "2026-09-08",
+      "endTimeUtc": "2026-09-08T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552906",
@@ -2655,7 +2667,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-08"
+      "endDate": "2026-09-08",
+      "endTimeUtc": "2026-09-08T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534424",
@@ -2753,7 +2767,9 @@
         }
       ],
       "numberOfDays": 4,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-08T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513440",
@@ -2842,7 +2858,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-08T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513441",
@@ -2931,7 +2949,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-08T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513442",
@@ -3020,7 +3040,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-08T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513443",
@@ -3109,7 +3131,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-08T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513381",
@@ -3198,7 +3222,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-08T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513382",
@@ -3287,7 +3313,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-08T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513383",
@@ -3465,7 +3493,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-08T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513385",
@@ -3554,7 +3584,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-08T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552907",
@@ -3907,7 +3939,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-07"
+      "endDate": "2026-09-07",
+      "endTimeUtc": "2026-09-04T08:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549962",
@@ -3996,7 +4030,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-07"
+      "endDate": "2026-09-07",
+      "endTimeUtc": "2026-09-07T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549963",
@@ -4085,7 +4121,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-07"
+      "endDate": "2026-09-07",
+      "endTimeUtc": "2026-09-07T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547444",
@@ -4183,7 +4221,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-07"
+      "endDate": "2026-09-07",
+      "endTimeUtc": "2026-09-07T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547445",
@@ -4281,7 +4321,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-07"
+      "endDate": "2026-09-07",
+      "endTimeUtc": "2026-09-07T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1548901",
@@ -4370,7 +4412,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-08"
+      "endDate": "2026-09-08",
+      "endTimeUtc": "2026-09-07T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535536",
@@ -5563,7 +5607,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 5,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-09T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552909",
@@ -5925,7 +5971,9 @@
         }
       ],
       "numberOfDays": 4,
-      "endDate": "2026-09-02"
+      "endDate": "2026-09-02",
+      "endTimeUtc": "2026-08-30T07:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1550137",
@@ -6014,7 +6062,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-02"
+      "endDate": "2026-09-02",
+      "endTimeUtc": "2026-08-30T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534415",
@@ -6103,7 +6153,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-08-31T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534416",
@@ -6192,7 +6244,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-08-31T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534417",
@@ -6281,7 +6335,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-08-31T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534418",
@@ -6370,7 +6426,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-08-31T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534419",
@@ -6459,7 +6517,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-01T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534420",
@@ -6548,7 +6608,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-01T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534421",
@@ -6637,7 +6699,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-01T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534422",
@@ -6726,7 +6790,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-01T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534423",
@@ -6815,7 +6881,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-01T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549952",
@@ -6904,7 +6972,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-02"
+      "endDate": "2026-09-02",
+      "endTimeUtc": "2026-09-02T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549953",
@@ -6993,7 +7063,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-02"
+      "endDate": "2026-09-02",
+      "endTimeUtc": "2026-09-02T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552317",
@@ -7082,7 +7154,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 5,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-02T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547881",
@@ -7171,7 +7245,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-02"
+      "endDate": "2026-09-02",
+      "endTimeUtc": "2026-09-02T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513436",
@@ -7260,7 +7336,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-02T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513437",
@@ -7349,7 +7427,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-02T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513438",
@@ -7438,7 +7518,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-02T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513439",
@@ -7527,7 +7609,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-02T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513376",
@@ -7616,7 +7700,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-02T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513377",
@@ -7705,7 +7791,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-02T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513378",
@@ -7794,7 +7882,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-02T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513379",
@@ -7883,7 +7973,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-02T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513380",
@@ -7972,7 +8064,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-02T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547882",
@@ -8061,7 +8155,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-02"
+      "endDate": "2026-09-02",
+      "endTimeUtc": "2026-09-02T16:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1548896",
@@ -8150,7 +8246,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-02T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534202",
@@ -8236,7 +8334,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T02:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551332",
@@ -8325,7 +8425,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-08-29T08:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551333",
@@ -8414,7 +8516,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-08-29T08:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1546439",
@@ -8512,7 +8616,9 @@
         }
       ],
       "numberOfDays": 4,
-      "endDate": "2026-09-02"
+      "endDate": "2026-09-02",
+      "endTimeUtc": "2026-08-30T07:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549950",
@@ -8601,7 +8707,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549951",
@@ -8690,7 +8798,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535502",
@@ -8779,7 +8889,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535500",
@@ -8868,7 +8980,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535504",
@@ -8957,7 +9071,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535503",
@@ -9046,7 +9162,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T11:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535505",
@@ -9135,7 +9253,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T11:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535501",
@@ -9224,7 +9344,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T11:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549974",
@@ -9402,7 +9524,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1496552",
@@ -9491,7 +9615,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547880",
@@ -9580,7 +9706,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-01"
+      "endDate": "2026-09-01",
+      "endTimeUtc": "2026-09-01T16:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1548895",
@@ -9669,7 +9797,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-02"
+      "endDate": "2026-09-02",
+      "endTimeUtc": "2026-09-01T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534201",
@@ -9755,7 +9885,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-02"
+      "endDate": "2026-09-02",
+      "endTimeUtc": "2026-09-02T02:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549956",
@@ -9844,7 +9976,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-04T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549957",
@@ -9933,7 +10067,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-04T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551334",
@@ -10022,7 +10158,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-07"
+      "endDate": "2026-09-07",
+      "endTimeUtc": "2026-09-04T08:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551072",
@@ -10111,7 +10249,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-04T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551066",
@@ -10200,7 +10340,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-04T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551073",
@@ -10288,7 +10430,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-04T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551067",
@@ -10377,7 +10521,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-04T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549529",
@@ -10466,7 +10612,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-04T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547884",
@@ -10555,7 +10703,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-04T16:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1548898",
@@ -10644,7 +10794,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-04T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551074",
@@ -10732,7 +10884,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-04T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534204",
@@ -10818,7 +10972,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T02:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549954",
@@ -10907,7 +11063,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549955",
@@ -10996,7 +11154,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547440",
@@ -11085,7 +11245,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547442",
@@ -11174,7 +11336,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547443",
@@ -11263,7 +11427,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547438",
@@ -11352,7 +11518,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547439",
@@ -11441,7 +11609,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547441",
@@ -11530,7 +11700,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513590",
@@ -11619,7 +11791,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513591",
@@ -11708,7 +11882,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513592",
@@ -11797,7 +11973,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513593",
@@ -11886,7 +12064,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549528",
@@ -11975,7 +12155,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1496553",
@@ -12064,7 +12246,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547883",
@@ -12153,7 +12337,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-03"
+      "endDate": "2026-09-03",
+      "endTimeUtc": "2026-09-03T16:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1548897",
@@ -12242,7 +12428,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-03T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534203",
@@ -12328,7 +12516,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-04"
+      "endDate": "2026-09-04",
+      "endTimeUtc": "2026-09-04T02:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549960",
@@ -12417,7 +12607,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549961",
@@ -12506,7 +12698,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551078",
@@ -12595,7 +12789,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1550138",
@@ -12773,7 +12969,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513594",
@@ -12862,7 +13060,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513595",
@@ -12951,7 +13151,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513596",
@@ -13040,7 +13242,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513597",
@@ -13129,7 +13333,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547887",
@@ -13218,7 +13424,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1496554",
@@ -13307,7 +13515,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551079",
@@ -13404,7 +13614,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551071",
@@ -13493,7 +13705,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549530",
@@ -13591,7 +13805,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547888",
@@ -13680,7 +13896,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T16:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1540214",
@@ -13766,7 +13984,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-07"
+      "endDate": "2026-09-07",
+      "endTimeUtc": "2026-09-06T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1548900",
@@ -13855,7 +14075,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-07"
+      "endDate": "2026-09-07",
+      "endTimeUtc": "2026-09-06T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534206",
@@ -13941,7 +14163,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-07"
+      "endDate": "2026-09-07",
+      "endTimeUtc": "2026-09-06T22:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534207",
@@ -14027,7 +14251,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-07"
+      "endDate": "2026-09-07",
+      "endTimeUtc": "2026-09-07T02:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549958",
@@ -14116,7 +14342,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549959",
@@ -14205,7 +14433,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535511",
@@ -14294,7 +14524,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535506",
@@ -14383,7 +14615,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535509",
@@ -14472,7 +14706,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T07:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551075",
@@ -14561,7 +14797,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T10:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551068",
@@ -14650,7 +14888,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535507",
@@ -14739,7 +14979,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T11:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535510",
@@ -14828,7 +15070,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T11:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535508",
@@ -14917,7 +15161,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T11:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547885",
@@ -15006,7 +15252,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551076",
@@ -15094,7 +15342,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551069",
@@ -15183,7 +15433,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T15:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547886",
@@ -15272,7 +15524,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-05"
+      "endDate": "2026-09-05",
+      "endTimeUtc": "2026-09-05T16:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1548899",
@@ -15361,7 +15615,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-05T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551077",
@@ -15449,7 +15705,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-05T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1540213",
@@ -15535,7 +15793,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-05T22:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534205",
@@ -15621,7 +15881,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-06"
+      "endDate": "2026-09-06",
+      "endTimeUtc": "2026-09-06T03:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551336",
@@ -15710,7 +15972,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-10T08:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551337",
@@ -15799,7 +16063,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-10T08:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551702",
@@ -15888,7 +16154,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-10T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551703",
@@ -15977,7 +16245,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-10T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551704",
@@ -16066,7 +16336,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-10T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551662",
@@ -16155,7 +16427,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-10T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551663",
@@ -16244,7 +16518,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-10T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551664",
@@ -16333,7 +16609,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-10T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551661",
@@ -16422,7 +16700,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 4,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-10T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552311",
@@ -16600,7 +16880,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-11T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552912",
@@ -16689,7 +16971,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-11T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547446",
@@ -16787,7 +17071,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-11T12:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513602",
@@ -16876,7 +17162,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-11T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1543887",
@@ -16965,7 +17253,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-11T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552913",
@@ -17054,7 +17344,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-11T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547892",
@@ -17143,7 +17435,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-11T16:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1548904",
@@ -17241,7 +17535,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-11T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1553239",
@@ -17330,7 +17626,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-11T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534211",
@@ -17416,7 +17714,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T02:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549967",
@@ -17514,7 +17814,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-10"
+      "endDate": "2026-09-10",
+      "endTimeUtc": "2026-09-10T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549966",
@@ -17612,7 +17914,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-10"
+      "endDate": "2026-09-10",
+      "endTimeUtc": "2026-09-10T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552910",
@@ -17701,7 +18005,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-10"
+      "endDate": "2026-09-10",
+      "endTimeUtc": "2026-09-10T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547890",
@@ -17790,7 +18096,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-10"
+      "endDate": "2026-09-10",
+      "endTimeUtc": "2026-09-10T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552911",
@@ -17879,7 +18187,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-10"
+      "endDate": "2026-09-10",
+      "endTimeUtc": "2026-09-10T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547891",
@@ -17968,7 +18278,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-10"
+      "endDate": "2026-09-10",
+      "endTimeUtc": "2026-09-10T16:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1540215",
@@ -18054,7 +18366,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-10T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1548903",
@@ -18152,7 +18466,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-10T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534210",
@@ -18238,7 +18554,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-11"
+      "endDate": "2026-09-11",
+      "endTimeUtc": "2026-09-11T02:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552312",
@@ -18327,7 +18645,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549968",
@@ -18416,7 +18736,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549969",
@@ -18514,7 +18836,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T04:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552914",
@@ -18603,7 +18927,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1550140",
@@ -18692,7 +19018,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547893",
@@ -18781,7 +19109,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552319",
@@ -18870,7 +19200,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513603",
@@ -18959,7 +19291,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513605",
@@ -19048,7 +19382,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1513604",
@@ -19137,7 +19473,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552915",
@@ -19226,7 +19564,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552021",
@@ -19315,7 +19655,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T15:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547894",
@@ -19404,7 +19746,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-12"
+      "endDate": "2026-09-12",
+      "endTimeUtc": "2026-09-12T16:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1540216",
@@ -19490,7 +19834,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-12T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1540217",
@@ -19576,7 +19922,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-12T22:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534212",
@@ -19662,7 +20010,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T03:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1551789",
@@ -20018,7 +20368,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T08:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552916",
@@ -20107,7 +20459,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549533",
@@ -20196,7 +20550,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547895",
@@ -20285,7 +20641,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T12:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552917",
@@ -20374,7 +20732,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1543888",
@@ -20463,7 +20823,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547896",
@@ -20552,7 +20914,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T16:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535541",
@@ -20650,7 +21014,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T16:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1535540",
@@ -20748,7 +21114,9 @@
         }
       ],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T16:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1553240",
@@ -20837,7 +21205,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-13"
+      "endDate": "2026-09-13",
+      "endTimeUtc": "2026-09-13T16:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1549586",
@@ -20926,7 +21296,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-14"
+      "endDate": "2026-09-14",
+      "endTimeUtc": "2026-09-13T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1548905",
@@ -21015,7 +21387,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-14"
+      "endDate": "2026-09-14",
+      "endTimeUtc": "2026-09-13T17:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1540218",
@@ -21101,7 +21475,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-14"
+      "endDate": "2026-09-14",
+      "endTimeUtc": "2026-09-13T21:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1534213",
@@ -21187,7 +21563,9 @@
       "viewingOptions": [],
       "consensusTags": [],
       "numberOfDays": 1,
-      "endDate": "2026-09-14"
+      "endDate": "2026-09-14",
+      "endTimeUtc": "2026-09-14T02:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1552895",
@@ -21474,7 +21852,7 @@
       "date": "2026-09-15",
       "dateOnly": false,
       "timePrecision": "exact",
-      "status": "scheduled",
+      "status": "completed",
       "format": "ODI",
       "roundLabel": "1st ODI",
       "venue": "Harare Sports Club",
@@ -21520,7 +21898,7 @@
       ],
       "homeParticipantId": "team:cricket:zimbabwe",
       "awayParticipantId": "team:cricket:australia",
-      "scoreDisplay": null,
+      "scoreDisplay": "Australia won by 59 runs",
       "sourceFixtureId": "1530203",
       "sourceName": "Cricket Australia / Fox Sports",
       "sourceType": "official",
@@ -21561,11 +21939,16 @@
       "endDate": "2026-09-15",
       "sourceTrust": "verified",
       "sourceRefs": [
+        "https://www.rediff.com/cricket/report/renshaw-hits-maiden-odi-ton-as-ellis-destroys-zimbabwe/20260915.htm",
         "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
         "https://www.foxsports.com.au/cricket/australia/cricket-2026-australia-vs-zimbabwe-and-south-africa-ultimate-guide-when-are-the-matches-scheduled-how-to-watch-and-stream-squads-latest-news/news-story/b5a37176056f8983cea072ee085c6277",
         "https://www.espn.in/cricket/series/24303/game/1530203/zimbabwe-vs-australia-1st-odi-24303"
       ],
-      "stakesScore": 5
+      "stakesScore": 5,
+      "score": "Australia won by 59 runs",
+      "outcomeText": "Australia defeated Zimbabwe by 59 runs.",
+      "endTimeUtc": "2026-09-15T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:cricket:espn:1547897",
@@ -73272,7 +73655,9 @@
         "millis": 1788757500000,
         "gmtOffset": -12,
         "label": "2026-09-06"
-      }
+      },
+      "endTimeUtc": "2026-09-07T08:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:f7d09936-fcb6-4162-9137-b734a8806ec7",
@@ -73358,7 +73743,9 @@
         "millis": 1788364800000,
         "gmtOffset": -4,
         "label": "2026-09-02"
-      }
+      },
+      "endTimeUtc": "2026-09-02T19:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:f1c591c0-519a-4bf1-92b0-38ba95125c96",
@@ -73446,7 +73833,9 @@
         "millis": 1788375600000,
         "gmtOffset": -4,
         "label": "2026-09-02"
-      }
+      },
+      "endTimeUtc": "2026-09-02T22:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:712e17d8-8375-4521-95ad-b7cfd46821ea",
@@ -73532,7 +73921,9 @@
         "millis": 1788419400000,
         "gmtOffset": 12,
         "label": "2026-09-03"
-      }
+      },
+      "endTimeUtc": "2026-09-03T10:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:89b48e56-1d8b-41c9-a3d3-9f7e6898b339",
@@ -73618,7 +74009,9 @@
         "millis": 1788462000000,
         "gmtOffset": 2,
         "label": "2026-09-03"
-      }
+      },
+      "endTimeUtc": "2026-09-03T22:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:7adba1d5-35e6-46a3-82f2-3bac0cf6847d",
@@ -73704,7 +74097,9 @@
         "millis": 1788505800000,
         "gmtOffset": 12,
         "label": "2026-09-04"
-      }
+      },
+      "endTimeUtc": "2026-09-04T10:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:941e60d7-5639-48a0-9fe4-bdef4469054c",
@@ -73790,7 +74185,9 @@
         "millis": 1788541200000,
         "gmtOffset": 2,
         "label": "2026-09-04"
-      }
+      },
+      "endTimeUtc": "2026-09-04T20:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:6c14ea98-6da1-4c8d-9caa-85ee82df6599",
@@ -73876,7 +74273,9 @@
         "millis": 1788543000000,
         "gmtOffset": 2,
         "label": "2026-09-04"
-      }
+      },
+      "endTimeUtc": "2026-09-04T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:62f1a122-7ebd-43da-8894-750270b61976",
@@ -73962,7 +74361,9 @@
         "millis": 1788543000000,
         "gmtOffset": 2,
         "label": "2026-09-04"
-      }
+      },
+      "endTimeUtc": "2026-09-04T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:5731a9f2-47ba-46fe-b399-57a03df6a81f",
@@ -74048,7 +74449,9 @@
         "millis": 1788543000000,
         "gmtOffset": 2,
         "label": "2026-09-04"
-      }
+      },
+      "endTimeUtc": "2026-09-04T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:90435384-ac15-454f-9660-8bda0e8ee9b8",
@@ -74134,7 +74537,9 @@
         "millis": 1788543000000,
         "gmtOffset": 2,
         "label": "2026-09-04"
-      }
+      },
+      "endTimeUtc": "2026-09-04T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:8e0d944a-4e52-4efa-a098-a21fb0f10a43",
@@ -74220,7 +74625,9 @@
         "millis": 1788543000000,
         "gmtOffset": 2,
         "label": "2026-09-04"
-      }
+      },
+      "endTimeUtc": "2026-09-04T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:002820b3-81c6-49cf-a536-ddb7bab7602c",
@@ -74306,7 +74713,9 @@
         "millis": 1788548400000,
         "gmtOffset": 2,
         "label": "2026-09-04"
-      }
+      },
+      "endTimeUtc": "2026-09-04T22:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:bf472437-f39a-4921-909c-1d48495db615",
@@ -74392,7 +74801,9 @@
         "millis": 1788570000000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:45da2a8f-7b5e-4a47-b571-0a307f84b264",
@@ -74478,7 +74889,9 @@
         "millis": 1788570000000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:2cfc8c45-a273-44f7-906e-ea24cf943680",
@@ -74564,7 +74977,9 @@
         "millis": 1788570000000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:c88428cf-0adb-44db-8b19-9b47a67bd70d",
@@ -74650,7 +75065,9 @@
         "millis": 1788570000000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:9069cbe3-45f1-4d89-ab3f-cb7de994ae8b",
@@ -74736,7 +75153,9 @@
         "millis": 1788570000000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:cea8390c-571e-46ba-a65c-19c77ac1a416",
@@ -74822,7 +75241,9 @@
         "millis": 1788570000000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:6d9888ca-23ae-4ca5-9b93-1ee7147d38b5",
@@ -74908,7 +75329,9 @@
         "millis": 1788573900000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T05:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:2f762d44-2686-40df-8257-b44033e4d225",
@@ -74994,7 +75417,9 @@
         "millis": 1788584700000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T08:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:5eb7b5bb-e9c9-459d-b710-614f46964427",
@@ -75083,7 +75508,9 @@
         "millis": 1788587400000,
         "gmtOffset": 9,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T08:50:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:ff73439f-1b3b-4478-bb7d-dbb252adcda1",
@@ -75169,7 +75596,9 @@
         "millis": 1788592200000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T10:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:3f0fa62d-c252-489f-84b7-fa69746b9580",
@@ -75255,7 +75684,9 @@
         "millis": 1788616800000,
         "gmtOffset": 1,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:ce805f4e-9a7d-4c61-96bc-872112753797",
@@ -75341,7 +75772,9 @@
         "millis": 1788616800000,
         "gmtOffset": 1,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:86e546c4-2f99-407e-a2ba-26d739747437",
@@ -75427,7 +75860,9 @@
         "millis": 1788617100000,
         "gmtOffset": 1,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T17:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:0961a7d2-10f5-41ee-94a6-5e7d4ae1e690",
@@ -75516,7 +75951,9 @@
         "millis": 1788621000000,
         "gmtOffset": 2,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T18:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:31b5bd48-514f-4af3-a8b1-7adb2ec9239a",
@@ -75602,7 +76039,9 @@
         "millis": 1788627600000,
         "gmtOffset": 2,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T20:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:cf1cb84c-b058-43f0-ba2a-acb1db72ef32",
@@ -75688,7 +76127,9 @@
         "millis": 1788627600000,
         "gmtOffset": 2,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T20:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:6d434d00-4fc7-4663-9b53-0e3f1c93f9fc",
@@ -75774,7 +76215,9 @@
         "millis": 1788627600000,
         "gmtOffset": 2,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T20:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:fbd291c5-3238-4d38-8731-5fc96435fb12",
@@ -75860,7 +76303,9 @@
         "millis": 1788627600000,
         "gmtOffset": 2,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T20:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:61766c5c-b18c-42c0-a6e0-f7db02846e66",
@@ -75946,7 +76391,9 @@
         "millis": 1788627600000,
         "gmtOffset": 2,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T20:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:e0815c08-f965-43a9-847d-b9da08044459",
@@ -76032,7 +76479,9 @@
         "millis": 1788635700000,
         "gmtOffset": 2,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T22:15:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:e019e2f7-b1ce-403e-82eb-70a02990dbb5",
@@ -76121,7 +76570,9 @@
         "millis": 1788642000000,
         "gmtOffset": -3,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-06T00:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:c3ce4e0d-4622-4788-8381-8a1d4052c4b1",
@@ -76207,7 +76658,9 @@
         "millis": 1788660300000,
         "gmtOffset": 12,
         "label": "2026-09-06"
-      }
+      },
+      "endTimeUtc": "2026-09-06T05:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:2cda393a-35a9-47ed-bf5f-dbad70d31d7b",
@@ -76302,7 +76755,9 @@
         "millis": 1788688800000,
         "gmtOffset": 2,
         "label": "2026-09-06"
-      }
+      },
+      "endTimeUtc": "2026-09-06T13:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:eaa3aac7-c6f5-4635-833f-6851c55e54fe",
@@ -76397,7 +76852,9 @@
         "millis": 1788697800000,
         "gmtOffset": 2,
         "label": "2026-09-06"
-      }
+      },
+      "endTimeUtc": "2026-09-06T15:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:a2bba44e-1b46-48dd-96ed-d72bb36a1e62",
@@ -76483,7 +76940,9 @@
         "millis": 1788703200000,
         "gmtOffset": 1,
         "label": "2026-09-06"
-      }
+      },
+      "endTimeUtc": "2026-09-06T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:92173f4d-1f94-4919-985d-8213daf3c163",
@@ -76571,7 +77030,9 @@
         "millis": 1788714000000,
         "gmtOffset": -4,
         "label": "2026-09-06"
-      }
+      },
+      "endTimeUtc": "2026-09-06T20:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:c2e31620-da47-46d2-968c-2c29ad9dd45e",
@@ -76657,7 +77118,9 @@
         "millis": 1788721500000,
         "gmtOffset": 2,
         "label": "2026-09-06"
-      }
+      },
+      "endTimeUtc": "2026-09-06T22:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:05a09009-f253-4ec6-86cf-c2b837ac6f40",
@@ -76743,7 +77206,9 @@
         "millis": 1788724800000,
         "gmtOffset": -4,
         "label": "2026-09-06"
-      }
+      },
+      "endTimeUtc": "2026-09-06T23:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:dd42d52b-26d7-496d-b632-9c93b15bd64d",
@@ -76829,7 +77294,9 @@
       },
       "homeScore": 27,
       "awayScore": 25,
-      "scoreDisplay": "27–25"
+      "scoreDisplay": "27–25",
+      "endTimeUtc": "2026-09-10T10:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:839df45d-b5d7-48ea-af59-01e4b44dd818",
@@ -76915,7 +77382,9 @@
       },
       "homeScore": 38,
       "awayScore": 20,
-      "scoreDisplay": "38–20"
+      "scoreDisplay": "38–20",
+      "endTimeUtc": "2026-09-10T22:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:ab7e797b-99f4-49ce-9791-09e76277c99c",
@@ -77001,7 +77470,9 @@
       },
       "homeScore": 57,
       "awayScore": 33,
-      "scoreDisplay": "57–33"
+      "scoreDisplay": "57–33",
+      "endTimeUtc": "2026-09-11T10:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:a49703d1-6f80-4e37-88e9-17e5207b8060",
@@ -77087,7 +77558,9 @@
       },
       "homeScore": 45,
       "awayScore": 7,
-      "scoreDisplay": "45–7"
+      "scoreDisplay": "45–7",
+      "endTimeUtc": "2026-09-11T20:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:ff4614c9-25a6-41f8-be1c-725e30e9e011",
@@ -77173,7 +77646,9 @@
       },
       "homeScore": 47,
       "awayScore": 42,
-      "scoreDisplay": "47–42"
+      "scoreDisplay": "47–42",
+      "endTimeUtc": "2026-09-11T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:bd1b11e9-4d39-4fc2-8bf6-e9146d87a181",
@@ -77259,7 +77734,9 @@
       },
       "homeScore": 38,
       "awayScore": 17,
-      "scoreDisplay": "38–17"
+      "scoreDisplay": "38–17",
+      "endTimeUtc": "2026-09-11T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:ae18541f-e807-40de-a885-894823e3d324",
@@ -77345,7 +77822,9 @@
       },
       "homeScore": 21,
       "awayScore": 20,
-      "scoreDisplay": "21–20"
+      "scoreDisplay": "21–20",
+      "endTimeUtc": "2026-09-11T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:ae0d9fc4-91ed-446c-a9f0-5adbd2ff947c",
@@ -77431,7 +77910,9 @@
       },
       "homeScore": 27,
       "awayScore": 20,
-      "scoreDisplay": "27–20"
+      "scoreDisplay": "27–20",
+      "endTimeUtc": "2026-09-11T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:adc43147-ee29-4074-852a-ee5fdd7f4b8e",
@@ -77517,7 +77998,9 @@
       },
       "homeScore": 52,
       "awayScore": 17,
-      "scoreDisplay": "52–17"
+      "scoreDisplay": "52–17",
+      "endTimeUtc": "2026-09-11T20:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:81b16ee2-da40-4668-985f-be8d5c8a273f",
@@ -77603,7 +78086,9 @@
       },
       "homeScore": 33,
       "awayScore": 39,
-      "scoreDisplay": "33–39"
+      "scoreDisplay": "33–39",
+      "endTimeUtc": "2026-09-11T22:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:3e1961fb-4858-49c2-9f70-3e1bbab59f28",
@@ -77689,7 +78174,9 @@
       },
       "homeScore": 34,
       "awayScore": 50,
-      "scoreDisplay": "34–50"
+      "scoreDisplay": "34–50",
+      "endTimeUtc": "2026-09-12T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:5b056740-589a-4e2d-b78d-e24503a37fbf",
@@ -77775,7 +78262,9 @@
       },
       "homeScore": 39,
       "awayScore": 57,
-      "scoreDisplay": "39–57"
+      "scoreDisplay": "39–57",
+      "endTimeUtc": "2026-09-12T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:f314c68b-7a55-4bff-9716-e47ffa2a276d",
@@ -77861,7 +78350,9 @@
       },
       "homeScore": 57,
       "awayScore": 31,
-      "scoreDisplay": "57–31"
+      "scoreDisplay": "57–31",
+      "endTimeUtc": "2026-09-12T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:49e3a1d9-9556-4ad2-9b16-523ee162f496",
@@ -77947,7 +78438,9 @@
       },
       "homeScore": 38,
       "awayScore": 54,
-      "scoreDisplay": "38–54"
+      "scoreDisplay": "38–54",
+      "endTimeUtc": "2026-09-12T04:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:aade1ae2-dfdf-48d0-8306-339ba68cafba",
@@ -78033,7 +78526,9 @@
       },
       "homeScore": 43,
       "awayScore": 33,
-      "scoreDisplay": "43–33"
+      "scoreDisplay": "43–33",
+      "endTimeUtc": "2026-09-12T05:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:76ac1cb1-b0b2-47d3-a858-d784cd78b1f0",
@@ -78119,7 +78614,9 @@
       },
       "homeScore": 38,
       "awayScore": 31,
-      "scoreDisplay": "38–31"
+      "scoreDisplay": "38–31",
+      "endTimeUtc": "2026-09-12T05:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:e61d8830-20f8-4793-b8b1-4fbe380027e3",
@@ -78205,7 +78702,9 @@
       },
       "homeScore": 43,
       "awayScore": 45,
-      "scoreDisplay": "43–45"
+      "scoreDisplay": "43–45",
+      "endTimeUtc": "2026-09-12T05:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:8806af0c-9399-4f60-981a-ad825fa12f6c",
@@ -78291,7 +78790,9 @@
       },
       "homeScore": 34,
       "awayScore": 17,
-      "scoreDisplay": "34–17"
+      "scoreDisplay": "34–17",
+      "endTimeUtc": "2026-09-12T08:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:08d834c3-6666-4797-8a41-f661ebb21a82",
@@ -78389,7 +78890,9 @@
       },
       "homeScore": 45,
       "awayScore": 29,
-      "scoreDisplay": "45–29"
+      "scoreDisplay": "45–29",
+      "endTimeUtc": "2026-09-12T10:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:26683c5d-f3f0-442d-af1d-7549e5616cf6",
@@ -78475,7 +78978,9 @@
       },
       "homeScore": 66,
       "awayScore": 19,
-      "scoreDisplay": "66–19"
+      "scoreDisplay": "66–19",
+      "endTimeUtc": "2026-09-12T10:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:5147ecd2-57bc-4d17-af31-4b30c53fee9c",
@@ -78573,7 +79078,9 @@
       },
       "homeScore": 63,
       "awayScore": 14,
-      "scoreDisplay": "63–14"
+      "scoreDisplay": "63–14",
+      "endTimeUtc": "2026-09-12T13:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:c6694a4f-ec95-4f16-94b4-c6509721151d",
@@ -78668,7 +79175,9 @@
       },
       "homeScore": 23,
       "awayScore": 16,
-      "scoreDisplay": "23–16"
+      "scoreDisplay": "23–16",
+      "endTimeUtc": "2026-09-12T16:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:769ae841-e5a5-4415-b0dc-b55fbf84af3f",
@@ -78754,7 +79263,9 @@
       },
       "homeScore": 45,
       "awayScore": 21,
-      "scoreDisplay": "45–21"
+      "scoreDisplay": "45–21",
+      "endTimeUtc": "2026-09-12T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:8f08ae60-9133-4fe4-8141-c0badc0ad911",
@@ -78840,7 +79351,9 @@
       },
       "homeScore": 43,
       "awayScore": 26,
-      "scoreDisplay": "43–26"
+      "scoreDisplay": "43–26",
+      "endTimeUtc": "2026-09-12T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:14466666-4ff4-4050-b596-24f519ef85f6",
@@ -78926,7 +79439,9 @@
       },
       "homeScore": 24,
       "awayScore": 36,
-      "scoreDisplay": "24–36"
+      "scoreDisplay": "24–36",
+      "endTimeUtc": "2026-09-12T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:75a50d28-c323-4027-a421-0efd3ca15bc6",
@@ -79012,7 +79527,9 @@
       },
       "homeScore": 43,
       "awayScore": 29,
-      "scoreDisplay": "43–29"
+      "scoreDisplay": "43–29",
+      "endTimeUtc": "2026-09-12T17:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:ed2fde12-e32c-4bc3-bdad-48deee5e2379",
@@ -79098,7 +79615,9 @@
       },
       "homeScore": 12,
       "awayScore": 26,
-      "scoreDisplay": "12–26"
+      "scoreDisplay": "12–26",
+      "endTimeUtc": "2026-09-12T17:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:83848132-6cda-4137-8707-9badd226a668",
@@ -79184,7 +79703,9 @@
       },
       "homeScore": 25,
       "awayScore": 16,
-      "scoreDisplay": "25–16"
+      "scoreDisplay": "25–16",
+      "endTimeUtc": "2026-09-12T17:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:3fdf15a3-3e2a-4952-8986-bf7867cd0869",
@@ -79270,7 +79791,9 @@
       },
       "homeScore": 70,
       "awayScore": 28,
-      "scoreDisplay": "70–28"
+      "scoreDisplay": "70–28",
+      "endTimeUtc": "2026-09-12T17:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:17515302-4129-4671-a0d5-b7307254d4db",
@@ -79356,7 +79879,9 @@
       },
       "homeScore": 31,
       "awayScore": 48,
-      "scoreDisplay": "31–48"
+      "scoreDisplay": "31–48",
+      "endTimeUtc": "2026-09-12T17:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:1035b09b-c3d2-4c59-b6eb-065dbc471118",
@@ -79442,7 +79967,9 @@
       },
       "homeScore": 29,
       "awayScore": 14,
-      "scoreDisplay": "29–14"
+      "scoreDisplay": "29–14",
+      "endTimeUtc": "2026-09-12T18:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:4916573e-cb77-4055-93b4-d2b82c2b6e42",
@@ -79528,7 +80055,9 @@
       },
       "homeScore": 20,
       "awayScore": 21,
-      "scoreDisplay": "20–21"
+      "scoreDisplay": "20–21",
+      "endTimeUtc": "2026-09-12T22:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:d050a0a2-bb24-4bd8-9039-8fe6cb861e68",
@@ -79617,7 +80146,9 @@
       },
       "homeScore": 43,
       "awayScore": 28,
-      "scoreDisplay": "43–28"
+      "scoreDisplay": "43–28",
+      "endTimeUtc": "2026-09-12T23:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:0a554679-87f5-4906-9cee-1d3c2e3d8c14",
@@ -79703,7 +80234,9 @@
       },
       "homeScore": 24,
       "awayScore": 31,
-      "scoreDisplay": "24–31"
+      "scoreDisplay": "24–31",
+      "endTimeUtc": "2026-09-13T05:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:8acd6914-c843-457b-af07-b2d8af845dc0",
@@ -79789,7 +80322,9 @@
       },
       "homeScore": 43,
       "awayScore": 12,
-      "scoreDisplay": "43–12"
+      "scoreDisplay": "43–12",
+      "endTimeUtc": "2026-09-13T08:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:28cd45fd-6037-4102-8ba6-35fefb554af9",
@@ -79875,7 +80410,9 @@
       },
       "homeScore": 48,
       "awayScore": 12,
-      "scoreDisplay": "48–12"
+      "scoreDisplay": "48–12",
+      "endTimeUtc": "2026-09-13T22:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:b0a41590-6df6-456b-912c-0c39af13c8b0",
@@ -112071,7 +112608,9 @@
         "millis": 1788508800000,
         "gmtOffset": 9,
         "label": "2026-09-04"
-      }
+      },
+      "endTimeUtc": "2026-09-04T11:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:4db565f6-3af6-45b4-914c-92c207c3f428",
@@ -112157,7 +112696,9 @@
         "millis": 1788564900000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T02:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:567b4aa5-70cd-4dfa-8da8-44fd8aaab1b4",
@@ -112243,7 +112784,9 @@
         "millis": 1788570300000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T04:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:bb358e59-16d1-4fa9-aa95-b00c3d43e866",
@@ -112329,7 +112872,9 @@
         "millis": 1788573900000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T05:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:d3bf1015-71ac-43b4-8950-7b9b011c021e",
@@ -112415,7 +112960,9 @@
         "millis": 1788573900000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T05:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:8de44247-f6c0-430e-a2fe-9bef016ed3af",
@@ -112501,7 +113048,9 @@
         "millis": 1788584700000,
         "gmtOffset": 12,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T08:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:7ca7b3ee-4774-42ec-8fee-e412ccc15d08",
@@ -112590,7 +113139,9 @@
         "millis": 1788607800000,
         "gmtOffset": 2,
         "label": "2026-09-05"
-      }
+      },
+      "endTimeUtc": "2026-09-05T14:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:0fc5cf87-130f-432c-8b93-1211530ff794",
@@ -112676,7 +113227,9 @@
         "millis": 1788651300000,
         "gmtOffset": 12,
         "label": "2026-09-06"
-      }
+      },
+      "endTimeUtc": "2026-09-06T02:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:893f1950-7f15-41c0-8e44-96e29293a0db",
@@ -112762,7 +113315,9 @@
       },
       "homeScore": 58,
       "awayScore": 11,
-      "scoreDisplay": "58–11"
+      "scoreDisplay": "58–11",
+      "endTimeUtc": "2026-09-11T08:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:b85003b6-025c-44cd-9bef-6c1f19ec7a2b",
@@ -112848,7 +113403,9 @@
       },
       "homeScore": 46,
       "awayScore": 26,
-      "scoreDisplay": "46–26"
+      "scoreDisplay": "46–26",
+      "endTimeUtc": "2026-09-12T02:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:5c894a8b-cc33-4937-8e9a-6217bf5363a6",
@@ -112934,7 +113491,9 @@
       },
       "homeScore": 78,
       "awayScore": 5,
-      "scoreDisplay": "78–5"
+      "scoreDisplay": "78–5",
+      "endTimeUtc": "2026-09-12T05:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:76a72a04-3eb0-47d0-aa32-9f03b139646f",
@@ -113020,7 +113579,9 @@
       },
       "homeScore": 27,
       "awayScore": 14,
-      "scoreDisplay": "27–14"
+      "scoreDisplay": "27–14",
+      "endTimeUtc": "2026-09-12T05:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:22056030-c322-43e1-9705-5fff0cbfdde2",
@@ -113109,7 +113670,9 @@
       },
       "homeScore": 48,
       "awayScore": 15,
-      "scoreDisplay": "48–15"
+      "scoreDisplay": "48–15",
+      "endTimeUtc": "2026-09-12T17:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:92a14187-59f1-4cb5-bf6a-4b6cf9834e32",
@@ -113198,7 +113761,9 @@
       },
       "homeScore": 26,
       "awayScore": 64,
-      "scoreDisplay": "26–64"
+      "scoreDisplay": "26–64",
+      "endTimeUtc": "2026-09-12T18:10:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:d2d9bfbb-1cf6-4f6b-a4a9-dcd130f6387c",
@@ -113287,7 +113852,9 @@
       },
       "homeScore": 14,
       "awayScore": 28,
-      "scoreDisplay": "14–28"
+      "scoreDisplay": "14–28",
+      "endTimeUtc": "2026-09-12T18:45:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:bf632c25-9000-48cc-94c7-5ce564ea4a1f",
@@ -113373,7 +113940,9 @@
       },
       "homeScore": 37,
       "awayScore": 29,
-      "scoreDisplay": "37–29"
+      "scoreDisplay": "37–29",
+      "endTimeUtc": "2026-09-13T02:35:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:e93cc5bb-037e-44d4-8966-9a01f7070bfe",
@@ -113459,7 +114028,9 @@
       },
       "homeScore": 17,
       "awayScore": 50,
-      "scoreDisplay": "17–50"
+      "scoreDisplay": "17–50",
+      "endTimeUtc": "2026-09-13T05:05:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:1cd0d853-6ee9-49dc-8b84-5df161346bbf",
@@ -113548,7 +114119,9 @@
       },
       "homeScore": 32,
       "awayScore": 38,
-      "scoreDisplay": "32–38"
+      "scoreDisplay": "32–38",
+      "endTimeUtc": "2026-09-13T07:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:f5e41027-a597-4c37-94fe-33d8e5b2e218",
@@ -113636,7 +114209,9 @@
       },
       "homeScore": 29,
       "awayScore": 24,
-      "scoreDisplay": "29–24"
+      "scoreDisplay": "29–24",
+      "endTimeUtc": "2026-09-13T10:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:cfd56f9d-de81-4395-ad01-2f5a4b87724b",
@@ -113725,7 +114300,9 @@
       },
       "homeScore": 70,
       "awayScore": 0,
-      "scoreDisplay": "70–0"
+      "scoreDisplay": "70–0",
+      "endTimeUtc": "2026-09-13T14:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:665d571f-0e30-4731-8b85-9924ba19301d",
@@ -123474,15 +124051,15 @@
       ],
       "homeParticipantId": "team:cricket:zimbabwe",
       "awayParticipantId": "team:cricket:australia",
-      "status": "scheduled",
-      "scoreDisplay": null,
+      "status": "completed",
+      "scoreDisplay": "Australia won by 59 runs",
       "innings": [],
       "format": "ODI",
       "numberOfDays": 1,
-      "sourceName": "Cricket Australia",
+      "sourceName": "Reuters / Rediff",
       "sourceType": "official",
-      "sourceUrl": "https://www.cricket.com.au/matches/",
-      "sourceCheckedAt": "2026-09-15T04:25:51.960Z",
+      "sourceUrl": "https://www.rediff.com/cricket/report/renshaw-hits-maiden-odi-ton-as-ellis-destroys-zimbabwe/20260915.htm",
+      "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
       "timingProvenance": {
         "kind": "official",
         "sourceUrl": "https://www.cricket.com.au/matches/",
@@ -123498,7 +124075,15 @@
       "broadcasterIds": [],
       "broadcasts": [],
       "viewingOptions": [],
-      "consensusTags": []
+      "consensusTags": [],
+      "score": "Australia won by 59 runs",
+      "outcomeText": "Australia defeated Zimbabwe by 59 runs.",
+      "sourceTrust": "verified",
+      "sourceRefs": [
+        "https://www.rediff.com/cricket/report/renshaw-hits-maiden-odi-ton-as-ellis-destroys-zimbabwe/20260915.htm",
+        "https://www.cricket.com.au/matches/"
+      ],
+      "stakesScore": 5
     },
     {
       "id": "fixture:cricket:CA:39469",
@@ -135532,7 +136117,9 @@
       "broadcasterIds": [],
       "broadcasts": [],
       "viewingOptions": [],
-      "consensusTags": []
+      "consensusTags": [],
+      "endTimeUtc": "2026-09-12T06:30:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:71abfed5-b911-4a4e-abb2-634a68ec0eef",
@@ -135618,7 +136205,9 @@
       "broadcasterIds": [],
       "broadcasts": [],
       "viewingOptions": [],
-      "consensusTags": []
+      "consensusTags": [],
+      "endTimeUtc": "2026-09-13T07:00:00.000Z",
+      "endTimeBasis": "scheduled-live-window"
     },
     {
       "id": "fixture:rugby:wr:09374ddd-b606-4ff5-a229-78c2c361358d",
