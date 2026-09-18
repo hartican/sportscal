@@ -248,11 +248,11 @@
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Serena Williams / Carlos Alcaraz and Erin Routliffe / Lloyd Glasspool meet at the first elimination point of the Mixed doubles path.",
-            "hookSpoilerOn": "Serena Williams / Carlos Alcaraz and Erin Routliffe / Lloyd Glasspool meet at the first elimination point of the Mixed doubles path.",
-            "synopsisSpoilerOff": "Serena Williams / Carlos Alcaraz and Erin Routliffe / Lloyd Glasspool meet at the first elimination point of the Mixed doubles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
-            "synopsisSpoilerOn": "Serena Williams / Carlos Alcaraz and Erin Routliffe / Lloyd Glasspool meet at the first elimination point of the Mixed doubles path. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Serena Williams / Carlos Alcaraz v Erin Routliffe / Lloyd Glasspool is complete. Reveal results for the outcome.",
+            "hookSpoilerOn": "Williams / Alcaraz 5-3, 4-1 Routliffe / Glasspool",
+            "synopsisSpoilerOff": "Serena Williams / Carlos Alcaraz v Erin Routliffe / Lloyd Glasspool is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOn": "Williams / Alcaraz 5-3, 4-1 Routliffe / Glasspool",
+            "arcStage": "recap"
           },
           "endTimeUtc": "2026-08-25T21:00:00.000Z",
           "endTimeBasis": "scheduled-live-window"
@@ -380,11 +380,11 @@
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Serena Williams / Carlos Alcaraz and Belinda Bencic / Flavio Cobolli are two wins from the Mixed doubles title, with a semifinal place decided here.",
-            "hookSpoilerOn": "Serena Williams / Carlos Alcaraz and Belinda Bencic / Flavio Cobolli are two wins from the Mixed doubles title, with a semifinal place decided here.",
-            "synopsisSpoilerOff": "Serena Williams / Carlos Alcaraz and Belinda Bencic / Flavio Cobolli are two wins from the Mixed doubles title, with a semifinal place decided here. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
-            "synopsisSpoilerOn": "Serena Williams / Carlos Alcaraz and Belinda Bencic / Flavio Cobolli are two wins from the Mixed doubles title, with a semifinal place decided here. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Serena Williams / Carlos Alcaraz v Belinda Bencic / Flavio Cobolli is complete. Reveal results for the outcome.",
+            "hookSpoilerOn": "Bencic / Cobolli 5-4(4), 4-1 Williams / Alcaraz",
+            "synopsisSpoilerOff": "Serena Williams / Carlos Alcaraz v Belinda Bencic / Flavio Cobolli is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOn": "Bencic / Cobolli 5-4(4), 4-1 Williams / Alcaraz",
+            "arcStage": "recap"
           }
         },
         {
@@ -503,11 +503,11 @@
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Roger Federer and Andy Roddick turn the legends exhibition into a live reprise rather than a ceremonial appearance.",
-            "hookSpoilerOn": "Roger Federer and Andy Roddick turn the legends exhibition into a live reprise rather than a ceremonial appearance.",
-            "synopsisSpoilerOff": "Roger Federer and Andy Roddick turn the legends exhibition into a live reprise rather than a ceremonial appearance. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
-            "synopsisSpoilerOn": "Roger Federer and Andy Roddick turn the legends exhibition into a live reprise rather than a ceremonial appearance. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Roger Federer v Andy Roddick is complete. Reveal results for the outcome.",
+            "hookSpoilerOn": "Federer 6-3 Roddick",
+            "synopsisSpoilerOff": "Roger Federer v Andy Roddick is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOn": "Federer 6-3 Roddick",
+            "arcStage": "recap"
           },
           "endTimeUtc": "2026-08-26T03:00:00.000Z",
           "endTimeBasis": "scheduled-live-window"
@@ -644,11 +644,11 @@
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Roger Federer / John McEnroe and Andy Roddick / Andre Agassi turn the legends exhibition into a live reprise rather than a ceremonial appearance.",
-            "hookSpoilerOn": "Roger Federer / John McEnroe and Andy Roddick / Andre Agassi turn the legends exhibition into a live reprise rather than a ceremonial appearance.",
-            "synopsisSpoilerOff": "Roger Federer / John McEnroe and Andy Roddick / Andre Agassi turn the legends exhibition into a live reprise rather than a ceremonial appearance. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
-            "synopsisSpoilerOn": "Roger Federer / John McEnroe and Andy Roddick / Andre Agassi turn the legends exhibition into a live reprise rather than a ceremonial appearance. Alexander Zverev now heads a men's draw whose five former champions all sit in the bottom half, including returning defending champion Carlos Alcaraz. In the women's event, Aryna Sabalenka is chasing a third straight title; alongside that individual history sits the longer American men's drought, unbroken since Andy Roddick in 2003.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Roger Federer / John McEnroe v Andy Roddick / Andre Agassi is complete. Reveal results for the outcome.",
+            "hookSpoilerOn": "7-5",
+            "synopsisSpoilerOff": "Roger Federer / John McEnroe v Andy Roddick / Andre Agassi is complete. Reveal results for the outcome.",
+            "synopsisSpoilerOn": "7-5",
+            "arcStage": "recap"
           }
         },
         {
