@@ -1,0 +1,90 @@
+{
+  "entries": [
+    {
+      "id": "fixture:cricket:espn:1530204",
+      "title": "Zimbabwe v Australia - 2nd ODI",
+      "hook": "Australia's middle-order auditions meet Raza's experienced Zimbabwe side in Harare.",
+      "synopsis": "With the 2027 World Cup approaching, Australia are looking for a settled middle order after several senior retirements. Zimbabwe offer a useful examination in familiar conditions: Sikandar Raza leads in Richard Ngarava's injury absence, with Brendan Taylor and Graeme Cremer back in the squad. Watch the contest between Australia's developing batting combinations and Zimbabwe's varied attack.",
+      "sources": [
+        "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+        "https://www.icc-cricket.com/news/zimbabwe-name-squad-for-odi-series-against-australia",
+        "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026"
+      ],
+      "researchedAt": "2026-09-17T23:48:28.758Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "path",
+          "statement": "Zimbabwe will co-host the 2027 ODI World Cup.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Raza captains with Ngarava injured; Taylor and Cremer return.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Australia are rebuilding their middle order after senior retirements.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The second and third ODIs are on 18 and 20 September in Harare.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1530205",
+      "title": "Zimbabwe v Australia - 3rd ODI",
+      "hook": "Harare offers one last examination before Australia move on to South Africa.",
+      "synopsis": "The third ODI closes this Zimbabwe leg of Australia's World Cup preparation. Selection opportunities remain part of the bigger picture, while the hosts are building towards a tournament they will co-host. Zimbabwe's experienced core and Blessing Muzarabani's pace give Australia more to solve than a routine final outing.",
+      "sources": [
+        "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+        "https://www.icc-cricket.com/news/zimbabwe-name-squad-for-odi-series-against-australia",
+        "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026"
+      ],
+      "researchedAt": "2026-09-17T23:48:28.764Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "path",
+          "statement": "Zimbabwe will co-host the 2027 ODI World Cup.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Raza captains with Ngarava injured; Taylor and Cremer return.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Australia are rebuilding their middle order after senior retirements.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The second and third ODIs are on 18 and 20 September in Harare.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    }
+  ]
+}

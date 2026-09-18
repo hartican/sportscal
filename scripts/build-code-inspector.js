@@ -22,6 +22,14 @@ const canonicalChampionsLeague = require("../data/canonical/uefa-champions-leagu
 const canonicalFinals = require("../data/canonical/afl-nrl-finals-2026.json");
 const majorEvents = require("../data/major-events.v1.json");
 const coverage = require("../data/follow-sources/coverage.v1.json");
+const editorialNarrative = require('./lib/editorial-narrative');
+const editorialKnowledge = require('../data/editorial-knowledge.v1.json');
+const editorialIndexes = editorialNarrative.indexesFor(editorialKnowledge);
+const fixtureEditorial = new Map();
+for (const projection of editorialKnowledge.eventProjections || []) {
+  if (projection.targetType !== 'feed-event') continue;
+  for (const id of projection.targetIds || []) fixtureEditorial.set(id, projection);
+}
 const crossDisciplineFixtures=require('../lib/athlete-participation').materializeParticipation(require('../data/canonical/athlete-participation.v1.json'));
 const canonicalParticipantNames = new Map((canonicalAflNrl.participants || []).map(participant => [
   participant.id,
@@ -378,7 +386,13 @@ function codeFixtures(code){
           ? canonicalWrc.events || []
         : [];
   const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
-  return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme], code.id, new Set([...canonical,...sourced]));
+  return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme], code.id, new Set([...canonical,...sourced])).map(fixture => {
+    const projection = [fixture.id,...(fixture.sourceEventIds || [])].map(id=>fixtureEditorial.get(id)).find(Boolean);
+    if (!projection) return fixture;
+    const enriched = editorialNarrative.applyToFeedEvent(fixture, projection, editorialIndexes);
+    // Editorial must not replace fixture-source provenance or admission fields.
+    return {...fixture, editorialNarrative:enriched.editorialNarrative, editorialPreview:enriched.editorialPreview, storyline:enriched.storyline};
+  });
 }
 
 function groupingMode(fixtures){
