@@ -263,7 +263,8 @@
       "score": "Zverev 6-3, 7-6(2), 5-7, 6-2 Shelton",
       "outcomeText": "Alexander Zverev defeated Ben Shelton in four sets.",
       "sourceName": "US Open",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule22.json"
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule22.json",
+      "status": "completed"
     },
     {
       "id": "fixture-us-open-2026-official-ws-2701",
@@ -273,7 +274,17 @@
       "score": "Sabalenka 4-6, 7-5, 2-6 Rybakina",
       "outcomeText": "Elena Rybakina defeated Aryna Sabalenka in three sets.",
       "sourceName": "US Open",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule21.json"
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule21.json",
+      "status": "completed"
+    },
+    {
+      "id": "fixture:cricket:espn:1530203",
+      "status": "completed",
+      "score": "Australia won by 59 runs",
+      "scoreDisplay": "Australia won by 59 runs",
+      "outcomeText": "Australia defeated Zimbabwe by 59 runs.",
+      "sourceName": "Reuters / Rediff",
+      "sourceUrl": "https://www.rediff.com/cricket/report/renshaw-hits-maiden-odi-ton-as-ellis-destroys-zimbabwe/20260915.htm"
     }
   ]
 }

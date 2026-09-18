@@ -15,9 +15,16 @@
       "venue": "SCG",
       "roundLabel": "Preliminary Finals",
       "stage": "Preliminary Final",
-      "participantIds": ["team:afl:cd_t160", "team:afl:cd_t60"],
+      "participantIds": [
+        "team:afl:cd_t160",
+        "team:afl:cd_t60"
+      ],
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports / Binge",
-      "broadcasterIds": ["seven", "foxtel", "kayo"],
+      "broadcasterIds": [
+        "seven",
+        "foxtel",
+        "kayo"
+      ],
       "sourceName": "AFL",
       "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
       "broadcastSourceUrl": "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
@@ -35,9 +42,16 @@
       "venue": "MCG",
       "roundLabel": "Preliminary Finals",
       "stage": "Preliminary Final",
-      "participantIds": ["team:afl:cd_t80", "team:afl:cd_t20"],
+      "participantIds": [
+        "team:afl:cd_t80",
+        "team:afl:cd_t20"
+      ],
       "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports / Binge",
-      "broadcasterIds": ["seven", "foxtel", "kayo"],
+      "broadcasterIds": [
+        "seven",
+        "foxtel",
+        "kayo"
+      ],
       "sourceName": "AFL",
       "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
       "broadcastSourceUrl": "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
@@ -55,9 +69,16 @@
       "venue": "Allianz Stadium",
       "roundLabel": "Semi Final",
       "stage": "Semi Final",
-      "participantIds": ["team:nrl:331", "team:nrl:333"],
+      "participantIds": [
+        "team:nrl:331",
+        "team:nrl:333"
+      ],
       "broadcaster": "Nine / 9Now, Fox League / Kayo Sports",
-      "broadcasterIds": ["nine", "foxtel", "kayo"],
+      "broadcasterIds": [
+        "nine",
+        "foxtel",
+        "kayo"
+      ],
       "sourceName": "NRL",
       "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/"
     },
@@ -74,9 +95,16 @@
       "venue": "Eden Park",
       "roundLabel": "Semi Final",
       "stage": "Semi Final",
-      "participantIds": ["team:nrl:321", "team:nrl:325"],
+      "participantIds": [
+        "team:nrl:321",
+        "team:nrl:325"
+      ],
       "broadcaster": "Nine / 9Now, Fox League / Kayo Sports",
-      "broadcasterIds": ["nine", "foxtel", "kayo"],
+      "broadcasterIds": [
+        "nine",
+        "foxtel",
+        "kayo"
+      ],
       "sourceName": "NRL",
       "sourceUrl": "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/"
     }
@@ -89,7 +117,8 @@
       "score": "Sharks 26-16 Cowboys",
       "outcomeText": "Sharks defeated Cowboys 26-16.",
       "sourceName": "NRL",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/"
+      "sourceUrl": "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/",
+      "status": "completed"
     },
     {
       "id": "major-match-nrl-finals-2026-qualifying-final-1",
@@ -98,7 +127,8 @@
       "score": "Panthers 19-12 Roosters",
       "outcomeText": "Panthers defeated Roosters 19-12.",
       "sourceName": "NRL",
-      "sourceUrl": "https://www.nrl.com/news/2026/09/13/finals-blockbuster-panthers-v-roosters/"
+      "sourceUrl": "https://www.nrl.com/news/2026/09/13/finals-blockbuster-panthers-v-roosters/",
+      "status": "completed"
     },
     {
       "id": "fixture-us-open-2026-official-ms-1701",
@@ -109,7 +139,8 @@
       "score": "Zverev 6-3, 7-6(2), 5-7, 6-2 Shelton",
       "outcomeText": "Alexander Zverev defeated Ben Shelton in four sets.",
       "sourceName": "US Open",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule22.json"
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule22.json",
+      "status": "completed"
     },
     {
       "id": "fixture-us-open-2026-official-ws-2701",
@@ -120,7 +151,8 @@
       "score": "Sabalenka 4-6, 7-5, 2-6 Rybakina",
       "outcomeText": "Elena Rybakina defeated Aryna Sabalenka in three sets.",
       "sourceName": "US Open",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule21.json"
+      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule21.json",
+      "status": "completed"
     },
     {
       "id": "evt_motogp_2026_san_marino",
@@ -136,14 +168,32 @@
       "outcomeText": "Marc Marquez won the San Marino Grand Prix.",
       "sourceName": "MotoGP",
       "sourceUrl": "https://stats.motogp.com/en/gp-results",
-      "scheduleSourceUrl": "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181"
+      "scheduleSourceUrl": "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181",
+      "status": "completed"
+    },
+    {
+      "id": "fixture:cricket:espn:1530203",
+      "canonicalId": "fixture:cricket:CA:40288",
+      "status": "completed",
+      "score": "Australia won by 59 runs",
+      "scoreDisplay": "Australia won by 59 runs",
+      "outcomeText": "Australia defeated Zimbabwe by 59 runs.",
+      "sourceName": "Reuters / Rediff",
+      "sourceUrl": "https://www.rediff.com/cricket/report/renshaw-hits-maiden-odi-ton-as-ellis-destroys-zimbabwe/20260915.htm"
     }
   ],
   "broadcastOverrides": [
     {
-      "ids": ["fixture:cricket:espn:1530203", "fixture:cricket:espn:1530204", "fixture:cricket:espn:1530205"],
+      "ids": [
+        "fixture:cricket:espn:1530203",
+        "fixture:cricket:espn:1530204",
+        "fixture:cricket:espn:1530205"
+      ],
       "broadcaster": "Fox Cricket / Foxtel / Kayo Sports",
-      "broadcasterIds": ["foxtel", "kayo"],
+      "broadcasterIds": [
+        "foxtel",
+        "kayo"
+      ],
       "viewingOptions": [
         {
           "providerId": "kayo",

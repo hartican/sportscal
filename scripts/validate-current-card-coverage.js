@@ -25,7 +25,7 @@ for(const expected of evidence.fixtureOverrides){
   assert.deepEqual(record.participantIds, expected.participantIds, `${expected.name} participants drifted`);
 }
 for(const expected of evidence.resultOverrides){
-  const record = published.find(item => matches(item, expected)) || tennis.find(item => matches(item, expected));
+  const record = published.find(item => matches(item, expected)) || tennis.find(item => matches(item, expected)) || cricket.find(item => matches(item, expected));
   assert(record, `${expected.id} is missing from published or followed fixtures`);
   assert.equal(record.status, "completed", `${expected.id} must be completed`);
   if(expected.canonicalId?.startsWith("fixture:us-open")){
