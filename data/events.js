@@ -39959,8 +39959,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:event-afl-cd_m20260142802",
       "researchTier": "marquee",
-      "hook": "Sydney have home ground and a week to prepare; minor premier Fremantle must earn its Grand Final place away.",
-      "synopsis": "The SCG brings together two different finals routes: Sydney arrive rested, while Fremantle have come through the semi-final weekend. Luke Jackson and Shai Bolton give the Dockers big-stage experience. Friday decides who takes the first place in the Grand Final; there is no remaining safety net.",
+      "hook": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+      "synopsis": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
       "threadIds": [
         "thread:fixture-research:event-afl-cd_m20260142802"
       ],
@@ -39987,10 +39987,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "Sydney have home ground and a week to prepare; minor premier Fremantle must earn its Grand Final place away.",
-      "hookSpoilerOn": "Sydney have home ground and a week to prepare; minor premier Fremantle must earn its Grand Final place away.",
-      "synopsisSpoilerOff": "The SCG brings together two different finals routes: Sydney arrive rested, while Fremantle have come through the semi-final weekend. Luke Jackson and Shai Bolton give the Dockers big-stage experience. Friday decides who takes the first place in the Grand Final; there is no remaining safety net.",
-      "synopsisSpoilerOn": "The SCG brings together two different finals routes: Sydney arrive rested, while Fremantle have come through the semi-final weekend. Luke Jackson and Shai Bolton give the Dockers big-stage experience. Friday decides who takes the first place in the Grand Final; there is no remaining safety net.",
+      "hookSpoilerOff": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+      "hookSpoilerOn": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+      "synopsisSpoilerOff": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
+      "synopsisSpoilerOn": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
       "arcStage": "preview",
       "intensity": 5,
       "expectedSpectacle": 10,
@@ -40037,8 +40037,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
       "needsPreviewRefresh": false
     },
-    "selectedSentence": "Sydney have home ground and a week to prepare; minor premier Fremantle must earn its Grand Final place away.",
-    "fullSpiel": "The SCG brings together two different finals routes: Sydney arrive rested, while Fremantle have come through the semi-final weekend. Luke Jackson and Shai Bolton give the Dockers big-stage experience. Friday decides who takes the first place in the Grand Final; there is no remaining safety net.",
+    "selectedSentence": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+    "fullSpiel": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
     "lastReviewedAt": "2026-09-17T23:22:14.102Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142802",
@@ -40822,8 +40822,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:fixture-research:event-afl-cd_m20260142801",
       "researchTier": "marquee",
-      "hook": "A rested Hawthorn stands between Brisbane and another shot at three straight flags.",
-      "synopsis": "Hawthorn earned the week off and now get the MCG. Brisbane bring the experience of the past two premierships and eight wins from their last ten games at the ground. The Hawks must turn their preparation advantage into sustained pressure; the Lions must keep their three-peat bid alive in another elimination game.",
+      "hook": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+      "synopsis": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
       "threadIds": [
         "thread:fixture-research:event-afl-cd_m20260142801"
       ],
@@ -40850,10 +40850,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "A rested Hawthorn stands between Brisbane and another shot at three straight flags.",
-      "hookSpoilerOn": "A rested Hawthorn stands between Brisbane and another shot at three straight flags.",
-      "synopsisSpoilerOff": "Hawthorn earned the week off and now get the MCG. Brisbane bring the experience of the past two premierships and eight wins from their last ten games at the ground. The Hawks must turn their preparation advantage into sustained pressure; the Lions must keep their three-peat bid alive in another elimination game.",
-      "synopsisSpoilerOn": "Hawthorn earned the week off and now get the MCG. Brisbane bring the experience of the past two premierships and eight wins from their last ten games at the ground. The Hawks must turn their preparation advantage into sustained pressure; the Lions must keep their three-peat bid alive in another elimination game.",
+      "hookSpoilerOff": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+      "hookSpoilerOn": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+      "synopsisSpoilerOff": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
+      "synopsisSpoilerOn": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
       "arcStage": "preview",
       "intensity": 5,
       "expectedSpectacle": 10,
@@ -40900,8 +40900,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
       "needsPreviewRefresh": false
     },
-    "selectedSentence": "A rested Hawthorn stands between Brisbane and another shot at three straight flags.",
-    "fullSpiel": "Hawthorn earned the week off and now get the MCG. Brisbane bring the experience of the past two premierships and eight wins from their last ten games at the ground. The Hawks must turn their preparation advantage into sustained pressure; the Lions must keep their three-peat bid alive in another elimination game.",
+    "selectedSentence": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+    "fullSpiel": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
     "lastReviewedAt": "2026-09-17T23:22:14.102Z",
     "sourceEventIds": [
       "event:afl:cd_m20260142801",

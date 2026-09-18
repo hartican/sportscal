@@ -37,5 +37,8 @@ vm.runInContext(extract('function mergeCanonicalEventPages(', 'function applyFee
   assert(rendered,'Open feed must rerender after schedule refresh');
   const worker=fs.readFileSync(root+'/service-worker.js','utf8');
   assert(worker.includes('(?:code-inspector|follow-schedule)'),'Schedule must use network-first worker route');
+  assert(worker.includes("data/feed-meta.json"),"Feed manifest must use a fresh worker route");
+  assert(worker.includes("data/feed/"),"Feed pages must use a fresh worker route");
+  assert(worker.includes("fresh:true"),"Published feed must bypass stale service-worker responses");
   console.log('Installed-app schedule regression passed: fresh ODI editorial replaces hydrated and active stale copies and triggers render.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

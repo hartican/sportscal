@@ -13,6 +13,35 @@ function weekend(now=new Date()){
   return {from,to:date.toISOString().slice(0,10)};
 }
 function selected(events,range){return events.filter(e=>e.date>=range.from&&e.date<=range.to&&Number(e.storyline?.stakes??e.stakesScore)>=4&&Number(e.storyline?.stakes??e.stakesScore)<=5);}
+function participantNames(event){
+  return [...new Set((event.participants||[]).flatMap(participant=>[
+    participant.name,participant.displayName,...(participant.aliases||[]),
+  ]).filter(Boolean).map(String))];
+}
+function mentions(text,name){
+  const copy=String(text||'').toLowerCase();
+  return [name,...(name.split(/\s+/).length>1?[name.split(/\s+/)[0]]:[])].some(alias=>
+    new RegExp(`\\b${String(alias).replace(/[.*+?^${}()|[\]\\]/g,'\\$&').toLowerCase()}\\b`).test(copy)
+  );
+}
+function validateEditorialFocus(cards,research){
+  const byCompetition=new Map();
+  cards.forEach(card=>{const key=card.competitionId||card.key||'unknown';const group=byCompetition.get(key)||[];group.push(card);byCompetition.set(key,group);});
+  const fingerprints=new Set();
+  for(const entry of research.entries){
+    const card=cards.find(candidate=>candidate.id===entry.id);if(!card)continue;
+    const group=byCompetition.get(card.competitionId||card.key||'unknown')||[];
+    const ownNames=new Set(participantNames(card).map(name=>name.toLowerCase()));
+    const opponents=group.filter(candidate=>candidate.id!==card.id).flatMap(participantNames)
+      .filter(name=>!ownNames.has(name.toLowerCase()));
+    const copy=`${entry.hook} ${entry.synopsis}`;
+    const unrelated=[...new Set(opponents.filter(name=>mentions(copy,name)))];
+    assert.equal(unrelated.length,0,`${entry.id} editorial mentions other selected teams: ${unrelated.join(', ')}`);
+    const fingerprint=`${entry.hook}\u0000${entry.synopsis}`;
+    assert(!fingerprints.has(fingerprint),`${entry.id} duplicates another selected card's editorial.`);
+    fingerprints.add(fingerprint);
+  }
+}
 function main(args){
   const range=weekend(),published=read('data/events.json');
   const catalogue=require('../config/fixture-identity').mergeOverlays(read('data/follow-sources/coverage.v1.json').events,read('data/discovery/enrichment.v1.json').events);
@@ -32,6 +61,7 @@ function main(args){
   assert.equal(research.entries.length,ids.size,'Research must cover every qualifying card exactly once.');
   assert.equal(new Set(research.entries.map(e=>e.id)).size,ids.size,'Duplicate research IDs.');
   for(const entry of research.entries){assert(ids.has(entry.id),'Out-of-scope research: '+entry.id);assert(entry.sources?.length&&entry.facts?.length>=3,'Source-backed research facts required.');assert(Date.now()-Date.parse(entry.researchedAt)<72*3600000&&Date.parse(entry.researchedAt)<=Date.now()+60000,'Research must be fresh.');}
+  validateEditorialFocus(cards,research);
   if(/^[a-z0-9-]+$/.test(published.version)&&cards.every(e=>{const r=research.entries.find(r=>r.id===e.id);return e.editorialNarrative?.hook===r.hook&&e.editorialNarrative?.synopsis===r.synopsis;})){console.log('Weekend editorial unchanged; no release required.');return;}
   const incoming=read('feeds/incoming/events.json'),major=read('data/major-events.v1.json');
   const result=apply(knowledge,{...published,events:structuredClone(candidates)},major,research);

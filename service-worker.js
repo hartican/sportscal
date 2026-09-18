@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v273";
-const SHELL_VERSION = "273";
+const CACHE_NAME = "nothingsport-shell-v274";
+const SHELL_VERSION = "274";
 const APP_SHELL = [
   "/assets/js/app-update.js?v=254",
   // Navigations already share /index.html below; do not download/cache its
@@ -11,20 +11,20 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=273",
+  "/assets/styles/nothingsport-foundation.css?v=274",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=273",
-  "/assets/js/nsc-rankings-ui.js?v=273",
-  "/assets/styles/nsc-ladder.css?v=273",
-  "/assets/styles/card-clarity.css?v=273",
-  "/config/follow-directory-worker.js?v=273",
+  "/assets/js/app-shell-runtime.js?v=274",
+  "/assets/js/nsc-rankings-ui.js?v=274",
+  "/assets/styles/nsc-ladder.css?v=274",
+  "/assets/styles/card-clarity.css?v=274",
+  "/config/follow-directory-worker.js?v=274",
   "/config/calendar-selection.js",
   "/config/sport-hierarchy.js",
   "/config/event-taxonomy-compat.js",
   "/config/preference-taxonomy.js",
   "/config/follow-summary.js",
   "/assets/identities/events/le-mans-24-hours.png",
-  "/styles/follow-feed-rework.css?v=273",
+  "/styles/follow-feed-rework.css?v=274",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/tennis-coverage.js",
@@ -233,10 +233,10 @@ async function cacheFirst(request, cacheKey = request){
   return response;
 }
 
-async function networkFirst(request, event, cacheKey = request){
+async function networkFirst(request, event, cacheKey = request, { fresh = false } = {}){
   const cache = await caches.open(CACHE_NAME);
   try{
-    const response = await fetch(request);
+    const response = await fetch(fresh ? new Request(request, { cache:"no-store" }) : request);
     if (response.ok) event.waitUntil(cache.put(cacheKey, response.clone()));
     return response;
   }catch(_error){
@@ -282,8 +282,12 @@ self.addEventListener("fetch", event => {
     event.respondWith(fetch(event.request));
     return;
   }
+  if (requestUrl.pathname === "/data/feed-meta.json" || /^\/data\/feed\//.test(requestUrl.pathname)){
+    event.respondWith(networkFirst(event.request, event, cacheKey, { fresh:true }));
+    return;
+  }
   if (/^\/data\/(?:code-inspector|follow-schedule)\//.test(requestUrl.pathname)){
-    event.respondWith(networkFirst(event.request, event, cacheKey));
+    event.respondWith(networkFirst(event.request, event, cacheKey, { fresh:true }));
     return;
   }
   if (/^\/data\/(?:feed|canonical|football|follow-directory)\//.test(requestUrl.pathname)){

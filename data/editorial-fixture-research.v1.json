@@ -842,8 +842,8 @@
     {
       "id": "event-afl-cd_m20260142802",
       "title": "Sydney Swans v Fremantle",
-      "hook": "Sydney have home ground and a week to prepare; minor premier Fremantle must earn its Grand Final place away.",
-      "synopsis": "The SCG brings together two different finals routes: Sydney arrive rested, while Fremantle have come through the semi-final weekend. Luke Jackson and Shai Bolton give the Dockers big-stage experience. Friday decides who takes the first place in the Grand Final; there is no remaining safety net.",
+      "hook": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+      "synopsis": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
       "sources": [
         "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
         "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed",
@@ -854,7 +854,7 @@
       "facts": [
         {
           "dimension": "matchup",
-          "statement": "Sydney have home ground and a week to prepare; minor premier Fremantle must earn its Grand Final place away.",
+          "statement": "Sydney host Fremantle at the SCG with a Grand Final place on the line.",
           "sourceIndexes": [
             0,
             1
@@ -862,14 +862,14 @@
         },
         {
           "dimension": "form",
-          "statement": "The SCG brings together two different finals routes: Sydney arrive rested, while Fremantle have come through the semi-final weekend.",
+          "statement": "Sydney have a week to prepare, while Fremantle arrive from a semi-final win.",
           "sourceIndexes": [
             0
           ]
         },
         {
           "dimension": "path",
-          "statement": "Luke Jackson and Shai Bolton give the Dockers big-stage experience. Friday decides who takes the first place in the Grand Final; there is no remaining safety net.",
+          "statement": "The winner advances to the Grand Final and the loser is eliminated.",
           "sourceIndexes": [
             0,
             1
@@ -887,8 +887,8 @@
     {
       "id": "event-afl-cd_m20260142801",
       "title": "Hawthorn v Brisbane Lions",
-      "hook": "A rested Hawthorn stands between Brisbane and another shot at three straight flags.",
-      "synopsis": "Hawthorn earned the week off and now get the MCG. Brisbane bring the experience of the past two premierships and eight wins from their last ten games at the ground. The Hawks must turn their preparation advantage into sustained pressure; the Lions must keep their three-peat bid alive in another elimination game.",
+      "hook": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+      "synopsis": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
       "sources": [
         "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
         "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed",
@@ -899,7 +899,7 @@
       "facts": [
         {
           "dimension": "matchup",
-          "statement": "A rested Hawthorn stands between Brisbane and another shot at three straight flags.",
+          "statement": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
           "sourceIndexes": [
             0,
             1
@@ -907,14 +907,14 @@
         },
         {
           "dimension": "form",
-          "statement": "Hawthorn earned the week off and now get the MCG.",
+          "statement": "Hawthorn have a week to prepare before hosting Brisbane at the MCG.",
           "sourceIndexes": [
             0
           ]
         },
         {
           "dimension": "path",
-          "statement": "Brisbane bring the experience of the past two premierships and eight wins from their last ten games at the ground. The Hawks must turn their preparation advantage into sustained pressure; the Lions must keep their three-peat bid alive in another elimination game.",
+          "statement": "Brisbane bring back-to-back premiership experience, while Hawthorn must convert preparation into pressure.",
           "sourceIndexes": [
             0,
             1
@@ -1200,8 +1200,8 @@
     {
       "id": "fixture:cricket:espn:1530204",
       "title": "Zimbabwe v Australia - 2nd ODI",
-      "hook": "Australia's middle-order auditions meet Raza's experienced Zimbabwe side in Harare.",
-      "synopsis": "With the 2027 World Cup approaching, Australia are looking for a settled middle order after several senior retirements. Zimbabwe offer a useful examination in familiar conditions: Sikandar Raza leads in Richard Ngarava's injury absence, with Brendan Taylor and Graeme Cremer back in the squad. Watch the contest between Australia's developing batting combinations and Zimbabwe's varied attack.",
+      "hook": "Australia's middle-order auditions meet Zimbabwe's experienced side in Harare.",
+      "synopsis": "With the 2027 World Cup approaching, Australia are looking for a settled middle order after several senior retirements. Zimbabwe offer a useful examination in familiar conditions: Sikandar Raza leads in Richard Ngarava's injury absence, with Brendan Taylor and Graeme Cremer back in the squad. The match tests Australia's developing batting combinations against Zimbabwe's varied attack.",
       "sources": [
         "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
         "https://www.icc-cricket.com/news/zimbabwe-name-squad-for-odi-series-against-australia",
@@ -1243,8 +1243,8 @@
     {
       "id": "fixture:cricket:espn:1530205",
       "title": "Zimbabwe v Australia - 3rd ODI",
-      "hook": "Harare offers one last examination before Australia move on to South Africa.",
-      "synopsis": "The third ODI closes this Zimbabwe leg of Australia's World Cup preparation. Selection opportunities remain part of the bigger picture, while the hosts are building towards a tournament they will co-host. Zimbabwe's experienced core and Blessing Muzarabani's pace give Australia more to solve than a routine final outing.",
+      "hook": "Harare hosts one last Zimbabwe-Australia examination before Australia move on to South Africa.",
+      "synopsis": "The third ODI closes this Zimbabwe leg of Australia's World Cup preparation. Selection opportunities remain part of the bigger picture, while Zimbabwe build towards a tournament they will co-host. Zimbabwe's experienced core and Blessing Muzarabani's pace give Australia a serious final test rather than a routine series finish.",
       "sources": [
         "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
         "https://www.icc-cricket.com/news/zimbabwe-name-squad-for-odi-series-against-australia",
