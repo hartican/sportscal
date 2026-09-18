@@ -846,6 +846,16 @@
       "id": "subject:fixture-research:evt_sailgp_2026_geneva_day_2",
       "kind": "event",
       "name": "Geneva Sail Grand Prix - race day 2"
+    },
+    {
+      "id": "subject:fixture-research:fixture:cricket:espn:1530204",
+      "kind": "event",
+      "name": "Zimbabwe v Australia - 2nd ODI"
+    },
+    {
+      "id": "subject:fixture-research:fixture:cricket:espn:1530205",
+      "kind": "event",
+      "name": "Zimbabwe v Australia - 3rd ODI"
     }
   ],
   "sources": [
@@ -3298,6 +3308,48 @@
       "url": "https://tickets.sailgp.com/geneve/en/",
       "sourceType": "official",
       "checkedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1530204:0",
+      "name": "Zimbabwe v Australia - 2nd ODI — official research 1",
+      "url": "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:48:28.758Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1530204:1",
+      "name": "Zimbabwe v Australia - 2nd ODI — official research 2",
+      "url": "https://www.icc-cricket.com/news/zimbabwe-name-squad-for-odi-series-against-australia",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:48:28.758Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1530204:2",
+      "name": "Zimbabwe v Australia - 2nd ODI — official research 3",
+      "url": "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:48:28.758Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1530205:0",
+      "name": "Zimbabwe v Australia - 3rd ODI — official research 1",
+      "url": "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:48:28.764Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1530205:1",
+      "name": "Zimbabwe v Australia - 3rd ODI — official research 2",
+      "url": "https://www.icc-cricket.com/news/zimbabwe-name-squad-for-odi-series-against-australia",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:48:28.764Z"
+    },
+    {
+      "id": "source:fixture-research:fixture:cricket:espn:1530205:2",
+      "name": "Zimbabwe v Australia - 3rd ODI — official research 3",
+      "url": "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026",
+      "sourceType": "official",
+      "checkedAt": "2026-09-17T23:48:28.764Z"
     }
   ],
   "narrativeFacts": [
@@ -14133,6 +14185,110 @@
       ],
       "observedAt": "2026-09-17T23:22:14.102Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1530204:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1530204"
+      ],
+      "statement": "Zimbabwe will co-host the 2027 ODI World Cup.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1530204:1"
+      ],
+      "observedAt": "2026-09-17T23:48:28.758Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1530204:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1530204"
+      ],
+      "statement": "Raza captains with Ngarava injured; Taylor and Cremer return.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1530204:1"
+      ],
+      "observedAt": "2026-09-17T23:48:28.758Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1530204:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1530204"
+      ],
+      "statement": "Australia are rebuilding their middle order after senior retirements.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1530204:0"
+      ],
+      "observedAt": "2026-09-17T23:48:28.758Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1530204:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1530204"
+      ],
+      "statement": "The second and third ODIs are on 18 and 20 September in Harare.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1530204:2"
+      ],
+      "observedAt": "2026-09-17T23:48:28.758Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1530205:0",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1530205"
+      ],
+      "statement": "Zimbabwe will co-host the 2027 ODI World Cup.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1530205:1"
+      ],
+      "observedAt": "2026-09-17T23:48:28.764Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1530205:1",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1530205"
+      ],
+      "statement": "Raza captains with Ngarava injured; Taylor and Cremer return.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1530205:1"
+      ],
+      "observedAt": "2026-09-17T23:48:28.764Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1530205:2",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1530205"
+      ],
+      "statement": "Australia are rebuilding their middle order after senior retirements.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1530205:0"
+      ],
+      "observedAt": "2026-09-17T23:48:28.764Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:fixture:cricket:espn:1530205:3",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1530205"
+      ],
+      "statement": "The second and third ODIs are on 18 and 20 September in Harare.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1530205:2"
+      ],
+      "observedAt": "2026-09-17T23:48:28.764Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -16443,6 +16599,38 @@
       ],
       "status": "active",
       "updatedAt": "2026-09-17T23:22:14.102Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture:cricket:espn:1530204",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1530204"
+      ],
+      "title": "Zimbabwe v Australia - 2nd ODI",
+      "summary": "With the 2027 World Cup approaching, Australia are looking for a settled middle order after several senior retirements. Zimbabwe offer a useful examination in familiar conditions: Sikandar Raza leads in Richard Ngarava's injury absence, with Brendan Taylor and Graeme Cremer back in the squad. Watch the contest between Australia's developing batting combinations and Zimbabwe's varied attack.",
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1530204:0",
+        "fact:fixture-research:fixture:cricket:espn:1530204:1",
+        "fact:fixture-research:fixture:cricket:espn:1530204:2",
+        "fact:fixture-research:fixture:cricket:espn:1530204:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-17T23:48:28.758Z"
+    },
+    {
+      "id": "thread:fixture-research:fixture:cricket:espn:1530205",
+      "subjectIds": [
+        "subject:fixture-research:fixture:cricket:espn:1530205"
+      ],
+      "title": "Zimbabwe v Australia - 3rd ODI",
+      "summary": "The third ODI closes this Zimbabwe leg of Australia's World Cup preparation. Selection opportunities remain part of the bigger picture, while the hosts are building towards a tournament they will co-host. Zimbabwe's experienced core and Blessing Muzarabani's pace give Australia more to solve than a routine final outing.",
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1530205:0",
+        "fact:fixture-research:fixture:cricket:espn:1530205:1",
+        "fact:fixture-research:fixture:cricket:espn:1530205:2",
+        "fact:fixture-research:fixture:cricket:espn:1530205:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-17T23:48:28.764Z"
     }
   ],
   "audienceMemories": [],
@@ -24012,6 +24200,68 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-09-17T23:22:14.102Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:fixture:cricket:espn:1530204",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture:cricket:espn:1530204"
+      ],
+      "researchDepth": 5,
+      "hook": "Australia's middle-order auditions meet Raza's experienced Zimbabwe side in Harare.",
+      "synopsis": "With the 2027 World Cup approaching, Australia are looking for a settled middle order after several senior retirements. Zimbabwe offer a useful examination in familiar conditions: Sikandar Raza leads in Richard Ngarava's injury absence, with Brendan Taylor and Graeme Cremer back in the squad. Watch the contest between Australia's developing batting combinations and Zimbabwe's varied attack.",
+      "threadIds": [
+        "thread:fixture-research:fixture:cricket:espn:1530204"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1530204:0",
+        "fact:fixture-research:fixture:cricket:espn:1530204:1",
+        "fact:fixture-research:fixture:cricket:espn:1530204:2",
+        "fact:fixture-research:fixture:cricket:espn:1530204:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1530204:0",
+        "source:fixture-research:fixture:cricket:espn:1530204:1",
+        "source:fixture-research:fixture:cricket:espn:1530204:2"
+      ],
+      "researchedAt": "2026-09-17T23:48:28.758Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-17T23:48:28.758Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:fixture:cricket:espn:1530205",
+      "targetType": "feed-event",
+      "targetIds": [
+        "fixture:cricket:espn:1530205"
+      ],
+      "researchDepth": 5,
+      "hook": "Harare offers one last examination before Australia move on to South Africa.",
+      "synopsis": "The third ODI closes this Zimbabwe leg of Australia's World Cup preparation. Selection opportunities remain part of the bigger picture, while the hosts are building towards a tournament they will co-host. Zimbabwe's experienced core and Blessing Muzarabani's pace give Australia more to solve than a routine final outing.",
+      "threadIds": [
+        "thread:fixture-research:fixture:cricket:espn:1530205"
+      ],
+      "factIds": [
+        "fact:fixture-research:fixture:cricket:espn:1530205:0",
+        "fact:fixture-research:fixture:cricket:espn:1530205:1",
+        "fact:fixture-research:fixture:cricket:espn:1530205:2",
+        "fact:fixture-research:fixture:cricket:espn:1530205:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:fixture:cricket:espn:1530205:0",
+        "source:fixture-research:fixture:cricket:espn:1530205:1",
+        "source:fixture-research:fixture:cricket:espn:1530205:2"
+      ],
+      "researchedAt": "2026-09-17T23:48:28.764Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-17T23:48:28.764Z"
       }
     }
   ]

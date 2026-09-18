@@ -2,11 +2,11 @@
 'use strict';
 const fs=require('node:fs');
 const narrative=require('./lib/editorial-narrative');
-function apply(knowledge,feed,majorEvents,research){
+function apply(knowledge,feed,majorEvents,research,catalogue=[]){
   const upsert=(field,value)=>{const index=knowledge[field].findIndex(row=>row.id===value.id);if(index<0)knowledge[field].push(value);else knowledge[field][index]=value;};
   for(const entry of research.entries){
     const prefix=`fixture-research:${entry.id.replace(/[^a-z0-9:._-]/g,'-')}`;
-    const targetIds=feed.events.filter(event=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(entry.id)).map(event=>event.id);
+    const targetIds=[...new Set([...feed.events,...catalogue].filter(event=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(entry.id)).map(event=>event.id))];
     if(!targetIds.length)throw new Error('Missing researched fixture '+entry.id);
     const subjectId=`subject:${prefix}`,threadId=`thread:${prefix}`;
     const sourceIds=entry.sources.map((url,index)=>`source:${prefix}:${index}`);
@@ -35,7 +35,8 @@ function apply(knowledge,feed,majorEvents,research){
 if(require.main===module){
   const files=['data/editorial-knowledge.v1.json','feeds/incoming/events.json','data/major-events.v1.json'];
   const values=files.map(file=>JSON.parse(fs.readFileSync(file)));
-  const result=apply(...values,JSON.parse(fs.readFileSync('data/editorial-fixture-research.v1.json')));
+  const catalogue=JSON.parse(fs.readFileSync('data/follow-sources/coverage.v1.json')).events;
+  const result=apply(...values,JSON.parse(fs.readFileSync('data/editorial-fixture-research.v1.json')),catalogue);
   [result.knowledge,result.feed,result.majorEvents].forEach((value,i)=>fs.writeFileSync(files[i],JSON.stringify(value,null,2)+'\n'));
   console.log('Applied independently researched fixture narratives and editorial replay recommendations.');
 }

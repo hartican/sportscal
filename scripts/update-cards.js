@@ -158,6 +158,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
   ["scripts/apply-fixture-research.js"],
+  ["scripts/validate-catalogue-editorial.js"],
   ["scripts/snapshot-editorial-nothingscore.js", "--write"],
   ["scripts/snapshot-editorial-nothingscore.js", "--check"],
   ["scripts/update-rolling-editorial-projections.js", "--write"],

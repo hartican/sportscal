@@ -14,7 +14,16 @@ function weekend(now=new Date()){
 }
 function selected(events,range){return events.filter(e=>e.date>=range.from&&e.date<=range.to&&Number(e.storyline?.stakes??e.stakesScore)>=4&&Number(e.storyline?.stakes??e.stakesScore)<=5);}
 function main(args){
-  const range=weekend(),published=read('data/events.json'),cards=selected(published.events,range);
+  const range=weekend(),published=read('data/events.json');
+  const catalogue=require('../config/fixture-identity').mergeOverlays(read('data/follow-sources/coverage.v1.json').events,read('data/discovery/enrichment.v1.json').events);
+  const knowledge=read('data/editorial-knowledge.v1.json');
+  const narrative=require('./lib/editorial-narrative'),indexes=narrative.indexesFor(knowledge);
+  const projections=new Map(knowledge.eventProjections.filter(p=>p.targetType==='feed-event').flatMap(p=>p.targetIds.map(id=>[id,p])));
+  const candidates=[...new Map([...catalogue,...published.events].map(event=>[event.id,event])).values()].map(event=>{
+    const projection=[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].map(id=>projections.get(id)).find(Boolean);
+    return projection?{...event,editorialNarrative:narrative.editorialNarrativeFor(projection,indexes)}:event;
+  });
+  const cards=selected(candidates,range);
   if(args.includes('--list')){console.log(JSON.stringify({weekend:range,cards:cards.map(e=>({id:e.id,name:e.name,date:e.date,stakes:e.storyline?.stakes??e.stakesScore,hook:e.editorialNarrative?.hook||e.selectedSentence}))},null,2));return;}
   if(!cards.length){console.log('No qualifying weekend cards; no changes.');return;}
   const index=args.indexOf('--research');assert(index>=0&&args[index+1],'Provide --research <dated JSON file>, or --list first.');
@@ -24,8 +33,8 @@ function main(args){
   assert.equal(new Set(research.entries.map(e=>e.id)).size,ids.size,'Duplicate research IDs.');
   for(const entry of research.entries){assert(ids.has(entry.id),'Out-of-scope research: '+entry.id);assert(entry.sources?.length&&entry.facts?.length>=3,'Source-backed research facts required.');assert(Date.now()-Date.parse(entry.researchedAt)<72*3600000&&Date.parse(entry.researchedAt)<=Date.now()+60000,'Research must be fresh.');}
   if(/^[a-z0-9-]+$/.test(published.version)&&cards.every(e=>{const r=research.entries.find(r=>r.id===e.id);return e.editorialNarrative?.hook===r.hook&&e.editorialNarrative?.synopsis===r.synopsis;})){console.log('Weekend editorial unchanged; no release required.');return;}
-  const incoming=read('feeds/incoming/events.json'),knowledge=read('data/editorial-knowledge.v1.json'),major=read('data/major-events.v1.json');
-  const result=apply(knowledge,structuredClone(published),major,research);
+  const incoming=read('feeds/incoming/events.json'),major=read('data/major-events.v1.json');
+  const result=apply(knowledge,{...published,events:structuredClone(candidates)},major,research);
   const updated=new Map(result.feed.events.filter(e=>ids.has(e.id)).map(e=>[e.id,e]));
   const fields=['selectedSentence','fullSpiel','editorialNarrative','editorialPreview','lastReviewedAt','storyline'];
   const patch=e=>{const source=updated.get(e.id);if(!source)return e;return {...e,...Object.fromEntries(fields.map(k=>[k,source[k]]))};};
