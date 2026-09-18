@@ -218,6 +218,13 @@ assert(
     > localSteps.findIndex(step => step[0] === "scripts/publish-feed.js"),
   "the next editorial report must compare broadcaster inputs against the fully published catalogue"
 );
+assert(
+  localSteps.findIndex(step => step[0] === "scripts/sync-finals-code-phase.js" && !step.includes("--check"))
+    > localSteps.findIndex(step => step[0] === "scripts/publish-feed.js")
+    && localSteps.findIndex(step => step[0] === "scripts/sync-finals-code-phase.js" && step.includes("--check"))
+      < localSteps.findIndex(step => step[0] === "scripts/build-code-inspector.js"),
+  "AFL/NRL finals Code-phase fixtures must inherit published schedule and editorial before Inspector rebuild"
+);
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step.length === 1), "every canonical update must rebuild the direct-file context transport from authoritative JSON");
 assert(localSteps.some(step => step[0] === "scripts/build-canonical-context-bundle.js" && step[1] === "--check"), "every canonical update must reject a stale direct-file context transport");
 assert(localSteps.some(step => step[0] === "scripts/verify-result-completeness.js" && step[1] === "data/events.json"), "local-only updates must still enforce published result completeness");

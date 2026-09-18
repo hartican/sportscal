@@ -2,6 +2,7 @@
 const fs=require('node:fs');
 const vm=require('node:vm');
 const assert=require('node:assert/strict');
+const majorEvents=require('../config/major-events.js');
 const root=require('node:path').resolve(__dirname,'..');
 const html=fs.readFileSync(root+'/index.html','utf8');
 const extract=(start,end)=>html.slice(html.indexOf(start),html.indexOf(end,html.indexOf(start)));
@@ -40,5 +41,6 @@ vm.runInContext(extract('function mergeCanonicalEventPages(', 'function applyFee
   assert(worker.includes("data/feed-meta.json"),"Feed manifest must use a fresh worker route");
   assert(worker.includes("data/feed/"),"Feed pages must use a fresh worker route");
   assert(worker.includes("fresh:true"),"Published feed must bypass stale service-worker responses");
+  assert.equal(majorEvents.effectiveSubEventStatus({status:'upcoming',startTimeUtc:'2026-09-18T09:40:00.000Z',liveWindow:3},new Date('2026-09-18T11:07:00.000Z')),'live','AFL finals children must show Live during their published live window');
   console.log('Installed-app schedule regression passed: fresh ODI editorial replaces hydrated and active stale copies and triggers render.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

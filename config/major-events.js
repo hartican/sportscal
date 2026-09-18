@@ -145,6 +145,16 @@
     if (status === "live") return "live";
     if (["cancelled", "postponed"].includes(status)) return status;
     const time = subEventTimelineTime(subEvent);
+    const referenceTime = new Date(reference).getTime();
+    const endTime = new Date(subEvent?.endTimeUtc || "").getTime();
+    const liveWindowHours = Number(subEvent?.liveWindow);
+    const inferredEndTime = Number.isFinite(endTime)
+      ? endTime
+      : Number.isFinite(time) && Number.isFinite(liveWindowHours) && liveWindowHours > 0
+        ? time + liveWindowHours * 60 * 60 * 1000
+        : NaN;
+    if (Number.isFinite(time) && Number.isFinite(referenceTime)
+      && time <= referenceTime && (!Number.isFinite(inferredEndTime) || referenceTime < inferredEndTime)) return "live";
     return Number.isFinite(time) && time < new Date(reference).getTime() ? "awaiting-result" : "upcoming";
   }
 

@@ -247,10 +247,10 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142501",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season; the advancing side remains concealed here.",
             "synopsis": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
-            "hookSpoilerOn": "Carlton defeated Melbourne 74-55. Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season.",
+            "hookSpoilerOn": "Carlton defeated Melbourne 74-55.",
             "synopsisSpoilerOn": "Carlton defeated Melbourne 74-55. Melbourne v Carlton finished 55-74 in Wildcard Finals, with Carlton winning by 19 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
@@ -258,20 +258,22 @@
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142501:1",
               "fact:depth:afl:event-afl-cd-m20260142501:2",
-              "fact:depth:afl:event-afl-cd-m20260142501:3"
+              "fact:depth:afl:event-afl-cd-m20260142501:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142501"
+              "source:depth:afl:match:event-afl-cd-m20260142501",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
               "form",
               "history",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
+            "researchedAt": "2026-09-08T14:50:03.143Z",
             "refreshAfter": null,
             "generationMode": "researched"
           },
@@ -281,13 +283,22 @@
             "hookSpoilerOn": "Carlton's recovery from a one-and-eight start met Melbourne's surprise finals season; the advancing side remains concealed here.",
             "synopsisSpoilerOff": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
             "synopsisSpoilerOn": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
-            "arcStage": "preview"
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T14:50:03.143Z"
           },
           "competitionPhase": "wildcard-final",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Melbourne v Carlton",
+          "endTimeUtc": "2026-08-29T12:35:00.000Z",
+          "venueName": "MCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t90",
+          "awayParticipantId": "team:afl:cd_t30",
+          "participantSlots": []
         },
         {
           "id": "event:afl:cd_m20260142502",
@@ -361,10 +372,10 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142502",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "The first AFL wildcard final came down to one kick after the siren; the survivor is hidden until spoilers are enabled.",
             "synopsis": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
-            "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. The first AFL wildcard final came down to one kick after the siren.",
+            "hookSpoilerOn": "Western Bulldogs defeated Collingwood 96-93.",
             "synopsisSpoilerOn": "Western Bulldogs defeated Collingwood 96-93. Western Bulldogs v Collingwood finished 96-93 in Wildcard Finals, with Western Bulldogs winning by 3 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
@@ -372,20 +383,22 @@
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142502:1",
               "fact:depth:afl:event-afl-cd-m20260142502:2",
-              "fact:depth:afl:event-afl-cd-m20260142502:3"
+              "fact:depth:afl:event-afl-cd-m20260142502:3",
+              "fact:depth:afl:event-afl-cd-m20260142501:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142502"
+              "source:depth:afl:match:event-afl-cd-m20260142502",
+              "source:depth:afl:match:event-afl-cd-m20260142501"
             ],
             "dimensions": [
               "form",
               "history",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
+            "researchedAt": "2026-09-08T14:50:03.143Z",
             "refreshAfter": null,
             "generationMode": "researched"
           },
@@ -395,13 +408,22 @@
             "hookSpoilerOn": "The first AFL wildcard final came down to one kick after the siren; the survivor is hidden until spoilers are enabled.",
             "synopsisSpoilerOff": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
             "synopsisSpoilerOn": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
-            "arcStage": "preview"
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T14:50:03.143Z"
           },
           "competitionPhase": "wildcard-final",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Western Bulldogs v Collingwood",
+          "endTimeUtc": "2026-08-28T12:40:00.000Z",
+          "venueName": "MCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t140",
+          "awayParticipantId": "team:afl:cd_t40",
+          "participantSlots": []
         },
         {
           "id": "event:afl:cd_m20260142601",
@@ -475,10 +497,10 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142601",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
             "synopsis": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
-            "hookSpoilerOn": "Hawthorn defeated Fremantle 72-40. Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day.",
+            "hookSpoilerOn": "Hawthorn defeated Fremantle 72-40.",
             "synopsisSpoilerOn": "Hawthorn defeated Fremantle 72-40. Fremantle v Hawthorn finished 40-72 in Qualifying & Elimination Finals, with Hawthorn winning by 32 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
@@ -486,20 +508,22 @@
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142601:1",
               "fact:depth:afl:event-afl-cd-m20260142601:2",
-              "fact:depth:afl:event-afl-cd-m20260142601:3"
+              "fact:depth:afl:event-afl-cd-m20260142601:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142601"
+              "source:depth:afl:match:event-afl-cd-m20260142601",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
               "form",
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
+            "researchedAt": "2026-09-08T14:50:03.143Z",
             "refreshAfter": null,
             "generationMode": "researched"
           },
@@ -509,13 +533,22 @@
             "hookSpoilerOn": "Minor premier Fremantle meets the Hawthorn side that seized fourth on the final day; the reward is a week off, not elimination.",
             "synopsisSpoilerOff": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
             "synopsisSpoilerOn": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
-            "arcStage": "preview"
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T14:50:03.143Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Fremantle v Hawthorn",
+          "endTimeUtc": "2026-09-03T13:10:00.000Z",
+          "venueName": "Optus Stadium",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t60",
+          "awayParticipantId": "team:afl:cd_t80",
+          "participantSlots": []
         },
         {
           "id": "event:afl:cd_m20260142602",
@@ -589,45 +622,58 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142602",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
-            "synopsis": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
+            "synopsis": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
+            "hookSpoilerOn": "Sydney Swans defeated Brisbane Lions 141-88.",
+            "synopsisSpoilerOn": "Sydney Swans defeated Brisbane Lions 141-88. Sydney Swans v Brisbane Lions finished 141-88 in Qualifying & Elimination Finals, with Sydney Swans winning by 53 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142602:1",
               "fact:depth:afl:event-afl-cd-m20260142602:2",
-              "fact:depth:afl:event-afl-cd-m20260142602:3"
+              "fact:depth:afl:event-afl-cd-m20260142602:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142602"
+              "source:depth:afl:match:event-afl-cd-m20260142602",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
               "form",
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
-            "refreshAfter": "2026-09-05T05:15:00.000Z",
+            "researchedAt": "2026-09-08T14:50:03.143Z",
+            "refreshAfter": null,
             "generationMode": "researched"
           },
           "storyline": {
             "stakes": 5,
             "hookSpoilerOff": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
             "hookSpoilerOn": "Sydney's five straight wins meet Brisbane's three in a qualifying final that turns current form into a week-off prize.",
-            "synopsisSpoilerOff": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
-            "synopsisSpoilerOn": "Sydney finished second after five consecutive wins; Brisbane closed third with three of its own. The SCG qualifying final therefore matches the two strongest finishing streaks on this side of the bracket, with the winner bypassing the semi-finals and the loser retaining one life.",
-            "arcStage": "preview"
+            "synopsisSpoilerOff": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
+            "synopsisSpoilerOn": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T14:50:03.143Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Sydney Swans v Brisbane Lions",
+          "endTimeUtc": "2026-09-05T08:15:00.000Z",
+          "venueName": "SCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t160",
+          "awayParticipantId": "team:afl:cd_t20",
+          "participantSlots": []
         },
         {
           "id": "event:afl:cd_m20260142603",
@@ -701,30 +747,34 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142603",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.",
             "synopsis": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
+            "hookSpoilerOn": "Geelong Cats defeated Carlton 107-74.",
+            "synopsisSpoilerOn": "Geelong Cats defeated Carlton 107-74. Geelong Cats v Carlton finished 107-74 in Qualifying & Elimination Finals, with Geelong Cats winning by 33 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142603:1",
               "fact:depth:afl:event-afl-cd-m20260142603:2",
-              "fact:depth:afl:event-afl-cd-m20260142603:3"
+              "fact:depth:afl:event-afl-cd-m20260142603:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142603"
+              "source:depth:afl:match:event-afl-cd-m20260142603",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
               "form",
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
-            "refreshAfter": "2026-09-04T09:40:00.000Z",
+            "researchedAt": "2026-09-08T14:50:03.143Z",
+            "refreshAfter": null,
             "generationMode": "researched"
           },
           "storyline": {
@@ -733,13 +783,22 @@
             "hookSpoilerOn": "Carlton's rescue from a one-win, eight-loss start has one life left against a Geelong side that closed the season with six straight wins.",
             "synopsisSpoilerOff": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
             "synopsisSpoilerOn": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
-            "arcStage": "preview"
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T14:50:03.143Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Geelong Cats v Carlton",
+          "endTimeUtc": "2026-09-04T12:40:00.000Z",
+          "venueName": "MCG",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t70",
+          "awayParticipantId": "team:afl:cd_t30",
+          "participantSlots": []
         },
         {
           "id": "event:afl:cd_m20260142604",
@@ -813,58 +872,71 @@
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
             "projectionId": "projection:rolling:event-afl-cd-m20260142604",
-            "researchTier": "featured",
+            "researchTier": "marquee",
             "hook": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
-            "synopsis": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+            "synopsis": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+            "hookSpoilerOn": "Adelaide Crows defeated Western Bulldogs 90-68.",
+            "synopsisSpoilerOn": "Adelaide Crows defeated Western Bulldogs 90-68. Adelaide Crows v Western Bulldogs finished 90-68 in Qualifying & Elimination Finals, with Adelaide Crows winning by 22 points. The result now advances or resolves the same 2026 AFL thread described in the spoiler-safe preview.",
             "threadIds": [
               "thread:depth:afl:finals"
             ],
             "factIds": [
               "fact:depth:afl:event-afl-cd-m20260142604:1",
               "fact:depth:afl:event-afl-cd-m20260142604:2",
-              "fact:depth:afl:event-afl-cd-m20260142604:3"
+              "fact:depth:afl:event-afl-cd-m20260142604:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
               "source:depth:afl:ladder",
               "source:depth:afl:finals-fixture",
               "source:depth:afl:final-ten-rules",
-              "source:depth:afl:match:event-afl-cd-m20260142604"
+              "source:depth:afl:match:event-afl-cd-m20260142604",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
               "form",
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
-            "refreshAfter": "2026-09-05T09:35:00.000Z",
+            "researchedAt": "2026-09-08T14:50:03.143Z",
+            "refreshAfter": null,
             "generationMode": "researched"
           },
           "storyline": {
             "stakes": 5,
             "hookSpoilerOff": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
             "hookSpoilerOn": "The Bulldogs survived the first wildcard by one kick; Adelaide now asks them to win sudden-death football away from home.",
-            "synopsisSpoilerOff": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
-            "synopsisSpoilerOn": "Western Bulldogs reached Adelaide only after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
-            "arcStage": "preview"
+            "synopsisSpoilerOff": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+            "synopsisSpoilerOn": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T14:50:03.143Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
           "stakesFloor": 4,
           "codeId": "sport:afl",
-          "surfaceClassification": "code"
+          "surfaceClassification": "code",
+          "displayName": "Adelaide Crows v Western Bulldogs",
+          "endTimeUtc": "2026-09-05T12:35:00.000Z",
+          "venueName": "Adelaide Oval",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t10",
+          "awayParticipantId": "team:afl:cd_t140",
+          "participantSlots": []
         },
         {
           "id": "event:afl:cd_m20260142701",
           "name": "Semi Final 1 - loser of QF1 v winner of EF1",
           "roundLabel": "Semi Finals",
           "stage": "Semi Finals",
-          "startTimeUtc": null,
+          "startTimeUtc": "2026-09-11T10:10:00.000Z",
           "venue": "Venue TBC",
           "stakesScore": 5,
           "summary": "First Semi Final. Teams, venue and time are pending first-week results.",
           "participantIds": [
             "team:afl:cd_t60",
-            "team:afl:cd_t3016"
+            "team:afl:cd_t70"
           ],
           "participants": [
             {
@@ -924,47 +996,45 @@
           ],
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142701",
+            "projectionId": "projection:rolling:event-afl-cd-m20260142701",
             "researchTier": "marquee",
-            "hook": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place.",
-            "synopsis": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
+            "hook": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
+            "synopsis": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
             "threadIds": [
-              "thread:afl:finals-2026:first-wildcard-road"
+              "thread:depth:afl:finals"
             ],
             "factIds": [
-              "fact:afl-finals-2026:new-format",
-              "fact:afl-finals-2026:wildcard-results",
-              "fact:afl-finals-2026:week-two-path",
-              "fact:afl-finals-2026:carlton-revival",
-              "fact:afl-finals-2026:bulldogs-jones",
-              "fact:afl-finals-2026:destination"
+              "fact:depth:afl:event-afl-cd-m20260142701:1",
+              "fact:depth:afl:event-afl-cd-m20260142701:2",
+              "fact:depth:afl:event-afl-cd-m20260142701:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
-              "source:afl:2026-wildcard-format",
-              "source:afl:2026-bulldogs-wildcard",
-              "source:afl:2026-arty-jones",
-              "source:afl:2026-carlton-wildcard",
-              "source:afl:2026-week-two",
-              "source:afl:2026-grand-final-time"
+              "source:depth:afl:ladder",
+              "source:depth:afl:finals-fixture",
+              "source:depth:afl:final-ten-rules",
+              "source:depth:afl:match:event-afl-cd-m20260142701",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
-              "format",
               "form",
               "path",
-              "history",
-              "schedule"
+              "consequence"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-03T10:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-08T14:50:03.143Z",
+            "refreshAfter": "2026-09-11T10:10:00.000Z",
+            "generationMode": "researched",
+            "hookSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals.",
+            "synopsisSpoilerOn": "Fremantle defeated Geelong Cats in Semi Finals. Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points."
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place.",
-            "hookSpoilerOn": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place.",
-            "synopsisSpoilerOff": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "synopsisSpoilerOn": "Loser of QF1 and Winner of EF1 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
+            "hookSpoilerOn": "Fremantle's minor premiership now offers no safety net: Geelong brings its September run west for a single remaining path to a preliminary final.",
+            "synopsisSpoilerOff": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
+            "synopsisSpoilerOn": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T14:50:03.143Z"
           },
           "competitionPhase": "semi-final",
           "isFinalRegularSeasonRound": false,
@@ -974,20 +1044,28 @@
           "schedulePrecision": "week",
           "weekAnchorDate": "2026-09-07",
           "displayDateLabel": "Week of Monday, 7 Sep",
-          "date": "2026-09-07"
+          "date": "2026-09-07",
+          "displayName": "Fremantle v Geelong Cats",
+          "endTimeUtc": "2026-09-11T13:10:00.000Z",
+          "venueName": "Optus Stadium",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t60",
+          "awayParticipantId": "team:afl:cd_t70",
+          "participantSlots": []
         },
         {
           "id": "event:afl:cd_m20260142702",
           "name": "Semi Final 2 - loser of QF2 v winner of EF2",
           "roundLabel": "Semi Finals",
           "stage": "Semi Finals",
-          "startTimeUtc": null,
+          "startTimeUtc": "2026-09-12T09:35:00.000Z",
           "venue": "Venue TBC",
           "stakesScore": 5,
           "summary": "Second Semi Final. Teams, venue and time are pending first-week results.",
           "participantIds": [
-            "team:afl:cd_t3015",
-            "team:afl:cd_t3017"
+            "team:afl:cd_t20",
+            "team:afl:cd_t10"
           ],
           "participants": [
             {
@@ -1047,47 +1125,46 @@
           ],
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142702",
+            "projectionId": "projection:rolling:event-afl-cd-m20260142702",
             "researchTier": "marquee",
-            "hook": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place.",
-            "synopsis": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
+            "hook": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
+            "synopsis": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
             "threadIds": [
-              "thread:afl:finals-2026:first-wildcard-road"
+              "thread:depth:afl:finals"
             ],
             "factIds": [
-              "fact:afl-finals-2026:new-format",
-              "fact:afl-finals-2026:wildcard-results",
-              "fact:afl-finals-2026:week-two-path",
-              "fact:afl-finals-2026:carlton-revival",
-              "fact:afl-finals-2026:bulldogs-jones",
-              "fact:afl-finals-2026:destination"
+              "fact:depth:afl:event-afl-cd-m20260142702:1",
+              "fact:depth:afl:event-afl-cd-m20260142702:2",
+              "fact:depth:afl:event-afl-cd-m20260142702:3",
+              "fact:depth:afl:event-afl-cd-m20260142502:1"
             ],
             "sourceIds": [
-              "source:afl:2026-wildcard-format",
-              "source:afl:2026-bulldogs-wildcard",
-              "source:afl:2026-arty-jones",
-              "source:afl:2026-carlton-wildcard",
-              "source:afl:2026-week-two",
-              "source:afl:2026-grand-final-time"
+              "source:depth:afl:ladder",
+              "source:depth:afl:finals-fixture",
+              "source:depth:afl:final-ten-rules",
+              "source:depth:afl:match:event-afl-cd-m20260142702",
+              "source:depth:afl:match:event-afl-cd-m20260142502"
             ],
             "dimensions": [
-              "format",
-              "form",
               "path",
-              "history",
-              "schedule"
+              "venue",
+              "consequence",
+              "form"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-03T10:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-08T14:50:03.143Z",
+            "refreshAfter": "2026-09-12T09:35:00.000Z",
+            "generationMode": "researched",
+            "hookSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals.",
+            "synopsisSpoilerOn": "Brisbane Lions defeated Adelaide Crows in Semi Finals. Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points."
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place.",
-            "hookSpoilerOn": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place.",
-            "synopsisSpoilerOff": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "synopsisSpoilerOn": "Loser of QF2 and Winner of EF2 are in sudden death for a preliminary-final place. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
+            "hookSpoilerOn": "Brisbane's top-three season earns one more home opportunity; Adelaide must turn its sixth-place route into an away semi-final breakthrough.",
+            "synopsisSpoilerOff": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
+            "synopsisSpoilerOn": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T14:50:03.143Z"
           },
           "competitionPhase": "semi-final",
           "isFinalRegularSeasonRound": false,
@@ -1097,38 +1174,46 @@
           "schedulePrecision": "week",
           "weekAnchorDate": "2026-09-07",
           "displayDateLabel": "Week of Monday, 7 Sep",
-          "date": "2026-09-07"
+          "date": "2026-09-07",
+          "displayName": "Brisbane Lions v Adelaide Crows",
+          "endTimeUtc": "2026-09-12T12:35:00.000Z",
+          "venueName": "Gabba",
+          "status": "completed",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t20",
+          "awayParticipantId": "team:afl:cd_t10",
+          "participantSlots": []
         },
         {
           "id": "event:afl:cd_m20260142801",
-          "name": "Preliminary Final 1 - winner of QF1 v winner of SF2",
+          "name": "Hawthorn v Brisbane Lions",
           "roundLabel": "Preliminary Finals",
           "stage": "Preliminary Finals",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-09-19T07:15:00.000Z",
+          "venue": "MCG",
           "stakesScore": 5,
-          "summary": "First Preliminary Final. Teams, venue and time are pending the Semi Finals.",
+          "summary": "Hawthorn v Brisbane Lions at MCG, 2026-09-19 17:15.",
           "participantIds": [
             "team:afl:cd_t80",
-            "team:afl:cd_t3019"
+            "team:afl:cd_t20"
           ],
           "participants": [
             {
               "id": "team:afl:cd_t80",
-              "participantId": "team:afl:cd_t80",
-              "name": "Hawthorn"
+              "name": "Hawthorn",
+              "role": "home"
             },
             {
-              "id": "team:afl:cd_t3019",
-              "participantId": "team:afl:cd_t3019",
-              "name": "Winner of SF2"
+              "id": "team:afl:cd_t20",
+              "name": "Brisbane Lions",
+              "role": "away"
             }
           ],
-          "broadcaster": "Kayo Sports",
+          "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports / Binge",
           "broadcasterIds": [
-            "kayo",
+            "seven",
             "foxtel",
-            "seven"
+            "kayo"
           ],
           "broadcastOptions": [
             "Kayo Sports",
@@ -1170,47 +1255,42 @@
           ],
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142801",
+            "projectionId": "projection:fixture-research:event-afl-cd_m20260142801",
             "researchTier": "marquee",
-            "hook": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final.",
-            "synopsis": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
+            "hook": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+            "synopsis": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
             "threadIds": [
-              "thread:afl:finals-2026:first-wildcard-road"
+              "thread:fixture-research:event-afl-cd_m20260142801"
             ],
             "factIds": [
-              "fact:afl-finals-2026:new-format",
-              "fact:afl-finals-2026:wildcard-results",
-              "fact:afl-finals-2026:week-two-path",
-              "fact:afl-finals-2026:carlton-revival",
-              "fact:afl-finals-2026:bulldogs-jones",
-              "fact:afl-finals-2026:destination"
+              "fact:fixture-research:event-afl-cd_m20260142801:0",
+              "fact:fixture-research:event-afl-cd_m20260142801:1",
+              "fact:fixture-research:event-afl-cd_m20260142801:2",
+              "fact:fixture-research:event-afl-cd_m20260142801:3"
             ],
             "sourceIds": [
-              "source:afl:2026-wildcard-format",
-              "source:afl:2026-bulldogs-wildcard",
-              "source:afl:2026-arty-jones",
-              "source:afl:2026-carlton-wildcard",
-              "source:afl:2026-week-two",
-              "source:afl:2026-grand-final-time"
+              "source:fixture-research:event-afl-cd_m20260142801:0",
+              "source:fixture-research:event-afl-cd_m20260142801:1",
+              "source:fixture-research:event-afl-cd_m20260142801:2"
             ],
             "dimensions": [
-              "format",
+              "matchup",
               "form",
               "path",
-              "history",
               "schedule"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-03T10:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-17T23:22:14.102Z",
+            "refreshAfter": "2026-09-09T12:00:00.000Z",
+            "generationMode": "researched"
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final.",
-            "hookSpoilerOn": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final.",
-            "synopsisSpoilerOff": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "synopsisSpoilerOn": "Winner of QF1 and Winner of SF2 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+            "hookSpoilerOn": "Hawthorn host Brisbane at the MCG with a Grand Final place on the line.",
+            "synopsisSpoilerOff": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
+            "synopsisSpoilerOn": "Hawthorn have the week off behind them and the MCG in front of them; Brisbane arrive with back-to-back premiership experience and a strong recent record at the ground. The matchup is Hawthorn's preparation and pressure against Brisbane's finals know-how. The winner advances to the Grand Final, while the loser is finished.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-17T23:22:14.102Z"
           },
           "competitionPhase": "preliminary-final",
           "isFinalRegularSeasonRound": false,
@@ -1220,38 +1300,55 @@
           "schedulePrecision": "week",
           "weekAnchorDate": "2026-09-14",
           "displayDateLabel": "Week of Monday, 14 Sep",
-          "date": "2026-09-14"
+          "date": "2026-09-19",
+          "displayName": "Hawthorn v Brisbane Lions",
+          "time": "17:15",
+          "timePrecision": "exact",
+          "venueName": "MCG",
+          "status": "scheduled",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t80",
+          "awayParticipantId": "team:afl:cd_t20",
+          "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+          "sourceName": "AFL",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+          "sourceRefs": [
+            "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+            "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+          ],
+          "participantSlots": []
         },
         {
           "id": "event:afl:cd_m20260142802",
-          "name": "Preliminary Final 2 - winner of QF2 v winner of SF1",
+          "name": "Sydney Swans v Fremantle",
           "roundLabel": "Preliminary Finals",
           "stage": "Preliminary Finals",
-          "startTimeUtc": null,
-          "venue": "Venue TBC",
+          "startTimeUtc": "2026-09-18T09:40:00.000Z",
+          "venue": "SCG",
           "stakesScore": 5,
-          "summary": "Second Preliminary Final. Teams, venue and time are pending the Semi Finals.",
+          "summary": "Sydney Swans v Fremantle at SCG, 2026-09-18 19:40.",
           "participantIds": [
-            "team:afl:cd_t3013",
-            "team:afl:cd_t3018"
+            "team:afl:cd_t160",
+            "team:afl:cd_t60"
           ],
           "participants": [
             {
-              "id": "team:afl:cd_t3013",
-              "participantId": "team:afl:cd_t3013",
-              "name": "Winner of QF2"
+              "id": "team:afl:cd_t160",
+              "name": "Sydney Swans",
+              "role": "home"
             },
             {
-              "id": "team:afl:cd_t3018",
-              "participantId": "team:afl:cd_t3018",
-              "name": "Winner of SF1"
+              "id": "team:afl:cd_t60",
+              "name": "Fremantle",
+              "role": "away"
             }
           ],
-          "broadcaster": "Kayo Sports",
+          "broadcaster": "Seven / 7plus, Foxtel / Kayo Sports / Binge",
           "broadcasterIds": [
-            "kayo",
+            "seven",
             "foxtel",
-            "seven"
+            "kayo"
           ],
           "broadcastOptions": [
             "Kayo Sports",
@@ -1293,47 +1390,42 @@
           ],
           "editorialNarrative": {
             "schemaVersion": "editorial-narrative.v2",
-            "projectionId": "projection:major:afl-finals-2026:child:event:afl:cd_m20260142802",
+            "projectionId": "projection:fixture-research:event-afl-cd_m20260142802",
             "researchTier": "marquee",
-            "hook": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final.",
-            "synopsis": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
+            "hook": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+            "synopsis": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
             "threadIds": [
-              "thread:afl:finals-2026:first-wildcard-road"
+              "thread:fixture-research:event-afl-cd_m20260142802"
             ],
             "factIds": [
-              "fact:afl-finals-2026:new-format",
-              "fact:afl-finals-2026:wildcard-results",
-              "fact:afl-finals-2026:week-two-path",
-              "fact:afl-finals-2026:carlton-revival",
-              "fact:afl-finals-2026:bulldogs-jones",
-              "fact:afl-finals-2026:destination"
+              "fact:fixture-research:event-afl-cd_m20260142802:0",
+              "fact:fixture-research:event-afl-cd_m20260142802:1",
+              "fact:fixture-research:event-afl-cd_m20260142802:2",
+              "fact:fixture-research:event-afl-cd_m20260142802:3"
             ],
             "sourceIds": [
-              "source:afl:2026-wildcard-format",
-              "source:afl:2026-bulldogs-wildcard",
-              "source:afl:2026-arty-jones",
-              "source:afl:2026-carlton-wildcard",
-              "source:afl:2026-week-two",
-              "source:afl:2026-grand-final-time"
+              "source:fixture-research:event-afl-cd_m20260142802:0",
+              "source:fixture-research:event-afl-cd_m20260142802:1",
+              "source:fixture-research:event-afl-cd_m20260142802:2"
             ],
             "dimensions": [
-              "format",
+              "matchup",
               "form",
               "path",
-              "history",
               "schedule"
             ],
-            "researchedAt": "2026-08-29T19:30:00.000Z",
-            "refreshAfter": "2026-09-03T10:00:00.000Z",
-            "generationMode": "verified-parent-child-projection"
+            "researchedAt": "2026-09-17T23:22:14.102Z",
+            "refreshAfter": "2026-09-09T12:00:00.000Z",
+            "generationMode": "researched"
           },
           "storyline": {
             "stakes": 5,
-            "hookSpoilerOff": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final.",
-            "hookSpoilerOn": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final.",
-            "synopsisSpoilerOff": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "synopsisSpoilerOn": "Winner of QF2 and Winner of SF1 play for a place in the Grand Final. Carlton and the Western Bulldogs survived the AFL's inaugural wildcard weekend in very different ways: the Blues extended a recovery from a 1–8 start, while first-final player Arty Jones kicked four goals in a three-point Bulldogs win. They now meet Geelong and Adelaide respectively as the top-six clubs enter the race to the MCG.",
-            "arcStage": "preview"
+            "hookSpoilerOff": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+            "hookSpoilerOn": "Sydney face Fremantle at the SCG with a Grand Final place on the line.",
+            "synopsisSpoilerOff": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
+            "synopsisSpoilerOn": "Sydney bring the SCG and a week to prepare; Fremantle bring minor-premier form and the momentum of a semi-final win. This is a direct test of Sydney's pressure against Fremantle's ability to turn the home-and-away season into a finals win. The winner advances to the Grand Final, while the loser is finished.",
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-17T23:22:14.102Z"
           },
           "competitionPhase": "preliminary-final",
           "isFinalRegularSeasonRound": false,
@@ -1343,7 +1435,24 @@
           "schedulePrecision": "week",
           "weekAnchorDate": "2026-09-14",
           "displayDateLabel": "Week of Monday, 14 Sep",
-          "date": "2026-09-14"
+          "date": "2026-09-18",
+          "displayName": "Sydney Swans v Fremantle",
+          "time": "19:40",
+          "timePrecision": "exact",
+          "venueName": "SCG",
+          "status": "scheduled",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t160",
+          "awayParticipantId": "team:afl:cd_t60",
+          "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+          "sourceName": "AFL",
+          "sourceType": "official",
+          "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+          "sourceRefs": [
+            "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
+            "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+          ],
+          "participantSlots": []
         },
         {
           "id": "event:afl:cd_m20260142901",
@@ -1361,13 +1470,13 @@
           "participants": [
             {
               "id": "team:afl:cd_t3020",
-              "participantId": "team:afl:cd_t3020",
-              "name": "Winner of PF1"
+              "name": "Winner of PF1",
+              "role": "home"
             },
             {
               "id": "team:afl:cd_t3021",
-              "participantId": "team:afl:cd_t3021",
-              "name": "Winner of PF2"
+              "name": "Winner of PF2",
+              "role": "away"
             }
           ],
           "broadcaster": "7plus",
@@ -1417,7 +1526,7 @@
               "consequence",
               "venue"
             ],
-            "researchedAt": "2026-09-04T07:51:40.028Z",
+            "researchedAt": "2026-09-08T14:50:03.143Z",
             "refreshAfter": "2026-09-26T04:30:00.000Z",
             "generationMode": "researched"
           },
@@ -1427,7 +1536,8 @@
             "hookSpoilerOn": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
             "synopsisSpoilerOff": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
             "synopsisSpoilerOn": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-            "arcStage": "preview"
+            "arcStage": "preview",
+            "lastReviewedAt": "2026-09-08T14:50:03.143Z"
           },
           "competitionPhase": "grand-final",
           "isFinalRegularSeasonRound": false,
@@ -1435,10 +1545,16 @@
           "codeId": "sport:afl",
           "surfaceClassification": "code",
           "publicStageLabel": "AFL Grand Final",
-          "displayName": "AFL Grand Final",
+          "displayName": "Winner of PF1 v Winner of PF2",
           "displayTitleCompact": "AFL Grand Final",
           "presentationTier": "championship",
-          "editorialRefreshOnParticipants": true
+          "editorialRefreshOnParticipants": true,
+          "venueName": "MCG",
+          "status": "scheduled",
+          "scheduleStatus": "confirmed",
+          "homeParticipantId": "team:afl:cd_t3020",
+          "awayParticipantId": "team:afl:cd_t3021",
+          "participantSlots": []
         }
       ],
       "competitionId": "competition:afl-premiership-2026"

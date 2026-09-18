@@ -181,6 +181,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/publish-feed.js", "feeds/incoming/events.json", "data/events.json", "data/feed-meta.json", "data/events.js", "--preserve-known"],
   ["scripts/apply-representative-metadata.js", "data/events.json", "data/events.js"],
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
+  ["scripts/sync-finals-code-phase.js"],
+  ["scripts/sync-finals-code-phase.js", "--check"],
   ["scripts/validate-editorial-narratives.js"],
   ["scripts/build-app-shell-runtime.js"],
   ["scripts/build-app-shell-runtime.js", "--check"],
