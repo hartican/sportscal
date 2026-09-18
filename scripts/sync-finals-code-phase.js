@@ -38,7 +38,7 @@ function syncFixture(fixture, source, feedEvent){
     "sourceType", "sourceCheckedAt", "sourceRefs", "canonicalSourceId", "canonicalSourceName",
     "canonicalSourceUrl", "canonicalSourceCheckedAt",
   ]);
-  copyDefined(next, feedEvent, ["participants", "participantSlots", "homeParticipantId", "awayParticipantId"]);
+  copyDefined(next, feedEvent, ["participants", "participantSlots", "homeParticipantId", "awayParticipantId", "liveWindow"]);
   if (source.name && source.venue && source.date){
     next.summary = `${source.name} at ${source.venue}${source.time ? `, ${source.date} ${source.time}` : ` on ${source.date}`}.`;
   }

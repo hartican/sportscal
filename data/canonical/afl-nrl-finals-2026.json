@@ -298,7 +298,8 @@
           "scheduleStatus": "confirmed",
           "homeParticipantId": "team:afl:cd_t90",
           "awayParticipantId": "team:afl:cd_t30",
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         },
         {
           "id": "event:afl:cd_m20260142502",
@@ -423,7 +424,8 @@
           "scheduleStatus": "confirmed",
           "homeParticipantId": "team:afl:cd_t140",
           "awayParticipantId": "team:afl:cd_t40",
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         },
         {
           "id": "event:afl:cd_m20260142601",
@@ -548,7 +550,8 @@
           "scheduleStatus": "confirmed",
           "homeParticipantId": "team:afl:cd_t60",
           "awayParticipantId": "team:afl:cd_t80",
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         },
         {
           "id": "event:afl:cd_m20260142602",
@@ -673,7 +676,8 @@
           "scheduleStatus": "confirmed",
           "homeParticipantId": "team:afl:cd_t160",
           "awayParticipantId": "team:afl:cd_t20",
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         },
         {
           "id": "event:afl:cd_m20260142603",
@@ -798,7 +802,8 @@
           "scheduleStatus": "confirmed",
           "homeParticipantId": "team:afl:cd_t70",
           "awayParticipantId": "team:afl:cd_t30",
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         },
         {
           "id": "event:afl:cd_m20260142604",
@@ -923,7 +928,8 @@
           "scheduleStatus": "confirmed",
           "homeParticipantId": "team:afl:cd_t10",
           "awayParticipantId": "team:afl:cd_t140",
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         },
         {
           "id": "event:afl:cd_m20260142701",
@@ -1052,7 +1058,8 @@
           "scheduleStatus": "confirmed",
           "homeParticipantId": "team:afl:cd_t60",
           "awayParticipantId": "team:afl:cd_t70",
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         },
         {
           "id": "event:afl:cd_m20260142702",
@@ -1182,7 +1189,8 @@
           "scheduleStatus": "confirmed",
           "homeParticipantId": "team:afl:cd_t20",
           "awayParticipantId": "team:afl:cd_t10",
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         },
         {
           "id": "event:afl:cd_m20260142801",
@@ -1317,7 +1325,8 @@
             "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
             "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
           ],
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         },
         {
           "id": "event:afl:cd_m20260142802",
@@ -1452,7 +1461,8 @@
             "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
             "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
           ],
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         },
         {
           "id": "event:afl:cd_m20260142901",
@@ -1554,7 +1564,8 @@
           "scheduleStatus": "confirmed",
           "homeParticipantId": "team:afl:cd_t3020",
           "awayParticipantId": "team:afl:cd_t3021",
-          "participantSlots": []
+          "participantSlots": [],
+          "liveWindow": 3
         }
       ],
       "competitionId": "competition:afl-premiership-2026"
