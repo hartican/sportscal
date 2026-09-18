@@ -38868,10 +38868,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "name": "MotoGP San Marino Grand Prix",
     "displayTitleCompact": "MotoGP San Marino Grand Prix",
     "date": "2026-09-13",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
+    "time": "22:00",
+    "timeTbc": false,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
     "broadcaster": "Fox Sports via Kayo / Foxtel",
     "broadcastOptions": [
       "Kayo Sports",
@@ -38891,9 +38891,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "narrativeType": "all",
     "selectedSentence": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
     "fullSpiel": "The Italian stop begins the final nine-race run to the Valencia decider.",
-    "sourceName": "MotoGP 2026 calendar",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceName": "MotoGP",
+    "sourceUrl": "https://stats.motogp.com/en/gp-results",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
     "sourceType": "official",
     "sourceTrust": "verified",
     "status": "completed",
@@ -38952,7 +38952,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
       "hookSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
       "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOn": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
+      "synopsisSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
       "lastReviewedAt": "2026-09-06T18:20:00.000Z"
     },
     "lastReviewedAt": "2026-09-06T18:20:00.000Z",
@@ -39000,7 +39000,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceRefs": [
       "https://stats.motogp.com/en/gp-results",
       "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181",
-      "https://www.motogp.com/en/news/2026/07/16//1088005"
+      "https://www.motogp.com/en/calendar/2026"
     ],
     "cardKind": "fixture",
     "editorialPreview": {
@@ -40062,7 +40062,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "confirmed",
     "localTimezone": "Australia/Melbourne",
     "venueName": "To Be Confirmed",
-    "venueCity": "Victoria",
+    "venueCity": "Sydney",
     "venueCountryCode": "AU",
     "homeParticipantId": "team:afl:cd_t160",
     "awayParticipantId": "team:afl:cd_t60",
@@ -40925,7 +40925,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "scheduleStatus": "confirmed",
     "localTimezone": "Australia/Melbourne",
     "venueName": "To Be Confirmed",
-    "venueCity": "Victoria",
+    "venueCity": "Melbourne",
     "venueCountryCode": "AU",
     "homeParticipantId": "team:afl:cd_t80",
     "awayParticipantId": "team:afl:cd_t20",
@@ -99536,7 +99536,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
+    "endTimeUtc": "2026-09-11T14:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_f1_2026_spain_practice_2",
@@ -99613,7 +99615,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
+    "endTimeUtc": "2026-09-11T18:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_f1_2026_spain_practice_3",
@@ -99690,7 +99694,9 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
     },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
+    "endTimeUtc": "2026-09-12T13:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
   },
   {
     "id": "evt_f1_2026_azerbaijan_practice_1",

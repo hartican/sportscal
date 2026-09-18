@@ -58,6 +58,14 @@ if (replaceExisting) {
   }
 }
 
+const publicationStamp = new Date().toISOString();
+const versionBase = String(publishedFeed.version || "feed").toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "") || "feed";
+publishedFeed = {
+  ...publishedFeed,
+  version: `${versionBase}-${publicationStamp.replace(/[^0-9]/g, "")}`,
+  publishedAt: publicationStamp,
+};
+
 const publishedErrors = validateFeed(publishedFeed);
 if (publishedErrors.length) {
   console.error("Refusing to publish an invalid merged feed:");
@@ -68,7 +76,7 @@ if (publishedErrors.length) {
 let meta = {
   version: "unpublished",
   schemaVersion: "events.v1",
-  publishedAt: new Date().toISOString(),
+  publishedAt: publicationStamp,
   eventsPath: "/data/events.json",
   activeSports: [],
   briefingWeekKey: "manual",
@@ -104,4 +112,4 @@ if (mergeSummary) console.log(`Preservation merge: ${mergeSummary.preserved} ret
 console.log(`Updated ${eventsOutPath}`);
 console.log(`Updated ${metaOutPath}`);
 console.log(`Updated ${bundleOutPath}`);
-console.log(`Feed version: ${feed.version}`);
+console.log(`Feed version: ${publishedFeed.version}`);

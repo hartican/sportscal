@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20260918095649166",
+  "version": "weekend-editorial-20260918095649166-20260918113510363",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-18T09:56:49.166Z",
+  "publishedAt": "2026-09-18T11:35:10.363Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -36,7 +36,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-09-15",
+    "basisDate": "2026-09-18",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -44,7 +44,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-22",
     "lastEventDate": "2027-07-15",
-    "daysAhead": 303,
+    "daysAhead": 300,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {

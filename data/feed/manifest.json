@@ -1,7 +1,7 @@
 {
   "schemaVersion": "public-feed.v2",
-  "sourceVersion": "weekend-editorial-20260918095649166",
-  "sourcePublishedAt": "2026-09-18T09:56:49.166Z",
+  "sourceVersion": "weekend-editorial-20260918095649166-20260918113510363",
+  "sourcePublishedAt": "2026-09-18T11:35:10.363Z",
   "pageSize": 20,
   "retentionDays": 14,
   "inputEventCount": 1061,
@@ -250,7 +250,7 @@
       "path": "data/feed/page-035.json",
       "eventCount": 20,
       "firstEventId": "event:premier-league:128960",
-      "lastEventId": "event:aflw:cd_m20262640509"
+      "lastEventId": "event:motogp:2026:san-marino"
     },
     {
       "index": 35,

@@ -8,6 +8,7 @@ const SOURCE_PATH = "data/canonical/afl-nrl-2026.json";
 const FEED_PATH = "data/events.json";
 const TARGET_PATH = "data/canonical/afl-nrl-finals-2026.json";
 const CHECK_ONLY = process.argv.includes("--check");
+const KNOWN_VENUE_CITIES = Object.freeze({ SCG: "Sydney", MCG: "Melbourne" });
 
 function readJson(file){
   return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -29,6 +30,14 @@ function copyDefined(target, source, fields){
   for (const field of fields) if (source[field] !== undefined && source[field] !== null) target[field] = structuredClone(source[field]);
 }
 
+function knownVenueCity(...events){
+  for (const event of events){
+    const venue = String(event?.venue || event?.venueName || "").trim().toUpperCase();
+    if (KNOWN_VENUE_CITIES[venue]) return KNOWN_VENUE_CITIES[venue];
+  }
+  return null;
+}
+
 function syncFixture(fixture, source, feedEvent){
   const next = { ...fixture };
   copyDefined(next, source, [
@@ -39,6 +48,8 @@ function syncFixture(fixture, source, feedEvent){
     "canonicalSourceUrl", "canonicalSourceCheckedAt",
   ]);
   copyDefined(next, feedEvent, ["participants", "participantSlots", "homeParticipantId", "awayParticipantId", "liveWindow"]);
+  const venueCity = knownVenueCity(source, feedEvent);
+  if (venueCity) next.venueCity = venueCity;
   if (source.name && source.venue && source.date){
     next.summary = `${source.name} at ${source.venue}${source.time ? `, ${source.date} ${source.time}` : ` on ${source.date}`}.`;
   }

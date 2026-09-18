@@ -299,7 +299,8 @@
           "homeParticipantId": "team:afl:cd_t90",
           "awayParticipantId": "team:afl:cd_t30",
           "participantSlots": [],
-          "liveWindow": 3
+          "liveWindow": 3,
+          "venueCity": "Melbourne"
         },
         {
           "id": "event:afl:cd_m20260142502",
@@ -425,7 +426,8 @@
           "homeParticipantId": "team:afl:cd_t140",
           "awayParticipantId": "team:afl:cd_t40",
           "participantSlots": [],
-          "liveWindow": 3
+          "liveWindow": 3,
+          "venueCity": "Melbourne"
         },
         {
           "id": "event:afl:cd_m20260142601",
@@ -677,7 +679,8 @@
           "homeParticipantId": "team:afl:cd_t160",
           "awayParticipantId": "team:afl:cd_t20",
           "participantSlots": [],
-          "liveWindow": 3
+          "liveWindow": 3,
+          "venueCity": "Sydney"
         },
         {
           "id": "event:afl:cd_m20260142603",
@@ -803,7 +806,8 @@
           "homeParticipantId": "team:afl:cd_t70",
           "awayParticipantId": "team:afl:cd_t30",
           "participantSlots": [],
-          "liveWindow": 3
+          "liveWindow": 3,
+          "venueCity": "Melbourne"
         },
         {
           "id": "event:afl:cd_m20260142604",
@@ -1326,7 +1330,8 @@
             "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
           ],
           "participantSlots": [],
-          "liveWindow": 3
+          "liveWindow": 3,
+          "venueCity": "Melbourne"
         },
         {
           "id": "event:afl:cd_m20260142802",
@@ -1462,7 +1467,8 @@
             "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
           ],
           "participantSlots": [],
-          "liveWindow": 3
+          "liveWindow": 3,
+          "venueCity": "Sydney"
         },
         {
           "id": "event:afl:cd_m20260142901",
@@ -1565,7 +1571,8 @@
           "homeParticipantId": "team:afl:cd_t3020",
           "awayParticipantId": "team:afl:cd_t3021",
           "participantSlots": [],
-          "liveWindow": 3
+          "liveWindow": 3,
+          "venueCity": "Melbourne"
         }
       ],
       "competitionId": "competition:afl-premiership-2026"

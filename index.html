@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="274">
+<meta name="app-shell-version" content="275">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=274" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=275" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6851,9 +6851,9 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=274">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=274">
-<link rel="stylesheet" href="assets/styles/card-clarity.css?v=274">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=275">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=275">
+<link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 </head>
 <body>
 
@@ -7143,7 +7143,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=274"></script>
+<script src="assets/js/app-shell-runtime.js?v=275"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10610,7 +10610,7 @@ async function loadFollowDirectoryManifest(){
 function parseFollowDirectoryText(text){
   if(typeof Worker!=="function" || globalThis.location?.protocol==="file:" || text.length<250000)return Promise.resolve(JSON.parse(text));
   if(!followDirectoryParserWorker){
-    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=274");
+    followDirectoryParserWorker=new Worker("config/follow-directory-worker.js?v=275");
     followDirectoryParserWorker.addEventListener("message",event=>{
       const job=followDirectoryParserJobs.get(event.data?.id);if(!job)return;
       followDirectoryParserJobs.delete(event.data.id);window.clearTimeout(job.timer);
@@ -11313,9 +11313,11 @@ async function loadPublicFeedFirstPage({cacheFirst=false}={}){
     const rendered = applyFeedEvents(events);
     return { source:"bundled", eventCount:events.length, cardCount:derivedCardCache.derivedCards.length, rendered };
   }
-  const manifest = await fetchJson(FEED_CONFIG.manifestUrl, { cache:"default" });
+  const refreshKey = Date.now().toString(36);
+  const manifest = await fetchJson(`${FEED_CONFIG.manifestUrl}?refresh=${refreshKey}`, { cache:"no-store" });
   if (manifest?.schemaVersion !== "public-feed.v2" || !manifest.pages?.length) throw new Error("Published feed manifest is unsupported");
-  const payload = await fetchJson(manifest.pages[0].path, { cache:"default" });
+  const pagePath = manifest.pages[0].path;
+  const payload = await fetchJson(`${pagePath}${pagePath.includes("?") ? "&" : "?"}refresh=${encodeURIComponent(manifest.sourceVersion || refreshKey)}`, { cache:"no-store" });
   const events = coerceEventList(payload);
   if (!events.length) throw new Error("Remote feed did not contain usable events");
   // Revalidation of the same release must not discard pages already read.
@@ -12946,15 +12948,21 @@ function eventDateLabel(ev){
 }
 
 function eventLocationLabel(ev){
+  const rawVenue = String(ev?.venueDisplayName || ev?.venueOfficialName || ev?.venue || "").trim();
+  const venueRecord = rawVenue && VENUE_REGISTRY?.resolve?.(rawVenue, ev);
+  const venue = String(ev?.venueDisplayName || venueRecord?.displayName || rawVenue).trim();
   const explicit = String(ev?.venueCity || ev?.city || ev?.location || "").trim();
-  if (explicit) return explicit;
-  const venue = String(ev?.venue || "").trim();
-  if (!venue) return "Location TBC";
   if (/^(2026 NBA Finals|Tour de France 2026)$/i.test(venue)){
     return /^Tour/i.test(venue) ? "Location varies" : "Location TBC";
   }
-  const commaParts = venue.split(",").map(part => part.trim()).filter(Boolean);
-  if (commaParts.length > 1) return commaParts.at(-1);
+  const genericVenue = /^(?:location tbc|venue tbc|tbc|tbd|unknown)$/i.test(venue);
+  if (venue && !genericVenue){
+    const commaParts = venue.split(",").map(part => part.trim()).filter(Boolean);
+    if (commaParts.length > 1) return commaParts.slice(0, -1).join(", ").trim() || venue;
+    return venue;
+  }
+  if (explicit) return explicit;
+  if (!venue) return "Location TBC";
   const mapped = EVENT_LOCATION_BY_VENUE.find(([pattern]) => pattern.test(venue));
   if (mapped) return mapped[1];
   const namedArea = venue.match(/\b(Atlanta|Boston|Dallas|Houston|Kansas City|Los Angeles|Mexico City|Miami|New York New Jersey|Philadelphia|San Francisco Bay Area|Seattle|Vancouver)\b/i);
@@ -25334,7 +25342,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=274");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=275");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
