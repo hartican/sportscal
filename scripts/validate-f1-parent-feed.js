@@ -47,8 +47,11 @@ for (const [slug,name] of [["spain","Spanish"],["mexico","Mexico City"],["brazil
 }
 
 const context = require("../config/sport-context");
-const first = context.applyContextToEvents([f1[0]],require("../data/canonical/f1-context-2026.json"))[0];
-assert(first.participantIds?.length,"mute regression uses a sourced session field");
+// Publication ordering changes as the feed rolls forward. This regression
+// requires a competitive session with a sourced field, not the first row.
+const first = context.applyContextToEvents(f1.filter(event => !isPractice(event)),require("../data/canonical/f1-context-2026.json"))
+  .find(event => event.participantIds?.length);
+assert(first,"mute regression uses a sourced session field");
 for (const [label,patch] of [
   ["competition exclusion",{preferenceGraph:{...preferences.preferenceGraph,competitionPreferences:[{competitionId:first.competitionId,enabled:false}]}}],
   ["participant mute",{preferenceGraph:{...preferences.preferenceGraph,entityFollows:[{participantId:first.participantIds[0],followLevel:"mute"}]}}],
