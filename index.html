@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="275">
+<meta name="app-shell-version" content="276">
 <script src="/assets/js/app-update.js?v=254" defer></script>
 <link rel="preload" href="assets/js/app-shell-runtime.js?v=275" as="script">
 <meta property="og:type" content="website">
@@ -16863,8 +16863,15 @@ function buildEventWhyItMatters(ev){
   const opened = cardStateForEvent(ev) === "opened";
   const hook = editorialNarrativeHookForDisplay(ev);
   if (!isValidatedEditorialCopy(hook)) return null;
-  const consequence = opened ? editorialConsequenceForDisplay(ev) : "";
-  const supplemental = opened ? editorialNarrativeSynopsisForDisplay(ev) : "";
+  const seen = new Set();
+  const uniqueCopy = copy => String(copy || '').split(/(?<=[.!?])\s+/).filter(sentence => {
+    const key = sentence.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if(!key || seen.has(key)) return false;
+    seen.add(key); return true;
+  }).join(' ');
+  uniqueCopy(hook);
+  const consequence = opened ? uniqueCopy(editorialConsequenceForDisplay(ev)) : "";
+  const supplemental = opened ? uniqueCopy(editorialNarrativeSynopsisForDisplay(ev)) : "";
   return buildEditorialL0Hook(hook, isValidatedEditorialCopy(consequence) ? consequence : "", {
     labelText:"Why it matters",
     supplementalCopy:isValidatedEditorialCopy(supplemental) ? supplemental : "",

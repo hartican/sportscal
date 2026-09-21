@@ -2357,11 +2357,26 @@ return {gender,sport,badge};
     result.forEach((event,index)=>{aliases(event).forEach(id=>indexes.set(id,index));const key=semanticKey(event);if(key)semanticIndexes.set(key,index);});
     // Enrichment is an additive overlay, never a replacement score/status feed.
     const ordered=[...(updates||[]).filter(event=>!event.enrichmentOnly),...(updates||[]).filter(event=>event.enrichmentOnly)];
-    for(const event of ordered){
+    for(const update of ordered){
+      const event = {...update};
       const ids=aliases(event);if(!ids.length)continue;
       const key=semanticKey(event),match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined)??(key?semanticIndexes.get(key):undefined),index=match??result.length;
       const base=result[index];
       if(base && !event.enrichmentOnly){
+        const reviewedAt = record => Date.parse(record?.editorialNarrative?.researchedAt || record?.lastReviewedAt || '') || 0;
+        // A score snapshot's fetch timestamp is not an editorial review.
+        if(reviewedAt(base) > reviewedAt(event)){
+          for(const field of ['editorialNarrative','editorialPreview','selectedSentence','fullSpiel','summary','storyline','lastReviewedAt','resultEditorialBranches']){
+            if(base[field] !== undefined) event[field] = base[field];
+          }
+        }
+        const resolved = record => (record?.participants || []).length >= 2 &&
+          record.participants.every(p => !/winner of|loser of|\btbc\b|\btbd\b|to be confirmed/i.test(p.name || p.displayName || '') && Boolean(p.name || p.displayName));
+        if(resolved(base) && !resolved(event)){
+          for(const field of ['name','displayName','displayTitleCompact','participants','participantIds','homeParticipantId','awayParticipantId','participantSlots']){
+            if(base[field] !== undefined) event[field] = base[field];
+          }
+        }
         const missing=value=>value==null || value==='' || (Array.isArray(value)&&!value.length) || (typeof value==='string'&&/^(?:tbc|tbd|unknown|venue tbc)$/i.test(value));
         // Score providers commonly omit venue and broadcast rights. Absence is
         // not a retraction of separately verified fixture details.

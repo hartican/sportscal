@@ -39650,13 +39650,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "role": "away"
       }
     ],
-    "selectedSentence": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
-    "fullSpiel": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+    "selectedSentence": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
+    "fullSpiel": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
     "sourceName": "AFL",
     "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
     "sourceCheckedAt": "2026-09-08T14:50:03.143Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-21T12:20:05.571Z",
+    "lastReviewedAt": "2026-09-21T12:34:24.741Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -39689,8 +39689,8 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "schemaVersion": "editorial-narrative.v2",
       "projectionId": "projection:afl:grand-final-2026",
       "researchTier": "marquee",
-      "hook": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
-      "synopsis": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+      "hook": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
+      "synopsis": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
       "sourceIds": [
         "source:afl:gf2026:0",
         "source:afl:gf2026:1",
@@ -39710,7 +39710,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "consequence",
         "venue"
       ],
-      "researchedAt": "2026-09-21T12:22:56.007Z",
+      "researchedAt": "2026-09-21T12:34:24.741Z",
       "refreshAfter": "2026-09-26T04:30:00.000Z",
       "generationMode": "researched"
     },
@@ -39733,10 +39733,10 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "intensity": 5,
       "arcStage": "preview",
       "expectedSpectacle": 10,
-      "hookSpoilerOff": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
-      "hookSpoilerOn": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
-      "synopsisSpoilerOff": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
-      "synopsisSpoilerOn": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+      "hookSpoilerOff": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
+      "hookSpoilerOn": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
+      "synopsisSpoilerOff": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
+      "synopsisSpoilerOn": "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
       "lastReviewedAt": "2026-09-21T12:20:05.571Z"
     },
     "competitionPhase": "grand-final",
@@ -39759,7 +39759,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
         "revealed": "Brisbane Lions defeated Fremantle in the Grand Final."
       }
     },
-    "summary": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+    "summary": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
     "viewingOptions": [
       {
         "providerId": "seven",
