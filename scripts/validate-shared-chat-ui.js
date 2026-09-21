@@ -162,7 +162,7 @@ assert.match(accountProfile, /nothingscoreProfileForm\(\)/);
 const profileForm = section(html, "function nothingscoreProfileForm()", "async function setNothingscoreProfileVisibility");
 assert.match(profileForm, /buildPublicProfileAvatarEditor/);
 assert.match(profileForm, /avatarEditor\.upload\(\)/);
-assert.match(html, /\.chat-message-avatar\{ width:1em; height:1em;/, "message avatars must stay within the sender text line");
+assert.match(html, /\.chat-message-avatar\{ width:1rem; height:1rem;/, "message avatars must stay square and independent of the smaller initials font");
 const nscDrawer = section(html, "function renderNothingscoreDrawer()", "async function loadNothingscoreLeaderboard");
 assert.doesNotMatch(nscDrawer, /nothingscoreProfileForm\(\)/, "NSC must link to Settings instead of duplicating the editor");
 const accountSummary = section(html, "function buildMyNscAccountSection", "function refreshMyNscAccountSection");
