@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20260918095649166-20260918113510363",
+  "version": "weekend-editorial-20260918095649166-20260921122256436",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-18T11:35:10.363Z",
+  "publishedAt": "2026-09-21T12:22:56.436Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -21,22 +21,22 @@
     "premier-league",
     "aflw",
     "tennis",
-    "sailgp",
-    "fiba-women",
-    "nrlw",
-    "motogp",
     "wsl",
     "downhill-mtb",
     "big-wave",
     "ski",
     "goodwood",
+    "nrlw",
+    "fiba-women",
+    "sailgp",
+    "motogp",
     "golf",
     "basketball"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-09-18",
+    "basisDate": "2026-09-21",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -44,7 +44,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-22",
     "lastEventDate": "2027-07-15",
-    "daysAhead": 300,
+    "daysAhead": 297,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {
@@ -132,26 +132,6 @@
         "firstEventDate": "2026-09-03",
         "lastEventDate": "2026-09-09"
       },
-      "sailgp": {
-        "count": 7,
-        "firstEventDate": "2026-09-06",
-        "lastEventDate": "2026-11-29"
-      },
-      "fiba-women": {
-        "count": 17,
-        "firstEventDate": "2026-09-06",
-        "lastEventDate": "2026-09-14"
-      },
-      "nrlw": {
-        "count": 7,
-        "firstEventDate": "2026-09-10",
-        "lastEventDate": "2026-10-04"
-      },
-      "motogp": {
-        "count": 9,
-        "firstEventDate": "2026-09-13",
-        "lastEventDate": "2026-11-29"
-      },
       "wsl": {
         "count": 1,
         "firstEventDate": "2026-10-02",
@@ -176,6 +156,26 @@
         "count": 1,
         "firstEventDate": "2027-07-10",
         "lastEventDate": "2027-07-10"
+      },
+      "nrlw": {
+        "count": 7,
+        "firstEventDate": "2026-09-10",
+        "lastEventDate": "2026-10-04"
+      },
+      "fiba-women": {
+        "count": 17,
+        "firstEventDate": "2026-09-06",
+        "lastEventDate": "2026-09-14"
+      },
+      "sailgp": {
+        "count": 7,
+        "firstEventDate": "2026-09-06",
+        "lastEventDate": "2026-11-29"
+      },
+      "motogp": {
+        "count": 9,
+        "firstEventDate": "2026-09-13",
+        "lastEventDate": "2026-11-29"
       },
       "golf": {
         "count": 4,

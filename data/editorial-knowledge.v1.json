@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-knowledge.v2",
-  "updatedAt": "2026-09-08T14:50:03.143Z",
+  "updatedAt": "2026-09-21T12:22:56.007Z",
   "subjects": [
     {
       "id": "competition:tennis:cincinnati-open",
@@ -3350,6 +3350,27 @@
       "url": "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026",
       "sourceType": "official",
       "checkedAt": "2026-09-17T23:48:28.764Z"
+    },
+    {
+      "id": "source:afl:gf2026:0",
+      "name": "AFL Grand Final guide",
+      "url": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+      "sourceType": "official",
+      "checkedAt": "2026-09-21T12:22:56.007Z"
+    },
+    {
+      "id": "source:afl:gf2026:1",
+      "name": "AFL Fremantle preliminary final report",
+      "url": "https://www.afl.com.au/news/1613373/dockers-storm-home-to-seal-gf-berth-in-epic-finish-over-swans",
+      "sourceType": "official",
+      "checkedAt": "2026-09-21T12:22:56.007Z"
+    },
+    {
+      "id": "source:afl:gf2026:2",
+      "name": "AFL Brisbane preliminary final report",
+      "url": "https://www.afl.com.au/news/1614209/brisbane-lions-prevail-in-all-time-classic-after-decisive-late-call-denies-hawthorn-hawks/",
+      "sourceType": "official",
+      "checkedAt": "2026-09-21T12:22:56.007Z"
     }
   ],
   "narrativeFacts": [
@@ -14289,6 +14310,58 @@
       ],
       "observedAt": "2026-09-17T23:48:28.764Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:afl:gf2026:0",
+      "subjectIds": [
+        "team:afl:cd_t60",
+        "team:afl:cd_t20"
+      ],
+      "statement": "Fremantle are in their second Grand Final, after 2013, seeking their first premiership.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:afl:gf2026:0"
+      ],
+      "observedAt": "2026-09-21T12:22:56.007Z"
+    },
+    {
+      "id": "fact:afl:gf2026:1",
+      "subjectIds": [
+        "team:afl:cd_t60",
+        "team:afl:cd_t20"
+      ],
+      "statement": "Brisbane are in their fourth consecutive Grand Final seeking a third successive premiership.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:afl:gf2026:0"
+      ],
+      "observedAt": "2026-09-21T12:22:56.007Z"
+    },
+    {
+      "id": "fact:afl:gf2026:2",
+      "subjectIds": [
+        "team:afl:cd_t60",
+        "team:afl:cd_t20"
+      ],
+      "statement": "Fremantle finished strongly to defeat Sydney in the preliminary final.",
+      "dimension": "path",
+      "sourceIds": [
+        "source:afl:gf2026:1"
+      ],
+      "observedAt": "2026-09-21T12:22:56.007Z"
+    },
+    {
+      "id": "fact:afl:gf2026:3",
+      "subjectIds": [
+        "team:afl:cd_t60",
+        "team:afl:cd_t20"
+      ],
+      "statement": "Kai Lohmann kicked five goals and Hugh McCluggage kicked the late go-ahead goal against Hawthorn.",
+      "dimension": "matchup",
+      "sourceIds": [
+        "source:afl:gf2026:2"
+      ],
+      "observedAt": "2026-09-21T12:22:56.007Z"
     }
   ],
   "narrativeThreads": [
@@ -16631,6 +16704,23 @@
       ],
       "status": "active",
       "updatedAt": "2026-09-17T23:48:28.764Z"
+    },
+    {
+      "id": "thread:afl:gf2026:first-flag-or-threepeat",
+      "subjectIds": [
+        "team:afl:cd_t60",
+        "team:afl:cd_t20"
+      ],
+      "title": "First flag or another three-peat",
+      "summary": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+      "factIds": [
+        "fact:afl:gf2026:0",
+        "fact:afl:gf2026:1",
+        "fact:afl:gf2026:2",
+        "fact:afl:gf2026:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-21T12:22:56.007Z"
     }
   ],
   "audienceMemories": [],
@@ -23419,38 +23509,6 @@
       }
     },
     {
-      "id": "projection:rolling:event-afl-cd-m20260142901",
-      "targetType": "feed-event",
-      "targetIds": [
-        "event-afl-cd_m20260142901"
-      ],
-      "researchDepth": 5,
-      "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-      "synopsis": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-      "threadIds": [
-        "thread:depth:afl:finals"
-      ],
-      "factIds": [
-        "fact:depth:afl:event-afl-cd-m20260142901:1",
-        "fact:depth:afl:event-afl-cd-m20260142901:2",
-        "fact:depth:afl:event-afl-cd-m20260142901:3",
-        "fact:depth:afl:event-afl-cd-m20260142901:4"
-      ],
-      "sourceIds": [
-        "source:depth:afl:ladder",
-        "source:depth:afl:finals-fixture",
-        "source:depth:afl:final-ten-rules",
-        "source:depth:afl:match:event-afl-cd-m20260142901"
-      ],
-      "researchedAt": "2026-09-08T14:50:03.143Z",
-      "refreshAfter": "2026-09-26T04:30:00.000Z",
-      "generationMode": "researched",
-      "originalityReview": {
-        "method": "independent-summary-no-source-prose-retained",
-        "reviewedAt": "2026-09-08T14:50:03.143Z"
-      }
-    },
-    {
       "id": "projection:sport-depth:cricket-australia-bangladesh-first-test-2026",
       "targetType": "feed-event",
       "targetIds": [
@@ -24262,6 +24320,38 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-09-17T23:48:28.764Z"
+      }
+    },
+    {
+      "id": "projection:afl:grand-final-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "event-afl-cd_m20260142901",
+        "event:afl:cd_m20260142901"
+      ],
+      "stakes": 5,
+      "hook": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+      "synopsis": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+      "threadIds": [
+        "thread:afl:gf2026:first-flag-or-threepeat"
+      ],
+      "factIds": [
+        "fact:afl:gf2026:0",
+        "fact:afl:gf2026:1",
+        "fact:afl:gf2026:2",
+        "fact:afl:gf2026:3"
+      ],
+      "sourceIds": [
+        "source:afl:gf2026:0",
+        "source:afl:gf2026:1",
+        "source:afl:gf2026:2"
+      ],
+      "researchedAt": "2026-09-21T12:22:56.007Z",
+      "refreshAfter": "2026-09-26T04:30:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-09-21T12:22:56.007Z"
       }
     }
   ]

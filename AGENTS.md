@@ -44,3 +44,8 @@ Before changing Follow, Feed admission, discovery opt-ins, fixture routing, rete
 Backend efficiency record — mandatory reading
 ---------------------------------------------
 Before changing live fixture refresh, Supabase persistence, chat polling, notifications, presence or scheduled refreshes, read [docs/backend-efficiency-decisions.md](docs/backend-efficiency-decisions.md). Preserve its MVP budgets and one-owner scheduler rules unless a later dated decision explicitly supersedes them.
+
+Update and deployment convention
+--------------------------------
+- A request to "update" cards includes applying the change, publishing it to GitHub main, and deploying the exact published snapshot to Vercel production. Do not ask for separate deployment confirmation unless the user explicitly requests local-only work.
+- Keep normal release safeguards. If a required gate fails, report the blocker rather than claiming deployment or bypassing it. Distinguish local changes, GitHub publication, and production deployment in the final status.

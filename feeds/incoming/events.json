@@ -39611,41 +39611,41 @@
       "eventId": "event-afl-cd_m20260142901",
       "sport": "AFL",
       "key": "afl",
-      "name": "AFL Grand Final",
-      "displayTitleCompact": "AFL Grand Final",
+      "name": "Fremantle v Brisbane Lions",
+      "displayTitleCompact": "Fremantle v Brisbane Lions",
       "date": "2026-09-26",
       "time": "14:30",
       "startTimeUtc": "2026-09-26T04:30:00.000Z",
-      "broadcaster": "7plus",
+      "broadcaster": "Seven / 7plus",
       "broadcastOptions": [
-        "7plus",
-        "Watch AFL"
+        "Seven",
+        "7plus"
       ],
       "expected": 10,
-      "venue": "MCG, Melbourne",
+      "venue": "MCG",
       "liveWindow": 3,
       "round": "all",
       "narrativeType": "regular-season-fixture",
       "status": "upcoming",
       "participants": [
         {
-          "id": "team:afl:cd_t3020",
-          "name": "Winner of PF1",
+          "id": "team:afl:cd_t60",
+          "name": "Fremantle",
           "role": "home"
         },
         {
-          "id": "team:afl:cd_t3021",
-          "name": "Winner of PF2",
+          "id": "team:afl:cd_t20",
+          "name": "Brisbane Lions",
           "role": "away"
         }
       ],
-      "selectedSentence": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-      "fullSpiel": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
+      "selectedSentence": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+      "fullSpiel": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
       "sourceCheckedAt": "2026-09-08T14:50:03.143Z",
       "sourceType": "official",
-      "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+      "lastReviewedAt": "2026-09-21T12:20:05.571Z",
       "replayEligible": true,
       "highlightEligible": true,
       "briefingEligible": false,
@@ -39659,14 +39659,13 @@
       "sportDomainId": "sport:afl",
       "competitionId": "competition:afl-premiership-2026",
       "participantIds": [
-        "team:afl:cd_t3020",
-        "team:afl:cd_t3021"
+        "team:afl:cd_t60",
+        "team:afl:cd_t20"
       ],
-      "homeParticipantId": "team:afl:cd_t3020",
-      "awayParticipantId": "team:afl:cd_t3021",
+      "homeParticipantId": "team:afl:cd_t60",
+      "awayParticipantId": "team:afl:cd_t20",
       "broadcasterIds": [
-        "kayo",
-        "foxtel"
+        "seven"
       ],
       "scheduleStatus": "confirmed",
       "sourceTrust": "verified",
@@ -39677,63 +39676,57 @@
       "representativeCountryCodes": [],
       "editorialNarrative": {
         "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:rolling:event-afl-cd-m20260142901",
+        "projectionId": "projection:afl:grand-final-2026",
         "researchTier": "marquee",
-        "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-        "synopsis": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
+        "hook": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+        "synopsis": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+        "sourceIds": [
+          "source:afl:gf2026:0",
+          "source:afl:gf2026:1",
+          "source:afl:gf2026:2"
+        ],
         "threadIds": [
-          "thread:depth:afl:finals"
+          "thread:afl:gf2026:first-flag-or-threepeat"
         ],
         "factIds": [
-          "fact:depth:afl:event-afl-cd-m20260142901:1",
-          "fact:depth:afl:event-afl-cd-m20260142901:2",
-          "fact:depth:afl:event-afl-cd-m20260142901:3",
-          "fact:depth:afl:event-afl-cd-m20260142901:4"
-        ],
-        "sourceIds": [
-          "source:depth:afl:ladder",
-          "source:depth:afl:finals-fixture",
-          "source:depth:afl:final-ten-rules",
-          "source:depth:afl:match:event-afl-cd-m20260142901"
+          "fact:afl:gf2026:0",
+          "fact:afl:gf2026:1",
+          "fact:afl:gf2026:2",
+          "fact:afl:gf2026:3"
         ],
         "dimensions": [
-          "history",
-          "path",
+          "matchup",
           "consequence",
           "venue"
         ],
-        "researchedAt": "2026-09-08T14:50:03.143Z",
+        "researchedAt": "2026-09-21T12:22:56.007Z",
         "refreshAfter": "2026-09-26T04:30:00.000Z",
         "generationMode": "researched"
       },
       "editorialPreview": {
         "status": "journalistic",
-        "angle": "AFL 2026 — the first Final Ten",
+        "angle": "Fremantle v Brisbane: the premiership decider",
+        "sourceName": "AFL",
+        "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+        "sourceCheckedAt": "2026-09-21T12:20:05.571Z",
+        "needsPreviewRefresh": false,
         "contextSignals": [
           "event-specific",
           "narrative:history",
-          "narrative:path",
-          "narrative:consequence",
-          "narrative:venue"
-        ],
-        "sourceName": "AFL 2026 final home-and-away ladder",
-        "sourceUrl": "https://www.afl.com.au/ladder",
-        "sourceCheckedAt": "2026-09-08T14:50:03.143Z",
-        "needsPreviewRefresh": false
+          "narrative:matchup",
+          "narrative:consequence"
+        ]
       },
       "storyline": {
         "stakes": 5,
-        "hookSpoilerOff": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-        "hookSpoilerOn": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-        "synopsisSpoilerOff": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-        "synopsisSpoilerOn": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-        "arcStage": "preview",
         "intensity": 5,
+        "arcStage": "preview",
         "expectedSpectacle": 10,
-        "intensitySource": "computed",
-        "researchDepth": 5,
-        "lastReviewedAt": "2026-09-08T14:50:03.143Z",
-        "archetype": "championship decider"
+        "hookSpoilerOff": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+        "hookSpoilerOn": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+        "synopsisSpoilerOff": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+        "synopsisSpoilerOn": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+        "lastReviewedAt": "2026-09-21T12:20:05.571Z"
       },
       "competitionPhase": "grand-final",
       "isFinalRegularSeasonRound": false,
@@ -39742,37 +39735,30 @@
       "resultEditorialBranches": {
         "home": {
           "sourceIds": [
-            "https://www.afl.com.au/ladder"
+            "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
           ],
-          "spoilerSafe": "Winner of PF1 v Winner of PF2 in Grand Final: the result is available to reveal.",
-          "revealed": "Winner of PF1 defeated Winner of PF2 in Grand Final."
+          "spoilerSafe": "Fremantle v Brisbane Lions: reveal the Grand Final result.",
+          "revealed": "Fremantle defeated Brisbane Lions in the Grand Final."
         },
         "away": {
           "sourceIds": [
-            "https://www.afl.com.au/ladder"
+            "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
           ],
-          "spoilerSafe": "Winner of PF1 v Winner of PF2 in Grand Final: the result is available to reveal.",
-          "revealed": "Winner of PF2 defeated Winner of PF1 in Grand Final."
-        },
-        "draw": {
-          "sourceIds": [
-            "https://www.afl.com.au/ladder"
-          ],
-          "spoilerSafe": "Winner of PF1 v Winner of PF2 in Grand Final: the result is available to reveal.",
-          "revealed": "Winner of PF1 and Winner of PF2 finished level in Grand Final."
+          "spoilerSafe": "Fremantle v Brisbane Lions: reveal the Grand Final result.",
+          "revealed": "Brisbane Lions defeated Fremantle in the Grand Final."
         }
       },
-      "summary": "Official AFL schedule: Winner of PF1 v Winner of PF2 at MCG.",
+      "summary": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
       "viewingOptions": [
         {
           "providerId": "seven",
-          "serviceId": "seven",
           "territory": "AU",
           "accessType": "free",
           "liveOrReplay": "live",
-          "rightsScope": "competition",
-          "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
-          "verifiedAt": "2026-08-25T00:00:00.000Z"
+          "rightsScope": "fixture",
+          "webUrl": "https://7plus.com.au/afl",
+          "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+          "verifiedAt": "2026-09-21T12:20:05.571Z"
         }
       ],
       "codeId": "sport:afl",
@@ -39800,27 +39786,15 @@
       "venueName": "MCG",
       "venueCity": "Melbourne",
       "venueCountryCode": "AU",
-      "displayName": "Winner of PF1 v Winner of PF2",
+      "displayName": "Fremantle v Brisbane Lions",
       "broadcasters": [
         {
-          "broadcasterId": "broadcaster:kayo",
-          "broadcasterName": "Kayo Sports",
-          "platformType": "streaming",
+          "broadcasterId": "broadcaster:seven",
+          "broadcasterName": "Seven / 7plus",
+          "platformType": "free-to-air",
           "regionCode": "AU",
           "live": true,
-          "replay": true,
-          "highlights": true,
-          "deeplinkUrl": "https://kayosports.com.au/"
-        },
-        {
-          "broadcasterId": "broadcaster:foxtel",
-          "broadcasterName": "Foxtel",
-          "platformType": "subscription",
-          "regionCode": "AU",
-          "live": true,
-          "replay": true,
-          "highlights": true,
-          "deeplinkUrl": "https://www.foxtel.com.au/"
+          "deeplinkUrl": "https://7plus.com.au/afl"
         }
       ],
       "hasLadderImplications": true,

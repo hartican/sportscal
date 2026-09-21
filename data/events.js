@@ -29843,309 +29843,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeBasis": "scheduled-live-window"
   },
   {
-    "id": "evt_sailgp_2026_valencia_day_2",
-    "eventId": "evt_sailgp_2026_valencia_day_2",
-    "canonicalEventId": "event:sailgp:2026:valencia-day-2",
-    "sport": "SailGP",
-    "key": "sailgp",
-    "name": "Spain Sail Grand Prix — race day 2",
-    "displayTitleCompact": "Spain Sail Grand Prix — race day 2",
-    "date": "2026-09-06",
-    "time": "21:30",
-    "startTimeUtc": "2026-09-06T11:30:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 9,
-    "stakesScore": 5,
-    "venue": "Valencia, Spain",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Event 10",
-    "stage": "fleet racing",
-    "narrativeType": "all",
-    "selectedSentence": "Spain Sail Grand Prix — race day 2 is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Spain Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "SailGP 2026 calendar",
-    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "pending",
-    "resultSourceUrl": "https://sailgp.com/results/all-seasons/",
-    "resultSourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sportDomainId": "sport:sailing",
-    "discoverySportId": "sport:sailgp",
-    "competitionId": "competition:sailgp",
-    "taxonomyNodeId": "competition:sailgp",
-    "codeId": "competition:sailgp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "SE",
-      "NZ",
-      "AU",
-      "FR",
-      "GB",
-      "CH",
-      "DE",
-      "ES",
-      "BR",
-      "CA",
-      "IT",
-      "DK",
-      "US"
-    ],
-    "participantIds": [
-      "team:sailgp:artemis",
-      "team:sailgp:black-foils",
-      "team:sailgp:bonds-flying-roos",
-      "team:sailgp:france",
-      "team:sailgp:great-britain",
-      "team:sailgp:switzerland",
-      "team:sailgp:germany",
-      "team:sailgp:los-gallos",
-      "team:sailgp:mubadala-brazil",
-      "team:sailgp:northstar",
-      "team:sailgp:red-bull-italy",
-      "team:sailgp:rockwool-racing",
-      "team:sailgp:united-states"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Spain Sail Grand Prix — race day 2 is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete; the official outcome is still pending.",
-      "synopsisSpoilerOff": "Spain Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete, but the official results page had not published a verified outcome at the latest check.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-sailgp-2026-valencia-day-2",
-      "researchTier": "marquee",
-      "hook": "Spain Sail Grand Prix — race day 2 is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "Spain Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete; the official outcome is still pending.",
-      "synopsisSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete, but the official results page had not published a verified outcome at the latest check.",
-      "threadIds": [
-        "thread:rolling:sailgp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-sailgp-2026-valencia-day-2:schedule",
-        "fact:rolling:event-sailgp-2026-valencia-day-2:field",
-        "fact:rolling:event-sailgp-2026-valencia-day-2:viewing",
-        "fact:rolling:event-sailgp-2026-valencia-day-2:consequence",
-        "fact:rolling:event-sailgp-2026-valencia-day-2:result"
-      ],
-      "sourceIds": [
-        "source:rolling:sailgp:sailgp-calendar",
-        "source:rolling:sailgp:sailgp-teams",
-        "source:rolling:sailgp:sailgp-broadcast-au",
-        "source:rolling:sailgp:sailgp-results"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-06T14:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Event 10",
-      "contextSignals": [
-        "official-schedule",
-        "fleet racing"
-      ],
-      "sourceName": "SailGP 2026 calendar",
-      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_group_china_czechia",
-    "eventId": "evt_fiba_women_2026_group_china_czechia",
-    "canonicalEventId": "event:fiba-women:2026:group-china-czechia",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "China v Czechia",
-    "displayTitleCompact": "China v Czechia",
-    "date": "2026-09-06",
-    "time": "22:30",
-    "startTimeUtc": "2026-09-06T12:30:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 7,
-    "stakesScore": 4,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "China v Czechia is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "China v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128137-CHN-CZE",
-    "resultSourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "score": "China 74-70 Czechia",
-    "outcomeText": "China defeated Czechia 74-70 after overtime.",
-    "recapText": "China beat Czechia 74-70 after overtime in the FIBA Women's Basketball World Cup group stage.",
-    "resultLabels": [
-      "Group stage",
-      "China 74-70 Czechia",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "China",
-      "summary": "China defeated Czechia 74-70 after overtime."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "CN",
-      "CZ"
-    ],
-    "participantIds": [
-      "team:fiba-women:china",
-      "team:fiba-women:czechia"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:china",
-        "name": "China",
-        "role": "home"
-      },
-      {
-        "id": "team:fiba-women:czechia",
-        "name": "Czechia",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:china",
-        "label": "China"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:fiba-women:czechia",
-        "label": "Czechia"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 7,
-      "hookSpoilerOff": "China v Czechia is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "China defeated Czechia 74-70 after overtime.",
-      "synopsisSpoilerOff": "China v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "China beat Czechia 74-70 after overtime in the FIBA Women's Basketball World Cup group stage.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-china-czechia",
-      "researchTier": "standard",
-      "hook": "China v Czechia is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "China v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "China defeated Czechia 74-70 after overtime.",
-      "synopsisSpoilerOn": "China beat Czechia 74-70 after overtime in the FIBA Women's Basketball World Cup group stage.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-china-czechia:schedule",
-        "fact:rolling:event-fiba-women-2026-group-china-czechia:field",
-        "fact:rolling:event-fiba-women-2026-group-china-czechia:viewing",
-        "fact:rolling:event-fiba-women-2026-group-china-czechia:consequence",
-        "fact:rolling:event-fiba-women-2026-group-china-czechia:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-china-czechia-result"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-06T15:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
     "id": "epl-2026-27-128946",
     "eventId": "epl-2026-27-128946",
     "canonicalEventId": "event:premier-league:128946",
@@ -31133,954 +30830,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": false
   },
   {
-    "id": "evt_fiba_women_2026_group_puerto_rico_belgium",
-    "eventId": "evt_fiba_women_2026_group_puerto_rico_belgium",
-    "canonicalEventId": "event:fiba-women:2026:group-puerto-rico-belgium",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "Puerto Rico v Belgium",
-    "displayTitleCompact": "Puerto Rico v Belgium",
-    "date": "2026-09-07",
-    "time": "01:45",
-    "startTimeUtc": "2026-09-06T15:45:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 7,
-    "stakesScore": 4,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "Puerto Rico v Belgium is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Puerto Rico v Belgium is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-6",
-    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
-    "score": "Puerto Rico 64–76 Belgium",
-    "outcomeText": "Belgium won 76–64.",
-    "recapText": "Puerto Rico 64–76 Belgium in the World Cup group stage in Berlin.",
-    "resultLabels": [
-      "Group stage",
-      "Puerto Rico 64–76 Belgium",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Belgium",
-      "summary": "Belgium won 76–64."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "PR",
-      "BE"
-    ],
-    "participantIds": [
-      "team:fiba-women:puerto-rico",
-      "team:fiba-women:belgium"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:puerto-rico",
-        "name": "Puerto Rico",
-        "role": "home"
-      },
-      {
-        "id": "team:fiba-women:belgium",
-        "name": "Belgium",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:puerto-rico",
-        "label": "Puerto Rico"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:fiba-women:belgium",
-        "label": "Belgium"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 7,
-      "hookSpoilerOff": "Puerto Rico v Belgium is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Belgium won 76–64.",
-      "synopsisSpoilerOff": "Puerto Rico v Belgium is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Puerto Rico 64–76 Belgium in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-puerto-rico-belgium",
-      "researchTier": "standard",
-      "hook": "Puerto Rico v Belgium is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "Puerto Rico v Belgium is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Belgium won 76–64.",
-      "synopsisSpoilerOn": "Puerto Rico 64–76 Belgium in the World Cup group stage in Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-puerto-rico-belgium:schedule",
-        "fact:rolling:event-fiba-women-2026-group-puerto-rico-belgium:field",
-        "fact:rolling:event-fiba-women-2026-group-puerto-rico-belgium:viewing",
-        "fact:rolling:event-fiba-women-2026-group-puerto-rico-belgium:consequence",
-        "fact:rolling:event-fiba-women-2026-group-puerto-rico-belgium:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-results-september-6"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T14:06:42.638Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-06T18:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_group_italy_usa",
-    "eventId": "evt_fiba_women_2026_group_italy_usa",
-    "canonicalEventId": "event:fiba-women:2026:group-italy-usa",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "Italy v USA",
-    "displayTitleCompact": "Italy v USA",
-    "date": "2026-09-07",
-    "time": "04:45",
-    "startTimeUtc": "2026-09-06T18:45:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "Italy v USA is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Italy v USA is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-6",
-    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
-    "score": "Italy 52–55 USA",
-    "outcomeText": "USA won 55–52.",
-    "recapText": "Italy 52–55 USA in the World Cup group stage in Berlin.",
-    "resultLabels": [
-      "Group stage",
-      "Italy 52–55 USA",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "USA",
-      "summary": "USA won 55–52."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "IT",
-      "US"
-    ],
-    "participantIds": [
-      "team:fiba-women:italy",
-      "team:fiba-women:usa"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:italy",
-        "name": "Italy",
-        "role": "home"
-      },
-      {
-        "id": "team:fiba-women:usa",
-        "name": "USA",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:italy",
-        "label": "Italy"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:fiba-women:usa",
-        "label": "USA"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Italy v USA is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "USA won 55–52.",
-      "synopsisSpoilerOff": "Italy v USA is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Italy 52–55 USA in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-italy-usa",
-      "researchTier": "standard",
-      "hook": "Italy v USA is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "Italy v USA is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "USA won 55–52.",
-      "synopsisSpoilerOn": "Italy 52–55 USA in the World Cup group stage in Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-italy-usa:schedule",
-        "fact:rolling:event-fiba-women-2026-group-italy-usa:field",
-        "fact:rolling:event-fiba-women-2026-group-italy-usa:viewing",
-        "fact:rolling:event-fiba-women-2026-group-italy-usa:consequence",
-        "fact:rolling:event-fiba-women-2026-group-italy-usa:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-results-september-6"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T14:06:42.638Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-06T21:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_group_belgium_australia",
-    "eventId": "evt_fiba_women_2026_group_belgium_australia",
-    "canonicalEventId": "event:fiba-women:2026:group-belgium-australia",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "Belgium v Australian Opals",
-    "displayTitleCompact": "Belgium v Australian Opals",
-    "date": "2026-09-07",
-    "time": "19:30",
-    "startTimeUtc": "2026-09-07T09:30:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 9,
-    "stakesScore": 5,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "Belgium v Australian Opals is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Belgium v Australian Opals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
-    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
-    "score": "Belgium 80–68 Australian Opals",
-    "outcomeText": "Belgium won 80–68.",
-    "recapText": "Belgium 80–68 Australian Opals in the World Cup group stage in Berlin.",
-    "resultLabels": [
-      "Group stage",
-      "Belgium 80–68 Australian Opals",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Belgium",
-      "summary": "Belgium won 80–68."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "BE",
-      "AU"
-    ],
-    "participantIds": [
-      "team:fiba-women:belgium",
-      "team:basketball:opals"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:belgium",
-        "name": "Belgium",
-        "role": "home"
-      },
-      {
-        "id": "team:basketball:opals",
-        "name": "Australian Opals",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:belgium",
-        "label": "Belgium"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:basketball:opals",
-        "label": "Australian Opals"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Belgium v Australian Opals is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Belgium won 80–68.",
-      "synopsisSpoilerOff": "Belgium v Australian Opals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Belgium 80–68 Australian Opals in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-belgium-australia",
-      "researchTier": "standard",
-      "hook": "Belgium v Australian Opals is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "Belgium v Australian Opals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Belgium won 80–68.",
-      "synopsisSpoilerOn": "Belgium 80–68 Australian Opals in the World Cup group stage in Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-belgium-australia:schedule",
-        "fact:rolling:event-fiba-women-2026-group-belgium-australia:field",
-        "fact:rolling:event-fiba-women-2026-group-belgium-australia:viewing",
-        "fact:rolling:event-fiba-women-2026-group-belgium-australia:consequence",
-        "fact:rolling:event-fiba-women-2026-group-belgium-australia:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-results-september-7"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T14:06:42.638Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-07T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_group_puerto_rico_turkiye",
-    "eventId": "evt_fiba_women_2026_group_puerto_rico_turkiye",
-    "canonicalEventId": "event:fiba-women:2026:group-puerto-rico-turkiye",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "Puerto Rico v Türkiye",
-    "displayTitleCompact": "Puerto Rico v Türkiye",
-    "date": "2026-09-07",
-    "time": "19:30",
-    "startTimeUtc": "2026-09-07T09:30:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 6,
-    "stakesScore": 3,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "Puerto Rico v Türkiye is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Puerto Rico v Türkiye is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
-    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
-    "score": "Puerto Rico 75–71 Türkiye",
-    "outcomeText": "Puerto Rico won 75–71.",
-    "recapText": "Puerto Rico 75–71 Türkiye in the World Cup group stage in Berlin.",
-    "resultLabels": [
-      "Group stage",
-      "Puerto Rico 75–71 Türkiye",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Puerto Rico",
-      "summary": "Puerto Rico won 75–71."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "PR",
-      "TR"
-    ],
-    "participantIds": [
-      "team:fiba-women:puerto-rico",
-      "team:fiba-women:turkiye"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:puerto-rico",
-        "name": "Puerto Rico",
-        "role": "home"
-      },
-      {
-        "id": "team:fiba-women:turkiye",
-        "name": "Türkiye",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:puerto-rico",
-        "label": "Puerto Rico"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:fiba-women:turkiye",
-        "label": "Türkiye"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "storyline": {
-      "stakes": 3,
-      "intensity": 3,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 6,
-      "hookSpoilerOff": "Puerto Rico v Türkiye is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Puerto Rico won 75–71.",
-      "synopsisSpoilerOff": "Puerto Rico v Türkiye is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Puerto Rico 75–71 Türkiye in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-puerto-rico-turkiye",
-      "researchTier": "standard",
-      "hook": "Puerto Rico v Türkiye is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "Puerto Rico v Türkiye is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Puerto Rico won 75–71.",
-      "synopsisSpoilerOn": "Puerto Rico 75–71 Türkiye in the World Cup group stage in Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-puerto-rico-turkiye:schedule",
-        "fact:rolling:event-fiba-women-2026-group-puerto-rico-turkiye:field",
-        "fact:rolling:event-fiba-women-2026-group-puerto-rico-turkiye:viewing",
-        "fact:rolling:event-fiba-women-2026-group-puerto-rico-turkiye:consequence",
-        "fact:rolling:event-fiba-women-2026-group-puerto-rico-turkiye:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-results-september-7"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T14:06:42.638Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-07T12:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_group_hungary_korea",
-    "eventId": "evt_fiba_women_2026_group_hungary_korea",
-    "canonicalEventId": "event:fiba-women:2026:group-hungary-korea",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "Hungary v Korea",
-    "displayTitleCompact": "Hungary v Korea",
-    "date": "2026-09-07",
-    "time": "22:30",
-    "startTimeUtc": "2026-09-07T12:30:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 6,
-    "stakesScore": 3,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "Hungary v Korea is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Hungary v Korea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
-    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
-    "score": "Hungary 82–73 Korea",
-    "outcomeText": "Hungary won 82–73.",
-    "recapText": "Hungary 82–73 Korea in the World Cup group stage in Berlin.",
-    "resultLabels": [
-      "Group stage",
-      "Hungary 82–73 Korea",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Hungary",
-      "summary": "Hungary won 82–73."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "HU",
-      "KR"
-    ],
-    "participantIds": [
-      "team:fiba-women:hungary",
-      "team:fiba-women:korea"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:hungary",
-        "name": "Hungary",
-        "role": "home"
-      },
-      {
-        "id": "team:fiba-women:korea",
-        "name": "Korea",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:hungary",
-        "label": "Hungary"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:fiba-women:korea",
-        "label": "Korea"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "storyline": {
-      "stakes": 3,
-      "intensity": 3,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 6,
-      "hookSpoilerOff": "Hungary v Korea is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Hungary won 82–73.",
-      "synopsisSpoilerOff": "Hungary v Korea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Hungary 82–73 Korea in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-hungary-korea",
-      "researchTier": "standard",
-      "hook": "Hungary v Korea is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "Hungary v Korea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Hungary won 82–73.",
-      "synopsisSpoilerOn": "Hungary 82–73 Korea in the World Cup group stage in Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-hungary-korea:schedule",
-        "fact:rolling:event-fiba-women-2026-group-hungary-korea:field",
-        "fact:rolling:event-fiba-women-2026-group-hungary-korea:viewing",
-        "fact:rolling:event-fiba-women-2026-group-hungary-korea:consequence",
-        "fact:rolling:event-fiba-women-2026-group-hungary-korea:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-results-september-7"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T14:06:42.638Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-07T15:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_group_nigeria_france",
-    "eventId": "evt_fiba_women_2026_group_nigeria_france",
-    "canonicalEventId": "event:fiba-women:2026:group-nigeria-france",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "Nigeria v France",
-    "displayTitleCompact": "Nigeria v France",
-    "date": "2026-09-07",
-    "time": "22:30",
-    "startTimeUtc": "2026-09-07T12:30:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 7,
-    "stakesScore": 4,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "Nigeria v France is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Nigeria v France is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
-    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
-    "score": "Nigeria 56–111 France",
-    "outcomeText": "France won 111–56.",
-    "recapText": "Nigeria 56–111 France in the World Cup group stage in Berlin.",
-    "resultLabels": [
-      "Group stage",
-      "Nigeria 56–111 France",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "France",
-      "summary": "France won 111–56."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "NG",
-      "FR"
-    ],
-    "participantIds": [
-      "team:fiba-women:nigeria",
-      "team:fiba-women:france"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:nigeria",
-        "name": "Nigeria",
-        "role": "home"
-      },
-      {
-        "id": "team:fiba-women:france",
-        "name": "France",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:nigeria",
-        "label": "Nigeria"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:fiba-women:france",
-        "label": "France"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 7,
-      "hookSpoilerOff": "Nigeria v France is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "France won 111–56.",
-      "synopsisSpoilerOff": "Nigeria v France is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Nigeria 56–111 France in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-nigeria-france",
-      "researchTier": "standard",
-      "hook": "Nigeria v France is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "Nigeria v France is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "France won 111–56.",
-      "synopsisSpoilerOn": "Nigeria 56–111 France in the World Cup group stage in Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-nigeria-france:schedule",
-        "fact:rolling:event-fiba-women-2026-group-nigeria-france:field",
-        "fact:rolling:event-fiba-women-2026-group-nigeria-france:viewing",
-        "fact:rolling:event-fiba-women-2026-group-nigeria-france:consequence",
-        "fact:rolling:event-fiba-women-2026-group-nigeria-france:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-results-september-7"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T14:06:42.638Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-07T15:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
     "id": "fixture-us-open-2026-official-wd-4301",
     "stableMatchId": "usopen-2026-wd-4301",
     "cardKind": "fixture",
@@ -32283,638 +31032,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "highlightEligible": false,
     "briefingEligible": false,
     "catchupEligible": false
-  },
-  {
-    "id": "evt_fiba_women_2026_group_germany_mali",
-    "eventId": "evt_fiba_women_2026_group_germany_mali",
-    "canonicalEventId": "event:fiba-women:2026:group-germany-mali",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "Germany v Mali",
-    "displayTitleCompact": "Germany v Mali",
-    "date": "2026-09-08",
-    "time": "01:50",
-    "startTimeUtc": "2026-09-07T15:50:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 7,
-    "stakesScore": 4,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "Germany v Mali is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Germany v Mali is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
-    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
-    "score": "Germany 83–58 Mali",
-    "outcomeText": "Germany won 83–58.",
-    "recapText": "Germany 83–58 Mali in the World Cup group stage in Berlin.",
-    "resultLabels": [
-      "Group stage",
-      "Germany 83–58 Mali",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Germany",
-      "summary": "Germany won 83–58."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "DE",
-      "ML"
-    ],
-    "participantIds": [
-      "team:fiba-women:germany",
-      "team:fiba-women:mali"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:germany",
-        "name": "Germany",
-        "role": "home"
-      },
-      {
-        "id": "team:fiba-women:mali",
-        "name": "Mali",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:germany",
-        "label": "Germany"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:fiba-women:mali",
-        "label": "Mali"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 7,
-      "hookSpoilerOff": "Germany v Mali is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Germany won 83–58.",
-      "synopsisSpoilerOff": "Germany v Mali is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Germany 83–58 Mali in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-germany-mali",
-      "researchTier": "standard",
-      "hook": "Germany v Mali is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "Germany v Mali is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Germany won 83–58.",
-      "synopsisSpoilerOn": "Germany 83–58 Mali in the World Cup group stage in Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-germany-mali:schedule",
-        "fact:rolling:event-fiba-women-2026-group-germany-mali:field",
-        "fact:rolling:event-fiba-women-2026-group-germany-mali:viewing",
-        "fact:rolling:event-fiba-women-2026-group-germany-mali:consequence",
-        "fact:rolling:event-fiba-women-2026-group-germany-mali:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-results-september-7"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T14:06:42.638Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-07T18:50:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_group_japan_spain",
-    "eventId": "evt_fiba_women_2026_group_japan_spain",
-    "canonicalEventId": "event:fiba-women:2026:group-japan-spain",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "Japan v Spain",
-    "displayTitleCompact": "Japan v Spain",
-    "date": "2026-09-08",
-    "time": "01:50",
-    "startTimeUtc": "2026-09-07T15:50:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "Japan v Spain is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Japan v Spain is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
-    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
-    "score": "Japan 59–79 Spain",
-    "outcomeText": "Spain won 79–59.",
-    "recapText": "Japan 59–79 Spain in the World Cup group stage in Berlin.",
-    "resultLabels": [
-      "Group stage",
-      "Japan 59–79 Spain",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "Spain",
-      "summary": "Spain won 79–59."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "JP",
-      "ES"
-    ],
-    "participantIds": [
-      "team:fiba-women:japan",
-      "team:fiba-women:spain"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:japan",
-        "name": "Japan",
-        "role": "home"
-      },
-      {
-        "id": "team:fiba-women:spain",
-        "name": "Spain",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:japan",
-        "label": "Japan"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:fiba-women:spain",
-        "label": "Spain"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Japan v Spain is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Spain won 79–59.",
-      "synopsisSpoilerOff": "Japan v Spain is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Japan 59–79 Spain in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-japan-spain",
-      "researchTier": "standard",
-      "hook": "Japan v Spain is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "Japan v Spain is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "Spain won 79–59.",
-      "synopsisSpoilerOn": "Japan 59–79 Spain in the World Cup group stage in Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-japan-spain:schedule",
-        "fact:rolling:event-fiba-women-2026-group-japan-spain:field",
-        "fact:rolling:event-fiba-women-2026-group-japan-spain:viewing",
-        "fact:rolling:event-fiba-women-2026-group-japan-spain:consequence",
-        "fact:rolling:event-fiba-women-2026-group-japan-spain:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-results-september-7"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T14:06:42.638Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-07T18:50:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_group_italy_china",
-    "eventId": "evt_fiba_women_2026_group_italy_china",
-    "canonicalEventId": "event:fiba-women:2026:group-italy-china",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "Italy v China",
-    "displayTitleCompact": "Italy v China",
-    "date": "2026-09-08",
-    "time": "04:45",
-    "startTimeUtc": "2026-09-07T18:45:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "Italy v China is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "Italy v China is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
-    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
-    "score": "Italy 51–71 China",
-    "outcomeText": "China won 71–51.",
-    "recapText": "Italy 51–71 China in the World Cup group stage in Berlin.",
-    "resultLabels": [
-      "Group stage",
-      "Italy 51–71 China",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "China",
-      "summary": "China won 71–51."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "IT",
-      "CN"
-    ],
-    "participantIds": [
-      "team:fiba-women:italy",
-      "team:fiba-women:china"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:italy",
-        "name": "Italy",
-        "role": "home"
-      },
-      {
-        "id": "team:fiba-women:china",
-        "name": "China",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:italy",
-        "label": "Italy"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:fiba-women:china",
-        "label": "China"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Italy v China is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "China won 71–51.",
-      "synopsisSpoilerOff": "Italy v China is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Italy 51–71 China in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-italy-china",
-      "researchTier": "standard",
-      "hook": "Italy v China is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "Italy v China is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "China won 71–51.",
-      "synopsisSpoilerOn": "Italy 51–71 China in the World Cup group stage in Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-italy-china:schedule",
-        "fact:rolling:event-fiba-women-2026-group-italy-china:field",
-        "fact:rolling:event-fiba-women-2026-group-italy-china:viewing",
-        "fact:rolling:event-fiba-women-2026-group-italy-china:consequence",
-        "fact:rolling:event-fiba-women-2026-group-italy-china:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-results-september-7"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T14:06:42.638Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-07T21:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_group_usa_czechia",
-    "eventId": "evt_fiba_women_2026_group_usa_czechia",
-    "canonicalEventId": "event:fiba-women:2026:group-usa-czechia",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "USA v Czechia",
-    "displayTitleCompact": "USA v Czechia",
-    "date": "2026-09-08",
-    "time": "04:45",
-    "startTimeUtc": "2026-09-07T18:45:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Group stage",
-    "stage": "group",
-    "narrativeType": "all",
-    "selectedSentence": "USA v Czechia is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "USA v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "resultStatus": "official",
-    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
-    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
-    "score": "USA 105–64 Czechia",
-    "outcomeText": "USA won 105–64.",
-    "recapText": "USA 105–64 Czechia in the World Cup group stage in Berlin.",
-    "resultLabels": [
-      "Group stage",
-      "USA 105–64 Czechia",
-      "Official result"
-    ],
-    "consensusResult": {
-      "winner": "USA",
-      "summary": "USA won 105–64."
-    },
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "US",
-      "CZ"
-    ],
-    "participantIds": [
-      "team:fiba-women:usa",
-      "team:fiba-women:czechia"
-    ],
-    "participants": [
-      {
-        "id": "team:fiba-women:usa",
-        "name": "USA",
-        "role": "home"
-      },
-      {
-        "id": "team:fiba-women:czechia",
-        "name": "Czechia",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:fiba-women:usa",
-        "label": "USA"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:fiba-women:czechia",
-        "label": "Czechia"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "USA v Czechia is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "USA won 105–64.",
-      "synopsisSpoilerOff": "USA v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "USA 105–64 Czechia in the World Cup group stage in Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-group-usa-czechia",
-      "researchTier": "standard",
-      "hook": "USA v Czechia is complete; the key moments are protected until you choose to reveal them.",
-      "synopsis": "USA v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "hookSpoilerOn": "USA won 105–64.",
-      "synopsisSpoilerOn": "USA 105–64 Czechia in the World Cup group stage in Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-group-usa-czechia:schedule",
-        "fact:rolling:event-fiba-women-2026-group-usa-czechia:field",
-        "fact:rolling:event-fiba-women-2026-group-usa-czechia:viewing",
-        "fact:rolling:event-fiba-women-2026-group-usa-czechia:consequence",
-        "fact:rolling:event-fiba-women-2026-group-usa-czechia:result"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au",
-        "source:rolling:fiba-women:fiba-results-september-7"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T14:06:42.638Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "endTimeUtc": "2026-09-07T21:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Group stage",
-      "contextSignals": [
-        "official-schedule",
-        "group"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
   },
   {
     "id": "tennis-tournament-grand-slam-us-open-2026-2026-09-08",
@@ -33404,123 +31521,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "id": "evt_fiba_women_2026_qualification_day_1",
-    "eventId": "evt_fiba_women_2026_qualification_day_1",
-    "canonicalEventId": "event:fiba-women:2026:qualification-day-1",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "FIBA Women's World Cup — qualification day 1",
-    "displayTitleCompact": "FIBA Women's World Cup — qualification day 1",
-    "date": "2026-09-09",
-    "time": "01:45",
-    "startTimeUtc": "2026-09-08T15:45:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "knockout",
-    "roundLabel": "Qualification to quarterfinals",
-    "stage": "qualification",
-    "narrativeType": "all",
-    "selectedSentence": "The first qualification games put World Cup survival on a single result.",
-    "fullSpiel": "Second- and third-placed teams meet for the remaining quarterfinal places.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "The first qualification games put World Cup survival on a single result.",
-      "hookSpoilerOn": "The first qualification games put World Cup survival on a single result.",
-      "synopsisSpoilerOff": "Second- and third-placed teams meet for the remaining quarterfinal places.",
-      "synopsisSpoilerOn": "Second- and third-placed teams meet for the remaining quarterfinal places.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-qualification-day-1",
-      "researchTier": "marquee",
-      "hook": "The first qualification games put World Cup survival on a single result.",
-      "synopsis": "The first qualification games put World Cup survival on a single result. Second- and third-placed teams meet for the remaining quarterfinal places.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-qualification-day-1:schedule",
-        "fact:rolling:event-fiba-women-2026-qualification-day-1:field",
-        "fact:rolling:event-fiba-women-2026-qualification-day-1:viewing",
-        "fact:rolling:event-fiba-women-2026-qualification-day-1:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "score": "Australia 82-80 Italy · China 75-72 Puerto Rico",
-    "outcomeText": "Australia and China advanced to the quarterfinals.",
-    "recapText": "Australia edged Italy 82-80 and China defeated Puerto Rico 75-72 in qualification games.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Qualification to quarterfinals",
-      "Australia 82-80 Italy · China 75-72 Puerto Rico",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-08T18:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "event",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qualification to quarterfinals",
-      "contextSignals": [
-        "official-schedule",
-        "qualification"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
     "id": "fixture-us-open-2026-official-ms-1504",
     "stableMatchId": "usopen-2026-ms-1504",
     "cardKind": "fixture",
@@ -33972,594 +31972,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "id": "evt_fiba_women_2026_qualification_day_2",
-    "eventId": "evt_fiba_women_2026_qualification_day_2",
-    "canonicalEventId": "event:fiba-women:2026:qualification-day-2",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "FIBA Women's World Cup — qualification day 2",
-    "displayTitleCompact": "FIBA Women's World Cup — qualification day 2",
-    "date": "2026-09-10",
-    "time": "01:45",
-    "startTimeUtc": "2026-09-09T15:45:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Berlin, Germany",
-    "liveWindow": 3,
-    "round": "knockout",
-    "roundLabel": "Qualification to quarterfinals",
-    "stage": "qualification",
-    "narrativeType": "all",
-    "selectedSentence": "The last qualification games complete the Women's World Cup quarterfinal field.",
-    "fullSpiel": "There is no pool-stage buffer now: winners advance and losers leave Berlin.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "The last qualification games complete the Women's World Cup quarterfinal field.",
-      "hookSpoilerOn": "The last qualification games complete the Women's World Cup quarterfinal field.",
-      "synopsisSpoilerOff": "There is no pool-stage buffer now: winners advance and losers leave Berlin.",
-      "synopsisSpoilerOn": "There is no pool-stage buffer now: winners advance and losers leave Berlin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-qualification-day-2",
-      "researchTier": "marquee",
-      "hook": "The last qualification games complete the Women's World Cup quarterfinal field.",
-      "synopsis": "The last qualification games complete the Women's World Cup quarterfinal field. There is no pool-stage buffer now: winners advance and losers leave Berlin.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-qualification-day-2:schedule",
-        "fact:rolling:event-fiba-women-2026-qualification-day-2:field",
-        "fact:rolling:event-fiba-women-2026-qualification-day-2:viewing",
-        "fact:rolling:event-fiba-women-2026-qualification-day-2:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "score": "Germany 94-56 Korea · Hungary 84-63 Japan",
-    "outcomeText": "Germany and Hungary advanced to the quarterfinals.",
-    "recapText": "Germany defeated Korea 94-56 and Hungary beat Japan 84-63 in qualification games.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Qualification to quarterfinals",
-      "Germany 94-56 Korea · Hungary 84-63 Japan",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-09T18:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "event",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qualification to quarterfinals",
-      "contextSignals": [
-        "official-schedule",
-        "qualification"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_quarterfinals",
-    "eventId": "evt_fiba_women_2026_quarterfinals",
-    "canonicalEventId": "event:fiba-women:2026:quarterfinals",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "FIBA Women's World Cup — quarterfinals",
-    "displayTitleCompact": "FIBA Women's World Cup — quarterfinals",
-    "date": "2026-09-10",
-    "time": "19:30",
-    "startTimeUtc": "2026-09-10T09:30:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 9,
-    "stakesScore": 4,
-    "venue": "Uber Arena, Berlin",
-    "liveWindow": 10,
-    "round": "quarterfinal",
-    "roundLabel": "Quarterfinals",
-    "stage": "quarterfinal",
-    "narrativeType": "all",
-    "selectedSentence": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
-    "fullSpiel": "Group winners re-enter against qualification survivors, with every title route now direct.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
-      "hookSpoilerOn": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
-      "synopsisSpoilerOff": "Group winners re-enter against qualification survivors, with every title route now direct.",
-      "synopsisSpoilerOn": "Group winners re-enter against qualification survivors, with every title route now direct.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-quarterfinals",
-      "researchTier": "marquee",
-      "hook": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
-      "synopsis": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day. Group winners re-enter against qualification survivors, with every title route now direct.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-quarterfinals:schedule",
-        "fact:rolling:event-fiba-women-2026-quarterfinals:field",
-        "fact:rolling:event-fiba-women-2026-quarterfinals:viewing",
-        "fact:rolling:event-fiba-women-2026-quarterfinals:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "score": "Spain 89-66 Australia · Germany 93-74 Belgium · France 90-61 China · USA 108-56 Hungary",
-    "outcomeText": "Spain, Germany, France and USA reached the semifinals.",
-    "recapText": "Spain, Germany, France and USA won the four World Cup quarterfinals in Berlin.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Quarterfinals",
-      "Spain 89-66 Australia · Germany 93-74 Belgium · France 90-61 China · USA 108-56 Hungary",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-10T19:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "event",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Quarterfinals",
-      "contextSignals": [
-        "official-schedule",
-        "quarterfinal"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_nrlw_2026_round_11_roosters_bulldogs",
-    "eventId": "evt_nrlw_2026_round_11_roosters_bulldogs",
-    "canonicalEventId": "event:nrlw:2026:round-11-roosters-bulldogs",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Sydney Roosters v Canterbury-Bankstown Bulldogs",
-    "displayTitleCompact": "Sydney Roosters v Canterbury-Bankstown Bulldogs",
-    "date": "2026-09-10",
-    "time": "19:45",
-    "startTimeUtc": "2026-09-10T09:45:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Allianz Stadium",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Round 11",
-    "roundNumber": 11,
-    "stage": "regular season",
-    "narrativeType": "all",
-    "selectedSentence": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
-    "fullSpiel": "The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU"
-    ],
-    "participantIds": [
-      "team:nrlw:roosters",
-      "team:nrlw:bulldogs"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:roosters",
-        "name": "Sydney Roosters",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:bulldogs",
-        "name": "Canterbury-Bankstown Bulldogs",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:roosters",
-        "label": "Sydney Roosters"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:bulldogs",
-        "label": "Canterbury-Bankstown Bulldogs"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
-      "hookSpoilerOn": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
-      "synopsisSpoilerOff": "The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
-      "synopsisSpoilerOn": "The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-nrlw-2026-round-11-roosters-bulldogs",
-      "researchTier": "standard",
-      "hook": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
-      "synopsis": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure. The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
-      "threadIds": [
-        "thread:rolling:nrlw:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-nrlw-2026-round-11-roosters-bulldogs:schedule",
-        "fact:rolling:event-nrlw-2026-round-11-roosters-bulldogs:field",
-        "fact:rolling:event-nrlw-2026-round-11-roosters-bulldogs:viewing",
-        "fact:rolling:event-nrlw-2026-round-11-roosters-bulldogs:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:nrlw:nrlw-schedule",
-        "source:rolling:nrlw:nrlw-hub",
-        "source:rolling:nrlw:nrlw-stats"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "hookSpoilerOn": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs in Round 11.",
-      "synopsisSpoilerOn": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs in Round 11. The Roosters completed an unbeaten regular season with a 42-12 Round 11 win."
-    },
-    "resultEditorialBranches": {
-      "home": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Sydney Roosters v Canterbury-Bankstown Bulldogs in Round 11: the result is available to reveal.",
-        "revealed": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs in Round 11."
-      },
-      "away": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Sydney Roosters v Canterbury-Bankstown Bulldogs in Round 11: the result is available to reveal.",
-        "revealed": "Canterbury-Bankstown Bulldogs defeated Sydney Roosters in Round 11."
-      },
-      "draw": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Sydney Roosters v Canterbury-Bankstown Bulldogs in Round 11: the result is available to reveal.",
-        "revealed": "Sydney Roosters and Canterbury-Bankstown Bulldogs finished level in Round 11."
-      }
-    },
-    "homeScore": 42,
-    "awayScore": 12,
-    "score": "Sydney Roosters 42-12 Canterbury-Bankstown Bulldogs",
-    "outcomeText": "Sydney Roosters defeated Canterbury-Bankstown Bulldogs 42-12.",
-    "recapText": "The Roosters completed an unbeaten regular season with a 42-12 Round 11 win.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Round 11",
-      "Sydney Roosters 42-12 Canterbury-Bankstown Bulldogs",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-10T12:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Round 11",
-      "contextSignals": [
-        "official-schedule",
-        "regular season"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_nrlw_2026_round_11_wests_tigers_raiders",
-    "eventId": "evt_nrlw_2026_round_11_wests_tigers_raiders",
-    "canonicalEventId": "event:nrlw:2026:round-11-wests-tigers-raiders",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Wests Tigers v Canberra Raiders",
-    "displayTitleCompact": "Wests Tigers v Canberra Raiders",
-    "date": "2026-09-11",
-    "time": "17:40",
-    "startTimeUtc": "2026-09-11T07:40:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 9,
-    "stakesScore": 5,
-    "venue": "Leichhardt Oval",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Round 11",
-    "roundNumber": 11,
-    "stage": "regular season",
-    "narrativeType": "all",
-    "selectedSentence": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
-    "fullSpiel": "A result at Leichhardt can alter both qualification and the first-week finals matchup.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU"
-    ],
-    "participantIds": [
-      "team:nrlw:wests-tigers",
-      "team:nrlw:raiders"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:wests-tigers",
-        "name": "Wests Tigers",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:raiders",
-        "name": "Canberra Raiders",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:wests-tigers",
-        "label": "Wests Tigers"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:raiders",
-        "label": "Canberra Raiders"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
-      "hookSpoilerOn": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
-      "synopsisSpoilerOff": "A result at Leichhardt can alter both qualification and the first-week finals matchup.",
-      "synopsisSpoilerOn": "A result at Leichhardt can alter both qualification and the first-week finals matchup.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-nrlw-2026-round-11-wests-tigers-raiders",
-      "researchTier": "standard",
-      "hook": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
-      "synopsis": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season. A result at Leichhardt can alter both qualification and the first-week finals matchup.",
-      "threadIds": [
-        "thread:rolling:nrlw:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-nrlw-2026-round-11-wests-tigers-raiders:schedule",
-        "fact:rolling:event-nrlw-2026-round-11-wests-tigers-raiders:field",
-        "fact:rolling:event-nrlw-2026-round-11-wests-tigers-raiders:viewing",
-        "fact:rolling:event-nrlw-2026-round-11-wests-tigers-raiders:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:nrlw:nrlw-schedule",
-        "source:rolling:nrlw:nrlw-hub",
-        "source:rolling:nrlw:nrlw-stats"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "hookSpoilerOn": "Canberra Raiders defeated Wests Tigers in Round 11.",
-      "synopsisSpoilerOn": "Canberra Raiders defeated Wests Tigers in Round 11. Canberra closed Round 11 with a 22-10 win over Wests Tigers."
-    },
-    "resultEditorialBranches": {
-      "home": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Wests Tigers v Canberra Raiders in Round 11: the result is available to reveal.",
-        "revealed": "Wests Tigers defeated Canberra Raiders in Round 11."
-      },
-      "away": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Wests Tigers v Canberra Raiders in Round 11: the result is available to reveal.",
-        "revealed": "Canberra Raiders defeated Wests Tigers in Round 11."
-      },
-      "draw": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Wests Tigers v Canberra Raiders in Round 11: the result is available to reveal.",
-        "revealed": "Wests Tigers and Canberra Raiders finished level in Round 11."
-      }
-    },
-    "homeScore": 10,
-    "awayScore": 22,
-    "score": "Wests Tigers 10-22 Canberra Raiders",
-    "outcomeText": "Canberra Raiders defeated Wests Tigers 22-10.",
-    "recapText": "Canberra closed Round 11 with a 22-10 win over Wests Tigers.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Round 11",
-      "Wests Tigers 10-22 Canberra Raiders",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-11T10:40:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Round 11",
-      "contextSignals": [
-        "official-schedule",
-        "regular season"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
     "id": "major-match-nrl-finals-2026-elimination-final-2",
     "name": "Rabbitohs v Knights",
     "roundLabel": "Elimination Final",
@@ -34977,183 +32389,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalResultScoreline": "Fremantle v Geelong Cats — 120-106",
     "endTimeUtc": "2026-09-11T13:10:00.000Z",
     "endTimeBasis": "scheduled-live-window"
-  },
-  {
-    "id": "evt_nrlw_2026_round_11_eels_cowboys",
-    "eventId": "evt_nrlw_2026_round_11_eels_cowboys",
-    "canonicalEventId": "event:nrlw:2026:round-11-eels-cowboys",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Parramatta Eels v North Queensland Cowboys",
-    "displayTitleCompact": "Parramatta Eels v North Queensland Cowboys",
-    "date": "2026-09-12",
-    "time": "12:00",
-    "startTimeUtc": "2026-09-12T02:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 7,
-    "stakesScore": 4,
-    "venue": "CommBank Stadium",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Round 11",
-    "roundNumber": 11,
-    "stage": "regular season",
-    "narrativeType": "all",
-    "selectedSentence": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
-    "fullSpiel": "The midday match carries the direct consequences of a compressed eleven-round campaign.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU"
-    ],
-    "participantIds": [
-      "team:nrlw:eels",
-      "team:nrlw:cowboys"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:eels",
-        "name": "Parramatta Eels",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:cowboys",
-        "name": "North Queensland Cowboys",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:eels",
-        "label": "Parramatta Eels"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:cowboys",
-        "label": "North Queensland Cowboys"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": false,
-    "catchupEligible": false,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 7,
-      "hookSpoilerOff": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
-      "hookSpoilerOn": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
-      "synopsisSpoilerOff": "The midday match carries the direct consequences of a compressed eleven-round campaign.",
-      "synopsisSpoilerOn": "The midday match carries the direct consequences of a compressed eleven-round campaign.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-nrlw-2026-round-11-eels-cowboys",
-      "researchTier": "standard",
-      "hook": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
-      "synopsis": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks. The midday match carries the direct consequences of a compressed eleven-round campaign.",
-      "threadIds": [
-        "thread:rolling:nrlw:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-nrlw-2026-round-11-eels-cowboys:schedule",
-        "fact:rolling:event-nrlw-2026-round-11-eels-cowboys:field",
-        "fact:rolling:event-nrlw-2026-round-11-eels-cowboys:viewing",
-        "fact:rolling:event-nrlw-2026-round-11-eels-cowboys:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:nrlw:nrlw-schedule",
-        "source:rolling:nrlw:nrlw-hub",
-        "source:rolling:nrlw:nrlw-stats"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "hookSpoilerOn": "Parramatta Eels defeated North Queensland Cowboys in Round 11.",
-      "synopsisSpoilerOn": "Parramatta Eels defeated North Queensland Cowboys in Round 11. Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win."
-    },
-    "resultEditorialBranches": {
-      "home": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Parramatta Eels v North Queensland Cowboys in Round 11: the result is available to reveal.",
-        "revealed": "Parramatta Eels defeated North Queensland Cowboys in Round 11."
-      },
-      "away": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Parramatta Eels v North Queensland Cowboys in Round 11: the result is available to reveal.",
-        "revealed": "North Queensland Cowboys defeated Parramatta Eels in Round 11."
-      },
-      "draw": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Parramatta Eels v North Queensland Cowboys in Round 11: the result is available to reveal.",
-        "revealed": "Parramatta Eels and North Queensland Cowboys finished level in Round 11."
-      }
-    },
-    "homeScore": 33,
-    "awayScore": 28,
-    "score": "Parramatta Eels 33-28 North Queensland Cowboys",
-    "outcomeText": "Parramatta Eels defeated North Queensland Cowboys 33-28.",
-    "recapText": "Parramatta overturned a 22-6 deficit and sealed a 33-28 Round 11 win.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Round 11",
-      "Parramatta Eels 33-28 North Queensland Cowboys",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-12T05:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Round 11",
-      "contextSignals": [
-        "official-schedule",
-        "regular season"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
   },
   {
     "id": "event-aflw-cd_m20262640501",
@@ -35846,183 +33081,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalResultScoreline": "West Coast Eagles v Brisbane Lions — 46-41",
     "endTimeUtc": "2026-09-12T09:35:00.000Z",
     "endTimeBasis": "scheduled-live-window"
-  },
-  {
-    "id": "evt_nrlw_2026_round_11_sharks_dragons",
-    "eventId": "evt_nrlw_2026_round_11_sharks_dragons",
-    "canonicalEventId": "event:nrlw:2026:round-11-sharks-dragons",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Cronulla-Sutherland Sharks v St George Illawarra Dragons",
-    "displayTitleCompact": "Cronulla-Sutherland Sharks v St George Illawarra Dragons",
-    "date": "2026-09-12",
-    "time": "17:10",
-    "startTimeUtc": "2026-09-12T07:10:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Allianz Stadium",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Round 11",
-    "roundNumber": 11,
-    "stage": "regular season",
-    "narrativeType": "all",
-    "selectedSentence": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
-    "fullSpiel": "The final-round move adds a big-stage test just before elimination football begins.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU"
-    ],
-    "participantIds": [
-      "team:nrlw:sharks",
-      "team:nrlw:dragons"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:sharks",
-        "name": "Cronulla-Sutherland Sharks",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:dragons",
-        "name": "St George Illawarra Dragons",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:sharks",
-        "label": "Cronulla-Sutherland Sharks"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:dragons",
-        "label": "St George Illawarra Dragons"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
-      "hookSpoilerOn": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
-      "synopsisSpoilerOff": "The final-round move adds a big-stage test just before elimination football begins.",
-      "synopsisSpoilerOn": "The final-round move adds a big-stage test just before elimination football begins.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-nrlw-2026-round-11-sharks-dragons",
-      "researchTier": "standard",
-      "hook": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
-      "synopsis": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake. The final-round move adds a big-stage test just before elimination football begins.",
-      "threadIds": [
-        "thread:rolling:nrlw:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-nrlw-2026-round-11-sharks-dragons:schedule",
-        "fact:rolling:event-nrlw-2026-round-11-sharks-dragons:field",
-        "fact:rolling:event-nrlw-2026-round-11-sharks-dragons:viewing",
-        "fact:rolling:event-nrlw-2026-round-11-sharks-dragons:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:nrlw:nrlw-schedule",
-        "source:rolling:nrlw:nrlw-hub",
-        "source:rolling:nrlw:nrlw-stats"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "hookSpoilerOn": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons in Round 11.",
-      "synopsisSpoilerOn": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons in Round 11. Cronulla finished the regular season with a 16-8 Round 11 win."
-    },
-    "resultEditorialBranches": {
-      "home": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Cronulla-Sutherland Sharks v St George Illawarra Dragons in Round 11: the result is available to reveal.",
-        "revealed": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons in Round 11."
-      },
-      "away": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Cronulla-Sutherland Sharks v St George Illawarra Dragons in Round 11: the result is available to reveal.",
-        "revealed": "St George Illawarra Dragons defeated Cronulla-Sutherland Sharks in Round 11."
-      },
-      "draw": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Cronulla-Sutherland Sharks v St George Illawarra Dragons in Round 11: the result is available to reveal.",
-        "revealed": "Cronulla-Sutherland Sharks and St George Illawarra Dragons finished level in Round 11."
-      }
-    },
-    "homeScore": 16,
-    "awayScore": 8,
-    "score": "Cronulla-Sutherland Sharks 16-8 St George Illawarra Dragons",
-    "outcomeText": "Cronulla-Sutherland Sharks defeated St George Illawarra Dragons 16-8.",
-    "recapText": "Cronulla finished the regular season with a 16-8 Round 11 win.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Round 11",
-      "Cronulla-Sutherland Sharks 16-8 St George Illawarra Dragons",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-12T10:10:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Round 11",
-      "contextSignals": [
-        "official-schedule",
-        "regular season"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
   },
   {
     "sport": "NRL",
@@ -37182,244 +34240,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayScore": 0
   },
   {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Spanish GP · Qualifying",
-    "date": "2026-09-13",
-    "time": "00:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 8,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_28",
-    "eventId": "evt_28",
-    "displayTitleCompact": "Spanish GP · Qualifying",
-    "selectedSentence": "R14 Spanish GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "R14 Spanish GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "completed",
-    "sourceTrust": "verified",
-    "sourceType": "official",
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-28",
-      "researchTier": "marquee",
-      "hook": "Kimi Antonelli leads by 66 points into R14 Spanish GP Qualifying; this session sets the grid and determines who controls the race start.",
-      "synopsis": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
-      "threadIds": [
-        "thread:rolling:f1-title"
-      ],
-      "factIds": [
-        "fact:rolling:f1:constructors",
-        "fact:rolling:f1:circuit:spain",
-        "fact:rolling:f1:leader",
-        "fact:rolling:f1:qualifying-consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:f1:driver-standings",
-        "source:rolling:f1:constructors",
-        "source:rolling:f1:circuit:spain"
-      ],
-      "dimensions": [
-        "form",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T13:52:45.257Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "storyline": {
-      "stakes": 3,
-      "hookSpoilerOff": "R14 Spanish GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Lando Norris took pole for R14 Spanish GP Qualifying.",
-      "synopsisSpoilerOff": "R14 Spanish GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Lando Norris took pole for R14 Spanish GP Qualifying. 1. Lando Norris (McLaren); 2. Kimi Antonelli (Mercedes); 3. Max Verstappen (Red Bull Racing).",
-      "lastReviewedAt": "2026-09-08T13:52:45.257Z",
-      "arcStage": "recap",
-      "researchDepth": 5,
-      "intensity": 3,
-      "expectedSpectacle": 6,
-      "intensitySource": "computed"
-    },
-    "startTimeUtc": "2026-09-12T14:00:00.000Z",
-    "venueCountryCode": "ES",
-    "timingSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-    "timingCheckedAt": "2026-09-08T14:50:00Z",
-    "score": "1. Lando Norris · 2. Kimi Antonelli · 3. Max Verstappen",
-    "outcomeText": "Lando Norris took pole for R14 Spanish GP Qualifying.",
-    "recapText": "Lando Norris took pole for R14 Spanish GP Qualifying. 1. Lando Norris (McLaren); 2. Kimi Antonelli (Mercedes); 3. Max Verstappen (Red Bull Racing).",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Result",
-      "1. Lando Norris · 2. Kimi Antonelli · 3. Max Verstappen",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-12T17:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "canonicalEventId": "event:f1:2026:spain:qualifying",
-    "cardKind": "fixture",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 4,
-    "roundLabel": "Qualifying",
-    "stage": "Qualifying",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qualifying",
-      "contextSignals": [
-        "official-schedule",
-        "Qualifying"
-      ],
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_semifinals",
-    "eventId": "evt_fiba_women_2026_semifinals",
-    "canonicalEventId": "event:fiba-women:2026:semifinals",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "FIBA Women's World Cup — semifinals",
-    "displayTitleCompact": "FIBA Women's World Cup — semifinals",
-    "date": "2026-09-13",
-    "time": "00:30",
-    "startTimeUtc": "2026-09-12T14:30:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 10,
-    "stakesScore": 4,
-    "venue": "Uber Arena, Berlin",
-    "liveWindow": 8,
-    "round": "semifinal",
-    "roundLabel": "Semifinals",
-    "stage": "semifinal",
-    "narrativeType": "all",
-    "selectedSentence": "The last four teams play for a place in the Women's World Cup final.",
-    "fullSpiel": "Two semifinals in one Berlin session decide who can still leave as world champion.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 10,
-      "hookSpoilerOff": "The last four teams play for a place in the Women's World Cup final.",
-      "hookSpoilerOn": "The last four teams play for a place in the Women's World Cup final.",
-      "synopsisSpoilerOff": "Two semifinals in one Berlin session decide who can still leave as world champion.",
-      "synopsisSpoilerOn": "Two semifinals in one Berlin session decide who can still leave as world champion.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-semifinals",
-      "researchTier": "marquee",
-      "hook": "The last four teams play for a place in the Women's World Cup final.",
-      "synopsis": "The last four teams play for a place in the Women's World Cup final. Two semifinals in one Berlin session decide who can still leave as world champion.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-semifinals:schedule",
-        "fact:rolling:event-fiba-women-2026-semifinals:field",
-        "fact:rolling:event-fiba-women-2026-semifinals:viewing",
-        "fact:rolling:event-fiba-women-2026-semifinals:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "score": "USA 76-66 Spain · France 86-64 Germany",
-    "outcomeText": "USA and France reached the World Cup final.",
-    "recapText": "USA defeated Spain 76-66 and France beat Germany 86-64 in the semifinals.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Semifinals",
-      "USA 76-66 Spain · France 86-64 Germany",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-12T22:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "event",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Semifinals",
-      "contextSignals": [
-        "official-schedule",
-        "semifinal"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
     "id": "epl-2026-27-128962",
     "eventId": "epl-2026-27-128962",
     "canonicalEventId": "event:premier-league:128962",
@@ -37676,184 +34496,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "recapText": "Arsenal completed a 2-goal win in Premier League Matchweek 4.",
     "homeScore": 0,
     "awayScore": 2
-  },
-  {
-    "id": "evt_nrlw_2026_round_11_broncos_warriors",
-    "eventId": "evt_nrlw_2026_round_11_broncos_warriors",
-    "canonicalEventId": "event:nrlw:2026:round-11-broncos-warriors",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Brisbane Broncos v New Zealand Warriors",
-    "displayTitleCompact": "Brisbane Broncos v New Zealand Warriors",
-    "date": "2026-09-13",
-    "time": "12:00",
-    "startTimeUtc": "2026-09-13T02:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Totally Workwear Stadium",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Round 11",
-    "roundNumber": 11,
-    "stage": "regular season",
-    "narrativeType": "all",
-    "selectedSentence": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
-    "fullSpiel": "The Sunday result can decide whether the defending premiers earn a shorter finals route.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU",
-      "NZ"
-    ],
-    "participantIds": [
-      "team:nrlw:broncos",
-      "team:nrlw:warriors"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:broncos",
-        "name": "Brisbane Broncos",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:warriors",
-        "name": "New Zealand Warriors",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:broncos",
-        "label": "Brisbane Broncos"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:warriors",
-        "label": "New Zealand Warriors"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
-      "hookSpoilerOn": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
-      "synopsisSpoilerOff": "The Sunday result can decide whether the defending premiers earn a shorter finals route.",
-      "synopsisSpoilerOn": "The Sunday result can decide whether the defending premiers earn a shorter finals route.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-nrlw-2026-round-11-broncos-warriors",
-      "researchTier": "standard",
-      "hook": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
-      "synopsis": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections. The Sunday result can decide whether the defending premiers earn a shorter finals route.",
-      "threadIds": [
-        "thread:rolling:nrlw:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-nrlw-2026-round-11-broncos-warriors:schedule",
-        "fact:rolling:event-nrlw-2026-round-11-broncos-warriors:field",
-        "fact:rolling:event-nrlw-2026-round-11-broncos-warriors:viewing",
-        "fact:rolling:event-nrlw-2026-round-11-broncos-warriors:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:nrlw:nrlw-schedule",
-        "source:rolling:nrlw:nrlw-hub",
-        "source:rolling:nrlw:nrlw-stats"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "hookSpoilerOn": "Brisbane Broncos defeated New Zealand Warriors in Round 11.",
-      "synopsisSpoilerOn": "Brisbane Broncos defeated New Zealand Warriors in Round 11. Brisbane scored seven second-half tries in a 52-18 Round 11 win."
-    },
-    "resultEditorialBranches": {
-      "home": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Brisbane Broncos v New Zealand Warriors in Round 11: the result is available to reveal.",
-        "revealed": "Brisbane Broncos defeated New Zealand Warriors in Round 11."
-      },
-      "away": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Brisbane Broncos v New Zealand Warriors in Round 11: the result is available to reveal.",
-        "revealed": "New Zealand Warriors defeated Brisbane Broncos in Round 11."
-      },
-      "draw": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Brisbane Broncos v New Zealand Warriors in Round 11: the result is available to reveal.",
-        "revealed": "Brisbane Broncos and New Zealand Warriors finished level in Round 11."
-      }
-    },
-    "homeScore": 52,
-    "awayScore": 18,
-    "score": "Brisbane Broncos 52-18 New Zealand Warriors",
-    "outcomeText": "Brisbane Broncos defeated New Zealand Warriors 52-18.",
-    "recapText": "Brisbane scored seven second-half tries in a 52-18 Round 11 win.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Round 11",
-      "Brisbane Broncos 52-18 New Zealand Warriors",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-13T05:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Round 11",
-      "contextSignals": [
-        "official-schedule",
-        "regular season"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
   },
   {
     "id": "event-aflw-cd_m20262640505",
@@ -38120,183 +34762,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "canonicalResultScoreline": "Richmond v St Kilda — 58-43",
     "endTimeUtc": "2026-09-13T06:05:00.000Z",
     "endTimeBasis": "scheduled-live-window"
-  },
-  {
-    "id": "evt_nrlw_2026_round_11_knights_titans",
-    "eventId": "evt_nrlw_2026_round_11_knights_titans",
-    "canonicalEventId": "event:nrlw:2026:round-11-knights-titans",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "Newcastle Knights v Gold Coast Titans",
-    "displayTitleCompact": "Newcastle Knights v Gold Coast Titans",
-    "date": "2026-09-13",
-    "time": "13:45",
-    "startTimeUtc": "2026-09-13T03:45:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "McDonald Jones Stadium",
-    "liveWindow": 3,
-    "round": "early",
-    "roundLabel": "Round 11",
-    "roundNumber": 11,
-    "stage": "regular season",
-    "narrativeType": "all",
-    "selectedSentence": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
-    "fullSpiel": "The last scheduled match can redraw the elimination pairings only days before finals begin.",
-    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [
-      "AU"
-    ],
-    "participantIds": [
-      "team:nrlw:knights",
-      "team:nrlw:titans"
-    ],
-    "participants": [
-      {
-        "id": "team:nrlw:knights",
-        "name": "Newcastle Knights",
-        "role": "home"
-      },
-      {
-        "id": "team:nrlw:titans",
-        "name": "Gold Coast Titans",
-        "role": "away"
-      }
-    ],
-    "participantSlots": [
-      {
-        "slot": 1,
-        "participantId": "team:nrlw:knights",
-        "label": "Newcastle Knights"
-      },
-      {
-        "slot": 2,
-        "participantId": "team:nrlw:titans",
-        "label": "Gold Coast Titans"
-      }
-    ],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
-      "hookSpoilerOn": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
-      "synopsisSpoilerOff": "The last scheduled match can redraw the elimination pairings only days before finals begin.",
-      "synopsisSpoilerOn": "The last scheduled match can redraw the elimination pairings only days before finals begin.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-nrlw-2026-round-11-knights-titans",
-      "researchTier": "standard",
-      "hook": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
-      "synopsis": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line. The last scheduled match can redraw the elimination pairings only days before finals begin.",
-      "threadIds": [
-        "thread:rolling:nrlw:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-nrlw-2026-round-11-knights-titans:schedule",
-        "fact:rolling:event-nrlw-2026-round-11-knights-titans:field",
-        "fact:rolling:event-nrlw-2026-round-11-knights-titans:viewing",
-        "fact:rolling:event-nrlw-2026-round-11-knights-titans:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:nrlw:nrlw-schedule",
-        "source:rolling:nrlw:nrlw-hub",
-        "source:rolling:nrlw:nrlw-stats"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched",
-      "hookSpoilerOn": "Gold Coast Titans defeated Newcastle Knights in Round 11.",
-      "synopsisSpoilerOn": "Gold Coast Titans defeated Newcastle Knights in Round 11. Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory."
-    },
-    "resultEditorialBranches": {
-      "home": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Newcastle Knights v Gold Coast Titans in Round 11: the result is available to reveal.",
-        "revealed": "Newcastle Knights defeated Gold Coast Titans in Round 11."
-      },
-      "away": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Newcastle Knights v Gold Coast Titans in Round 11: the result is available to reveal.",
-        "revealed": "Gold Coast Titans defeated Newcastle Knights in Round 11."
-      },
-      "draw": {
-        "sourceIds": [
-          "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/"
-        ],
-        "spoilerSafe": "Newcastle Knights v Gold Coast Titans in Round 11: the result is available to reveal.",
-        "revealed": "Newcastle Knights and Gold Coast Titans finished level in Round 11."
-      }
-    },
-    "homeScore": 20,
-    "awayScore": 32,
-    "score": "Newcastle Knights 20-32 Gold Coast Titans",
-    "outcomeText": "Gold Coast Titans defeated Newcastle Knights 32-20.",
-    "recapText": "Gold Coast extended its winning run to ten matches with a 32-20 Round 11 victory.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Round 11",
-      "Newcastle Knights 20-32 Gold Coast Titans",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-13T06:45:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Round 11",
-      "contextSignals": [
-        "official-schedule",
-        "regular season"
-      ],
-      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
   },
   {
     "id": "event-aflw-cd_m20262640507",
@@ -38860,163 +35325,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeBasis": "scheduled-live-window"
   },
   {
-    "id": "evt_motogp_2026_san_marino",
-    "eventId": "evt_motogp_2026_san_marino",
-    "canonicalEventId": "event:motogp:2026:san-marino",
-    "sport": "MotoGP",
-    "key": "motogp",
-    "name": "MotoGP San Marino Grand Prix",
-    "displayTitleCompact": "MotoGP San Marino Grand Prix",
-    "date": "2026-09-13",
-    "time": "22:00",
-    "timeTbc": false,
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Misano World Circuit Marco Simoncelli",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "San Marino GP",
-    "stage": "Grand Prix",
-    "narrativeType": "all",
-    "selectedSentence": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-    "fullSpiel": "The Italian stop begins the final nine-race run to the Valencia decider.",
-    "sourceName": "MotoGP",
-    "sourceUrl": "https://stats.motogp.com/en/gp-results",
-    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "completed",
-    "sportDomainId": "sport:motorsport",
-    "discoverySportId": "sport:motogp",
-    "competitionId": "competition:motogp",
-    "taxonomyNodeId": "competition:motogp",
-    "codeId": "competition:motogp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "FR",
-      "TR",
-      "IT",
-      "BR",
-      "ES",
-      "ZA",
-      "AU",
-      "JP"
-    ],
-    "participantIds": [
-      "competitor:motogp:johann-zarco",
-      "competitor:motogp:toprak-razgatlioglu",
-      "competitor:motogp:luca-marini",
-      "competitor:motogp:diogo-moreira",
-      "competitor:motogp:maverick-vinales",
-      "competitor:motogp:fabio-quartararo",
-      "competitor:motogp:franco-morbidelli",
-      "competitor:motogp:enea-bastianini",
-      "competitor:motogp:raul-fernandez",
-      "competitor:motogp:brad-binder",
-      "competitor:motogp:joan-mir",
-      "competitor:motogp:pedro-acosta",
-      "competitor:motogp:alex-rins",
-      "competitor:motogp:jack-miller",
-      "competitor:motogp:fabio-di-giannantonio",
-      "competitor:motogp:fermin-aldeguer",
-      "competitor:motogp:francesco-bagnaia",
-      "competitor:motogp:marco-bezzecchi",
-      "competitor:motogp:alex-marquez",
-      "competitor:motogp:ai-ogura",
-      "competitor:motogp:jorge-martin",
-      "competitor:motogp:marc-marquez"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "recap",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
-      "hookSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
-      "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
-      "synopsisSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-motogp-2026-san-marino",
-      "researchTier": "marquee",
-      "hook": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
-      "synopsis": "MotoGP's title fight heads to Misano for the San Marino Grand Prix. The Italian stop begins the final nine-race run to the Valencia decider.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-san-marino:schedule",
-        "fact:rolling:event-motogp-2026-san-marino:field",
-        "fact:rolling:event-motogp-2026-san-marino:viewing",
-        "fact:rolling:event-motogp-2026-san-marino:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "score": "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
-    "outcomeText": "Marc Marquez won the San Marino Grand Prix.",
-    "recapText": "Marc Marquez won at Misano ahead of Alex Marquez and Pedro Acosta and moved into the championship lead.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "San Marino GP",
-      "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
-      "Official result"
-    ],
-    "startTimeUtc": "2026-09-13T12:00:00.000Z",
-    "endTimeUtc": "2026-09-13T13:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "sourceRefs": [
-      "https://stats.motogp.com/en/gp-results",
-      "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181",
-      "https://www.motogp.com/en/calendar/2026"
-    ],
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "San Marino GP",
-      "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
-      ],
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
     "id": "epl-2026-27-128956",
     "eventId": "epl-2026-27-128956",
     "canonicalEventId": "event:premier-league:128956",
@@ -39146,246 +35454,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "awayScore": 5
   },
   {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Spanish GP · Race",
-    "date": "2026-09-13",
-    "time": "23:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 9,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_29",
-    "eventId": "evt_29",
-    "displayTitleCompact": "Spanish GP · Race",
-    "selectedSentence": "R14 Spanish GP Race is complete; the key moments are protected until you choose to reveal them.",
-    "fullSpiel": "R14 Spanish GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "completed",
-    "sourceTrust": "verified",
-    "sourceType": "official",
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-29",
-      "researchTier": "marquee",
-      "hook": "Kimi Antonelli leads by 66 points into R14 Spanish GP Race; this session is the points-paying chapter of the weekend.",
-      "synopsis": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
-      "threadIds": [
-        "thread:rolling:f1-title"
-      ],
-      "factIds": [
-        "fact:rolling:f1:constructors",
-        "fact:rolling:f1:circuit:spain",
-        "fact:rolling:f1:leader",
-        "fact:rolling:f1:race-consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:f1:driver-standings",
-        "source:rolling:f1:constructors",
-        "source:rolling:f1:circuit:spain"
-      ],
-      "dimensions": [
-        "form",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T13:52:45.257Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "storyline": {
-      "stakes": 3,
-      "hookSpoilerOff": "R14 Spanish GP Race is complete; the key moments are protected until you choose to reveal them.",
-      "hookSpoilerOn": "Kimi Antonelli won R14 Spanish GP Race.",
-      "synopsisSpoilerOff": "R14 Spanish GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
-      "synopsisSpoilerOn": "Kimi Antonelli won R14 Spanish GP Race. 1. Kimi Antonelli (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Lando Norris (McLaren).",
-      "lastReviewedAt": "2026-09-08T13:52:45.257Z",
-      "arcStage": "recap",
-      "researchDepth": 5,
-      "intensity": 4,
-      "expectedSpectacle": 7,
-      "intensitySource": "computed"
-    },
-    "startTimeUtc": "2026-09-13T13:00:00.000Z",
-    "venueCountryCode": "ES",
-    "timingSourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-    "timingCheckedAt": "2026-09-08T14:50:00Z",
-    "score": "1. Kimi Antonelli · 2. Max Verstappen · 3. Lando Norris",
-    "outcomeText": "Kimi Antonelli won R14 Spanish GP Race.",
-    "recapText": "Kimi Antonelli won R14 Spanish GP Race. 1. Kimi Antonelli (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Lando Norris (McLaren).",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Result",
-      "1. Kimi Antonelli · 2. Max Verstappen · 3. Lando Norris",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-13T16:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "canonicalEventId": "event:f1:2026:spain:race",
-    "cardKind": "fixture",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 5,
-    "roundLabel": "Race",
-    "stage": "Race",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Race",
-      "contextSignals": [
-        "official-schedule",
-        "Race"
-      ],
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
-      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
-    "id": "evt_fiba_women_2026_bronze",
-    "eventId": "evt_fiba_women_2026_bronze",
-    "canonicalEventId": "event:fiba-women:2026:bronze",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "FIBA Women's World Cup — bronze medal game",
-    "displayTitleCompact": "FIBA Women's World Cup — bronze medal game",
-    "date": "2026-09-14",
-    "time": "00:30",
-    "startTimeUtc": "2026-09-13T14:30:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 5,
-    "venue": "Uber Arena, Berlin",
-    "liveWindow": 3,
-    "round": "final",
-    "roundLabel": "Third-place game",
-    "stage": "medal",
-    "narrativeType": "all",
-    "selectedSentence": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
-    "fullSpiel": "The bronze game rewards the team that can reset fastest after missing the final.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
-      "hookSpoilerOn": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
-      "synopsisSpoilerOff": "The bronze game rewards the team that can reset fastest after missing the final.",
-      "synopsisSpoilerOn": "The bronze game rewards the team that can reset fastest after missing the final.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-bronze",
-      "researchTier": "marquee",
-      "hook": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
-      "synopsis": "The semifinal losers have one final chance to leave Berlin with a World Cup medal. The bronze game rewards the team that can reset fastest after missing the final.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-bronze:schedule",
-        "fact:rolling:event-fiba-women-2026-bronze:field",
-        "fact:rolling:event-fiba-women-2026-bronze:viewing",
-        "fact:rolling:event-fiba-women-2026-bronze:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "homeScore": 81,
-    "awayScore": 58,
-    "score": "Spain 81-58 Germany",
-    "outcomeText": "Spain defeated Germany 81-58 to win bronze.",
-    "recapText": "Spain secured the World Cup bronze medal with an 81-58 win over hosts Germany.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Third-place game",
-      "Spain 81-58 Germany",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-13T17:30:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Third-place game",
-      "contextSignals": [
-        "official-schedule",
-        "medal"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
-  },
-  {
     "id": "epl-2026-27-128960",
     "eventId": "epl-2026-27-128960",
     "canonicalEventId": "event:premier-league:128960",
@@ -39513,125 +35581,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "recapText": "Manchester City completed a 1-goal win in Premier League Matchweek 4.",
     "homeScore": 0,
     "awayScore": 1
-  },
-  {
-    "id": "evt_fiba_women_2026_final",
-    "eventId": "evt_fiba_women_2026_final",
-    "canonicalEventId": "event:fiba-women:2026:final",
-    "sport": "FIBA Women",
-    "key": "fiba-women",
-    "name": "FIBA Women's Basketball World Cup final",
-    "displayTitleCompact": "FIBA Women's Basketball World Cup final",
-    "date": "2026-09-14",
-    "time": "04:00",
-    "startTimeUtc": "2026-09-13T18:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "ESPN via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 10,
-    "stakesScore": 5,
-    "venue": "Uber Arena, Berlin",
-    "liveWindow": 3,
-    "round": "final",
-    "roundLabel": "Final",
-    "stage": "final",
-    "narrativeType": "all",
-    "selectedSentence": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
-    "fullSpiel": "The tournament closes with forty minutes separating the finalists from a world championship.",
-    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:basketball",
-    "discoverySportId": "sport:fiba-women",
-    "competitionId": "competition:fiba-womens-world-cup",
-    "taxonomyNodeId": "competition:fiba-womens-world-cup",
-    "codeId": "competition:fiba-womens-world-cup",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 10,
-      "hookSpoilerOff": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
-      "hookSpoilerOn": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
-      "synopsisSpoilerOff": "The tournament closes with forty minutes separating the finalists from a world championship.",
-      "synopsisSpoilerOn": "The tournament closes with forty minutes separating the finalists from a world championship.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-fiba-women-2026-final",
-      "researchTier": "marquee",
-      "hook": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
-      "synopsis": "Two teams remain for the Women's Basketball World Cup title in Berlin. The tournament closes with forty minutes separating the finalists from a world championship.",
-      "threadIds": [
-        "thread:rolling:fiba-women:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-fiba-women-2026-final:schedule",
-        "fact:rolling:event-fiba-women-2026-final:field",
-        "fact:rolling:event-fiba-women-2026-final:viewing",
-        "fact:rolling:event-fiba-women-2026-final:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:fiba-women:fiba-schedule",
-        "source:rolling:fiba-women:fiba-teams",
-        "source:rolling:fiba-women:fiba-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "homeScore": 97,
-    "awayScore": 79,
-    "score": "USA 97-79 France",
-    "outcomeText": "USA defeated France 97-79 to win the World Cup.",
-    "recapText": "USA won a fifth consecutive and 12th overall Women's World Cup title with a 97-79 final victory.",
-    "resultPublishedAt": "2026-09-15T03:15:00.000Z",
-    "resultLabels": [
-      "Final",
-      "USA 97-79 France",
-      "Official result"
-    ],
-    "endTimeUtc": "2026-09-13T21:00:00.000Z",
-    "endTimeBasis": "scheduled-live-window",
-    "cardKind": "fixture",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Final",
-      "contextSignals": [
-        "official-schedule",
-        "final"
-      ],
-      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    }
   },
   {
     "id": "epl-2026-27-128958",
@@ -41347,147 +37296,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
-    "id": "evt_sailgp_2026_geneva_day_1",
-    "eventId": "evt_sailgp_2026_geneva_day_1",
-    "canonicalEventId": "event:sailgp:2026:geneva-day-1",
-    "sport": "SailGP",
-    "key": "sailgp",
-    "name": "Geneva Sail Grand Prix — race day 1",
-    "displayTitleCompact": "Geneva Sail Grand Prix — race day 1",
-    "date": "2026-09-19",
-    "time": "23:00",
-    "startTimeUtc": "2026-09-19T13:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Geneva, Switzerland",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Event 11",
-    "stage": "fleet racing",
-    "narrativeType": "all",
-    "selectedSentence": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
-    "fullSpiel": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
-    "sourceName": "SailGP 2026 calendar",
-    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:sailing",
-    "discoverySportId": "sport:sailgp",
-    "competitionId": "competition:sailgp",
-    "taxonomyNodeId": "competition:sailgp",
-    "codeId": "competition:sailgp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "SE",
-      "NZ",
-      "AU",
-      "FR",
-      "GB",
-      "CH",
-      "DE",
-      "ES",
-      "BR",
-      "CA",
-      "IT",
-      "DK",
-      "US"
-    ],
-    "participantIds": [
-      "team:sailgp:artemis",
-      "team:sailgp:black-foils",
-      "team:sailgp:bonds-flying-roos",
-      "team:sailgp:france",
-      "team:sailgp:great-britain",
-      "team:sailgp:switzerland",
-      "team:sailgp:germany",
-      "team:sailgp:los-gallos",
-      "team:sailgp:mubadala-brazil",
-      "team:sailgp:northstar",
-      "team:sailgp:red-bull-italy",
-      "team:sailgp:rockwool-racing",
-      "team:sailgp:united-states"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
-      "hookSpoilerOn": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
-      "synopsisSpoilerOff": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
-      "synopsisSpoilerOn": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
-      "lastReviewedAt": "2026-09-17T23:22:14.102Z",
-      "researchDepth": 5
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Geneva Sail Grand Prix - race day 1",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Geneva Sail Grand Prix - race day 1 — official research 1",
-      "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:fixture-research:evt_sailgp_2026_geneva_day_1",
-      "researchTier": "marquee",
-      "hook": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
-      "synopsis": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
-      "threadIds": [
-        "thread:fixture-research:evt_sailgp_2026_geneva_day_1"
-      ],
-      "factIds": [
-        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:0",
-        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:1",
-        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:2",
-        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:3"
-      ],
-      "sourceIds": [
-        "source:fixture-research:evt_sailgp_2026_geneva_day_1:0",
-        "source:fixture-research:evt_sailgp_2026_geneva_day_1:1",
-        "source:fixture-research:evt_sailgp_2026_geneva_day_1:2"
-      ],
-      "dimensions": [
-        "matchup",
-        "form",
-        "path",
-        "schedule"
-      ],
-      "researchedAt": "2026-09-17T23:22:14.102Z",
-      "refreshAfter": "2026-09-09T12:00:00.000Z",
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
     "id": "epl-2026-27-128965",
     "eventId": "epl-2026-27-128965",
     "canonicalEventId": "event:premier-league:128965",
@@ -41888,151 +37696,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "synopsisSpoilerOn": "Newcastle United arrives with 1W-2D-0L, while Hull City brings 2W-1D-0L. Newcastle changed head coach after the departures of Bruno Guimaraes, Sandro Tonali and Anthony Gordon during a summer that reset the team's leadership and midfield. Hull returned to the Premier League after nine years through the Championship playoffs, retaining a counterattacking core and strengthening its defensive spine. That makes this fixture a direct test of rebuilding leadership, midfield and coaching at once against a playoff-built counterattack, and the next result will advance both season threads.",
       "lastReviewedAt": "2026-09-08T14:50:03.143Z"
     }
-  },
-  {
-    "id": "evt_motogp_2026_austria",
-    "eventId": "evt_motogp_2026_austria",
-    "canonicalEventId": "event:motogp:2026:austria",
-    "sport": "MotoGP",
-    "key": "motogp",
-    "name": "MotoGP Austrian Grand Prix",
-    "displayTitleCompact": "MotoGP Austrian Grand Prix",
-    "date": "2026-09-20",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Red Bull Ring",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Austrian GP",
-    "stage": "Grand Prix",
-    "narrativeType": "all",
-    "selectedSentence": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
-    "fullSpiel": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
-    "sourceName": "MotoGP 2026 calendar",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:motorsport",
-    "discoverySportId": "sport:motogp",
-    "competitionId": "competition:motogp",
-    "taxonomyNodeId": "competition:motogp",
-    "codeId": "competition:motogp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "FR",
-      "TR",
-      "IT",
-      "BR",
-      "ES",
-      "ZA",
-      "AU",
-      "JP"
-    ],
-    "participantIds": [
-      "competitor:motogp:johann-zarco",
-      "competitor:motogp:toprak-razgatlioglu",
-      "competitor:motogp:luca-marini",
-      "competitor:motogp:diogo-moreira",
-      "competitor:motogp:maverick-vinales",
-      "competitor:motogp:fabio-quartararo",
-      "competitor:motogp:franco-morbidelli",
-      "competitor:motogp:enea-bastianini",
-      "competitor:motogp:raul-fernandez",
-      "competitor:motogp:brad-binder",
-      "competitor:motogp:joan-mir",
-      "competitor:motogp:pedro-acosta",
-      "competitor:motogp:alex-rins",
-      "competitor:motogp:jack-miller",
-      "competitor:motogp:fabio-di-giannantonio",
-      "competitor:motogp:fermin-aldeguer",
-      "competitor:motogp:francesco-bagnaia",
-      "competitor:motogp:marco-bezzecchi",
-      "competitor:motogp:alex-marquez",
-      "competitor:motogp:ai-ogura",
-      "competitor:motogp:jorge-martin",
-      "competitor:motogp:marc-marquez"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
-      "hookSpoilerOn": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
-      "synopsisSpoilerOff": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
-      "synopsisSpoilerOn": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
-      "lastReviewedAt": "2026-09-17T23:22:14.102Z",
-      "researchDepth": 5
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "MotoGP Austrian Grand Prix",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "MotoGP Austrian Grand Prix — official research 1",
-      "sourceUrl": "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:fixture-research:evt_motogp_2026_austria",
-      "researchTier": "marquee",
-      "hook": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
-      "synopsis": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
-      "threadIds": [
-        "thread:fixture-research:evt_motogp_2026_austria"
-      ],
-      "factIds": [
-        "fact:fixture-research:evt_motogp_2026_austria:0",
-        "fact:fixture-research:evt_motogp_2026_austria:1",
-        "fact:fixture-research:evt_motogp_2026_austria:2",
-        "fact:fixture-research:evt_motogp_2026_austria:3"
-      ],
-      "sourceIds": [
-        "source:fixture-research:evt_motogp_2026_austria:0",
-        "source:fixture-research:evt_motogp_2026_austria:1",
-        "source:fixture-research:evt_motogp_2026_austria:2"
-      ],
-      "dimensions": [
-        "matchup",
-        "form",
-        "path",
-        "schedule"
-      ],
-      "researchedAt": "2026-09-17T23:22:14.102Z",
-      "refreshAfter": "2026-09-09T12:00:00.000Z",
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-128971",
@@ -43201,147 +38864,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
-    "id": "evt_sailgp_2026_geneva_day_2",
-    "eventId": "evt_sailgp_2026_geneva_day_2",
-    "canonicalEventId": "event:sailgp:2026:geneva-day-2",
-    "sport": "SailGP",
-    "key": "sailgp",
-    "name": "Geneva Sail Grand Prix — race day 2",
-    "displayTitleCompact": "Geneva Sail Grand Prix — race day 2",
-    "date": "2026-09-20",
-    "time": "23:00",
-    "startTimeUtc": "2026-09-20T13:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 9,
-    "stakesScore": 5,
-    "venue": "Geneva, Switzerland",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Event 11",
-    "stage": "fleet racing",
-    "narrativeType": "all",
-    "selectedSentence": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
-    "fullSpiel": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
-    "sourceName": "SailGP 2026 calendar",
-    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:sailing",
-    "discoverySportId": "sport:sailgp",
-    "competitionId": "competition:sailgp",
-    "taxonomyNodeId": "competition:sailgp",
-    "codeId": "competition:sailgp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "SE",
-      "NZ",
-      "AU",
-      "FR",
-      "GB",
-      "CH",
-      "DE",
-      "ES",
-      "BR",
-      "CA",
-      "IT",
-      "DK",
-      "US"
-    ],
-    "participantIds": [
-      "team:sailgp:artemis",
-      "team:sailgp:black-foils",
-      "team:sailgp:bonds-flying-roos",
-      "team:sailgp:france",
-      "team:sailgp:great-britain",
-      "team:sailgp:switzerland",
-      "team:sailgp:germany",
-      "team:sailgp:los-gallos",
-      "team:sailgp:mubadala-brazil",
-      "team:sailgp:northstar",
-      "team:sailgp:red-bull-italy",
-      "team:sailgp:rockwool-racing",
-      "team:sailgp:united-states"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
-      "hookSpoilerOn": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
-      "synopsisSpoilerOff": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
-      "synopsisSpoilerOn": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
-      "lastReviewedAt": "2026-09-17T23:22:14.102Z",
-      "researchDepth": 5
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Geneva Sail Grand Prix - race day 2",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceName": "Geneva Sail Grand Prix - race day 2 — official research 1",
-      "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
-      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:fixture-research:evt_sailgp_2026_geneva_day_2",
-      "researchTier": "marquee",
-      "hook": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
-      "synopsis": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
-      "threadIds": [
-        "thread:fixture-research:evt_sailgp_2026_geneva_day_2"
-      ],
-      "factIds": [
-        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:0",
-        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:1",
-        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:2",
-        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:3"
-      ],
-      "sourceIds": [
-        "source:fixture-research:evt_sailgp_2026_geneva_day_2:0",
-        "source:fixture-research:evt_sailgp_2026_geneva_day_2:1",
-        "source:fixture-research:evt_sailgp_2026_geneva_day_2:2"
-      ],
-      "dimensions": [
-        "matchup",
-        "form",
-        "path",
-        "schedule"
-      ],
-      "researchedAt": "2026-09-17T23:22:14.102Z",
-      "refreshAfter": "2026-09-09T12:00:00.000Z",
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
     "id": "epl-2026-27-128967",
     "eventId": "epl-2026-27-128967",
     "canonicalEventId": "event:premier-league:128967",
@@ -44096,153 +39618,45 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Azerbaijan GP · Qualifying",
-    "date": "2026-09-25",
-    "time": "22:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 8,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_30",
-    "eventId": "evt_30",
-    "displayTitleCompact": "Azerbaijan GP · Qualifying",
-    "selectedSentence": "One lap must reconcile Baku's long full-throttle run with a wall-lined old town that forgives almost nothing.",
-    "fullSpiel": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "One lap must reconcile Baku's long full-throttle run with a wall-lined old town that forgives almost nothing.",
-      "hookSpoilerOn": "One lap must reconcile Baku's long full-throttle run with a wall-lined old town that forgives almost nothing.",
-      "synopsisSpoilerOff": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
-      "synopsisSpoilerOn": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
-      "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-29T23:56:41.761Z",
-      "researchDepth": 4
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Baku's walls and passing straight",
-      "contextSignals": [
-        "event-specific",
-        "narrative:path",
-        "narrative:consequence",
-        "narrative:form"
-      ],
-      "sourceName": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
-      "needsPreviewRefresh": false
-    },
-    "sourceTrust": "verified",
-    "sourceType": "official",
-    "startTimeUtc": "2026-09-25T12:00:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:feed:azerbaijan-gp-qualifying-2026",
-      "researchTier": "featured",
-      "hook": "One lap must reconcile Baku's long full-throttle run with a wall-lined old town that forgives almost nothing.",
-      "synopsis": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
-      "threadIds": [
-        "thread:f1:baku:risk-reward"
-      ],
-      "factIds": [
-        "fact:evt30:setup-conflict",
-        "fact:evt30:walls-and-grid",
-        "fact:evt30:title-state-not-frozen"
-      ],
-      "sourceIds": [
-        "source:f1:2026-azerbaijan-race-hub",
-        "source:f1:2026-driver-standings-0830",
-        "source:fia:2026-calendar-current"
-      ],
-      "dimensions": [
-        "path",
-        "consequence",
-        "form"
-      ],
-      "researchedAt": "2026-08-29T23:56:41.761Z",
-      "refreshAfter": "2026-09-23T12:00:00.000Z",
-      "generationMode": "researched"
-    },
-    "canonicalEventId": "event:f1:2026:azerbaijan:qualifying",
-    "cardKind": "fixture",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 4,
-    "roundLabel": "Qualifying",
-    "stage": "Qualifying",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": []
-  },
-  {
     "id": "event-afl-cd_m20260142901",
     "eventId": "event-afl-cd_m20260142901",
     "sport": "AFL",
     "key": "afl",
-    "name": "AFL Grand Final",
-    "displayTitleCompact": "AFL Grand Final",
+    "name": "Fremantle v Brisbane Lions",
+    "displayTitleCompact": "Fremantle v Brisbane Lions",
     "date": "2026-09-26",
     "time": "14:30",
     "startTimeUtc": "2026-09-26T04:30:00.000Z",
-    "broadcaster": "7plus",
+    "broadcaster": "Seven / 7plus",
     "broadcastOptions": [
-      "7plus",
-      "Watch AFL"
+      "Seven",
+      "7plus"
     ],
     "expected": 10,
-    "venue": "MCG, Melbourne",
+    "venue": "MCG",
     "liveWindow": 3,
     "round": "all",
     "narrativeType": "regular-season-fixture",
     "status": "upcoming",
     "participants": [
       {
-        "id": "team:afl:cd_t3020",
-        "name": "Winner of PF1",
+        "id": "team:afl:cd_t60",
+        "name": "Fremantle",
         "role": "home"
       },
       {
-        "id": "team:afl:cd_t3021",
-        "name": "Winner of PF2",
+        "id": "team:afl:cd_t20",
+        "name": "Brisbane Lions",
         "role": "away"
       }
     ],
-    "selectedSentence": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-    "fullSpiel": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-    "sourceName": "AFL 2026 final home-and-away ladder",
-    "sourceUrl": "https://www.afl.com.au/ladder",
+    "selectedSentence": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+    "fullSpiel": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+    "sourceName": "AFL",
+    "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
     "sourceCheckedAt": "2026-09-08T14:50:03.143Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-14T20:44:08.477Z",
+    "lastReviewedAt": "2026-09-21T12:20:05.571Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -44256,14 +39670,13 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sportDomainId": "sport:afl",
     "competitionId": "competition:afl-premiership-2026",
     "participantIds": [
-      "team:afl:cd_t3020",
-      "team:afl:cd_t3021"
+      "team:afl:cd_t60",
+      "team:afl:cd_t20"
     ],
-    "homeParticipantId": "team:afl:cd_t3020",
-    "awayParticipantId": "team:afl:cd_t3021",
+    "homeParticipantId": "team:afl:cd_t60",
+    "awayParticipantId": "team:afl:cd_t20",
     "broadcasterIds": [
-      "kayo",
-      "foxtel"
+      "seven"
     ],
     "scheduleStatus": "confirmed",
     "sourceTrust": "verified",
@@ -44274,63 +39687,57 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "representativeCountryCodes": [],
     "editorialNarrative": {
       "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:event-afl-cd-m20260142901",
+      "projectionId": "projection:afl:grand-final-2026",
       "researchTier": "marquee",
-      "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-      "synopsis": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
+      "hook": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+      "synopsis": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+      "sourceIds": [
+        "source:afl:gf2026:0",
+        "source:afl:gf2026:1",
+        "source:afl:gf2026:2"
+      ],
       "threadIds": [
-        "thread:depth:afl:finals"
+        "thread:afl:gf2026:first-flag-or-threepeat"
       ],
       "factIds": [
-        "fact:depth:afl:event-afl-cd-m20260142901:1",
-        "fact:depth:afl:event-afl-cd-m20260142901:2",
-        "fact:depth:afl:event-afl-cd-m20260142901:3",
-        "fact:depth:afl:event-afl-cd-m20260142901:4"
-      ],
-      "sourceIds": [
-        "source:depth:afl:ladder",
-        "source:depth:afl:finals-fixture",
-        "source:depth:afl:final-ten-rules",
-        "source:depth:afl:match:event-afl-cd-m20260142901"
+        "fact:afl:gf2026:0",
+        "fact:afl:gf2026:1",
+        "fact:afl:gf2026:2",
+        "fact:afl:gf2026:3"
       ],
       "dimensions": [
-        "history",
-        "path",
+        "matchup",
         "consequence",
         "venue"
       ],
-      "researchedAt": "2026-09-08T14:50:03.143Z",
+      "researchedAt": "2026-09-21T12:22:56.007Z",
       "refreshAfter": "2026-09-26T04:30:00.000Z",
       "generationMode": "researched"
     },
     "editorialPreview": {
       "status": "journalistic",
-      "angle": "AFL 2026 — the first Final Ten",
+      "angle": "Fremantle v Brisbane: the premiership decider",
+      "sourceName": "AFL",
+      "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+      "sourceCheckedAt": "2026-09-21T12:20:05.571Z",
+      "needsPreviewRefresh": false,
       "contextSignals": [
         "event-specific",
         "narrative:history",
-        "narrative:path",
-        "narrative:consequence",
-        "narrative:venue"
-      ],
-      "sourceName": "AFL 2026 final home-and-away ladder",
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "sourceCheckedAt": "2026-09-08T14:50:03.143Z",
-      "needsPreviewRefresh": false
+        "narrative:matchup",
+        "narrative:consequence"
+      ]
     },
     "storyline": {
       "stakes": 5,
-      "hookSpoilerOff": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-      "hookSpoilerOn": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
-      "synopsisSpoilerOff": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-      "synopsisSpoilerOn": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-      "arcStage": "preview",
       "intensity": 5,
+      "arcStage": "preview",
       "expectedSpectacle": 10,
-      "intensitySource": "computed",
-      "researchDepth": 5,
-      "lastReviewedAt": "2026-09-08T14:50:03.143Z",
-      "archetype": "championship decider"
+      "hookSpoilerOff": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+      "hookSpoilerOn": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
+      "synopsisSpoilerOff": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+      "synopsisSpoilerOn": "The Dockers return to the Grand Final for the first time since 2013, chasing the premiership that has eluded the club. Brisbane arrive for a fourth successive decider, with a third straight flag within reach. Fremantle's late surge against Sydney showed their capacity to finish strongly; Brisbane's escape against Hawthorn underlined how dangerous Kai Lohmann and Hugh McCluggage remain when a final turns frantic. The Dockers must disrupt that scoring threat without surrendering their own attacking momentum. For the Lions, containing Fremantle's finish is the difference between extending a dynasty and watching a new champion emerge.",
+      "lastReviewedAt": "2026-09-21T12:20:05.571Z"
     },
     "competitionPhase": "grand-final",
     "isFinalRegularSeasonRound": false,
@@ -44339,37 +39746,30 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultEditorialBranches": {
       "home": {
         "sourceIds": [
-          "https://www.afl.com.au/ladder"
+          "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
         ],
-        "spoilerSafe": "Winner of PF1 v Winner of PF2 in Grand Final: the result is available to reveal.",
-        "revealed": "Winner of PF1 defeated Winner of PF2 in Grand Final."
+        "spoilerSafe": "Fremantle v Brisbane Lions: reveal the Grand Final result.",
+        "revealed": "Fremantle defeated Brisbane Lions in the Grand Final."
       },
       "away": {
         "sourceIds": [
-          "https://www.afl.com.au/ladder"
+          "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
         ],
-        "spoilerSafe": "Winner of PF1 v Winner of PF2 in Grand Final: the result is available to reveal.",
-        "revealed": "Winner of PF2 defeated Winner of PF1 in Grand Final."
-      },
-      "draw": {
-        "sourceIds": [
-          "https://www.afl.com.au/ladder"
-        ],
-        "spoilerSafe": "Winner of PF1 v Winner of PF2 in Grand Final: the result is available to reveal.",
-        "revealed": "Winner of PF1 and Winner of PF2 finished level in Grand Final."
+        "spoilerSafe": "Fremantle v Brisbane Lions: reveal the Grand Final result.",
+        "revealed": "Brisbane Lions defeated Fremantle in the Grand Final."
       }
     },
-    "summary": "Official AFL schedule: Winner of PF1 v Winner of PF2 at MCG.",
+    "summary": "Fremantle's first flag or Brisbane's second three-peat: the MCG hosts two very different bids for history.",
     "viewingOptions": [
       {
         "providerId": "seven",
-        "serviceId": "seven",
         "territory": "AU",
         "accessType": "free",
         "liveOrReplay": "live",
-        "rightsScope": "competition",
-        "sourceUrl": "https://www.afl.com.au/matches/broadcast-guide/broadcast-rights",
-        "verifiedAt": "2026-08-25T00:00:00.000Z"
+        "rightsScope": "fixture",
+        "webUrl": "https://7plus.com.au/afl",
+        "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+        "verifiedAt": "2026-09-21T12:20:05.571Z"
       }
     ],
     "codeId": "sport:afl",
@@ -44397,27 +39797,15 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "venueName": "MCG",
     "venueCity": "Melbourne",
     "venueCountryCode": "AU",
-    "displayName": "Winner of PF1 v Winner of PF2",
+    "displayName": "Fremantle v Brisbane Lions",
     "broadcasters": [
       {
-        "broadcasterId": "broadcaster:kayo",
-        "broadcasterName": "Kayo Sports",
-        "platformType": "streaming",
+        "broadcasterId": "broadcaster:seven",
+        "broadcasterName": "Seven / 7plus",
+        "platformType": "free-to-air",
         "regionCode": "AU",
         "live": true,
-        "replay": true,
-        "highlights": true,
-        "deeplinkUrl": "https://kayosports.com.au/"
-      },
-      {
-        "broadcasterId": "broadcaster:foxtel",
-        "broadcasterName": "Foxtel",
-        "platformType": "subscription",
-        "regionCode": "AU",
-        "live": true,
-        "replay": true,
-        "highlights": true,
-        "deeplinkUrl": "https://www.foxtel.com.au/"
+        "deeplinkUrl": "https://7plus.com.au/afl"
       }
     ],
     "hasLadderImplications": true,
@@ -44531,113 +39919,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     },
     "cardKind": "event",
     "kind": "major_event"
-  },
-  {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Azerbaijan GP · Race",
-    "date": "2026-09-26",
-    "time": "21:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 9,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_31",
-    "eventId": "evt_31",
-    "displayTitleCompact": "Azerbaijan GP · Race",
-    "selectedSentence": "Baku offers a passing straight, a wall-lined old town and almost no clean compromise between them.",
-    "fullSpiel": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Baku offers a passing straight, a wall-lined old town and almost no clean compromise between them.",
-      "hookSpoilerOn": "Baku offers a passing straight, a wall-lined old town and almost no clean compromise between them.",
-      "synopsisSpoilerOff": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
-      "synopsisSpoilerOn": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
-      "intensitySource": "computed",
-      "lastReviewedAt": "2026-08-29T23:56:41.761Z",
-      "researchDepth": 4
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Baku's walls and passing straight",
-      "contextSignals": [
-        "event-specific",
-        "narrative:format",
-        "narrative:consequence",
-        "narrative:history"
-      ],
-      "sourceName": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
-      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
-      "needsPreviewRefresh": false
-    },
-    "sourceTrust": "verified",
-    "sourceType": "official",
-    "startTimeUtc": "2026-09-26T11:00:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:feed:azerbaijan-gp-race-2026",
-      "researchTier": "featured",
-      "hook": "Baku offers a passing straight, a wall-lined old town and almost no clean compromise between them.",
-      "synopsis": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
-      "threadIds": [
-        "thread:f1:baku:risk-reward"
-      ],
-      "factIds": [
-        "fact:evt31:distance",
-        "fact:evt31:passing-versus-walls",
-        "fact:evt31:first-azerbaijan-upset"
-      ],
-      "sourceIds": [
-        "source:f1:2026-azerbaijan-race-hub",
-        "source:fia:2026-calendar-current"
-      ],
-      "dimensions": [
-        "format",
-        "consequence",
-        "history"
-      ],
-      "researchedAt": "2026-08-29T23:56:41.761Z",
-      "refreshAfter": "2026-09-25T14:00:00.000Z",
-      "generationMode": "researched"
-    },
-    "canonicalEventId": "event:f1:2026:azerbaijan:race",
-    "cardKind": "fixture",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 5,
-    "roundLabel": "Race",
-    "stage": "Race",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": []
   },
   {
     "id": "event-aflw-cd_m20262640706",
@@ -46108,255 +41389,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
-    "id": "evt_motogp_2026_japan",
-    "eventId": "evt_motogp_2026_japan",
-    "canonicalEventId": "event:motogp:2026:japan",
-    "sport": "MotoGP",
-    "key": "motogp",
-    "name": "MotoGP Japanese Grand Prix",
-    "displayTitleCompact": "MotoGP Japanese Grand Prix",
-    "date": "2026-10-04",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Mobility Resort Motegi",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Japanese GP",
-    "stage": "Grand Prix",
-    "narrativeType": "all",
-    "selectedSentence": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
-    "fullSpiel": "Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
-    "sourceName": "MotoGP 2026 calendar",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:motorsport",
-    "discoverySportId": "sport:motogp",
-    "competitionId": "competition:motogp",
-    "taxonomyNodeId": "competition:motogp",
-    "codeId": "competition:motogp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "FR",
-      "TR",
-      "IT",
-      "BR",
-      "ES",
-      "ZA",
-      "AU",
-      "JP"
-    ],
-    "participantIds": [
-      "competitor:motogp:johann-zarco",
-      "competitor:motogp:toprak-razgatlioglu",
-      "competitor:motogp:luca-marini",
-      "competitor:motogp:diogo-moreira",
-      "competitor:motogp:maverick-vinales",
-      "competitor:motogp:fabio-quartararo",
-      "competitor:motogp:franco-morbidelli",
-      "competitor:motogp:enea-bastianini",
-      "competitor:motogp:raul-fernandez",
-      "competitor:motogp:brad-binder",
-      "competitor:motogp:joan-mir",
-      "competitor:motogp:pedro-acosta",
-      "competitor:motogp:alex-rins",
-      "competitor:motogp:jack-miller",
-      "competitor:motogp:fabio-di-giannantonio",
-      "competitor:motogp:fermin-aldeguer",
-      "competitor:motogp:francesco-bagnaia",
-      "competitor:motogp:marco-bezzecchi",
-      "competitor:motogp:alex-marquez",
-      "competitor:motogp:ai-ogura",
-      "competitor:motogp:jorge-martin",
-      "competitor:motogp:marc-marquez"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
-      "hookSpoilerOn": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
-      "synopsisSpoilerOff": "Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
-      "synopsisSpoilerOn": "Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Japanese GP",
-      "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
-      ],
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-motogp-2026-japan",
-      "researchTier": "marquee",
-      "hook": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
-      "synopsis": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure. Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-japan:schedule",
-        "fact:rolling:event-motogp-2026-japan:field",
-        "fact:rolling:event-motogp-2026-japan:viewing",
-        "fact:rolling:event-motogp-2026-japan:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
-    "id": "evt_nrlw_2026_grand_final",
-    "eventId": "evt_nrlw_2026_grand_final",
-    "canonicalEventId": "event:nrlw:2026:grand-final",
-    "sport": "NRLW",
-    "key": "nrlw",
-    "name": "2026 NRLW Grand Final",
-    "displayTitleCompact": "2026 NRLW Grand Final",
-    "date": "2026-10-04",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
-    "broadcastOptions": [
-      "9Now",
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "nine",
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 10,
-    "stakesScore": 5,
-    "venue": "Accor Stadium",
-    "liveWindow": 3,
-    "round": "final",
-    "roundLabel": "Grand Final",
-    "stage": "final",
-    "narrativeType": "all",
-    "selectedSentence": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-    "fullSpiel": "The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-    "sourceName": "Official 2026 NRL and NRLW Grand Final",
-    "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:nrl",
-    "discoverySportId": "sport:nrlw",
-    "competitionId": "competition:nrlw-premiership-2026",
-    "taxonomyNodeId": "competition:nrlw-premiership",
-    "codeId": "sport:nrlw",
-    "competitionScope": "domestic",
-    "isInternational": false,
-    "representativeCountryCodes": [],
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 10,
-      "hookSpoilerOff": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-      "hookSpoilerOn": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-      "synopsisSpoilerOff": "The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-      "synopsisSpoilerOn": "The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Grand Final",
-      "contextSignals": [
-        "official-schedule",
-        "final"
-      ],
-      "sourceName": "Official 2026 NRL and NRLW Grand Final",
-      "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-nrlw-2026-grand-final",
-      "researchTier": "marquee",
-      "hook": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
-      "synopsis": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day. The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
-      "threadIds": [
-        "thread:rolling:nrlw:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-nrlw-2026-grand-final:schedule",
-        "fact:rolling:event-nrlw-2026-grand-final:field",
-        "fact:rolling:event-nrlw-2026-grand-final:viewing",
-        "fact:rolling:event-nrlw-2026-grand-final:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:nrlw:nrlw-grand-final",
-        "source:rolling:nrlw:nrlw-hub",
-        "source:rolling:nrlw:nrlw-schedule",
-        "source:rolling:nrlw:nrlw-stats"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
     "id": "event-aflw-cd_m20262640807",
     "eventId": "event-aflw-cd_m20262640807",
     "sport": "AFLW",
@@ -47619,146 +42651,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "id": "evt_motogp_2026_indonesia",
-    "eventId": "evt_motogp_2026_indonesia",
-    "canonicalEventId": "event:motogp:2026:indonesia",
-    "sport": "MotoGP",
-    "key": "motogp",
-    "name": "MotoGP Indonesian Grand Prix",
-    "displayTitleCompact": "MotoGP Indonesian Grand Prix",
-    "date": "2026-10-11",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 8,
-    "stakesScore": 4,
-    "venue": "Pertamina Mandalika International Circuit",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Indonesian GP",
-    "stage": "Grand Prix",
-    "narrativeType": "all",
-    "selectedSentence": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
-    "fullSpiel": "Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
-    "sourceName": "MotoGP 2026 calendar",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:motorsport",
-    "discoverySportId": "sport:motogp",
-    "competitionId": "competition:motogp",
-    "taxonomyNodeId": "competition:motogp",
-    "codeId": "competition:motogp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "FR",
-      "TR",
-      "IT",
-      "BR",
-      "ES",
-      "ZA",
-      "AU",
-      "JP"
-    ],
-    "participantIds": [
-      "competitor:motogp:johann-zarco",
-      "competitor:motogp:toprak-razgatlioglu",
-      "competitor:motogp:luca-marini",
-      "competitor:motogp:diogo-moreira",
-      "competitor:motogp:maverick-vinales",
-      "competitor:motogp:fabio-quartararo",
-      "competitor:motogp:franco-morbidelli",
-      "competitor:motogp:enea-bastianini",
-      "competitor:motogp:raul-fernandez",
-      "competitor:motogp:brad-binder",
-      "competitor:motogp:joan-mir",
-      "competitor:motogp:pedro-acosta",
-      "competitor:motogp:alex-rins",
-      "competitor:motogp:jack-miller",
-      "competitor:motogp:fabio-di-giannantonio",
-      "competitor:motogp:fermin-aldeguer",
-      "competitor:motogp:francesco-bagnaia",
-      "competitor:motogp:marco-bezzecchi",
-      "competitor:motogp:alex-marquez",
-      "competitor:motogp:ai-ogura",
-      "competitor:motogp:jorge-martin",
-      "competitor:motogp:marc-marquez"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
-      "hookSpoilerOn": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
-      "synopsisSpoilerOff": "Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
-      "synopsisSpoilerOn": "Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Indonesian GP",
-      "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
-      ],
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-motogp-2026-indonesia",
-      "researchTier": "marquee",
-      "hook": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
-      "synopsis": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends. Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-indonesia:schedule",
-        "fact:rolling:event-motogp-2026-indonesia:field",
-        "fact:rolling:event-motogp-2026-indonesia:viewing",
-        "fact:rolling:event-motogp-2026-indonesia:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
     "id": "epl-2026-27-128974",
     "eventId": "epl-2026-27-128974",
     "canonicalEventId": "event:premier-league:128974",
@@ -48073,103 +42965,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultLabels": [
       "Premier League Matchweek 6"
     ]
-  },
-  {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Singapore GP · Qualifying",
-    "date": "2026-10-11",
-    "time": "00:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 8,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_32",
-    "eventId": "evt_32",
-    "displayTitleCompact": "Singapore GP · Qualifying",
-    "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Qualifying.",
-    "fullSpiel": "R16 Singapore GP Qualifying is scheduled for 2026-10-11 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "sourceTrust": "verified",
-    "sourceType": "official",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
-      "contextSignals": [
-        "fixture-specific",
-        "current-championship-standings",
-        "grid-setting"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/drivers",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/team",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/races",
-          "sourceType": "official"
-        }
-      ],
-      "digestFingerprint": "b9eeb2ff91ee7c853022cef22007b9d784fdb30f2b143d15046bb4e835bf4da1",
-      "promptVersion": "f1-editorial.v1",
-      "sourceName": "Formula 1 official source",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
-      "needsPreviewRefresh": false
-    },
-    "canonicalEventId": "event:f1:2026:singapore:qualifying",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-10-10T13:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 4,
-    "roundLabel": "Qualifying",
-    "stage": "Qualifying",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Qualifying at the Singapore GP.",
-      "hookSpoilerOn": "Qualifying at the Singapore GP.",
-      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
-      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
-      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
     "id": "epl-2026-27-128981",
@@ -48629,102 +43424,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultLabels": [
       "Premier League Matchweek 6"
     ]
-  },
-  {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Singapore GP · Race",
-    "date": "2026-10-11",
-    "time": "23:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 9,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_33",
-    "eventId": "evt_33",
-    "displayTitleCompact": "Singapore GP · Race",
-    "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Race.",
-    "fullSpiel": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Race.",
-      "hookSpoilerOn": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Race.",
-      "synopsisSpoilerOff": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-      "synopsisSpoilerOn": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
-      "intensitySource": "computed"
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
-      "contextSignals": [
-        "fixture-specific",
-        "current-championship-standings",
-        "points-paying-session"
-      ],
-      "evidenceReferences": [
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/drivers",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/team",
-          "sourceType": "official"
-        },
-        {
-          "title": "Formula 1 official source",
-          "url": "https://www.formula1.com/en/results/2026/races",
-          "sourceType": "official"
-        }
-      ],
-      "digestFingerprint": "b9eeb2ff91ee7c853022cef22007b9d784fdb30f2b143d15046bb4e835bf4da1",
-      "promptVersion": "f1-editorial.v1",
-      "sourceName": "Formula 1 official source",
-      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
-      "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
-      "needsPreviewRefresh": false
-    },
-    "sourceTrust": "verified",
-    "sourceType": "official",
-    "canonicalEventId": "event:f1:2026:singapore:race",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-10-11T12:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 5,
-    "roundLabel": "Race",
-    "stage": "Race",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": []
   },
   {
     "id": "epl-2026-27-128980",
@@ -51238,146 +45937,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "id": "evt_motogp_2026_australia",
-    "eventId": "evt_motogp_2026_australia",
-    "canonicalEventId": "event:motogp:2026:australia",
-    "sport": "MotoGP",
-    "key": "motogp",
-    "name": "Australian Motorcycle Grand Prix",
-    "displayTitleCompact": "Australian Motorcycle Grand Prix",
-    "date": "2026-10-25",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 10,
-    "stakesScore": 5,
-    "venue": "Phillip Island Grand Prix Circuit",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Australian GP",
-    "stage": "Grand Prix",
-    "narrativeType": "all",
-    "selectedSentence": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
-    "fullSpiel": "Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
-    "sourceName": "MotoGP 2026 calendar",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:motorsport",
-    "discoverySportId": "sport:motogp",
-    "competitionId": "competition:motogp",
-    "taxonomyNodeId": "competition:motogp",
-    "codeId": "competition:motogp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "FR",
-      "TR",
-      "IT",
-      "BR",
-      "ES",
-      "ZA",
-      "AU",
-      "JP"
-    ],
-    "participantIds": [
-      "competitor:motogp:johann-zarco",
-      "competitor:motogp:toprak-razgatlioglu",
-      "competitor:motogp:luca-marini",
-      "competitor:motogp:diogo-moreira",
-      "competitor:motogp:maverick-vinales",
-      "competitor:motogp:fabio-quartararo",
-      "competitor:motogp:franco-morbidelli",
-      "competitor:motogp:enea-bastianini",
-      "competitor:motogp:raul-fernandez",
-      "competitor:motogp:brad-binder",
-      "competitor:motogp:joan-mir",
-      "competitor:motogp:pedro-acosta",
-      "competitor:motogp:alex-rins",
-      "competitor:motogp:jack-miller",
-      "competitor:motogp:fabio-di-giannantonio",
-      "competitor:motogp:fermin-aldeguer",
-      "competitor:motogp:francesco-bagnaia",
-      "competitor:motogp:marco-bezzecchi",
-      "competitor:motogp:alex-marquez",
-      "competitor:motogp:ai-ogura",
-      "competitor:motogp:jorge-martin",
-      "competitor:motogp:marc-marquez"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 10,
-      "hookSpoilerOff": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
-      "hookSpoilerOn": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
-      "synopsisSpoilerOff": "Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
-      "synopsisSpoilerOn": "Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Australian GP",
-      "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
-      ],
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-motogp-2026-australia",
-      "researchTier": "marquee",
-      "hook": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
-      "synopsis": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round. Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-australia:schedule",
-        "fact:rolling:event-motogp-2026-australia:field",
-        "fact:rolling:event-motogp-2026-australia:viewing",
-        "fact:rolling:event-motogp-2026-australia:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
     "id": "epl-2026-27-128993",
     "eventId": "epl-2026-27-128993",
     "canonicalEventId": "event:premier-league:128993",
@@ -51613,83 +46172,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultLabels": [
       "Premier League Matchweek 8"
     ]
-  },
-  {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "United States GP · Qualifying",
-    "date": "2026-10-25",
-    "time": "08:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 8,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_34",
-    "eventId": "evt_34",
-    "displayTitleCompact": "United States GP · Qualifying",
-    "selectedSentence": "Grid-setting session with direct consequences for the race.",
-    "fullSpiel": "R17 US GP (COTA) Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:united-states:qualifying",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-10-24T21:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 4,
-    "roundLabel": "Qualifying",
-    "stage": "Qualifying",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Qualifying at the United States GP.",
-      "hookSpoilerOn": "Qualifying at the United States GP.",
-      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
-      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
-      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qualifying",
-      "contextSignals": [
-        "official-schedule",
-        "Qualifying"
-      ],
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
     "id": "event-aflw-cd_m20262641106",
@@ -52484,76 +46966,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "United States GP · Race",
-    "date": "2026-10-26",
-    "time": "07:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 9,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_35",
-    "eventId": "evt_35",
-    "displayTitleCompact": "United States GP · Race",
-    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
-    "fullSpiel": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
-      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
-      "synopsisSpoilerOff": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "intensitySource": "computed"
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-    },
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:united-states:race",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-10-25T20:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 5,
-    "roundLabel": "Race",
-    "stage": "Race",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": []
-  },
-  {
     "sport": "Cricket",
     "key": "cricket",
     "name": "South Africa v Australia — Third Test",
@@ -53183,146 +47595,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "id": "evt_motogp_2026_malaysia",
-    "eventId": "evt_motogp_2026_malaysia",
-    "canonicalEventId": "event:motogp:2026:malaysia",
-    "sport": "MotoGP",
-    "key": "motogp",
-    "name": "MotoGP Malaysian Grand Prix",
-    "displayTitleCompact": "MotoGP Malaysian Grand Prix",
-    "date": "2026-11-01",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 9,
-    "stakesScore": 5,
-    "venue": "Petronas Sepang International Circuit",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Malaysian GP",
-    "stage": "Grand Prix",
-    "narrativeType": "all",
-    "selectedSentence": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
-    "fullSpiel": "Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
-    "sourceName": "MotoGP 2026 calendar",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:motorsport",
-    "discoverySportId": "sport:motogp",
-    "competitionId": "competition:motogp",
-    "taxonomyNodeId": "competition:motogp",
-    "codeId": "competition:motogp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "FR",
-      "TR",
-      "IT",
-      "BR",
-      "ES",
-      "ZA",
-      "AU",
-      "JP"
-    ],
-    "participantIds": [
-      "competitor:motogp:johann-zarco",
-      "competitor:motogp:toprak-razgatlioglu",
-      "competitor:motogp:luca-marini",
-      "competitor:motogp:diogo-moreira",
-      "competitor:motogp:maverick-vinales",
-      "competitor:motogp:fabio-quartararo",
-      "competitor:motogp:franco-morbidelli",
-      "competitor:motogp:enea-bastianini",
-      "competitor:motogp:raul-fernandez",
-      "competitor:motogp:brad-binder",
-      "competitor:motogp:joan-mir",
-      "competitor:motogp:pedro-acosta",
-      "competitor:motogp:alex-rins",
-      "competitor:motogp:jack-miller",
-      "competitor:motogp:fabio-di-giannantonio",
-      "competitor:motogp:fermin-aldeguer",
-      "competitor:motogp:francesco-bagnaia",
-      "competitor:motogp:marco-bezzecchi",
-      "competitor:motogp:alex-marquez",
-      "competitor:motogp:ai-ogura",
-      "competitor:motogp:jorge-martin",
-      "competitor:motogp:marc-marquez"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
-      "hookSpoilerOn": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
-      "synopsisSpoilerOff": "Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
-      "synopsisSpoilerOn": "Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Malaysian GP",
-      "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
-      ],
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-motogp-2026-malaysia",
-      "researchTier": "marquee",
-      "hook": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
-      "synopsis": "Sepang keeps the MotoGP field in the heat as the available championship points shrink. Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-malaysia:schedule",
-        "fact:rolling:event-motogp-2026-malaysia:field",
-        "fact:rolling:event-motogp-2026-malaysia:viewing",
-        "fact:rolling:event-motogp-2026-malaysia:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
     "id": "epl-2026-27-129004",
     "eventId": "epl-2026-27-129004",
     "canonicalEventId": "event:premier-league:129004",
@@ -53876,83 +48148,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Mexico City GP · Qualifying",
-    "date": "2026-11-01",
-    "time": "08:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 8,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_36",
-    "eventId": "evt_36",
-    "displayTitleCompact": "Mexico City GP · Qualifying",
-    "selectedSentence": "Grid-setting session with direct consequences for the race.",
-    "fullSpiel": "R18 Mexico City GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:mexico:qualifying",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-10-31T21:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 4,
-    "roundLabel": "Qualifying",
-    "stage": "Qualifying",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Qualifying at the Mexico City GP.",
-      "hookSpoilerOn": "Qualifying at the Mexico City GP.",
-      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
-      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
-      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qualifying",
-      "contextSignals": [
-        "official-schedule",
-        "Qualifying"
-      ],
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
-      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-  },
-  {
     "id": "event-aflw-cd_m20262641206",
     "eventId": "event-aflw-cd_m20262641206",
     "sport": "AFLW",
@@ -54359,76 +48554,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Mexico City GP · Race",
-    "date": "2026-11-02",
-    "time": "07:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 9,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_37",
-    "eventId": "evt_37",
-    "displayTitleCompact": "Mexico City GP · Race",
-    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
-    "fullSpiel": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
-      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
-      "synopsisSpoilerOff": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "intensitySource": "computed"
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-    },
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:mexico:race",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-11-01T20:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 5,
-    "roundLabel": "Race",
-    "stage": "Race",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": []
-  },
-  {
     "id": "epl-2026-27-129011",
     "eventId": "epl-2026-27-129011",
     "canonicalEventId": "event:premier-league:129011",
@@ -54545,146 +48670,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "catchupEligible": true,
     "status": "upcoming",
     "sourceTrust": "unverified"
-  },
-  {
-    "id": "evt_motogp_2026_qatar",
-    "eventId": "evt_motogp_2026_qatar",
-    "canonicalEventId": "event:motogp:2026:qatar",
-    "sport": "MotoGP",
-    "key": "motogp",
-    "name": "MotoGP Qatar Grand Prix",
-    "displayTitleCompact": "MotoGP Qatar Grand Prix",
-    "date": "2026-11-08",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 9,
-    "stakesScore": 5,
-    "venue": "Lusail International Circuit",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Qatar GP",
-    "stage": "Grand Prix",
-    "narrativeType": "all",
-    "selectedSentence": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
-    "fullSpiel": "Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
-    "sourceName": "MotoGP 2026 calendar",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:motorsport",
-    "discoverySportId": "sport:motogp",
-    "competitionId": "competition:motogp",
-    "taxonomyNodeId": "competition:motogp",
-    "codeId": "competition:motogp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "FR",
-      "TR",
-      "IT",
-      "BR",
-      "ES",
-      "ZA",
-      "AU",
-      "JP"
-    ],
-    "participantIds": [
-      "competitor:motogp:johann-zarco",
-      "competitor:motogp:toprak-razgatlioglu",
-      "competitor:motogp:luca-marini",
-      "competitor:motogp:diogo-moreira",
-      "competitor:motogp:maverick-vinales",
-      "competitor:motogp:fabio-quartararo",
-      "competitor:motogp:franco-morbidelli",
-      "competitor:motogp:enea-bastianini",
-      "competitor:motogp:raul-fernandez",
-      "competitor:motogp:brad-binder",
-      "competitor:motogp:joan-mir",
-      "competitor:motogp:pedro-acosta",
-      "competitor:motogp:alex-rins",
-      "competitor:motogp:jack-miller",
-      "competitor:motogp:fabio-di-giannantonio",
-      "competitor:motogp:fermin-aldeguer",
-      "competitor:motogp:francesco-bagnaia",
-      "competitor:motogp:marco-bezzecchi",
-      "competitor:motogp:alex-marquez",
-      "competitor:motogp:ai-ogura",
-      "competitor:motogp:jorge-martin",
-      "competitor:motogp:marc-marquez"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
-      "hookSpoilerOn": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
-      "synopsisSpoilerOff": "Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
-      "synopsisSpoilerOn": "Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qatar GP",
-      "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
-      ],
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-motogp-2026-qatar",
-      "researchTier": "marquee",
-      "hook": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
-      "synopsis": "Lusail's night race carries MotoGP into the final three rounds of 2026. Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-qatar:schedule",
-        "fact:rolling:event-motogp-2026-qatar:field",
-        "fact:rolling:event-motogp-2026-qatar:viewing",
-        "fact:rolling:event-motogp-2026-qatar:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-129013",
@@ -55477,76 +49462,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "São Paulo GP · Qualifying",
-    "date": "2026-11-08",
-    "time": "05:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 8,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_38",
-    "eventId": "evt_38",
-    "displayTitleCompact": "São Paulo GP · Qualifying",
-    "selectedSentence": "Grid-setting session with direct consequences for the race.",
-    "fullSpiel": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Grid-setting session with direct consequences for the race.",
-      "hookSpoilerOn": "Grid-setting session with direct consequences for the race.",
-      "synopsisSpoilerOff": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-      "intensitySource": "computed"
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-    },
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:brazil:qualifying",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-11-07T18:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 4,
-    "roundLabel": "Qualifying",
-    "stage": "Qualifying",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": []
-  },
-  {
     "id": "rugby-england-australia-2026-11-09",
     "eventId": "rugby-england-australia-2026-11-09",
     "sport": "Rugby Union",
@@ -55614,76 +49529,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "team:rugby:england",
       "team:rugby:wallabies"
     ]
-  },
-  {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "São Paulo GP · Race",
-    "date": "2026-11-09",
-    "time": "04:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 9,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_39",
-    "eventId": "evt_39",
-    "displayTitleCompact": "São Paulo GP · Race",
-    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
-    "fullSpiel": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
-      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
-      "synopsisSpoilerOff": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "intensitySource": "computed"
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-    },
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:brazil:race",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-11-08T17:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 5,
-    "roundLabel": "Race",
-    "stage": "Race",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": []
   },
   {
     "id": "event-wrc-2026-round-14",
@@ -56115,219 +49960,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     }
   },
   {
-    "id": "evt_sailgp_2026_dubai_day_1",
-    "eventId": "evt_sailgp_2026_dubai_day_1",
-    "canonicalEventId": "event:sailgp:2026:dubai-day-1",
-    "sport": "SailGP",
-    "key": "sailgp",
-    "name": "Dubai Sail Grand Prix — race day 1",
-    "displayTitleCompact": "Dubai Sail Grand Prix — race day 1",
-    "date": "2026-11-21",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 9,
-    "stakesScore": 5,
-    "venue": "Dubai, United Arab Emirates",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Event 12",
-    "stage": "fleet racing",
-    "narrativeType": "all",
-    "selectedSentence": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
-    "fullSpiel": "The penultimate event leaves the fleet only one weekend to repair any points damage.",
-    "sourceName": "SailGP 2026 calendar",
-    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:sailing",
-    "discoverySportId": "sport:sailgp",
-    "competitionId": "competition:sailgp",
-    "taxonomyNodeId": "competition:sailgp",
-    "codeId": "competition:sailgp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "SE",
-      "NZ",
-      "AU",
-      "FR",
-      "GB",
-      "CH",
-      "DE",
-      "ES",
-      "BR",
-      "CA",
-      "IT",
-      "DK",
-      "US"
-    ],
-    "participantIds": [
-      "team:sailgp:artemis",
-      "team:sailgp:black-foils",
-      "team:sailgp:bonds-flying-roos",
-      "team:sailgp:france",
-      "team:sailgp:great-britain",
-      "team:sailgp:switzerland",
-      "team:sailgp:germany",
-      "team:sailgp:los-gallos",
-      "team:sailgp:mubadala-brazil",
-      "team:sailgp:northstar",
-      "team:sailgp:red-bull-italy",
-      "team:sailgp:rockwool-racing",
-      "team:sailgp:united-states"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
-      "hookSpoilerOn": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
-      "synopsisSpoilerOff": "The penultimate event leaves the fleet only one weekend to repair any points damage.",
-      "synopsisSpoilerOn": "The penultimate event leaves the fleet only one weekend to repair any points damage.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Event 12",
-      "contextSignals": [
-        "official-schedule",
-        "fleet racing"
-      ],
-      "sourceName": "SailGP 2026 calendar",
-      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-sailgp-2026-dubai-day-1",
-      "researchTier": "marquee",
-      "hook": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
-      "synopsis": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure. The penultimate event leaves the fleet only one weekend to repair any points damage.",
-      "threadIds": [
-        "thread:rolling:sailgp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-sailgp-2026-dubai-day-1:schedule",
-        "fact:rolling:event-sailgp-2026-dubai-day-1:field",
-        "fact:rolling:event-sailgp-2026-dubai-day-1:viewing",
-        "fact:rolling:event-sailgp-2026-dubai-day-1:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:sailgp:sailgp-calendar",
-        "source:rolling:sailgp:sailgp-teams",
-        "source:rolling:sailgp:sailgp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Las Vegas GP · Qualifying",
-    "date": "2026-11-21",
-    "time": "15:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 8,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_40",
-    "eventId": "evt_40",
-    "displayTitleCompact": "Las Vegas GP · Qualifying",
-    "selectedSentence": "Grid-setting session with direct consequences for the race.",
-    "fullSpiel": "R20 Las Vegas GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:las-vegas:qualifying",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-11-21T04:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 4,
-    "roundLabel": "Qualifying",
-    "stage": "Qualifying",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Qualifying at the Las Vegas GP.",
-      "hookSpoilerOn": "Qualifying at the Las Vegas GP.",
-      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
-      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
-      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qualifying",
-      "contextSignals": [
-        "official-schedule",
-        "Qualifying"
-      ],
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
-      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-  },
-  {
     "id": "cricket-australia-england-first-t20-2026",
     "eventId": "cricket-australia-england-first-t20-2026",
     "sport": "Cricket",
@@ -56425,282 +50057,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "lastReviewedAt": "2026-09-08T14:50:03.143Z",
       "researchDepth": 5
     }
-  },
-  {
-    "id": "evt_motogp_2026_portugal",
-    "eventId": "evt_motogp_2026_portugal",
-    "canonicalEventId": "event:motogp:2026:portugal",
-    "sport": "MotoGP",
-    "key": "motogp",
-    "name": "MotoGP Portuguese Grand Prix",
-    "displayTitleCompact": "MotoGP Portuguese Grand Prix",
-    "date": "2026-11-22",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 9,
-    "stakesScore": 5,
-    "venue": "Algarve International Circuit",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Portuguese GP",
-    "stage": "Grand Prix",
-    "narrativeType": "all",
-    "selectedSentence": "Portimão's elevation changes host MotoGP's penultimate round.",
-    "fullSpiel": "Only Valencia remains after Portugal, so every point has immediate championship consequence.",
-    "sourceName": "MotoGP 2026 calendar",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:motorsport",
-    "discoverySportId": "sport:motogp",
-    "competitionId": "competition:motogp",
-    "taxonomyNodeId": "competition:motogp",
-    "codeId": "competition:motogp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "FR",
-      "TR",
-      "IT",
-      "BR",
-      "ES",
-      "ZA",
-      "AU",
-      "JP"
-    ],
-    "participantIds": [
-      "competitor:motogp:johann-zarco",
-      "competitor:motogp:toprak-razgatlioglu",
-      "competitor:motogp:luca-marini",
-      "competitor:motogp:diogo-moreira",
-      "competitor:motogp:maverick-vinales",
-      "competitor:motogp:fabio-quartararo",
-      "competitor:motogp:franco-morbidelli",
-      "competitor:motogp:enea-bastianini",
-      "competitor:motogp:raul-fernandez",
-      "competitor:motogp:brad-binder",
-      "competitor:motogp:joan-mir",
-      "competitor:motogp:pedro-acosta",
-      "competitor:motogp:alex-rins",
-      "competitor:motogp:jack-miller",
-      "competitor:motogp:fabio-di-giannantonio",
-      "competitor:motogp:fermin-aldeguer",
-      "competitor:motogp:francesco-bagnaia",
-      "competitor:motogp:marco-bezzecchi",
-      "competitor:motogp:alex-marquez",
-      "competitor:motogp:ai-ogura",
-      "competitor:motogp:jorge-martin",
-      "competitor:motogp:marc-marquez"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Portimão's elevation changes host MotoGP's penultimate round.",
-      "hookSpoilerOn": "Portimão's elevation changes host MotoGP's penultimate round.",
-      "synopsisSpoilerOff": "Only Valencia remains after Portugal, so every point has immediate championship consequence.",
-      "synopsisSpoilerOn": "Only Valencia remains after Portugal, so every point has immediate championship consequence.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Portuguese GP",
-      "contextSignals": [
-        "official-schedule",
-        "Grand Prix"
-      ],
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-motogp-2026-portugal",
-      "researchTier": "marquee",
-      "hook": "Portimão's elevation changes host MotoGP's penultimate round.",
-      "synopsis": "Portimão's elevation changes host MotoGP's penultimate round. Only Valencia remains after Portugal, so every point has immediate championship consequence.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-portugal:schedule",
-        "fact:rolling:event-motogp-2026-portugal:field",
-        "fact:rolling:event-motogp-2026-portugal:viewing",
-        "fact:rolling:event-motogp-2026-portugal:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
-    "id": "evt_sailgp_2026_dubai_day_2",
-    "eventId": "evt_sailgp_2026_dubai_day_2",
-    "canonicalEventId": "event:sailgp:2026:dubai-day-2",
-    "sport": "SailGP",
-    "key": "sailgp",
-    "name": "Dubai Sail Grand Prix — race day 2",
-    "displayTitleCompact": "Dubai Sail Grand Prix — race day 2",
-    "date": "2026-11-22",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 9,
-    "stakesScore": 5,
-    "venue": "Dubai, United Arab Emirates",
-    "liveWindow": 3,
-    "round": "all",
-    "roundLabel": "Event 12",
-    "stage": "fleet racing",
-    "narrativeType": "all",
-    "selectedSentence": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
-    "fullSpiel": "A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
-    "sourceName": "SailGP 2026 calendar",
-    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:sailing",
-    "discoverySportId": "sport:sailgp",
-    "competitionId": "competition:sailgp",
-    "taxonomyNodeId": "competition:sailgp",
-    "codeId": "competition:sailgp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "SE",
-      "NZ",
-      "AU",
-      "FR",
-      "GB",
-      "CH",
-      "DE",
-      "ES",
-      "BR",
-      "CA",
-      "IT",
-      "DK",
-      "US"
-    ],
-    "participantIds": [
-      "team:sailgp:artemis",
-      "team:sailgp:black-foils",
-      "team:sailgp:bonds-flying-roos",
-      "team:sailgp:france",
-      "team:sailgp:great-britain",
-      "team:sailgp:switzerland",
-      "team:sailgp:germany",
-      "team:sailgp:los-gallos",
-      "team:sailgp:mubadala-brazil",
-      "team:sailgp:northstar",
-      "team:sailgp:red-bull-italy",
-      "team:sailgp:rockwool-racing",
-      "team:sailgp:united-states"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
-      "hookSpoilerOn": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
-      "synopsisSpoilerOff": "A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
-      "synopsisSpoilerOn": "A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Event 12",
-      "contextSignals": [
-        "official-schedule",
-        "fleet racing"
-      ],
-      "sourceName": "SailGP 2026 calendar",
-      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-sailgp-2026-dubai-day-2",
-      "researchTier": "marquee",
-      "hook": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
-      "synopsis": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi. A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
-      "threadIds": [
-        "thread:rolling:sailgp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-sailgp-2026-dubai-day-2:schedule",
-        "fact:rolling:event-sailgp-2026-dubai-day-2:field",
-        "fact:rolling:event-sailgp-2026-dubai-day-2:viewing",
-        "fact:rolling:event-sailgp-2026-dubai-day-2:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:sailgp:sailgp-calendar",
-        "source:rolling:sailgp:sailgp-teams",
-        "source:rolling:sailgp:sailgp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-129023",
@@ -57561,76 +50917,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Las Vegas GP · Race",
-    "date": "2026-11-22",
-    "time": "15:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 9,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_41",
-    "eventId": "evt_41",
-    "displayTitleCompact": "Las Vegas GP · Race",
-    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
-    "fullSpiel": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
-      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
-      "synopsisSpoilerOff": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "intensitySource": "computed"
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-    },
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:las-vegas:race",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-11-22T04:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 5,
-    "roundLabel": "Race",
-    "stage": "Race",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": []
-  },
-  {
     "id": "cricket-australia-england-second-t20-2026",
     "eventId": "cricket-australia-england-second-t20-2026",
     "sport": "Cricket",
@@ -57895,418 +51181,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "team:rugby:wallabies",
       "team:rugby:ireland"
     ]
-  },
-  {
-    "id": "evt_sailgp_2026_abu_dhabi_day_1",
-    "eventId": "evt_sailgp_2026_abu_dhabi_day_1",
-    "canonicalEventId": "event:sailgp:2026:abu-dhabi-day-1",
-    "sport": "SailGP",
-    "key": "sailgp",
-    "name": "Abu Dhabi Sail Grand Prix — race day 1",
-    "displayTitleCompact": "Abu Dhabi Sail Grand Prix — race day 1",
-    "date": "2026-11-28",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 10,
-    "stakesScore": 5,
-    "venue": "Abu Dhabi, United Arab Emirates",
-    "liveWindow": 3,
-    "round": "final",
-    "roundLabel": "Grand Final",
-    "stage": "fleet racing",
-    "narrativeType": "all",
-    "selectedSentence": "The Abu Dhabi Grand Final opens with the season championship still alive.",
-    "fullSpiel": "Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
-    "sourceName": "SailGP 2026 calendar",
-    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:sailing",
-    "discoverySportId": "sport:sailgp",
-    "competitionId": "competition:sailgp",
-    "taxonomyNodeId": "competition:sailgp",
-    "codeId": "competition:sailgp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "SE",
-      "NZ",
-      "AU",
-      "FR",
-      "GB",
-      "CH",
-      "DE",
-      "ES",
-      "BR",
-      "CA",
-      "IT",
-      "DK",
-      "US"
-    ],
-    "participantIds": [
-      "team:sailgp:artemis",
-      "team:sailgp:black-foils",
-      "team:sailgp:bonds-flying-roos",
-      "team:sailgp:france",
-      "team:sailgp:great-britain",
-      "team:sailgp:switzerland",
-      "team:sailgp:germany",
-      "team:sailgp:los-gallos",
-      "team:sailgp:mubadala-brazil",
-      "team:sailgp:northstar",
-      "team:sailgp:red-bull-italy",
-      "team:sailgp:rockwool-racing",
-      "team:sailgp:united-states"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 10,
-      "hookSpoilerOff": "The Abu Dhabi Grand Final opens with the season championship still alive.",
-      "hookSpoilerOn": "The Abu Dhabi Grand Final opens with the season championship still alive.",
-      "synopsisSpoilerOff": "Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
-      "synopsisSpoilerOn": "Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Grand Final",
-      "contextSignals": [
-        "official-schedule",
-        "fleet racing"
-      ],
-      "sourceName": "SailGP 2026 calendar",
-      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-sailgp-2026-abu-dhabi-day-1",
-      "researchTier": "marquee",
-      "hook": "The Abu Dhabi Grand Final opens with the season championship still alive.",
-      "synopsis": "The Abu Dhabi Grand Final opens with the season championship still alive. Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
-      "threadIds": [
-        "thread:rolling:sailgp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-sailgp-2026-abu-dhabi-day-1:schedule",
-        "fact:rolling:event-sailgp-2026-abu-dhabi-day-1:field",
-        "fact:rolling:event-sailgp-2026-abu-dhabi-day-1:viewing",
-        "fact:rolling:event-sailgp-2026-abu-dhabi-day-1:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:sailgp:sailgp-calendar",
-        "source:rolling:sailgp:sailgp-teams",
-        "source:rolling:sailgp:sailgp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
-    "id": "evt_motogp_2026_valencia",
-    "eventId": "evt_motogp_2026_valencia",
-    "canonicalEventId": "event:motogp:2026:valencia",
-    "sport": "MotoGP",
-    "key": "motogp",
-    "name": "MotoGP Valencia Grand Prix",
-    "displayTitleCompact": "MotoGP Valencia Grand Prix",
-    "date": "2026-11-29",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 10,
-    "stakesScore": 5,
-    "venue": "Circuit Ricardo Tormo",
-    "liveWindow": 3,
-    "round": "final",
-    "roundLabel": "Valencia GP",
-    "stage": "Season finale",
-    "narrativeType": "all",
-    "selectedSentence": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
-    "fullSpiel": "The compact stadium circuit is the last chance for a rider to change the final standings.",
-    "sourceName": "MotoGP 2026 calendar",
-    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:motorsport",
-    "discoverySportId": "sport:motogp",
-    "competitionId": "competition:motogp",
-    "taxonomyNodeId": "competition:motogp",
-    "codeId": "competition:motogp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "FR",
-      "TR",
-      "IT",
-      "BR",
-      "ES",
-      "ZA",
-      "AU",
-      "JP"
-    ],
-    "participantIds": [
-      "competitor:motogp:johann-zarco",
-      "competitor:motogp:toprak-razgatlioglu",
-      "competitor:motogp:luca-marini",
-      "competitor:motogp:diogo-moreira",
-      "competitor:motogp:maverick-vinales",
-      "competitor:motogp:fabio-quartararo",
-      "competitor:motogp:franco-morbidelli",
-      "competitor:motogp:enea-bastianini",
-      "competitor:motogp:raul-fernandez",
-      "competitor:motogp:brad-binder",
-      "competitor:motogp:joan-mir",
-      "competitor:motogp:pedro-acosta",
-      "competitor:motogp:alex-rins",
-      "competitor:motogp:jack-miller",
-      "competitor:motogp:fabio-di-giannantonio",
-      "competitor:motogp:fermin-aldeguer",
-      "competitor:motogp:francesco-bagnaia",
-      "competitor:motogp:marco-bezzecchi",
-      "competitor:motogp:alex-marquez",
-      "competitor:motogp:ai-ogura",
-      "competitor:motogp:jorge-martin",
-      "competitor:motogp:marc-marquez"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 10,
-      "hookSpoilerOff": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
-      "hookSpoilerOn": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
-      "synopsisSpoilerOff": "The compact stadium circuit is the last chance for a rider to change the final standings.",
-      "synopsisSpoilerOn": "The compact stadium circuit is the last chance for a rider to change the final standings.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Valencia GP",
-      "contextSignals": [
-        "official-schedule",
-        "Season finale"
-      ],
-      "sourceName": "MotoGP 2026 calendar",
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-motogp-2026-valencia",
-      "researchTier": "marquee",
-      "hook": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
-      "synopsis": "Valencia closes the 2026 MotoGP season and settles any championship still alive. The compact stadium circuit is the last chance for a rider to change the final standings.",
-      "threadIds": [
-        "thread:rolling:motogp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-motogp-2026-valencia:schedule",
-        "fact:rolling:event-motogp-2026-valencia:field",
-        "fact:rolling:event-motogp-2026-valencia:viewing",
-        "fact:rolling:event-motogp-2026-valencia:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:motogp:motogp-calendar",
-        "source:rolling:motogp:motogp-riders",
-        "source:rolling:motogp:motogp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
-  },
-  {
-    "id": "evt_sailgp_2026_abu_dhabi_day_2",
-    "eventId": "evt_sailgp_2026_abu_dhabi_day_2",
-    "canonicalEventId": "event:sailgp:2026:abu-dhabi-day-2",
-    "sport": "SailGP",
-    "key": "sailgp",
-    "name": "Abu Dhabi Sail Grand Prix — championship day",
-    "displayTitleCompact": "Abu Dhabi Sail Grand Prix — championship day",
-    "date": "2026-11-29",
-    "time": "00:00",
-    "timeTbc": true,
-    "timePrecision": "tbc",
-    "scheduleStatus": "tbc",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "expected": 10,
-    "stakesScore": 5,
-    "venue": "Abu Dhabi, United Arab Emirates",
-    "liveWindow": 3,
-    "round": "final",
-    "roundLabel": "Grand Final",
-    "stage": "championship",
-    "narrativeType": "all",
-    "selectedSentence": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
-    "fullSpiel": "A full season of fleet racing ends in the championship's decisive final contest.",
-    "sourceName": "SailGP 2026 calendar",
-    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-    "sourceType": "official",
-    "sourceTrust": "verified",
-    "status": "upcoming",
-    "sportDomainId": "sport:sailing",
-    "discoverySportId": "sport:sailgp",
-    "competitionId": "competition:sailgp",
-    "taxonomyNodeId": "competition:sailgp",
-    "codeId": "competition:sailgp",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [
-      "SE",
-      "NZ",
-      "AU",
-      "FR",
-      "GB",
-      "CH",
-      "DE",
-      "ES",
-      "BR",
-      "CA",
-      "IT",
-      "DK",
-      "US"
-    ],
-    "participantIds": [
-      "team:sailgp:artemis",
-      "team:sailgp:black-foils",
-      "team:sailgp:bonds-flying-roos",
-      "team:sailgp:france",
-      "team:sailgp:great-britain",
-      "team:sailgp:switzerland",
-      "team:sailgp:germany",
-      "team:sailgp:los-gallos",
-      "team:sailgp:mubadala-brazil",
-      "team:sailgp:northstar",
-      "team:sailgp:red-bull-italy",
-      "team:sailgp:rockwool-racing",
-      "team:sailgp:united-states"
-    ],
-    "participantDisplayMode": "field",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 10,
-      "hookSpoilerOff": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
-      "hookSpoilerOn": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
-      "synopsisSpoilerOff": "A full season of fleet racing ends in the championship's decisive final contest.",
-      "synopsisSpoilerOn": "A full season of fleet racing ends in the championship's decisive final contest.",
-      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Grand Final",
-      "contextSignals": [
-        "official-schedule",
-        "championship"
-      ],
-      "sourceName": "SailGP 2026 calendar",
-      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
-      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
-    "editorialNarrative": {
-      "schemaVersion": "editorial-narrative.v2",
-      "projectionId": "projection:rolling:evt-sailgp-2026-abu-dhabi-day-2",
-      "researchTier": "marquee",
-      "hook": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
-      "synopsis": "SailGP's last race crowns the 2026 champion in Abu Dhabi. A full season of fleet racing ends in the championship's decisive final contest.",
-      "threadIds": [
-        "thread:rolling:sailgp:2026"
-      ],
-      "factIds": [
-        "fact:rolling:event-sailgp-2026-abu-dhabi-day-2:schedule",
-        "fact:rolling:event-sailgp-2026-abu-dhabi-day-2:field",
-        "fact:rolling:event-sailgp-2026-abu-dhabi-day-2:viewing",
-        "fact:rolling:event-sailgp-2026-abu-dhabi-day-2:consequence"
-      ],
-      "sourceIds": [
-        "source:rolling:sailgp:sailgp-calendar",
-        "source:rolling:sailgp:sailgp-teams",
-        "source:rolling:sailgp:sailgp-broadcast-au"
-      ],
-      "dimensions": [
-        "schedule",
-        "format",
-        "consequence"
-      ],
-      "researchedAt": "2026-09-08T12:57:33.822Z",
-      "refreshAfter": null,
-      "generationMode": "researched"
-    },
-    "cardKind": "fixture"
   },
   {
     "id": "epl-2026-27-129033",
@@ -59099,83 +51973,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Qatar GP · Qualifying",
-    "date": "2026-11-29",
-    "time": "05:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 8,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_42",
-    "eventId": "evt_42",
-    "displayTitleCompact": "Qatar GP · Qualifying",
-    "selectedSentence": "Grid-setting session with direct consequences for the race.",
-    "fullSpiel": "R21 Qatar GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:qatar:qualifying",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-11-28T18:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 4,
-    "roundLabel": "Qualifying",
-    "stage": "Qualifying",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Qualifying at the Qatar GP.",
-      "hookSpoilerOn": "Qualifying at the Qatar GP.",
-      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
-      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
-      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qualifying",
-      "contextSignals": [
-        "official-schedule",
-        "Qualifying"
-      ],
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
-      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-  },
-  {
     "id": "cricket-australia-england-fourth-t20-2026",
     "eventId": "cricket-australia-england-fourth-t20-2026",
     "sport": "Cricket",
@@ -59286,83 +52083,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "refreshAfter": "2026-11-29T08:15:00Z",
       "generationMode": "researched"
     }
-  },
-  {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Qatar GP · Race",
-    "date": "2026-11-30",
-    "time": "03:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 9,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_43",
-    "eventId": "evt_43",
-    "displayTitleCompact": "Qatar GP · Race",
-    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
-    "fullSpiel": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:qatar:race",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-11-29T16:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 5,
-    "roundLabel": "Race",
-    "stage": "Race",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "storyline": {
-      "stakes": 5,
-      "intensity": 5,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 9,
-      "hookSpoilerOff": "Race at the Qatar GP.",
-      "hookSpoilerOn": "Race at the Qatar GP.",
-      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
-      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
-      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Race",
-      "contextSignals": [
-        "official-schedule",
-        "Race"
-      ],
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
-      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
     "id": "cricket-australia-england-fifth-t20-2026",
@@ -60267,83 +52987,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     ]
   },
   {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Abu Dhabi GP · Qualifying",
-    "date": "2026-12-06",
-    "time": "01:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 8,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_44",
-    "eventId": "evt_44",
-    "displayTitleCompact": "Abu Dhabi GP · Qualifying",
-    "selectedSentence": "Grid-setting session with direct consequences for the race.",
-    "fullSpiel": "R22 Abu Dhabi GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:united-arab-emirates:qualifying",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-12-05T14:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 4,
-    "roundLabel": "Qualifying",
-    "stage": "Qualifying",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": [],
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "intensitySource": "manual",
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "Qualifying at the Abu Dhabi GP.",
-      "hookSpoilerOn": "Qualifying at the Abu Dhabi GP.",
-      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
-      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
-      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-    },
-    "editorialPreview": {
-      "status": "journalistic",
-      "angle": "Qualifying",
-      "contextSignals": [
-        "official-schedule",
-        "Qualifying"
-      ],
-      "sourceName": "Formula 1 official race hub",
-      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
-      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-      "needsPreviewRefresh": false
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
-  },
-  {
     "id": "epl-2026-27-129053",
     "eventId": "epl-2026-27-129053",
     "canonicalEventId": "event:premier-league:129053",
@@ -61132,76 +53775,6 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "resultLabels": [
       "Premier League Matchweek 14"
     ]
-  },
-  {
-    "sport": "Formula 1",
-    "key": "f1",
-    "name": "Abu Dhabi GP · Race",
-    "date": "2026-12-07",
-    "time": "00:00",
-    "broadcaster": "Fox Sports via Kayo / Foxtel",
-    "expected": 9,
-    "venue": null,
-    "liveWindow": 3,
-    "id": "evt_45",
-    "eventId": "evt_45",
-    "displayTitleCompact": "Abu Dhabi GP · Race",
-    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
-    "fullSpiel": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-    "sourceName": "Formula 1 official race hub",
-    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
-    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
-    "broadcastOptions": [
-      "Kayo Sports",
-      "Foxtel"
-    ],
-    "round": "all",
-    "narrativeType": "all",
-    "replayEligible": true,
-    "highlightEligible": true,
-    "briefingEligible": true,
-    "catchupEligible": true,
-    "status": "upcoming",
-    "storyline": {
-      "stakes": 4,
-      "intensity": 4,
-      "arcStage": "preview",
-      "expectedSpectacle": 8,
-      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
-      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
-      "synopsisSpoilerOff": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "synopsisSpoilerOn": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
-      "intensitySource": "computed"
-    },
-    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
-    "editorialPreview": {
-      "status": "research-required",
-      "needsPreviewRefresh": true,
-      "editorialWindowDays": 10,
-      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
-    },
-    "sourceTrust": "verified",
-    "canonicalEventId": "event:f1:2026:united-arab-emirates:race",
-    "cardKind": "fixture",
-    "startTimeUtc": "2026-12-06T13:00:00.000Z",
-    "timePrecision": "exact",
-    "scheduleStatus": "confirmed",
-    "broadcasterIds": [
-      "kayo",
-      "foxtel"
-    ],
-    "stakesScore": 5,
-    "roundLabel": "Race",
-    "stage": "Race",
-    "sourceType": "official",
-    "sportDomainId": "sport:f1",
-    "discoverySportId": "sport:f1",
-    "competitionId": "competition:formula-one",
-    "taxonomyNodeId": "sport:f1",
-    "codeId": "sport:f1",
-    "competitionScope": "international",
-    "isInternational": true,
-    "representativeCountryCodes": []
   },
   {
     "id": "cricket-australia-new-zealand-test-2026",
@@ -81156,6 +73729,4448 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceCheckedAt": "2026-07-16T08:30:00+10:00"
   },
   {
+    "id": "evt_nrlw_2026_round_11_roosters_bulldogs",
+    "eventId": "evt_nrlw_2026_round_11_roosters_bulldogs",
+    "canonicalEventId": "event:nrlw:2026:round-11-roosters-bulldogs",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Sydney Roosters v Canterbury-Bankstown Bulldogs",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Sydney Roosters v Canterbury-Bankstown Bulldogs",
+    "date": "2026-09-10",
+    "time": "19:45",
+    "startTimeUtc": "2026-09-10T09:45:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Allianz Stadium",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
+    "fullSpiel": "The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nrlw:roosters",
+      "team:nrlw:bulldogs"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:roosters",
+        "name": "Sydney Roosters",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:bulldogs",
+        "name": "Canterbury-Bankstown Bulldogs",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:roosters",
+        "label": "Sydney Roosters"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:bulldogs",
+        "label": "Canterbury-Bankstown Bulldogs"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
+      "hookSpoilerOn": "The Roosters and Bulldogs open the final NRLW regular-season round under Thursday-night pressure.",
+      "synopsisSpoilerOff": "The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
+      "synopsisSpoilerOn": "The last home-and-away weekend fixes the six-team finals field and each club's route through it.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_nrlw_2026_round_11_wests_tigers_raiders",
+    "eventId": "evt_nrlw_2026_round_11_wests_tigers_raiders",
+    "canonicalEventId": "event:nrlw:2026:round-11-wests-tigers-raiders",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Wests Tigers v Canberra Raiders",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Wests Tigers v Canberra Raiders",
+    "date": "2026-09-11",
+    "time": "17:40",
+    "startTimeUtc": "2026-09-11T07:40:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": "Leichhardt Oval",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
+    "fullSpiel": "A result at Leichhardt can alter both qualification and the first-week finals matchup.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nrlw:wests-tigers",
+      "team:nrlw:raiders"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:wests-tigers",
+        "name": "Wests Tigers",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:raiders",
+        "name": "Canberra Raiders",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:wests-tigers",
+        "label": "Wests Tigers"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:raiders",
+        "label": "Canberra Raiders"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
+      "hookSpoilerOn": "Wests Tigers and Canberra carry their finals ambitions into the last Friday of the regular season.",
+      "synopsisSpoilerOff": "A result at Leichhardt can alter both qualification and the first-week finals matchup.",
+      "synopsisSpoilerOn": "A result at Leichhardt can alter both qualification and the first-week finals matchup.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_nrlw_2026_round_11_eels_cowboys",
+    "eventId": "evt_nrlw_2026_round_11_eels_cowboys",
+    "canonicalEventId": "event:nrlw:2026:round-11-eels-cowboys",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Parramatta Eels v North Queensland Cowboys",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Parramatta Eels v North Queensland Cowboys",
+    "date": "2026-09-12",
+    "time": "12:00",
+    "startTimeUtc": "2026-09-12T02:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 7,
+    "stakesScore": 4,
+    "venue": "CommBank Stadium",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
+    "fullSpiel": "The midday match carries the direct consequences of a compressed eleven-round campaign.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nrlw:eels",
+      "team:nrlw:cowboys"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:eels",
+        "name": "Parramatta Eels",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:cowboys",
+        "name": "North Queensland Cowboys",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:eels",
+        "label": "Parramatta Eels"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:cowboys",
+        "label": "North Queensland Cowboys"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 7,
+      "hookSpoilerOff": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
+      "hookSpoilerOn": "Parramatta and North Queensland get one final regular-season measure before the finals bracket locks.",
+      "synopsisSpoilerOff": "The midday match carries the direct consequences of a compressed eleven-round campaign.",
+      "synopsisSpoilerOn": "The midday match carries the direct consequences of a compressed eleven-round campaign.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_nrlw_2026_round_11_sharks_dragons",
+    "eventId": "evt_nrlw_2026_round_11_sharks_dragons",
+    "canonicalEventId": "event:nrlw:2026:round-11-sharks-dragons",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Cronulla-Sutherland Sharks v St George Illawarra Dragons",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Cronulla-Sutherland Sharks v St George Illawarra Dragons",
+    "date": "2026-09-12",
+    "time": "17:10",
+    "startTimeUtc": "2026-09-12T07:10:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Allianz Stadium",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
+    "fullSpiel": "The final-round move adds a big-stage test just before elimination football begins.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nrlw:sharks",
+      "team:nrlw:dragons"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:sharks",
+        "name": "Cronulla-Sutherland Sharks",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:dragons",
+        "name": "St George Illawarra Dragons",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:sharks",
+        "label": "Cronulla-Sutherland Sharks"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:dragons",
+        "label": "St George Illawarra Dragons"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
+      "hookSpoilerOn": "Cronulla and St George Illawarra meet in a shifted Allianz Stadium double-header with finals positions at stake.",
+      "synopsisSpoilerOff": "The final-round move adds a big-stage test just before elimination football begins.",
+      "synopsisSpoilerOn": "The final-round move adds a big-stage test just before elimination football begins.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_nrlw_2026_round_11_broncos_warriors",
+    "eventId": "evt_nrlw_2026_round_11_broncos_warriors",
+    "canonicalEventId": "event:nrlw:2026:round-11-broncos-warriors",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Brisbane Broncos v New Zealand Warriors",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Brisbane Broncos v New Zealand Warriors",
+    "date": "2026-09-13",
+    "time": "12:00",
+    "startTimeUtc": "2026-09-13T02:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Totally Workwear Stadium",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
+    "fullSpiel": "The Sunday result can decide whether the defending premiers earn a shorter finals route.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU",
+      "NZ"
+    ],
+    "participantIds": [
+      "team:nrlw:broncos",
+      "team:nrlw:warriors"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:broncos",
+        "name": "Brisbane Broncos",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:warriors",
+        "name": "New Zealand Warriors",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:broncos",
+        "label": "Brisbane Broncos"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:warriors",
+        "label": "New Zealand Warriors"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
+      "hookSpoilerOn": "Brisbane closes its regular season against a Warriors side full of familiar Queensland connections.",
+      "synopsisSpoilerOff": "The Sunday result can decide whether the defending premiers earn a shorter finals route.",
+      "synopsisSpoilerOn": "The Sunday result can decide whether the defending premiers earn a shorter finals route.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_nrlw_2026_round_11_knights_titans",
+    "eventId": "evt_nrlw_2026_round_11_knights_titans",
+    "canonicalEventId": "event:nrlw:2026:round-11-knights-titans",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "Newcastle Knights v Gold Coast Titans",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Newcastle Knights v Gold Coast Titans",
+    "date": "2026-09-13",
+    "time": "13:45",
+    "startTimeUtc": "2026-09-13T03:45:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "McDonald Jones Stadium",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Round 11",
+    "roundNumber": 11,
+    "stage": "regular season",
+    "narrativeType": "all",
+    "selectedSentence": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
+    "fullSpiel": "The last scheduled match can redraw the elimination pairings only days before finals begin.",
+    "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+    "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [
+      "AU"
+    ],
+    "participantIds": [
+      "team:nrlw:knights",
+      "team:nrlw:titans"
+    ],
+    "participants": [
+      {
+        "id": "team:nrlw:knights",
+        "name": "Newcastle Knights",
+        "role": "home"
+      },
+      {
+        "id": "team:nrlw:titans",
+        "name": "Gold Coast Titans",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:nrlw:knights",
+        "label": "Newcastle Knights"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:nrlw:titans",
+        "label": "Gold Coast Titans"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
+      "hookSpoilerOn": "Newcastle and Gold Coast finish the NRLW regular season with the finals order on the line.",
+      "synopsisSpoilerOff": "The last scheduled match can redraw the elimination pairings only days before finals begin.",
+      "synopsisSpoilerOn": "The last scheduled match can redraw the elimination pairings only days before finals begin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Round 11",
+      "contextSignals": [
+        "official-schedule",
+        "regular season"
+      ],
+      "sourceName": "2026 NRLW Telstra Women's Premiership schedule",
+      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_nrlw_2026_grand_final",
+    "eventId": "evt_nrlw_2026_grand_final",
+    "canonicalEventId": "event:nrlw:2026:grand-final",
+    "sport": "NRLW",
+    "key": "nrlw",
+    "name": "2026 NRLW Grand Final",
+    "cardKind": "fixture",
+    "displayTitleCompact": "2026 NRLW Grand Final",
+    "date": "2026-10-04",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Nine / 9Now / Fox Sports / Kayo",
+    "broadcastOptions": [
+      "9Now",
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "nine",
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "Accor Stadium",
+    "liveWindow": 3,
+    "round": "final",
+    "roundLabel": "Grand Final",
+    "stage": "final",
+    "narrativeType": "all",
+    "selectedSentence": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
+    "fullSpiel": "The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
+    "sourceName": "Official 2026 NRL and NRLW Grand Final",
+    "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:nrl",
+    "discoverySportId": "sport:nrlw",
+    "competitionId": "competition:nrlw-premiership-2026",
+    "taxonomyNodeId": "competition:nrlw-premiership",
+    "codeId": "sport:nrlw",
+    "competitionScope": "domestic",
+    "isInternational": false,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
+      "hookSpoilerOn": "The NRLW season reaches its premiership decider at Accor Stadium on Grand Final day.",
+      "synopsisSpoilerOff": "The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
+      "synopsisSpoilerOn": "The confirmed Sydney destination waits for the two clubs that survive the expanded finals series.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Grand Final",
+      "contextSignals": [
+        "official-schedule",
+        "final"
+      ],
+      "sourceName": "Official 2026 NRL and NRLW Grand Final",
+      "sourceUrl": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_china_czechia",
+    "eventId": "evt_fiba_women_2026_group_china_czechia",
+    "canonicalEventId": "event:fiba-women:2026:group-china-czechia",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "China v Czechia",
+    "cardKind": "fixture",
+    "displayTitleCompact": "China v Czechia",
+    "date": "2026-09-06",
+    "time": "22:30",
+    "startTimeUtc": "2026-09-06T12:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 7,
+    "stakesScore": 4,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "China v Czechia is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "China v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128137-CHN-CZE",
+    "resultSourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "score": "China 74-70 Czechia",
+    "outcomeText": "China defeated Czechia 74-70 after overtime.",
+    "recapText": "China beat Czechia 74-70 after overtime in the FIBA Women's Basketball World Cup group stage.",
+    "resultLabels": [
+      "Group stage",
+      "China 74-70 Czechia",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "China",
+      "summary": "China defeated Czechia 74-70 after overtime."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "CN",
+      "CZ"
+    ],
+    "participantIds": [
+      "team:fiba-women:china",
+      "team:fiba-women:czechia"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:china",
+        "name": "China",
+        "role": "home"
+      },
+      {
+        "id": "team:fiba-women:czechia",
+        "name": "Czechia",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:china",
+        "label": "China"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:fiba-women:czechia",
+        "label": "Czechia"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 7,
+      "hookSpoilerOff": "China v Czechia is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "China defeated Czechia 74-70 after overtime.",
+      "synopsisSpoilerOff": "China v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "China beat Czechia 74-70 after overtime in the FIBA Women's Basketball World Cup group stage.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-06T15:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_puerto_rico_belgium",
+    "eventId": "evt_fiba_women_2026_group_puerto_rico_belgium",
+    "canonicalEventId": "event:fiba-women:2026:group-puerto-rico-belgium",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "Puerto Rico v Belgium",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Puerto Rico v Belgium",
+    "date": "2026-09-07",
+    "time": "01:45",
+    "startTimeUtc": "2026-09-06T15:45:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 7,
+    "stakesScore": 4,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "Puerto Rico v Belgium is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Puerto Rico v Belgium is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-6",
+    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
+    "score": "Puerto Rico 64–76 Belgium",
+    "outcomeText": "Belgium won 76–64.",
+    "recapText": "Puerto Rico 64–76 Belgium in the World Cup group stage in Berlin.",
+    "resultLabels": [
+      "Group stage",
+      "Puerto Rico 64–76 Belgium",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Belgium",
+      "summary": "Belgium won 76–64."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "PR",
+      "BE"
+    ],
+    "participantIds": [
+      "team:fiba-women:puerto-rico",
+      "team:fiba-women:belgium"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:puerto-rico",
+        "name": "Puerto Rico",
+        "role": "home"
+      },
+      {
+        "id": "team:fiba-women:belgium",
+        "name": "Belgium",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:puerto-rico",
+        "label": "Puerto Rico"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:fiba-women:belgium",
+        "label": "Belgium"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 7,
+      "hookSpoilerOff": "Puerto Rico v Belgium is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Belgium won 76–64.",
+      "synopsisSpoilerOff": "Puerto Rico v Belgium is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Puerto Rico 64–76 Belgium in the World Cup group stage in Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-06T18:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_italy_usa",
+    "eventId": "evt_fiba_women_2026_group_italy_usa",
+    "canonicalEventId": "event:fiba-women:2026:group-italy-usa",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "Italy v USA",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Italy v USA",
+    "date": "2026-09-07",
+    "time": "04:45",
+    "startTimeUtc": "2026-09-06T18:45:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "Italy v USA is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Italy v USA is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-6",
+    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
+    "score": "Italy 52–55 USA",
+    "outcomeText": "USA won 55–52.",
+    "recapText": "Italy 52–55 USA in the World Cup group stage in Berlin.",
+    "resultLabels": [
+      "Group stage",
+      "Italy 52–55 USA",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "USA",
+      "summary": "USA won 55–52."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "IT",
+      "US"
+    ],
+    "participantIds": [
+      "team:fiba-women:italy",
+      "team:fiba-women:usa"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:italy",
+        "name": "Italy",
+        "role": "home"
+      },
+      {
+        "id": "team:fiba-women:usa",
+        "name": "USA",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:italy",
+        "label": "Italy"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:fiba-women:usa",
+        "label": "USA"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Italy v USA is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "USA won 55–52.",
+      "synopsisSpoilerOff": "Italy v USA is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Italy 52–55 USA in the World Cup group stage in Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-06T21:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_belgium_australia",
+    "eventId": "evt_fiba_women_2026_group_belgium_australia",
+    "canonicalEventId": "event:fiba-women:2026:group-belgium-australia",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "Belgium v Australian Opals",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Belgium v Australian Opals",
+    "date": "2026-09-07",
+    "time": "19:30",
+    "startTimeUtc": "2026-09-07T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "Belgium v Australian Opals is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Belgium v Australian Opals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
+    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
+    "score": "Belgium 80–68 Australian Opals",
+    "outcomeText": "Belgium won 80–68.",
+    "recapText": "Belgium 80–68 Australian Opals in the World Cup group stage in Berlin.",
+    "resultLabels": [
+      "Group stage",
+      "Belgium 80–68 Australian Opals",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Belgium",
+      "summary": "Belgium won 80–68."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "BE",
+      "AU"
+    ],
+    "participantIds": [
+      "team:fiba-women:belgium",
+      "team:basketball:opals"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:belgium",
+        "name": "Belgium",
+        "role": "home"
+      },
+      {
+        "id": "team:basketball:opals",
+        "name": "Australian Opals",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:belgium",
+        "label": "Belgium"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:basketball:opals",
+        "label": "Australian Opals"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Belgium v Australian Opals is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Belgium won 80–68.",
+      "synopsisSpoilerOff": "Belgium v Australian Opals is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Belgium 80–68 Australian Opals in the World Cup group stage in Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-07T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_puerto_rico_turkiye",
+    "eventId": "evt_fiba_women_2026_group_puerto_rico_turkiye",
+    "canonicalEventId": "event:fiba-women:2026:group-puerto-rico-turkiye",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "Puerto Rico v Türkiye",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Puerto Rico v Türkiye",
+    "date": "2026-09-07",
+    "time": "19:30",
+    "startTimeUtc": "2026-09-07T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 6,
+    "stakesScore": 3,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "Puerto Rico v Türkiye is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Puerto Rico v Türkiye is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
+    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
+    "score": "Puerto Rico 75–71 Türkiye",
+    "outcomeText": "Puerto Rico won 75–71.",
+    "recapText": "Puerto Rico 75–71 Türkiye in the World Cup group stage in Berlin.",
+    "resultLabels": [
+      "Group stage",
+      "Puerto Rico 75–71 Türkiye",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Puerto Rico",
+      "summary": "Puerto Rico won 75–71."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "PR",
+      "TR"
+    ],
+    "participantIds": [
+      "team:fiba-women:puerto-rico",
+      "team:fiba-women:turkiye"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:puerto-rico",
+        "name": "Puerto Rico",
+        "role": "home"
+      },
+      {
+        "id": "team:fiba-women:turkiye",
+        "name": "Türkiye",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:puerto-rico",
+        "label": "Puerto Rico"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:fiba-women:turkiye",
+        "label": "Türkiye"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 6,
+      "hookSpoilerOff": "Puerto Rico v Türkiye is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Puerto Rico won 75–71.",
+      "synopsisSpoilerOff": "Puerto Rico v Türkiye is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Puerto Rico 75–71 Türkiye in the World Cup group stage in Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-07T12:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_hungary_korea",
+    "eventId": "evt_fiba_women_2026_group_hungary_korea",
+    "canonicalEventId": "event:fiba-women:2026:group-hungary-korea",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "Hungary v Korea",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Hungary v Korea",
+    "date": "2026-09-07",
+    "time": "22:30",
+    "startTimeUtc": "2026-09-07T12:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 6,
+    "stakesScore": 3,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "Hungary v Korea is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Hungary v Korea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
+    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
+    "score": "Hungary 82–73 Korea",
+    "outcomeText": "Hungary won 82–73.",
+    "recapText": "Hungary 82–73 Korea in the World Cup group stage in Berlin.",
+    "resultLabels": [
+      "Group stage",
+      "Hungary 82–73 Korea",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Hungary",
+      "summary": "Hungary won 82–73."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "HU",
+      "KR"
+    ],
+    "participantIds": [
+      "team:fiba-women:hungary",
+      "team:fiba-women:korea"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:hungary",
+        "name": "Hungary",
+        "role": "home"
+      },
+      {
+        "id": "team:fiba-women:korea",
+        "name": "Korea",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:hungary",
+        "label": "Hungary"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:fiba-women:korea",
+        "label": "Korea"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 3,
+      "intensity": 3,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 6,
+      "hookSpoilerOff": "Hungary v Korea is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Hungary won 82–73.",
+      "synopsisSpoilerOff": "Hungary v Korea is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Hungary 82–73 Korea in the World Cup group stage in Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-07T15:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_nigeria_france",
+    "eventId": "evt_fiba_women_2026_group_nigeria_france",
+    "canonicalEventId": "event:fiba-women:2026:group-nigeria-france",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "Nigeria v France",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Nigeria v France",
+    "date": "2026-09-07",
+    "time": "22:30",
+    "startTimeUtc": "2026-09-07T12:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 7,
+    "stakesScore": 4,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "Nigeria v France is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Nigeria v France is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
+    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
+    "score": "Nigeria 56–111 France",
+    "outcomeText": "France won 111–56.",
+    "recapText": "Nigeria 56–111 France in the World Cup group stage in Berlin.",
+    "resultLabels": [
+      "Group stage",
+      "Nigeria 56–111 France",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "France",
+      "summary": "France won 111–56."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "NG",
+      "FR"
+    ],
+    "participantIds": [
+      "team:fiba-women:nigeria",
+      "team:fiba-women:france"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:nigeria",
+        "name": "Nigeria",
+        "role": "home"
+      },
+      {
+        "id": "team:fiba-women:france",
+        "name": "France",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:nigeria",
+        "label": "Nigeria"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:fiba-women:france",
+        "label": "France"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 7,
+      "hookSpoilerOff": "Nigeria v France is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "France won 111–56.",
+      "synopsisSpoilerOff": "Nigeria v France is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Nigeria 56–111 France in the World Cup group stage in Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-07T15:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_japan_spain",
+    "eventId": "evt_fiba_women_2026_group_japan_spain",
+    "canonicalEventId": "event:fiba-women:2026:group-japan-spain",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "Japan v Spain",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Japan v Spain",
+    "date": "2026-09-08",
+    "time": "01:50",
+    "startTimeUtc": "2026-09-07T15:50:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "Japan v Spain is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Japan v Spain is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
+    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
+    "score": "Japan 59–79 Spain",
+    "outcomeText": "Spain won 79–59.",
+    "recapText": "Japan 59–79 Spain in the World Cup group stage in Berlin.",
+    "resultLabels": [
+      "Group stage",
+      "Japan 59–79 Spain",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Spain",
+      "summary": "Spain won 79–59."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "JP",
+      "ES"
+    ],
+    "participantIds": [
+      "team:fiba-women:japan",
+      "team:fiba-women:spain"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:japan",
+        "name": "Japan",
+        "role": "home"
+      },
+      {
+        "id": "team:fiba-women:spain",
+        "name": "Spain",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:japan",
+        "label": "Japan"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:fiba-women:spain",
+        "label": "Spain"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Japan v Spain is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Spain won 79–59.",
+      "synopsisSpoilerOff": "Japan v Spain is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Japan 59–79 Spain in the World Cup group stage in Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-07T18:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_germany_mali",
+    "eventId": "evt_fiba_women_2026_group_germany_mali",
+    "canonicalEventId": "event:fiba-women:2026:group-germany-mali",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "Germany v Mali",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Germany v Mali",
+    "date": "2026-09-08",
+    "time": "01:50",
+    "startTimeUtc": "2026-09-07T15:50:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 7,
+    "stakesScore": 4,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "Germany v Mali is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Germany v Mali is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
+    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
+    "score": "Germany 83–58 Mali",
+    "outcomeText": "Germany won 83–58.",
+    "recapText": "Germany 83–58 Mali in the World Cup group stage in Berlin.",
+    "resultLabels": [
+      "Group stage",
+      "Germany 83–58 Mali",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "Germany",
+      "summary": "Germany won 83–58."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "DE",
+      "ML"
+    ],
+    "participantIds": [
+      "team:fiba-women:germany",
+      "team:fiba-women:mali"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:germany",
+        "name": "Germany",
+        "role": "home"
+      },
+      {
+        "id": "team:fiba-women:mali",
+        "name": "Mali",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:germany",
+        "label": "Germany"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:fiba-women:mali",
+        "label": "Mali"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": false,
+    "catchupEligible": false,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 7,
+      "hookSpoilerOff": "Germany v Mali is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Germany won 83–58.",
+      "synopsisSpoilerOff": "Germany v Mali is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Germany 83–58 Mali in the World Cup group stage in Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-07T18:50:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_usa_czechia",
+    "eventId": "evt_fiba_women_2026_group_usa_czechia",
+    "canonicalEventId": "event:fiba-women:2026:group-usa-czechia",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "USA v Czechia",
+    "cardKind": "fixture",
+    "displayTitleCompact": "USA v Czechia",
+    "date": "2026-09-08",
+    "time": "04:45",
+    "startTimeUtc": "2026-09-07T18:45:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "USA v Czechia is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "USA v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
+    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
+    "score": "USA 105–64 Czechia",
+    "outcomeText": "USA won 105–64.",
+    "recapText": "USA 105–64 Czechia in the World Cup group stage in Berlin.",
+    "resultLabels": [
+      "Group stage",
+      "USA 105–64 Czechia",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "USA",
+      "summary": "USA won 105–64."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "US",
+      "CZ"
+    ],
+    "participantIds": [
+      "team:fiba-women:usa",
+      "team:fiba-women:czechia"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:usa",
+        "name": "USA",
+        "role": "home"
+      },
+      {
+        "id": "team:fiba-women:czechia",
+        "name": "Czechia",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:usa",
+        "label": "USA"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:fiba-women:czechia",
+        "label": "Czechia"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "USA v Czechia is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "USA won 105–64.",
+      "synopsisSpoilerOff": "USA v Czechia is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "USA 105–64 Czechia in the World Cup group stage in Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-07T21:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_group_italy_china",
+    "eventId": "evt_fiba_women_2026_group_italy_china",
+    "canonicalEventId": "event:fiba-women:2026:group-italy-china",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "Italy v China",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Italy v China",
+    "date": "2026-09-08",
+    "time": "04:45",
+    "startTimeUtc": "2026-09-07T18:45:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "early",
+    "roundLabel": "Group stage",
+    "stage": "group",
+    "narrativeType": "all",
+    "selectedSentence": "Italy v China is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Italy v China is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "official",
+    "resultSourceUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/2026-wwc-game-center-sep-7",
+    "resultSourceCheckedAt": "2026-09-08T13:59:50.381806Z",
+    "score": "Italy 51–71 China",
+    "outcomeText": "China won 71–51.",
+    "recapText": "Italy 51–71 China in the World Cup group stage in Berlin.",
+    "resultLabels": [
+      "Group stage",
+      "Italy 51–71 China",
+      "Official result"
+    ],
+    "consensusResult": {
+      "winner": "China",
+      "summary": "China won 71–51."
+    },
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "IT",
+      "CN"
+    ],
+    "participantIds": [
+      "team:fiba-women:italy",
+      "team:fiba-women:china"
+    ],
+    "participants": [
+      {
+        "id": "team:fiba-women:italy",
+        "name": "Italy",
+        "role": "home"
+      },
+      {
+        "id": "team:fiba-women:china",
+        "name": "China",
+        "role": "away"
+      }
+    ],
+    "participantSlots": [
+      {
+        "slot": 1,
+        "participantId": "team:fiba-women:italy",
+        "label": "Italy"
+      },
+      {
+        "slot": 2,
+        "participantId": "team:fiba-women:china",
+        "label": "China"
+      }
+    ],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Italy v China is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "China won 71–51.",
+      "synopsisSpoilerOff": "Italy v China is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Italy 51–71 China in the World Cup group stage in Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Group stage",
+      "contextSignals": [
+        "official-schedule",
+        "group"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-07T21:45:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_fiba_women_2026_qualification_day_1",
+    "eventId": "evt_fiba_women_2026_qualification_day_1",
+    "canonicalEventId": "event:fiba-women:2026:qualification-day-1",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "FIBA Women's World Cup — qualification day 1",
+    "cardKind": "event",
+    "displayTitleCompact": "FIBA Women's World Cup — qualification day 1",
+    "date": "2026-09-09",
+    "time": "01:45",
+    "startTimeUtc": "2026-09-08T15:45:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "knockout",
+    "roundLabel": "Qualification to quarterfinals",
+    "stage": "qualification",
+    "narrativeType": "all",
+    "selectedSentence": "The first qualification games put World Cup survival on a single result.",
+    "fullSpiel": "Second- and third-placed teams meet for the remaining quarterfinal places.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "The first qualification games put World Cup survival on a single result.",
+      "hookSpoilerOn": "The first qualification games put World Cup survival on a single result.",
+      "synopsisSpoilerOff": "Second- and third-placed teams meet for the remaining quarterfinal places.",
+      "synopsisSpoilerOn": "Second- and third-placed teams meet for the remaining quarterfinal places.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualification to quarterfinals",
+      "contextSignals": [
+        "official-schedule",
+        "qualification"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_fiba_women_2026_qualification_day_2",
+    "eventId": "evt_fiba_women_2026_qualification_day_2",
+    "canonicalEventId": "event:fiba-women:2026:qualification-day-2",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "FIBA Women's World Cup — qualification day 2",
+    "cardKind": "event",
+    "displayTitleCompact": "FIBA Women's World Cup — qualification day 2",
+    "date": "2026-09-10",
+    "time": "01:45",
+    "startTimeUtc": "2026-09-09T15:45:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Berlin, Germany",
+    "liveWindow": 3,
+    "round": "knockout",
+    "roundLabel": "Qualification to quarterfinals",
+    "stage": "qualification",
+    "narrativeType": "all",
+    "selectedSentence": "The last qualification games complete the Women's World Cup quarterfinal field.",
+    "fullSpiel": "There is no pool-stage buffer now: winners advance and losers leave Berlin.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "The last qualification games complete the Women's World Cup quarterfinal field.",
+      "hookSpoilerOn": "The last qualification games complete the Women's World Cup quarterfinal field.",
+      "synopsisSpoilerOff": "There is no pool-stage buffer now: winners advance and losers leave Berlin.",
+      "synopsisSpoilerOn": "There is no pool-stage buffer now: winners advance and losers leave Berlin.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualification to quarterfinals",
+      "contextSignals": [
+        "official-schedule",
+        "qualification"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_fiba_women_2026_quarterfinals",
+    "eventId": "evt_fiba_women_2026_quarterfinals",
+    "canonicalEventId": "event:fiba-women:2026:quarterfinals",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "FIBA Women's World Cup — quarterfinals",
+    "cardKind": "event",
+    "displayTitleCompact": "FIBA Women's World Cup — quarterfinals",
+    "date": "2026-09-10",
+    "time": "19:30",
+    "startTimeUtc": "2026-09-10T09:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 4,
+    "venue": "Uber Arena, Berlin",
+    "liveWindow": 10,
+    "round": "quarterfinal",
+    "roundLabel": "Quarterfinals",
+    "stage": "quarterfinal",
+    "narrativeType": "all",
+    "selectedSentence": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
+    "fullSpiel": "Group winners re-enter against qualification survivors, with every title route now direct.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
+      "hookSpoilerOn": "Four quarterfinals reduce the World Cup field to its final four in one Berlin day.",
+      "synopsisSpoilerOff": "Group winners re-enter against qualification survivors, with every title route now direct.",
+      "synopsisSpoilerOn": "Group winners re-enter against qualification survivors, with every title route now direct.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Quarterfinals",
+      "contextSignals": [
+        "official-schedule",
+        "quarterfinal"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_fiba_women_2026_semifinals",
+    "eventId": "evt_fiba_women_2026_semifinals",
+    "canonicalEventId": "event:fiba-women:2026:semifinals",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "FIBA Women's World Cup — semifinals",
+    "cardKind": "event",
+    "displayTitleCompact": "FIBA Women's World Cup — semifinals",
+    "date": "2026-09-13",
+    "time": "00:30",
+    "startTimeUtc": "2026-09-12T14:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 10,
+    "stakesScore": 4,
+    "venue": "Uber Arena, Berlin",
+    "liveWindow": 8,
+    "round": "semifinal",
+    "roundLabel": "Semifinals",
+    "stage": "semifinal",
+    "narrativeType": "all",
+    "selectedSentence": "The last four teams play for a place in the Women's World Cup final.",
+    "fullSpiel": "Two semifinals in one Berlin session decide who can still leave as world champion.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "The last four teams play for a place in the Women's World Cup final.",
+      "hookSpoilerOn": "The last four teams play for a place in the Women's World Cup final.",
+      "synopsisSpoilerOff": "Two semifinals in one Berlin session decide who can still leave as world champion.",
+      "synopsisSpoilerOn": "Two semifinals in one Berlin session decide who can still leave as world champion.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Semifinals",
+      "contextSignals": [
+        "official-schedule",
+        "semifinal"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_fiba_women_2026_bronze",
+    "eventId": "evt_fiba_women_2026_bronze",
+    "canonicalEventId": "event:fiba-women:2026:bronze",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "FIBA Women's World Cup — bronze medal game",
+    "cardKind": "fixture",
+    "displayTitleCompact": "FIBA Women's World Cup — bronze medal game",
+    "date": "2026-09-14",
+    "time": "00:30",
+    "startTimeUtc": "2026-09-13T14:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 5,
+    "venue": "Uber Arena, Berlin",
+    "liveWindow": 3,
+    "round": "final",
+    "roundLabel": "Third-place game",
+    "stage": "medal",
+    "narrativeType": "all",
+    "selectedSentence": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
+    "fullSpiel": "The bronze game rewards the team that can reset fastest after missing the final.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
+      "hookSpoilerOn": "The semifinal losers have one final chance to leave Berlin with a World Cup medal.",
+      "synopsisSpoilerOff": "The bronze game rewards the team that can reset fastest after missing the final.",
+      "synopsisSpoilerOn": "The bronze game rewards the team that can reset fastest after missing the final.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Third-place game",
+      "contextSignals": [
+        "official-schedule",
+        "medal"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_fiba_women_2026_final",
+    "eventId": "evt_fiba_women_2026_final",
+    "canonicalEventId": "event:fiba-women:2026:final",
+    "sport": "FIBA Women",
+    "key": "fiba-women",
+    "name": "FIBA Women's Basketball World Cup final",
+    "cardKind": "fixture",
+    "displayTitleCompact": "FIBA Women's Basketball World Cup final",
+    "date": "2026-09-14",
+    "time": "04:00",
+    "startTimeUtc": "2026-09-13T18:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "ESPN via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "Uber Arena, Berlin",
+    "liveWindow": 3,
+    "round": "final",
+    "roundLabel": "Final",
+    "stage": "final",
+    "narrativeType": "all",
+    "selectedSentence": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
+    "fullSpiel": "The tournament closes with forty minutes separating the finalists from a world championship.",
+    "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+    "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:basketball",
+    "discoverySportId": "sport:fiba-women",
+    "competitionId": "competition:fiba-womens-world-cup",
+    "taxonomyNodeId": "competition:fiba-womens-world-cup",
+    "codeId": "competition:fiba-womens-world-cup",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
+      "hookSpoilerOn": "Two teams remain for the Women's Basketball World Cup title in Berlin.",
+      "synopsisSpoilerOff": "The tournament closes with forty minutes separating the finalists from a world championship.",
+      "synopsisSpoilerOn": "The tournament closes with forty minutes separating the finalists from a world championship.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Final",
+      "contextSignals": [
+        "official-schedule",
+        "final"
+      ],
+      "sourceName": "FIBA Women's Basketball World Cup 2026 official schedule",
+      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_sailgp_2026_valencia_day_2",
+    "eventId": "evt_sailgp_2026_valencia_day_2",
+    "canonicalEventId": "event:sailgp:2026:valencia-day-2",
+    "sport": "SailGP",
+    "key": "sailgp",
+    "name": "Spain Sail Grand Prix — race day 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Spain Sail Grand Prix — race day 2",
+    "date": "2026-09-06",
+    "time": "21:30",
+    "startTimeUtc": "2026-09-06T11:30:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": "Valencia, Spain",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Event 10",
+    "stage": "fleet racing",
+    "narrativeType": "all",
+    "selectedSentence": "Spain Sail Grand Prix — race day 2 is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "Spain Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "SailGP 2026 calendar",
+    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "resultStatus": "pending",
+    "resultSourceUrl": "https://sailgp.com/results/all-seasons/",
+    "resultSourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sportDomainId": "sport:sailing",
+    "discoverySportId": "sport:sailgp",
+    "competitionId": "competition:sailgp",
+    "taxonomyNodeId": "competition:sailgp",
+    "codeId": "competition:sailgp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "SE",
+      "NZ",
+      "AU",
+      "FR",
+      "GB",
+      "CH",
+      "DE",
+      "ES",
+      "BR",
+      "CA",
+      "IT",
+      "DK",
+      "US"
+    ],
+    "participantIds": [
+      "team:sailgp:artemis",
+      "team:sailgp:black-foils",
+      "team:sailgp:bonds-flying-roos",
+      "team:sailgp:france",
+      "team:sailgp:great-britain",
+      "team:sailgp:switzerland",
+      "team:sailgp:germany",
+      "team:sailgp:los-gallos",
+      "team:sailgp:mubadala-brazil",
+      "team:sailgp:northstar",
+      "team:sailgp:red-bull-italy",
+      "team:sailgp:rockwool-racing",
+      "team:sailgp:united-states"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Spain Sail Grand Prix — race day 2 is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete; the official outcome is still pending.",
+      "synopsisSpoilerOff": "Spain Sail Grand Prix — race day 2 is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Spain Sail Grand Prix — race day 2 is complete, but the official results page had not published a verified outcome at the latest check.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Event 10",
+      "contextSignals": [
+        "official-schedule",
+        "fleet racing"
+      ],
+      "sourceName": "SailGP 2026 calendar",
+      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "endTimeUtc": "2026-09-06T14:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_sailgp_2026_geneva_day_1",
+    "eventId": "evt_sailgp_2026_geneva_day_1",
+    "canonicalEventId": "event:sailgp:2026:geneva-day-1",
+    "sport": "SailGP",
+    "key": "sailgp",
+    "name": "Geneva Sail Grand Prix — race day 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Geneva Sail Grand Prix — race day 1",
+    "date": "2026-09-19",
+    "time": "23:00",
+    "startTimeUtc": "2026-09-19T13:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Geneva, Switzerland",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Event 11",
+    "stage": "fleet racing",
+    "narrativeType": "all",
+    "selectedSentence": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
+    "fullSpiel": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
+    "sourceName": "SailGP 2026 calendar",
+    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:sailing",
+    "discoverySportId": "sport:sailgp",
+    "competitionId": "competition:sailgp",
+    "taxonomyNodeId": "competition:sailgp",
+    "codeId": "competition:sailgp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "SE",
+      "NZ",
+      "AU",
+      "FR",
+      "GB",
+      "CH",
+      "DE",
+      "ES",
+      "BR",
+      "CA",
+      "IT",
+      "DK",
+      "US"
+    ],
+    "participantIds": [
+      "team:sailgp:artemis",
+      "team:sailgp:black-foils",
+      "team:sailgp:bonds-flying-roos",
+      "team:sailgp:france",
+      "team:sailgp:great-britain",
+      "team:sailgp:switzerland",
+      "team:sailgp:germany",
+      "team:sailgp:los-gallos",
+      "team:sailgp:mubadala-brazil",
+      "team:sailgp:northstar",
+      "team:sailgp:red-bull-italy",
+      "team:sailgp:rockwool-racing",
+      "team:sailgp:united-states"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
+      "hookSpoilerOn": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
+      "synopsisSpoilerOff": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
+      "synopsisSpoilerOn": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
+      "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+      "researchDepth": 5
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Geneva Sail Grand Prix - race day 1",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path",
+        "narrative:schedule"
+      ],
+      "sourceName": "Geneva Sail Grand Prix - race day 1 — official research 1",
+      "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
+      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:evt_sailgp_2026_geneva_day_1",
+      "researchTier": "marquee",
+      "hook": "Geneva opens the final three-event run with fresh crew combinations to settle quickly.",
+      "synopsis": "The eleventh stop of the championship puts the fleet back on Lake Geneva. Kahena Kunze returns to Brazil for the remaining three events, making communication and coordination an immediate storyline. Saturday establishes the event position from which teams must attack Sunday; clean early races matter when the season has so little room left.",
+      "threadIds": [
+        "thread:fixture-research:evt_sailgp_2026_geneva_day_1"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:0",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:1",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:2",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_1:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:0",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:1",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_1:2"
+      ],
+      "dimensions": [
+        "matchup",
+        "form",
+        "path",
+        "schedule"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched"
+    }
+  },
+  {
+    "id": "evt_sailgp_2026_geneva_day_2",
+    "eventId": "evt_sailgp_2026_geneva_day_2",
+    "canonicalEventId": "event:sailgp:2026:geneva-day-2",
+    "sport": "SailGP",
+    "key": "sailgp",
+    "name": "Geneva Sail Grand Prix — race day 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Geneva Sail Grand Prix — race day 2",
+    "date": "2026-09-20",
+    "time": "23:00",
+    "startTimeUtc": "2026-09-20T13:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": "Geneva, Switzerland",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Event 11",
+    "stage": "fleet racing",
+    "narrativeType": "all",
+    "selectedSentence": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
+    "fullSpiel": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
+    "sourceName": "SailGP 2026 calendar",
+    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:sailing",
+    "discoverySportId": "sport:sailgp",
+    "competitionId": "competition:sailgp",
+    "taxonomyNodeId": "competition:sailgp",
+    "codeId": "competition:sailgp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "SE",
+      "NZ",
+      "AU",
+      "FR",
+      "GB",
+      "CH",
+      "DE",
+      "ES",
+      "BR",
+      "CA",
+      "IT",
+      "DK",
+      "US"
+    ],
+    "participantIds": [
+      "team:sailgp:artemis",
+      "team:sailgp:black-foils",
+      "team:sailgp:bonds-flying-roos",
+      "team:sailgp:france",
+      "team:sailgp:great-britain",
+      "team:sailgp:switzerland",
+      "team:sailgp:germany",
+      "team:sailgp:los-gallos",
+      "team:sailgp:mubadala-brazil",
+      "team:sailgp:northstar",
+      "team:sailgp:red-bull-italy",
+      "team:sailgp:rockwool-racing",
+      "team:sailgp:united-states"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
+      "hookSpoilerOn": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
+      "synopsisSpoilerOff": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
+      "synopsisSpoilerOn": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
+      "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+      "researchDepth": 5
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Geneva Sail Grand Prix - race day 2",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path",
+        "narrative:schedule"
+      ],
+      "sourceName": "Geneva Sail Grand Prix - race day 2 — official research 1",
+      "sourceUrl": "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
+      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:evt_sailgp_2026_geneva_day_2",
+      "researchTier": "marquee",
+      "hook": "Geneva's deciding day puts the new combinations under pressure with two season stops left.",
+      "synopsis": "Sunday closes the Switzerland event before the championship's final two rounds. Brazil's returning double Olympic champion Kahena Kunze is one crew change to watch as the fleet converts Saturday's work into an event finish. The sporting question is who leaves Geneva with momentum for the final stretch, rather than merely one fast race.",
+      "threadIds": [
+        "thread:fixture-research:evt_sailgp_2026_geneva_day_2"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:0",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:1",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:2",
+        "fact:fixture-research:evt_sailgp_2026_geneva_day_2:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:0",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:1",
+        "source:fixture-research:evt_sailgp_2026_geneva_day_2:2"
+      ],
+      "dimensions": [
+        "matchup",
+        "form",
+        "path",
+        "schedule"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched"
+    }
+  },
+  {
+    "id": "evt_sailgp_2026_dubai_day_1",
+    "eventId": "evt_sailgp_2026_dubai_day_1",
+    "canonicalEventId": "event:sailgp:2026:dubai-day-1",
+    "sport": "SailGP",
+    "key": "sailgp",
+    "name": "Dubai Sail Grand Prix — race day 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Dubai Sail Grand Prix — race day 1",
+    "date": "2026-11-21",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": "Dubai, United Arab Emirates",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Event 12",
+    "stage": "fleet racing",
+    "narrativeType": "all",
+    "selectedSentence": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
+    "fullSpiel": "The penultimate event leaves the fleet only one weekend to repair any points damage.",
+    "sourceName": "SailGP 2026 calendar",
+    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:sailing",
+    "discoverySportId": "sport:sailgp",
+    "competitionId": "competition:sailgp",
+    "taxonomyNodeId": "competition:sailgp",
+    "codeId": "competition:sailgp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "SE",
+      "NZ",
+      "AU",
+      "FR",
+      "GB",
+      "CH",
+      "DE",
+      "ES",
+      "BR",
+      "CA",
+      "IT",
+      "DK",
+      "US"
+    ],
+    "participantIds": [
+      "team:sailgp:artemis",
+      "team:sailgp:black-foils",
+      "team:sailgp:bonds-flying-roos",
+      "team:sailgp:france",
+      "team:sailgp:great-britain",
+      "team:sailgp:switzerland",
+      "team:sailgp:germany",
+      "team:sailgp:los-gallos",
+      "team:sailgp:mubadala-brazil",
+      "team:sailgp:northstar",
+      "team:sailgp:red-bull-italy",
+      "team:sailgp:rockwool-racing",
+      "team:sailgp:united-states"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
+      "hookSpoilerOn": "Dubai begins a back-to-back UAE finish with Grand Final qualification under pressure.",
+      "synopsisSpoilerOff": "The penultimate event leaves the fleet only one weekend to repair any points damage.",
+      "synopsisSpoilerOn": "The penultimate event leaves the fleet only one weekend to repair any points damage.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Event 12",
+      "contextSignals": [
+        "official-schedule",
+        "fleet racing"
+      ],
+      "sourceName": "SailGP 2026 calendar",
+      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_sailgp_2026_dubai_day_2",
+    "eventId": "evt_sailgp_2026_dubai_day_2",
+    "canonicalEventId": "event:sailgp:2026:dubai-day-2",
+    "sport": "SailGP",
+    "key": "sailgp",
+    "name": "Dubai Sail Grand Prix — race day 2",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Dubai Sail Grand Prix — race day 2",
+    "date": "2026-11-22",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": "Dubai, United Arab Emirates",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Event 12",
+    "stage": "fleet racing",
+    "narrativeType": "all",
+    "selectedSentence": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
+    "fullSpiel": "A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
+    "sourceName": "SailGP 2026 calendar",
+    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:sailing",
+    "discoverySportId": "sport:sailgp",
+    "competitionId": "competition:sailgp",
+    "taxonomyNodeId": "competition:sailgp",
+    "codeId": "competition:sailgp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "SE",
+      "NZ",
+      "AU",
+      "FR",
+      "GB",
+      "CH",
+      "DE",
+      "ES",
+      "BR",
+      "CA",
+      "IT",
+      "DK",
+      "US"
+    ],
+    "participantIds": [
+      "team:sailgp:artemis",
+      "team:sailgp:black-foils",
+      "team:sailgp:bonds-flying-roos",
+      "team:sailgp:france",
+      "team:sailgp:great-britain",
+      "team:sailgp:switzerland",
+      "team:sailgp:germany",
+      "team:sailgp:los-gallos",
+      "team:sailgp:mubadala-brazil",
+      "team:sailgp:northstar",
+      "team:sailgp:red-bull-italy",
+      "team:sailgp:rockwool-racing",
+      "team:sailgp:united-states"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
+      "hookSpoilerOn": "Dubai's closing races lock in the final points before the fleet moves to Abu Dhabi.",
+      "synopsisSpoilerOff": "A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
+      "synopsisSpoilerOn": "A weak Sunday can turn a title campaign into a last-weekend recovery mission.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Event 12",
+      "contextSignals": [
+        "official-schedule",
+        "fleet racing"
+      ],
+      "sourceName": "SailGP 2026 calendar",
+      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_sailgp_2026_abu_dhabi_day_1",
+    "eventId": "evt_sailgp_2026_abu_dhabi_day_1",
+    "canonicalEventId": "event:sailgp:2026:abu-dhabi-day-1",
+    "sport": "SailGP",
+    "key": "sailgp",
+    "name": "Abu Dhabi Sail Grand Prix — race day 1",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Abu Dhabi Sail Grand Prix — race day 1",
+    "date": "2026-11-28",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "Abu Dhabi, United Arab Emirates",
+    "liveWindow": 3,
+    "round": "final",
+    "roundLabel": "Grand Final",
+    "stage": "fleet racing",
+    "narrativeType": "all",
+    "selectedSentence": "The Abu Dhabi Grand Final opens with the season championship still alive.",
+    "fullSpiel": "Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
+    "sourceName": "SailGP 2026 calendar",
+    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:sailing",
+    "discoverySportId": "sport:sailgp",
+    "competitionId": "competition:sailgp",
+    "taxonomyNodeId": "competition:sailgp",
+    "codeId": "competition:sailgp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "SE",
+      "NZ",
+      "AU",
+      "FR",
+      "GB",
+      "CH",
+      "DE",
+      "ES",
+      "BR",
+      "CA",
+      "IT",
+      "DK",
+      "US"
+    ],
+    "participantIds": [
+      "team:sailgp:artemis",
+      "team:sailgp:black-foils",
+      "team:sailgp:bonds-flying-roos",
+      "team:sailgp:france",
+      "team:sailgp:great-britain",
+      "team:sailgp:switzerland",
+      "team:sailgp:germany",
+      "team:sailgp:los-gallos",
+      "team:sailgp:mubadala-brazil",
+      "team:sailgp:northstar",
+      "team:sailgp:red-bull-italy",
+      "team:sailgp:rockwool-racing",
+      "team:sailgp:united-states"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "The Abu Dhabi Grand Final opens with the season championship still alive.",
+      "hookSpoilerOn": "The Abu Dhabi Grand Final opens with the season championship still alive.",
+      "synopsisSpoilerOff": "Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
+      "synopsisSpoilerOn": "Fleet points set the finalists for SailGP's last winner-takes-all race of 2026.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Grand Final",
+      "contextSignals": [
+        "official-schedule",
+        "fleet racing"
+      ],
+      "sourceName": "SailGP 2026 calendar",
+      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_sailgp_2026_abu_dhabi_day_2",
+    "eventId": "evt_sailgp_2026_abu_dhabi_day_2",
+    "canonicalEventId": "event:sailgp:2026:abu-dhabi-day-2",
+    "sport": "SailGP",
+    "key": "sailgp",
+    "name": "Abu Dhabi Sail Grand Prix — championship day",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Abu Dhabi Sail Grand Prix — championship day",
+    "date": "2026-11-29",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "Abu Dhabi, United Arab Emirates",
+    "liveWindow": 3,
+    "round": "final",
+    "roundLabel": "Grand Final",
+    "stage": "championship",
+    "narrativeType": "all",
+    "selectedSentence": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
+    "fullSpiel": "A full season of fleet racing ends in the championship's decisive final contest.",
+    "sourceName": "SailGP 2026 calendar",
+    "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:sailing",
+    "discoverySportId": "sport:sailgp",
+    "competitionId": "competition:sailgp",
+    "taxonomyNodeId": "competition:sailgp",
+    "codeId": "competition:sailgp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "SE",
+      "NZ",
+      "AU",
+      "FR",
+      "GB",
+      "CH",
+      "DE",
+      "ES",
+      "BR",
+      "CA",
+      "IT",
+      "DK",
+      "US"
+    ],
+    "participantIds": [
+      "team:sailgp:artemis",
+      "team:sailgp:black-foils",
+      "team:sailgp:bonds-flying-roos",
+      "team:sailgp:france",
+      "team:sailgp:great-britain",
+      "team:sailgp:switzerland",
+      "team:sailgp:germany",
+      "team:sailgp:los-gallos",
+      "team:sailgp:mubadala-brazil",
+      "team:sailgp:northstar",
+      "team:sailgp:red-bull-italy",
+      "team:sailgp:rockwool-racing",
+      "team:sailgp:united-states"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
+      "hookSpoilerOn": "SailGP's last race crowns the 2026 champion in Abu Dhabi.",
+      "synopsisSpoilerOff": "A full season of fleet racing ends in the championship's decisive final contest.",
+      "synopsisSpoilerOn": "A full season of fleet racing ends in the championship's decisive final contest.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Grand Final",
+      "contextSignals": [
+        "official-schedule",
+        "championship"
+      ],
+      "sourceName": "SailGP 2026 calendar",
+      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_motogp_2026_san_marino",
+    "eventId": "evt_motogp_2026_san_marino",
+    "canonicalEventId": "event:motogp:2026:san-marino",
+    "sport": "MotoGP",
+    "key": "motogp",
+    "name": "MotoGP San Marino Grand Prix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "MotoGP San Marino Grand Prix",
+    "date": "2026-09-13",
+    "time": "22:00",
+    "timeTbc": false,
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Misano World Circuit Marco Simoncelli",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "San Marino GP",
+    "stage": "Grand Prix",
+    "narrativeType": "all",
+    "selectedSentence": "MotoGP's title fight heads to Misano for the San Marino Grand Prix.",
+    "fullSpiel": "The Italian stop begins the final nine-race run to the Valencia decider.",
+    "sourceName": "MotoGP",
+    "sourceUrl": "https://stats.motogp.com/en/gp-results",
+    "sourceCheckedAt": "2026-09-15T05:30:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "sportDomainId": "sport:motorsport",
+    "discoverySportId": "sport:motogp",
+    "competitionId": "competition:motogp",
+    "taxonomyNodeId": "competition:motogp",
+    "codeId": "competition:motogp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "FR",
+      "TR",
+      "IT",
+      "BR",
+      "ES",
+      "ZA",
+      "AU",
+      "JP"
+    ],
+    "participantIds": [
+      "competitor:motogp:johann-zarco",
+      "competitor:motogp:toprak-razgatlioglu",
+      "competitor:motogp:luca-marini",
+      "competitor:motogp:diogo-moreira",
+      "competitor:motogp:maverick-vinales",
+      "competitor:motogp:fabio-quartararo",
+      "competitor:motogp:franco-morbidelli",
+      "competitor:motogp:enea-bastianini",
+      "competitor:motogp:raul-fernandez",
+      "competitor:motogp:brad-binder",
+      "competitor:motogp:joan-mir",
+      "competitor:motogp:pedro-acosta",
+      "competitor:motogp:alex-rins",
+      "competitor:motogp:jack-miller",
+      "competitor:motogp:fabio-di-giannantonio",
+      "competitor:motogp:fermin-aldeguer",
+      "competitor:motogp:francesco-bagnaia",
+      "competitor:motogp:marco-bezzecchi",
+      "competitor:motogp:alex-marquez",
+      "competitor:motogp:ai-ogura",
+      "competitor:motogp:jorge-martin",
+      "competitor:motogp:marc-marquez"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "recap",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
+      "hookSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
+      "synopsisSpoilerOff": "MotoGP San Marino Grand Prix is complete. Reveal results for the outcome.",
+      "synopsisSpoilerOn": "Marc Marquez won the San Marino Grand Prix.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "San Marino GP",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z",
+    "startTimeUtc": "2026-09-13T12:00:00.000Z",
+    "endTimeUtc": "2026-09-13T13:30:00.000Z",
+    "endTimeBasis": "scheduled-live-window",
+    "score": "1. Marc Marquez · 2. Alex Marquez · 3. Pedro Acosta",
+    "outcomeText": "Marc Marquez won the San Marino Grand Prix.",
+    "sourceRefs": [
+      "https://stats.motogp.com/en/gp-results",
+      "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181",
+      "https://www.motogp.com/en/calendar/2026"
+    ]
+  },
+  {
+    "id": "evt_motogp_2026_austria",
+    "eventId": "evt_motogp_2026_austria",
+    "canonicalEventId": "event:motogp:2026:austria",
+    "sport": "MotoGP",
+    "key": "motogp",
+    "name": "MotoGP Austrian Grand Prix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "MotoGP Austrian Grand Prix",
+    "date": "2026-09-20",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Red Bull Ring",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Austrian GP",
+    "stage": "Grand Prix",
+    "narrativeType": "all",
+    "selectedSentence": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
+    "fullSpiel": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
+    "sourceName": "MotoGP 2026 calendar",
+    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:motorsport",
+    "discoverySportId": "sport:motogp",
+    "competitionId": "competition:motogp",
+    "taxonomyNodeId": "competition:motogp",
+    "codeId": "competition:motogp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "FR",
+      "TR",
+      "IT",
+      "BR",
+      "ES",
+      "ZA",
+      "AU",
+      "JP"
+    ],
+    "participantIds": [
+      "competitor:motogp:johann-zarco",
+      "competitor:motogp:toprak-razgatlioglu",
+      "competitor:motogp:luca-marini",
+      "competitor:motogp:diogo-moreira",
+      "competitor:motogp:maverick-vinales",
+      "competitor:motogp:fabio-quartararo",
+      "competitor:motogp:franco-morbidelli",
+      "competitor:motogp:enea-bastianini",
+      "competitor:motogp:raul-fernandez",
+      "competitor:motogp:brad-binder",
+      "competitor:motogp:joan-mir",
+      "competitor:motogp:pedro-acosta",
+      "competitor:motogp:alex-rins",
+      "competitor:motogp:jack-miller",
+      "competitor:motogp:fabio-di-giannantonio",
+      "competitor:motogp:fermin-aldeguer",
+      "competitor:motogp:francesco-bagnaia",
+      "competitor:motogp:marco-bezzecchi",
+      "competitor:motogp:alex-marquez",
+      "competitor:motogp:ai-ogura",
+      "competitor:motogp:jorge-martin",
+      "competitor:motogp:marc-marquez"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
+      "hookSpoilerOn": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
+      "synopsisSpoilerOff": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
+      "synopsisSpoilerOn": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
+      "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+      "researchDepth": 5
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "MotoGP Austrian Grand Prix",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path",
+        "narrative:schedule"
+      ],
+      "sourceName": "MotoGP Austrian Grand Prix — official research 1",
+      "sourceUrl": "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413",
+      "sourceCheckedAt": "2026-09-17T23:22:14.102Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-17T23:22:14.102Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:fixture-research:evt_motogp_2026_austria",
+      "researchTier": "marquee",
+      "hook": "Marquez and Martin arrive level on points; Austria could separate them before the flyaways.",
+      "synopsis": "Marc Marquez returns to the Red Bull Ring as last year's winner, tied with Jorge Martin at the top of the championship. Martin says the weekend will test whether his arm-pump problem needs surgery. Pedro Acosta adds a home-manufacturer challenge for KTM. Watch how sustained braking pressure affects that title duel over the race.",
+      "threadIds": [
+        "thread:fixture-research:evt_motogp_2026_austria"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_motogp_2026_austria:0",
+        "fact:fixture-research:evt_motogp_2026_austria:1",
+        "fact:fixture-research:evt_motogp_2026_austria:2",
+        "fact:fixture-research:evt_motogp_2026_austria:3"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_motogp_2026_austria:0",
+        "source:fixture-research:evt_motogp_2026_austria:1",
+        "source:fixture-research:evt_motogp_2026_austria:2"
+      ],
+      "dimensions": [
+        "matchup",
+        "form",
+        "path",
+        "schedule"
+      ],
+      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "refreshAfter": "2026-09-09T12:00:00.000Z",
+      "generationMode": "researched"
+    }
+  },
+  {
+    "id": "evt_motogp_2026_japan",
+    "eventId": "evt_motogp_2026_japan",
+    "canonicalEventId": "event:motogp:2026:japan",
+    "sport": "MotoGP",
+    "key": "motogp",
+    "name": "MotoGP Japanese Grand Prix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "MotoGP Japanese Grand Prix",
+    "date": "2026-10-04",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Mobility Resort Motegi",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Japanese GP",
+    "stage": "Grand Prix",
+    "narrativeType": "all",
+    "selectedSentence": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
+    "fullSpiel": "Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
+    "sourceName": "MotoGP 2026 calendar",
+    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:motorsport",
+    "discoverySportId": "sport:motogp",
+    "competitionId": "competition:motogp",
+    "taxonomyNodeId": "competition:motogp",
+    "codeId": "competition:motogp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "FR",
+      "TR",
+      "IT",
+      "BR",
+      "ES",
+      "ZA",
+      "AU",
+      "JP"
+    ],
+    "participantIds": [
+      "competitor:motogp:johann-zarco",
+      "competitor:motogp:toprak-razgatlioglu",
+      "competitor:motogp:luca-marini",
+      "competitor:motogp:diogo-moreira",
+      "competitor:motogp:maverick-vinales",
+      "competitor:motogp:fabio-quartararo",
+      "competitor:motogp:franco-morbidelli",
+      "competitor:motogp:enea-bastianini",
+      "competitor:motogp:raul-fernandez",
+      "competitor:motogp:brad-binder",
+      "competitor:motogp:joan-mir",
+      "competitor:motogp:pedro-acosta",
+      "competitor:motogp:alex-rins",
+      "competitor:motogp:jack-miller",
+      "competitor:motogp:fabio-di-giannantonio",
+      "competitor:motogp:fermin-aldeguer",
+      "competitor:motogp:francesco-bagnaia",
+      "competitor:motogp:marco-bezzecchi",
+      "competitor:motogp:alex-marquez",
+      "competitor:motogp:ai-ogura",
+      "competitor:motogp:jorge-martin",
+      "competitor:motogp:marc-marquez"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
+      "hookSpoilerOn": "Motegi opens MotoGP's Asian run with the championship margin under fresh pressure.",
+      "synopsisSpoilerOff": "Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
+      "synopsisSpoilerOn": "Heavy braking and stop-start acceleration make Japan a distinct test in the late season.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Japanese GP",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_motogp_2026_indonesia",
+    "eventId": "evt_motogp_2026_indonesia",
+    "canonicalEventId": "event:motogp:2026:indonesia",
+    "sport": "MotoGP",
+    "key": "motogp",
+    "name": "MotoGP Indonesian Grand Prix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "MotoGP Indonesian Grand Prix",
+    "date": "2026-10-11",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": "Pertamina Mandalika International Circuit",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Indonesian GP",
+    "stage": "Grand Prix",
+    "narrativeType": "all",
+    "selectedSentence": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
+    "fullSpiel": "Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
+    "sourceName": "MotoGP 2026 calendar",
+    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:motorsport",
+    "discoverySportId": "sport:motogp",
+    "competitionId": "competition:motogp",
+    "taxonomyNodeId": "competition:motogp",
+    "codeId": "competition:motogp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "FR",
+      "TR",
+      "IT",
+      "BR",
+      "ES",
+      "ZA",
+      "AU",
+      "JP"
+    ],
+    "participantIds": [
+      "competitor:motogp:johann-zarco",
+      "competitor:motogp:toprak-razgatlioglu",
+      "competitor:motogp:luca-marini",
+      "competitor:motogp:diogo-moreira",
+      "competitor:motogp:maverick-vinales",
+      "competitor:motogp:fabio-quartararo",
+      "competitor:motogp:franco-morbidelli",
+      "competitor:motogp:enea-bastianini",
+      "competitor:motogp:raul-fernandez",
+      "competitor:motogp:brad-binder",
+      "competitor:motogp:joan-mir",
+      "competitor:motogp:pedro-acosta",
+      "competitor:motogp:alex-rins",
+      "competitor:motogp:jack-miller",
+      "competitor:motogp:fabio-di-giannantonio",
+      "competitor:motogp:fermin-aldeguer",
+      "competitor:motogp:francesco-bagnaia",
+      "competitor:motogp:marco-bezzecchi",
+      "competitor:motogp:alex-marquez",
+      "competitor:motogp:ai-ogura",
+      "competitor:motogp:jorge-martin",
+      "competitor:motogp:marc-marquez"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
+      "hookSpoilerOn": "Mandalika follows Japan immediately, compressing the MotoGP title fight into consecutive weekends.",
+      "synopsisSpoilerOff": "Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
+      "synopsisSpoilerOn": "Heat, grip evolution and travel recovery all matter in Indonesia's late-season race.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Indonesian GP",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_motogp_2026_australia",
+    "eventId": "evt_motogp_2026_australia",
+    "canonicalEventId": "event:motogp:2026:australia",
+    "sport": "MotoGP",
+    "key": "motogp",
+    "name": "Australian Motorcycle Grand Prix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Australian Motorcycle Grand Prix",
+    "date": "2026-10-25",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "Phillip Island Grand Prix Circuit",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Australian GP",
+    "stage": "Grand Prix",
+    "narrativeType": "all",
+    "selectedSentence": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
+    "fullSpiel": "Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
+    "sourceName": "MotoGP 2026 calendar",
+    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:motorsport",
+    "discoverySportId": "sport:motogp",
+    "competitionId": "competition:motogp",
+    "taxonomyNodeId": "competition:motogp",
+    "codeId": "competition:motogp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "FR",
+      "TR",
+      "IT",
+      "BR",
+      "ES",
+      "ZA",
+      "AU",
+      "JP"
+    ],
+    "participantIds": [
+      "competitor:motogp:johann-zarco",
+      "competitor:motogp:toprak-razgatlioglu",
+      "competitor:motogp:luca-marini",
+      "competitor:motogp:diogo-moreira",
+      "competitor:motogp:maverick-vinales",
+      "competitor:motogp:fabio-quartararo",
+      "competitor:motogp:franco-morbidelli",
+      "competitor:motogp:enea-bastianini",
+      "competitor:motogp:raul-fernandez",
+      "competitor:motogp:brad-binder",
+      "competitor:motogp:joan-mir",
+      "competitor:motogp:pedro-acosta",
+      "competitor:motogp:alex-rins",
+      "competitor:motogp:jack-miller",
+      "competitor:motogp:fabio-di-giannantonio",
+      "competitor:motogp:fermin-aldeguer",
+      "competitor:motogp:francesco-bagnaia",
+      "competitor:motogp:marco-bezzecchi",
+      "competitor:motogp:alex-marquez",
+      "competitor:motogp:ai-ogura",
+      "competitor:motogp:jorge-martin",
+      "competitor:motogp:marc-marquez"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
+      "hookSpoilerOn": "MotoGP reaches Phillip Island for Australia's fastest and most exposed home round.",
+      "synopsisSpoilerOff": "Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
+      "synopsisSpoilerOn": "Jack Miller's home race meets a title run-in shaped by speed, wind and tyre management.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Australian GP",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_motogp_2026_malaysia",
+    "eventId": "evt_motogp_2026_malaysia",
+    "canonicalEventId": "event:motogp:2026:malaysia",
+    "sport": "MotoGP",
+    "key": "motogp",
+    "name": "MotoGP Malaysian Grand Prix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "MotoGP Malaysian Grand Prix",
+    "date": "2026-11-01",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": "Petronas Sepang International Circuit",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Malaysian GP",
+    "stage": "Grand Prix",
+    "narrativeType": "all",
+    "selectedSentence": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
+    "fullSpiel": "Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
+    "sourceName": "MotoGP 2026 calendar",
+    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:motorsport",
+    "discoverySportId": "sport:motogp",
+    "competitionId": "competition:motogp",
+    "taxonomyNodeId": "competition:motogp",
+    "codeId": "competition:motogp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "FR",
+      "TR",
+      "IT",
+      "BR",
+      "ES",
+      "ZA",
+      "AU",
+      "JP"
+    ],
+    "participantIds": [
+      "competitor:motogp:johann-zarco",
+      "competitor:motogp:toprak-razgatlioglu",
+      "competitor:motogp:luca-marini",
+      "competitor:motogp:diogo-moreira",
+      "competitor:motogp:maverick-vinales",
+      "competitor:motogp:fabio-quartararo",
+      "competitor:motogp:franco-morbidelli",
+      "competitor:motogp:enea-bastianini",
+      "competitor:motogp:raul-fernandez",
+      "competitor:motogp:brad-binder",
+      "competitor:motogp:joan-mir",
+      "competitor:motogp:pedro-acosta",
+      "competitor:motogp:alex-rins",
+      "competitor:motogp:jack-miller",
+      "competitor:motogp:fabio-di-giannantonio",
+      "competitor:motogp:fermin-aldeguer",
+      "competitor:motogp:francesco-bagnaia",
+      "competitor:motogp:marco-bezzecchi",
+      "competitor:motogp:alex-marquez",
+      "competitor:motogp:ai-ogura",
+      "competitor:motogp:jorge-martin",
+      "competitor:motogp:marc-marquez"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
+      "hookSpoilerOn": "Sepang keeps the MotoGP field in the heat as the available championship points shrink.",
+      "synopsisSpoilerOff": "Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
+      "synopsisSpoilerOn": "Long straights, humidity and heavy braking make Malaysia a severe late-season examination.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Malaysian GP",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_motogp_2026_qatar",
+    "eventId": "evt_motogp_2026_qatar",
+    "canonicalEventId": "event:motogp:2026:qatar",
+    "sport": "MotoGP",
+    "key": "motogp",
+    "name": "MotoGP Qatar Grand Prix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "MotoGP Qatar Grand Prix",
+    "date": "2026-11-08",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": "Lusail International Circuit",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qatar GP",
+    "stage": "Grand Prix",
+    "narrativeType": "all",
+    "selectedSentence": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
+    "fullSpiel": "Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
+    "sourceName": "MotoGP 2026 calendar",
+    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:motorsport",
+    "discoverySportId": "sport:motogp",
+    "competitionId": "competition:motogp",
+    "taxonomyNodeId": "competition:motogp",
+    "codeId": "competition:motogp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "FR",
+      "TR",
+      "IT",
+      "BR",
+      "ES",
+      "ZA",
+      "AU",
+      "JP"
+    ],
+    "participantIds": [
+      "competitor:motogp:johann-zarco",
+      "competitor:motogp:toprak-razgatlioglu",
+      "competitor:motogp:luca-marini",
+      "competitor:motogp:diogo-moreira",
+      "competitor:motogp:maverick-vinales",
+      "competitor:motogp:fabio-quartararo",
+      "competitor:motogp:franco-morbidelli",
+      "competitor:motogp:enea-bastianini",
+      "competitor:motogp:raul-fernandez",
+      "competitor:motogp:brad-binder",
+      "competitor:motogp:joan-mir",
+      "competitor:motogp:pedro-acosta",
+      "competitor:motogp:alex-rins",
+      "competitor:motogp:jack-miller",
+      "competitor:motogp:fabio-di-giannantonio",
+      "competitor:motogp:fermin-aldeguer",
+      "competitor:motogp:francesco-bagnaia",
+      "competitor:motogp:marco-bezzecchi",
+      "competitor:motogp:alex-marquez",
+      "competitor:motogp:ai-ogura",
+      "competitor:motogp:jorge-martin",
+      "competitor:motogp:marc-marquez"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
+      "hookSpoilerOn": "Lusail's night race carries MotoGP into the final three rounds of 2026.",
+      "synopsisSpoilerOff": "Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
+      "synopsisSpoilerOn": "Cooler night conditions and a fast, flowing layout can reopen a narrowing title contest.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qatar GP",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_motogp_2026_portugal",
+    "eventId": "evt_motogp_2026_portugal",
+    "canonicalEventId": "event:motogp:2026:portugal",
+    "sport": "MotoGP",
+    "key": "motogp",
+    "name": "MotoGP Portuguese Grand Prix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "MotoGP Portuguese Grand Prix",
+    "date": "2026-11-22",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": "Algarve International Circuit",
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Portuguese GP",
+    "stage": "Grand Prix",
+    "narrativeType": "all",
+    "selectedSentence": "Portimão's elevation changes host MotoGP's penultimate round.",
+    "fullSpiel": "Only Valencia remains after Portugal, so every point has immediate championship consequence.",
+    "sourceName": "MotoGP 2026 calendar",
+    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:motorsport",
+    "discoverySportId": "sport:motogp",
+    "competitionId": "competition:motogp",
+    "taxonomyNodeId": "competition:motogp",
+    "codeId": "competition:motogp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "FR",
+      "TR",
+      "IT",
+      "BR",
+      "ES",
+      "ZA",
+      "AU",
+      "JP"
+    ],
+    "participantIds": [
+      "competitor:motogp:johann-zarco",
+      "competitor:motogp:toprak-razgatlioglu",
+      "competitor:motogp:luca-marini",
+      "competitor:motogp:diogo-moreira",
+      "competitor:motogp:maverick-vinales",
+      "competitor:motogp:fabio-quartararo",
+      "competitor:motogp:franco-morbidelli",
+      "competitor:motogp:enea-bastianini",
+      "competitor:motogp:raul-fernandez",
+      "competitor:motogp:brad-binder",
+      "competitor:motogp:joan-mir",
+      "competitor:motogp:pedro-acosta",
+      "competitor:motogp:alex-rins",
+      "competitor:motogp:jack-miller",
+      "competitor:motogp:fabio-di-giannantonio",
+      "competitor:motogp:fermin-aldeguer",
+      "competitor:motogp:francesco-bagnaia",
+      "competitor:motogp:marco-bezzecchi",
+      "competitor:motogp:alex-marquez",
+      "competitor:motogp:ai-ogura",
+      "competitor:motogp:jorge-martin",
+      "competitor:motogp:marc-marquez"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Portimão's elevation changes host MotoGP's penultimate round.",
+      "hookSpoilerOn": "Portimão's elevation changes host MotoGP's penultimate round.",
+      "synopsisSpoilerOff": "Only Valencia remains after Portugal, so every point has immediate championship consequence.",
+      "synopsisSpoilerOn": "Only Valencia remains after Portugal, so every point has immediate championship consequence.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Portuguese GP",
+      "contextSignals": [
+        "official-schedule",
+        "Grand Prix"
+      ],
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
+    "id": "evt_motogp_2026_valencia",
+    "eventId": "evt_motogp_2026_valencia",
+    "canonicalEventId": "event:motogp:2026:valencia",
+    "sport": "MotoGP",
+    "key": "motogp",
+    "name": "MotoGP Valencia Grand Prix",
+    "cardKind": "fixture",
+    "displayTitleCompact": "MotoGP Valencia Grand Prix",
+    "date": "2026-11-29",
+    "time": "00:00",
+    "timeTbc": true,
+    "timePrecision": "tbc",
+    "scheduleStatus": "tbc",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 10,
+    "stakesScore": 5,
+    "venue": "Circuit Ricardo Tormo",
+    "liveWindow": 3,
+    "round": "final",
+    "roundLabel": "Valencia GP",
+    "stage": "Season finale",
+    "narrativeType": "all",
+    "selectedSentence": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
+    "fullSpiel": "The compact stadium circuit is the last chance for a rider to change the final standings.",
+    "sourceName": "MotoGP 2026 calendar",
+    "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+    "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:motorsport",
+    "discoverySportId": "sport:motogp",
+    "competitionId": "competition:motogp",
+    "taxonomyNodeId": "competition:motogp",
+    "codeId": "competition:motogp",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [
+      "FR",
+      "TR",
+      "IT",
+      "BR",
+      "ES",
+      "ZA",
+      "AU",
+      "JP"
+    ],
+    "participantIds": [
+      "competitor:motogp:johann-zarco",
+      "competitor:motogp:toprak-razgatlioglu",
+      "competitor:motogp:luca-marini",
+      "competitor:motogp:diogo-moreira",
+      "competitor:motogp:maverick-vinales",
+      "competitor:motogp:fabio-quartararo",
+      "competitor:motogp:franco-morbidelli",
+      "competitor:motogp:enea-bastianini",
+      "competitor:motogp:raul-fernandez",
+      "competitor:motogp:brad-binder",
+      "competitor:motogp:joan-mir",
+      "competitor:motogp:pedro-acosta",
+      "competitor:motogp:alex-rins",
+      "competitor:motogp:jack-miller",
+      "competitor:motogp:fabio-di-giannantonio",
+      "competitor:motogp:fermin-aldeguer",
+      "competitor:motogp:francesco-bagnaia",
+      "competitor:motogp:marco-bezzecchi",
+      "competitor:motogp:alex-marquez",
+      "competitor:motogp:ai-ogura",
+      "competitor:motogp:jorge-martin",
+      "competitor:motogp:marc-marquez"
+    ],
+    "participantDisplayMode": "field",
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 10,
+      "hookSpoilerOff": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
+      "hookSpoilerOn": "Valencia closes the 2026 MotoGP season and settles any championship still alive.",
+      "synopsisSpoilerOff": "The compact stadium circuit is the last chance for a rider to change the final standings.",
+      "synopsisSpoilerOn": "The compact stadium circuit is the last chance for a rider to change the final standings.",
+      "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Valencia GP",
+      "contextSignals": [
+        "official-schedule",
+        "Season finale"
+      ],
+      "sourceName": "MotoGP 2026 calendar",
+      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
+      "sourceCheckedAt": "2026-09-06T18:20:00.000Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-06T18:20:00.000Z"
+  },
+  {
     "id": "evt_golf_masters_2027",
     "eventId": "evt_golf_masters_2027",
     "canonicalEventId": "event:golf:masters-2027",
@@ -99699,6 +96714,224 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "endTimeBasis": "scheduled-live-window"
   },
   {
+    "id": "evt_28",
+    "eventId": "evt_28",
+    "canonicalEventId": "event:f1:2026:spain:qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Spanish GP · Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Spanish GP · Qualifying",
+    "date": "2026-09-13",
+    "time": "00:00",
+    "startTimeUtc": "2026-09-12T14:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "R14 Spanish GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "R14 Spanish GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 3,
+      "hookSpoilerOff": "R14 Spanish GP Qualifying is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Lando Norris took pole for R14 Spanish GP Qualifying.",
+      "synopsisSpoilerOff": "R14 Spanish GP Qualifying is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Lando Norris took pole for R14 Spanish GP Qualifying. 1. Lando Norris (McLaren); 2. Kimi Antonelli (Mercedes); 3. Max Verstappen (Red Bull Racing).",
+      "lastReviewedAt": "2026-09-08T13:52:45.257Z",
+      "arcStage": "recap",
+      "researchDepth": 5,
+      "intensity": 3,
+      "expectedSpectacle": 6,
+      "intensitySource": "computed"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-28",
+      "researchTier": "marquee",
+      "hook": "Kimi Antonelli leads by 66 points into R14 Spanish GP Qualifying; this session sets the grid and determines who controls the race start.",
+      "synopsis": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Qualifying now tests that advantage because it sets the grid and determines who controls the race start, turning the championship gap into an immediate competitive problem rather than background information.",
+      "threadIds": [
+        "thread:rolling:f1-title"
+      ],
+      "factIds": [
+        "fact:rolling:f1:constructors",
+        "fact:rolling:f1:circuit:spain",
+        "fact:rolling:f1:leader",
+        "fact:rolling:f1:qualifying-consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:f1:driver-standings",
+        "source:rolling:f1:constructors",
+        "source:rolling:f1:circuit:spain"
+      ],
+      "dimensions": [
+        "form",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-09-08T13:52:45.257Z",
+      "refreshAfter": null,
+      "generationMode": "researched"
+    },
+    "endTimeUtc": "2026-09-12T17:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
+    "id": "evt_29",
+    "eventId": "evt_29",
+    "canonicalEventId": "event:f1:2026:spain:race",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Spanish GP · Race",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Spanish GP · Race",
+    "date": "2026-09-13",
+    "time": "23:00",
+    "startTimeUtc": "2026-09-13T13:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Race",
+    "stage": "Race",
+    "narrativeType": "all",
+    "selectedSentence": "R14 Spanish GP Race is complete; the key moments are protected until you choose to reveal them.",
+    "fullSpiel": "R14 Spanish GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "completed",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 3,
+      "hookSpoilerOff": "R14 Spanish GP Race is complete; the key moments are protected until you choose to reveal them.",
+      "hookSpoilerOn": "Kimi Antonelli won R14 Spanish GP Race.",
+      "synopsisSpoilerOff": "R14 Spanish GP Race is complete. The defining moments and result-aware recap are ready when you are, without giving anything away here.",
+      "synopsisSpoilerOn": "Kimi Antonelli won R14 Spanish GP Race. 1. Kimi Antonelli (Mercedes); 2. Max Verstappen (Red Bull Racing); 3. Lando Norris (McLaren).",
+      "lastReviewedAt": "2026-09-08T13:52:45.257Z",
+      "arcStage": "recap",
+      "researchDepth": 5,
+      "intensity": 4,
+      "expectedSpectacle": 7,
+      "intensitySource": "computed"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Race",
+      "contextSignals": [
+        "official-schedule",
+        "Race"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/spain",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:rolling:evt-29",
+      "researchTier": "marquee",
+      "hook": "Kimi Antonelli leads by 66 points into R14 Spanish GP Race; this session is the points-paying chapter of the weekend.",
+      "synopsis": "Kimi Antonelli holds 267 points to George Russell's 201 in the official driver standings. R14 Spanish GP Race now tests that advantage because it is the points-paying chapter of the weekend, turning the championship gap into an immediate competitive problem rather than background information.",
+      "threadIds": [
+        "thread:rolling:f1-title"
+      ],
+      "factIds": [
+        "fact:rolling:f1:constructors",
+        "fact:rolling:f1:circuit:spain",
+        "fact:rolling:f1:leader",
+        "fact:rolling:f1:race-consequence"
+      ],
+      "sourceIds": [
+        "source:rolling:f1:driver-standings",
+        "source:rolling:f1:constructors",
+        "source:rolling:f1:circuit:spain"
+      ],
+      "dimensions": [
+        "form",
+        "format",
+        "consequence"
+      ],
+      "researchedAt": "2026-09-08T13:52:45.257Z",
+      "refreshAfter": null,
+      "generationMode": "researched"
+    },
+    "endTimeUtc": "2026-09-13T16:00:00.000Z",
+    "endTimeBasis": "scheduled-live-window"
+  },
+  {
     "id": "evt_f1_2026_azerbaijan_practice_1",
     "eventId": "evt_f1_2026_azerbaijan_practice_1",
     "canonicalEventId": "event:f1:2026:azerbaijan:practice-1",
@@ -99928,6 +97161,221 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "needsPreviewRefresh": false
     },
     "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_30",
+    "eventId": "evt_30",
+    "canonicalEventId": "event:f1:2026:azerbaijan:qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Azerbaijan GP · Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Azerbaijan GP · Qualifying",
+    "date": "2026-09-25",
+    "time": "22:00",
+    "startTimeUtc": "2026-09-25T12:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "One lap must reconcile Baku's long full-throttle run with a wall-lined old town that forgives almost nothing.",
+    "fullSpiel": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "One lap must reconcile Baku's long full-throttle run with a wall-lined old town that forgives almost nothing.",
+      "hookSpoilerOn": "One lap must reconcile Baku's long full-throttle run with a wall-lined old town that forgives almost nothing.",
+      "synopsisSpoilerOff": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
+      "synopsisSpoilerOn": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+      "researchDepth": 4
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Baku's walls and passing straight",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:form"
+      ],
+      "sourceName": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:feed:azerbaijan-gp-qualifying-2026",
+      "researchTier": "featured",
+      "hook": "One lap must reconcile Baku's long full-throttle run with a wall-lined old town that forgives almost nothing.",
+      "synopsis": "Baku qualifying asks teams to trade downforce through the narrow old town against speed on the long straight. The walls punish small errors, and the championship state must be refreshed after Italy and Madrid rather than frozen into this card from August.",
+      "threadIds": [
+        "thread:f1:baku:risk-reward"
+      ],
+      "factIds": [
+        "fact:evt30:setup-conflict",
+        "fact:evt30:walls-and-grid",
+        "fact:evt30:title-state-not-frozen"
+      ],
+      "sourceIds": [
+        "source:f1:2026-azerbaijan-race-hub",
+        "source:f1:2026-driver-standings-0830",
+        "source:fia:2026-calendar-current"
+      ],
+      "dimensions": [
+        "path",
+        "consequence",
+        "form"
+      ],
+      "researchedAt": "2026-08-29T23:56:41.761Z",
+      "refreshAfter": "2026-09-23T12:00:00.000Z",
+      "generationMode": "researched"
+    }
+  },
+  {
+    "id": "evt_31",
+    "eventId": "evt_31",
+    "canonicalEventId": "event:f1:2026:azerbaijan:race",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Azerbaijan GP · Race",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Azerbaijan GP · Race",
+    "date": "2026-09-26",
+    "time": "21:00",
+    "startTimeUtc": "2026-09-26T11:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Race",
+    "stage": "Race",
+    "narrativeType": "all",
+    "selectedSentence": "Baku offers a passing straight, a wall-lined old town and almost no clean compromise between them.",
+    "fullSpiel": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Baku offers a passing straight, a wall-lined old town and almost no clean compromise between them.",
+      "hookSpoilerOn": "Baku offers a passing straight, a wall-lined old town and almost no clean compromise between them.",
+      "synopsisSpoilerOff": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
+      "synopsisSpoilerOn": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
+      "intensitySource": "computed",
+      "lastReviewedAt": "2026-08-29T23:56:41.761Z",
+      "researchDepth": 4
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Baku's walls and passing straight",
+      "contextSignals": [
+        "event-specific",
+        "narrative:format",
+        "narrative:consequence",
+        "narrative:history"
+      ],
+      "sourceName": "Formula 1 — 2026 Azerbaijan Grand Prix hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+      "sourceCheckedAt": "2026-08-29T23:56:41.761Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z",
+    "editorialNarrative": {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:feed:azerbaijan-gp-race-2026",
+      "researchTier": "featured",
+      "hook": "Baku offers a passing straight, a wall-lined old town and almost no clean compromise between them.",
+      "synopsis": "The 51-lap race combines slipstream opportunity into Turn 1 with a narrow old-town section that leaves little recovery space. Baku's 2017 upset supplies history, while the precise title consequence must wait for the preceding rounds and qualifying.",
+      "threadIds": [
+        "thread:f1:baku:risk-reward"
+      ],
+      "factIds": [
+        "fact:evt31:distance",
+        "fact:evt31:passing-versus-walls",
+        "fact:evt31:first-azerbaijan-upset"
+      ],
+      "sourceIds": [
+        "source:f1:2026-azerbaijan-race-hub",
+        "source:fia:2026-calendar-current"
+      ],
+      "dimensions": [
+        "format",
+        "consequence",
+        "history"
+      ],
+      "researchedAt": "2026-08-29T23:56:41.761Z",
+      "refreshAfter": "2026-09-25T14:00:00.000Z",
+      "generationMode": "researched"
+    }
   },
   {
     "id": "evt_f1_2026_bahrain_practice_1",
@@ -100546,6 +97994,199 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
+    "id": "evt_32",
+    "eventId": "evt_32",
+    "canonicalEventId": "event:f1:2026:singapore:qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Singapore GP · Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Singapore GP · Qualifying",
+    "date": "2026-10-11",
+    "time": "00:00",
+    "startTimeUtc": "2026-10-10T13:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "Qualifying sets the grid, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Qualifying.",
+    "fullSpiel": "R16 Singapore GP Qualifying is scheduled for 2026-10-11 at 01:00. Qualifying sets the grid; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Singapore GP.",
+      "hookSpoilerOn": "Qualifying at the Singapore GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "grid-setting"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "digestFingerprint": "b9eeb2ff91ee7c853022cef22007b9d784fdb30f2b143d15046bb4e835bf4da1",
+      "promptVersion": "f1-editorial.v1",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_33",
+    "eventId": "evt_33",
+    "canonicalEventId": "event:f1:2026:singapore:race",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Singapore GP · Race",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Singapore GP · Race",
+    "date": "2026-10-11",
+    "time": "23:00",
+    "startTimeUtc": "2026-10-11T12:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Race",
+    "stage": "Race",
+    "narrativeType": "all",
+    "selectedSentence": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Race.",
+    "fullSpiel": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/singapore",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Race.",
+      "hookSpoilerOn": "The race is the weekend's points-paying session, with Kimi Antonelli carrying the current title lead into R16 Singapore GP Race.",
+      "synopsisSpoilerOff": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "synopsisSpoilerOn": "R16 Singapore GP Race is scheduled for 2026-10-12 at 00:00. The race is the weekend's points-paying session; Kimi Antonelli leads the official 2026 driver standings at this refresh.",
+      "intensitySource": "computed"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "The next published session viewed through current championship position and its direct sporting consequence.",
+      "contextSignals": [
+        "fixture-specific",
+        "current-championship-standings",
+        "points-paying-session"
+      ],
+      "evidenceReferences": [
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/drivers",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/team",
+          "sourceType": "official"
+        },
+        {
+          "title": "Formula 1 official source",
+          "url": "https://www.formula1.com/en/results/2026/races",
+          "sourceType": "official"
+        }
+      ],
+      "digestFingerprint": "b9eeb2ff91ee7c853022cef22007b9d784fdb30f2b143d15046bb4e835bf4da1",
+      "promptVersion": "f1-editorial.v1",
+      "sourceName": "Formula 1 official source",
+      "sourceUrl": "https://www.formula1.com/en/results/2026/drivers",
+      "sourceCheckedAt": "2026-09-08T14:50:02.097Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
     "id": "evt_f1_2026_united_states_practice_1",
     "eventId": "evt_f1_2026_united_states_practice_1",
     "canonicalEventId": "event:f1:2026:united-states:practice-1",
@@ -100773,6 +98414,153 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_34",
+    "eventId": "evt_34",
+    "canonicalEventId": "event:f1:2026:united-states:qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "United States GP · Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "United States GP · Qualifying",
+    "date": "2026-10-25",
+    "time": "08:00",
+    "startTimeUtc": "2026-10-24T21:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "Grid-setting session with direct consequences for the race.",
+    "fullSpiel": "R17 US GP (COTA) Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the United States GP.",
+      "hookSpoilerOn": "Qualifying at the United States GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_35",
+    "eventId": "evt_35",
+    "canonicalEventId": "event:f1:2026:united-states:race",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "United States GP · Race",
+    "cardKind": "fixture",
+    "displayTitleCompact": "United States GP · Race",
+    "date": "2026-10-26",
+    "time": "07:00",
+    "startTimeUtc": "2026-10-25T20:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Race",
+    "stage": "Race",
+    "narrativeType": "all",
+    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
+    "fullSpiel": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-states",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+      "synopsisSpoilerOff": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "synopsisSpoilerOn": "R17 US GP (COTA) Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
+    },
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
     "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
@@ -101008,6 +98796,153 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
+    "id": "evt_36",
+    "eventId": "evt_36",
+    "canonicalEventId": "event:f1:2026:mexico:qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Mexico City GP · Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Mexico City GP · Qualifying",
+    "date": "2026-11-01",
+    "time": "08:00",
+    "startTimeUtc": "2026-10-31T21:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "Grid-setting session with direct consequences for the race.",
+    "fullSpiel": "R18 Mexico City GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Mexico City GP.",
+      "hookSpoilerOn": "Qualifying at the Mexico City GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_37",
+    "eventId": "evt_37",
+    "canonicalEventId": "event:f1:2026:mexico:race",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Mexico City GP · Race",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Mexico City GP · Race",
+    "date": "2026-11-02",
+    "time": "07:00",
+    "startTimeUtc": "2026-11-01T20:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Race",
+    "stage": "Race",
+    "narrativeType": "all",
+    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
+    "fullSpiel": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/mexico",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+      "synopsisSpoilerOff": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "synopsisSpoilerOn": "R18 Mexico City GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
+    },
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
     "id": "evt_f1_2026_brazil_practice_1",
     "eventId": "evt_f1_2026_brazil_practice_1",
     "canonicalEventId": "event:f1:2026:brazil:practice-1",
@@ -101235,6 +99170,146 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_38",
+    "eventId": "evt_38",
+    "canonicalEventId": "event:f1:2026:brazil:qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "São Paulo GP · Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "São Paulo GP · Qualifying",
+    "date": "2026-11-08",
+    "time": "05:00",
+    "startTimeUtc": "2026-11-07T18:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "Grid-setting session with direct consequences for the race.",
+    "fullSpiel": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Grid-setting session with direct consequences for the race.",
+      "hookSpoilerOn": "Grid-setting session with direct consequences for the race.",
+      "synopsisSpoilerOff": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+      "synopsisSpoilerOn": "R19 Brazilian GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+      "intensitySource": "computed"
+    },
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_39",
+    "eventId": "evt_39",
+    "canonicalEventId": "event:f1:2026:brazil:race",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "São Paulo GP · Race",
+    "cardKind": "fixture",
+    "displayTitleCompact": "São Paulo GP · Race",
+    "date": "2026-11-09",
+    "time": "04:00",
+    "startTimeUtc": "2026-11-08T17:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Race",
+    "stage": "Race",
+    "narrativeType": "all",
+    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
+    "fullSpiel": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/brazil",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+      "synopsisSpoilerOff": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "synopsisSpoilerOn": "R19 Brazilian GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
+    },
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
     "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
@@ -101470,6 +99545,153 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   },
   {
+    "id": "evt_40",
+    "eventId": "evt_40",
+    "canonicalEventId": "event:f1:2026:las-vegas:qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Las Vegas GP · Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Las Vegas GP · Qualifying",
+    "date": "2026-11-21",
+    "time": "15:00",
+    "startTimeUtc": "2026-11-21T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "Grid-setting session with direct consequences for the race.",
+    "fullSpiel": "R20 Las Vegas GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Las Vegas GP.",
+      "hookSpoilerOn": "Qualifying at the Las Vegas GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_41",
+    "eventId": "evt_41",
+    "canonicalEventId": "event:f1:2026:las-vegas:race",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Las Vegas GP · Race",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Las Vegas GP · Race",
+    "date": "2026-11-22",
+    "time": "15:00",
+    "startTimeUtc": "2026-11-22T04:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Race",
+    "stage": "Race",
+    "narrativeType": "all",
+    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
+    "fullSpiel": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+      "synopsisSpoilerOff": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "synopsisSpoilerOn": "R20 Las Vegas GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
+    },
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
     "id": "evt_f1_2026_qatar_practice_1",
     "eventId": "evt_f1_2026_qatar_practice_1",
     "canonicalEventId": "event:f1:2026:qatar:practice-1",
@@ -101692,6 +99914,160 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "contextSignals": [
         "official-schedule",
         "Practice 3"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_42",
+    "eventId": "evt_42",
+    "canonicalEventId": "event:f1:2026:qatar:qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Qatar GP · Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Qatar GP · Qualifying",
+    "date": "2026-11-29",
+    "time": "05:00",
+    "startTimeUtc": "2026-11-28T18:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "Grid-setting session with direct consequences for the race.",
+    "fullSpiel": "R21 Qatar GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Qatar GP.",
+      "hookSpoilerOn": "Qualifying at the Qatar GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_43",
+    "eventId": "evt_43",
+    "canonicalEventId": "event:f1:2026:qatar:race",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Qatar GP · Race",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Qatar GP · Race",
+    "date": "2026-11-30",
+    "time": "03:00",
+    "startTimeUtc": "2026-11-29T16:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Race",
+    "stage": "Race",
+    "narrativeType": "all",
+    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
+    "fullSpiel": "R21 Qatar GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 5,
+      "intensity": 5,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 9,
+      "hookSpoilerOff": "Race at the Qatar GP.",
+      "hookSpoilerOn": "Race at the Qatar GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Race",
+      "contextSignals": [
+        "official-schedule",
+        "Race"
       ],
       "sourceName": "Formula 1 official race hub",
       "sourceUrl": "https://www.formula1.com/en/racing/2026/qatar",
@@ -101928,6 +100304,153 @@ globalThis.NOTHINGSPORTS_EVENTS = [
       "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
       "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
       "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_44",
+    "eventId": "evt_44",
+    "canonicalEventId": "event:f1:2026:united-arab-emirates:qualifying",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Abu Dhabi GP · Qualifying",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Abu Dhabi GP · Qualifying",
+    "date": "2026-12-06",
+    "time": "01:00",
+    "startTimeUtc": "2026-12-05T14:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 8,
+    "stakesScore": 4,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Qualifying",
+    "stage": "Qualifying",
+    "narrativeType": "all",
+    "selectedSentence": "Grid-setting session with direct consequences for the race.",
+    "fullSpiel": "R22 Abu Dhabi GP Qualifying sets the grid and the strategic shape of the Grand Prix weekend. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "intensitySource": "manual",
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "Qualifying at the Abu Dhabi GP.",
+      "hookSpoilerOn": "Qualifying at the Abu Dhabi GP.",
+      "synopsisSpoilerOff": "Published Formula 1 session from the official 2026 race hub.",
+      "synopsisSpoilerOn": "Published Formula 1 session from the official 2026 race hub.",
+      "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+    },
+    "editorialPreview": {
+      "status": "journalistic",
+      "angle": "Qualifying",
+      "contextSignals": [
+        "official-schedule",
+        "Qualifying"
+      ],
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+      "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+      "needsPreviewRefresh": false
+    },
+    "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+  },
+  {
+    "id": "evt_45",
+    "eventId": "evt_45",
+    "canonicalEventId": "event:f1:2026:united-arab-emirates:race",
+    "sport": "Formula 1",
+    "key": "f1",
+    "name": "Abu Dhabi GP · Race",
+    "cardKind": "fixture",
+    "displayTitleCompact": "Abu Dhabi GP · Race",
+    "date": "2026-12-07",
+    "time": "00:00",
+    "startTimeUtc": "2026-12-06T13:00:00.000Z",
+    "timePrecision": "exact",
+    "scheduleStatus": "confirmed",
+    "broadcaster": "Fox Sports via Kayo / Foxtel",
+    "broadcastOptions": [
+      "Kayo Sports",
+      "Foxtel"
+    ],
+    "broadcasterIds": [
+      "kayo",
+      "foxtel"
+    ],
+    "expected": 9,
+    "stakesScore": 5,
+    "venue": null,
+    "liveWindow": 3,
+    "round": "all",
+    "roundLabel": "Race",
+    "stage": "Race",
+    "narrativeType": "all",
+    "selectedSentence": "A championship race with points, strategy, and Australian interest in play.",
+    "fullSpiel": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+    "sourceName": "Formula 1 official race hub",
+    "sourceUrl": "https://www.formula1.com/en/racing/2026/united-arab-emirates",
+    "sourceCheckedAt": "2026-09-16T07:13:34.687Z",
+    "sourceType": "official",
+    "sourceTrust": "verified",
+    "status": "upcoming",
+    "sportDomainId": "sport:f1",
+    "discoverySportId": "sport:f1",
+    "competitionId": "competition:formula-one",
+    "taxonomyNodeId": "sport:f1",
+    "codeId": "sport:f1",
+    "competitionScope": "international",
+    "isInternational": true,
+    "representativeCountryCodes": [],
+    "replayEligible": true,
+    "highlightEligible": true,
+    "briefingEligible": true,
+    "catchupEligible": true,
+    "storyline": {
+      "stakes": 4,
+      "intensity": 4,
+      "arcStage": "preview",
+      "expectedSpectacle": 8,
+      "hookSpoilerOff": "A championship race with points, strategy, and Australian interest in play.",
+      "hookSpoilerOn": "A championship race with points, strategy, and Australian interest in play.",
+      "synopsisSpoilerOff": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "synopsisSpoilerOn": "R22 Abu Dhabi GP Race is the points-paying centrepiece of the weekend, with tyre life, pit timing, and track position likely to decide the result. Watch via Kayo Sports.",
+      "intensitySource": "computed"
+    },
+    "editorialPreview": {
+      "status": "research-required",
+      "needsPreviewRefresh": true,
+      "editorialWindowDays": 10,
+      "note": "Replace generic schedule copy with current, source-backed pre-event commentary inside the editorial window."
     },
     "lastReviewedAt": "2026-09-16T07:13:34.687Z"
   }
