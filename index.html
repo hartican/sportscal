@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="277">
+<meta name="app-shell-version" content="278">
 <script src="/assets/js/app-update.js?v=277" defer></script>
 <link rel="preload" href="assets/js/app-shell-runtime.js?v=277" as="script">
 <meta property="og:type" content="website">
@@ -5433,7 +5433,7 @@ button.chat-room-row{ cursor:pointer; }
 }
 .profile-avatar-expandable{ cursor:pointer; }
 .profile-avatar-expandable:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
-.profile-avatar-dialog{ width:min(560px,94vw); padding:16px; border:1px solid var(--border); border-radius:18px; background:var(--panel,#15151c); color:var(--text); }
+.profile-avatar-dialog{ margin:auto; max-height:calc(100dvh - 32px); overflow:auto; width:min(560px,94vw); padding:16px; border:1px solid var(--border); border-radius:18px; background:var(--panel,#15151c); color:var(--text); }
 .profile-avatar-dialog::backdrop{ background:rgba(0,0,0,.8); }
 .profile-avatar-dialog img{ display:block; width:100%; max-width:512px; height:auto; margin:12px auto 0; border-radius:10px; }
 .profile-avatar-progress{ grid-column:1 / -1; }

@@ -40,6 +40,7 @@ const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    },pictureUrl);
    await page.waitForSelector('#qa-avatar[role=button]');assert.equal(expandCount,0,'expanded image is fetched only when opened');
    await page.locator('#qa-avatar').focus();await page.keyboard.press('Enter');await page.waitForSelector('.profile-avatar-dialog img');
+   const bounds=await page.locator('.profile-avatar-dialog').boundingBox();assert(Math.abs(bounds.x+bounds.width/2-width/2)<2,'photo viewer is centred horizontally');assert(Math.abs(bounds.y+bounds.height/2-844/2)<2,'photo viewer is centred vertically');
    assert.equal(expandCount,1);assert.equal(await page.locator('.profile-avatar-dialog img').getAttribute('width'),'512');
    await page.keyboard.press('Escape');await page.waitForSelector('.profile-avatar-dialog',{state:'detached'});
    assert.equal(await page.evaluate(()=>document.activeElement.id),'qa-avatar');assert((await page.evaluate(()=>window.revoked)).some(x=>x.startsWith('blob:')));
