@@ -130,6 +130,11 @@
   document.addEventListener('focusout', () => setTimeout(() => void applyUpdate(), 0));
   window.NOTHINGSPORTS_APP_UPDATE = Object.freeze({
     check,
+    holdWrite(){
+      pendingWrites++;
+      let released=false;
+      return ()=>{if(released)return;released=true;pendingWrites--;void applyUpdate();};
+    },
     snapshot:() => ({ ...state }),
     subscribe(listener){ listeners.add(listener); listener({ ...state }); return () => listeners.delete(listener); },
     configure(callback){ beforeReload = callback; void applyUpdate(); },

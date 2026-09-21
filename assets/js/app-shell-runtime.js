@@ -6743,6 +6743,8 @@ return {gender,sport,badge};
       },
       async profileAvatarUpload(file, onProgress = () => {}){
         if(!file || file.size < 1 || file.size > 6000000)throw new Error("Choose a picture up to 6 MB.");
+        const releaseUpdate=globalThis.NOTHINGSPORTS_APP_UPDATE?.holdWrite?.();
+        try{
         onProgress("Preparing upload…");
         const prepared=await authenticatedRequest("/api/nothingscore",{method:"POST",body:JSON.stringify({action:"profile-avatar-prepare",byteSize:file.size})});
         onProgress("Uploading picture…");
@@ -6755,7 +6757,8 @@ return {gender,sport,badge};
           xhr.ontimeout=()=>reject(new Error("The upload timed out. Please retry."));xhr.send(file);
         });
         onProgress("Optimising picture…");
-        return authenticatedRequest("/api/nothingscore",{method:"POST",timeoutMs:90000,body:JSON.stringify({action:"profile-avatar-complete",uploadId:prepared.uploadId})});
+        return await authenticatedRequest("/api/nothingscore",{method:"POST",timeoutMs:90000,body:JSON.stringify({action:"profile-avatar-complete",uploadId:prepared.uploadId})});
+        }finally{releaseUpdate?.();}
       },
       profileAvatarExpanded(profileId){return authenticatedRequest(`/api/nothingscore?avatarExpanded=${encodeURIComponent(profileId)}`,{responseType:"blob",cache:"no-store"});},
       async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, picks = "", fixture = "", activity = null, handle = "", rewards = false, ratingAffinity = false } = {}, command = null){

@@ -48,8 +48,12 @@ const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    await page.waitForTimeout(250);assert.equal(await page.locator('#qa-stranger').getAttribute('role'),null);
    const input=page.locator('#avatar-qa input[type=file]');assert.match(await input.getAttribute('accept'),/\.heic.*\.tiff/);
    await input.setInputFiles({name:'iphone.heic',mimeType:'image/heic',buffer:fs.readFileSync('scripts/fixtures/avatars/libheif-example.heic')});
-   const result=await page.evaluate(()=>qaEditor.upload());assert.equal(result.avatarUrl,pictureUrl);assert(uploaded>0);
-   failUpload=true;const failed=await page.evaluate(async()=>{try{await qaEditor.upload();return '';}catch(e){return e.message;}});assert.match(failed,/upload failed/);assert.equal(await input.evaluate(n=>n.files.length),1,'retry retains selected file');assert.equal(await input.isEnabled(),true);
+   await page.evaluate(()=>{
+    const original=NOTHINGSPORTS_APP_UPDATE;window.avatarUploadHolds=0;
+    window.NOTHINGSPORTS_APP_UPDATE={...original,holdWrite(){window.avatarUploadHolds++;const done=original.holdWrite();return ()=>{window.avatarUploadHolds--;done();};}};
+   });
+   const result=await page.evaluate(()=>qaEditor.upload());assert.equal(result.avatarUrl,pictureUrl);assert(uploaded>0);assert.equal(await page.evaluate(()=>window.avatarUploadHolds),0);
+   failUpload=true;const failed=await page.evaluate(async()=>{try{await qaEditor.upload();return '';}catch(e){return e.message;}});assert.match(failed,/upload failed/);assert.equal(await input.evaluate(n=>n.files.length),1,'retry retains selected file');assert.equal(await input.isEnabled(),true);assert.equal(await page.evaluate(()=>window.avatarUploadHolds),0);
    await input.setInputFiles({name:'too-big.jpg',mimeType:'image/jpeg',buffer:Buffer.alloc(6000001)});
    assert.match(await page.evaluate(async()=>{try{await qaEditor.upload();return '';}catch(e){return e.message;}}),/6 MB/);
    if(process.env.AVATAR_SCREENSHOT_DIR){fs.mkdirSync(process.env.AVATAR_SCREENSHOT_DIR,{recursive:true});await page.screenshot({path:path.join(process.env.AVATAR_SCREENSHOT_DIR,`profile-avatar-${width}.png`)});}
