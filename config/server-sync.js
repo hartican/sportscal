@@ -204,11 +204,11 @@
     async function jsonRequest(path, options = {}){
       if (typeof fetchImpl !== "function") throw new Error("Server sync is unavailable in this browser.");
       const controller = new AbortController();
-      const { signal:externalSignal, onResponse, cachedPayload, ...fetchOptions }=options;
+      const { signal:externalSignal, onResponse, cachedPayload, responseType, timeoutMs=requestTimeoutMs, ...fetchOptions }=options;
       const cancel=()=>controller.abort(externalSignal.reason);
       if(externalSignal?.aborted)cancel();
       externalSignal?.addEventListener('abort',cancel,{once:true});
-      const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
       try{
       const response = await fetchImpl(path, {
         ...fetchOptions,
@@ -220,6 +220,7 @@
         },
       });
       if(response.status===304 && cachedPayload!==undefined)return cachedPayload;
+      if(response.ok && responseType === "blob")return response.blob();
       const payload = await response.json().catch(() => ({}));
       if (!response.ok){
         const error = new Error(payload.error || "Server sync request failed.");
@@ -629,6 +630,23 @@
       async adminPanelRequest(command = null){
         return authenticatedRequest("/api/admin/panel", command ? { method:"POST", body:JSON.stringify(command) } : {});
       },
+      async profileAvatarUpload(file, onProgress = () => {}){
+        if(!file || file.size < 1 || file.size > 6000000)throw new Error("Choose a picture up to 6 MB.");
+        onProgress("Preparing upload…");
+        const prepared=await authenticatedRequest("/api/nothingscore",{method:"POST",body:JSON.stringify({action:"profile-avatar-prepare",byteSize:file.size})});
+        onProgress("Uploading picture…");
+        await new Promise((resolve,reject)=>{
+          const xhr=new XMLHttpRequest();xhr.open("PUT",prepared.uploadUrl);xhr.timeout=120000;
+          xhr.setRequestHeader("Content-Type",file.type||"application/octet-stream");
+          xhr.upload.onprogress=event=>{if(event.lengthComputable)onProgress(`Uploading picture… ${Math.round(event.loaded/event.total*100)}%`);};
+          xhr.onload=()=>xhr.status>=200&&xhr.status<300?resolve():reject(new Error("The picture upload failed. Please retry."));
+          xhr.onerror=()=>reject(new Error("The upload was interrupted. Check your connection and retry."));
+          xhr.ontimeout=()=>reject(new Error("The upload timed out. Please retry."));xhr.send(file);
+        });
+        onProgress("Optimising picture…");
+        return authenticatedRequest("/api/nothingscore",{method:"POST",timeoutMs:90000,body:JSON.stringify({action:"profile-avatar-complete",uploadId:prepared.uploadId})});
+      },
+      profileAvatarExpanded(profileId){return authenticatedRequest(`/api/nothingscore?avatarExpanded=${encodeURIComponent(profileId)}`,{responseType:"blob",cache:"no-store"});},
       async nothingscoreRequest({ ids = [], eventId = "", leaderboard = "", rankings = null, ladder = null, picks = "", fixture = "", activity = null, handle = "", rewards = false, ratingAffinity = false } = {}, command = null){
         if (command){
           return authenticatedRequest("/api/nothingscore", { method:"POST", body:JSON.stringify(command) });

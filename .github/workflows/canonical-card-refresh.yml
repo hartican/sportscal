@@ -81,3 +81,11 @@ jobs:
           RELEASE_COMMIT_MESSAGE: Automated canonical sports refresh
           QUICK_RESULTS: ${{ steps.cadence.outputs.quick }}
         run: bash scripts/update-sportscal-cards-and-release.sh
+
+      - name: Clean temporary and replaced profile pictures
+        if: always() && steps.cadence.outputs.run == 'true'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/maintain-profile-avatars.js

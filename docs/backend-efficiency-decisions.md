@@ -43,3 +43,7 @@ cards dated Friday through Monday inclusive. It uses the weekend-editorial mode
 of update-cards.js, not a second canonical ingestion scheduler. It reads no user
 preferences, preserves fixture facts and avoids a release when copy is unchanged.
 See docs/weekend-editorial.md for the bounded research and release procedure.
+
+## Profile picture storage — 21 September 2026
+
+Use direct signed uploads to private temporary Storage, then produce 128px (maximum 32 KB) and 512px (maximum 200 KB) WebP images. Keep only metadata in Postgres. Batch expansion-capability reads for visible avatars, load private images only on demand, and reuse cached versioned thumbnails. The existing daily canonical-refresh workflow also drains at most 50 queued Storage deletions, including abandoned originals after 24 hours; no new scheduler. Replacements queue old objects transactionally and preserve the previous picture until both derivatives are ready.

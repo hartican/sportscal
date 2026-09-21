@@ -48,6 +48,8 @@ jobs:
       - name: Verify feed and deployment safety contracts
         run: |
           node scripts/build-app-shell-runtime.js --check
+          node scripts/validate-profile-avatars.js
+          node scripts/validate-shared-chat-ui.js
           node scripts/validate-hobby-feed-cache.js
           node scripts/validate-hobby-feed-client.js
           node scripts/validate-hobby-deployments.js

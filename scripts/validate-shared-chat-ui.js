@@ -154,14 +154,14 @@ const chatProfile = section(html, "function renderChatPublicProfileForm", "funct
 assert.match(chatProfile, /heading\.textContent = "Public Profile"/);
 assert.match(chatProfile, /action:"profile"/);
 assert.match(chatProfile, /buildPublicProfileAvatarEditor/);
-assert.match(chatProfile, /action:'profile-avatar'/);
+assert.match(chatProfile, /avatarEditor\.upload\(\)/);
 assert.match(chatProfile, /nothingscoreRequest/);
 const accountProfile = section(html, "function appendPublicProfileAccountSettings", "function renderAccountSettings");
 assert.match(accountProfile, /title\.textContent = "Public Profile"/);
 assert.match(accountProfile, /nothingscoreProfileForm\(\)/);
 const profileForm = section(html, "function nothingscoreProfileForm()", "async function setNothingscoreProfileVisibility");
 assert.match(profileForm, /buildPublicProfileAvatarEditor/);
-assert.match(profileForm, /action:"profile-avatar"/);
+assert.match(profileForm, /avatarEditor\.upload\(\)/);
 assert.match(html, /\.chat-message-avatar\{ width:1em; height:1em;/, "message avatars must stay within the sender text line");
 const nscDrawer = section(html, "function renderNothingscoreDrawer()", "async function loadNothingscoreLeaderboard");
 assert.doesNotMatch(nscDrawer, /nothingscoreProfileForm\(\)/, "NSC must link to Settings instead of duplicating the editor");

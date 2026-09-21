@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="276">
+<meta name="app-shell-version" content="277">
 <script src="/assets/js/app-update.js?v=254" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=275" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=277" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -5431,6 +5431,12 @@ button.chat-room-row{ cursor:pointer; }
   font:900 .52rem/1 'DM Sans',sans-serif;
   letter-spacing:-.03em;
 }
+.profile-avatar-expandable{ cursor:pointer; }
+.profile-avatar-expandable:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+.profile-avatar-dialog{ width:min(560px,94vw); padding:16px; border:1px solid var(--border); border-radius:18px; background:var(--panel,#15151c); color:var(--text); }
+.profile-avatar-dialog::backdrop{ background:rgba(0,0,0,.8); }
+.profile-avatar-dialog img{ display:block; width:100%; max-width:512px; height:auto; margin:12px auto 0; border-radius:10px; }
+.profile-avatar-progress{ grid-column:1 / -1; }
 .chat-avatar img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .chat-member-avatar{ width:32px; height:32px; }
 .chat-room-row span{ margin-top:3px; color:var(--text-dim); font-size:.68rem; }
@@ -7143,7 +7149,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=275"></script>
+<script src="assets/js/app-shell-runtime.js?v=277"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -24045,41 +24051,82 @@ function chatAvatarElement({ avatarUrl = null, displayName = "Member", className
     image.addEventListener("error",()=>image.remove(),{once:true});
     avatar.appendChild(image);
   }
+  registerExpandableAvatar(avatar,avatarUrl,displayName);
   return avatar;
 }
 
-async function processPublicProfileAvatar(file){
-  if(!file)return null;
-  if(file.size>8*1024*1024)throw new Error("Choose an image smaller than 8 MB before cropping.");
-  const bitmap=await createImageBitmap(file),size=Math.min(bitmap.width,bitmap.height),canvas=document.createElement("canvas");
-  canvas.width=canvas.height=512;
-  canvas.getContext("2d").drawImage(bitmap,(bitmap.width-size)/2,(bitmap.height-size)/2,size,size,0,0,512,512);
-  bitmap.close?.();
-  let quality=.9,blob;
-  do{blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/webp",quality));quality-=.1;}while(blob&&blob.size>1024*1024&&quality>=.4);
-  if(!blob||blob.size>1024*1024)throw new Error("That picture could not be reduced below 1 MB.");
-  return await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(blob);});
+const profileAvatarAccessQueue = new Map();
+let profileAvatarAccessTimer = null;
+function registerExpandableAvatar(element,avatarUrl,displayName){
+  if(!avatarUrl || !avatarUrl.includes('/nothingsports-avatar-thumbnails/') || !serverSyncClient.sessionSubject())return;
+  profileAvatarAccessQueue.set(element,{avatarUrl,displayName});
+  clearTimeout(profileAvatarAccessTimer);
+  profileAvatarAccessTimer=setTimeout(async()=>{
+    const batch=[...profileAvatarAccessQueue.entries()];profileAvatarAccessQueue.clear();
+    try{
+      for(let start=0;start<batch.length;start+=50){
+        const part=batch.slice(start,start+50).filter(([node])=>node.isConnected);
+        if(!part.length)continue;
+        const payload=await serverSyncClient.nothingscoreRequest({}, {action:'profile-avatar-access',avatarUrls:part.map(([,item])=>item.avatarUrl)});
+        const allowed=new Map((payload.avatars||[]).map(item=>[item.avatarUrl,item.profileId]));
+        for(const [node,item] of part){
+          const profileId=allowed.get(item.avatarUrl);if(!profileId||!node.isConnected)continue;
+          node.removeAttribute('aria-hidden');node.setAttribute('role','button');node.tabIndex=0;
+          node.setAttribute('aria-label',`Expand ${item.displayName}'s profile picture`);node.classList.add('profile-avatar-expandable');
+          const open=event=>{event.preventDefault();event.stopPropagation();void openProfileAvatar(profileId,item.displayName,node);};
+          node.addEventListener('click',open);node.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' ')open(event);});
+        }
+      }
+    }catch(_error){ /* Signed-out and unavailable accounts retain ordinary thumbnails. */ }
+  },80);
 }
-
+async function openProfileAvatar(profileId,displayName,trigger){
+  const dialog=document.createElement('dialog');dialog.className='profile-avatar-dialog';dialog.setAttribute('aria-label',`${displayName}'s profile picture`);
+  const close=document.createElement('button');close.type='button';close.className='btn';close.textContent='Close';
+  const status=document.createElement('p');status.setAttribute('role','status');status.textContent='Loading picture…';
+  dialog.append(close,status);document.body.append(dialog);
+  let objectUrl='';
+  close.addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('close',()=>{if(objectUrl)URL.revokeObjectURL(objectUrl);dialog.remove();trigger?.focus();},{once:true});
+  dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+  dialog.showModal();close.focus();
+  try{
+    const blob=await serverSyncClient.profileAvatarExpanded(profileId);
+    if(!dialog.isConnected)return;
+    objectUrl=URL.createObjectURL(blob);const image=document.createElement('img');image.src=objectUrl;image.alt=`${displayName}'s profile picture`;image.width=512;image.height=512;
+    status.replaceWith(image);
+  }catch(error){status.textContent=error.message||'This picture is unavailable.';}
+}
 function buildPublicProfileAvatarEditor({ avatarUrl = null, displayName = "Member" } = {}){
-  const editor=document.createElement("label");
-  editor.className="public-profile-avatar-editor";
-  const preview=chatAvatarElement({avatarUrl,displayName,className:"public-profile-avatar-preview"});
+  const editor=document.createElement("div");editor.className="public-profile-avatar-editor";
+  let preview=chatAvatarElement({avatarUrl,displayName,className:"public-profile-avatar-preview"});
   const copy=document.createElement("span");
   const title=document.createElement("strong");title.textContent=avatarUrl?"Change profile picture":"Upload profile picture";
-  const detail=document.createElement("small");detail.textContent="JPEG, PNG or WebP · square crop · up to 1 MB after processing";
+  const detail=document.createElement("small");detail.textContent="JPG, PNG, HEIC, TIFF, WebP, AVIF or GIF · up to 6 MB · automatically cropped and compressed";
   copy.append(title,detail);
-  const input=document.createElement("input");input.type="file";input.accept="image/jpeg,image/png,image/webp";
+  const input=document.createElement("input");input.type="file";input.setAttribute('aria-label','Choose profile picture');
+  input.accept=".jpg,.jpeg,.png,.heic,.heif,.tif,.tiff,.webp,.avif,.gif,image/jpeg,image/png,image/heic,image/heif,image/tiff,image/webp,image/avif,image/gif";
+  const progress=document.createElement('small');progress.setAttribute('role','status');progress.className='profile-avatar-progress';
   let objectUrl="";
   input.addEventListener("change",()=>{
     if(objectUrl)URL.revokeObjectURL(objectUrl);
     const file=input.files?.[0];if(!file)return;
+    progress.textContent=file.size>6000000?'Choose a picture up to 6 MB.':'';
     objectUrl=URL.createObjectURL(file);
-    const image=document.createElement("img");image.src=objectUrl;image.alt="Selected profile picture preview";image.addEventListener("error",()=>image.remove(),{once:true});
-    preview.querySelector("img")?.remove();preview.appendChild(image);title.textContent="Profile picture selected";
+    const image=document.createElement("img");image.src=objectUrl;image.alt="Selected profile picture preview";
+    image.addEventListener("error",()=>{image.remove();progress.textContent='Preview will be available after upload.';},{once:true});
+    const release=()=>{if(objectUrl){URL.revokeObjectURL(objectUrl);objectUrl='';}};image.addEventListener('load',release,{once:true});image.addEventListener('error',release,{once:true});
+    const fresh=preview.cloneNode(false);profileAvatarAccessQueue.delete(preview);preview.replaceWith(fresh);preview=fresh;
+    preview.textContent=publicProfileInitials(displayName);preview.appendChild(image);title.textContent="Profile picture selected";
+    preview.removeAttribute('role');preview.removeAttribute('tabindex');preview.classList.remove('profile-avatar-expandable');
   });
-  editor.append(preview,copy,input);
-  return { element:editor, dataUrl:()=>processPublicProfileAvatar(input.files?.[0]) };
+  editor.append(preview,copy,input,progress);
+  return {element:editor,upload:async()=>{
+    const file=input.files?.[0];if(!file)return null;
+    input.disabled=true;
+    try{return await serverSyncClient.profileAvatarUpload(file,text=>{progress.textContent=text;});}
+    finally{input.disabled=false;}
+  }};
 }
 
 function chatMessageElement(message,{groupStart=true}={}){
@@ -24248,7 +24295,7 @@ function renderChatPublicProfileForm(host, { onSaved } = {}){
     save.disabled = true;
     try{
       await serverSyncClient.nothingscoreRequest({}, { action:"profile", displayName:display.value, handle:handle.value });
-      const dataUrl=await avatarEditor.dataUrl();if(dataUrl)await serverSyncClient.nothingscoreRequest({}, {action:'profile-avatar',dataUrl});
+      await avatarEditor.upload();
       await refreshNothingscoreViewer();
       await refreshChatActive();
       await onSaved?.();
@@ -25321,8 +25368,7 @@ function nothingscoreProfileForm(){
     status.textContent = "Saving…";
     try{
       await serverSyncClient.nothingscoreRequest({}, { action:"profile", displayName:display.value, handle:handle.value });
-      const dataUrl=await avatarEditor.dataUrl();
-      if(dataUrl)await serverSyncClient.nothingscoreRequest({}, { action:"profile-avatar", dataUrl });
+      await avatarEditor.upload();
       await refreshNothingscoreViewer();
       void refreshChatActive();
       if (document.getElementById("settingsModal")?.classList.contains("show") && settingsSection === "account") renderSettingsScreen();
@@ -25349,7 +25395,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=275");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=277");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){

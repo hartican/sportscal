@@ -40,7 +40,7 @@ function row(entry){
  const r=node('div',undefined,'nsc-ladder-row'+(entry.isViewer?' is-viewer':''));r.setAttribute('role','row');r.dataset.ladderProfile=entry.profileId;
  const cell=(text,cls,label)=>{const c=node('div',text,cls);c.setAttribute('role','cell');if(label)c.dataset.label=label;r.append(c);return c;};
  cell(String(entry.rank),'nsc-ladder-rank','Rank');const identity=cell(undefined,'nsc-ladder-identity','Nothinger');
- if(entry.avatarUrl){const img=node('img');img.src=entry.avatarUrl;img.alt='';img.className='nsc-ladder-avatar';img.loading='lazy';identity.append(img);}
+ if(entry.avatarUrl){const img=node('img');img.src=entry.avatarUrl;img.alt='';img.className='nsc-ladder-avatar';img.loading='lazy';identity.append(img);if(typeof registerExpandableAvatar==='function')registerExpandableAvatar(img,entry.avatarUrl,entry.name||'Member');}
  identity.append(node('strong',entry.name),node('small','@'+entry.handle+(entry.isViewer?' · You':'')));
  const actions=node('div',undefined,'nsc-ladder-actions');
  if(entry.canFollow){const b=button(entry.following?'Following':'Follow',async()=>{b.disabled=true;try{const p=await serverSyncClient.nothingscoreRequest({},{action:'follow-user',targetProfileId:entry.profileId,following:!entry.following});entry.following=p.following;pageCache.clear();b.textContent=p.following?'Following':'Follow';b.setAttribute('aria-pressed',String(p.following));}catch(e){showToast(e.message);}finally{b.disabled=false;}});b.setAttribute('aria-pressed',String(entry.following));actions.append(b);}
