@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="279">
+<meta name="app-shell-version" content="280">
 <script src="/assets/js/app-update.js?v=277" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=279" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=280" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6860,6 +6860,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=279">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=275">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
+<link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
 <body>
 
@@ -6888,14 +6889,17 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
     <div class="brand">
       <div class="brand-title-row">
         <h1 class="brand-lockup"><img class="brand-logo header-brand-logo" id="headerBrandLogo" data-brand-asset="logo" src="assets/brand/web/nothingsport-logo.png" width="1200" height="488" alt="nothing SPORT" fetchpriority="high" decoding="async"></h1>
-        <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span data-vector-glyph="ui:share"></span><span class="share-app-label">Share</span></button>
+        <div class="header-utilities">
+          <button class="btn ghost" id="settingsBtn" type="button" aria-label="Settings"><span data-vector-glyph="ui:settings"></span><span class="full-label">Settings</span></button>
+          <button class="btn ghost calendar-sync-action" id="calendarSyncBtn" type="button" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span></button>
+          <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span data-vector-glyph="ui:share"></span><span class="share-app-label">Share</span></button>
+        </div>
       </div>
       <div class="slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
     </div>
     <div class="header-actions">
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Results OFF"><span class="spoiler-home-label">Results</span><span class="spoiler-home-state">OFF</span></button>
-      <button class="btn ghost" id="settingsBtn" aria-label="Settings"><span data-vector-glyph="ui:settings"></span> <span class="full-label">Settings</span></button>
-      <button class="btn ghost calendar-sync-action" id="calendarSyncBtn" type="button" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span></button>
+      <button class="btn ghost" id="notificationsBtn" type="button" aria-label="Notifications" aria-haspopup="dialog" aria-controls="notificationsInbox" aria-expanded="false"><span data-vector-glyph="ui:bell"></span><span id="notificationCount" class="notification-count" hidden></span></button>
       <button class="btn ghost" id="activeChatsBtn" type="button" aria-haspopup="dialog" aria-controls="chatDrawer" aria-label="Active chats" hidden><span data-vector-glyph="ui:message"></span> <span class="full-label">Chats</span><span class="active-chat-count" id="activeChatCount">0</span></button>
       <button class="btn ghost" id="nothingscoreBtn" type="button" aria-controls="nothingscoreDrawer" aria-label="Nothinger Leaderboard"><span class="nothing-score-label" aria-hidden="true">LEADER<br>BOARD</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
@@ -7149,7 +7153,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=279"></script>
+<script src="assets/js/app-shell-runtime.js?v=280"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -23308,6 +23312,7 @@ function updateActiveChatButton(){
   const count = document.getElementById("activeChatCount");
   const signedIn = Boolean((serverPersistence.user || serverSyncClient?.getGuestChatSession?.()) && serverSyncClient?.chatRequest);
   const unread = chatState.rooms.reduce((sum, room) => sum + Number(room.unreadCount || 0), 0);
+  if(button.dataset.inboxUnread!==String(unread)){button.dataset.inboxUnread=String(unread);window.dispatchEvent(new Event('ns-activity-change'));}
   button.hidden = !signedIn;
   count.textContent = String(unread || chatState.rooms.length || 0);
   button.setAttribute("aria-label", unread
@@ -25399,7 +25404,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=277");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=280");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -25692,9 +25697,9 @@ window.addEventListener("offline", () => {
 scheduleNothingscorePoll(30_000);
 
 document.getElementById("activeChatsBtn").addEventListener("click", openActiveChats);
-document.getElementById("closeChatBtn").addEventListener("click", () => setChatDrawerOpen(false));
+document.getElementById("closeChatBtn").addEventListener("click", () => {setChatDrawerOpen(false);if(history.state?.inboxDestination)history.back();});
 document.getElementById("chatBackdrop").addEventListener("click", event => {
-  if (event.target.id === "chatBackdrop") setChatDrawerOpen(false);
+  if (event.target.id === "chatBackdrop") {setChatDrawerOpen(false);if(history.state?.inboxDestination)history.back();}
 });
 document.getElementById("chatNewMessagesBtn").addEventListener("click", () => {
   const body = document.getElementById("chatBody");
@@ -25719,6 +25724,7 @@ document.addEventListener("keydown", event => {
   if (event.key === "Escape"){
     event.preventDefault();
     setChatDrawerOpen(false);
+    if(history.state?.inboxDestination)history.back();
     return;
   }
   if (event.key !== "Tab") return;
@@ -25989,6 +25995,48 @@ scheduleSydneyMidnight();
 window.addEventListener('focus',scheduleSydneyMidnight);
 window.addEventListener('focus',refreshFeedClock);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFeedClock();});
+</script>
+<script src="assets/js/notifications-inbox.js?v=280"></script>
+<script>
+let notificationDestinationDialog=null;
+function closeNotificationDestination(){
+  if(document.body.classList.contains('chat-open'))setChatDrawerOpen(false);
+  if(document.body.classList.contains('nsc-open'))setNothingscoreDrawerOpen(false);
+  notificationDestinationDialog?.close();notificationDestinationDialog=null;
+}
+async function openNotificationDestination(item){
+  if(['chat','added'].includes(item.kind)){setChatDrawerOpen(true);await openChatRoom(item.roomId);return;}
+  if(item.kind==='invitation'){
+    if(item.invitationState==='accepted'){setChatDrawerOpen(true);await openChatRoom(item.roomId);return;}
+    if(item.invitationState!=='pending')throw new Error('This invitation is no longer pending.');
+    await refreshChatActive();openActiveChats();
+    const invitation=chatState.invitations.find(x=>x.room?.roomId===item.roomId);
+    if(invitation){const position=chatState.invitations.indexOf(invitation);document.querySelectorAll('#chatBody .chat-room-row')[position]?.scrollIntoView({block:'center'});}
+    return;
+  }
+  if(['profile_followed','follows_copied'].includes(item.kind)){
+    if(!item.profileId)throw new Error('This profile is no longer public.');
+    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=280');
+    await window.NOTHINGSPORTS_CROWD_RANKINGS.openProfile({profileId:item.profileId,name:item.actor});
+    notificationDestinationDialog=document.querySelector('.nsc-picks-dialog[open]');
+  }else if(['rating','reminder'].includes(item.kind)){
+    await openFriendFixture(item.eventId);
+    notificationDestinationDialog=document.querySelector('.nsc-friend-fixture[open]');
+  }else{
+    const d=document.createElement('dialog');d.className='calendar-dialog';
+    const back=document.createElement('button');back.className='btn ghost';back.textContent='Back to notifications';back.onclick=()=>history.back();d.append(back);document.body.append(d);d.showModal();notificationDestinationDialog=d;
+    if(item.kind==='points')await renderMyForesight(d);
+    else{const h=document.createElement('h2');h.textContent=item.title||'Nothing Sport update';const p=document.createElement('p');p.textContent=item.detail||'';d.append(h,p);}
+  }
+  notificationDestinationDialog?.addEventListener('close',()=>{if(history.state?.inboxDestination)history.back();},{once:true});
+}
+const notificationsInbox=NOTHINGSPORTS_INBOX.create({
+  request:(query,seen)=>serverSyncClient.inboxRequest(query,seen),
+  owner:()=>serverSyncClient?.sessionSubject()||'',
+  spoilers:()=>Boolean(userPreferences.showSpoilers),
+  navigate:openNotificationDestination,closeDestination:closeNotificationDestination,
+  signIn:()=>openSettings({section:'account'})
+});
 </script>
 </body>
 </html>

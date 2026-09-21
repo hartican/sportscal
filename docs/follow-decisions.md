@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Notifications inbox — 22 September 2026
+
+The unified inbox includes real followed-user ratings, new followers, copied-follows rewards and standalone points, with existing privacy/moderation boundaries. A related social event and its points award appear in one entry. Tapping opens the relevant profile/picks, reward breakdown or fixture; it never follows a person, accepts a chat invitation or admits a fixture automatically. Notification read state is separate from chat unread state. New activity starts at rollout and expires from the inbox after 90 days; underlying follows, ratings and reward records retain their existing retention. Regression: `validate-inbox-database.js` and `validate-inbox-browser.js`.
+
 ## AI discovery change — 14 September 2026
 
 Automatic cross-sport athlete entry discovery is removed. It no longer scans account preferences, searches entries, or contributes historical AI athlete snapshots to the Feed. Ordinary source-backed participant follows continue to work. Consensus-tag ingestion is optional and disabled by default; only `DISCOVERY_CONSENSUS_ENABLED=true` enables its six-hour batches. Existing accepted consensus evidence and user ratings remain available when it is disabled. Fixture ingestion, Follow admission, scores, Calendar and NSC do not depend on this opt-in. Regression: `node scripts/validate-autonomous-discovery.js`.

@@ -36,6 +36,7 @@
     }
   ],
   "rewrites": [
+    {"source":"/api/inbox","destination":"/api/notifications?route=inbox"},
     {"source":"/api/fixtures","destination":"/api/feed?route=fixtures"},
     {"source":"/api/fixture-refresh","destination":"/api/feed?route=fixture-refresh"},
     {

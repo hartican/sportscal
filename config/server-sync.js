@@ -230,6 +230,7 @@
         throw error;
       }
       onResponse?.(response,payload);
+      if(options.method && options.method!=='GET' && /^\/api\/(chat|nothingscore|notifications)(\?|$)/.test(path))globalThis.dispatchEvent?.(new Event('ns-activity-change'));
       return payload;
       }catch(error){
         if(externalSignal?.aborted)throw error;
@@ -269,6 +270,7 @@
         storageWrite(storage, SESSION_STORAGE_KEY, session);
         storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, null);
       }
+      globalThis.dispatchEvent?.(new Event('ns-account-change'));
       return session;
     }
 
@@ -285,6 +287,7 @@
       refreshInFlight = null;
       storageWrite(storage, SESSION_STORAGE_KEY, null);
       storageWrite(persistentStorage, PERSISTENT_SESSION_STORAGE_KEY, null);
+      globalThis.dispatchEvent?.(new Event('ns-account-change'));
     }
 
     function restoreStoredSession(){
@@ -552,6 +555,10 @@
           method:"PUT",
           body:JSON.stringify({ meta }),
         });
+      },
+      async inboxRequest({cursor = '',summary = false} = {}, seen = null){
+        const query=new URLSearchParams();if(cursor)query.set('cursor',cursor);if(summary)query.set('summary','1');
+        return authenticatedRequest(`/api/inbox?${query}`,seen?{method:'POST',body:JSON.stringify({seen})}:{});
       },
       async notificationCommand(command, { authenticated = true } = {}){
         const options = { method:"POST", body:JSON.stringify(command || {}) };

@@ -110,6 +110,8 @@ async function existingReminders(installationIds, eventId){
 }
 
 async function notificationsHandler(request, response){
+  const route=request.query?.route || new URL(request.url || '/api/notifications','https://nothingsport.invalid').searchParams.get('route');
+  if(route==='inbox')return require('../lib/inbox-api')(request,response);
   privateHeaders(response);
   try{
     if ((request.method || "GET") === "GET"){

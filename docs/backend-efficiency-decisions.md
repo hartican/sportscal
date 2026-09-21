@@ -1,5 +1,15 @@
 # Backend efficiency decisions
 
+## Unified notifications inbox — 22 September 2026
+
+Signed-in accounts receive a private inbox independent of device push consent and delivery. Creation is transactional at the existing chat, invitation, membership, reward and friend-rating sources. The existing notification dispatcher owns reminder inbox creation and bounded 90-day cleanup; no new cron or presence poll is added. History starts at the inbox migration epoch without backfill. Temporary chat guests keep their existing behaviour.
+
+Pages contain 25 entries ordered newest first with a stable timestamp/ID cursor. Backgrounded clients make no inbox requests. Startup, foreground and relevant mutations refresh a compact unread summary, coalesced to at most once per 30 seconds; an open inbox refreshes at most every 30 seconds and fetches older pages deliberately. Notification reads use ID/version compare-and-set so a new message cannot be cleared by an older acknowledgement.
+
+Chat messages group until the conversation is read. Reading a conversation closes its group; unsurfaced groups already read in chat are removed. Opening Notifications only reads visible notification entries, never chat messages or invitations. Related social rewards share one story; standalone points remain separate. Private message excerpts are resolved from current authorised chat content and shown only with Results ON. Device push previews and the chat/app-icon badge keep their existing rules.
+
+Regressions: `validate-inbox-database.js`, `validate-inbox-api.js`, `validate-inbox-browser.js`, plus existing notifications/chat/backend-efficiency validators.
+
 Authoritative MVP operating decisions, 14 September 2026. Nothing Sport has approximately 3–5 active non-paying users and must fit the existing free infrastructure tiers without disabling accepted product behaviour.
 
 | Area | Decision |

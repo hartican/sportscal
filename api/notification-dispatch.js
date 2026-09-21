@@ -68,6 +68,7 @@ module.exports = async function notificationDispatchHandler(request, response){
       response.status(503).json({ error:"Notification dispatch paused for database recovery.", code:"supabase_maintenance" });
       return;
     }
+    await supabaseServiceRequest('/rest/v1/rpc/nothingsports_inbox_maintenance',{method:'POST',body:{}});
     const publicKey = String(process.env.VAPID_PUBLIC_KEY || "");
     const privateKey = String(process.env.VAPID_PRIVATE_KEY || "");
     if (!publicKey || !privateKey) throw Object.assign(new Error("Web Push is not configured."), { status:503, payload:{ code:"push_not_configured" } });

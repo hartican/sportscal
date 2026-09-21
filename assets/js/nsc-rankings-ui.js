@@ -102,5 +102,5 @@ async function render(){
  await load();if(!current())return;body.append(node('p','Efficiency = successful Heat predictions ÷ resolved predictions with another real rater. The number in brackets is the sample size. Pending and unrated fixtures are excluded.','nsc-ladder-explanation'));
  if(audience==='friends')await activity(body,current);
 }
-window.NOTHINGSPORTS_CROWD_RANKINGS={clear,render};
+window.NOTHINGSPORTS_CROWD_RANKINGS={clear,render,openProfile:picks};
 })();
