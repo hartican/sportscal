@@ -1,7 +1,7 @@
 {
-  "version": "weekend-editorial-20260918095649166-20260921123425159",
+  "version": "nothingsport-official-results-2026-09-15-v1-20260921204449552",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-21T12:34:25.159Z",
+  "publishedAt": "2026-09-21T20:44:49.552Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -21,17 +21,17 @@
     "premier-league",
     "aflw",
     "tennis",
+    "sailgp",
+    "fiba-women",
+    "nrlw",
+    "motogp",
+    "basketball",
     "wsl",
     "downhill-mtb",
     "big-wave",
     "ski",
-    "goodwood",
-    "nrlw",
-    "fiba-women",
-    "sailgp",
-    "motogp",
     "golf",
-    "basketball"
+    "goodwood"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
@@ -98,7 +98,7 @@
         "lastEventDate": "2027-03-07"
       },
       "nrl": {
-        "count": 69,
+        "count": 71,
         "firstEventDate": "2026-07-18",
         "lastEventDate": "2026-10-31"
       },
@@ -130,7 +130,32 @@
       "tennis": {
         "count": 17,
         "firstEventDate": "2026-09-03",
-        "lastEventDate": "2026-09-09"
+        "lastEventDate": "2026-09-22"
+      },
+      "sailgp": {
+        "count": 7,
+        "firstEventDate": "2026-09-06",
+        "lastEventDate": "2026-11-29"
+      },
+      "fiba-women": {
+        "count": 17,
+        "firstEventDate": "2026-09-06",
+        "lastEventDate": "2026-09-14"
+      },
+      "nrlw": {
+        "count": 7,
+        "firstEventDate": "2026-09-10",
+        "lastEventDate": "2026-10-04"
+      },
+      "motogp": {
+        "count": 9,
+        "firstEventDate": "2026-09-13",
+        "lastEventDate": "2026-11-29"
+      },
+      "basketball": {
+        "count": 165,
+        "firstEventDate": "2026-09-19",
+        "lastEventDate": "2027-02-14"
       },
       "wsl": {
         "count": 1,
@@ -152,40 +177,15 @@
         "firstEventDate": "2027-03-05",
         "lastEventDate": "2027-03-20"
       },
-      "goodwood": {
-        "count": 1,
-        "firstEventDate": "2027-07-10",
-        "lastEventDate": "2027-07-10"
-      },
-      "nrlw": {
-        "count": 7,
-        "firstEventDate": "2026-09-10",
-        "lastEventDate": "2026-10-04"
-      },
-      "fiba-women": {
-        "count": 17,
-        "firstEventDate": "2026-09-06",
-        "lastEventDate": "2026-09-14"
-      },
-      "sailgp": {
-        "count": 7,
-        "firstEventDate": "2026-09-06",
-        "lastEventDate": "2026-11-29"
-      },
-      "motogp": {
-        "count": 9,
-        "firstEventDate": "2026-09-13",
-        "lastEventDate": "2026-11-29"
-      },
       "golf": {
         "count": 4,
         "firstEventDate": "2027-04-08",
         "lastEventDate": "2027-07-15"
       },
-      "basketball": {
-        "count": 165,
-        "firstEventDate": "2026-09-19",
-        "lastEventDate": "2027-02-14"
+      "goodwood": {
+        "count": 1,
+        "firstEventDate": "2027-07-10",
+        "lastEventDate": "2027-07-10"
       }
     }
   }

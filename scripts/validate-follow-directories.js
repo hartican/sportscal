@@ -83,10 +83,10 @@ for (const sportKey of ["afl", "aflw", "f1"]){
   else assert.ok(athletes.every(record => record.competitionNumberKind === "guernsey"), `${sportKey}: guernsey metadata is required even while a source number is TBC`);
 }
 const wrc = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/wrc.v1.json"), "utf8"));
-assert.equal(wrc.records.length, 77, "WRC must expose the complete senior FIA standings field");
-assert.equal(wrc.records.filter(record => record.position === "driver").length, 36, "WRC drivers directory is incomplete");
-assert.equal(wrc.records.filter(record => record.position === "co-driver").length, 37, "WRC co-drivers directory is incomplete");
-assert.equal(wrc.records.filter(record => record.position === "manufacturer").length, 4, "WRC manufacturers directory is incomplete");
+const wrcContext=require('../data/canonical/wrc-context-2026.json');
+assert.deepEqual(new Set(wrc.records.map(r=>r.id)),new Set(wrcContext.participants.map(p=>p.id)),"WRC directory must expose every sourced senior participant exactly once");
+assert.equal(wrc.records.length,wrcContext.participants.length);
+for(const role of ['driver','co-driver','manufacturer'])assert.equal(wrc.records.filter(r=>r.position===role).length,wrcContext.participants.filter(p=>p.metadata.championshipRole===role).length,role+' directory incomplete');
 assert.ok(wrc.records.every(record => record.sourceRefs.some(ref => /^https:\/\/(?:www\.)?(?:wrc\.com|fia\.com|api\.fia\.com)/.test(ref))), "WRC follows require official source provenance");
 const motorsport = JSON.parse(fs.readFileSync(path.join(ROOT, "data/follow-directory/motorsport.v1.json"), "utf8"));
 assert.ok(motorsport.records.some(record => String(record.id).startsWith("competitor:f1:")), "general Motorsport must retain F1 discovery");

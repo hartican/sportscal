@@ -99,6 +99,7 @@ const nextMeta = {
   usesBundledEvents: false,
 };
 
+publishedFeed.events=publishedFeed.events.map(require("../config/coverage-pauses").apply);
 writeJson(eventsOutPath, publishedFeed);
 writeJson(metaOutPath, nextMeta);
 fs.mkdirSync(path.dirname(bundleOutPath), { recursive: true });

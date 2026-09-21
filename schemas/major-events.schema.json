@@ -4,153 +4,622 @@
   "title": "nothingsport major events catalogue",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "classificationVersion", "publishedAt", "events"],
+  "required": [
+    "schemaVersion",
+    "classificationVersion",
+    "publishedAt",
+    "events"
+  ],
   "properties": {
-    "schemaVersion": { "const": "major-events.v1" },
-    "classificationVersion": { "const": "competition-classification.v1" },
-    "publishedAt": { "type": "string", "format": "date-time" },
+    "schemaVersion": {
+      "const": "major-events.v1"
+    },
+    "classificationVersion": {
+      "const": "competition-classification.v1"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
     "events": {
       "type": "array",
-      "items": { "$ref": "#/$defs/event" }
+      "items": {
+        "$ref": "#/$defs/event"
+      }
     }
   },
   "$defs": {
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "url", "checkedAt"],
+      "required": [
+        "name",
+        "url",
+        "checkedAt"
+      ],
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
-        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
-        "checkedAt": { "type": "string", "format": "date-time" }
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "checkedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     },
     "ticketing": {
-      "type": ["object", "null"],
+      "type": [
+        "object",
+        "null"
+      ],
       "additionalProperties": false,
-      "required": ["provider", "status", "url", "verifiedAt"],
+      "required": [
+        "provider",
+        "status",
+        "url",
+        "verifiedAt"
+      ],
       "properties": {
-        "provider": { "type": "string", "minLength": 1 },
-        "status": { "enum": ["on_sale", "presale", "waitlist", "register_interest"] },
-        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
-        "verifiedAt": { "type": "string", "format": "date-time" },
-        "saleStartAt": { "type": ["string", "null"], "format": "date-time" },
-        "saleEndAt": { "type": ["string", "null"], "format": "date-time" },
-        "inventoryStatus": { "enum": ["available", "selling_quickly", "limited", "sold_out"] },
-        "inventoryVerifiedAt": { "type": ["string", "null"], "format": "date-time" }
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "on_sale",
+            "presale",
+            "waitlist",
+            "register_interest"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "verifiedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "saleStartAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "saleEndAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "inventoryStatus": {
+          "enum": [
+            "available",
+            "selling_quickly",
+            "limited",
+            "sold_out"
+          ]
+        },
+        "inventoryVerifiedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
       }
     },
     "bracketDestination": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["status", "label"],
+      "required": [
+        "status",
+        "label"
+      ],
       "properties": {
-        "status": { "enum": ["advances", "eliminated", "champion"] },
-        "nextMatchId": { "type": "string", "minLength": 1 },
-        "label": { "type": "string", "minLength": 2, "maxLength": 120 }
+        "status": {
+          "enum": [
+            "advances",
+            "eliminated",
+            "champion"
+          ]
+        },
+        "nextMatchId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        }
       }
     },
     "bracketMatchProgression": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["matchId", "winner", "loser"],
+      "required": [
+        "matchId",
+        "winner",
+        "loser"
+      ],
       "properties": {
-        "matchId": { "type": "string", "minLength": 1 },
-        "winner": { "$ref": "#/$defs/bracketDestination" },
-        "loser": { "$ref": "#/$defs/bracketDestination" }
+        "matchId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "winner": {
+          "$ref": "#/$defs/bracketDestination"
+        },
+        "loser": {
+          "$ref": "#/$defs/bracketDestination"
+        }
       }
     },
     "bracketProgression": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["schemaVersion", "sourceUrl", "sourceCheckedAt", "matches"],
+      "required": [
+        "schemaVersion",
+        "sourceUrl",
+        "sourceCheckedAt",
+        "matches"
+      ],
       "properties": {
-        "schemaVersion": { "const": "bracket-progression.v1" },
-        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
-        "sourceCheckedAt": { "type": "string", "format": "date-time" },
-        "matches": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/bracketMatchProgression" } }
+        "schemaVersion": {
+          "const": "bracket-progression.v1"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "sourceCheckedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "matches": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/bracketMatchProgression"
+          }
+        }
       }
     },
     "subEvent": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "name"],
+      "required": [
+        "id",
+        "name"
+      ],
       "properties": {
-        "id": { "type": "string", "minLength": 1 },
-        "sessionId": { "type": "string", "minLength": 1 },
-        "sessionStartTimeUtc": { "type": ["string", "null"], "format": "date-time" },
-        "sequenceInSession": { "type": "integer", "minimum": 0 },
-        "previewPriority": { "type": "integer", "minimum": 0 },
-        "marquee": { "type": "boolean" },
-        "timePrecision": { "enum": ["exact", "estimated", "follows", "date-only", "tbc", "unknown"] },
-        "timelineSortTimeUtc": { "type": ["string", "null"], "format": "date-time" },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sessionStartTimeUtc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "sequenceInSession": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "previewPriority": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "marquee": {
+          "type": "boolean"
+        },
+        "timePrecision": {
+          "enum": [
+            "exact",
+            "estimated",
+            "follows",
+            "date-only",
+            "tbc",
+            "unknown"
+          ]
+        },
+        "timelineSortTimeUtc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
         "timingSource": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["publisher", "url", "checkedAt", "precedence"],
+          "required": [
+            "publisher",
+            "url",
+            "checkedAt",
+            "precedence"
+          ],
           "properties": {
-            "publisher": { "type": "string", "minLength": 1 },
-            "url": { "type": "string", "format": "uri", "pattern": "^https://" },
-            "checkedAt": { "type": "string", "format": "date-time" },
-            "precedence": { "enum": ["official-tournament", "official-session-order", "verified-broadcaster"] }
+            "publisher": {
+              "type": "string",
+              "minLength": 1
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://"
+            },
+            "checkedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "precedence": {
+              "enum": [
+                "official-tournament",
+                "official-session-order",
+                "verified-broadcaster"
+              ]
+            }
           }
         },
-        "statusUpdatedAt": { "type": "string", "format": "date-time" },
-        "resultPublishedAt": { "type": "string", "format": "date-time" },
-        "stableMatchId": { "type": "string", "minLength": 1 },
-        "legacyEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
-        "cardKind": { "const": "fixture" },
-        "competitionId": { "type": "string", "minLength": 1 },
-        "parentEventId": { "type": "string", "minLength": 1 },
-        "identityRef": { "type": "string", "minLength": 1 },
-        "name": { "type": "string", "minLength": 1 },
-        "roundLabel": { "type": ["string", "null"] },
-        "stage": { "type": ["string", "null"] },
-        "competitionPhase": { "type": "string", "minLength": 1 },
-        "isFinalRegularSeasonRound": { "type": "boolean" },
-        "stakesFloor": { "type": "integer", "minimum": 1, "maximum": 5 },
-        "matchType": { "type": ["string", "null"] },
-        "eventType": { "type": ["string", "null"] },
-        "eventCode": { "type": ["string", "null"] },
-        "bestOf": { "type": "integer", "enum": [3,5] },
-        "sourceQuality": { "type": "string" },
-        "court": { "type": ["string", "null"] },
-        "scheduleStatus": { "enum": ["confirmed", "provisional", "tbc"] },
-        "result": { "type": ["string", "object", "null"] },
-        "matchupSides": { "type": "array" },
-        "startTimeUtc": { "type": ["string", "null"], "format": "date-time" },
-        "date": { "type": ["string", "null"], "format": "date" },
-        "time": { "type": ["string", "null"] },
-        "venue": { "type": "string", "minLength": 1 },
-        "stakesScore": { "type": "integer", "minimum": 1, "maximum": 5 },
-        "dateLabel": { "type": "string", "minLength": 1 },
-        "expected": { "type": "number", "minimum": 0, "maximum": 10 },
-        "status": { "enum": ["scheduled", "live", "completed", "postponed", "cancelled"] },
-        "summary": { "type": "string" },
-        "scoreDisplay": { "type": ["string", "null"] },
-        "participants": { "type": "array" },
-        "participantIds": { "type": "array", "items": { "type": "string" } },
-        "broadcaster": { "type": ["string", "null"] },
-        "broadcasterIds": { "type": "array", "items": { "type": "string" } },
-        "broadcastOptions": { "type": "array" },
-        "viewingOptions": { "type": "array" },
-        "competitionScope": { "enum": ["domestic", "international"] },
-        "isInternational": { "type": "boolean" },
-        "representativeCountryCodes": { "type": "array", "items": { "type": "string", "minLength": 2, "maxLength": 3 } },
-        "ticketing": { "$ref": "#/$defs/ticketing" },
-        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
-        "editorialNarrative": { "$ref": "event-feed.schema.json#/$defs/editorialNarrative" },
+        "statusUpdatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resultPublishedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stableMatchId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacyEventIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "cardKind": {
+          "const": "fixture"
+        },
+        "competitionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parentEventId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "identityRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "roundLabel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "stage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "competitionPhase": {
+          "type": "string",
+          "minLength": 1
+        },
+        "isFinalRegularSeasonRound": {
+          "type": "boolean"
+        },
+        "stakesFloor": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "matchType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "eventType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "eventCode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bestOf": {
+          "type": "integer",
+          "enum": [
+            3,
+            5
+          ]
+        },
+        "sourceQuality": {
+          "type": "string"
+        },
+        "court": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scheduleStatus": {
+          "enum": [
+            "confirmed",
+            "provisional",
+            "tbc"
+          ]
+        },
+        "result": {
+          "type": [
+            "string",
+            "object",
+            "null"
+          ]
+        },
+        "matchupSides": {
+          "type": "array"
+        },
+        "startTimeUtc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "time": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "venue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stakesScore": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "dateLabel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "status": {
+          "enum": [
+            "scheduled",
+            "live",
+            "completed",
+            "postponed",
+            "cancelled"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "scoreDisplay": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "participants": {
+          "type": "array"
+        },
+        "participantIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "broadcaster": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "broadcasterIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "broadcastOptions": {
+          "type": "array"
+        },
+        "viewingOptions": {
+          "type": "array"
+        },
+        "competitionScope": {
+          "enum": [
+            "domestic",
+            "international"
+          ]
+        },
+        "isInternational": {
+          "type": "boolean"
+        },
+        "representativeCountryCodes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 3
+          }
+        },
+        "ticketing": {
+          "$ref": "#/$defs/ticketing"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "editorialNarrative": {
+          "$ref": "event-feed.schema.json#/$defs/editorialNarrative"
+        },
         "storyline": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["hookSpoilerOff", "hookSpoilerOn", "synopsisSpoilerOff", "synopsisSpoilerOn", "arcStage"],
+          "required": [
+            "hookSpoilerOff",
+            "hookSpoilerOn",
+            "synopsisSpoilerOff",
+            "synopsisSpoilerOn",
+            "arcStage"
+          ],
           "properties": {
-            "stakes": { "type": "integer", "minimum": 1, "maximum": 5 },
-            "hookSpoilerOff": { "type": "string", "minLength": 1 },
-            "hookSpoilerOn": { "type": "string", "minLength": 1 },
-            "synopsisSpoilerOff": { "type": "string", "minLength": 1 },
-            "synopsisSpoilerOn": { "type": "string", "minLength": 1 },
-            "arcStage": { "enum": ["preview", "live", "recap"] }
+            "stakes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "hookSpoilerOff": {
+              "type": "string",
+              "minLength": 1
+            },
+            "hookSpoilerOn": {
+              "type": "string",
+              "minLength": 1
+            },
+            "synopsisSpoilerOff": {
+              "type": "string",
+              "minLength": 1
+            },
+            "synopsisSpoilerOn": {
+              "type": "string",
+              "minLength": 1
+            },
+            "arcStage": {
+              "enum": [
+                "preview",
+                "live",
+                "recap"
+              ]
+            }
+          }
+        },
+        "endTimeUtc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "actualEndTimeUtc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "sourceCheckedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "endTimeBasis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "outcomeText": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "eventId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "canonicalEventId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceTrust": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "score": {
+          "type": [
+            "string",
+            "number",
+            "null"
+          ]
+        },
+        "sourceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
           }
         }
       }
@@ -158,54 +627,236 @@
     "event": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "kind", "name", "sportKey", "sportKeys", "sportLabel", "dateStatus", "season", "summary", "details", "sources"],
+      "required": [
+        "id",
+        "kind",
+        "name",
+        "sportKey",
+        "sportKeys",
+        "sportLabel",
+        "dateStatus",
+        "season",
+        "summary",
+        "details",
+        "sources"
+      ],
       "properties": {
-        "id": { "type": "string", "minLength": 1 },
-        "eventFamilyId": { "type": "string", "minLength": 1 },
-        "editionId": { "type": "string", "minLength": 1 },
-        "phaseId": { "type": "string", "minLength": 1 },
-        "phaseLabel": { "type": "string", "minLength": 1 },
-        "phaseStartDate": { "type": ["string", "null"], "format": "date" },
-        "phaseEndDate": { "type": ["string", "null"], "format": "date" },
-        "kind": { "enum": ["tournament", "major_event", "ticket_sale"] },
-        "parentEventId": { "type": "string" },
-        "name": { "type": "string", "minLength": 1 },
-        "lifecycleStatus": { "enum": ["active", "retired"] },
-        "retiredReason": { "type": "string", "minLength": 1 },
-        "retiredAt": { "type": "string", "format": "date-time" },
-        "retiredDeepLinkBehaviour": { "const": "safe-tombstone" },
-        "phaseIdentity": { "enum": ["qualification", "league", "knockout", "finals", "main-draw"] },
-        "sportKey": { "type": "string", "minLength": 1 },
-        "sportKeys": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-        "sportLabel": { "type": "string", "minLength": 1 },
-        "competitionId": { "type": "string" },
-        "competitionScope": { "enum": ["domestic", "international"] },
-        "isInternational": { "type": "boolean" },
-        "representativeCountryCodes": { "type": "array", "items": { "type": "string", "minLength": 2, "maxLength": 3 } },
-        "stakesScore": { "const": 5 },
-        "dateStatus": { "enum": ["confirmed", "tbc"] },
-        "season": { "type": "integer", "minimum": 2026 },
-        "startDate": { "type": ["string", "null"], "format": "date" },
-        "endDate": { "type": ["string", "null"], "format": "date" },
-        "timezone": { "type": "string" },
-        "venue": { "type": "string" },
-        "location": { "type": "string" },
-        "summary": { "type": "string", "minLength": 1 },
-        "editorialNarrative": { "$ref": "event-feed.schema.json#/$defs/editorialNarrative" },
-        "bracketProgression": { "$ref": "#/$defs/bracketProgression" },
-        "details": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
-        "scheduleAdapter": { "type": "string" },
-        "drawType": { "type": "string" },
-        "draw": { "type": ["array", "object", "null"] },
-        "participantIdentities": { "type": "array" },
-        "currentPlayers": { "type": "array" },
-        "broadcaster": { "type": ["string", "null"] },
-        "broadcasterIds": { "type": "array", "items": { "type": "string" } },
-        "broadcastOptions": { "type": "array" },
-        "viewingOptions": { "type": "array" },
-        "subEvents": { "type": "array", "items": { "$ref": "#/$defs/subEvent" } },
-        "ticketing": { "$ref": "#/$defs/ticketing" },
-        "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } }
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "eventFamilyId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "editionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phaseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phaseLabel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phaseStartDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "phaseEndDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "kind": {
+          "enum": [
+            "tournament",
+            "major_event",
+            "ticket_sale"
+          ]
+        },
+        "parentEventId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lifecycleStatus": {
+          "enum": [
+            "active",
+            "retired"
+          ]
+        },
+        "retiredReason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retiredAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "retiredDeepLinkBehaviour": {
+          "const": "safe-tombstone"
+        },
+        "phaseIdentity": {
+          "enum": [
+            "qualification",
+            "league",
+            "knockout",
+            "finals",
+            "main-draw"
+          ]
+        },
+        "sportKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sportKeys": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "sportLabel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "competitionId": {
+          "type": "string"
+        },
+        "competitionScope": {
+          "enum": [
+            "domestic",
+            "international"
+          ]
+        },
+        "isInternational": {
+          "type": "boolean"
+        },
+        "representativeCountryCodes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 3
+          }
+        },
+        "stakesScore": {
+          "const": 5
+        },
+        "dateStatus": {
+          "enum": [
+            "confirmed",
+            "tbc"
+          ]
+        },
+        "season": {
+          "type": "integer",
+          "minimum": 2026
+        },
+        "startDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "endDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "venue": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "editorialNarrative": {
+          "$ref": "event-feed.schema.json#/$defs/editorialNarrative"
+        },
+        "bracketProgression": {
+          "$ref": "#/$defs/bracketProgression"
+        },
+        "details": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "scheduleAdapter": {
+          "type": "string"
+        },
+        "drawType": {
+          "type": "string"
+        },
+        "draw": {
+          "type": [
+            "array",
+            "object",
+            "null"
+          ]
+        },
+        "participantIdentities": {
+          "type": "array"
+        },
+        "currentPlayers": {
+          "type": "array"
+        },
+        "broadcaster": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "broadcasterIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "broadcastOptions": {
+          "type": "array"
+        },
+        "viewingOptions": {
+          "type": "array"
+        },
+        "subEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/subEvent"
+          }
+        },
+        "ticketing": {
+          "$ref": "#/$defs/ticketing"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        }
       }
     }
   }

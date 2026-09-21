@@ -59,7 +59,8 @@
       if (value[key] && (typeof value[key] !== "object" || Array.isArray(value[key]))) normalized[key] = null;
     }
     normalized.consensusTags=consensusTagsForEvent(normalized);
-    return normalized;
+    const pauses=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES || (typeof require==="function"?require("./coverage-pauses"):null);
+    return pauses ? pauses.apply(normalized) : normalized;
   }
 
   function fromSchedule(fixture, code = {}){

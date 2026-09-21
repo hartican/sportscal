@@ -26,6 +26,8 @@ function expectedCloseAt(event) {
 }
 
 function isDueForResult(event) {
+  if(require("../config/coverage-pauses").womensT20(event))return false;
+  if(!require("../config/follow-feed-policy").feedEligibleSession(event))return false;
   // Tournament overview cards represent an active event window, not one
   // scoreable contest. They remain preview coverage until a verified match or
   // final result is available, so a daily order-of-play timestamp is never a

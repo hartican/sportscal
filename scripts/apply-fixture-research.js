@@ -5,6 +5,7 @@ const narrative=require('./lib/editorial-narrative');
 function apply(knowledge,feed,majorEvents,research,catalogue=[]){
   const upsert=(field,value)=>{const index=knowledge[field].findIndex(row=>row.id===value.id);if(index<0)knowledge[field].push(value);else knowledge[field][index]=value;};
   for(const entry of research.entries){
+    if(require('../config/coverage-pauses').womensT20({key:'cricket',name:entry.title}))continue;
     const prefix=`fixture-research:${entry.id.replace(/[^a-z0-9:._-]/g,'-')}`;
     const targetIds=[...new Set([...feed.events,...catalogue].filter(event=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(entry.id)).map(event=>event.id))];
     if(!targetIds.length)throw new Error('Missing researched fixture '+entry.id);
@@ -18,7 +19,7 @@ function apply(knowledge,feed,majorEvents,research,catalogue=[]){
     });
     upsert('narrativeThreads',{id:threadId,subjectIds:[subjectId],title:entry.title,summary:entry.synopsis,factIds,status:entry.promotedReplay?'resolved':'active',updatedAt:entry.researchedAt});
     knowledge.eventProjections=knowledge.eventProjections.filter(projection=>projection.id!==`projection:${prefix}`).map(projection=>projection.targetType==='feed-event'?{...projection,targetIds:projection.targetIds.filter(id=>id!==entry.id&&!targetIds.includes(id))}:projection).filter(projection=>projection.targetIds.length);
-    const projection={id:`projection:${prefix}`,targetType:'feed-event',targetIds,researchDepth:entry.researchDepth || 5,hook:entry.hook,synopsis:entry.synopsis,threadIds:[threadId],factIds,sourceIds,researchedAt:entry.researchedAt,refreshAfter:entry.promotedReplay?null:'2026-09-09T12:00:00.000Z',generationMode:'researched',originalityReview:{method:'independent-summary-no-source-prose-retained',reviewedAt:entry.researchedAt},...(entry.hookSpoilerOn?{hookSpoilerOn:entry.hookSpoilerOn,synopsisSpoilerOn:entry.synopsisSpoilerOn}:{})};
+    const projection={id:`projection:${prefix}`,targetType:'feed-event',targetIds,researchDepth:entry.researchDepth || 5,hook:entry.hook,synopsis:entry.synopsis,threadIds:[threadId],factIds,sourceIds,researchedAt:entry.researchedAt,refreshAfter:entry.promotedReplay?null:(entry.refreshAfter || [...feed.events,...catalogue].find(event=>targetIds.includes(event.id))?.startTimeUtc || null),generationMode:'researched',originalityReview:{method:'independent-summary-no-source-prose-retained',reviewedAt:entry.researchedAt},...(entry.hookSpoilerOn?{hookSpoilerOn:entry.hookSpoilerOn,synopsisSpoilerOn:entry.synopsisSpoilerOn}:{})};
     knowledge.eventProjections.push(projection);
     const indexes=narrative.indexesFor(knowledge);
     const enrich=(event,child=false)=>{

@@ -1,21 +1,21 @@
 {
   "schemaVersion": "afl-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-09-08T13:40:18.997Z",
+  "generatedAt": "2026-09-21T20:00:27.728Z",
   "sources": [
     {
       "id": "source:afl:teams",
       "provider": "AFL",
       "url": "https://www.afl.com.au/teams",
       "sourceType": "official",
-      "checkedAt": "2026-09-08T13:40:18.997Z"
+      "checkedAt": "2026-09-21T20:00:27.728Z"
     },
     {
       "id": "source:afl:players",
       "provider": "AFL",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-09-08T13:40:18.997Z"
+      "checkedAt": "2026-09-21T20:00:27.728Z"
     }
   ],
   "leagues": [
@@ -517,8 +517,8 @@
       "profileRef": "profile:afl:aidan-schubert",
       "dateOfBirth": "2007-12-21",
       "heightInCm": 195,
-      "recruitedFrom": "Gawler Central (SA)/Central District (SANFL)",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -1349,8 +1349,8 @@
       "profileRef": "profile:afl:bailey-macdonald",
       "dateOfBirth": "2004-08-04",
       "heightInCm": 182,
-      "recruitedFrom": "Surrey Park (Vic)/Wesley College (Vic)/Oakleigh U18",
-      "debutYear": "2023",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -1401,8 +1401,8 @@
       "profileRef": "profile:afl:bailey-smith",
       "dateOfBirth": "2000-12-07",
       "heightInCm": 185,
-      "recruitedFrom": "East Malvern (Vic)/Xavier College (Vic)/Old Xavs (Vic)/Sandringham U18/Western Bulldogs",
-      "debutYear": "2019",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -1947,8 +1947,8 @@
       "profileRef": "profile:afl:blake-hardwick",
       "dateOfBirth": "1997-02-05",
       "heightInCm": 183,
-      "recruitedFrom": "East Doncaster (Vic)/Eastern U18",
-      "debutYear": "2016",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -2103,8 +2103,8 @@
       "profileRef": "profile:afl:bodie-ryan",
       "dateOfBirth": "2005-04-20",
       "heightInCm": 187,
-      "recruitedFrom": "Brighton Bombers (SA)/Glenelg (SANFL)",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -2129,8 +2129,8 @@
       "profileRef": "profile:afl:brad-close",
       "dateOfBirth": "1998-07-30",
       "heightInCm": 183,
-      "recruitedFrom": "North Gambier (SA)/Glenelg (SANFL)",
-      "debutYear": "2020",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -2909,8 +2909,8 @@
       "profileRef": "profile:afl:calsher-dear",
       "dateOfBirth": "2005-08-04",
       "heightInCm": 195,
-      "recruitedFrom": "Beaumaris FC (Vic)/Sandringham U18",
-      "debutYear": "2024",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -2935,8 +2935,8 @@
       "profileRef": "profile:afl:cam-mackenzie",
       "dateOfBirth": "2004-01-21",
       "heightInCm": 188,
-      "recruitedFrom": "Beaumaris (Vic)/Brighton Grammar (Vic)/Sandringham U18",
-      "debutYear": "2023",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -2987,8 +2987,8 @@
       "profileRef": "profile:afl:cameron-nairn",
       "dateOfBirth": "2007-10-15",
       "heightInCm": 185,
-      "recruitedFrom": "Willaston (SA)/Central District (SANFL)",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -3559,7 +3559,7 @@
       "profileRef": "profile:afl:cillian-burke",
       "dateOfBirth": "2003-03-29",
       "heightInCm": 192,
-      "recruitedFrom": "Count Kerry (Ireland)",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -3637,7 +3637,7 @@
       "profileRef": "profile:afl:cody-anderson",
       "dateOfBirth": "2006-01-30",
       "heightInCm": 183,
-      "recruitedFrom": "Healesville JFC/Eastern U18",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -3819,8 +3819,8 @@
       "profileRef": "profile:afl:connor-macdonald",
       "dateOfBirth": "2003-01-13",
       "heightInCm": 185,
-      "recruitedFrom": "Doveton (Vic)/Haileybury College (Vic)/Dandenong U18",
-      "debutYear": "2022",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -3845,8 +3845,8 @@
       "profileRef": "profile:afl:connor-osullivan",
       "dateOfBirth": "2005-05-19",
       "heightInCm": 198,
-      "recruitedFrom": "Albury Junior Football Club (NSW)/Murray U18",
-      "debutYear": "2024",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -3923,8 +3923,8 @@
       "profileRef": "profile:afl:conor-nash",
       "dateOfBirth": "1998-07-28",
       "heightInCm": 198,
-      "recruitedFrom": "County Meath (Ireland)",
-      "debutYear": "2018",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -4885,8 +4885,8 @@
       "profileRef": "profile:afl:dylan-moore",
       "dateOfBirth": "1999-08-04",
       "heightInCm": 177,
-      "recruitedFrom": "Rowville (Vic)/Caulfield Grammar (Vic)/Eastern U18",
-      "debutYear": "2019",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -5233,7 +5233,7 @@
       "sortName": "Errol Gulden",
       "currentTeamId": "team:afl:cd_t160",
       "leagueId": "competition:afl-premiership-2026",
-      "position": "Midfielder Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/players/3336/errol-gulden",
       "sourceRefs": [
         "source:afl:players",
@@ -5405,8 +5405,8 @@
       "profileRef": "profile:afl:finn-maginness",
       "dateOfBirth": "2001-02-23",
       "heightInCm": 189,
-      "recruitedFrom": "East Brighton (Vic)/Scotch College (Vic)/Sandringham U18",
-      "debutYear": "2020",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -5665,8 +5665,8 @@
       "profileRef": "profile:afl:george-stevens",
       "dateOfBirth": "2005-04-14",
       "heightInCm": 189,
-      "recruitedFrom": "Sth Warrnambool/Emmaneul College (Vic)/Greater Western Victoria Rebels U18",
-      "debutYear": "2025",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -5743,8 +5743,8 @@
       "profileRef": "profile:afl:gryan-miers",
       "dateOfBirth": "1999-03-30",
       "heightInCm": 179,
-      "recruitedFrom": "Grovedale (Vic)/Geelong U18",
-      "debutYear": "2019",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -5795,7 +5795,7 @@
       "profileRef": "profile:afl:harley-barker",
       "dateOfBirth": "2007-05-02",
       "heightInCm": 185,
-      "recruitedFrom": "Mt Barker (SA)/Sturt (SANFL)",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -6263,8 +6263,8 @@
       "profileRef": "profile:afl:harry-morrison",
       "dateOfBirth": "1998-11-12",
       "heightInCm": 184,
-      "recruitedFrom": "Benalla Saints (Vic)/Murray U18",
-      "debutYear": "2017",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -6653,8 +6653,8 @@
       "profileRef": "profile:afl:henry-hustwaite",
       "dateOfBirth": "2004-07-20",
       "heightInCm": 195,
-      "recruitedFrom": "Rosebud (Vic)/Rosebud Secondary College (Vic)/Dandenong U18",
-      "debutYear": "2023",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -6965,7 +6965,7 @@
       "profileRef": "profile:afl:hunter-holmes",
       "dateOfBirth": "2007-02-19",
       "heightInCm": 187,
-      "recruitedFrom": "Prahran JFC (Vic)/Oakleigh U18",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -7277,8 +7277,8 @@
       "profileRef": "profile:afl:jack-bowes",
       "dateOfBirth": "1998-01-26",
       "heightInCm": 189,
-      "recruitedFrom": "Surfers Paradise (Qld)/Cairns Saints (Qld)/Gold Coast",
-      "debutYear": "2017",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -7407,8 +7407,8 @@
       "profileRef": "profile:afl:jack-dalton",
       "dateOfBirth": "2007-04-05",
       "heightInCm": 177,
-      "recruitedFrom": "East Malvern JFC (Vic)/Sandringham U18",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -7459,8 +7459,8 @@
       "profileRef": "profile:afl:jack-ginnivan",
       "dateOfBirth": "2002-12-09",
       "heightInCm": 185,
-      "recruitedFrom": "Strathfieldsaye (Vic)/Bendigo U18/Collingwood",
-      "debutYear": "2021",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -7511,8 +7511,8 @@
       "profileRef": "profile:afl:jack-gunston",
       "dateOfBirth": "1991-10-16",
       "heightInCm": 193,
-      "recruitedFrom": "Beaumaris (Vic)/Haileybury College (Vic)/Sandr U18/Adelaide Crows/Hawthorn/Brisbane Lions",
-      "debutYear": "2010",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -7563,8 +7563,8 @@
       "profileRef": "profile:afl:jack-henry",
       "dateOfBirth": "1998-08-29",
       "heightInCm": 192,
-      "recruitedFrom": "St Mary's, Geelong (Vic)/St Joseph's College/Geelong U18",
-      "debutYear": "2018",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -7719,8 +7719,8 @@
       "profileRef": "profile:afl:jack-martin",
       "dateOfBirth": "1995-01-29",
       "heightInCm": 186,
-      "recruitedFrom": "Towns (WA)/Claremont (WAFL)/Gold Coast",
-      "debutYear": "2014",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -7823,8 +7823,8 @@
       "profileRef": "profile:afl:jack-scrimshaw",
       "dateOfBirth": "1998-09-04",
       "heightInCm": 194,
-      "recruitedFrom": "Beaumaris (Vic)/Haileybury College (Vic)/Sandr U18/Gold Coast",
-      "debutYear": "2017",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -8161,7 +8161,7 @@
       "profileRef": "profile:afl:jacob-molier",
       "dateOfBirth": "2006-10-11",
       "heightInCm": 201,
-      "recruitedFrom": "Onkaparinga Valley FC/Sturt (SANFL)",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -8447,8 +8447,8 @@
       "profileRef": "profile:afl:jai-newcombe",
       "dateOfBirth": "2001-08-02",
       "heightInCm": 187,
-      "recruitedFrom": "Poowong (Vic)/Gippsland U18/Box Hill (VFL)",
-      "debutYear": "2021",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -8525,7 +8525,7 @@
       "profileRef": "profile:afl:jaime-uhr-henry",
       "dateOfBirth": "2003-05-12",
       "heightInCm": 209,
-      "recruitedFrom": "Basektball",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -8577,8 +8577,8 @@
       "profileRef": "profile:afl:jake-kolodjashnij",
       "dateOfBirth": "1995-08-09",
       "heightInCm": 193,
-      "recruitedFrom": "Prospect (Tas)/Launceston (Tas)",
-      "debutYear": "2015",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -8613,7 +8613,7 @@
       "sortName": "Jake Lloyd",
       "currentTeamId": "team:afl:cd_t160",
       "leagueId": "competition:afl-premiership-2026",
-      "position": "Midfielder Forward",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/players/844/jake-lloyd",
       "sourceRefs": [
         "source:afl:players",
@@ -8915,8 +8915,8 @@
       "profileRef": "profile:afl:james-blanck",
       "dateOfBirth": "2000-11-20",
       "heightInCm": 196,
-      "recruitedFrom": "Park Orchards (Vic)/Whitefriars College (Vic)/Eastern U18/Box Hill (VFL)",
-      "debutYear": "2022",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -9123,8 +9123,8 @@
       "profileRef": "profile:afl:james-sicily",
       "dateOfBirth": "1995-01-06",
       "heightInCm": 188,
-      "recruitedFrom": "Keilor (Vic)/Western U18",
-      "debutYear": "2015",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -9201,8 +9201,8 @@
       "profileRef": "profile:afl:james-worpel",
       "dateOfBirth": "1999-01-24",
       "heightInCm": 186,
-      "recruitedFrom": "Bell Park (Vic)/Geelong U18/Hawthorn",
-      "debutYear": "2018",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -9305,8 +9305,8 @@
       "profileRef": "profile:afl:jarman-impey",
       "dateOfBirth": "1995-07-09",
       "heightInCm": 178,
-      "recruitedFrom": "Shepparton Swans (Vic)/Murray U18/Port Adelaide",
-      "debutYear": "2014",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -9539,8 +9539,8 @@
       "profileRef": "profile:afl:jay-polkinghorne",
       "dateOfBirth": "2006-06-02",
       "heightInCm": 190,
-      "recruitedFrom": "Western United FC/Norwood (SANFL)",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -9669,8 +9669,8 @@
       "profileRef": "profile:afl:jed-bews",
       "dateOfBirth": "1993-12-14",
       "heightInCm": 186,
-      "recruitedFrom": "Leopold (Vic)/Geelong U18",
-      "debutYear": "2014",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -9747,8 +9747,8 @@
       "profileRef": "profile:afl:jeremy-cameron",
       "dateOfBirth": "1993-04-01",
       "heightInCm": 196,
-      "recruitedFrom": "Dartmoor (Vic)/North Ballarat U18/GWS",
-      "debutYear": "2012",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -9877,7 +9877,7 @@
       "profileRef": "profile:afl:jesse-mellor",
       "dateOfBirth": "2007-04-01",
       "heightInCm": 185,
-      "recruitedFrom": "Geelong West Giants (Vic)/Geelong Falcons",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -9955,8 +9955,8 @@
       "profileRef": "profile:afl:jhye-clark",
       "dateOfBirth": "2004-07-23",
       "heightInCm": 181,
-      "recruitedFrom": "Queenscliff (Vic)//Geelong U18",
-      "debutYear": "2023",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -10059,7 +10059,7 @@
       "profileRef": "profile:afl:joe-pike",
       "dateOfBirth": "2005-05-17",
       "heightInCm": 203,
-      "recruitedFrom": "Barwon Heads/Geelong U18/Geelong (VFL)",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -10553,8 +10553,8 @@
       "profileRef": "profile:afl:josh-battle",
       "dateOfBirth": "1998-09-01",
       "heightInCm": 193,
-      "recruitedFrom": "Doveton (Vic)/Haileybury College (Vic)/Dandenong U18/St Kilda",
-      "debutYear": "2017",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -10891,8 +10891,8 @@
       "profileRef": "profile:afl:josh-ward",
       "dateOfBirth": "2003-08-15",
       "heightInCm": 183,
-      "recruitedFrom": "Fitzroy (Vic)/Melbourne Grammar (Vic)/Northern U18",
-      "debutYear": "2022",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -10917,8 +10917,8 @@
       "profileRef": "profile:afl:josh-weddle",
       "dateOfBirth": "2004-05-25",
       "heightInCm": 191,
-      "recruitedFrom": "Templestowe (Vic)/Carey Grammar (Vic)/Oakleigh U18",
-      "debutYear": "2023",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -11333,8 +11333,8 @@
       "profileRef": "profile:afl:karl-amon",
       "dateOfBirth": "1995-08-19",
       "heightInCm": 181,
-      "recruitedFrom": "East Sandringham (Vic)/Sandringham U18/Port Adelaide",
-      "debutYear": "2015",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -11437,7 +11437,7 @@
       "profileRef": "profile:afl:keighton-matofai-forbes",
       "dateOfBirth": "2006-02-02",
       "heightInCm": 189,
-      "recruitedFrom": "Keilor/Western U18",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -12295,8 +12295,8 @@
       "profileRef": "profile:afl:lawson-humphries",
       "dateOfBirth": "2003-04-24",
       "heightInCm": 182,
-      "recruitedFrom": "Wickham Wolves JFC (WA)/Swan Districts (WAFL)",
-      "debutYear": "2024",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -12347,7 +12347,7 @@
       "profileRef": "profile:afl:lennox-hofmann",
       "dateOfBirth": "2006-08-08",
       "heightInCm": 191,
-      "recruitedFrom": "Old Brighton Grammarians/Sandringham U18",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -12711,8 +12711,8 @@
       "profileRef": "profile:afl:liam-puncher",
       "dateOfBirth": "2003-08-26",
       "heightInCm": 196,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "North Shore AFC/Eagles (SANFL)",
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -12841,8 +12841,8 @@
       "profileRef": "profile:afl:lloyd-meek",
       "dateOfBirth": "1998-04-22",
       "heightInCm": 203,
-      "recruitedFrom": "SMW Rovers (Vic)/GWV U18/North Ballarat (VFL)/Fremantle",
-      "debutYear": "2021",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -13439,8 +13439,8 @@
       "profileRef": "profile:afl:mabior-chol",
       "dateOfBirth": "1997-01-29",
       "heightInCm": 200,
-      "recruitedFrom": "Yeronga (Qld)/Aspley (NEAFL)/Richmond/Gold Coast Suns",
-      "debutYear": "2016",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -13673,8 +13673,8 @@
       "profileRef": "profile:afl:mark-blicavs",
       "dateOfBirth": "1991-03-28",
       "heightInCm": 198,
-      "recruitedFrom": "Sunbury (Vic)",
-      "debutYear": "2013",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -13725,8 +13725,8 @@
       "profileRef": "profile:afl:mark-oconnor",
       "dateOfBirth": "1997-01-17",
       "heightInCm": 189,
-      "recruitedFrom": "County Kerry (Ireland)",
-      "debutYear": "2017",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -13829,8 +13829,8 @@
       "profileRef": "profile:afl:massimo-dambrosio",
       "dateOfBirth": "2003-06-05",
       "heightInCm": 178,
-      "recruitedFrom": "Point Cook (Vic)/Western U18/Richmond (VFL)/Essendon",
-      "debutYear": "2022",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -13933,8 +13933,8 @@
       "profileRef": "profile:afl:matt-hill",
       "dateOfBirth": "2004-01-01",
       "heightInCm": 187,
-      "recruitedFrom": "Rugby League",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -14193,7 +14193,7 @@
       "profileRef": "profile:afl:matthew-leray",
       "dateOfBirth": "2007-02-22",
       "heightInCm": 193,
-      "recruitedFrom": "Golden Grove (SA)/Central District (SANFL)",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -14401,8 +14401,8 @@
       "profileRef": "profile:afl:max-holmes",
       "dateOfBirth": "2002-08-29",
       "heightInCm": 190,
-      "recruitedFrom": "East Malvern (Vic)/Prahran (Vic)/Melb Grammar (Vic)/Sandr U18",
-      "debutYear": "2021",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -14557,8 +14557,8 @@
       "profileRef": "profile:afl:max-ramsden",
       "dateOfBirth": "2003-04-19",
       "heightInCm": 203,
-      "recruitedFrom": "South Melbourne Districts (Vic)/Melbourne Grammar (Vic)/Sandringham U18",
-      "debutYear": "2023",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -14713,8 +14713,8 @@
       "profileRef": "profile:afl:mitch-knevitt",
       "dateOfBirth": "2003-01-08",
       "heightInCm": 193,
-      "recruitedFrom": "Grovedale (Vic)/Grovedale College (Vic)/Geelong U18",
-      "debutYear": "2022",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -14739,8 +14739,8 @@
       "profileRef": "profile:afl:mitch-lewis",
       "dateOfBirth": "1998-10-14",
       "heightInCm": 199,
-      "recruitedFrom": "Whittlesea (Vic)/Assumption College (Vic)/Calder U18",
-      "debutYear": "2018",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -14869,8 +14869,8 @@
       "profileRef": "profile:afl:mitchell-edwards",
       "dateOfBirth": "2005-06-02",
       "heightInCm": 206,
-      "recruitedFrom": "South Mandurah Football and Netball Club - Seniors (WA)/Peel Thunder (WAFL)",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -15207,8 +15207,8 @@
       "profileRef": "profile:afl:ned-reeves",
       "dateOfBirth": "1998-10-31",
       "heightInCm": 210,
-      "recruitedFrom": "East Malvern (Vic)/St Kevin's Coll (Vic)/Oakl U18/St Kevin's OB (Vic)",
-      "debutYear": "2021",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -15311,7 +15311,7 @@
       "profileRef": "profile:afl:nicholas-driscoll",
       "dateOfBirth": "2007-04-07",
       "heightInCm": 181,
-      "recruitedFrom": "Eltham (Vic)/Northern Knights U18",
+      "recruitedFrom": null,
       "debutYear": null,
       "active": true
     },
@@ -15597,8 +15597,8 @@
       "profileRef": "profile:afl:nick-watson",
       "dateOfBirth": "2005-02-24",
       "heightInCm": 170,
-      "recruitedFrom": "East Ringwood (Vic)/Eastern Ranges U18",
-      "debutYear": "2024",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -15805,8 +15805,8 @@
       "profileRef": "profile:afl:noah-mraz",
       "dateOfBirth": "2006-02-20",
       "heightInCm": 198,
-      "recruitedFrom": "Narre North Foxes FC/Dandenong U18",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -15857,8 +15857,8 @@
       "profileRef": "profile:afl:oisin-mullin",
       "dateOfBirth": "2000-02-11",
       "heightInCm": 182,
-      "recruitedFrom": "County Mayo (Ireland)",
-      "debutYear": "2023",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -15883,8 +15883,8 @@
       "profileRef": "profile:afl:oliver-dempsey",
       "dateOfBirth": "2003-01-07",
       "heightInCm": 187,
-      "recruitedFrom": "Boroondara (Vic)/Carey Grammar (Vic)/Old Carey (Vic)",
-      "debutYear": "2022",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -15961,8 +15961,8 @@
       "profileRef": "profile:afl:oliver-greeves",
       "dateOfBirth": "2007-02-07",
       "heightInCm": 191,
-      "recruitedFrom": "Vermont (Vic)/Eastern Ranges U18",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -16065,8 +16065,8 @@
       "profileRef": "profile:afl:oliver-henry",
       "dateOfBirth": "2002-07-29",
       "heightInCm": 189,
-      "recruitedFrom": "St Marys, Geelong (Vic))/St Joseph's College/Geelong U18/Collingwood",
-      "debutYear": "2021",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -16117,8 +16117,8 @@
       "profileRef": "profile:afl:oliver-wiltshire",
       "dateOfBirth": "2002-09-15",
       "heightInCm": 180,
-      "recruitedFrom": "Barwon Heads",
-      "debutYear": "2025",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -16533,8 +16533,8 @@
       "profileRef": "profile:afl:patrick-dangerfield",
       "dateOfBirth": "1990-04-05",
       "heightInCm": 189,
-      "recruitedFrom": "Anglesea (Vic)/Geelong U18/Adelaide",
-      "debutYear": "2008",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -16975,8 +16975,8 @@
       "profileRef": "profile:afl:rhys-stanley",
       "dateOfBirth": "1990-12-01",
       "heightInCm": 200,
-      "recruitedFrom": "Berri (SA)/West Adelaide (SANFL)/St Kilda",
-      "debutYear": "2010",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -17703,8 +17703,8 @@
       "profileRef": "profile:afl:sam-butler",
       "dateOfBirth": "2003-02-10",
       "heightInCm": 184,
-      "recruitedFrom": "Lake Wendouree (Vic)/St Patrick's College, Ballarat (Vic)/GWV U18",
-      "debutYear": "2022",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -17859,8 +17859,8 @@
       "profileRef": "profile:afl:sam-de-koning",
       "dateOfBirth": "2001-02-26",
       "heightInCm": 204,
-      "recruitedFrom": "Mornington (Vic)/Dandenong U18",
-      "debutYear": "2021",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -18431,8 +18431,8 @@
       "profileRef": "profile:afl:shannon-neale",
       "dateOfBirth": "2002-07-25",
       "heightInCm": 203,
-      "recruitedFrom": "Jandakot (WA)/Leeming HS (WA)/South Fremantle (WAFL)",
-      "debutYear": "2022",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -18457,8 +18457,8 @@
       "profileRef": "profile:afl:shaun-mannagh",
       "dateOfBirth": "1997-08-06",
       "heightInCm": 178,
-      "recruitedFrom": "Murray/North Albury (NSW)/Werribee (VFL)",
-      "debutYear": "2024",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -18717,8 +18717,8 @@
       "profileRef": "profile:afl:tanner-bruhn",
       "dateOfBirth": "2002-05-27",
       "heightInCm": 184,
-      "recruitedFrom": "Newtown &amp; Chilwell (Vic)/Geelong Gram (Vic)/Geelong U18/GWS",
-      "debutYear": "2021",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -19055,8 +19055,8 @@
       "profileRef": "profile:afl:toby-conway",
       "dateOfBirth": "2003-04-24",
       "heightInCm": 206,
-      "recruitedFrom": "St Mary's, Geelong (Vic)/Geelong College (Vic)/Geelong U18",
-      "debutYear": "2023",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -19315,8 +19315,8 @@
       "profileRef": "profile:afl:tom-atkins",
       "dateOfBirth": "1995-09-18",
       "heightInCm": 180,
-      "recruitedFrom": "St Joseph's Geel (Vic)/Geel College/Geel U18/Geelong (VFL)",
-      "debutYear": "2019",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -19341,8 +19341,8 @@
       "profileRef": "profile:afl:tom-barrass",
       "dateOfBirth": "1995-10-08",
       "heightInCm": 197,
-      "recruitedFrom": "Scarborough (WA)/Claremont (WAFL)/West Coast Eagles",
-      "debutYear": "2015",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -19887,8 +19887,8 @@
       "profileRef": "profile:afl:tom-stewart",
       "dateOfBirth": "1993-03-15",
       "heightInCm": 190,
-      "recruitedFrom": "South Barwon (Vic)/Geelong U18/Geelong (VFL)",
-      "debutYear": "2017",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -20199,8 +20199,8 @@
       "profileRef": "profile:afl:tyson-stengle",
       "dateOfBirth": "1998-10-19",
       "heightInCm": 175,
-      "recruitedFrom": "Portland (SA)/LeFevre HS (SA)W-WT (SANFL)/Rich/Adel/W-WT (SANFL)",
-      "debutYear": "2017",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -20459,8 +20459,8 @@
       "profileRef": "profile:afl:will-day",
       "dateOfBirth": "2001-06-05",
       "heightInCm": 191,
-      "recruitedFrom": "PHOS Camden (SA)/Sacred Heart Coll (SA)/West Adel (SANFL)",
-      "debutYear": "2020",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -20771,8 +20771,8 @@
       "profileRef": "profile:afl:william-mccabe",
       "dateOfBirth": "2005-09-29",
       "heightInCm": 197,
-      "recruitedFrom": "Hamley Bridge Football Club (SA)/Tanunda (SA)",
-      "debutYear": "2026",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {
@@ -21135,8 +21135,8 @@
       "profileRef": "profile:afl:zach-guthrie",
       "dateOfBirth": "1998-06-30",
       "heightInCm": 188,
-      "recruitedFrom": "Sunbury (Vic)/Calder U18",
-      "debutYear": "2017",
+      "recruitedFrom": null,
+      "debutYear": null,
       "active": true
     },
     {

@@ -28,7 +28,12 @@ assert.match(html, /function buildEventWhyItMatters\(ev\)[\s\S]*editorialNarrati
 assert.doesNotMatch(html, /function crowdEditorialSupplement\(/, "all crowd phases must remain outside sourced Why it matters copy");
 assert.doesNotMatch(html, /supplementalCopy:crowdEditorialSupplement/, "crowd results must stay out of sourced Why it matters copy");
 assert.doesNotMatch(html, /buildIndependentContext\(/, "Feed and Events cards must not repeat a separate Independent context box");
-assert.match(html, /function mergeFootballFixtureEvents\(events(?:,overlays=liveFixtureEvents)?\)[^]*semanticIndexes[^]*semanticallyMerged\[existingIndex\] = \{ \.\.\.semanticallyMerged\[existingIndex\], \.\.\.event \}/, "lazy football fixture bundles must yield to the later canonical event and its researched projection regardless of page-load order");
+const mergeContext={followedScheduleFixtures:new Map([['test',[{id:'older-provider',name:'Team A v Team B',editorialNarrative:{hook:'Older'}}]]]),footballFixtureEventsByBundle:new Map(),liveFixtureEvents:[],eventMeetsDerivedRetention:()=>true,mainFeedFixtureSemanticKey:e=>e.name,uniqueArray:values=>[...new Set(values.filter(Boolean))],NOTHINGSPORTS_FIXTURE_IDENTITY:require('../config/fixture-identity')};
+require('node:vm').createContext(mergeContext);
+require('node:vm').runInContext(html.slice(html.indexOf('function mergeFootballFixtureEvents('),html.indexOf('function liveScheduleFixtures(')),mergeContext);
+const mergedEditorial=mergeContext.mergeFootballFixtureEvents([{id:'canonical-provider',name:'Team A v Team B',editorialNarrative:{hook:'Researched canonical'}}]);
+assert.equal(mergedEditorial.length,1);assert.equal(mergedEditorial[0].editorialNarrative.hook,'Researched canonical','Later canonical research supersedes lazy fixture metadata');
+assert(mergedEditorial[0].sourceEventIds.includes('older-provider'),'Provider aliases survive editorial merging');
 
 assert.equal(typeof followFirst.toggleFeedback, "function", "follow-first feedback must expose a repeat-tap toggle");
 const basePreferences = followFirst.migratePreferences({});

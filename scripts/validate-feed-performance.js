@@ -8,7 +8,7 @@ const crypto = require("node:crypto");
 const {execFileSync} = require("node:child_process");
 const ROOT = path.resolve(__dirname,"..");
 // Compare this release against the verified origin/main snapshot it extends.
-const BASELINE = "b82ccef2fb8e315cc82287a066d719a37c798b16";
+const BASELINE = "4e7966ee47fc05e7474d742dcda033c3ee8b46cf";
 const MAX_CRITICAL_GZIP_GROWTH_PERCENT = 1.25;
 function localScriptPaths(html){
   return Array.from(html.matchAll(/<script[^>]+src="([^"]+)"/g),m=>m[1])

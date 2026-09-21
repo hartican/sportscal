@@ -1,7 +1,7 @@
 {
   "schemaVersion": "official-card-results.v1",
   "feedVersion": "nothingsport-official-results-2026-09-15-v1",
-  "checkedAt": "2026-09-15T05:30:00.000Z",
+  "checkedAt": "2026-09-21T12:20:05.571Z",
   "results": [
     {
       "id": "fixture-us-open-2026-official-ms-1503",
@@ -285,6 +285,77 @@
       "outcomeText": "Australia defeated Zimbabwe by 59 runs.",
       "sourceName": "Reuters / Rediff",
       "sourceUrl": "https://www.rediff.com/cricket/report/renshaw-hits-maiden-odi-ton-as-ellis-destroys-zimbabwe/20260915.htm"
+    },
+    {
+      "id": "major-match-nrl-finals-2026-semi-final-1",
+      "status": "completed",
+      "score": "46-10",
+      "scoreDisplay": "46-10",
+      "outcomeText": "Sydney Roosters defeated Cronulla-Sutherland Sharks 46-10.",
+      "recapText": "The Roosters advanced to a preliminary final against the Dolphins after scoring five second-half tries.",
+      "sourceName": "NRL official match report",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/19/sudden-death-saturday-roosters-v-sharks/",
+      "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
+      "resultSourceUrl": "https://www.nrl.com/news/2026/09/19/sudden-death-saturday-roosters-v-sharks/",
+      "resultSourceCheckedAt": "2026-09-21T20:24:10.712468Z",
+      "homeScore": 46,
+      "awayScore": 10
+    },
+    {
+      "id": "major-match-nrl-finals-2026-semi-final-2",
+      "status": "completed",
+      "score": "10-12",
+      "scoreDisplay": "10-12",
+      "outcomeText": "Newcastle Knights defeated New Zealand Warriors 12-10.",
+      "recapText": "Newcastle defended their lead at Eden Park to progress to a preliminary final against Penrith.",
+      "sourceName": "NRL official match report",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/20/nrl-sunday-blockbuster-warriors-v-knights/",
+      "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
+      "resultSourceUrl": "https://www.nrl.com/news/2026/09/20/nrl-sunday-blockbuster-warriors-v-knights/",
+      "resultSourceCheckedAt": "2026-09-21T20:24:10.712468Z",
+      "homeScore": 10,
+      "awayScore": 12
+    },
+    {
+      "id": "evt_motogp_2026_austria",
+      "status": "completed",
+      "score": "1. Pedro Acosta; 2. Jorge Martin +1.017; 3. Marco Bezzecchi +1.209",
+      "scoreDisplay": "1. Pedro Acosta; 2. Jorge Martin +1.017; 3. Marco Bezzecchi +1.209",
+      "outcomeText": "Pedro Acosta won the Austrian MotoGP race.",
+      "recapText": "Acosta completed the race in 42 minutes 16.996 seconds, ahead of Jorge Martin and Marco Bezzecchi.",
+      "sourceName": "MotoGP official race classification",
+      "sourceUrl": "https://stats.motogp.com/en/gp-results",
+      "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
+      "resultSourceUrl": "https://stats.motogp.com/en/gp-results",
+      "resultSourceCheckedAt": "2026-09-21T20:24:10.712468Z",
+      "endTimeUtc": "2026-09-20T21:59:59.000Z",
+      "endTimeBasis": "completed-event-local-date-boundary"
+    },
+    {
+      "id": "evt_sailgp_2026_geneva_day_1",
+      "status": "completed",
+      "score": "Day 1 leader: ROCKWOOL Racing",
+      "scoreDisplay": "Day 1 leader: ROCKWOOL Racing",
+      "outcomeText": "ROCKWOOL Racing led the Geneva standings after race day one.",
+      "recapText": "A race victory put ROCKWOOL Racing at the head of the standings after the opening day. The event title remained to be decided on Sunday.",
+      "sourceName": "SailGP official team report",
+      "sourceUrl": "https://mediahub.sailgp.com/teams/rockwool-denmark/",
+      "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
+      "resultSourceUrl": "https://mediahub.sailgp.com/teams/rockwool-denmark/",
+      "resultSourceCheckedAt": "2026-09-21T20:24:10.712468Z"
+    },
+    {
+      "id": "evt_sailgp_2026_geneva_day_2",
+      "status": "completed",
+      "score": "1. Los Gallos; 2. BONDS Flying Roos; 3. ROCKWOOL Racing",
+      "scoreDisplay": "1. Los Gallos; 2. BONDS Flying Roos; 3. ROCKWOOL Racing",
+      "outcomeText": "Los Gallos won the Geneva Sail Grand Prix ahead of Australia.",
+      "recapText": "Spain passed the BONDS Flying Roos in the shortened final to take the event victory. ROCKWOOL Racing finished third.",
+      "sourceName": "SailGP official team race report",
+      "sourceUrl": "https://www.ussailgpteam.com/articles/4e819965-4765-4dcc-ba71-a4c00ea0b0e5/us-sailgp-team-switzerland-sail-grand-prix-2026-day-2-report",
+      "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
+      "resultSourceUrl": "https://www.ussailgpteam.com/articles/4e819965-4765-4dcc-ba71-a4c00ea0b0e5/us-sailgp-team-switzerland-sail-grand-prix-2026-day-2-report",
+      "resultSourceCheckedAt": "2026-09-21T20:24:10.712468Z"
     }
   ]
 }

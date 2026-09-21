@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const pauses=require('../config/coverage-pauses');
+const identity=require('../config/fixture-identity');
+const sample={id:'regression-womens-t20',key:'cricket',gender:'women',format:'T20I',name:'Australia Women v New Zealand Women',participantIds:['team:cricket:australia-women','team:cricket:new-zealand-women'],date:'2026-10-18',venue:'Sydney',broadcaster:'Test TV',broadcastOptions:[{name:'Test'}],scoreDisplay:'100-99',venueDisplayName:'Sydney',summary:'Stale editorial',participantSlots:[{participantId:'team:cricket:australia-women',score:100}],editorialNarrative:{hook:'Preview'},storyline:{hookSpoilerOff:'Preview'},participants:[{id:'team:cricket:australia-women',score:100}]};
+const clean=identity.normalizeCore(sample);
+for(const field of pauses.fields)assert(!Object.hasOwn(clean,field),field+' leaks through normalisation');
+assert.equal(clean.id,sample.id);assert.deepEqual(clean.participantIds,sample.participantIds);assert.equal(clean.date,sample.date);assert.equal(sample.venue,'Sydney','Source objects remain immutable');
+assert(!Object.hasOwn(clean.participants[0],'score'));
+assert(!Object.hasOwn(clean.participantSlots[0],'score'));
+assert.equal(require('./lib/editorial-research-depth').researchDepthFor(sample),0,'Paused coverage creates no editorial research demand');
+assert.equal(pauses.apply({...sample,format:'ODI'}).venue,'Sydney','Women ODI unchanged');
+assert.equal(pauses.apply({...sample,gender:'men',name:'Australia v NZ',participantIds:[]}).venue,'Sydney','Men T20 unchanged');
+for(const event of require('../lib/calendar-catalogue').catalogue().filter(pauses.womensT20))for(const field of pauses.fields)assert(!Object.hasOwn(event,field),`${event.id}: ${field}`);
+for(const event of require('../data/follow-schedule/cricket.json').fixtures.filter(pauses.womensT20))for(const field of pauses.fields)assert(!Object.hasOwn(event,field),`${event.id}: ${field}`);
+console.log("Women's T20 detail pause verified; fixture identity, women's ODIs and men's T20 unaffected.");

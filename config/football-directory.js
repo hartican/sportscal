@@ -178,7 +178,7 @@
     const identity=follow.participantFollowIdentityKey,levels=new Map();
     for(const item of preferences?.preferenceGraph?.entityFollows || []){
       const key=identity(item.participantId);
-      if(levels.get(key)!=='mute')levels.set(key,item.followLevel);
+      if(!['mute','unfollow'].includes(levels.get(key)))levels.set(key,item.followLevel);
     }
     for(const id of preferences?.followFirst?.collectionFollows || [])for(const member of collections[id]?.memberIds || []){
       if(!levels.has(identity(member)))levels.set(identity(member),'follow');

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "discovery-measurement.v1",
-  "generatedAt": "2026-09-04T07:47:53.734Z",
+  "generatedAt": "2026-09-21T20:20:19.813Z",
   "evidenceState": "partial_evidence",
   "coverage": {
     "missingMarquee": {
@@ -15,9 +15,9 @@
       "status": "measured",
       "direction": "flat",
       "changePercentagePoints": 0,
-      "observationCount": 3,
+      "observationCount": 4,
       "firstObservedAt": "2026-08-13T02:05:00.000Z",
-      "latestObservedAt": "2026-09-04T07:47:53.734Z"
+      "latestObservedAt": "2026-09-21T20:20:19.813Z"
     },
     "snapshots": [
       {
@@ -37,11 +37,17 @@
         "expectedCount": 5,
         "missingCount": 0,
         "ratePercent": 0
+      },
+      {
+        "observedAt": "2026-09-21T20:20:19.813Z",
+        "expectedCount": 5,
+        "missingCount": 0,
+        "ratePercent": 0
       }
     ],
     "candidatePublish": {
       "status": "insufficient_reviewed_candidates",
-      "candidateCount": 81,
+      "candidateCount": 16,
       "reviewedCount": 0,
       "publishCount": 0,
       "pendingCount": 5,

@@ -28,7 +28,7 @@ function mergeRecord(record, override, checkedAt){
     id:record.id,
     eventId:record.eventId || record.id,
     canonicalEventId:record.canonicalEventId || override.canonicalId || record.id,
-    sourceCheckedAt:checkedAt,
+    sourceCheckedAt:override.sourceCheckedAt || checkedAt,
     sourceType:"official",
     sourceTrust:"verified",
     sourceRefs,
@@ -76,7 +76,11 @@ function applyEvidence({ check=false } = {}){
   evidence.resultOverrides = evidence.resultOverrides.map(result => ({ ...result, status:"completed" }));
   const documents = Object.fromEntries(TARGETS.map(file => [file, read(file)]));
   const canonical = documents[TARGETS[0]];
-  canonical.events = applyArray(canonical.events || [], evidence.fixtureOverrides, evidence.checkedAt);
+  canonical.events = applyArray(canonical.events || [], evidence.fixtureOverrides, evidence.checkedAt).map(record=>{
+    const source={...record};
+    for(const key of ['storyline','cardVariant','archived'])delete source[key];
+    return source;
+  });
   const feed = documents[TARGETS[1]];
   feed.events = applyArray(applyArray(feed.events || [], evidence.fixtureOverrides, evidence.checkedAt, { upsert:true }), evidence.resultOverrides, evidence.checkedAt);
   const coverage = documents[TARGETS[2]];

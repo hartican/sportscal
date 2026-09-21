@@ -15,7 +15,13 @@ const { fixtureIdentityKey } = require(path.join(ROOT, "scripts/lib/major-event-
 const usOpen = JSON.parse(fs.readFileSync(path.join(ROOT, "data/major-events.v1.json"), "utf8"))
   .events.find(record => record.id === "major-event:us-open-2026");
 const usOpenSnapshot = JSON.parse(fs.readFileSync(path.join(ROOT, "feeds/provider-exports/tennis/us-open-2026-official-schedule.json"), "utf8"));
-const reference = new Date(usOpenSnapshot.capturedAt);
+// Exercise an in-tournament timeline independently of the latest archival fetch time.
+const reference = new Date("2026-09-01T05:30:00.000Z");
+usOpen.lifecycleStatus="active";
+usOpen.subEvents=usOpen.subEvents.map(event=>{
+ const start=Date.parse(event.startTimeUtc||event.sessionStartTimeUtc||`${event.date}T23:59:59Z`);
+ return start>+reference?{...event,status:"scheduled"}:event;
+});
 const neutralPlayerFixture = usOpenRefresh.fixtureFromMatch({
   order:1,
   match_id:"neutral-country-regression",

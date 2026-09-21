@@ -23,6 +23,13 @@
     const structured = structuredScore(event);
     const original = String(structured || result?.score || result?.outcome || "").trim();
     if (!original) return null;
+    const labels=globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require==='function'?require('./fixture-labels'):null);
+    const sourceTitle=String(event?.displayTitleCompact || event?.name || '');
+    if(labels && labels.matchupTitle(event,sourceTitle)!==sourceTitle){
+      const names=sourceTitle.split(/\s+v\.?\s+/i).map(s=>s.split(/\s+[—–]\s+/)[0]);
+      if(event.homeScore!=null && event.awayScore!=null && names.length===2)return `${names[0]} ${event.homeScore} — ${names[1]} ${event.awayScore}`;
+      return `${sourceTitle}: ${original}`;
+    }
     const titleParticipants = String(displayTitle || "")
       .split(/\s+v\.?\s+/i)
       .map(name => name.split(/\s+[\u2014\u2013-]\s+|\s*\(/)[0].trim())
@@ -53,7 +60,7 @@
   function tennisSets(event, displayTitle, result){
     if(!['tennis','wimbledon'].includes(event?.key))return null;
     const sides=event.matchupSides?.map(s=>s.name||s.players?.map(p=>p.name||p.displayName).join(' / '));
-    const names=sides?.length===2?sides:String(displayTitle||event.name||'').split(/\s+v\.?\s+/i);
+    const names=sides?.length===2?sides:String(event.displayTitleCompact||event.name||displayTitle||'').split(/\s+v\.?\s+/i);
     if(names.length!==2||names.some(n=>!n))return null;
     const original=String(event.scoreDisplay||result?.score||event.result||'');
     const first=original.indexOf(names[0]),second=original.indexOf(names[1]);
@@ -69,6 +76,10 @@
     }
     if(!sets.length)return null;
     if(sets.length===1&&sets[0].label!=='Match TB'&&Math.max(...sets[0].scores.map(s=>s.games))<6&&!/\bRET(?:IRED)?\b/i.test(original))return null;
+    const labels=globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require==='function'?require('./fixture-labels'):null);
+    const sourceTitle=names.join(' v ');
+    const reverseDisplay=labels && (event.matchupSides?.length===2 ? labels.australianFirst(event.matchupSides,event)[0]!==event.matchupSides[0] : labels.matchupTitle(event,sourceTitle)!==sourceTitle);
+    if(reverseDisplay){names.reverse();sets.forEach(set=>set.scores.reverse());}
     return {names,sets,status:(original.match(/\b(?:RET(?:IRED)?|W\/?O|WALKOVER|ABD|ABANDONED)\b/i)||[])[0]||null};
   }
   return Object.freeze({ VERSION, structuredScore, scoreLine, tennisSets });

@@ -65,7 +65,7 @@ const chatAlertPrompt = section(html, "function buildChatAlertPrompt()", "functi
 assert.match(chatAlertPrompt, /Enable system alerts/);
 assertOrder(chatAlertPrompt, [
   'enable.addEventListener("click"',
-  "prepareChatAudio()",
+  "prepareChatAudio({ force:true })",
   "ensurePushInstallation({ requestPermission:true })",
 ], "chat alert permission and audio user gesture");
 assert.match(html, /function openFixtureChats\(event\)\{\s+prepareChatAudio\(\)/, "fixture-room entry must resume audio from its opening gesture");
@@ -105,6 +105,6 @@ assertOrder(consequence, [
   "consequence.spoilerOnSentence",
   "return consequence.previewSentence",
 ], "spoiler-aware consequence selection");
-assert(html.includes("const consequence = opened ? editorialConsequenceForDisplay(ev)") && html.includes("buildEditorialL0Hook(hook, isValidatedEditorialCopy(consequence)"), "expanded cards render a validated sourced consequence");
+assert(html.includes("const consequence = opened ? uniqueCopy(editorialConsequenceForDisplay(ev))") && html.includes("buildEditorialL0Hook(hook, isValidatedEditorialCopy(consequence)"), "expanded cards render a validated sourced consequence");
 
 console.log("NSC, alerts, badges and editorial consequence UI validation passed.");

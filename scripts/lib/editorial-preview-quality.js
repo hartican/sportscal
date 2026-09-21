@@ -35,7 +35,10 @@ function daysUntil(event, now = new Date()) {
 }
 
 function isEditoriallyEligible(event) {
-  return !EXCLUDED_NARRATIVE_TYPES.has(event.narrativeType);
+  // Match the substantive research queue: unverified imports stay queued,
+  // rather than acquiring invented editorial merely to pass publication QA.
+  const queuedUnverified=event.editorialPreview?.status==='research-required' && event.sourceTrust!=='verified';
+  return !require('../../config/coverage-pauses').womensT20(event) && !queuedUnverified && !EXCLUDED_NARRATIVE_TYPES.has(event.narrativeType);
 }
 
 function editorialPreviewDue(event, stakes, now = new Date()) {

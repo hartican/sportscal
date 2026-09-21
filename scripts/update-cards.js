@@ -64,7 +64,7 @@ function buildQuickSteps(argv = process.argv.slice(2)) {
 
 function buildSteps({ localOnly = false } = {}) {
   const steps = [
-  ...((process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY)
+  ...((process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY || process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH || process.env.FOLLOW_SNAPSHOT_PRELOADED_PATH)
     ? [["scripts/snapshot-active-follows.js"]]
     : []),
   ["scripts/refresh-source-coverage.js"],
@@ -157,6 +157,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/sync-programme-fixtures-to-feed.js", "feeds/incoming/events.json"],
   ["scripts/apply-editorial-previews.js"],
   ["scripts/enrich-storyline-cards.js", "--write"],
+  ["scripts/apply-coverage-pauses.js"],
   ["scripts/apply-fixture-research.js"],
   ["scripts/validate-catalogue-editorial.js"],
   ["scripts/validate-pwa-schedule-editorial.js"],
@@ -183,6 +184,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/apply-national-team-identities.js", "data/events.json", "data/events.js"],
   ["scripts/sync-finals-code-phase.js"],
   ["scripts/sync-finals-code-phase.js", "--check"],
+  ["scripts/apply-coverage-pauses.js"],
   ["scripts/validate-editorial-narratives.js"],
   ["scripts/build-app-shell-runtime.js"],
   ["scripts/build-app-shell-runtime.js", "--check"],
@@ -204,6 +206,9 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-paged-feed.js"],
   ["scripts/prepare-nsc-forecasts.js"],
   ["scripts/build-code-inspector.js"],
+  ["scripts/apply-coverage-pauses.js"],
+  ["scripts/validate-coverage-pauses.js"],
+  ["scripts/validate-australia-international-editorial.js"],
   ["scripts/validate-f1-context.js"],
   ["scripts/validate-tennis-context.js"],
   ["scripts/validate-nba-context.js"],
@@ -285,6 +290,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-follow-first.js"],
   ["scripts/validate-follow-policy-parity.js"],
   ["scripts/validate-follow-decisions.js"],
+  ["scripts/validate-participant-unfollow.js"],
+  ["scripts/validate-australian-presentation.js"],
   ["scripts/validate-feed-repair-reconciliation.js"],
   ["scripts/validate-promoted-replay.js"],
   ["scripts/validate-ratings-empty-batch.js"],
@@ -349,7 +356,7 @@ async function main() {
   const quick=process.argv.includes("--quick");
   let steps = quick ? buildQuickSteps() : buildSteps(options);
   const resumeIndex=process.argv.indexOf('--resume-from');
-  if(resumeIndex>=0){const target=process.argv[resumeIndex+1],index=steps.findIndex(step=>step[0]===target);if(index<0)throw new Error('Unknown canonical resume step');steps=[['scripts/snapshot-active-follows.js'],...steps.slice(index)];}
+  if(resumeIndex>=0){const target=process.argv[resumeIndex+1],index=steps.findIndex(step=>step[0]===target);if(index<0)throw new Error('Unknown canonical resume step');steps=[...steps.slice(0,index).filter(step=>step[0]==='scripts/snapshot-active-follows.js'),...steps.slice(index)];}
   const needsFollowSnapshot = steps.some(step => step[0] === "scripts/snapshot-active-follows.js");
   const snapshotDirectory = needsFollowSnapshot ? fs.mkdtempSync(path.join(os.tmpdir(), "nothingsport-follow-snapshot-")) : null;
   if (snapshotDirectory) {

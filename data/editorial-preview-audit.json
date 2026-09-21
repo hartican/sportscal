@@ -1,104 +1,101 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-08T14:50:22.854Z",
+  "generatedAt": "2026-09-21T20:44:41.510Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 27,
-    "passed": 27,
+    "due": 6,
+    "passed": 6,
     "failed": 0
   },
   "cards": [
     {
-      "id": "fixture-us-open-2026-official-ms-1503",
-      "name": "Frances Tiafoe v Alex Michelsen",
-      "sport": "Tennis",
-      "date": "2026-09-09",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:history",
-        "narrative:path",
-        "narrative:schedule"
-      ],
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-      "issues": []
-    },
-    {
-      "id": "fixture-us-open-2026-official-ws-2501",
-      "name": "Aryna Sabalenka v Linda Noskova",
-      "sport": "Tennis",
-      "date": "2026-09-09",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:path",
-        "narrative:matchup",
-        "narrative:consequence",
-        "narrative:schedule"
-      ],
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_qualification_day_1",
-      "name": "FIBA Women's World Cup — qualification day 1",
-      "sport": "FIBA Women",
-      "date": "2026-09-09",
+      "id": "evt_30",
+      "name": "Azerbaijan GP · Qualifying",
+      "sport": "Formula 1",
+      "date": "2026-09-25",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
         "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "fixture-us-open-2026-official-ms-1504",
-      "name": "Ben Shelton v Carlos Alcaraz",
-      "sport": "Tennis",
-      "date": "2026-09-09",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:history",
-        "narrative:schedule"
-      ],
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
-      "issues": []
-    },
-    {
-      "id": "fixture-us-open-2026-official-ws-2502",
-      "name": "Jessica Pegula v Emma Navarro",
-      "sport": "Tennis",
-      "date": "2026-09-09",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:history",
-        "narrative:consequence",
         "narrative:path",
-        "narrative:schedule"
+        "narrative:consequence",
+        "narrative:form"
       ],
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule17.json",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
       "issues": []
     },
     {
-      "id": "event-wrc-2026-round-12",
-      "name": "WRC Rally Chile Bio Bío",
+      "id": "event-afl-cd_m20260142901",
+      "name": "Fremantle v Brisbane Lions",
+      "sport": "AFL",
+      "date": "2026-09-26",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:history",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:venue"
+      ],
+      "sourceUrl": "https://www.afl.com.au/ladder",
+      "issues": []
+    },
+    {
+      "id": "evt_83",
+      "name": "NRL Preliminary Finals",
+      "sport": "NRL",
+      "date": "2026-09-26",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:path",
+        "narrative:consequence",
+        "narrative:matchup",
+        "narrative:history"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
+      "issues": []
+    },
+    {
+      "id": "evt_31",
+      "name": "Azerbaijan GP · Race",
+      "sport": "Formula 1",
+      "date": "2026-09-26",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:format",
+        "narrative:consequence",
+        "narrative:history"
+      ],
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/azerbaijan",
+      "issues": []
+    },
+    {
+      "id": "rugby-australia-south-africa-2026-09-27",
+      "name": "Australia v South Africa",
+      "sport": "Rugby Union",
+      "date": "2026-09-27",
+      "stakes": 4,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:consequence",
+        "narrative:matchup",
+        "narrative:path"
+      ],
+      "sourceUrl": "https://www.rugby.com.au/news/venues-confirmed-as-tickets-go-on-sale-for-2026-wallabies-home-tests-2026215",
+      "issues": []
+    },
+    {
+      "id": "event-wrc-2026-round-13",
+      "name": "WRC Rally Italia Sardegna",
       "sport": "WRC",
-      "date": "2026-09-10",
+      "date": "2026-10-01",
       "stakes": 4,
       "status": "journalistic",
       "contextSignals": [
@@ -109,343 +106,6 @@
         "narrative:format"
       ],
       "sourceUrl": "https://www.wrc.com/en/calendar",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_qualification_day_2",
-      "name": "FIBA Women's World Cup — qualification day 2",
-      "sport": "FIBA Women",
-      "date": "2026-09-10",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_quarterfinals",
-      "name": "FIBA Women's World Cup — quarterfinals",
-      "sport": "FIBA Women",
-      "date": "2026-09-10",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_nrlw_2026_round_11_roosters_bulldogs",
-      "name": "Sydney Roosters v Canterbury-Bankstown Bulldogs",
-      "sport": "NRLW",
-      "date": "2026-09-10",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "issues": []
-    },
-    {
-      "id": "evt_nrlw_2026_round_11_wests_tigers_raiders",
-      "name": "Wests Tigers v Canberra Raiders",
-      "sport": "NRLW",
-      "date": "2026-09-11",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "issues": []
-    },
-    {
-      "id": "major-match-nrl-finals-2026-elimination-final-2",
-      "name": "Rabbitohs v Knights",
-      "sport": "NRL",
-      "date": "2026-09-11",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:schedule",
-        "narrative:path"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "issues": []
-    },
-    {
-      "id": "event-afl-cd_m20260142701",
-      "name": "Fremantle v Geelong Cats",
-      "sport": "AFL",
-      "date": "2026-09-11",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:form",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "issues": []
-    },
-    {
-      "id": "evt_nrlw_2026_round_11_eels_cowboys",
-      "name": "Parramatta Eels v North Queensland Cowboys",
-      "sport": "NRLW",
-      "date": "2026-09-12",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "issues": []
-    },
-    {
-      "id": "major-match-nrl-finals-2026-qualifying-final-2",
-      "name": "Warriors v Dolphins",
-      "sport": "NRL",
-      "date": "2026-09-12",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:history",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "issues": []
-    },
-    {
-      "id": "evt_nrlw_2026_round_11_sharks_dragons",
-      "name": "Cronulla-Sutherland Sharks v St George Illawarra Dragons",
-      "sport": "NRLW",
-      "date": "2026-09-12",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "issues": []
-    },
-    {
-      "id": "evt_81",
-      "name": "NRL Finals Week 1",
-      "sport": "NRL",
-      "date": "2026-09-12",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:path",
-        "narrative:consequence",
-        "narrative:history"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
-      "issues": []
-    },
-    {
-      "id": "event-afl-cd_m20260142702",
-      "name": "Brisbane Lions v Adelaide Crows",
-      "sport": "AFL",
-      "date": "2026-09-12",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:path",
-        "narrative:venue",
-        "narrative:consequence",
-        "narrative:form"
-      ],
-      "sourceUrl": "https://www.afl.com.au/ladder",
-      "issues": []
-    },
-    {
-      "id": "major-match-nrl-finals-2026-elimination-final-1",
-      "name": "Sharks v Cowboys",
-      "sport": "NRL",
-      "date": "2026-09-12",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "issues": []
-    },
-    {
-      "id": "evt_motogp_2026_san_marino",
-      "name": "MotoGP San Marino Grand Prix",
-      "sport": "MotoGP",
-      "date": "2026-09-13",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.motogp.com/en/calendar/2026",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_semifinals",
-      "name": "FIBA Women's World Cup — semifinals",
-      "sport": "FIBA Women",
-      "date": "2026-09-13",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_nrlw_2026_round_11_broncos_warriors",
-      "name": "Brisbane Broncos v New Zealand Warriors",
-      "sport": "NRLW",
-      "date": "2026-09-13",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "issues": []
-    },
-    {
-      "id": "evt_nrlw_2026_round_11_knights_titans",
-      "name": "Newcastle Knights v Gold Coast Titans",
-      "sport": "NRLW",
-      "date": "2026-09-13",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2025/11/14/2026-nrlw-telstra-womens-premiership-schedule/",
-      "issues": []
-    },
-    {
-      "id": "major-match-nrl-finals-2026-qualifying-final-1",
-      "name": "Panthers v Roosters",
-      "sport": "NRL",
-      "date": "2026-09-13",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:matchup",
-        "narrative:form",
-        "narrative:path"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_bronze",
-      "name": "FIBA Women's World Cup — bronze medal game",
-      "sport": "FIBA Women",
-      "date": "2026-09-14",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_fiba_women_2026_final",
-      "name": "FIBA Women's Basketball World Cup final",
-      "sport": "FIBA Women",
-      "date": "2026-09-14",
-      "stakes": 5,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://assets.fiba.basketball/image/upload/fiba-womens-basketball-world-cup-208875-game-schedule.pdf",
-      "issues": []
-    },
-    {
-      "id": "evt_82",
-      "name": "NRL Finals Week 2",
-      "sport": "NRL",
-      "date": "2026-09-19",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:path",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
-      "issues": []
-    },
-    {
-      "id": "evt_sailgp_2026_geneva_day_1",
-      "name": "Geneva Sail Grand Prix — race day 1",
-      "sport": "SailGP",
-      "date": "2026-09-19",
-      "stakes": 4,
-      "status": "journalistic",
-      "contextSignals": [
-        "event-specific",
-        "narrative:schedule",
-        "narrative:format",
-        "narrative:consequence"
-      ],
-      "sourceUrl": "https://sailgp.com/general/2026/calendar/",
       "issues": []
     }
   ]

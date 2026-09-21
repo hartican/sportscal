@@ -7,7 +7,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(root, competitionClassification){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v9";
+  const SCHEMA_VERSION = "follow-first.v10";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -330,7 +330,8 @@
     ].map(String).filter(id => !retiredSportIds.has(id))));
     return {
       ...source,
-      version:Math.max(22, Number(source.version) || 0),
+      version:Math.max(23, Number(source.version) || 0),
+      ...(source.preferenceGraph ? {preferenceGraph:{...source.preferenceGraph, entityFollows:(source.preferenceGraph.entityFollows || []).map(item=>item.followLevel === "mute" ? {...item,followLevel:"unfollow"} : item)}} : {}),
       followedSports,
       selectedSelectorEntityIds,
       followFirst:{
@@ -401,7 +402,7 @@
   function participantFollowFromNormalized(participantId, next, collectionsById = {}){
     const identityKey = participantFollowIdentityKey(participantId);
     const explicitMatches = (next.preferenceGraph?.entityFollows || []).filter(item => participantFollowIdentityKey(item.participantId) === identityKey);
-    if (explicitMatches.some(item => item.followLevel === "mute")) return { followed:false, source:"mute", followLevel:"mute", collectionIds:[] };
+    if (explicitMatches.some(item => ["unfollow","mute"].includes(item.followLevel))) return { followed:false, source:"unfollow", followLevel:"unfollow", collectionIds:[] };
     const explicit = explicitMatches.find(item => ["follow", "priority"].includes(item.followLevel));
     if (explicit) return { followed:true, source:"explicit", followLevel:explicit.followLevel, collectionIds:[] };
     const collectionIds = next.followFirst.collectionFollows.filter(collectionId => (
@@ -510,8 +511,8 @@
     if (followPolicy.aggregateEvent(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
     const participants = followPolicy.participantIds(event);
-    if (participants.some(id => participantFollowFromNormalized(id,next,collectionsById).source === "mute")) return null;
     for (const id of participants){
+      if (participantFollowFromNormalized(id,next,collectionsById).source === "unfollow") continue;
       const follow = follows.get(id);
       if (follow && ["follow", "priority"].includes(follow.followLevel)){
         const entityKind = id.startsWith("team:") ? "team" : "athlete";
@@ -825,6 +826,8 @@
   }
 
   function viewingLink(event, selectedProviderIds = [], { territory = "AU" } = {}){
+    const pauses=root.NOTHINGSPORTS_COVERAGE_PAUSES || (typeof require==="function"?require("./coverage-pauses"):null);
+    if(pauses?.womensT20(event))return null;
     const options = viewingOptions(event, selectedProviderIds);
     return options.find(option => option.territory === territory || option.territory === "GLOBAL") || options[0] || null;
   }

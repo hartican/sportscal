@@ -354,7 +354,6 @@
   function followBoost(event, graph){
     const participantIds = participantIdsFor(event);
     const follows = (graph?.entityFollows || []).filter(follow => participantIds.includes(follow.participantId));
-    if (follows.some(follow => follow.followLevel === "mute")) return 0;
     if (follows.some(follow => follow.followLevel === "priority")) return 5;
     return follows.some(follow => follow.followLevel === "follow") ? 3 : 0;
   }

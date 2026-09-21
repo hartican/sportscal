@@ -89,7 +89,7 @@ assert(includes(/premier league|competition:premier-league/), "September sentine
 assert(includes(/rugby/), "September sentinel lost rugby fixtures");
 assert(includes(/afl.*semi finals|semi finals.*afl|competition:afl-premiership/), "September sentinel lost AFL finals");
 assert(includes(/nrl finals|competition:nrl-premiership/), "September sentinel lost NRL coverage");
-assert(includes(/us open/), "September sentinel lost the active US Open");
+assert(includes(/us[- ]open/), "September sentinel lost released US Open fixtures");
 
 const occupiedDays = [...new Set(september.map(sydneyDate).filter(Boolean))].sort();
 for (let index = 1; index < occupiedDays.length; index += 1) {

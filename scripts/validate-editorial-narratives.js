@@ -35,7 +35,7 @@ function byIdentity(records){
   return index;
 }
 function activeFeedMarquee(events){
-  return events.filter(event => event.status !== "completed" && event.schedulePrecision !== "week" && stakesFor(event) === 5 && Number.isFinite(eventTime(event)) && eventTime(event)<=reference.getTime()+30*DAY_MS);
+  return events.filter(event => !require("../config/coverage-pauses").womensT20(event) && event.status !== "completed" && event.schedulePrecision !== "week" && stakesFor(event) === 5 && Number.isFinite(eventTime(event)) && eventTime(event)<=reference.getTime()+30*DAY_MS);
 }
 function activeOrRecentMajor(records){
   return records.filter(record => record.kind !== "ticket_sale" && record.lifecycleStatus !== "retired" && record.stakesScore === 5);
@@ -45,7 +45,7 @@ function rollingEditorial(events){
   const latest = reference.getTime() + 30 * DAY_MS;
   return events.filter(event => {
     const unresolvedUnverified = event?.editorialPreview?.status === "research-required" && event?.sourceTrust !== "verified";
-    return !unresolvedUnverified && stakesFor(event) >= 2 && eventTime(event) >= earliest && eventTime(event) <= latest;
+    return !require("../config/coverage-pauses").womensT20(event) && !unresolvedUnverified && stakesFor(event) >= 2 && eventTime(event) >= earliest && eventTime(event) <= latest;
   });
 }
 function assertProjected(record, projection, label){
@@ -74,12 +74,19 @@ const majorEvents = readJson("data/major-events.v1.json");
 const incomingById = byIdentity(incoming.events);
 const publishedById = byIdentity(published.events);
 const majorById = byIdentity(majorEvents.events);
+const sourceCatalogueById=byIdentity(require("../lib/calendar-catalogue").catalogue());
 
 knowledge.eventProjections.forEach(projection => {
   projection.targetIds.forEach(targetId => {
     if (projection.targetType === "feed-event") {
       const incomingEvent = incomingById.get(targetId);
       const publishedEvent = publishedById.get(targetId);
+      if(!incomingEvent&&!publishedEvent){
+        const catalogueEvent=sourceCatalogueById.get(targetId);
+        assert(catalogueEvent,`${targetId} editorial target must exist in Feed or the published source catalogue`);
+        assertProjected(catalogueEvent,projection,`catalogue ${targetId}`);
+        return;
+      }
       assert(incomingEvent, `${targetId} editorial target must exist in the incoming feed`);
       assert(publishedEvent, `${targetId} editorial target must exist in the published feed`);
       assertProjected(incomingEvent, projection, `incoming ${targetId}`);

@@ -40,6 +40,10 @@ try {
   const afterEightHours = runCheck(oneDayEvent, "2026-08-13T09:00:00.000Z");
   assert.equal(afterEightHours.status, 1, "ordinary liveWindow timing must remain unchanged");
 
+  assert.equal(runCheck({...oneDayEvent,gender:'women',format:'T20'},'2026-08-20T09:00:00.000Z').status,0,'Paused women T20 results create no publication demand');
+  assert.equal(runCheck({...oneDayEvent,gender:'women',format:'ODI'},'2026-08-20T09:00:00.000Z').status,1,'Women ODI results remain required');
+  assert.equal(runCheck({...oneDayEvent,key:'f1',name:'Spanish GP Practice 1',sessionType:'practice'},'2026-08-20T09:00:00.000Z').status,0,'Practice stays outside the Feed result contract');
+
   const tournamentOverview = {
     ...oneDayEvent,
     id: "timing-tournament-overview",

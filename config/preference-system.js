@@ -7,7 +7,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildPreferenceSystem(hierarchy){
   "use strict";
 
-  const SCHEMA_VERSION = "preference-graph.v7";
+  const SCHEMA_VERSION = "preference-graph.v8";
   const MAX_LEARNING_SIGNALS = 120;
   const MAX_CALIBRATION_SKIPS = 10;
   const MAX_TUNING_DOMAINS = 24;
@@ -328,8 +328,8 @@
         };
       });
     const entityFollows = (Array.isArray(raw.entityFollows) ? raw.entityFollows : [])
-      .filter(preference => preference && typeof preference.participantId === "string" && ["follow", "priority", "mute"].includes(preference.followLevel))
-      .map(preference => ({ ...preference, profileId: safeProfileId }));
+      .filter(preference => preference && typeof preference.participantId === "string" && ["follow", "priority", "unfollow", "mute"].includes(preference.followLevel))
+      .map(preference => ({ ...preference, followLevel:preference.followLevel === "mute" ? "unfollow" : preference.followLevel, profileId: safeProfileId }));
 
     return {
       ...raw,
@@ -430,9 +430,10 @@
   }
 
   function setEntityFollow(graph, participantId, followLevel){
+    if (followLevel === "mute") followLevel = "unfollow"; // Older clients used mute for ordinary Unfollow.
     const next = cloneGraph(graph);
     next.entityFollows = next.entityFollows.filter(preference => preference.participantId !== participantId);
-    if (["follow", "priority", "mute"].includes(followLevel)){
+    if (["follow", "priority", "unfollow"].includes(followLevel)){
       next.entityFollows.push({ profileId: next.profileId, participantId, followLevel });
     }
     return touch(next);

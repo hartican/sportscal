@@ -343,7 +343,35 @@ function badge(event){
  const league=event.competitionName||event.leagueName||event.competition?.displayName||'';
  return league?String(league).replace(/\s+(Men|Women|Mixed)$/i,'')+suffix:'';
 }
-return {gender,sport,badge};
+
+// Display order only. Never reorder source IDs, roles, scores or classifications.
+function participantRecord(value,event={},records=[]){
+ const id=value?.id||value?.participantId||value?.playerId;
+ const national=globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES || (typeof require==='function'?require('./national-team-identities'):null);
+ const base={...(national?.participantsById?.[id]||{}),...(records.find(p=>p.id===id)||{})};
+ const local=(event.participants||[]).find(p=>(p.id||p.participantId)===id)||{};
+ return {...base,...local,...value, countryCode:value?.countryCode||value?.nationalityCode||local.countryCode||local.nationalityCode||base.countryCode||base.nationalityCode||base.metadata?.countryCode};
+}
+function isAustralian(value,event={},records=[]){
+ const members=value?.players||[value?.participant||value];
+ return members.some(p=>{const r=participantRecord(p,event,records);return ['AU','AUS'].includes(String(r.countryCode||'').toUpperCase())||r.isAustralian===true;});
+}
+function australianFirst(values,event={},records=[]){
+ return [...values].sort((a,b)=>Number(isAustralian(b,event,records))-Number(isAustralian(a,event,records)));
+}
+function matchupTitle(event,title,records=[]){
+ const source=String(title||event.displayTitleCompact||event.name||'');
+ if(/hidden|winner of|loser of|\bTBC\b/i.test(source))return source;
+ const split=source.match(/^(.*?)\s+v(?:s\.?|\.)?\s+(.*?)(\s+[—–]\s+.*)?$/i);
+ if(!split)return source;
+ const norm=s=>String(s||'').toLowerCase().replace(/\b(?:men|women|cricket)\b/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+ const candidates=[...(event.participants||[]),...(event.participantSlots||[]),...(event.matchupSides||[]).flatMap(s=>s.players||[]),...(event.participantIds||[]).map(id=>({id}))].map(p=>participantRecord(p,event,records));
+ const side=label=>({label,players:candidates.filter(p=>[p.name,p.displayName,p.canonicalName,p.shortName,p.label,...(p.aliases||[])].some(n=>n && norm(n)===norm(label)))});
+ const sides=[side(split[1]),side(split[2])];
+ const ordered=australianFirst(sides,event,records);
+ return ordered[0]===sides[0]?source:`${split[2]} v ${split[1]}${split[3]||''}`;
+}
+return {gender,sport,badge,participantRecord,isAustralian,australianFirst,matchupTitle};
 });
 
 ;
@@ -374,6 +402,13 @@ return {gender,sport,badge};
     const structured = structuredScore(event);
     const original = String(structured || result?.score || result?.outcome || "").trim();
     if (!original) return null;
+    const labels=globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require==='function'?require('./fixture-labels'):null);
+    const sourceTitle=String(event?.displayTitleCompact || event?.name || '');
+    if(labels && labels.matchupTitle(event,sourceTitle)!==sourceTitle){
+      const names=sourceTitle.split(/\s+v\.?\s+/i).map(s=>s.split(/\s+[—–]\s+/)[0]);
+      if(event.homeScore!=null && event.awayScore!=null && names.length===2)return `${names[0]} ${event.homeScore} — ${names[1]} ${event.awayScore}`;
+      return `${sourceTitle}: ${original}`;
+    }
     const titleParticipants = String(displayTitle || "")
       .split(/\s+v\.?\s+/i)
       .map(name => name.split(/\s+[\u2014\u2013-]\s+|\s*\(/)[0].trim())
@@ -404,7 +439,7 @@ return {gender,sport,badge};
   function tennisSets(event, displayTitle, result){
     if(!['tennis','wimbledon'].includes(event?.key))return null;
     const sides=event.matchupSides?.map(s=>s.name||s.players?.map(p=>p.name||p.displayName).join(' / '));
-    const names=sides?.length===2?sides:String(displayTitle||event.name||'').split(/\s+v\.?\s+/i);
+    const names=sides?.length===2?sides:String(event.displayTitleCompact||event.name||displayTitle||'').split(/\s+v\.?\s+/i);
     if(names.length!==2||names.some(n=>!n))return null;
     const original=String(event.scoreDisplay||result?.score||event.result||'');
     const first=original.indexOf(names[0]),second=original.indexOf(names[1]);
@@ -420,6 +455,10 @@ return {gender,sport,badge};
     }
     if(!sets.length)return null;
     if(sets.length===1&&sets[0].label!=='Match TB'&&Math.max(...sets[0].scores.map(s=>s.games))<6&&!/\bRET(?:IRED)?\b/i.test(original))return null;
+    const labels=globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require==='function'?require('./fixture-labels'):null);
+    const sourceTitle=names.join(' v ');
+    const reverseDisplay=labels && (event.matchupSides?.length===2 ? labels.australianFirst(event.matchupSides,event)[0]!==event.matchupSides[0] : labels.matchupTitle(event,sourceTitle)!==sourceTitle);
+    if(reverseDisplay){names.reverse();sets.forEach(set=>set.scores.reverse());}
     return {names,sets,status:(original.match(/\b(?:RET(?:IRED)?|W\/?O|WALKOVER|ABD|ABANDONED)\b/i)||[])[0]||null};
   }
   return Object.freeze({ VERSION, structuredScore, scoreLine, tennisSets });
@@ -2259,6 +2298,30 @@ return {gender,sport,badge};
 
 ;
 
+;/* config/coverage-pauses.js */
+(function(root,factory){const api=factory();root.NOTHINGSPORTS_COVERAGE_PAUSES=api;if(typeof module!=="undefined")module.exports=api;})(globalThis,function(){
+"use strict";
+// User decision, 2026-09-22: women's T20 detail coverage paused until further notice.
+function womensT20(event={}){
+ const sport=String(event.key||event.sportKey||event.sportDomainId||event.codeId||'').replace(/^sport:/,'');
+ const text=[event.format,event.matchFormat,event.playingFormat,event.roundLabel,event.name,event.competitionName,event.competitionId].filter(Boolean).join(' ');
+ const women=/^(women|womens|women's|female|w)$/i.test(event.gender||event.genderCategory||'') || /women|womens|wbbl/i.test(text) || (event.participantIds||[]).some(id=>/-women(?:$|:)/.test(id));
+ return (sport==='cricket'||/cricket/.test(event.competitionId||'')) && women && /\bt20i?\b|twenty20|wbbl/i.test(text);
+}
+const fields=['editorialNarrative','editorialPreview','storyline','selectedSentence','fullSpiel','recapText','narrativeHook','hookSpoilerOff','hookSpoilerOn','synopsisSpoilerOff','synopsisSpoilerOn','editorialReplayRecommendation','resultEditorialBranches','editorialConsequence','summary','description','details','recap','venue','venueName','venueId','venueCountryCode','venueDetails','venueDisplayName','venueOfficialName','venueSourceName','venueCity','city','venueLatitude','venueLongitude','latitude','longitude','location','broadcaster','broadcasters','broadcasterIds','broadcastOptions','broadcasts','viewingOptions','broadcastSourceUrl','broadcastCheckedAt','fixtureResults','homeScore','awayScore','score','scoreDisplay','result','results','outcomeText','resultPublishedAt','consensusResult','resultLabels','winnerId','winnerParticipantId'];
+function apply(event,{inPlace=false}={}){
+ if(!womensT20(event))return event;
+ const result=inPlace?event:{...event};
+ for(const key of fields)delete result[key];
+ const cleanSide=p=>{if(!p||typeof p!=='object')return p;const copy={...p};for(const key of ['score','scores','result','winner','isWinner'])delete copy[key];if(copy.players)copy.players=copy.players.map(cleanSide);return copy;};
+ for(const key of ['participants','participantSlots','matchupSides'])if(Array.isArray(result[key]))result[key]=result[key].map(cleanSide);
+ return result;
+}
+return {womensT20,apply,fields};
+});
+
+;
+
 ;/* config/fixture-identity.js */
 (function attachFixtureIdentity(root, factory){
   const api = factory();
@@ -2321,7 +2384,8 @@ return {gender,sport,badge};
       if (value[key] && (typeof value[key] !== "object" || Array.isArray(value[key]))) normalized[key] = null;
     }
     normalized.consensusTags=consensusTagsForEvent(normalized);
-    return normalized;
+    const pauses=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES || (typeof require==="function"?require("./coverage-pauses"):null);
+    return pauses ? pauses.apply(normalized) : normalized;
   }
 
   function fromSchedule(fixture, code = {}){
@@ -3071,7 +3135,7 @@ return {gender,sport,badge};
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(root, competitionClassification){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v9";
+  const SCHEMA_VERSION = "follow-first.v10";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -3394,7 +3458,8 @@ return {gender,sport,badge};
     ].map(String).filter(id => !retiredSportIds.has(id))));
     return {
       ...source,
-      version:Math.max(22, Number(source.version) || 0),
+      version:Math.max(23, Number(source.version) || 0),
+      ...(source.preferenceGraph ? {preferenceGraph:{...source.preferenceGraph, entityFollows:(source.preferenceGraph.entityFollows || []).map(item=>item.followLevel === "mute" ? {...item,followLevel:"unfollow"} : item)}} : {}),
       followedSports,
       selectedSelectorEntityIds,
       followFirst:{
@@ -3465,7 +3530,7 @@ return {gender,sport,badge};
   function participantFollowFromNormalized(participantId, next, collectionsById = {}){
     const identityKey = participantFollowIdentityKey(participantId);
     const explicitMatches = (next.preferenceGraph?.entityFollows || []).filter(item => participantFollowIdentityKey(item.participantId) === identityKey);
-    if (explicitMatches.some(item => item.followLevel === "mute")) return { followed:false, source:"mute", followLevel:"mute", collectionIds:[] };
+    if (explicitMatches.some(item => ["unfollow","mute"].includes(item.followLevel))) return { followed:false, source:"unfollow", followLevel:"unfollow", collectionIds:[] };
     const explicit = explicitMatches.find(item => ["follow", "priority"].includes(item.followLevel));
     if (explicit) return { followed:true, source:"explicit", followLevel:explicit.followLevel, collectionIds:[] };
     const collectionIds = next.followFirst.collectionFollows.filter(collectionId => (
@@ -3574,8 +3639,8 @@ return {gender,sport,badge};
     if (followPolicy.aggregateEvent(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
     const participants = followPolicy.participantIds(event);
-    if (participants.some(id => participantFollowFromNormalized(id,next,collectionsById).source === "mute")) return null;
     for (const id of participants){
+      if (participantFollowFromNormalized(id,next,collectionsById).source === "unfollow") continue;
       const follow = follows.get(id);
       if (follow && ["follow", "priority"].includes(follow.followLevel)){
         const entityKind = id.startsWith("team:") ? "team" : "athlete";
@@ -3889,6 +3954,8 @@ return {gender,sport,badge};
   }
 
   function viewingLink(event, selectedProviderIds = [], { territory = "AU" } = {}){
+    const pauses=root.NOTHINGSPORTS_COVERAGE_PAUSES || (typeof require==="function"?require("./coverage-pauses"):null);
+    if(pauses?.womensT20(event))return null;
     const options = viewingOptions(event, selectedProviderIds);
     return options.find(option => option.territory === territory || option.territory === "GLOBAL") || options[0] || null;
   }
@@ -7492,7 +7559,7 @@ return {gender,sport,badge};
     ["scg", "the SCG", "Sydney Cricket Ground", ["SCG", "SCG, Sydney", "Sydney Cricket Ground"]],
     ["mcg", "the MCG", "Melbourne Cricket Ground", ["MCG", "MCG, Melbourne", "Melbourne Cricket Ground"]],
     ["hbf-park", "HBF Park", "HBF Park", ["HBF Park", "HBF Park, Perth"]],
-    ["eden-park", "Eden Park", "Eden Park", ["Eden Park, Auckland"]],
+    ["eden-park", "Eden Park", "Eden Park", ["Eden Park", "Eden Park, Auckland"]],
     ["ellis-park", "Ellis Park", "Ellis Park", ["Ellis Park, Johannesburg"]],
     ["twickenham", "Twickenham", "Twickenham Stadium", ["Twickenham Stadium, London"]],
     ["murrayfield", "Murrayfield", "Murrayfield Stadium", ["Murrayfield Stadium, Edinburgh"]],
@@ -7632,6 +7699,29 @@ return {gender,sport,badge};
   });
 
   const REVIEW_DISPOSITIONS = Object.freeze({
+    // Newly refreshed source labels: preserve verbatim until canonical venue review.
+    "adelaide entertainment centre": "source_name_pending_review",
+    "afterpay arena": "source_name_pending_review",
+    "ais arena": "source_name_pending_review",
+    "augusta national golf club georgia": "source_name_pending_review",
+    "brisbane entertainment centre": "source_name_pending_review",
+    "cairns convention centre": "source_name_pending_review",
+    "gippsland regional indoor sports stadium": "source_name_pending_review",
+    "john cain arena": "source_name_pending_review",
+    "mystate bank arena": "source_name_pending_review",
+    "nissan arena": "source_name_pending_review",
+    "pat rafter arena subject to change": "source_name_pending_review",
+    "pebble beach golf links california": "source_name_pending_review",
+    "pga frisco texas": "source_name_pending_review",
+    "rac arena": "source_name_pending_review",
+    "red energy arena bendigo": "source_name_pending_review",
+    "shenzhen chn": "source_name_pending_review",
+    "silverdome": "source_name_pending_review",
+    "spark arena": "source_name_pending_review",
+    "state basketball centre": "source_name_pending_review",
+    "tbc": "competition_placeholder",
+    "the old course st andrews": "source_name_pending_review",
+    "win entertainment centre": "source_name_pending_review",
     "venue tbc": "competition_placeholder",
     "2026 nba finals": "competition_placeholder",
     "belfort": "place_or_route",
@@ -7720,7 +7810,7 @@ return {gender,sport,badge};
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildPreferenceSystem(hierarchy){
   "use strict";
 
-  const SCHEMA_VERSION = "preference-graph.v7";
+  const SCHEMA_VERSION = "preference-graph.v8";
   const MAX_LEARNING_SIGNALS = 120;
   const MAX_CALIBRATION_SKIPS = 10;
   const MAX_TUNING_DOMAINS = 24;
@@ -8041,8 +8131,8 @@ return {gender,sport,badge};
         };
       });
     const entityFollows = (Array.isArray(raw.entityFollows) ? raw.entityFollows : [])
-      .filter(preference => preference && typeof preference.participantId === "string" && ["follow", "priority", "mute"].includes(preference.followLevel))
-      .map(preference => ({ ...preference, profileId: safeProfileId }));
+      .filter(preference => preference && typeof preference.participantId === "string" && ["follow", "priority", "unfollow", "mute"].includes(preference.followLevel))
+      .map(preference => ({ ...preference, followLevel:preference.followLevel === "mute" ? "unfollow" : preference.followLevel, profileId: safeProfileId }));
 
     return {
       ...raw,
@@ -8143,9 +8233,10 @@ return {gender,sport,badge};
   }
 
   function setEntityFollow(graph, participantId, followLevel){
+    if (followLevel === "mute") followLevel = "unfollow"; // Older clients used mute for ordinary Unfollow.
     const next = cloneGraph(graph);
     next.entityFollows = next.entityFollows.filter(preference => preference.participantId !== participantId);
-    if (["follow", "priority", "mute"].includes(followLevel)){
+    if (["follow", "priority", "unfollow"].includes(followLevel)){
       next.entityFollows.push({ profileId: next.profileId, participantId, followLevel });
     }
     return touch(next);
@@ -9325,7 +9416,6 @@ return {gender,sport,badge};
   function followBoost(event, graph){
     const participantIds = participantIdsFor(event);
     const follows = (graph?.entityFollows || []).filter(follow => participantIds.includes(follow.participantId));
-    if (follows.some(follow => follow.followLevel === "mute")) return 0;
     if (follows.some(follow => follow.followLevel === "priority")) return 5;
     return follows.some(follow => follow.followLevel === "follow") ? 3 : 0;
   }
@@ -11780,10 +11870,15 @@ return {gender,sport,badge};
     if (!divider) return [];
     const labels = [cleanMatchupSideLabel(source.slice(0, divider.index), 0), cleanMatchupSideLabel(source.slice(divider.index + divider[0].length), 1)];
     const resolved = participantMarksForEvent(event, participants, source);
-    return labels.map((label, index) => {
-      const identity = resolved.find(candidate => aliasRange(label, candidate.participant)) || resolved.find(candidate => candidate.participant?.id === (event.participantSlots?.[index]?.participantId || event.participantIds?.[index])) || null;
+    const labelsApi = globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require === "function" ? require("./fixture-labels") : null);
+    const sides = labels.map((label, index) => {
+      const identity = resolved.find(candidate => {
+        const record=labelsApi ? labelsApi.participantRecord(candidate.participant,event,participants) : candidate.participant;
+        return aliasRange(label,{...record,metadata:{...(record.metadata||{}),titleAliases:[...(record.metadata?.titleAliases||[]),...(record.aliases||[]),record.name].filter(Boolean)}});
+      }) || resolved.find(candidate => candidate.participant?.id === (event.participantSlots?.[index]?.participantId || event.participantIds?.[index])) || null;
       return Object.freeze({ label, participant:identity?.participant || null, mark:identity?.mark || null });
     });
+    return labelsApi ? labelsApi.australianFirst(sides,event,participants) : sides;
   }
   function logoForTheme(mark, { context = "primary", useDark = false } = {}){
     const assets = mark?.logo || {};

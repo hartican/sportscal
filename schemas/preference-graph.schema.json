@@ -15,7 +15,7 @@
     "learning"
   ],
   "properties": {
-    "schemaVersion": { "const": "preference-graph.v7" },
+    "schemaVersion": { "const": "preference-graph.v8" },
     "profileId": { "type": "string", "pattern": "^profile:" },
     "updatedAt": { "type": "string", "format": "date-time" },
     "domainPreferences": {
@@ -90,7 +90,7 @@
       "properties": {
         "profileId": { "type": "string", "pattern": "^profile:" },
         "participantId": { "type": "string", "minLength": 3 },
-        "followLevel": { "enum": ["follow", "priority", "mute"] }
+        "followLevel": { "enum": ["follow", "priority", "unfollow", "mute"] }
       }
     },
     "viewingPreference": {

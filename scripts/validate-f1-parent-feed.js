@@ -54,7 +54,6 @@ const first = context.applyContextToEvents(f1.filter(event => !isPractice(event)
 assert(first,"mute regression uses a sourced session field");
 for (const [label,patch] of [
   ["competition exclusion",{preferenceGraph:{...preferences.preferenceGraph,competitionPreferences:[{competitionId:first.competitionId,enabled:false}]}}],
-  ["participant mute",{preferenceGraph:{...preferences.preferenceGraph,entityFollows:[{participantId:first.participantIds[0],followLevel:"mute"}]}}],
   ["event exclusion",{followFirst:{excludedMajorEventIds:["formula-one"]}}],
 ]){
   const blocked = {...preferences,...patch};
@@ -77,3 +76,7 @@ for (const [child,parent] of [["motogp","motorsport"],["wrc","motorsport"],["afl
   assert.equal(follow.reasonForEvent(first,prefs),null,`${child} does not opt into sibling F1`);
 }
 console.log(`F1 Feed regression passed: ${f1.length} published sessions, no Practice, one card per session, exclusions and sibling isolation.`);
+
+const participantOptOut={...preferences,preferenceGraph:{...preferences.preferenceGraph,entityFollows:[{participantId:first.participantIds[0],followLevel:"mute"}]}};
+assert(follow.reasonForEvent(first,participantOptOut),'participant unfollow must not veto an explicit F1 competition follow');
+assert.equal(buildServerFeed({events:[first],userId:'qa',userState:{preferences:participantOptOut},now}).events.length,1);

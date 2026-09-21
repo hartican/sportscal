@@ -18,7 +18,7 @@ const identities = require(path.join(ROOT, "config/card-identities.js"));
 const html = read("index.html");
 const exposedSports = taxonomy.exposedSportNodes.filter(node => Number(node.level) === 2);
 const exposedIds = exposedSports.map(node => node.id);
-assert.equal(exposedSports.length, 21, "the user-facing catalogue must expose the approved twenty-one top-level sports");
+assert.equal(exposedSports.length, 22, "the user-facing catalogue must expose the approved twenty-two top-level sports including NBL");
 assert(exposedIds.includes("sport:ice-hockey"), "Ice Hockey must be a first-class exposed sport");
 for (const retiredId of ["sport:hockey", "sport:gymnastics", "sport:multi-sport"]){
   assert(!exposedIds.includes(retiredId), `${retiredId} must not remain user-facing`);
@@ -43,7 +43,7 @@ assert(migratedPreferences.followFirst.followedMajorEventIds.includes("commonwea
 assert.deepEqual(followFirst.migratePreferences(migratedPreferences), migratedPreferences, "the retired-sport preference migration must be idempotent");
 
 const manifest = json("data/follow-directory/manifest.v1.json");
-assert.equal(manifest.sports.length, 26, "the lazy Follow manifest must include twenty-one exposed sports plus AFLW, NRLW, F1, MotoGP and WRC child codes");
+assert.equal(manifest.sports.length, 27, "the lazy Follow manifest must include twenty-two exposed sports plus AFLW, NRLW, F1, MotoGP and WRC child codes");
 const chunks = new Map(manifest.sports.map(sport => [sport.key, json(sport.jsonUrl)]));
 const swimming = chunks.get("swimming")?.records || [];
 assert.equal(swimming.length, 60, "Swimming must contain exactly sixty current ranked athletes");

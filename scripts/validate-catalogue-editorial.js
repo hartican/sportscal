@@ -19,3 +19,8 @@ assert.equal(selected([fixture,{...fixture,id:'monday',date:'2026-09-21'},{...fi
 // Exercise the actual full-refresh call without writing any output.
 apply(structuredClone(knowledge),read('feeds/incoming/events.json'),read('data/major-events.v1.json'),read('data/editorial-fixture-research.v1.json'),read('data/follow-sources/coverage.v1.json').events);
 console.log('Catalogue editorial valid: catalogue-only targets supported, unknown IDs rejected, Feed admission preserved, Friday-Monday scope enforced.');
+
+const preview=require('./lib/editorial-preview-quality');
+const previewFixture={date:'2026-09-24',status:'upcoming',editorialPreview:{status:'research-required'},sourceTrust:'unverified'};
+assert.equal(preview.editorialPreviewDue(previewFixture,5,new Date('2026-09-22T00:00:00Z')),false,'Unverified imports remain queued');
+assert(preview.editorialPreviewIssues({...previewFixture,sourceTrust:'verified'},5,new Date('2026-09-22T00:00:00Z')).includes('missing-journalistic-status'),'Verified fixtures still fail without substantive editorial');

@@ -17,8 +17,8 @@ function anonymisedProfileId(userId){
 function activeEntityFollows(preferences){
   const graph = preferences?.preferenceGraph || preferences?.preference_graph || {};
   return (Array.isArray(graph.entityFollows) ? graph.entityFollows : Array.isArray(graph.entity_follows) ? graph.entity_follows : [])
-    .filter(follow => ["follow", "priority", "mute"].includes(String(follow?.followLevel || "")))
-    .map(follow => ({ participantId:String(follow.participantId), followLevel:String(follow.followLevel) }))
+    .filter(follow => ["follow", "priority", "mute", "unfollow"].includes(String(follow?.followLevel || "")))
+    .map(follow => ({ participantId:String(follow.participantId), followLevel:follow.followLevel === "mute" ? "unfollow" : String(follow.followLevel) }))
     .filter(follow => follow.participantId)
     .sort((first, second) => first.participantId.localeCompare(second.participantId));
 }

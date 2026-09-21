@@ -287,6 +287,8 @@ function editorialNarrativeFor(projection, indexes){
 }
 
 function applyToFeedEvent(event, projection, indexes){
+  const pauses=require("../../config/coverage-pauses");
+  if(pauses.womensT20(event))return pauses.apply(event);
   const primarySource = indexes.sources.get(projection.sourceIds[0]);
   const narrative = editorialNarrativeFor(projection, indexes);
   const completed = event.status === "completed";

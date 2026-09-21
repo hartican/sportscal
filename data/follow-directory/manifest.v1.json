@@ -1,6 +1,6 @@
 {
   "schemaVersion": "follow-directory-manifest.v1",
-  "generatedAt": "2026-09-15T19:58:09.007Z",
+  "generatedAt": "2026-09-21T20:00:45Z",
   "sports": [
     {
       "key": "afl",
@@ -14,7 +14,7 @@
       "key": "aflw",
       "label": "AFLW",
       "status": "available",
-      "recordCount": 595,
+      "recordCount": 598,
       "jsonUrl": "data/follow-directory/aflw.v1.json",
       "scriptUrl": "data/follow-directory/aflw.v1.js"
     },
@@ -38,7 +38,7 @@
       "key": "motorsport",
       "label": "Motorsport",
       "status": "available",
-      "recordCount": 111,
+      "recordCount": 112,
       "jsonUrl": "data/follow-directory/motorsport.v1.json",
       "scriptUrl": "data/follow-directory/motorsport.v1.js"
     },
@@ -62,7 +62,7 @@
       "key": "wrc",
       "label": "WRC",
       "status": "available",
-      "recordCount": 77,
+      "recordCount": 78,
       "jsonUrl": "data/follow-directory/wrc.v1.json",
       "scriptUrl": "data/follow-directory/wrc.v1.js"
     },
@@ -102,7 +102,7 @@
       "key": "tennis",
       "label": "Tennis",
       "status": "available",
-      "recordCount": 252,
+      "recordCount": 253,
       "jsonUrl": "data/follow-directory/tennis.v1.json",
       "scriptUrl": "data/follow-directory/tennis.v1.js"
     },
@@ -126,7 +126,7 @@
       "key": "cricket",
       "label": "Cricket",
       "status": "available",
-      "recordCount": 299,
+      "recordCount": 339,
       "jsonUrl": "data/follow-directory/cricket.v1.json",
       "scriptUrl": "data/follow-directory/cricket.v1.js"
     },
@@ -174,7 +174,7 @@
       "key": "american-football",
       "label": "American Football",
       "status": "available",
-      "recordCount": 1993,
+      "recordCount": 2520,
       "jsonUrl": "data/follow-directory/american-football.v1.json",
       "scriptUrl": "data/follow-directory/american-football.v1.js"
     },
@@ -206,7 +206,7 @@
       "key": "ice-hockey",
       "label": "Ice Hockey",
       "status": "available",
-      "recordCount": 1973,
+      "recordCount": 1988,
       "jsonUrl": "data/follow-directory/ice-hockey.v1.json",
       "scriptUrl": "data/follow-directory/ice-hockey.v1.js"
     },

@@ -33,7 +33,7 @@ vm.runInContext(extract('function mergeCanonicalEventPages(', 'function applyFee
     const actual=context.activeEvents.find(event=>event.id===fixture.id);
     assert.equal(actual.editorialNarrative.hook,fixture.editorialNarrative.hook,'Fresh editorial replaces cached fixture');
     assert.equal(actual.editorialNarrative.synopsis,fixture.editorialNarrative.synopsis);
-    assert.equal(saved.get('followed-schedule:v2:sport:cricket').events.find(e=>e.id===fixture.id).editorialNarrative.hook,fixture.editorialNarrative.hook);
+    assert.equal(saved.get('followed-schedule:v3:sport:cricket').events.find(e=>e.id===fixture.id).editorialNarrative.hook,fixture.editorialNarrative.hook);
   }
   assert(rendered,'Open feed must rerender after schedule refresh');
   const worker=fs.readFileSync(root+'/service-worker.js','utf8');

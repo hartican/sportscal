@@ -19,7 +19,7 @@ assert(!html.includes('open.textContent = "Inspect"'),'sport icons replace Inspe
 for(const label of ['Schedule','Teams & players','Major Events','Ladder','Standings'])assert(html.includes(label));
 assert(html.includes('renderCodeInspectorIdentity')&&html.includes('codeInspectorParticipantMark'),'Schedule reuses canonical identities');
 assert(html.includes("return buildEventCard(event,{mode:'schedule',inspectorFixture:fixture})")&&html.includes('cardViewStates'),'Schedule fixtures share independent card expansion state');
-assert(html.includes("pin.textContent=added?'Remove from Feed':'Add to Feed'")&&html.includes('manualPin:true'),'concrete fixture pins remain available');
+assert(html.includes("pin.textContent=automatic?'In Feed':added?'Remove from Feed':'Add to Feed'")&&html.includes('manualPin:true'),'concrete fixture pins remain available');
 assert(html.includes('inspectorAlwaysShowsAllFixtures'),'Schedule can browse all fixtures independently of follows');
 assert(html.includes('confirmStandingsReveal'),'standings retain spoiler protection');
 assert(html.includes('syncTopLevelNavigationState'),'navigation has one active state owner');
@@ -69,7 +69,8 @@ assert(wrcCode, "WRC must publish a dedicated Follow Schedule code under Motorsp
 assert.equal(wrcCode.parentSportId, "sport:motorsport");
 const wrcChunk = JSON.parse(fs.readFileSync(path.join(ROOT, wrcCode.chunkPath), "utf8"));
 assert.equal(wrcChunk.fixtures.length, 14, "WRC Schedule must expose exactly fourteen championship rounds");
-assert.equal(wrcChunk.standings.length, 77, "WRC Standings must expose all three senior FIA tables");
+assert.equal(wrcContext.ladderSnapshots.length, 3, "WRC retains driver, co-driver and manufacturer tables");
+assert.equal(wrcChunk.standings.length, wrcContext.ladderSnapshots.reduce((sum,table)=>sum+table.entries.length,0), "WRC Standings must expose all three senior FIA tables");
 assert(wrcChunk.fixtures.every(fixture => fixture.dateOnly && fixture.endDate >= fixture.date), "WRC Schedule must preserve inclusive date-only ranges");
 const completedWrcRounds = wrcContext.events.filter(fixture => fixture.status === "completed");
 const officialWrcResults = completedWrcRounds.filter(fixture => fixture.result?.status === "official");
@@ -86,6 +87,7 @@ const canonicalCodes = [
   { id: "sport:wrc" },
   { id: "sport:f1" },
   { id: "sport:nrlw" },
+  { id: "sport:nbl" },
   taxonomy.competitions.find(code => code.id === "competition:uefa-champions-league"),
   taxonomy.competitions.find(code => code.id === "competition:motogp"),
   taxonomy.competitions.find(code => code.id === "competition:sailgp"),

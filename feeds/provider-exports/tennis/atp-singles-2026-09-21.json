@@ -1,0 +1,1252 @@
+{
+  "schemaVersion": "tennis-ranking-export.v1",
+  "provider": "ATP Tour",
+  "tour": "ATP",
+  "rankingSnapshotDate": "2026-09-21",
+  "extractedAt": "2026-09-21T20:00:15.431Z",
+  "publicationCheckedAt": "2026-09-21T20:00:15.431Z",
+  "sourceTrust": "verified",
+  "ingestionMode": "public_first_party",
+  "sourceUrl": "https://www.protennislive.com/posting/ramr/singles_entry_numerical.pdf",
+  "publicationUrl": "https://www.atptour.com/en/media/rankings-and-stats",
+  "scope": {
+    "topN": 50,
+    "nationalityCodes": [
+      "AUS"
+    ],
+    "complete": true
+  },
+  "athletes": [
+    {
+      "name": "Jannik Sinner",
+      "nationalityCode": "ITA",
+      "points": 11500,
+      "providerId": "s0ag",
+      "rank": 1,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Alexander Zverev",
+      "nationalityCode": "GER",
+      "points": 9690,
+      "providerId": "z355",
+      "rank": 2,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Carlos Alcaraz",
+      "nationalityCode": "ESP",
+      "points": 5560,
+      "providerId": "a0e2",
+      "rank": 3,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Ben Shelton",
+      "nationalityCode": "USA",
+      "points": 4680,
+      "providerId": "s0s1",
+      "rank": 4,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Felix Auger Aliassime",
+      "nationalityCode": "CAN",
+      "points": 3890,
+      "providerId": "ag37",
+      "rank": 5,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Daniil Medvedev",
+      "nationalityCode": "RUS",
+      "points": 3770,
+      "providerId": "mm58",
+      "rank": 6,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Flavio Cobolli",
+      "nationalityCode": "ITA",
+      "points": 3720,
+      "providerId": "c0e9",
+      "rank": 7,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Frances Tiafoe",
+      "nationalityCode": "USA",
+      "points": 3380,
+      "providerId": "td51",
+      "rank": 8,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Alex De Minaur",
+      "nationalityCode": "AUS",
+      "points": 3300,
+      "providerId": "dh58",
+      "rank": 9,
+      "selectionReasons": [
+        "top_50",
+        "australian"
+      ]
+    },
+    {
+      "name": "Taylor Fritz",
+      "nationalityCode": "USA",
+      "points": 3175,
+      "providerId": "fb98",
+      "rank": 10,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Arthur Fils",
+      "nationalityCode": "FRA",
+      "points": 3150,
+      "providerId": "f0f1",
+      "rank": 11,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Novak Djokovic",
+      "nationalityCode": "SRB",
+      "points": 2980,
+      "providerId": "d643",
+      "rank": 12,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Learner Tien",
+      "nationalityCode": "USA",
+      "points": 2715,
+      "providerId": "t0ha",
+      "rank": 13,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Rafael Jodar",
+      "nationalityCode": "ESP",
+      "points": 2659,
+      "providerId": "j0dz",
+      "rank": 14,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Jakub Mensik",
+      "nationalityCode": "CZE",
+      "points": 2495,
+      "providerId": "m0ni",
+      "rank": 15,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Brandon Nakashima",
+      "nationalityCode": "USA",
+      "points": 2410,
+      "providerId": "n0ae",
+      "rank": 16,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Casper Ruud",
+      "nationalityCode": "NOR",
+      "points": 2335,
+      "providerId": "rh16",
+      "rank": 17,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Tommy Paul",
+      "nationalityCode": "USA",
+      "points": 2325,
+      "providerId": "pl56",
+      "rank": 18,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Valentin Vacherot",
+      "nationalityCode": "MON",
+      "points": 2250,
+      "providerId": "va25",
+      "rank": 19,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Luciano Darderi",
+      "nationalityCode": "ITA",
+      "points": 2200,
+      "providerId": "d0fj",
+      "rank": 20,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Alexander Bublik",
+      "nationalityCode": "KAZ",
+      "points": 2185,
+      "providerId": "bk92",
+      "rank": 21,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Francisco Cerundolo",
+      "nationalityCode": "ARG",
+      "points": 2130,
+      "providerId": "c0au",
+      "rank": 22,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Jiri Lehecka",
+      "nationalityCode": "CZE",
+      "points": 2120,
+      "providerId": "l0bv",
+      "rank": 23,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Lorenzo Musetti",
+      "nationalityCode": "ITA",
+      "points": 2100,
+      "providerId": "m0ej",
+      "rank": 24,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Andrey Rublev",
+      "nationalityCode": "RUS",
+      "points": 1930,
+      "providerId": "re44",
+      "rank": 25,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Karen Khachanov",
+      "nationalityCode": "RUS",
+      "points": 1800,
+      "providerId": "ke29",
+      "rank": 26,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Alexander Blockx",
+      "nationalityCode": "BEL",
+      "points": 1788,
+      "providerId": "b0pg",
+      "rank": 27,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Joao Fonseca",
+      "nationalityCode": "BRA",
+      "points": 1750,
+      "providerId": "f0fv",
+      "rank": 28,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Alejandro Davidovich Fokina",
+      "nationalityCode": "ESP",
+      "points": 1680,
+      "providerId": "dh50",
+      "rank": 29,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Tomas Martin Etcheverry",
+      "nationalityCode": "ARG",
+      "points": 1590,
+      "providerId": "ea24",
+      "rank": 30,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Arthur Rinderknech",
+      "nationalityCode": "FRA",
+      "points": 1583,
+      "providerId": "rc91",
+      "rank": 31,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Alejandro Tabilo",
+      "nationalityCode": "CHI",
+      "points": 1565,
+      "providerId": "te30",
+      "rank": 32,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Ugo Humbert",
+      "nationalityCode": "FRA",
+      "points": 1535,
+      "providerId": "hh26",
+      "rank": 33,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Alex Michelsen",
+      "nationalityCode": "USA",
+      "points": 1460,
+      "providerId": "m0qi",
+      "rank": 34,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Ignacio Buse",
+      "nationalityCode": "PER",
+      "points": 1460,
+      "providerId": "b0id",
+      "rank": 35,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Arthur Fery",
+      "nationalityCode": "GBR",
+      "points": 1413,
+      "providerId": "f0dm",
+      "rank": 36,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Matteo Arnaldi",
+      "nationalityCode": "ITA",
+      "points": 1349,
+      "providerId": "a0fc",
+      "rank": 37,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Zizou Bergs",
+      "nationalityCode": "BEL",
+      "points": 1345,
+      "providerId": "bu13",
+      "rank": 38,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Cameron Norrie",
+      "nationalityCode": "GBR",
+      "points": 1275,
+      "providerId": "n771",
+      "rank": 39,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Botic van de Zandschulp",
+      "nationalityCode": "NED",
+      "points": 1258,
+      "providerId": "public-botic-van-de-zandschulp",
+      "rank": 40,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Daniel Merida",
+      "nationalityCode": "ESP",
+      "points": 1216,
+      "providerId": "public-daniel-merida",
+      "rank": 41,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Luca Van Assche",
+      "nationalityCode": "FRA",
+      "points": 1180,
+      "providerId": "public-luca-van-assche",
+      "rank": 42,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Matteo Berrettini",
+      "nationalityCode": "ITA",
+      "points": 1165,
+      "providerId": "bk40",
+      "rank": 43,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Stefanos Tsitsipas",
+      "nationalityCode": "GRE",
+      "points": 1165,
+      "providerId": "public-stefanos-tsitsipas",
+      "rank": 44,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Mariano Navone",
+      "nationalityCode": "ARG",
+      "points": 1155,
+      "providerId": "n0bs",
+      "rank": 45,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Hubert Hurkacz",
+      "nationalityCode": "POL",
+      "points": 1120,
+      "providerId": "public-hubert-hurkacz",
+      "rank": 46,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Raphael Collignon",
+      "nationalityCode": "BEL",
+      "points": 1117,
+      "providerId": "c0jp",
+      "rank": 47,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Nuno Borges",
+      "nationalityCode": "POR",
+      "points": 1095,
+      "providerId": "public-nuno-borges",
+      "rank": 48,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Quentin Halys",
+      "nationalityCode": "FRA",
+      "points": 1070,
+      "providerId": "public-quentin-halys",
+      "rank": 49,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "Denis Shapovalov",
+      "nationalityCode": "CAN",
+      "points": 1065,
+      "providerId": "su55",
+      "rank": 50,
+      "selectionReasons": [
+        "top_50"
+      ]
+    },
+    {
+      "name": "James Duckworth",
+      "nationalityCode": "AUS",
+      "points": 877,
+      "providerId": "d994",
+      "rank": 65,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Rinky Hijikata",
+      "nationalityCode": "AUS",
+      "points": 700,
+      "providerId": "h0bh",
+      "rank": 82,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Aleksandar Vukic",
+      "nationalityCode": "AUS",
+      "points": 647,
+      "providerId": "v832",
+      "rank": 91,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Adam Walton",
+      "nationalityCode": "AUS",
+      "points": 630,
+      "providerId": "w09e",
+      "rank": 99,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Dane Sweeny",
+      "nationalityCode": "AUS",
+      "points": 562,
+      "providerId": "s0ia",
+      "rank": 110,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Christopher O'connell",
+      "nationalityCode": "AUS",
+      "points": 529,
+      "providerId": "o483",
+      "rank": 115,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Alexei Popyrin",
+      "nationalityCode": "AUS",
+      "points": 458,
+      "providerId": "p09z",
+      "rank": 130,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Tristan Schoolkate",
+      "nationalityCode": "AUS",
+      "points": 365,
+      "providerId": "s0n0",
+      "rank": 152,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Alex Bolt",
+      "nationalityCode": "AUS",
+      "points": 348,
+      "providerId": "bi81",
+      "rank": 165,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Bernard Tomic",
+      "nationalityCode": "AUS",
+      "points": 314,
+      "providerId": "ta46",
+      "rank": 182,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "James Mccabe",
+      "nationalityCode": "AUS",
+      "points": 219,
+      "providerId": "m0oq",
+      "rank": 255,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Matthew Dellavedova",
+      "nationalityCode": "AUS",
+      "points": 209,
+      "providerId": "d0a2",
+      "rank": 270,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Cruz Hewitt",
+      "nationalityCode": "AUS",
+      "points": 167,
+      "providerId": "h0k0",
+      "rank": 323,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Philip Sekulic",
+      "nationalityCode": "AUS",
+      "points": 157,
+      "providerId": "s0ti",
+      "rank": 336,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Edward Winter",
+      "nationalityCode": "AUS",
+      "points": 155,
+      "providerId": "w0c4",
+      "rank": 338,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Jake Delaney",
+      "nationalityCode": "AUS",
+      "points": 152,
+      "providerId": "dc38",
+      "rank": 342,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Omar Jasika",
+      "nationalityCode": "AUS",
+      "points": 128,
+      "providerId": "j553",
+      "rank": 392,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Marc Polmans",
+      "nationalityCode": "AUS",
+      "points": 123,
+      "providerId": "pg94",
+      "rank": 401,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Thanasi Kokkinakis",
+      "nationalityCode": "AUS",
+      "points": 118,
+      "providerId": "kd46",
+      "rank": 412,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Jordan Thompson",
+      "nationalityCode": "AUS",
+      "points": 113,
+      "providerId": "tc61",
+      "rank": 432,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Enzo Aguiard",
+      "nationalityCode": "AUS",
+      "points": 112,
+      "providerId": "a0ku",
+      "rank": 435,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Moerani Bouzige",
+      "nationalityCode": "AUS",
+      "points": 110,
+      "providerId": "b0ek",
+      "rank": 443,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Blake Ellis",
+      "nationalityCode": "AUS",
+      "points": 105,
+      "providerId": "ea27",
+      "rank": 454,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Tai Sach",
+      "nationalityCode": "AUS",
+      "points": 88,
+      "providerId": "s0u5",
+      "rank": 507,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Jason Kubler",
+      "nationalityCode": "AUS",
+      "points": 81,
+      "providerId": "kb95",
+      "rank": 532,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Li Tu",
+      "nationalityCode": "AUS",
+      "points": 81,
+      "providerId": "tc01",
+      "rank": 533,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Pavle Marinkov",
+      "nationalityCode": "AUS",
+      "points": 72,
+      "providerId": "m0te",
+      "rank": 561,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Chase Ferguson",
+      "nationalityCode": "AUS",
+      "points": 63,
+      "providerId": "f0c0",
+      "rank": 604,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Max Purcell",
+      "nationalityCode": "AUS",
+      "points": 49,
+      "providerId": "ph71",
+      "rank": 672,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Jacob Bradshaw",
+      "nationalityCode": "AUS",
+      "points": 49,
+      "providerId": "b0ot",
+      "rank": 676,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Thomas Fancutt",
+      "nationalityCode": "AUS",
+      "points": 48,
+      "providerId": "fa50",
+      "rank": 688,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Matt Hulme",
+      "nationalityCode": "AUS",
+      "points": 40,
+      "providerId": "h0hs",
+      "rank": 752,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Scott Jones",
+      "nationalityCode": "AUS",
+      "points": 36,
+      "providerId": "j0a6",
+      "rank": 789,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Joshua Charlton",
+      "nationalityCode": "AUS",
+      "points": 33,
+      "providerId": "c09y",
+      "rank": 830,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Sam Ryan Ziegann",
+      "nationalityCode": "AUS",
+      "points": 32,
+      "providerId": "r0dp",
+      "rank": 843,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Nick Kyrgios",
+      "nationalityCode": "AUS",
+      "points": 25,
+      "providerId": "ke17",
+      "rank": 914,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Benjamin O'connell",
+      "nationalityCode": "AUS",
+      "points": 25,
+      "providerId": "o0a6",
+      "rank": 933,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Duje Markovina",
+      "nationalityCode": "AUS",
+      "points": 20,
+      "providerId": "m0u9",
+      "rank": 995,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Stefan Vujic",
+      "nationalityCode": "AUS",
+      "points": 16,
+      "providerId": "va31",
+      "rank": 1072,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Lachlan James Mcfadzean",
+      "nationalityCode": "AUS",
+      "points": 14,
+      "providerId": "m0zk",
+      "rank": 1111,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Kody Pearson",
+      "nationalityCode": "AUS",
+      "points": 13,
+      "providerId": "pl69",
+      "rank": 1120,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Chen Dong",
+      "nationalityCode": "AUS",
+      "points": 13,
+      "providerId": "d0fn",
+      "rank": 1137,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Jesse Delaney",
+      "nationalityCode": "AUS",
+      "points": 13,
+      "providerId": "d0be",
+      "rank": 1145,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Zack Viiala",
+      "nationalityCode": "AUS",
+      "points": 9,
+      "providerId": "v0fl",
+      "rank": 1245,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Ethan Cook",
+      "nationalityCode": "AUS",
+      "points": 9,
+      "providerId": "c0ms",
+      "rank": 1254,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Hayden Jones",
+      "nationalityCode": "AUS",
+      "points": 9,
+      "providerId": "j0d5",
+      "rank": 1256,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Oliver Anderson",
+      "nationalityCode": "AUS",
+      "points": 8,
+      "providerId": "ad23",
+      "rank": 1308,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Ashton Mcleod",
+      "nationalityCode": "AUS",
+      "points": 8,
+      "providerId": "m0z0",
+      "rank": 1320,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Jeremy Zhang",
+      "nationalityCode": "AUS",
+      "points": 7,
+      "providerId": "z0cn",
+      "rank": 1338,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Ymerali Ibraimi",
+      "nationalityCode": "AUS",
+      "points": 7,
+      "providerId": "i0cd",
+      "rank": 1353,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Ty Host",
+      "nationalityCode": "AUS",
+      "points": 7,
+      "providerId": "h0li",
+      "rank": 1366,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Stefan Storch",
+      "nationalityCode": "AUS",
+      "points": 7,
+      "providerId": "s0if",
+      "rank": 1370,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Daniel Jovanovski",
+      "nationalityCode": "AUS",
+      "points": 6,
+      "providerId": "j0fy",
+      "rank": 1405,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Arjun Mehrotra",
+      "nationalityCode": "AUS",
+      "points": 6,
+      "providerId": "m0ce",
+      "rank": 1423,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Harrison Satara",
+      "nationalityCode": "AUS",
+      "points": 5,
+      "providerId": "s1g9",
+      "rank": 1444,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Jake Dembo",
+      "nationalityCode": "AUS",
+      "points": 5,
+      "providerId": "d0nq",
+      "rank": 1466,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Adrian Arcon",
+      "nationalityCode": "AUS",
+      "points": 5,
+      "providerId": "a0in",
+      "rank": 1480,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Jeremy Beale",
+      "nationalityCode": "AUS",
+      "points": 4,
+      "providerId": "bu34",
+      "rank": 1501,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Mustafa Ege Sik",
+      "nationalityCode": "AUS",
+      "points": 4,
+      "providerId": "s1d0",
+      "rank": 1543,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Jack Bruce Smith",
+      "nationalityCode": "AUS",
+      "points": 4,
+      "providerId": "b0v4",
+      "rank": 1566,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Zane Stevens",
+      "nationalityCode": "AUS",
+      "points": 3,
+      "providerId": "s19y",
+      "rank": 1640,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Charlie Pade",
+      "nationalityCode": "AUS",
+      "points": 2,
+      "providerId": "p0nf",
+      "rank": 1772,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Derek Pham",
+      "nationalityCode": "AUS",
+      "points": 2,
+      "providerId": "p0kj",
+      "rank": 1810,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Taiki Takizawa",
+      "nationalityCode": "AUS",
+      "points": 2,
+      "providerId": "t0km",
+      "rank": 1830,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Noah Brownrigg",
+      "nationalityCode": "AUS",
+      "points": 2,
+      "providerId": "b0wt",
+      "rank": 1833,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Zaharije Zak Talic",
+      "nationalityCode": "AUS",
+      "points": 2,
+      "providerId": "t0h6",
+      "rank": 1860,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Lawrence Bataljin",
+      "nationalityCode": "AUS",
+      "points": 2,
+      "providerId": "bm09",
+      "rank": 1910,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Nikita Volonski",
+      "nationalityCode": "AUS",
+      "points": 1,
+      "providerId": "v0d2",
+      "rank": 2004,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Thomas Patton",
+      "nationalityCode": "AUS",
+      "points": 1,
+      "providerId": "public-thomas-patton",
+      "rank": 2082,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Zac Hamill",
+      "nationalityCode": "AUS",
+      "points": 1,
+      "providerId": "h0lp",
+      "rank": 2082,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Thomas Nicholas Gadecki",
+      "nationalityCode": "AUS",
+      "points": 1,
+      "providerId": "g0ki",
+      "rank": 2149,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Lachlan Vickery",
+      "nationalityCode": "AUS",
+      "points": 1,
+      "providerId": "v0hv",
+      "rank": 2205,
+      "selectionReasons": [
+        "australian"
+      ]
+    },
+    {
+      "name": "Zachary Adam Gedge",
+      "nationalityCode": "AUS",
+      "points": 1,
+      "providerId": "a0j4",
+      "rank": 2239,
+      "selectionReasons": [
+        "australian"
+      ]
+    }
+  ]
+}

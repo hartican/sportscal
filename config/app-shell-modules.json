@@ -10,6 +10,7 @@
   "config/canonical-sports-taxonomy.js",
   "config/sport-hierarchy.js",
   "config/competition-classification.js",
+  "config/coverage-pauses.js",
   "config/fixture-identity.js",
   "config/team-follow-catalogue.js",
   "config/event-taxonomy-compat.js",

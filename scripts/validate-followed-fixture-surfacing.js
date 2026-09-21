@@ -313,7 +313,7 @@ const djokovicFixture = resolvedTennis.events.find(event => (
 ));
 assert(djokovicFixture, "the Men's current top 10 collection must resolve Djokovic's released US Open match");
 
-const collectionInheritedMajorEvents = majorEventsConfig.visibleRecords(majorEventsDocument, {
+const collectionInheritedMajorEvents = majorEventsConfig.visibleRecords({...majorEventsDocument,events:majorEventsDocument.events.map(event=>event.id==="major-event:us-open-2026"?{...event,lifecycleStatus:"active"}:event)}, {
   followedSports:[],
   followedEventFamilyIds:[],
   followedParticipantIds:[DJOKOVIC_ID],

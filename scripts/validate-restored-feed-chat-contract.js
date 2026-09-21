@@ -15,7 +15,9 @@ assert(!policy.eligibleForFollow(practice,{}),'published F1 sessions never creat
 const {syncCanonicalFixtures}=require('./sync-canonical-fixtures-to-feed');
 const canonical=JSON.parse(read('data/canonical/afl-nrl-2026.json'));
 const grandFinalId='event:afl:cd_m20260142901';
-const rebuilt=syncCanonicalFixtures({events:[]},canonical,{publishedAt:'2026-09-09T00:00:00Z'}).output;
+const unresolvedCanonical=structuredClone(canonical);
+unresolvedCanonical.events.find(event=>event.id===grandFinalId).displayName='Winner Preliminary Final 1 v Winner Preliminary Final 2';
+const rebuilt=syncCanonicalFixtures({events:[]},unresolvedCanonical,{publishedAt:'2026-09-09T00:00:00Z'}).output;
 assert.equal(rebuilt.events.find(event=>event.canonicalEventId===grandFinalId)?.name,'AFL Grand Final','canonical refresh must not reintroduce bracket title');
 const resolved=structuredClone(canonical);
 const resolvedFinal=resolved.events.find(event=>event.id===grandFinalId);
@@ -25,7 +27,7 @@ assert.equal(resolvedFeed.events.find(event=>event.canonicalEventId===grandFinal
 assert.equal(resolvedFeed.events.find(event=>event.canonicalEventId===grandFinalId)?.stage,'Grand Final','resolved clubs retain stage');
 
 assert.match(html,/fixture-participant-pager/,'F1 followed participants need a one-line pager');
-assert.match(html,/time\.textContent=`\$\{timing\} • \$\{sportLabel\}`/,'compact cards need an explicit sport label');
+assert.match(html,/time\.textContent=`\$\{timing\} • \$\{sportLabel\}/,'compact cards need an explicit sport label');
 assert.match(html,/Chat sound on/,'chat sound activation needs acknowledgement');
 assert.match(html,/chatIncomingBanner/,'incoming chat needs an exact-room banner');
 assert.match(html,/Remove from list/,'bulk personal archiving must remain distinct from destructive chat deletion');

@@ -233,8 +233,13 @@ function writeIfChanged(filePath, content){
   fs.mkdirSync(path.dirname(filePath), { recursive:true }); fs.writeFileSync(filePath, content); return true;
 }
 
+function applyReviewedBiography(profile){
+  if(profile.participantId!=="competitor:aflw:tarni-evans")return profile;
+  return {...profile,biography:"Tarni Evans is a 178 cm key-position player and left-footed forward in the GWS GIANTS leadership group. After beginning as an intercepting defender, she moved forward full-time in 2024, made a third consecutive AFLPA 22Under22 team at centre half-forward, and finished 2025 as the GIANTS’ leading goalkicker and equal-third in the Gabrielle Trainor Medal. Current-season and career totals below come only from the official AFL statistics record.",keyFacts:[...(profile.keyFacts||[]).filter(f=>!['Position','Honours'].includes(f.label)),{label:'Position',value:'Key forward'},{label:'Honours',value:'Leading Goalkicker 2025 · AFLPA 22Under22 2022 (S7), 2023, 2024 · Goal of the Year 2022 (S7), 2025'}],sourceLinks:[...(profile.sourceLinks||[]).filter(s=>s.url!=="https://www.gwsgiants.com.au/players/aflw/4040/tarni-evans"),{label:'Official GWS biography',url:'https://www.gwsgiants.com.au/players/aflw/4040/tarni-evans'}]};
+}
+
 function writeChunk(sportKey, profiles, checkedAt){
-  const payload = { schemaVersion:"athlete-profile-chunk.v1", sportKey, generatedAt:checkedAt, profiles };
+  const payload = { schemaVersion:"athlete-profile-chunk.v1", sportKey, generatedAt:checkedAt, profiles:profiles.map(applyReviewedBiography) };
   let changed = writeIfChanged(path.join(OUTPUT_DIR, `${sportKey}.v1.json`), `${JSON.stringify(payload, null, 2)}\n`);
   changed = writeIfChanged(path.join(OUTPUT_DIR, `${sportKey}.v1.js`), `globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_CHUNKS = globalThis.NOTHINGSPORTS_ATHLETE_PROFILE_CHUNKS || {};\nglobalThis.NOTHINGSPORTS_ATHLETE_PROFILE_CHUNKS[${JSON.stringify(sportKey)}] = ${JSON.stringify(payload)};\n`) || changed;
   return changed;
@@ -276,6 +281,7 @@ async function main(){
     ]);
   }catch(error){
     const manifest = validateExistingSnapshot();
+    for(const sport of manifest.sports){const chunk=readJson(sport.jsonUrl);writeChunk(sport.key,chunk.profiles,chunk.generatedAt);}
     console.warn(`Athlete profile sources unavailable; preserving ${manifest.profileCount} validated profiles: ${error.message}`);
     return;
   }

@@ -673,10 +673,15 @@
     if (!divider) return [];
     const labels = [cleanMatchupSideLabel(source.slice(0, divider.index), 0), cleanMatchupSideLabel(source.slice(divider.index + divider[0].length), 1)];
     const resolved = participantMarksForEvent(event, participants, source);
-    return labels.map((label, index) => {
-      const identity = resolved.find(candidate => aliasRange(label, candidate.participant)) || resolved.find(candidate => candidate.participant?.id === (event.participantSlots?.[index]?.participantId || event.participantIds?.[index])) || null;
+    const labelsApi = globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require === "function" ? require("./fixture-labels") : null);
+    const sides = labels.map((label, index) => {
+      const identity = resolved.find(candidate => {
+        const record=labelsApi ? labelsApi.participantRecord(candidate.participant,event,participants) : candidate.participant;
+        return aliasRange(label,{...record,metadata:{...(record.metadata||{}),titleAliases:[...(record.metadata?.titleAliases||[]),...(record.aliases||[]),record.name].filter(Boolean)}});
+      }) || resolved.find(candidate => candidate.participant?.id === (event.participantSlots?.[index]?.participantId || event.participantIds?.[index])) || null;
       return Object.freeze({ label, participant:identity?.participant || null, mark:identity?.mark || null });
     });
+    return labelsApi ? labelsApi.australianFirst(sides,event,participants) : sides;
   }
   function logoForTheme(mark, { context = "primary", useDark = false } = {}){
     const assets = mark?.logo || {};

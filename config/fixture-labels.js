@@ -31,5 +31,33 @@ function badge(event){
  const league=event.competitionName||event.leagueName||event.competition?.displayName||'';
  return league?String(league).replace(/\s+(Men|Women|Mixed)$/i,'')+suffix:'';
 }
-return {gender,sport,badge};
+
+// Display order only. Never reorder source IDs, roles, scores or classifications.
+function participantRecord(value,event={},records=[]){
+ const id=value?.id||value?.participantId||value?.playerId;
+ const national=globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES || (typeof require==='function'?require('./national-team-identities'):null);
+ const base={...(national?.participantsById?.[id]||{}),...(records.find(p=>p.id===id)||{})};
+ const local=(event.participants||[]).find(p=>(p.id||p.participantId)===id)||{};
+ return {...base,...local,...value, countryCode:value?.countryCode||value?.nationalityCode||local.countryCode||local.nationalityCode||base.countryCode||base.nationalityCode||base.metadata?.countryCode};
+}
+function isAustralian(value,event={},records=[]){
+ const members=value?.players||[value?.participant||value];
+ return members.some(p=>{const r=participantRecord(p,event,records);return ['AU','AUS'].includes(String(r.countryCode||'').toUpperCase())||r.isAustralian===true;});
+}
+function australianFirst(values,event={},records=[]){
+ return [...values].sort((a,b)=>Number(isAustralian(b,event,records))-Number(isAustralian(a,event,records)));
+}
+function matchupTitle(event,title,records=[]){
+ const source=String(title||event.displayTitleCompact||event.name||'');
+ if(/hidden|winner of|loser of|\bTBC\b/i.test(source))return source;
+ const split=source.match(/^(.*?)\s+v(?:s\.?|\.)?\s+(.*?)(\s+[—–]\s+.*)?$/i);
+ if(!split)return source;
+ const norm=s=>String(s||'').toLowerCase().replace(/\b(?:men|women|cricket)\b/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+ const candidates=[...(event.participants||[]),...(event.participantSlots||[]),...(event.matchupSides||[]).flatMap(s=>s.players||[]),...(event.participantIds||[]).map(id=>({id}))].map(p=>participantRecord(p,event,records));
+ const side=label=>({label,players:candidates.filter(p=>[p.name,p.displayName,p.canonicalName,p.shortName,p.label,...(p.aliases||[])].some(n=>n && norm(n)===norm(label)))});
+ const sides=[side(split[1]),side(split[2])];
+ const ordered=australianFirst(sides,event,records);
+ return ordered[0]===sides[0]?source:`${split[2]} v ${split[1]}${split[3]||''}`;
+}
+return {gender,sport,badge,participantRecord,isAustralian,australianFirst,matchupTitle};
 });

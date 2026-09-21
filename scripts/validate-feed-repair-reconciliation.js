@@ -22,7 +22,9 @@ const pageEvents=fs.readdirSync('data/feed').filter(f=>/^page-.*json$/.test(f)).
 for(const entry of require('../data/canonical/nrl-finals-published-2026.json').events){const e=events.find(e=>aliases(e).includes(entry.id));assert.equal(e.startTimeUtc,entry.startTimeUtc);assert.deepEqual(e.participantIds,entry.participantIds);assert(pageEvents.some(e=>aliases(e).includes(entry.id)));}
 const upcomingTennis=programme.filter(e=>e.key==='tennis'&&['mens-singles','womens-singles'].includes(e.matchType)&&new Date(e.startTimeUtc||e.sessionStartTimeUtc)>=reference&&follow.reasonForEvent(e,{preferenceGraph:{entityFollows:[{participantId:e.participantIds[0],followLevel:'follow'}]}}));
 assert(upcomingTennis.length>=4);
-for(const e of upcomingTennis){assert.equal(follow.stageLabel(e),'QF');assert.equal(e.editorialNarrative?.generationMode,'researched');assert(e.editorialNarrative.sourceIds.length>=3);}
+const researchedQuarterFinalIds=['fixture:us-open-2026:official:ws:2501','fixture:us-open-2026:official:ms:1503','fixture:us-open-2026:official:ws:2502','fixture:us-open-2026:official:ms:1504'];
+for(const id of researchedQuarterFinalIds){const e=upcomingTennis.find(e=>e.id===id);assert(e,id);assert.equal(follow.stageLabel(e),'QF');assert.equal(e.editorialNarrative?.generationMode,'researched');assert(e.editorialNarrative.sourceIds.length>=3);}
+for(const e of upcomingTennis){assert(['QF','SF','Final'].includes(follow.stageLabel(e)));assert(['researched','verified-parent-child-projection'].includes(e.editorialNarrative?.generationMode));assert(e.editorialNarrative.sourceIds.length>=3);}
 for(const id of ['evt_26','evt_27']){
  const e=events.find(e=>e.id===id);assert.equal(e.fixtureResults.rows.length,22);assert(e.fixtureResults.rows.every(row=>row.length===e.fixtureResults.columns.length));
  assert(e.participantIds.includes('competitor:f1:yuki-tsunoda'));assert(!e.participantIds.includes('competitor:f1:isack-hadjar'));

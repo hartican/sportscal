@@ -52,7 +52,7 @@ function preservedContextAfterCoreFailure(error, existing){
 async function fetchText(url){
   let response;
   try {
-    response = await fetch(url, { headers: { "user-agent": "Nothingsport-WRC-Context/1.0" }, redirect: "follow" });
+    response = await fetch(url, { headers: { "user-agent": "Nothingsport-WRC-Context/1.0" }, redirect: "follow", signal: AbortSignal.timeout(20000) });
   } catch (error){
     throw new SourceError(`Network error fetching ${url}: ${error.message}`, { transient: true });
   }

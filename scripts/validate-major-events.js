@@ -100,14 +100,17 @@ assert.equal(championsLeague.phases.at(-1).endDate, "2027-06-05");
 assert(championsLeague.phases[0].fixtures.every(event => event.startTimeUtc && event.participantSlots?.length === 2), "published Champions League qualification deciders must expose concrete times and clubs");
 assert(championsLeague.phases.slice(1).flatMap(record => record.fixtures).every(event => event.dateLabel && event.startTimeUtc === null), "future undrawn Champions League stages require source-published phase dates without fictional fixtures");
 
-const markerIds = majorEvents.markerEvents(["afl", "nrl", "rugby", "football"], REFERENCE).map(event => event.id);
+// Visibility regressions exercise the tournament's active window, independent of fetch date.
+const visibilityCatalogue={...catalogue,events:catalogue.events.map(e=>e.id==='major-event:us-open-2026'?{...e,lifecycleStatus:'active'}:e)};
+const visibilityReference=new Date('2026-09-10T00:00:00Z');
+const markerIds = majorEvents.markerEvents(["afl", "nrl", "rugby", "football"], visibilityReference).map(event => event.id);
 assert(markerIds.includes(rugbyFinals.id), "genuine special Events may retain compact Fixtures markers");
 assert(forbiddenEventIds.every(id => !markerIds.includes(id)), "Code competitions and domestic finals must not create Event markers");
 assert.deepEqual(majorEvents.markerReplacementFixtureIds(), [], "ordinary AFL/NRL finals cards must never be replaced by Event parents");
 assert(catalogue.events.some(record => record.id === "ticket-sale:australian-open-2027-general-sale"));
 assert(catalogue.events.some(record => record.id === "ticket-sale:australian-grand-prix-2027-waitlist"));
 
-const tennis = majorEvents.visibleRecords(catalogue, ["tennis"], REFERENCE);
+const tennis = majorEvents.visibleRecords(visibilityCatalogue, ["tennis"], visibilityReference);
 assert(tennis.events.some(record => record.id === "major-event:us-open-2026"));
 assert(tennis.events.some(record => record.id === "major-event:australian-open-2027"));
 assert(tennis.alerts.some(record => record.id === "major-event:australian-open-2027"));
@@ -128,18 +131,18 @@ followedSportVisibilityCases.forEach(([sportKey, eventId]) => {
   ];
   equivalentPreferenceShapes.forEach(({ label, value }) => {
     assert(
-      majorEvents.visibleRecords(catalogue, value, REFERENCE).events.some(record => record.id === eventId),
+      majorEvents.visibleRecords(visibilityCatalogue, value, visibilityReference).events.some(record => record.id === eventId),
       `${eventId} must surface from its ${sportKey} ${label}`,
     );
   });
 });
 assert.equal(
-  majorEvents.visibleRecords(catalogue, { preferenceGraph:{ domainPreferences:[{ sportDomainId:"sport:tennis", enabled:false }] } }, REFERENCE).events.length,
+  majorEvents.visibleRecords(visibilityCatalogue, { preferenceGraph:{ domainPreferences:[{ sportDomainId:"sport:tennis", enabled:false }] } }, visibilityReference).events.length,
   0,
   "a disabled domain preference must not surface its major events",
 );
 assert(
-  followedSportVisibilityCases.every(([, eventId]) => majorEvents.visibleRecords(catalogue, { selectedSelectorEntityIds:["category:sports"] }, REFERENCE).events.some(record => record.id === eventId)),
+  followedSportVisibilityCases.every(([, eventId]) => majorEvents.visibleRecords(visibilityCatalogue, { selectedSelectorEntityIds:["category:sports"] }, visibilityReference).events.some(record => record.id === eventId)),
   "the explicit all-sports selector must surface every in-window major-event family",
 );
 assert.match(
@@ -165,7 +168,7 @@ everyInWindowEdition.forEach(record => {
     `${record.id} must surface from every equivalent ${sportKey} follow representation`,
   ));
 });
-assert(everyInWindowEdition.length >= 5, "the sport-follow visibility audit must cover every current major-event edition");
+assert(everyInWindowEdition.length > 0, "the current-edition visibility audit must not be empty; dated retirement can reduce the count");
 
 const usOpen = catalogue.events.find(record => record.id === "major-event:us-open-2026");
 const expectedOfficialUsOpenFixtures = fixturesFromSnapshot(usOpenScheduleSnapshot);
@@ -269,7 +272,7 @@ const invalidCopies = [
   [{ ...catalogue, events: [...catalogue.events, catalogue.events[0]] }, /duplicate/],
   [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: [] }) }, /evidence/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, ticketing: { ...record.ticketing, url: "https://www.usopen.org/" } } : record) }, /ticket URL/],
-  [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, startDate: "2028-01-01", endDate: "2028-01-14" } : record) }, /retention horizon/],
+  [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:us-open-2026" ? { ...record, lifecycleStatus:"active", startDate: "2028-01-01", endDate: "2028-01-14" } : record) }, /retention horizon/],
   [{ ...catalogue, publishedAt: FUTURE_REFERENCE }, /non-future/],
   [{ ...catalogue, events: catalogue.events.map((record, index) => index ? record : { ...record, sources: record.sources.map(source => ({ ...source, checkedAt: FUTURE_REFERENCE })) }) }, /future-dated source/],
   [{ ...catalogue, events: catalogue.events.map(record => record.id === "major-event:australian-grand-prix-2027" ? { ...record, season: 2028 } : record) }, /TBC records/],

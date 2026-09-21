@@ -1,14 +1,14 @@
 {
   "schemaVersion": "requested-sports-schedule.v1",
   "seasonLabel": "2026-27",
-  "generatedAt": "2026-09-16T07:13:37.204Z",
+  "generatedAt": "2026-09-21T20:00:39.656Z",
   "sources": {
     "nbl27-schedule": {
       "name": "NBL official schedule",
       "url": "https://schedule.nbl.com.au/nbl",
       "apiUrl": "https://schedule.nbl.com.au/api/calendar/schedule?league=nbl&limit=500&offset=0&year=2026",
       "type": "official",
-      "checkedAt": "2026-09-16T07:13:37.204Z"
+      "checkedAt": "2026-09-21T20:00:39.656Z"
     }
   },
   "participants": [
@@ -105,7 +105,16 @@
       ],
       "sourceId": "nbl27-schedule",
       "broadcastSourceId": "nbl27-schedule",
-      "status": "upcoming",
+      "status": "completed",
+      "result": {
+        "status": "official",
+        "score": "95-97",
+        "winnerParticipantId": "team:nbl:adelaide-36ers",
+        "outcomeText": "Melbourne United 95, Adelaide 36ers 97",
+        "recapText": "Official NBL result.",
+        "sourceId": "nbl27-schedule",
+        "checkedAt": "2026-09-21T20:00:39.656Z"
+      },
       "hook": "Melbourne United face Adelaide 36ers in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
       "providerId": "36dbeb55-58ad-11f1-a69b-43a6b5595d3e"
@@ -131,7 +140,16 @@
       ],
       "sourceId": "nbl27-schedule",
       "broadcastSourceId": "nbl27-schedule",
-      "status": "upcoming",
+      "status": "completed",
+      "result": {
+        "status": "official",
+        "score": "79-100",
+        "winnerParticipantId": "team:nbl:south-east-melbourne-phoenix",
+        "outcomeText": "Perth Wildcats 79, South East Melbourne Phoenix 100",
+        "recapText": "Official NBL result.",
+        "sourceId": "nbl27-schedule",
+        "checkedAt": "2026-09-21T20:00:39.656Z"
+      },
       "hook": "Perth Wildcats face South East Melbourne Phoenix in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
       "providerId": "36e0e11c-58ad-11f1-93d0-e78395b5c13c"
@@ -157,7 +175,16 @@
       ],
       "sourceId": "nbl27-schedule",
       "broadcastSourceId": "nbl27-schedule",
-      "status": "upcoming",
+      "status": "completed",
+      "result": {
+        "status": "official",
+        "score": "95-81",
+        "winnerParticipantId": "team:nbl:new-zealand-breakers",
+        "outcomeText": "New Zealand Breakers 95, Illawarra Hawks 81",
+        "recapText": "Official NBL result.",
+        "sourceId": "nbl27-schedule",
+        "checkedAt": "2026-09-21T20:00:39.656Z"
+      },
       "hook": "New Zealand Breakers face Illawarra Hawks in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
       "providerId": "3700706c-58ad-11f1-ae9e-a93048d70593"
@@ -183,7 +210,16 @@
       ],
       "sourceId": "nbl27-schedule",
       "broadcastSourceId": "nbl27-schedule",
-      "status": "upcoming",
+      "status": "completed",
+      "result": {
+        "status": "official",
+        "score": "111-90",
+        "winnerParticipantId": "team:nbl:sydney-kings",
+        "outcomeText": "Sydney Kings 111, Cairns Taipans 90",
+        "recapText": "Official NBL result.",
+        "sourceId": "nbl27-schedule",
+        "checkedAt": "2026-09-21T20:00:39.656Z"
+      },
       "hook": "Sydney Kings face Cairns Taipans in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
       "providerId": "36e225dc-58ad-11f1-b0d4-e94b8c35b649"
@@ -209,7 +245,16 @@
       ],
       "sourceId": "nbl27-schedule",
       "broadcastSourceId": "nbl27-schedule",
-      "status": "upcoming",
+      "status": "completed",
+      "result": {
+        "status": "official",
+        "score": "96-91",
+        "winnerParticipantId": "team:nbl:tasmania-jackjumpers",
+        "outcomeText": "Tasmania JackJumpers 96, South East Melbourne Phoenix 91",
+        "recapText": "Official NBL result.",
+        "sourceId": "nbl27-schedule",
+        "checkedAt": "2026-09-21T20:00:39.656Z"
+      },
       "hook": "Tasmania JackJumpers face South East Melbourne Phoenix in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
       "providerId": "36e80b8c-58ad-11f1-ab03-2572c13c410b"

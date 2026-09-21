@@ -124,3 +124,15 @@ A broad Football follow alone does not admit an ordinary domestic fixture such a
 ## Profile picture expansion — 21 September 2026
 
 A profile picture has a public 128px thumbnail and a private 512px expanded image. Only the owner and accounts **the owner follows** can expand it; following the owner does not grant access. Each expanded-image request rechecks the directed relationship, profile visibility and moderation. Hidden profiles remain owner-only; deleted or moderated profiles cannot expand. Public thumbnails are versioned and cacheable; expanded images are authenticated, never public URLs, and never persistently cached. Uploads accept common raster formats up to 6,000,000 bytes, retain compressed derivatives only, and strip metadata. Regression: `validate-profile-avatars.js`, `validate-profile-avatar-database.js`, `validate-profile-avatar-browser.js`.
+
+## Participant unfollow and Australian presentation — 22 September 2026
+
+This supersedes the earlier whole-fixture participant-mute veto. Ordinary participant Unfollow records `unfollow`: it opts that participant out of direct, collection and current-team inheritance, but another followed participant still admits their shared fixture. Historical `mute` values had no provenance distinguishing deliberate hiding from the ordinary Follow toggle; the user approved treating all those ambiguous values as participant opt-outs. Existing fixture dismissals, event-family and competition exclusions retain precedence. Preference version 23 and preference-graph.v8 apply the migration on both server and browser, including legacy-client patches. Refollowing clears the participant opt-out.
+
+Australian teams and athletes appear first in matchup presentation across sports using sourced country identity. Official participant IDs, home/away roles, score associations and classifications are unchanged. Both/neither Australian preserve source order. Editorial covers every currently published Australian cricket international, including separately followed women's sides; it never grants admission.
+
+Regressions: `validate-participant-unfollow.js`, `audit-participant-admission.js`, `validate-australian-presentation.js`, and `validate-australia-international-editorial.js`, plus existing Follow, sync, exclusions and installed-PWA tests.
+
+### 2026-09-22 — Women's T20 detail coverage paused
+
+Until further notice, women's T20 cricket retains fixture identity, timing and Follow admission but excludes editorial, venue, broadcaster and results details. This supersedes the earlier all-Australian-internationals editorial scope; women's ODI and Test coverage remain included. Apply the pause to refreshed projections and cached/browser fixtures, including provider aliases. Regression: `scripts/validate-coverage-pauses.js`.

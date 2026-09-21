@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="278">
+<meta name="app-shell-version" content="279">
 <script src="/assets/js/app-update.js?v=277" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=277" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=279" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6857,7 +6857,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=275">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=279">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=275">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 </head>
@@ -7149,7 +7149,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=277"></script>
+<script src="assets/js/app-shell-runtime.js?v=279"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7987,6 +7987,7 @@ function appendFollowedFixtureParticipants(container,ev){
   if(row.childElementCount)container.appendChild(row);
 }
 function renderEventTitleIdentity(nameElement, ev, displayTitle, options){
+  displayTitle=NOTHINGSPORTS_FIXTURE_LABELS.matchupTitle(ev,displayTitle,cardIdentityParticipants());
   const compact=Boolean(options?.compact);
   if((ev.key==='tennis'||ev.key==='wimbledon')&&!/hidden|winner of|loser of|TBC/i.test(displayTitle)){
     const lineup=majorEventMatchupLineup(ev,{compact});
@@ -8346,7 +8347,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-    moduleScriptUrl: "config/major-events.js?v=255",
+    moduleScriptUrl: "config/major-events.js?v=279",
   url: "data/major-events.v1.json",
 });
 
@@ -8549,7 +8550,7 @@ function saveActiveProfileSections(sections){
 
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
-const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v10";
+const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v11";
 const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 const PERSONALISED_FEED_CACHE_MAX_STALE_MS = 7 * 24 * 60 * 60 * 1000;
 let publicFeedManifest = null;
@@ -10861,7 +10862,7 @@ async function loadFollowedScheduleFixtures(preferences = userPreferences){
     const results = await Promise.allSettled(codes.slice(offset, offset + 3).map(code => {
       if (followedScheduleLoads.has(code.id)) return followedScheduleLoads.get(code.id);
       const read = (async () => {
-        const cacheKey = `followed-schedule:v2:${code.id}`;
+        const cacheKey = `followed-schedule:v3:${code.id}`;
         const saved = await disposableStore?.hydrate?.(cacheKey,null);
         if (!followedScheduleFixtures.has(code.id) && Array.isArray(saved?.events)) followedScheduleFixtures.set(code.id,saved.events);
         let document;
@@ -11881,6 +11882,7 @@ function normalizeEvents(events = activeEvents){
       // Core identity/date survive even when optional presentation is malformed.
       console.warn("Fixture presentation normalization fallback", ev.eventId || ev.id);
     }
+    globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.apply(ev,{inPlace:true});
   });
   return events;
 }
@@ -12272,7 +12274,7 @@ function majorEventSubEvents(record){
 
 function followedMajorEventParticipants(){
   const follows = userPreferences.preferenceGraph?.entityFollows || [];
-  const muted = new Set(follows.filter(item => item.followLevel === "mute").map(item => item.participantId));
+  const muted = new Set(follows.filter(item => ["unfollow","mute"].includes(item.followLevel)).map(item => item.participantId));
   const ids = new Set(follows.filter(item => ["follow", "priority"].includes(item.followLevel)).map(item => item.participantId));
   const collections = followCollectionsById();
   (userPreferences.followFirst?.collectionFollows || []).forEach(collectionId => {
@@ -12695,6 +12697,7 @@ function spoilerOutcomeCopy(outcome){
 }
 
 function compactResultForEvent(ev){
+  if(globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))return null;
   if (!isSpoilerVisible(ev)) return null;
   const facts = spoilerFactsForEvent(ev);
   const score = facts.score === null || facts.score === undefined ? null : String(facts.score);
@@ -12771,9 +12774,9 @@ function dependencySideIsRevealed(participant){
 }
 
 function spoilerSafeDisplayTitle(ev){
-  if (!ENRICHMENT_ENGINE) return ev.displayTitleCompact;
+  if (!ENRICHMENT_ENGINE) return NOTHINGSPORTS_FIXTURE_LABELS.matchupTitle(ev,ev.displayTitleCompact||ev.name,cardIdentityParticipants());
   const sourceEventsById = new Map(activeEvents.map(event => [event.eventId || event.id, event]));
-  return ENRICHMENT_ENGINE.spoilerSafeFixtureTitle(ev, {
+  const safeTitle = ENRICHMENT_ENGINE.spoilerSafeFixtureTitle(ev, {
     now: nowAEST(),
     revealSpoilers: isSpoilerVisible(ev),
     sourceEventsById,
@@ -12782,6 +12785,7 @@ function spoilerSafeDisplayTitle(ev){
       return Boolean(source && (isSpoilerVisible(source) || getEventAction(source).archived || getActual(source.id) !== null));
     },
   });
+  return NOTHINGSPORTS_FIXTURE_LABELS.matchupTitle(ev,safeTitle,cardIdentityParticipants());
 }
 
 function isSpoilerPolicySpiel(copy){
@@ -12954,6 +12958,7 @@ function eventDateLabel(ev){
 }
 
 function eventLocationLabel(ev){
+  if(globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))return "";
   const rawVenue = String(ev?.venueDisplayName || ev?.venueOfficialName || ev?.venue || "").trim();
   const venueRecord = rawVenue && VENUE_REGISTRY?.resolve?.(rawVenue, ev);
   const venue = String(ev?.venueDisplayName || venueRecord?.displayName || rawVenue).trim();
@@ -14489,7 +14494,7 @@ function automaticEventFollowReason(ev, context=buildFollowEligibilityContext())
   const eventParticipantIdSet = new Set(eventParticipantIds);
   const {playerTeams,participantsById,collectionsById}=context;
   const entityFollows = Array.isArray(userPreferences?.preferenceGraph?.entityFollows) ? userPreferences.preferenceGraph.entityFollows : [];
-  const mutedEntityIds = new Set(entityFollows.filter(follow => follow.followLevel === "mute").map(follow => follow.participantId));
+  const mutedEntityIds = new Set(entityFollows.filter(follow => ["unfollow","mute"].includes(follow.followLevel)).map(follow => follow.participantId));
   const inheritedPlayer = entityFollows.find(follow => (
     ["follow", "priority"].includes(follow.followLevel)
     && playerTeams.get(follow.participantId)
@@ -14522,7 +14527,6 @@ function followFeedPolicySource(reason){
 function eventFollowReason(ev, context){
   if (!FOLLOW_FEED_POLICY.sportingFixture(ev) || !FOLLOW_FEED_POLICY.feedEligibleSession(ev) || FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences)) return null;
   const followLevels = eventParticipantFollowLevels(ev);
-  if (followLevels.includes("mute")) return null;
   if (getEventAction(ev).addedToFixtures || ev?.manualPin === true){
     return {
       type:"manualPin",
@@ -15228,7 +15232,7 @@ function bindCardCycle(card, activate){
   });
 }
 function compactFixtureName(ev){
-  let short = ev.displayTitleCompact || ev.shortName || spoilerSafeDisplayTitle(ev);
+  let short = NOTHINGSPORTS_FIXTURE_LABELS.matchupTitle(ev,ev.displayTitleCompact || ev.shortName || spoilerSafeDisplayTitle(ev),cardIdentityParticipants());
   if(ev.key==='tennis' && short.includes(' v '))short=short.split(' v ').map(side=>side.split(/\s+\/\s+/).map(name=>name.trim().split(/\s+/).slice(-1)[0]).join('/')).join(' v ');
   return short.replace(/Manchester City/g,'Manc. City').replace(/Manchester United/g,'Man United')
     .replace(/Wests Tigers/g,'Wests').replace(/Canberra Raiders/g,'Raiders').replace(/Penrith Panthers/g,'Panthers').replace(/Melbourne Storm/g,'Storm').replace(/Brisbane Broncos/g,'Broncos').replace(/South Sydney Rabbitohs/g,'Rabbitohs').replace(/Manly Warringah Sea Eagles/g,'Manly').replace(/Gold Coast Titans/g,'Titans').replace(/Sydney Roosters/g,'Roosters').replace(/North Queensland Cowboys/g,'Cowboys').replace(/Newcastle Knights/g,'Knights').replace(/Cronulla(?:-Sutherland)? Sharks/g,'Sharks').replace(/Canterbury(?:-Bankstown)? Bulldogs/g,'Bulldogs').replace(/Parramatta Eels/g,'Eels').replace(/Coventry City/g,'Coventry').replace(/Brighton & Hove Albion/g,'Brighton').replace(/Leeds United/g,'Leeds').replace(/Nottingham Forest/g,'Nottm Forest').replace(/Tottenham Hotspur/g,'Spurs').replace(/Paris Saint-Germain/g,'PSG')
@@ -16265,6 +16269,7 @@ function configureProviderLaunch(link, viewing){
 }
 
 function appendEventQuickActions(container, ev, { reminder = true, chat = true, viewing = true } = {}){
+  if(globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))viewing=false;
   const actions = document.createElement("div");
   actions.className = "event-quick-actions";
   const viewingLink = viewing ? FOLLOW_FIRST?.viewingLink?.(ev, userPreferences.followFirst?.subscriptions || []) : null;
@@ -18072,9 +18077,7 @@ function sportHubCanonicalFixtures(sportKey = activeSportHubKey()){
 }
 
 function sportHubMutedParticipantIds(){
-  return new Set((userPreferences.preferenceGraph?.entityFollows || [])
-    .filter(preference => preference.followLevel === "mute")
-    .map(preference => preference.participantId));
+  return new Set(); // Ordinary participant unfollows never hide the opponent's schedule.
 }
 
 function sportHubCuratedCanonicalIds(sportKey, reference = nowAEST()){
@@ -18248,7 +18251,7 @@ function buildSportHubFixtureRow(view, {
   const titleLine = document.createElement("div");
   titleLine.className = "sport-hub-fixture-title-line";
   const title = document.createElement("h3");
-  title.textContent = event.displayTitleCompact || event.name;
+  title.textContent = spoilerSafeDisplayTitle(event);
   titleLine.appendChild(title);
   if (worthWatching){
     const badge = document.createElement("span");
@@ -19125,7 +19128,7 @@ function buildDirectoryFollowButton(participantId, { sportKey = "football", leag
   syncDirectoryFollowButton(button, participantId);
   button.addEventListener("click", () => {
     const explicitLevel = directoryFollowLevel(participantId);
-    const nextLevel = button.dataset.followLevel === "follow" ? "mute" : "follow";
+    const nextLevel = button.dataset.followLevel === "follow" ? "unfollow" : "follow";
     setDirectoryEntityFollow(participantId, nextLevel, { sportKey, leagueId, label });
     syncDirectoryFollowButton(button, participantId);
   });
@@ -19136,8 +19139,8 @@ function setDirectoryEntityFollow(participantId, followLevel, { sportKey = "foot
   const next = clonePreferences(userPreferences);
   next.preferenceGraph = PREFERENCE_SYSTEM.setEntityFollow(next.preferenceGraph, participantId, followLevel);
   savePreferences(next,{deferFollowEffects:true});
-  recordPreferenceChange(followLevel === "none" || followLevel === "mute" ? "unfollow" : "follow", participantId.startsWith("team:") ? "team" : "player", { sport: sportKey });
-  showToast(`${label}: ${followLevel === "none" ? "not followed" : followLevel}.`);
+  recordPreferenceChange(["none","unfollow","mute"].includes(followLevel) ? "unfollow" : "follow", participantId.startsWith("team:") ? "team" : "player", { sport: sportKey });
+  showToast(`${label}: ${["none","unfollow","mute"].includes(followLevel) ? "not followed" : followLevel}.`);
   renderTabCounts();
 }
 
@@ -20358,6 +20361,7 @@ function majorEventMatchupLineup(subEvent,{compact=false}={}){
   let sides = Array.isArray(subEvent?.matchupSides) ? subEvent.matchupSides : [];
   if(sides.length!==2){const players=[...new Map((subEvent.participants||[]).map(p=>typeof p==='string'?{name:p}:p).filter(Boolean).map(p=>[p.id||p.name||p.displayName,p])).values()];if(players.length===2)sides=players.map(player=>({players:[player]}));}
   if (sides.length !== 2) return null;
+  sides=NOTHINGSPORTS_FIXTURE_LABELS.australianFirst(sides,subEvent,cardIdentityParticipants());
   const matchup = document.createElement("div");
   matchup.className = "major-event-matchup-sides";
   sides.forEach((side, sideIndex) => {

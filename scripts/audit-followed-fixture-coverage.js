@@ -96,7 +96,7 @@ function auditProfile(profile, { now = new Date(), baseEvents = contextualBaseEv
     const directState = { preferences:{ preferenceGraph:{ entityFollows:[follow], domainPreferences:[], competitionPreferences:[] } } };
     const resolvedIds = expandedFollowEntityIds(directState);
     const fixtures = normalized.filter(event => retainedFixture(event, reference) && eventMatchesEntities(event, resolvedIds));
-    const eligible = fixtures.filter(event => shouldEnrichEvent(event, userState.preferences, {}, resolvedIds, reference));
+    const eligible = fixtures.filter(event => shouldEnrichEvent(event, userState.preferences, {}, allEntityIds, reference));
     if (eligible.length && eligible.some(event => feedEventIds.has(stableEventId(event)))){
       const activeFixtures = eligible.filter(event => {
         const state = cardLifecycle.lifecycleState(event, { now:reference }).state;
@@ -120,7 +120,7 @@ function auditProfile(profile, { now = new Date(), baseEvents = contextualBaseEv
     retainedFixture(event, reference)
     && eventMatchesEntities(event, allEntityIds)
     && sydneyDateKey(event.startTimeUtc) === sydneyDateKey(reference)
-    && shouldEnrichEvent(event, userState.preferences, {}, allEntityIds)
+    && shouldEnrichEvent(event, userState.preferences, {}, allEntityIds, reference)
   ));
   const missingSameDay = sameDayFollowed.filter(event => !firstPageIds.has(stableEventId(event)));
   return {

@@ -15,7 +15,7 @@ const initial = preferences.createPreferenceGraph({
   domainIds: ["sport:afl"],
   broadcasterIds: baseProviders,
 });
-assert.equal(initial.schemaVersion, "preference-graph.v7");
+assert.equal(initial.schemaVersion, "preference-graph.v8");
 assert.equal(initial.domainPreferences[0].taxonomyNodeId, "sport:australian-football", "legacy AFL preference domains must retain their UI ID and gain a canonical taxonomy target");
 assert.deepEqual(initial.learning, {
   signals: [],

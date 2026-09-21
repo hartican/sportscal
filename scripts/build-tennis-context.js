@@ -9,16 +9,15 @@ const { generateCatalogue } = require("./refresh-tennis-catalogue.js");
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_PATH = path.join(ROOT, "data/canonical/tennis-context-2026.json");
 const SUPPLEMENT_PATH = path.join(ROOT, "data/canonical/tennis-published-participants-2026.json");
-const ALPHA3_TO_ALPHA2 = Object.freeze({
-  ARG: "AR", AUS: "AU", AUT: "AT", BEL: "BE", BLR: "BY", BRA: "BR", CAN: "CA", CHI: "CL", CHN: "CN", CRO: "HR", CZE: "CZ", DEN: "DK", EGY: "EG", ESP: "ES", FRA: "FR", GBR: "GB", GER: "DE", GRE: "GR", INA: "ID", ITA: "IT", JPN: "JP", KAZ: "KZ", LAT: "LV", MON: "MC", NOR: "NO", PER: "PE", PHI: "PH", POL: "PL", POR: "PT", ROU: "RO", RUS: "RU", SRB: "RS", SUI: "CH", TUR: "TR", UKR: "UA", USA: "US",
-});
+const countryFlags = require("../config/country-flags");
+const { ALPHA3_TO_ALPHA2 } = countryFlags;
 
 function surname(value){
   return String(value || "").trim().split(/\s+/).at(-1);
 }
 
 function participant(athlete){
-  const countryCode = ALPHA3_TO_ALPHA2[athlete.nationalityCode];
+  const countryCode = countryFlags.alpha2(athlete.nationalityCode);
   if (!countryCode) throw new Error(`No ISO alpha-2 mapping for ${athlete.nationalityCode}`);
   return {
     id: athlete.athleteId,

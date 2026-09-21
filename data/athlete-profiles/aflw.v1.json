@@ -6086,12 +6086,8 @@
       "competitionNumber": 18,
       "competitionNumberKind": "guernsey",
       "competitionNumberSeason": "2026",
-      "biography": "Tarni Evans is a medium_forward for GWS GIANTS in the 2026 season, wearing guernsey No. 18. Recruited from Tathra (NSW)/Queanbeyan (AFL Canberra), Tarni made a senior debut in 2021 and is listed at 178 cm. The profile below combines the official current-season record, career totals and the latest available match-by-match form.",
+      "biography": "Tarni Evans is a 178 cm key-position player and left-footed forward in the GWS GIANTS leadership group. After beginning as an intercepting defender, she moved forward full-time in 2024, made a third consecutive AFLPA 22Under22 team at centre half-forward, and finished 2025 as the GIANTS’ leading goalkicker and equal-third in the Gabrielle Trainor Medal. Current-season and career totals below come only from the official AFL statistics record.",
       "keyFacts": [
-        {
-          "label": "Position",
-          "value": "MEDIUM_FORWARD"
-        },
         {
           "label": "Height",
           "value": "178 cm"
@@ -6103,6 +6099,14 @@
         {
           "label": "Recruited from",
           "value": "Tathra (NSW)/Queanbeyan (AFL Canberra)"
+        },
+        {
+          "label": "Position",
+          "value": "Key forward"
+        },
+        {
+          "label": "Honours",
+          "value": "Leading Goalkicker 2025 · AFLPA 22Under22 2022 (S7), 2023, 2024 · Goal of the Year 2022 (S7), 2025"
         }
       ],
       "seasonStats": [

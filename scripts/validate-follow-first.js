@@ -23,7 +23,7 @@ assert.equal(meta.personalisedOffersConsent, false);
 
 const seeded = followFirst.applyMetaSeed({}, meta);
 assert.equal(seeded.changed, true);
-assert.deepEqual(seeded.preferences.selectedSelectorEntityIds, ["sport:afl", "sport:football"]);
+assert.deepEqual(seeded.preferences.selectedSelectorEntityIds, ["sport:afl-premiership", "sport:football"]);
 assert.equal(seeded.preferences.followFirst.australiaInternationalsEnabled, true, "Australia in internationals is one default-on global preference");
 assert.equal(followFirst.applyMetaSeed(seeded.preferences, meta).changed, false);
 

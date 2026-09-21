@@ -1282,6 +1282,333 @@
           ]
         }
       ]
+    },
+    {
+      "id": "fixture:cricket:espn:1525655",
+      "title": "Australia v South Africa — First ODI",
+      "hook": "Durban opens a new test of Australia’s ODI combinations, with Cummins and Starc joining the squad for the South African leg.",
+      "synopsis": "Australia’s rebuilding batting order now faces South Africa after the Zimbabwe leg. Cummins and Starc are in the squad, though selection and workloads remain match-by-match decisions. The opener starts a three-game contest that doubles as preparation for the 2027 World Cup and October’s Tests.",
+      "sources": [
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/news/4569440/australia-odi-squad-zimbabwe-south-africa-tour-2026-labuschagne-marsh-cummins-starc-inglis-peake-stanlake-connolly-davies"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "Durban hosts the first of three ODIs on 24 September.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Cummins and Starc join the ODI squad for South Africa.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The six African ODIs form part of Australia’s preparation for the 2027 World Cup.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1525656",
+      "title": "Australia v South Africa — Second ODI",
+      "hook": "Pink Day at the Wanderers puts Australia’s first response under scrutiny, with only one ODI left after Johannesburg.",
+      "synopsis": "After Durban, this is the chance to turn an opening advantage into a series win or recover lost ground. The scoreline must decide which story applies. Pink Day gives the middle match its own occasion, while Australia still have to balance ODI combinations against the coming Test workload.",
+      "sources": [
+        "https://cricket.co.za/csa-announces-unmissable-2026-27-home-season-for-the-proteas-men/",
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/news/4569440/australia-odi-squad-zimbabwe-south-africa-tour-2026-labuschagne-marsh-cummins-starc-inglis-peake-stanlake-connolly-davies"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "venue",
+          "statement": "The Wanderers hosts the annual Pink Day ODI on 27 September.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "consequence",
+          "statement": "Johannesburg is the middle match of the three-ODI series.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Australia’s leading fast bowlers are using the white-ball tour to prepare for the Tests.",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1525657",
+      "title": "Australia v South Africa — Third ODI",
+      "hook": "Potchefstroom closes Australia’s six-match ODI tour before attention turns to red-ball preparation.",
+      "synopsis": "The final ODI is the last chance to settle this series and leave a selection impression in the format. Whether it is a decider depends on Durban and Johannesburg. The tour then changes emphasis: a two-day warm-up precedes the three Tests.",
+      "sources": [
+        "https://www.cricket.com.au/news/4573063/australia-test-squad-south-africa-tour-2026-selection-labuschagne-renshaw-cummins-starc-cooper-kuhnemann-neser",
+        "https://www.cricket.com.au/news/4569440/australia-odi-squad-zimbabwe-south-africa-tour-2026-labuschagne-marsh-cummins-starc-inglis-peake-stanlake-connolly-davies"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "The third ODI is scheduled for 30 September at JB Marks Oval.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "A warm-up on 3–4 October follows the ODI series.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Australia’s touring ODI squad combines established players with Peake and Davies.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1528716",
+      "title": "Australia Women v Bangladesh Women — ODI 1",
+      "hook": "Brisbane opens Australia’s home ODI season against Bangladesh, with World Championship points at stake.",
+      "synopsis": "Bangladesh begin their first bilateral visit to Australia at Allan Border Field. This is more than an early-season warm-up: the ODIs sit within the qualification cycle for the next World Cup.",
+      "sources": [
+        "https://www.cricket.com.au/news/4517610",
+        "https://www.cricket.com.au/news/4473637"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "ODI 1 is scheduled at Allan Border Field on 9 October.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The Bangladesh ODIs are part of the Women’s World Championship cycle.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "This is Bangladesh’s first bilateral series on Australian soil.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1528717",
+      "title": "Australia Women v Bangladesh Women — ODI 2",
+      "hook": "The second Brisbane ODI tests how quickly Australia and Bangladesh can act on the opener’s lessons.",
+      "synopsis": "There is little time to reset between the opening two matches. A series-clinching chance is possible, but depends on game one; the World Championship gives each ODI an independent purpose.",
+      "sources": [
+        "https://www.cricket.com.au/news/4517610",
+        "https://www.cricket.com.au/news/4473637"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "ODI 2 is scheduled at Allan Border Field on 11 October.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The Bangladesh ODIs are part of the Women’s World Championship cycle.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "This is Bangladesh’s first bilateral series on Australian soil.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1528718",
+      "title": "Australia Women v Bangladesh Women — ODI 3",
+      "hook": "The third Brisbane ODI closes Bangladesh’s visit, with championship value beyond the bilateral result.",
+      "synopsis": "This is the final opportunity to change the series score. Australia then move into T20 cricket against New Zealand, following the revised summer programme.",
+      "sources": [
+        "https://www.cricket.com.au/news/4517610",
+        "https://www.cricket.com.au/news/4473637"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "ODI 3 is scheduled at Allan Border Field on 14 October.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The Bangladesh ODIs are part of the Women’s World Championship cycle.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "This is Bangladesh’s first bilateral series on Australian soil.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1530203",
+      "title": "Australia v Zimbabwe — First ODI",
+      "hook": "Harare’s opener begins Australia’s search for a settled ODI middle order in World Cup conditions.",
+      "synopsis": "The opening match put Australia’s evolving batting combinations against Zimbabwe’s experienced side. It began the six-ODI African trip, with the result and individual performances available when spoilers are enabled.",
+      "sources": [
+        "https://www.cricket.com.au/news/4569440/australia-odi-squad-zimbabwe-south-africa-tour-2026-labuschagne-marsh-cummins-starc-inglis-peake-stanlake-connolly-davies",
+        "https://www.icc-cricket.com/news/zimbabwe-to-host-australia-for-odi-series-in-september"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "The first Zimbabwe ODI was scheduled for 15 September at Harare Sports Club.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Zimbabwe hosted three ODIs before Australia’s South African leg.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "matchup",
+          "statement": "Peake and Davies were retained in Australia’s African-tour squad.",
+          "sourceIndexes": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:cricket:espn:1528712",
+      "title": "Australia v New Zealand — Second Test",
+      "hook": "Adelaide gives Australia and New Zealand their first chance to reshape a four-Test contest after Perth.",
+      "synopsis": "The second Test is the bridge between Perth and Boxing Day. One result cannot settle a four-match series, but Adelaide can change the pressure on the final two games. The compressed summer makes recovery and adjustment part of the contest.",
+      "sources": [
+        "https://www.cricket.com.au/news/4473637",
+        "https://www.cricket.com.au/news/4473693"
+      ],
+      "researchDepth": 4,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "facts": [
+        {
+          "dimension": "schedule",
+          "statement": "Adelaide hosts the second Test in December.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "history",
+          "statement": "The summer contains the first four-Test trans-Tasman series.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "Australia face a compressed Test programme across the 2026–27 summer.",
+          "sourceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tennis-tournament-bjk-cup-finals-2026-2026-09-22",
+      "title": "Billie Jean King Cup Finals 2026",
+      "hook": "Eight nations arrive in Shenzhen with three ties separating them from the title; Italy carry the weight of two consecutive championships.",
+      "synopsis": "The knockout draw leaves no recovery round. Two singles matches and a possible doubles decider make selection and pairings central to each tie, with the first team to two wins progressing. Italy enter as champions of the previous two editions, while hosts China and seven qualifying winners share one venue across six days.",
+      "researchDepth": 5,
+      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "refreshAfter": "2026-09-27T23:59:00.000Z",
+      "sources": [
+        "https://www.billiejeankingcup.com/en/more/format",
+        "https://www.billiejeankingcup.com/en/tickets",
+        "https://assets.ctfassets.net/gd35ic6j47k5/5Ak8rNpk1Qcl8J4JPwpr3o/379f3397ea19150af7ddea6b7361b000/190126_Release_-_Draw_announced_for_2026_Billie_Jean_King_Cup_by_Gainbridge_Qualifiers.pdf"
+      ],
+      "facts": [
+        {
+          "statement": "The eight-team Finals progress through quarter-finals, semi-finals and a final.",
+          "dimension": "path",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "A tie has two singles matches followed by doubles; the first nation to two match wins advances.",
+          "dimension": "format",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "The Finals are scheduled for 22–27 September at Shenzhen Bay Sports Centre Arena.",
+          "dimension": "venue",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "statement": "Italy won their second consecutive championship in Shenzhen in 2025.",
+          "dimension": "history",
+          "sourceIndexes": [
+            2
+          ]
+        }
+      ]
     }
   ]
 }

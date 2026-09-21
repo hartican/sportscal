@@ -35,6 +35,8 @@ assert.equal(typeof editorialConsequenceReadyForCard, "function", "the browser-l
 const incomingById = byIdentity(incoming.events || []);
 const publishedById = byIdentity(published.events || []);
 const majorById = byIdentity(majorEvents.events || []);
+const catalogue=require("../lib/calendar-catalogue").catalogue();
+const catalogueById=byIdentity(catalogue);
 const resolved = [];
 
 for (const projection of knowledge.eventProjections || []){
@@ -42,7 +44,8 @@ for (const projection of knowledge.eventProjections || []){
     projection.targetType === "major-event"
     && !projection.targetIds.some(id => competitionClassification.belongsInEvents(id))
   ) continue;
-  const candidates = projection.targetType === "major-event" ? [majorById] : [incomingById, publishedById];
+  const catalogueOnly=projection.targetIds.every(id=>!incomingById.has(id)&&!publishedById.has(id));
+  const candidates = projection.targetType === "major-event" ? [majorById] : catalogueOnly ? [catalogueById] : [incomingById, publishedById];
   for (const records of candidates){
     const record = projection.targetIds.map(id => records.get(id)).find(Boolean);
     assert(record, `${projection.id} must resolve to its published ${projection.targetType} record`);
@@ -57,7 +60,7 @@ for (const projection of knowledge.eventProjections || []){
   }
 }
 
-const researched = [...(published.events || []), ...(majorEvents.events || [])]
+const researched = [...(published.events || []), ...(majorEvents.events || []),...catalogue]
   .filter(record => record.editorialNarrative?.generationMode === "researched");
 const visible = researched.filter(record => editorialNarrativeReadyForCard(record.editorialNarrative));
 assert.equal(visible.length, researched.length, "every researched narrative shipped to the app must pass the exact browser display gate");
