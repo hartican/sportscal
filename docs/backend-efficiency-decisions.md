@@ -57,3 +57,7 @@ See docs/weekend-editorial.md for the bounded research and release procedure.
 ## Profile picture storage — 21 September 2026
 
 Use direct signed uploads to private temporary Storage, then produce 128px (maximum 32 KB) and 512px (maximum 200 KB) WebP images. Keep only metadata in Postgres. Batch expansion-capability reads for visible avatars, load private images only on demand, and reuse cached versioned thumbnails. The existing daily canonical-refresh workflow also drains at most 50 queued Storage deletions, including abandoned originals after 24 hours; no new scheduler. Replacements queue old objects transactionally and preserve the previous picture until both derivatives are ready.
+
+## 22 September 2026 — coverage repair implementation
+
+The existing full canonical refresh ingests the official PGA TOUR schedule; there is no separate golf scheduler. Tennis edition/catalogue presentation loads only when requested. The editorial snapshot reuses the existing rating reader in sequential batches of at most 50 fixtures and looks up candidate event IDs with real five-star contributions in paged, server-only reads. It exports phase flags without contributor identities; it does not change interactive polling, scoring, public sealed ratings or Feed admission. Older or unsurfaced candidates may be queued for research without becoming required Feed cards. Regression: `node scripts/validate-coverage-repairs.js`.

@@ -292,16 +292,25 @@ function applyToFeedEvent(event, projection, indexes){
   const primarySource = indexes.sources.get(projection.sourceIds[0]);
   const narrative = editorialNarrativeFor(projection, indexes);
   const completed = event.status === "completed";
-  const completedHook = String(projection.hookSpoilerOn || event.outcomeText || event.scoreDisplay || "").trim()
-    || `${event.displayTitleCompact || event.name || "This fixture"} is complete.`;
-  const completedSynopsis = String(projection.synopsisSpoilerOn || event.recapText || event.fullSpiel || "").trim()
-    || completedHook;
+  const lifecycle = require('../../config/editorial-lifecycle');
+  if(completed){
+    const previous=event.editorialNarrative;
+    const sameResearch=previous?.projectionId===projection.id && previous.researchedAt===projection.researchedAt;
+    const changedResult=sameResearch && (previous.resultResearchRequired || previous.resultSignature && previous.resultSignature!==lifecycle.signature(event));
+    narrative.resultResearchRequired=Boolean(changedResult);
+    narrative.phase = !changedResult && (projection.hookSpoilerOn || projection.editorialPhase === 'recap') ? 'recap' : 'preview';
+    narrative.resultSignature = lifecycle.signature(event);
+    narrative.hookSpoilerOn = String(event.outcomeText || event.scoreDisplay || event.score || projection.hookSpoilerOn || narrative.hook);
+    narrative.synopsisSpoilerOn = (!changedResult && projection.synopsisSpoilerOn) || event.recapText || '';
+  }else narrative.phase = 'preview';
+  const completedHook = narrative.hookSpoilerOn;
+  const completedSynopsis = narrative.synopsisSpoilerOn || completedHook;
   const contextSignals = unique(["event-specific", ...narrative.dimensions.map(value => `narrative:${value}`)]);
   const threadTitle = indexes.threads.get(projection.threadIds[0])?.title || "Persistent editorial thread";
   return {
     ...event,
-    selectedSentence:projection.hook,
-    fullSpiel:projection.synopsis,
+    selectedSentence:narrative.hook,
+    fullSpiel:narrative.synopsis,
     sourceName:primarySource.name,
     sourceUrl:primarySource.url,
     sourceType:primarySource.sourceType,
@@ -321,9 +330,9 @@ function applyToFeedEvent(event, projection, indexes){
       ...(event.storyline || {}),
       researchDepth:(projection.researchDepth || projection.stakes),
       arcStage:completed ? "recap" : "preview",
-      hookSpoilerOff:projection.hook,
+      hookSpoilerOff:completed ? lifecycle.copy(event,narrative,false).hook : narrative.hook,
       hookSpoilerOn:completed ? completedHook : projection.hookSpoilerOn || projection.hook,
-      synopsisSpoilerOff:projection.synopsis,
+      synopsisSpoilerOff:completed ? lifecycle.copy(event,narrative,false).synopsis || lifecycle.copy(event,narrative,false).hook : narrative.synopsis,
       synopsisSpoilerOn:completed ? completedSynopsis : projection.synopsisSpoilerOn || projection.synopsis,
       lastReviewedAt:projection.researchedAt,
     },

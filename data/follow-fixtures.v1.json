@@ -1,36 +1,36 @@
 {
   "schemaVersion": "follow-fixtures.v1",
-  "generatedAt": "2026-09-21T20:44:29.190Z",
+  "generatedAt": "2026-09-22T03:01:53.570Z",
   "sources": [
     {
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule16.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:15.001Z"
+      "checkedAt": "2026-09-22T02:48:47.488Z"
     },
     {
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule18.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:15.001Z"
+      "checkedAt": "2026-09-22T02:48:47.488Z"
     },
     {
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule19.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:15.001Z"
+      "checkedAt": "2026-09-22T02:48:47.488Z"
     },
     {
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule20.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:15.001Z"
+      "checkedAt": "2026-09-22T02:48:47.488Z"
     },
     {
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule21.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:15.001Z"
+      "checkedAt": "2026-09-22T02:48:47.488Z"
     },
     {
       "sourceName": "ESPN public football schedule snapshot",
@@ -54,7 +54,7 @@
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule22.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:15.001Z"
+      "checkedAt": "2026-09-22T02:48:47.488Z"
     },
     {
       "sourceName": "ESPN public football schedule snapshot",
@@ -132,7 +132,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -144,7 +144,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -162,7 +162,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -180,7 +180,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -192,13 +192,13 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -216,7 +216,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -240,7 +240,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NFL schedule",
@@ -252,7 +252,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -264,7 +264,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NFL schedule",
@@ -294,7 +294,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -324,7 +324,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612759/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -348,7 +348,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -402,7 +402,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -456,7 +456,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612745/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NFL schedule",
@@ -474,13 +474,13 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612762/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -492,7 +492,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612742/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -516,7 +516,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -546,7 +546,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612747/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -564,7 +564,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612758/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -576,7 +576,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612744/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -624,7 +624,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -642,13 +642,13 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612760/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612740/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -672,7 +672,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612757/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -690,7 +690,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612746/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:57.839Z"
+      "checkedAt": "2026-09-22T02:49:53.989Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -874,7 +874,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule16.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
+        "checkedAt": "2026-09-22T02:48:47.488Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -995,172 +995,13 @@
       "outcomeText": "Iva Jovic 1-6 4-6 Coco Gauff",
       "recapText": "Iva Jovic 1-6 4-6 Coco Gauff",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
+      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
       "venueCountryCode": "US",
       "sourceEventIds": [
         "fixture:us-open-2026:official:ws:2406"
-      ]
-    },
-    {
-      "id": "fixture:us-open-2026:official:ms:1401",
-      "stableMatchId": "usopen-2026-ms-1401",
-      "cardKind": "fixture",
-      "competitionId": "competition:tennis:us-open:2026",
-      "parentEventId": "major-event:us-open-2026",
-      "identityRef": "event:us-open",
-      "participantIds": [
-        "athlete:tennis:alexander-zverev",
-        "athlete:tennis:luciano-darderi"
-      ],
-      "name": "Alexander Zverev v Luciano Darderi",
-      "stage": "Men's singles",
-      "roundLabel": "Round 4",
-      "matchType": "mens-singles",
-      "eventType": "mens-singles",
-      "eventCode": "MS",
-      "bestOf": 5,
-      "court": "Arthur Ashe Stadium",
-      "date": "2026-09-08",
-      "time": "09:00",
-      "startTimeUtc": null,
-      "timelineSortTimeUtc": "2026-09-07T23:00:00.000Z",
-      "sessionId": "us-open-2026:day-16:court-aa:session-2",
-      "sessionStartTimeUtc": "2026-09-07T23:00:00.000Z",
-      "sequenceInSession": 2,
-      "timePrecision": "follows",
-      "timingSource": {
-        "publisher": "US Open",
-        "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule16.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
-        "precedence": "official-session-order"
-      },
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-09-08T09:02:17.515Z",
-      "resultPublishedAt": "2026-09-08T09:02:17.515Z",
-      "scoreDisplay": "Alexander Zverev 6-2 6-2 7(7)-6(3) Luciano Darderi",
-      "result": "Alexander Zverev 6-2 6-2 7(7)-6(3) Luciano Darderi",
-      "matchupSides": [
-        {
-          "id": "side:tennis:alexander-zverev",
-          "name": "Alexander Zverev",
-          "players": [
-            {
-              "id": "athlete:tennis:alexander-zverev",
-              "name": "Alexander Zverev",
-              "seed": 1,
-              "rank": null,
-              "nationalityCode": "DE"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:luciano-darderi",
-          "name": "Luciano Darderi",
-          "players": [
-            {
-              "id": "athlete:tennis:luciano-darderi",
-              "name": "Luciano Darderi",
-              "seed": 21,
-              "rank": null,
-              "nationalityCode": "IT"
-            }
-          ]
-        }
-      ],
-      "venue": "Arthur Ashe Stadium",
-      "summary": "US Open 2026 · Men's singles · Round 4 · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule16.json",
-      "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ms:1401",
-        "researchTier": "marquee",
-        "hook": "Alexander Zverev and Luciano Darderi play for a Men's singles quarterfinal place.",
-        "synopsis": "Alexander Zverev and Luciano Darderi play for a Men's singles quarterfinal place. The editorial context is specific to the draw and Round 4; it updates independently as this matchup changes.",
-        "threadIds": [
-          "thread:tennis:us-open-2026:defenders-open-draw"
-        ],
-        "factIds": [
-          "fact:us-open-2026:stage",
-          "fact:us-open-2026:mens-draw-reset",
-          "fact:us-open-2026:mens-bottom-half",
-          "fact:us-open-2026:sabalenka-threepeat",
-          "fact:us-open-2026:american-drought"
-        ],
-        "sourceIds": [
-          "source:us-open:2026-schedule",
-          "source:us-open:2026-mens-draw",
-          "source:us-open:2026-sabalenka",
-          "source:us-open:2026-american-men"
-        ],
-        "dimensions": [
-          "schedule",
-          "matchup",
-          "path",
-          "history"
-        ],
-        "researchedAt": "2026-08-29T19:30:00.000Z",
-        "refreshAfter": "2026-08-31T12:00:00.000Z",
-        "generationMode": "verified-parent-child-projection"
-      },
-      "storyline": {
-        "stakes": 5,
-        "hookSpoilerOff": "Alexander Zverev and Luciano Darderi play for a Men's singles quarterfinal place.",
-        "hookSpoilerOn": "Alexander Zverev and Luciano Darderi play for a Men's singles quarterfinal place.",
-        "synopsisSpoilerOff": "Alexander Zverev and Luciano Darderi play for a Men's singles quarterfinal place. The editorial context is specific to the draw and Round 4; it updates independently as this matchup changes.",
-        "synopsisSpoilerOn": "Alexander Zverev and Luciano Darderi play for a Men's singles quarterfinal place. The editorial context is specific to the draw and Round 4; it updates independently as this matchup changes.",
-        "arcStage": "preview"
-      },
-      "eventId": "fixture:us-open-2026:official:ms:1401",
-      "canonicalEventId": "fixture:us-open-2026:official:ms:1401",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "taxonomyNodeId": "event-series:us-open",
-      "eventSeriesId": "event-series:us-open",
-      "majorEventId": "major-event:us-open-2026",
-      "displayTitleCompact": "Alexander Zverev v Luciano Darderi",
-      "endTimeUtc": null,
-      "timeTbc": true,
-      "homeParticipantId": "side:tennis:alexander-zverev",
-      "awayParticipantId": "side:tennis:luciano-darderi",
-      "participants": [
-        {
-          "id": "athlete:tennis:alexander-zverev",
-          "name": "Alexander Zverev",
-          "nationalityCode": "DE",
-          "role": "home"
-        },
-        {
-          "id": "athlete:tennis:luciano-darderi",
-          "name": "Luciano Darderi",
-          "nationalityCode": "IT",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 5,
-      "liveWindow": 3,
-      "score": "Alexander Zverev 6-2 6-2 7(7)-6(3) Luciano Darderi",
-      "outcomeText": "Alexander Zverev 6-2 6-2 7(7)-6(3) Luciano Darderi",
-      "recapText": "Alexander Zverev 6-2 6-2 7(7)-6(3) Luciano Darderi",
-      "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified",
-      "venueCountryCode": "US",
-      "sourceEventIds": [
-        "fixture:us-open-2026:official:ms:1401"
       ]
     },
     {
@@ -1193,7 +1034,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule18.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
+        "checkedAt": "2026-09-22T02:48:47.488Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1314,7 +1155,7 @@
       "outcomeText": "Qinwen Zheng 6-3 1-6 4-6 Elena Rybakina",
       "recapText": "Qinwen Zheng 6-3 1-6 4-6 Elena Rybakina",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
+      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1353,7 +1194,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule18.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
+        "checkedAt": "2026-09-22T02:48:47.488Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1474,7 +1315,7 @@
       "outcomeText": "Alexander Zverev 6-2 7-5 6-1 Botic van de Zandschulp",
       "recapText": "Alexander Zverev 6-2 7-5 6-1 Botic van de Zandschulp",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
+      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1513,7 +1354,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule18.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
+        "checkedAt": "2026-09-22T02:48:47.488Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1633,7 +1474,7 @@
       "outcomeText": "Mirra Andreeva 6-2 6(7)-7(9) 2-6 Coco Gauff",
       "recapText": "Mirra Andreeva 6-2 6(7)-7(9) 2-6 Coco Gauff",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
+      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1672,7 +1513,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule19.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
+        "checkedAt": "2026-09-22T02:48:47.488Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1793,7 +1634,7 @@
       "outcomeText": "Aryna Sabalenka 7-5 6-2 Jessica Pegula",
       "recapText": "Aryna Sabalenka 7-5 6-2 Jessica Pegula",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
+      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1832,7 +1673,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule19.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
+        "checkedAt": "2026-09-22T02:48:47.488Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1952,7 +1793,7 @@
       "outcomeText": "Coco Gauff 6-3 4-6 4-6 Elena Rybakina",
       "recapText": "Coco Gauff 6-3 4-6 4-6 Elena Rybakina",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
+      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1991,7 +1832,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule20.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
+        "checkedAt": "2026-09-22T02:48:47.488Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -2112,7 +1953,7 @@
       "outcomeText": "Frances Tiafoe 6-4 3-6 3-6 5-7 Ben Shelton",
       "recapText": "Frances Tiafoe 6-4 3-6 3-6 5-7 Ben Shelton",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
+      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -2151,7 +1992,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule20.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
+        "checkedAt": "2026-09-22T02:48:47.488Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2271,7 +2112,7 @@
       "outcomeText": "Alexander Zverev 6-3 7(9)-6(7) 7(8)-6(6) Karen Khachanov",
       "recapText": "Alexander Zverev 6-3 7(9)-6(7) 7(8)-6(6) Karen Khachanov",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
+      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -2310,7 +2151,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule21.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
+        "checkedAt": "2026-09-22T02:48:47.488Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2358,7 +2199,7 @@
       "sourceName": "US Open official schedule",
       "eventId": "fixture:us-open-2026:official:ws:2701",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2701",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
+      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "sourceRefs": [
@@ -2566,6 +2407,66 @@
       ]
     },
     {
+      "id": "football-la-liga-2026-27-401882880",
+      "eventId": "football-la-liga-2026-27-401882880",
+      "canonicalEventId": "event:football:la-liga:401882880",
+      "canonicalSourceId": "401882880",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Rayo Vallecano",
+      "displayTitleCompact": "Real Madrid v Rayo Vallecano",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Rayo Vallecano",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:rayo-vallecano"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:rayo-vallecano",
+      "date": "2026-09-14",
+      "time": "04:00",
+      "startTimeUtc": "2026-09-13T18:00:00.000Z",
+      "endTimeUtc": "2026-09-13T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Rayo Vallecano is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-la-liga-2026-27-401882883",
       "eventId": "football-la-liga-2026-27-401882883",
       "canonicalEventId": "event:football:la-liga:401882883",
@@ -2655,7 +2556,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule22.json",
-        "checkedAt": "2026-09-21T20:00:15.001Z",
+        "checkedAt": "2026-09-22T02:48:47.488Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -2703,7 +2604,7 @@
       "sourceName": "US Open official schedule",
       "eventId": "fixture:us-open-2026:official:ms:1701",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1701",
-      "sourceCheckedAt": "2026-09-21T20:00:15.001Z",
+      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "sourceRefs": [
@@ -3020,6 +2921,66 @@
       "narrativeType": "regular-season-fixture",
       "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
       "fullSpiel": "Barcelona v Racing Santander is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882872",
+      "eventId": "football-la-liga-2026-27-401882872",
+      "canonicalEventId": "event:football:la-liga:401882872",
+      "canonicalSourceId": "401882872",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Elche v Real Madrid",
+      "displayTitleCompact": "Elche v Real Madrid",
+      "participants": [
+        {
+          "name": "Elche",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:elche",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:elche",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2026-09-17",
+      "time": "04:00",
+      "startTimeUtc": "2026-09-16T18:00:00.000Z",
+      "endTimeUtc": "2026-09-16T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Estadio Martínez Valero",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Elche v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
       "sourceName": "ESPN public football schedule snapshot",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
       "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
@@ -3399,6 +3360,66 @@
       ]
     },
     {
+      "id": "football-la-liga-2026-27-401882865",
+      "eventId": "football-la-liga-2026-27-401882865",
+      "canonicalEventId": "event:football:la-liga:401882865",
+      "canonicalSourceId": "401882865",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Atlético Madrid v Real Madrid",
+      "displayTitleCompact": "Atlético Madrid v Real Madrid",
+      "participants": [
+        {
+          "name": "Atlético Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:atletico-madrid",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:atletico-madrid",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2026-09-21",
+      "time": "04:00",
+      "startTimeUtc": "2026-09-20T18:00:00.000Z",
+      "endTimeUtc": "2026-09-20T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Riyadh Air Metropolitano",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Atlético Madrid v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-ligue-1-2026-27-401876449",
       "eventId": "football-ligue-1-2026-27-401876449",
       "canonicalEventId": "event:football:ligue-1:401876449",
@@ -3467,7 +3488,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-21T23:00:00Z",
       "venue": "Colisée Vidéotron",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -3475,19 +3496,19 @@
           "participantId": "team:nhl:ott",
           "label": "Ottawa Senators",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
         },
         {
           "participantId": "team:nhl:mtl",
           "label": "Montréal Canadiens",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ott-vs-mtl/2026/09/21/2026010022",
-      "ticketUrl": "https://www.nhl.com/canadiens/tickets/",
+      "ticketUrl": null,
       "eventId": "fixture:nhl:2026010022",
       "canonicalEventId": "fixture:nhl:2026010022",
       "key": "ice-hockey",
@@ -4029,7 +4050,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -4148,7 +4169,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -4335,6 +4356,66 @@
       "sourceName": "NHL schedule",
       "sourceType": "official-or-league",
       "sourceTrust": "verified"
+    },
+    {
+      "id": "football-la-liga-2026-27-401882848",
+      "eventId": "football-la-liga-2026-27-401882848",
+      "canonicalEventId": "event:football:la-liga:401882848",
+      "canonicalSourceId": "401882848",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Villarreal",
+      "displayTitleCompact": "Real Madrid v Villarreal",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Villarreal",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:villarreal"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:villarreal",
+      "date": "2026-10-12",
+      "time": "05:00",
+      "startTimeUtc": "2026-10-11T18:00:00.000Z",
+      "endTimeUtc": "2026-10-11T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Villarreal is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
     },
     {
       "id": "football-la-liga-2026-27-401882853",
@@ -4631,7 +4712,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -4814,7 +4895,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -4933,7 +5014,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -4994,7 +5075,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -5303,6 +5384,66 @@
       "sourceTrust": "verified"
     },
     {
+      "id": "football-la-liga-2026-27-401882839",
+      "eventId": "football-la-liga-2026-27-401882839",
+      "canonicalEventId": "event:football:la-liga:401882839",
+      "canonicalSourceId": "401882839",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Sevilla",
+      "displayTitleCompact": "Real Madrid v Sevilla",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Sevilla",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:sevilla"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:sevilla",
+      "date": "2026-10-19",
+      "time": "05:00",
+      "startTimeUtc": "2026-10-18T18:00:00.000Z",
+      "endTimeUtc": "2026-10-18T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Sevilla is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-la-liga-2026-27-401882846",
       "eventId": "football-la-liga-2026-27-401882846",
       "canonicalEventId": "event:football:la-liga:401882846",
@@ -5483,7 +5624,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -5538,7 +5679,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -5721,7 +5862,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -5782,7 +5923,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6021,7 +6162,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6380,7 +6521,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6441,7 +6582,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6680,7 +6821,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6863,7 +7004,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -7109,6 +7250,66 @@
       "catchupEligible": false,
       "resultLabels": [
         "Scheduled"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882819",
+      "eventId": "football-la-liga-2026-27-401882819",
+      "canonicalEventId": "event:football:la-liga:401882819",
+      "canonicalSourceId": "401882819",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Racing Santander v Real Madrid",
+      "displayTitleCompact": "Racing Santander v Real Madrid",
+      "participants": [
+        {
+          "name": "Racing Santander",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:racing-santander",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:racing-santander",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2026-11-02",
+      "time": "07:00",
+      "startTimeUtc": "2026-11-01T20:00:00.000Z",
+      "endTimeUtc": "2026-11-01T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "El Sardineros",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Racing Santander v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
       ]
     },
     {
@@ -7406,7 +7607,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -7461,7 +7662,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8194,6 +8395,66 @@
       "sourceTrust": "verified"
     },
     {
+      "id": "football-la-liga-2026-27-401882808",
+      "eventId": "football-la-liga-2026-27-401882808",
+      "canonicalEventId": "event:football:la-liga:401882808",
+      "canonicalSourceId": "401882808",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Valencia v Real Madrid",
+      "displayTitleCompact": "Valencia v Real Madrid",
+      "participants": [
+        {
+          "name": "Valencia",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:valencia",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:valencia",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2026-11-09",
+      "time": "07:00",
+      "startTimeUtc": "2026-11-08T20:00:00.000Z",
+      "endTimeUtc": "2026-11-08T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Mestalla Stadium",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Valencia v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-la-liga-2026-27-401882816",
       "eventId": "football-la-liga-2026-27-401882816",
       "canonicalEventId": "event:football:la-liga:401882816",
@@ -8424,7 +8685,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8607,7 +8868,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612759/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8726,7 +8987,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8845,7 +9106,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8964,7 +9225,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9083,7 +9344,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9202,7 +9463,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9691,6 +9952,66 @@
       "sourceTrust": "verified"
     },
     {
+      "id": "football-la-liga-2026-27-401882798",
+      "eventId": "football-la-liga-2026-27-401882798",
+      "canonicalEventId": "event:football:la-liga:401882798",
+      "canonicalSourceId": "401882798",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Celta Vigo",
+      "displayTitleCompact": "Real Madrid v Celta Vigo",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Celta Vigo",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:celta-vigo"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:celta-vigo",
+      "date": "2026-11-23",
+      "time": "07:00",
+      "startTimeUtc": "2026-11-22T20:00:00.000Z",
+      "endTimeUtc": "2026-11-22T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Celta Vigo is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-la-liga-2026-27-401882804",
       "eventId": "football-la-liga-2026-27-401882804",
       "canonicalEventId": "event:football:la-liga:401882804",
@@ -9921,7 +10242,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10040,7 +10361,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10095,7 +10416,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -11006,9 +11327,69 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
+    },
+    {
+      "id": "football-la-liga-2026-27-401882789",
+      "eventId": "football-la-liga-2026-27-401882789",
+      "canonicalEventId": "event:football:la-liga:401882789",
+      "canonicalSourceId": "401882789",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Alavés",
+      "displayTitleCompact": "Real Madrid v Alavés",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Alavés",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:alaves"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:alaves",
+      "date": "2026-11-30",
+      "time": "07:00",
+      "startTimeUtc": "2026-11-29T20:00:00.000Z",
+      "endTimeUtc": "2026-11-29T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Alavés is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
     },
     {
       "id": "football-la-liga-2026-27-401882794",
@@ -11305,7 +11686,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -11424,7 +11805,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -11722,6 +12103,66 @@
       "narrativeType": "regular-season-fixture",
       "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
       "fullSpiel": "Barcelona v Celta Vigo is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882785",
+      "eventId": "football-la-liga-2026-27-401882785",
+      "canonicalEventId": "event:football:la-liga:401882785",
+      "canonicalSourceId": "401882785",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Athletic Club v Real Madrid",
+      "displayTitleCompact": "Athletic Club v Real Madrid",
+      "participants": [
+        {
+          "name": "Athletic Club",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:athletic-club",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:athletic-club",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2026-12-07",
+      "time": "07:00",
+      "startTimeUtc": "2026-12-06T20:00:00.000Z",
+      "endTimeUtc": "2026-12-06T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "San Mamés",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Athletic Club v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
       "sourceName": "ESPN public football schedule snapshot",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
       "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
@@ -12233,6 +12674,66 @@
       "sourceTrust": "verified"
     },
     {
+      "id": "football-la-liga-2026-27-401882769",
+      "eventId": "football-la-liga-2026-27-401882769",
+      "canonicalEventId": "event:football:la-liga:401882769",
+      "canonicalSourceId": "401882769",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Osasuna",
+      "displayTitleCompact": "Real Madrid v Osasuna",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Osasuna",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:osasuna"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:osasuna",
+      "date": "2026-12-14",
+      "time": "07:00",
+      "startTimeUtc": "2026-12-13T20:00:00.000Z",
+      "endTimeUtc": "2026-12-13T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Osasuna is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-la-liga-2026-27-401882770",
       "eventId": "football-la-liga-2026-27-401882770",
       "canonicalEventId": "event:football:la-liga:401882770",
@@ -12463,7 +12964,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612745/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -12646,7 +13147,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -12701,7 +13202,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612762/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -12820,7 +13321,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612759/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -12935,7 +13436,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612742/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13128,6 +13629,66 @@
       ]
     },
     {
+      "id": "football-la-liga-2026-27-401882763",
+      "eventId": "football-la-liga-2026-27-401882763",
+      "canonicalEventId": "event:football:la-liga:401882763",
+      "canonicalSourceId": "401882763",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Deportivo v Real Madrid",
+      "displayTitleCompact": "Deportivo v Real Madrid",
+      "participants": [
+        {
+          "name": "Deportivo",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:deportivo",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:deportivo",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2026-12-21",
+      "time": "07:00",
+      "startTimeUtc": "2026-12-20T20:00:00.000Z",
+      "endTimeUtc": "2026-12-20T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Riazor",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Deportivo v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-serie-a-2026-27-401874813",
       "eventId": "football-serie-a-2026-27-401874813",
       "canonicalEventId": "event:football:serie-a:401874813",
@@ -13298,7 +13859,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13353,7 +13914,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13832,7 +14393,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13951,7 +14512,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -14670,7 +15231,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -15153,7 +15714,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612747/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -15215,6 +15776,66 @@
       "catchupEligible": false,
       "resultLabels": [
         "Scheduled"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882749",
+      "eventId": "football-la-liga-2026-27-401882749",
+      "canonicalEventId": "event:football:la-liga:401882749",
+      "canonicalSourceId": "401882749",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Getafe",
+      "displayTitleCompact": "Real Madrid v Getafe",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Getafe",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:getafe"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:getafe",
+      "date": "2027-01-04",
+      "time": "07:00",
+      "startTimeUtc": "2027-01-03T20:00:00.000Z",
+      "endTimeUtc": "2027-01-03T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Getafe is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
       ]
     },
     {
@@ -15448,7 +16069,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -15503,7 +16124,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -16406,7 +17027,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612758/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -16585,9 +17206,69 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612744/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
+    },
+    {
+      "id": "football-la-liga-2026-27-401882739",
+      "eventId": "football-la-liga-2026-27-401882739",
+      "canonicalEventId": "event:football:la-liga:401882739",
+      "canonicalSourceId": "401882739",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Levante",
+      "displayTitleCompact": "Real Madrid v Levante",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Levante",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:levante"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:levante",
+      "date": "2027-01-11",
+      "time": "07:00",
+      "startTimeUtc": "2027-01-10T20:00:00.000Z",
+      "endTimeUtc": "2027-01-10T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Levante is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
     },
     {
       "id": "football-la-liga-2026-27-401882740",
@@ -16820,7 +17501,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -16939,7 +17620,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612762/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17118,7 +17799,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17305,6 +17986,66 @@
       "sourceName": "NHL schedule",
       "sourceType": "official-or-league",
       "sourceTrust": "verified"
+    },
+    {
+      "id": "football-la-liga-2026-27-401882730",
+      "eventId": "football-la-liga-2026-27-401882730",
+      "canonicalEventId": "event:football:la-liga:401882730",
+      "canonicalSourceId": "401882730",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Málaga v Real Madrid",
+      "displayTitleCompact": "Málaga v Real Madrid",
+      "participants": [
+        {
+          "name": "Málaga",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:malaga",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:malaga",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2027-01-18",
+      "time": "07:00",
+      "startTimeUtc": "2027-01-17T20:00:00.000Z",
+      "endTimeUtc": "2027-01-17T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "La Rosaleda",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Málaga v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
     },
     {
       "id": "football-la-liga-2026-27-401882733",
@@ -17537,7 +18278,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17656,7 +18397,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17711,7 +18452,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18014,9 +18755,69 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
+    },
+    {
+      "id": "football-la-liga-2026-27-401882719",
+      "eventId": "football-la-liga-2026-27-401882719",
+      "canonicalEventId": "event:football:la-liga:401882719",
+      "canonicalSourceId": "401882719",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Real Betis",
+      "displayTitleCompact": "Real Madrid v Real Betis",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Real Betis",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:real-betis"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:real-betis",
+      "date": "2027-01-25",
+      "time": "07:00",
+      "startTimeUtc": "2027-01-24T20:00:00.000Z",
+      "endTimeUtc": "2027-01-24T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Real Betis is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
     },
     {
       "id": "football-la-liga-2026-27-401882726",
@@ -18313,7 +19114,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612742/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18368,7 +19169,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18423,7 +19224,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18676,6 +19477,66 @@
       "sourceTrust": "verified"
     },
     {
+      "id": "football-la-liga-2026-27-401882709",
+      "eventId": "football-la-liga-2026-27-401882709",
+      "canonicalEventId": "event:football:la-liga:401882709",
+      "canonicalSourceId": "401882709",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Rayo Vallecano v Real Madrid",
+      "displayTitleCompact": "Rayo Vallecano v Real Madrid",
+      "participants": [
+        {
+          "name": "Rayo Vallecano",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:rayo-vallecano",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:rayo-vallecano",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2027-02-01",
+      "time": "07:00",
+      "startTimeUtc": "2027-01-31T20:00:00.000Z",
+      "endTimeUtc": "2027-01-31T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Estadio de Vallecas",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Rayo Vallecano v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-la-liga-2026-27-401882713",
       "eventId": "football-la-liga-2026-27-401882713",
       "canonicalEventId": "event:football:la-liga:401882713",
@@ -18906,7 +19767,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612760/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18961,7 +19822,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19016,7 +19877,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612760/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19131,7 +19992,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612740/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19193,6 +20054,66 @@
       "catchupEligible": false,
       "resultLabels": [
         "Scheduled"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882698",
+      "eventId": "football-la-liga-2026-27-401882698",
+      "canonicalEventId": "event:football:la-liga:401882698",
+      "canonicalSourceId": "401882698",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Sociedad v Real Madrid",
+      "displayTitleCompact": "Real Sociedad v Real Madrid",
+      "participants": [
+        {
+          "name": "Real Sociedad",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-sociedad",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:real-sociedad",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2027-02-08",
+      "time": "07:00",
+      "startTimeUtc": "2027-02-07T20:00:00.000Z",
+      "endTimeUtc": "2027-02-07T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Reale Arena",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Sociedad v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
       ]
     },
     {
@@ -19426,7 +20347,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19545,7 +20466,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612744/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19664,7 +20585,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19913,6 +20834,66 @@
       ]
     },
     {
+      "id": "football-la-liga-2026-27-401882691",
+      "eventId": "football-la-liga-2026-27-401882691",
+      "canonicalEventId": "event:football:la-liga:401882691",
+      "canonicalSourceId": "401882691",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Athletic Club",
+      "displayTitleCompact": "Real Madrid v Athletic Club",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Athletic Club",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:athletic-club"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:athletic-club",
+      "date": "2027-02-15",
+      "time": "07:00",
+      "startTimeUtc": "2027-02-14T20:00:00.000Z",
+      "endTimeUtc": "2027-02-14T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Athletic Club is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-serie-a-2026-27-401874998",
       "eventId": "football-serie-a-2026-27-401874998",
       "canonicalEventId": "event:football:serie-a:401874998",
@@ -20083,7 +21064,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612757/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20202,7 +21183,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612747/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20321,7 +21302,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612746/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20497,6 +21478,66 @@
       "fullSpiel": "Paris Saint-Germain v Brest is listed in the current Ligue 1 schedule. Kick-off details refresh when the source publishes changes.",
       "sourceName": "ESPN public football schedule snapshot",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882678",
+      "eventId": "football-la-liga-2026-27-401882678",
+      "canonicalEventId": "event:football:la-liga:401882678",
+      "canonicalSourceId": "401882678",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Sevilla v Real Madrid",
+      "displayTitleCompact": "Sevilla v Real Madrid",
+      "participants": [
+        {
+          "name": "Sevilla",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:sevilla",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:sevilla",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2027-02-22",
+      "time": "07:00",
+      "startTimeUtc": "2027-02-21T20:00:00.000Z",
+      "endTimeUtc": "2027-02-21T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Ramón Sánchez Pizjuán Stadium",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Sevilla v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
       "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
       "sourceType": "reputable",
       "sourceTrust": "unverified",
@@ -20932,7 +21973,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21111,7 +22152,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21173,6 +22214,66 @@
       "catchupEligible": false,
       "resultLabels": [
         "Scheduled"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882668",
+      "eventId": "football-la-liga-2026-27-401882668",
+      "canonicalEventId": "event:football:la-liga:401882668",
+      "canonicalSourceId": "401882668",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Valencia",
+      "displayTitleCompact": "Real Madrid v Valencia",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Valencia",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:valencia"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:valencia",
+      "date": "2027-03-01",
+      "time": "07:00",
+      "startTimeUtc": "2027-02-28T20:00:00.000Z",
+      "endTimeUtc": "2027-02-28T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Valencia is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
       ]
     },
     {
@@ -21406,7 +22507,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21585,7 +22686,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21888,9 +22989,69 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
+    },
+    {
+      "id": "football-la-liga-2026-27-401882657",
+      "eventId": "football-la-liga-2026-27-401882657",
+      "canonicalEventId": "event:football:la-liga:401882657",
+      "canonicalSourceId": "401882657",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Villarreal v Real Madrid",
+      "displayTitleCompact": "Villarreal v Real Madrid",
+      "participants": [
+        {
+          "name": "Villarreal",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:villarreal",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:villarreal",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2027-03-08",
+      "time": "07:00",
+      "startTimeUtc": "2027-03-07T20:00:00.000Z",
+      "endTimeUtc": "2027-03-07T22:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Estadio de la Cerámica",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Villarreal v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
     },
     {
       "id": "football-la-liga-2026-27-401882661",
@@ -22187,7 +23348,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612757/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22306,7 +23467,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22425,7 +23586,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22664,9 +23825,69 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
+    },
+    {
+      "id": "football-la-liga-2026-27-401882647",
+      "eventId": "football-la-liga-2026-27-401882647",
+      "canonicalEventId": "event:football:la-liga:401882647",
+      "canonicalSourceId": "401882647",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Espanyol",
+      "displayTitleCompact": "Real Madrid v Espanyol",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Espanyol",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:espanyol"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:espanyol",
+      "date": "2027-03-15",
+      "time": "05:00",
+      "startTimeUtc": "2027-03-14T18:00:00.000Z",
+      "endTimeUtc": "2027-03-14T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Espanyol is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
     },
     {
       "id": "football-la-liga-2026-27-401882652",
@@ -22963,7 +24184,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23082,7 +24303,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23385,7 +24606,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23435,6 +24656,66 @@
       "narrativeType": "regular-season-fixture",
       "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
       "fullSpiel": "Rayo Vallecano v Barcelona is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882645",
+      "eventId": "football-la-liga-2026-27-401882645",
+      "canonicalEventId": "event:football:la-liga:401882645",
+      "canonicalSourceId": "401882645",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Celta Vigo v Real Madrid",
+      "displayTitleCompact": "Celta Vigo v Real Madrid",
+      "participants": [
+        {
+          "name": "Celta Vigo",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:celta-vigo",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:celta-vigo",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2027-03-22",
+      "time": "05:00",
+      "startTimeUtc": "2027-03-21T18:00:00.000Z",
+      "endTimeUtc": "2027-03-21T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Balaidos",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Celta Vigo v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
       "sourceName": "ESPN public football schedule snapshot",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
       "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
@@ -23620,7 +24901,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612758/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23739,7 +25020,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23858,7 +25139,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23977,7 +25258,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612746/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24032,7 +25313,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24151,7 +25432,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24270,7 +25551,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24382,6 +25663,66 @@
       "fullSpiel": "Paris FC v Paris Saint-Germain is listed in the current Ligue 1 schedule. Kick-off details refresh when the source publishes changes.",
       "sourceName": "ESPN public football schedule snapshot",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882628",
+      "eventId": "football-la-liga-2026-27-401882628",
+      "canonicalEventId": "event:football:la-liga:401882628",
+      "canonicalSourceId": "401882628",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Atlético Madrid",
+      "displayTitleCompact": "Real Madrid v Atlético Madrid",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Atlético Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:atletico-madrid"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:atletico-madrid",
+      "date": "2027-04-05",
+      "time": "04:00",
+      "startTimeUtc": "2027-04-04T18:00:00.000Z",
+      "endTimeUtc": "2027-04-04T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 10,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Atlético Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
       "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
       "sourceType": "reputable",
       "sourceTrust": "unverified",
@@ -24689,7 +26030,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612745/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24744,7 +26085,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24863,7 +26204,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24982,7 +26323,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25231,6 +26572,66 @@
       ]
     },
     {
+      "id": "football-la-liga-2026-27-401882622",
+      "eventId": "football-la-liga-2026-27-401882622",
+      "canonicalEventId": "event:football:la-liga:401882622",
+      "canonicalSourceId": "401882622",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Osasuna v Real Madrid",
+      "displayTitleCompact": "Osasuna v Real Madrid",
+      "participants": [
+        {
+          "name": "Osasuna",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:osasuna",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:osasuna",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2027-04-12",
+      "time": "04:00",
+      "startTimeUtc": "2027-04-11T18:00:00.000Z",
+      "endTimeUtc": "2027-04-11T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "El Sadar",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Osasuna v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-serie-a-2026-27-401874822",
       "eventId": "football-serie-a-2026-27-401874822",
       "canonicalEventId": "event:football:serie-a:401874822",
@@ -25341,7 +26742,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612740/schedule",
-      "sourceCheckedAt": "2026-09-21T20:00:57.839Z",
+      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25453,6 +26854,66 @@
       "fullSpiel": "Paris Saint-Germain v Lille is listed in the current Ligue 1 schedule. Kick-off details refresh when the source publishes changes.",
       "sourceName": "ESPN public football schedule snapshot",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882610",
+      "eventId": "football-la-liga-2026-27-401882610",
+      "canonicalEventId": "event:football:la-liga:401882610",
+      "canonicalSourceId": "401882610",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Getafe v Real Madrid",
+      "displayTitleCompact": "Getafe v Real Madrid",
+      "participants": [
+        {
+          "name": "Getafe",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:getafe",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:getafe",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2027-04-19",
+      "time": "04:00",
+      "startTimeUtc": "2027-04-18T18:00:00.000Z",
+      "endTimeUtc": "2027-04-18T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Estadio Coliseum",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Getafe v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
       "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
       "sourceType": "reputable",
       "sourceTrust": "unverified",
@@ -25633,6 +27094,66 @@
       "fullSpiel": "AS Roma v Lazio is listed in the current Serie A schedule. Kick-off details refresh when the source publishes changes.",
       "sourceName": "ESPN public football schedule snapshot",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882600",
+      "eventId": "football-la-liga-2026-27-401882600",
+      "canonicalEventId": "event:football:la-liga:401882600",
+      "canonicalSourceId": "401882600",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Elche",
+      "displayTitleCompact": "Real Madrid v Elche",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Elche",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:elche"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:elche",
+      "date": "2027-04-22",
+      "time": "04:00",
+      "startTimeUtc": "2027-04-21T18:00:00.000Z",
+      "endTimeUtc": "2027-04-21T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Elche is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
       "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
       "sourceType": "reputable",
       "sourceTrust": "unverified",
@@ -25993,6 +27514,66 @@
       "fullSpiel": "Paris Saint-Germain v Angers is listed in the current Ligue 1 schedule. Kick-off details refresh when the source publishes changes.",
       "sourceName": "ESPN public football schedule snapshot",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882590",
+      "eventId": "football-la-liga-2026-27-401882590",
+      "canonicalEventId": "event:football:la-liga:401882590",
+      "canonicalSourceId": "401882590",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Levante v Real Madrid",
+      "displayTitleCompact": "Levante v Real Madrid",
+      "participants": [
+        {
+          "name": "Levante",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:levante",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:levante",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2027-05-03",
+      "time": "04:00",
+      "startTimeUtc": "2027-05-02T18:00:00.000Z",
+      "endTimeUtc": "2027-05-02T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Estadi Ciutat de València",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Levante v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
       "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
       "sourceType": "reputable",
       "sourceTrust": "unverified",
@@ -26606,6 +28187,66 @@
       ]
     },
     {
+      "id": "football-la-liga-2026-27-401882569",
+      "eventId": "football-la-liga-2026-27-401882569",
+      "canonicalEventId": "event:football:la-liga:401882569",
+      "canonicalSourceId": "401882569",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Racing Santander",
+      "displayTitleCompact": "Real Madrid v Racing Santander",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Racing Santander",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:racing-santander"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:racing-santander",
+      "date": "2027-05-17",
+      "time": "04:00",
+      "startTimeUtc": "2027-05-16T18:00:00.000Z",
+      "endTimeUtc": "2027-05-16T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Racing Santander is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-ligue-1-2026-27-401876208",
       "eventId": "football-ligue-1-2026-27-401876208",
       "canonicalEventId": "event:football:ligue-1:401876208",
@@ -26966,6 +28607,66 @@
       ]
     },
     {
+      "id": "football-la-liga-2026-27-401882566",
+      "eventId": "football-la-liga-2026-27-401882566",
+      "canonicalEventId": "event:football:la-liga:401882566",
+      "canonicalSourceId": "401882566",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Alavés v Real Madrid",
+      "displayTitleCompact": "Alavés v Real Madrid",
+      "participants": [
+        {
+          "name": "Alavés",
+          "role": "home"
+        },
+        {
+          "name": "Real Madrid",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:alaves",
+        "team:football:club:real-madrid"
+      ],
+      "homeParticipantId": "team:football:club:alaves",
+      "awayParticipantId": "team:football:club:real-madrid",
+      "date": "2027-05-24",
+      "time": "04:00",
+      "startTimeUtc": "2027-05-23T18:00:00.000Z",
+      "endTimeUtc": "2027-05-23T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Mendizorrotza",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Alavés v Real Madrid is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
       "id": "football-serie-a-2026-27-401874881",
       "eventId": "football-serie-a-2026-27-401874881",
       "canonicalEventId": "event:football:serie-a:401874881",
@@ -27133,6 +28834,66 @@
       "fullSpiel": "Paris Saint-Germain v Toulouse is listed in the current Ligue 1 schedule. Kick-off details refresh when the source publishes changes.",
       "sourceName": "ESPN public football schedule snapshot",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+      "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "sourceType": "reputable",
+      "sourceTrust": "unverified",
+      "lastReviewedAt": "2026-08-23T09:51:08.241Z",
+      "replayEligible": false,
+      "highlightEligible": false,
+      "briefingEligible": false,
+      "catchupEligible": false,
+      "resultLabels": [
+        "TBD"
+      ]
+    },
+    {
+      "id": "football-la-liga-2026-27-401882548",
+      "eventId": "football-la-liga-2026-27-401882548",
+      "canonicalEventId": "event:football:la-liga:401882548",
+      "canonicalSourceId": "401882548",
+      "canonicalSourceName": "ESPN public football schedule snapshot",
+      "canonicalSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "canonicalSourceCheckedAt": "2026-08-23T09:51:08.241Z",
+      "canonicalSourceType": "reputable",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:la-liga",
+      "name": "Real Madrid v Deportivo",
+      "displayTitleCompact": "Real Madrid v Deportivo",
+      "participants": [
+        {
+          "name": "Real Madrid",
+          "role": "home"
+        },
+        {
+          "name": "Deportivo",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:club:real-madrid",
+        "team:football:club:deportivo"
+      ],
+      "homeParticipantId": "team:football:club:real-madrid",
+      "awayParticipantId": "team:football:club:deportivo",
+      "date": "2027-05-31",
+      "time": "04:00",
+      "startTimeUtc": "2027-05-30T18:00:00.000Z",
+      "endTimeUtc": "2027-05-30T20:00:00.000Z",
+      "broadcaster": "Broadcast details TBC",
+      "broadcastOptions": [],
+      "venue": "Santiago Bernabéu",
+      "scheduleStatus": "confirmed",
+      "status": "upcoming",
+      "expected": 4,
+      "liveWindow": 3,
+      "round": "all",
+      "narrativeType": "regular-season-fixture",
+      "selectedSentence": "La Liga fixture sourced from the current 2026/27 schedule.",
+      "fullSpiel": "Real Madrid v Deportivo is listed in the current La Liga schedule. Kick-off details refresh when the source publishes changes.",
+      "sourceName": "ESPN public football schedule snapshot",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
       "sourceCheckedAt": "2026-08-23T09:51:08.241Z",
       "sourceType": "reputable",
       "sourceTrust": "unverified",

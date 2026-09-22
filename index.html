@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="283">
+<meta name="app-shell-version" content="284">
 <script src="/assets/js/app-update.js?v=277" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=283" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=284" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6863,8 +6863,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=279">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=283">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=284">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=284">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7159,7 +7159,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=283"></script>
+<script src="assets/js/app-shell-runtime.js?v=284"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8357,7 +8357,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-    moduleScriptUrl: "config/major-events.js?v=279",
+    moduleScriptUrl: "config/major-events.js?v=284",
   url: "data/major-events.v1.json",
 });
 
@@ -8560,7 +8560,7 @@ function saveActiveProfileSections(sections){
 
 let activeFilter = "all";
 const FEED_PAGE_SIZE = 20;
-const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v11";
+const PERSONALISED_FEED_CACHE_VERSION = "server-feed.v3:first-page.v12";
 const PERSONALISED_FEED_CACHE_TTL_MS = 15 * 60 * 1000;
 const PERSONALISED_FEED_CACHE_MAX_STALE_MS = 7 * 24 * 60 * 60 * 1000;
 let publicFeedManifest = null;
@@ -12892,9 +12892,7 @@ function editorialNarrativeReadyForCard(narrative){
 function editorialNarrativeHookForDisplay(record){
   const narrative = record?.editorialNarrative;
   if (!editorialNarrativeReadyForCard(narrative)) return "";
-  const completed = record.status === "completed" || getEventStatus(record) === "past";
-  if (completed && isSpoilerVisible(record)) return narrative.hookSpoilerOn || narrative.hook || "";
-  return narrative.hook || "";
+  return globalThis.NOTHINGSPORTS_EDITORIAL_LIFECYCLE.copy(record,narrative,isSpoilerVisible(record)).hook;
 }
 
 function isValidatedEditorialCopy(copy){
@@ -12906,7 +12904,8 @@ function isValidatedEditorialCopy(copy){
 function editorialNarrativeSynopsisForDisplay(record){
   const narrative = record?.editorialNarrative;
   if (!editorialNarrativeReadyForCard(narrative)) return "";
-  return isValidatedEditorialCopy(narrative.synopsis) ? narrative.synopsis : "";
+  const copy=globalThis.NOTHINGSPORTS_EDITORIAL_LIFECYCLE.copy(record,narrative,isSpoilerVisible(record)).synopsis;
+  return isValidatedEditorialCopy(copy) ? copy : "";
 }
 
 function editorialConsequenceForDisplay(record){
@@ -12914,7 +12913,7 @@ function editorialConsequenceForDisplay(record){
   const consequence = narrative?.consequence;
   if (!ENRICHMENT_ENGINE?.editorialConsequenceReadyForCard?.(narrative)) return "";
   const completed = record.status === "completed" || getEventStatus(record) === "past";
-  if (completed && isSpoilerVisible(record)) return consequence.spoilerOnSentence || consequence.previewSentence || "";
+  if (completed) return isSpoilerVisible(record) && narrative.resultSignature===globalThis.NOTHINGSPORTS_EDITORIAL_LIFECYCLE.signature(record) ? consequence.spoilerOnSentence || "" : "";
   return consequence.previewSentence || "";
 }
 
@@ -14288,6 +14287,20 @@ function renderCodeInspectorResults(panel, code){
   panel.appendChild(section);
 }
 
+let tennisScheduleUiLoading = null;
+function loadTennisScheduleUi(){
+  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=284').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=284')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
+  return tennisScheduleUiLoading;
+}
+function renderTennisMajorEvents(container){
+  container.appendChild(Object.assign(document.createElement('p'),{textContent:'Loading published tournaments…'}));
+  void loadTennisScheduleUi().then(()=>{if(activeTab==='follow'&&followViewSection==='major-events')renderFollowView();}).catch(()=>{container.lastChild.textContent='Tournament catalogue unavailable. Try opening Major Events again.';});
+}
+function renderTennisTournamentSchedule(panel,fixtures){
+  panel.textContent='Loading tournament editions…';
+  void loadTennisScheduleUi().then(()=>{if(activeInspectorCodeId==='sport:tennis')renderCodeInspector();}).catch(()=>{panel.textContent='Tournament schedule unavailable. Try opening Schedule again.';});
+}
+
 function renderCodeInspector(){
   const container = document.getElementById("listView");
   container.innerHTML = "";
@@ -14391,6 +14404,8 @@ function renderCodeInspector(){
       : "No fixtures match this view."));
     return;
   }
+  if(code.id==='sport:tennis'){renderTennisTournamentSchedule(panel,fixtures);return;}
+  if(code.id==='sport:golf'){const note=document.createElement('p');note.className='chat-empty';note.textContent='PGA TOUR tournament dates and confirmed winners. Tee times and round-by-round scores remain unavailable where not published.';panel.append(note);}
   const grouped = new Map();
   fixtures.forEach(fixture => {
     const label = codeInspectorGroupLabel(fixture, code.groupingMode);
@@ -16906,14 +16921,17 @@ function scheduleNothingscoreHeartbeat(delay){
 
 function buildEventWhyItMatters(ev){
   const opened = cardStateForEvent(ev) === "opened";
-  const hook = editorialNarrativeHookForDisplay(ev);
+  const originalHook = editorialNarrativeHookForDisplay(ev);
+  const precedingCopy = [spoilerSafeDisplayTitle(ev)];
+  if(isSpoilerVisible(ev) && getEventStatus(ev)==='past')precedingCopy.push(ev.outcomeText || '',ev.scoreDisplay || ev.score || '');
+  const helper=globalThis.NOTHINGSPORTS_EDITORIAL_LIFECYCLE;
+  const hook = helper.distinct(originalHook,precedingCopy) || (helper.distinct(editorialNarrativeSynopsisForDisplay(ev),precedingCopy).match(/[^.!?]+[.!?]*/)?.[0] || '').trim();
   if (!isValidatedEditorialCopy(hook)) return null;
-  const seen = new Set();
-  const uniqueCopy = copy => String(copy || '').split(/(?<=[.!?])\s+/).filter(sentence => {
-    const key = sentence.toLowerCase().replace(/[^a-z0-9]/g, '');
-    if(!key || seen.has(key)) return false;
-    seen.add(key); return true;
-  }).join(' ');
+  const seen = [...precedingCopy];
+  const uniqueCopy = copy => {
+    const value=globalThis.NOTHINGSPORTS_EDITORIAL_LIFECYCLE.distinct(copy,seen);
+    if(value)seen.push(value);return value;
+  };
   uniqueCopy(hook);
   const consequence = opened ? uniqueCopy(editorialConsequenceForDisplay(ev)) : "";
   const supplemental = opened ? uniqueCopy(editorialNarrativeSynopsisForDisplay(ev)) : "";
@@ -19989,6 +20007,7 @@ function renderFollowView(){
   });container.appendChild(tabs);
   followViewSection=state.section || 'teams-players';
   if(followViewSection==='major-events'){
+    if(followDirectoryKey(entity)==='tennis'){renderTennisMajorEvents(container);return;}
     const grid=document.createElement('div');grid.className='setup-choice-grid';
     const keys=new Set([followDirectoryKey(entity),...(entity.canonicalSportKeys || [])]);
     FOLLOW_FIRST.MAJOR_EVENT_FAMILIES.filter(record=>record.sportIds.some(id=>keys.has(id))).forEach(record=>{
@@ -25491,7 +25510,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=283");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=284");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -26103,7 +26122,7 @@ async function openNotificationDestination(item){
   }
   if(['profile_followed','follows_copied'].includes(item.kind)){
     if(!item.profileId)throw new Error('This profile is no longer public.');
-    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=283');
+    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=284');
     await window.NOTHINGSPORTS_CROWD_RANKINGS.openProfile({profileId:item.profileId,name:item.actor});
     notificationDestinationDialog=document.querySelector('.nsc-picks-dialog[open]');
   }else if(['rating','reminder'].includes(item.kind)){

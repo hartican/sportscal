@@ -99,9 +99,10 @@ const narrativeHook = section(html, "function editorialNarrativeHookForDisplay(r
 assert.match(narrativeHook, /editorialNarrativeReadyForCard\(narrative\)/);
 const consequence = section(html, "function editorialConsequenceForDisplay(record)", "function buildEventTimingStateChip");
 assert.match(consequence, /ENRICHMENT_ENGINE\?\.editorialConsequenceReadyForCard/, "only the optional consequence must use the stricter consequence predicate");
-assert.match(consequence, /completed && isSpoilerVisible\(record\)/);
+assert.match(consequence, /if \(completed\) return isSpoilerVisible\(record\)/);
 assertOrder(consequence, [
-  "if (completed && isSpoilerVisible(record))",
+  "if (completed) return isSpoilerVisible(record)",
+  "narrative.resultSignature",
   "consequence.spoilerOnSentence",
   "return consequence.previewSentence",
 ], "spoiler-aware consequence selection");

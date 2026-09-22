@@ -1,6 +1,6 @@
 {
   "schemaVersion": "current-card-evidence.v1",
-  "checkedAt": "2026-09-21T12:20:05.571Z",
+  "checkedAt": "2026-09-22T01:40:00.000Z",
   "fixtureOverrides": [
     {
       "id": "event-afl-cd_m20260142802",
@@ -321,8 +321,12 @@
       "score": "Australia won by 59 runs",
       "scoreDisplay": "Australia won by 59 runs",
       "outcomeText": "Australia defeated Zimbabwe by 59 runs.",
-      "sourceName": "Reuters / Rediff",
-      "sourceUrl": "https://www.rediff.com/cricket/report/renshaw-hits-maiden-odi-ton-as-ellis-destroys-zimbabwe/20260915.htm"
+      "sourceName": "Cricket Australia",
+      "sourceUrl": "https://www.cricket.com.au/news/4576624/australia-zimbabwe-match-report-scores-highlights-first-odi-harare-mitch-marsh-100-games-sikandar-raza-connolly-peake-renshaw-zampa",
+      "recapText": "Matt Renshaw’s century anchored the opening innings, and Nathan Ellis helped finish the defence in Harare. The opener gave Australia a winning start to their African ODI tour.",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "resultSourceUrl": "https://www.cricket.com.au/news/4576624/australia-zimbabwe-match-report-scores-highlights-first-odi-harare-mitch-marsh-100-games-sikandar-raza-connolly-peake-renshaw-zampa",
+      "resultSourceCheckedAt": "2026-09-22T01:40:00.000Z"
     },
     {
       "id": "major-match-nrl-finals-2026-semi-final-1",
@@ -344,13 +348,13 @@
       "status": "completed",
       "score": "10-12",
       "scoreDisplay": "10-12",
-      "outcomeText": "Newcastle Knights defeated New Zealand Warriors 12-10.",
-      "recapText": "Newcastle defended their lead at Eden Park to progress to a preliminary final against Penrith.",
-      "sourceName": "NRL official match report",
+      "outcomeText": "Newcastle Knights defeated New Zealand Warriors 12–10.",
+      "recapText": "Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
+      "sourceName": "NRL",
       "sourceUrl": "https://www.nrl.com/news/2026/09/20/nrl-sunday-blockbuster-warriors-v-knights/",
-      "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "resultSourceUrl": "https://www.nrl.com/news/2026/09/20/nrl-sunday-blockbuster-warriors-v-knights/",
-      "resultSourceCheckedAt": "2026-09-21T20:24:10.712468Z",
+      "resultSourceCheckedAt": "2026-09-22T01:40:00.000Z",
       "homeScore": 10,
       "awayScore": 12
     },
@@ -394,6 +398,51 @@
       "sourceCheckedAt": "2026-09-21T20:24:10.712468Z",
       "resultSourceUrl": "https://www.ussailgpteam.com/articles/4e819965-4765-4dcc-ba71-a4c00ea0b0e5/us-sailgp-team-switzerland-sail-grand-prix-2026-day-2-report",
       "resultSourceCheckedAt": "2026-09-21T20:24:10.712468Z"
+    },
+    {
+      "id": "fixture:cricket:espn:1530204",
+      "status": "completed",
+      "outcomeText": "Australia defeated Zimbabwe by 84 runs.",
+      "recapText": "Travis Head made 112 from 84 balls as Australia posted 6/356. That batting platform secured an unassailable 2–0 series lead, although Billy Stanlake’s injury interrupted his return.",
+      "score": "Australia defeated Zimbabwe by 84 runs.",
+      "scoreDisplay": "Australia defeated Zimbabwe by 84 runs.",
+      "sourceName": "Cricket Australia",
+      "sourceUrl": "https://www.cricket.com.au/news/4578209/match-report-second-odi-zimbabwe-australia-harare-sports-club-hazlewood-stanlake-return-head-century-ollie-peake",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "resultSourceUrl": "https://www.cricket.com.au/news/4578209/match-report-second-odi-zimbabwe-australia-harare-sports-club-hazlewood-stanlake-return-head-century-ollie-peake",
+      "resultSourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "canonicalId": "fixture:cricket:CA:40289"
+    },
+    {
+      "id": "fixture:cricket:espn:1530205",
+      "status": "completed",
+      "outcomeText": "Australia defeated Zimbabwe by one wicket.",
+      "recapText": "Nathan Ellis and Spencer Johnson added an unbeaten 27 for the last wicket, completing the chase with one ball remaining. Josh Inglis had made a century before the tail finished the job, sealing a 3–0 series sweep.",
+      "score": "Australia defeated Zimbabwe by one wicket.",
+      "scoreDisplay": "Australia defeated Zimbabwe by one wicket.",
+      "sourceName": "Cricket Australia",
+      "sourceUrl": "https://www.cricket.com.au/news/4579018/third-odi-zimbabwe-australia-harare-reports-scores-video-highlights-raza-ellis-kaia-injury-bartlett",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "resultSourceUrl": "https://www.cricket.com.au/news/4579018/third-odi-zimbabwe-australia-harare-reports-scores-video-highlights-raza-ellis-kaia-injury-bartlett",
+      "resultSourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "canonicalId": "fixture:cricket:CA:40290"
+    },
+    {
+      "id": "event-aflw-cd_m20262640606",
+      "status": "completed",
+      "outcomeText": "Richmond defeated GWS GIANTS by seven points, 68–61.",
+      "recapText": "Richmond’s 55–18 half-time lead came under threat when GWS kicked six third-quarter goals, including two from Georgia Garnett. The Tigers held on despite their wayward finishing: 9.14 to the Giants’ 10.1.",
+      "score": "GWS 10.1 (61) – Richmond 9.14 (68)",
+      "scoreDisplay": "GWS 61 – Richmond 68",
+      "sourceName": "AFLW",
+      "sourceUrl": "https://www.afl.com.au/aflw/news/1616383/wayward-richmond-tigers-hold-on-against-dead-eye-greater-western-sydney-gws-giants-in-a-thriller",
+      "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "resultSourceUrl": "https://www.afl.com.au/aflw/news/1616383/wayward-richmond-tigers-hold-on-against-dead-eye-greater-western-sydney-gws-giants-in-a-thriller",
+      "resultSourceCheckedAt": "2026-09-22T01:40:00.000Z",
+      "homeScore": 61,
+      "awayScore": 68,
+      "endTimeUtc": "2026-09-20T23:59:59+10:00",
+      "endTimeBasis": "completed-event-local-date-boundary"
     }
   ],
   "broadcastOverrides": [

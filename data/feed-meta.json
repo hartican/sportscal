@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20260921204449552",
+  "version": "nothingsport-official-results-2026-09-15-v1-20260922030148875",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-21T20:44:49.552Z",
+  "publishedAt": "2026-09-22T03:01:48.875Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -36,7 +36,7 @@
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-09-21",
+    "basisDate": "2026-09-22",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -44,7 +44,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-22",
     "lastEventDate": "2027-07-15",
-    "daysAhead": 297,
+    "daysAhead": 296,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {

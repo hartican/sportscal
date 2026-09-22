@@ -273,11 +273,20 @@ for (const name of [
   "FOLLOW_SNAPSHOT_PRELOADED_PATH",
   "FOLLOW_SNAPSHOT_PRELOADED_KEY",
 ]) delete quickEnvironment[name];
-const quickResult = spawnSync(process.execPath, ["scripts/update-cards.js", "--quick", "--offline", "--local-only"], {
-  cwd:projectRoot,
-  env:quickEnvironment,
-  encoding:"utf8",
-});
+// Exercise the real quick pipeline in isolation: its offline result projection writes
+// generated feeds and must never overwrite the full-refresh artifacts being validated.
+const quickFixtureRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nothingsport-quick-qa-'));
+let quickResult;
+try{
+  for(const directory of ['scripts','config','lib','api','data','feeds','schemas'])fs.cpSync(path.join(projectRoot,directory),path.join(quickFixtureRoot,directory),{recursive:true});
+  for(const file of ['package.json','index.html','service-worker.js','app-version.json','vercel.json'])fs.copyFileSync(path.join(projectRoot,file),path.join(quickFixtureRoot,file));
+  fs.symlinkSync(path.join(projectRoot,'node_modules'),path.join(quickFixtureRoot,'node_modules'),'dir');
+  quickResult = spawnSync(process.execPath, ["scripts/update-cards.js", "--quick", "--offline", "--local-only"], {
+    cwd:quickFixtureRoot,
+    env:quickEnvironment,
+    encoding:"utf8",
+  });
+}finally{fs.rmSync(quickFixtureRoot,{recursive:true,force:true});}
 assert.equal(quickResult.status, 0, `quick score updates must not require Supabase or active-follow data:\n${quickResult.stderr}`);
 assert.doesNotMatch(quickResult.stdout, /snapshot-active-follows/, "quick score updates must not access active-follow preferences");
 assert.match(quickResult.stdout, /Result completeness passed/, "quick score updates must fail closed when any due card still lacks a result");

@@ -7,8 +7,9 @@ const zlib = require("node:zlib");
 const crypto = require("node:crypto");
 const {execFileSync} = require("node:child_process");
 const ROOT = path.resolve(__dirname,"..");
-// Compare this release against the verified origin/main snapshot it extends.
-const BASELINE = "4e7966ee47fc05e7474d742dcda033c3ee8b46cf";
+// Compare the three mobile-repair phases against their verified origin/main base.
+// The older 4e7966 baseline predates the separately released notifications inbox.
+const BASELINE = "e70de9a53543b0894ceaf6dbdff60569d47a9c87";
 const MAX_CRITICAL_GZIP_GROWTH_PERCENT = 1.25;
 function localScriptPaths(html){
   return Array.from(html.matchAll(/<script[^>]+src="([^"]+)"/g),m=>m[1])

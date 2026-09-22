@@ -23,6 +23,9 @@
     const structured = structuredScore(event);
     const original = String(structured || result?.score || result?.outcome || "").trim();
     if (!original) return null;
+    // A cricket margin needs its winner; stripping team names makes "by 59 runs" ambiguous.
+    const cricketOutcome=String(event?.outcomeText || result?.outcome || '').trim();
+    if(event?.key==='cricket' && /\b(?:won|defeated|beat)\b/i.test(cricketOutcome) && /\bby\b/i.test(cricketOutcome))return cricketOutcome;
     const labels=globalThis.NOTHINGSPORTS_FIXTURE_LABELS || (typeof require==='function'?require('./fixture-labels'):null);
     const sourceTitle=String(event?.displayTitleCompact || event?.name || '');
     if(labels && labels.matchupTitle(event,sourceTitle)!==sourceTitle){

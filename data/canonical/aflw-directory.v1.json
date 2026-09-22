@@ -1,21 +1,21 @@
 {
   "schemaVersion": "aflw-directory.v1",
   "seasonLabel": "2026",
-  "generatedAt": "2026-09-21T20:00:27.728Z",
+  "generatedAt": "2026-09-22T02:49:04.991Z",
   "sources": [
     {
       "id": "source:aflw:teams",
       "provider": "AFLW",
       "url": "https://www.afl.com.au/aflw/teams",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:27.728Z"
+      "checkedAt": "2026-09-22T02:49:04.991Z"
     },
     {
       "id": "source:aflw:players",
       "provider": "AFLW",
       "url": "https://aflapi.afl.com.au/afl/v2/squads?teamId={teamId}&compSeasonId={compSeasonId}&pageSize=1000",
       "sourceType": "official",
-      "checkedAt": "2026-09-21T20:00:27.728Z"
+      "checkedAt": "2026-09-22T02:49:04.991Z"
     }
   ],
   "leagues": [
@@ -359,8 +359,8 @@
       "profileRef": "profile:aflw:abby-favell",
       "dateOfBirth": "2002-08-26",
       "heightInCm": 167,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "North Melbourne Werribee VFLW",
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -879,8 +879,8 @@
       "profileRef": "profile:aflw:alice-oloughlin",
       "dateOfBirth": "2002-07-08",
       "heightInCm": 170,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Kew Comets (Vic)/Oakleigh U18",
+      "debutYear": "2021",
       "active": true
     },
     {
@@ -1409,7 +1409,7 @@
       "sortName": "Amy Gavin Mangan",
       "currentTeamId": "team:aflw:cd_t8466",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/15177/amy-gavin-mangan",
       "sourceRefs": [
         "source:aflw:players",
@@ -1425,8 +1425,8 @@
       "profileRef": "profile:aflw:amy-gavin-mangan",
       "dateOfBirth": "1999-01-20",
       "heightInCm": 171,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "County Offaly (Ireland)",
+      "debutYear": "2025",
       "active": true
     },
     {
@@ -1503,8 +1503,8 @@
       "profileRef": "profile:aflw:amy-smith",
       "dateOfBirth": "1998-11-10",
       "heightInCm": 170,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Aberfeldie (Vic)/Williamstown (VFLW)",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -1539,7 +1539,7 @@
       "sortName": "Analea McKee",
       "currentTeamId": "team:aflw:cd_t7387",
       "leagueId": "competition:aflw-2026",
-      "position": "Ruck",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/3578/analea-mckee",
       "sourceRefs": [
         "source:aflw:players",
@@ -1565,7 +1565,7 @@
       "sortName": "Angelique Stannett",
       "currentTeamId": "team:aflw:cd_t7886",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1976/angelique-stannett",
       "sourceRefs": [
         "source:aflw:players",
@@ -1799,7 +1799,7 @@
       "sortName": "Ariana Hetherington",
       "currentTeamId": "team:aflw:cd_t8097",
       "leagueId": "competition:aflw-2026",
-      "position": "Key Forward",
+      "position": "Key Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/11999/ariana-hetherington",
       "sourceRefs": [
         "source:aflw:players",
@@ -1841,8 +1841,8 @@
       "profileRef": "profile:aflw:ash-riddell",
       "dateOfBirth": "1996-03-07",
       "heightInCm": 158,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Eltham (Vic)/Fitzroy JFC (Vic)/Diamond Creek (VFLW)/Melbourne University (VFLW)",
+      "debutYear": "2019",
       "active": true
     },
     {
@@ -1981,7 +1981,7 @@
       "sortName": "Ashley Centra",
       "currentTeamId": "team:aflw:cd_t8097",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/5807/ashley-centra",
       "sourceRefs": [
         "source:aflw:players",
@@ -2127,8 +2127,8 @@
       "profileRef": "profile:aflw:bella-eddey",
       "dateOfBirth": "2002-02-11",
       "heightInCm": 162,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "East Sandringham (Vic)/Brighton Beach (Vic)/Old Brighton (Vic)/Sandringham U18",
+      "debutYear": "2021",
       "active": true
     },
     {
@@ -2163,7 +2163,7 @@
       "sortName": "Bess Keaney",
       "currentTeamId": "team:aflw:cd_t9406",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/4028/bess-keaney",
       "sourceRefs": [
         "source:aflw:players",
@@ -2283,8 +2283,8 @@
       "profileRef": "profile:aflw:blaithin-bogue",
       "dateOfBirth": "2000-07-26",
       "heightInCm": 176,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Fermanagh (Ireland)",
+      "debutYear": "2025",
       "active": true
     },
     {
@@ -2553,7 +2553,7 @@
       "sortName": "Bronte Parker",
       "currentTeamId": "team:aflw:cd_t8786",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/11717/bronte-parker",
       "sourceRefs": [
         "source:aflw:players",
@@ -2735,7 +2735,7 @@
       "sortName": "Brooke Walker",
       "currentTeamId": "team:aflw:cd_t9406",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1970/brooke-walker",
       "sourceRefs": [
         "source:aflw:players",
@@ -2891,7 +2891,7 @@
       "sortName": "Caitlin Reid",
       "currentTeamId": "team:aflw:cd_t9408",
       "leagueId": "competition:aflw-2026",
-      "position": "Ruck",
+      "position": "Key Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/12281/caitlin-reid",
       "sourceRefs": [
         "source:aflw:players",
@@ -3073,7 +3073,7 @@
       "sortName": "Catherine Svarc",
       "currentTeamId": "team:aflw:cd_t7887",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2138/catherine-svarc",
       "sourceRefs": [
         "source:aflw:players",
@@ -3177,7 +3177,7 @@
       "sortName": "Charli Wicksteed",
       "currentTeamId": "team:aflw:cd_t8788",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/11886/charli-wicksteed",
       "sourceRefs": [
         "source:aflw:players",
@@ -3307,7 +3307,7 @@
       "sortName": "Charlotte Mullins",
       "currentTeamId": "team:aflw:cd_t7887",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/4208/charlotte-mullins",
       "sourceRefs": [
         "source:aflw:players",
@@ -3739,8 +3739,8 @@
       "profileRef": "profile:aflw:claire-mahony",
       "dateOfBirth": "2006-08-21",
       "heightInCm": 181,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Lake Wendouree/Ballarat Grammar/GWV Rebels U18",
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -4295,7 +4295,7 @@
       "sortName": "Deanna Berry",
       "currentTeamId": "team:aflw:cd_t7387",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1578/deanna-berry",
       "sourceRefs": [
         "source:aflw:players",
@@ -4477,7 +4477,7 @@
       "sortName": "Eilish O'Dowd",
       "currentTeamId": "team:aflw:cd_t7889",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/12277/eilish-odowd",
       "sourceRefs": [
         "source:aflw:players",
@@ -4519,8 +4519,8 @@
       "profileRef": "profile:aflw:eilish-sheerin",
       "dateOfBirth": "1992-10-05",
       "heightInCm": 174,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Newtown Breakaways (AFL Sydney)/Inner West (AFL Sydney)/Richmond",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -4529,7 +4529,7 @@
       "sortName": "Elaine Grigg",
       "currentTeamId": "team:aflw:cd_t7387",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/12302/elaine-grigg",
       "sourceRefs": [
         "source:aflw:players",
@@ -4727,8 +4727,8 @@
       "profileRef": "profile:aflw:eliza-shannon",
       "dateOfBirth": "1999-10-23",
       "heightInCm": 174,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Geelong Amateur (Vic)/Newtown &amp; Chilwell (Vic)/Geelong U18/St Mary's (NTFL)/Hawthorn (VFLW)/Hawthorn",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -4997,7 +4997,7 @@
       "sortName": "Ellie Gavalas",
       "currentTeamId": "team:aflw:cd_t7387",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2165/ellie-gavalas",
       "sourceRefs": [
         "source:aflw:players",
@@ -5127,7 +5127,7 @@
       "sortName": "Emelia Yassir",
       "currentTeamId": "team:aflw:cd_t8788",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2959/emelia-yassir",
       "sourceRefs": [
         "source:aflw:players",
@@ -5351,8 +5351,8 @@
       "profileRef": "profile:aflw:emma-kearney",
       "dateOfBirth": "1989-09-24",
       "heightInCm": 165,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Melbourne University (VFLW)/Western Bulldogs",
+      "debutYear": "2017",
       "active": true
     },
     {
@@ -5387,7 +5387,7 @@
       "sortName": "Emma King",
       "currentTeamId": "team:aflw:cd_t8466",
       "leagueId": "competition:aflw-2026",
-      "position": "Ruck",
+      "position": "Key Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1486/emma-king",
       "sourceRefs": [
         "source:aflw:players",
@@ -5403,8 +5403,8 @@
       "profileRef": "profile:aflw:emma-king",
       "dateOfBirth": "1994-06-28",
       "heightInCm": 184,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Quinns District (WA)/Coastal Titans (WAFLW)/Collingwood",
+      "debutYear": "2017",
       "active": true
     },
     {
@@ -5439,7 +5439,7 @@
       "sortName": "Emma Murray",
       "currentTeamId": "team:aflw:cd_t8467",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Defender",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/17278/emma-murray",
       "sourceRefs": [
         "source:aflw:players",
@@ -5559,8 +5559,8 @@
       "profileRef": "profile:aflw:erika-oshea",
       "dateOfBirth": "2002-06-26",
       "heightInCm": 167,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "County Cork (Ireland)",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -5881,7 +5881,7 @@
       "sortName": "Georgia Clark",
       "currentTeamId": "team:aflw:cd_t7889",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/4134/georgia-clark",
       "sourceRefs": [
         "source:aflw:players",
@@ -6141,7 +6141,7 @@
       "sortName": "Georgia Stubs",
       "currentTeamId": "team:aflw:cd_t8788",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Defender",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/4104/georgia-stubs",
       "sourceRefs": [
         "source:aflw:players",
@@ -6401,7 +6401,7 @@
       "sortName": "Grace Kelly",
       "currentTeamId": "team:aflw:cd_t8098",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2118/grace-kelly",
       "sourceRefs": [
         "source:aflw:players",
@@ -6427,7 +6427,7 @@
       "sortName": "Grace Kos",
       "currentTeamId": "team:aflw:cd_t7889",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/15571/grace-kos",
       "sourceRefs": [
         "source:aflw:players",
@@ -6895,7 +6895,7 @@
       "sortName": "Imogen Brown",
       "currentTeamId": "team:aflw:cd_t9408",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/11756/imogen-brown",
       "sourceRefs": [
         "source:aflw:players",
@@ -6921,7 +6921,7 @@
       "sortName": "Imogen Trengove",
       "currentTeamId": "team:aflw:cd_t8097",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder Forward",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/13766/imogen-trengove",
       "sourceRefs": [
         "source:aflw:players",
@@ -6973,7 +6973,7 @@
       "sortName": "India Rasheed",
       "currentTeamId": "team:aflw:cd_t8098",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/13740/india-rasheed",
       "sourceRefs": [
         "source:aflw:players",
@@ -6999,7 +6999,7 @@
       "sortName": "Indiana West",
       "currentTeamId": "team:aflw:cd_t7886",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/15814/indiana-west",
       "sourceRefs": [
         "source:aflw:players",
@@ -7285,7 +7285,7 @@
       "sortName": "Jacinta Hose",
       "currentTeamId": "team:aflw:cd_t7386",
       "leagueId": "competition:aflw-2026",
-      "position": "Ruck",
+      "position": "Key Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/4153/jacinta-hose",
       "sourceRefs": [
         "source:aflw:players",
@@ -7389,7 +7389,7 @@
       "sortName": "Jade McLay",
       "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/11778/jade-mclay",
       "sourceRefs": [
         "source:aflw:players",
@@ -7441,7 +7441,7 @@
       "sortName": "Jaimee Lambert",
       "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Defender",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1444/jaimee-lambert",
       "sourceRefs": [
         "source:aflw:players",
@@ -7519,7 +7519,7 @@
       "sortName": "Jasmin Stewart",
       "currentTeamId": "team:aflw:cd_t8467",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2059/jasmin-stewart",
       "sourceRefs": [
         "source:aflw:players",
@@ -7587,8 +7587,8 @@
       "profileRef": "profile:aflw:jasmine-ferguson",
       "dateOfBirth": "1999-05-26",
       "heightInCm": 175,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Gippsland U18/Collingwood (VFLW)",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -7597,7 +7597,7 @@
       "sortName": "Jasmine Fleming",
       "currentTeamId": "team:aflw:cd_t9407",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/3990/jasmine-fleming",
       "sourceRefs": [
         "source:aflw:players",
@@ -7639,8 +7639,8 @@
       "profileRef": "profile:aflw:jasmine-garner",
       "dateOfBirth": "1994-07-08",
       "heightInCm": 175,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Yarraville-Seddon (Vic)/St Albans (Vic)/St Kilda Sharks (VFLW)/Collingwood",
+      "debutYear": "2017",
       "active": true
     },
     {
@@ -7779,7 +7779,7 @@
       "sortName": "Jenna Bruton",
       "currentTeamId": "team:aflw:cd_t8466",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1888/jenna-bruton",
       "sourceRefs": [
         "source:aflw:players",
@@ -7795,8 +7795,8 @@
       "profileRef": "profile:aflw:jenna-bruton",
       "dateOfBirth": "1995-11-08",
       "heightInCm": 158,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Trentham (Vic)/Golden Point (Vic)/St Kilda Sharks (VFLW)/Western Bulldogs",
+      "debutYear": "2018",
       "active": true
     },
     {
@@ -8117,7 +8117,7 @@
       "sortName": "Jorja Livingstone",
       "currentTeamId": "team:aflw:cd_t7386",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/3861/jorja-livingstone",
       "sourceRefs": [
         "source:aflw:players",
@@ -8325,7 +8325,7 @@
       "sortName": "Kaitlyn Ashmore",
       "currentTeamId": "team:aflw:cd_t9407",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder Forward",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1482/kaitlyn-ashmore",
       "sourceRefs": [
         "source:aflw:players",
@@ -8403,7 +8403,7 @@
       "sortName": "Kate Dempsey",
       "currentTeamId": "team:aflw:cd_t8788",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2189/kate-dempsey",
       "sourceRefs": [
         "source:aflw:players",
@@ -8429,7 +8429,7 @@
       "sortName": "Kate Hore",
       "currentTeamId": "team:aflw:cd_t7386",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1891/kate-hore",
       "sourceRefs": [
         "source:aflw:players",
@@ -8481,7 +8481,7 @@
       "sortName": "Kate Shierlaw",
       "currentTeamId": "team:aflw:cd_t8466",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Defender",
+      "position": "Key Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1513/kate-shierlaw",
       "sourceRefs": [
         "source:aflw:players",
@@ -8497,8 +8497,8 @@
       "profileRef": "profile:aflw:kate-shierlaw",
       "dateOfBirth": "1989-02-28",
       "heightInCm": 182,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Wimbledon (AFL London)/Carlton/Darebin Falcons (VFLW)/St Kilda",
+      "debutYear": "2017",
       "active": true
     },
     {
@@ -8507,7 +8507,7 @@
       "sortName": "Kate Surman",
       "currentTeamId": "team:aflw:cd_t8467",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2114/kate-surman",
       "sourceRefs": [
         "source:aflw:players",
@@ -8611,7 +8611,7 @@
       "sortName": "Kayla Dalgleish",
       "currentTeamId": "team:aflw:cd_t8787",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/6205/kayla-dalgleish",
       "sourceRefs": [
         "source:aflw:players",
@@ -8689,7 +8689,7 @@
       "sortName": "Keeley Hardingham",
       "currentTeamId": "team:aflw:cd_t7387",
       "leagueId": "competition:aflw-2026",
-      "position": "Ruck",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/3200/keeley-hardingham",
       "sourceRefs": [
         "source:aflw:players",
@@ -8715,7 +8715,7 @@
       "sortName": "Keeley Kustermann",
       "currentTeamId": "team:aflw:cd_t8098",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/8529/keeley-kustermann",
       "sourceRefs": [
         "source:aflw:players",
@@ -8845,7 +8845,7 @@
       "sortName": "Kellyann Hogan",
       "currentTeamId": "team:aflw:cd_t8097",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/15205/kellyann-hogan",
       "sourceRefs": [
         "source:aflw:players",
@@ -8975,7 +8975,7 @@
       "sortName": "Kiera Yerbury",
       "currentTeamId": "team:aflw:cd_t7889",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/13527/kiera-yerbury",
       "sourceRefs": [
         "source:aflw:players",
@@ -9017,8 +9017,8 @@
       "profileRef": "profile:aflw:kim-rennie",
       "dateOfBirth": "1994-10-19",
       "heightInCm": 185,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Sandringham Sabres (SEABL)/Western Bulldogs",
+      "debutYear": "2018",
       "active": true
     },
     {
@@ -9027,7 +9027,7 @@
       "sortName": "Kirsty Lamb",
       "currentTeamId": "team:aflw:cd_t9409",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1664/kirsty-lamb",
       "sourceRefs": [
         "source:aflw:players",
@@ -9069,8 +9069,8 @@
       "profileRef": "profile:aflw:kristie-lee-weston-turner",
       "dateOfBirth": "2005-07-01",
       "heightInCm": 176,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Spotswood (Vic)/Western Jets U18/Western Bulldogs",
+      "debutYear": "2024",
       "active": true
     },
     {
@@ -9339,7 +9339,7 @@
       "sortName": "Lauren Butler",
       "currentTeamId": "team:aflw:cd_t8097",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2005/lauren-butler",
       "sourceRefs": [
         "source:aflw:players",
@@ -9511,8 +9511,8 @@
       "profileRef": "profile:aflw:libby-birch",
       "dateOfBirth": "1997-12-03",
       "heightInCm": 175,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Darebin Falcons (VFLW)/Western Bulldogs/Melbourne",
+      "debutYear": "2017",
       "active": true
     },
     {
@@ -9625,7 +9625,7 @@
       "sortName": "Lily Baxter",
       "currentTeamId": "team:aflw:cd_t8096",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/13757/lily-baxter",
       "sourceRefs": [
         "source:aflw:players",
@@ -9755,7 +9755,7 @@
       "sortName": "Lily Postlethwaite",
       "currentTeamId": "team:aflw:cd_t7887",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Defender",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2072/lily-postlethwaite",
       "sourceRefs": [
         "source:aflw:players",
@@ -9885,7 +9885,7 @@
       "sortName": "Lisa Steane",
       "currentTeamId": "team:aflw:cd_t8787",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1712/lisa-steane",
       "sourceRefs": [
         "source:aflw:players",
@@ -9963,7 +9963,7 @@
       "sortName": "Louise Stephenson",
       "currentTeamId": "team:aflw:cd_t7387",
       "leagueId": "competition:aflw-2026",
-      "position": "Ruck",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1666/louise-stephenson",
       "sourceRefs": [
         "source:aflw:players",
@@ -10145,7 +10145,7 @@
       "sortName": "Lucy Waye",
       "currentTeamId": "team:aflw:cd_t8098",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder Forward",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/15625/lucy-waye",
       "sourceRefs": [
         "source:aflw:players",
@@ -10223,7 +10223,7 @@
       "sortName": "Mackenzie Ford",
       "currentTeamId": "team:aflw:cd_t8788",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/8804/mackenzie-ford",
       "sourceRefs": [
         "source:aflw:players",
@@ -10343,8 +10343,8 @@
       "profileRef": "profile:aflw:maddison-torpey",
       "dateOfBirth": "2004-11-18",
       "heightInCm": 182,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Box Hill (VFLW)/Carlton",
+      "debutYear": "2025",
       "active": true
     },
     {
@@ -10509,7 +10509,7 @@
       "sortName": "Madison Ibrahim",
       "currentTeamId": "team:aflw:cd_t9406",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Defender",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/5874/madison-ibrahim",
       "sourceRefs": [
         "source:aflw:players",
@@ -10639,7 +10639,7 @@
       "sortName": "Maggie Johnstone",
       "currentTeamId": "team:aflw:cd_t9406",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder Forward",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/11780/maggie-johnstone",
       "sourceRefs": [
         "source:aflw:players",
@@ -10665,7 +10665,7 @@
       "sortName": "Maggie MacLachlan",
       "currentTeamId": "team:aflw:cd_t9406",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/4044/maggie-maclachlan",
       "sourceRefs": [
         "source:aflw:players",
@@ -10977,7 +10977,7 @@
       "sortName": "Mattea Breed",
       "currentTeamId": "team:aflw:cd_t8097",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/11816/mattea-breed",
       "sourceRefs": [
         "source:aflw:players",
@@ -11133,7 +11133,7 @@
       "sortName": "Megan Fitzsimon",
       "currentTeamId": "team:aflw:cd_t7386",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/3355/megan-fitzsimon",
       "sourceRefs": [
         "source:aflw:players",
@@ -11263,7 +11263,7 @@
       "sortName": "Mia Busch",
       "currentTeamId": "team:aflw:cd_t9406",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Defender",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/3809/mia-busch",
       "sourceRefs": [
         "source:aflw:players",
@@ -11305,8 +11305,8 @@
       "profileRef": "profile:aflw:mia-king",
       "dateOfBirth": "2001-04-06",
       "heightInCm": 166,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "East Launceston (Tas)/Tasmania U18/Launceston (TSLW)",
+      "debutYear": "2020",
       "active": true
     },
     {
@@ -11315,7 +11315,7 @@
       "sortName": "Mia Russo",
       "currentTeamId": "team:aflw:cd_t8787",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/13825/mia-russo",
       "sourceRefs": [
         "source:aflw:players",
@@ -11679,7 +11679,7 @@
       "sortName": "Molly McDonald",
       "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2196/molly-mcdonald",
       "sourceRefs": [
         "source:aflw:players",
@@ -11731,7 +11731,7 @@
       "sortName": "Molly Thomas",
       "currentTeamId": "team:aflw:cd_t9408",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/13521/molly-thomas",
       "sourceRefs": [
         "source:aflw:players",
@@ -11861,7 +11861,7 @@
       "sortName": "Montana McKinnon",
       "currentTeamId": "team:aflw:cd_t8788",
       "leagueId": "competition:aflw-2026",
-      "position": "Ruck",
+      "position": "Key Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2135/montana-mckinnon",
       "sourceRefs": [
         "source:aflw:players",
@@ -12095,7 +12095,7 @@
       "sortName": "Niamh McLaughlin",
       "currentTeamId": "team:aflw:cd_t8786",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Defender",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/11817/niamh-mclaughlin",
       "sourceRefs": [
         "source:aflw:players",
@@ -12121,7 +12121,7 @@
       "sortName": "Nicola Barr",
       "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1525/nicola-barr",
       "sourceRefs": [
         "source:aflw:players",
@@ -12215,8 +12215,8 @@
       "profileRef": "profile:aflw:nicole-bresnehan",
       "dateOfBirth": "1997-03-25",
       "heightInCm": 165,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Clarence (TSLW)",
+      "debutYear": "2019",
       "active": true
     },
     {
@@ -12251,7 +12251,7 @@
       "sortName": "Noa McNaughton",
       "currentTeamId": "team:aflw:cd_t7886",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/13802/noa-mcnaughton",
       "sourceRefs": [
         "source:aflw:players",
@@ -12329,7 +12329,7 @@
       "sortName": "Olivia Gorman",
       "currentTeamId": "team:aflw:cd_t8098",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/11655/olivia-gorman",
       "sourceRefs": [
         "source:aflw:players",
@@ -12381,7 +12381,7 @@
       "sortName": "Olivia Lewis",
       "currentTeamId": "team:aflw:cd_t8097",
       "leagueId": "competition:aflw-2026",
-      "position": "Ruck",
+      "position": "Key Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/17259/olivia-lewis",
       "sourceRefs": [
         "source:aflw:players",
@@ -12398,7 +12398,7 @@
       "dateOfBirth": "1999-04-29",
       "heightInCm": 184,
       "recruitedFrom": "Melbourne Mavericks (Netball)",
-      "debutYear": null,
+      "debutYear": "2026",
       "active": true
     },
     {
@@ -12433,7 +12433,7 @@
       "sortName": "Olivia Vesely",
       "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/2186/olivia-vesely",
       "sourceRefs": [
         "source:aflw:players",
@@ -12693,7 +12693,7 @@
       "sortName": "Piper Window",
       "currentTeamId": "team:aflw:cd_t9409",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder Forward",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/13679/piper-window",
       "sourceRefs": [
         "source:aflw:players",
@@ -13135,7 +13135,7 @@
       "sortName": "Ruby Tripodi",
       "currentTeamId": "team:aflw:cd_t8466",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder Forward",
+      "position": "Midfielder",
       "sourceUrl": "https://www.afl.com.au/aflw/players/3497/ruby-tripodi",
       "sourceRefs": [
         "source:aflw:players",
@@ -13151,8 +13151,8 @@
       "profileRef": "profile:aflw:ruby-tripodi",
       "dateOfBirth": "2001-05-02",
       "heightInCm": 162,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Williamstown CYMS (Vic)/Western U18/Williamstown (VFLW)",
+      "debutYear": "2023",
       "active": true
     },
     {
@@ -13187,7 +13187,7 @@
       "sortName": "Rylie Wilcox",
       "currentTeamId": "team:aflw:cd_t7387",
       "leagueId": "competition:aflw-2026",
-      "position": "Medium Defender",
+      "position": "Midfielder Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/4135/rylie-wilcox",
       "sourceRefs": [
         "source:aflw:players",
@@ -13213,7 +13213,7 @@
       "sortName": "Sabrina Frederick",
       "currentTeamId": "team:aflw:cd_t8097",
       "leagueId": "competition:aflw-2026",
-      "position": "Key Forward",
+      "position": "Ruck",
       "sourceUrl": "https://www.afl.com.au/aflw/players/1493/sabrina-frederick",
       "sourceRefs": [
         "source:aflw:players",
@@ -13239,7 +13239,7 @@
       "sortName": "Sachi Syme",
       "currentTeamId": "team:aflw:cd_t9409",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/8551/sachi-syme",
       "sourceRefs": [
         "source:aflw:players",
@@ -13291,7 +13291,7 @@
       "sortName": "Saoirse Lally",
       "currentTeamId": "team:aflw:cd_t8796",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/17437/saoirse-lally",
       "sourceRefs": [
         "source:aflw:players",
@@ -13525,7 +13525,7 @@
       "sortName": "Sarah Poustie",
       "currentTeamId": "team:aflw:cd_t7387",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/5928/sarah-poustie",
       "sourceRefs": [
         "source:aflw:players",
@@ -13645,7 +13645,7 @@
       "profileRef": "profile:aflw:sarah-wall",
       "dateOfBirth": "2001-02-28",
       "heightInCm": 167,
-      "recruitedFrom": null,
+      "recruitedFrom": "County Meath (Ireland)",
       "debutYear": null,
       "active": true
     },
@@ -13801,7 +13801,7 @@
       "profileRef": "profile:aflw:shauna-mcelligott",
       "dateOfBirth": "2007-03-05",
       "heightInCm": 162,
-      "recruitedFrom": null,
+      "recruitedFrom": "Aberfeldie (Vic)/Calder Cannons U18",
       "debutYear": null,
       "active": true
     },
@@ -14383,7 +14383,7 @@
       "sortName": "Sunny Lappin",
       "currentTeamId": "team:aflw:cd_t8786",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder Forward",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/11705/sunny-lappin",
       "sourceRefs": [
         "source:aflw:players",
@@ -14503,8 +14503,8 @@
       "profileRef": "profile:aflw:tahlia-randall",
       "dateOfBirth": "1998-05-29",
       "heightInCm": 173,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Kawana Park (Qld)/Maroochydore (Qld)/Mountain Creek (Qld)/Wilston Grange (QAFLW)/Brisbane Lions",
+      "debutYear": "2017",
       "active": true
     },
     {
@@ -14591,7 +14591,7 @@
       "sortName": "Tara Harrington",
       "currentTeamId": "team:aflw:cd_t8786",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Forward",
       "sourceUrl": "https://www.afl.com.au/aflw/players/6147/tara-harrington",
       "sourceRefs": [
         "source:aflw:players",
@@ -14763,8 +14763,8 @@
       "profileRef": "profile:aflw:taylah-gatt",
       "dateOfBirth": "2004-11-01",
       "heightInCm": 169,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Beleura (Vic)/Dandenong U18/Casey Demons (VFLW)",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -14893,8 +14893,8 @@
       "profileRef": "profile:aflw:tess-craven",
       "dateOfBirth": "2003-12-23",
       "heightInCm": 163,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Drysdale (Vic)/Geelong U18",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -14919,8 +14919,8 @@
       "profileRef": "profile:aflw:tessa-boyd",
       "dateOfBirth": "1997-10-03",
       "heightInCm": 173,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "Western Bulldogs/Southern Saints (VFLW)/North Melbourne Werribee (VFLW)",
+      "debutYear": "2025",
       "active": true
     },
     {
@@ -14955,7 +14955,7 @@
       "sortName": "Tunisha Kikoak",
       "currentTeamId": "team:aflw:cd_t7886",
       "leagueId": "competition:aflw-2026",
-      "position": "Key Forward",
+      "position": "Ruck",
       "sourceUrl": "https://www.afl.com.au/aflw/players/4169/tunisha-kikoak",
       "sourceRefs": [
         "source:aflw:players",
@@ -15075,8 +15075,8 @@
       "profileRef": "profile:aflw:vikki-wall",
       "dateOfBirth": "1998-05-02",
       "heightInCm": 175,
-      "recruitedFrom": null,
-      "debutYear": null,
+      "recruitedFrom": "County Meath (Ireland)",
+      "debutYear": "2022",
       "active": true
     },
     {
@@ -15137,7 +15137,7 @@
       "sortName": "Yasmin Duursma",
       "currentTeamId": "team:aflw:cd_t8096",
       "leagueId": "competition:aflw-2026",
-      "position": "Midfielder",
+      "position": "Medium Defender",
       "sourceUrl": "https://www.afl.com.au/aflw/players/3882/yasmin-duursma",
       "sourceRefs": [
         "source:aflw:players",

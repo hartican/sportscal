@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "american-football",
-  "generatedAt": "2026-09-21T20:00:18Z",
+  "generatedAt": "2026-09-22T02:49:17Z",
   "season": 2026,
   "competitions": [
     {
@@ -4121,29 +4121,6 @@
       ]
     },
     {
-      "id": "athlete:nfl:4567783",
-      "displayName": "James Brockermeyer",
-      "shortName": "J. Brockermeyer",
-      "aliases": [
-        "James Brockermeyer",
-        "James Brockermeyer",
-        "J. Brockermeyer"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:atl",
-      "leagueId": "competition:nfl",
-      "position": "C",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4567783",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4567783.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4567783/james-brockermeyer"
-      ]
-    },
-    {
       "id": "athlete:nfl:4685332",
       "displayName": "Kam Dewberry",
       "shortName": "K. Dewberry",
@@ -4348,6 +4325,29 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4430411.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4430411/jammie-robinson"
+      ]
+    },
+    {
+      "id": "athlete:nfl:4367775",
+      "displayName": "Colby Sorsdal",
+      "shortName": "C. Sorsdal",
+      "aliases": [
+        "Colby Sorsdal",
+        "Colby Sorsdal",
+        "C. Sorsdal"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:atl",
+      "leagueId": "competition:nfl",
+      "position": "OT",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4367775",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4367775.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4367775/colby-sorsdal"
       ]
     },
     {
@@ -20198,6 +20198,29 @@
       ]
     },
     {
+      "id": "athlete:nfl:2976540",
+      "displayName": "Jalen Mills",
+      "shortName": "J. Mills",
+      "aliases": [
+        "Jalen Mills",
+        "Jalen Mills",
+        "J. Mills"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:det",
+      "leagueId": "competition:nfl",
+      "position": "S",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:2976540",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2976540.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/2976540/jalen-mills"
+      ]
+    },
+    {
       "id": "athlete:nfl:4038432",
       "displayName": "Amen Ogbongbemiga",
       "shortName": "A. Ogbongbemiga",
@@ -33722,6 +33745,29 @@
       ]
     },
     {
+      "id": "athlete:nfl:4428098",
+      "displayName": "Elias Neal",
+      "shortName": "E. Neal",
+      "aliases": [
+        "Elias Neal",
+        "Elias Neal",
+        "E. Neal"
+      ],
+      "active": true,
+      "entityType": "athlete",
+      "currentTeamId": "team:nfl:lar",
+      "leagueId": "competition:nfl",
+      "position": "LB",
+      "countryCode": "USA",
+      "countryBasis": "published-player-record",
+      "genderCategory": "male",
+      "identityId": "athlete:nfl:4428098",
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4428098.png",
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4428098/elias-neal"
+      ]
+    },
+    {
       "id": "athlete:nfl:4428550",
       "displayName": "Omar Speights",
       "shortName": "O. Speights",
@@ -34363,29 +34409,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4240123.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4240123/larrell-murchison"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4428098",
-      "displayName": "Elias Neal",
-      "shortName": "E. Neal",
-      "aliases": [
-        "Elias Neal",
-        "Elias Neal",
-        "E. Neal"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:lar",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4428098",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4428098.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4428098/elias-neal"
       ]
     },
     {
@@ -35145,29 +35168,6 @@
       "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4682745.png",
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4682745/jaylen-wright"
-      ]
-    },
-    {
-      "id": "athlete:nfl:4368056",
-      "displayName": "Liam Anderson",
-      "shortName": "L. Anderson",
-      "aliases": [
-        "Liam Anderson",
-        "Liam Anderson",
-        "L. Anderson"
-      ],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "position": "LB",
-      "countryCode": "USA",
-      "countryBasis": "published-player-record",
-      "genderCategory": "male",
-      "identityId": "athlete:nfl:4368056",
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4368056.png",
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4368056/liam-anderson"
       ]
     },
     {
@@ -61416,18 +61416,18 @@
           "participantId": "team:nfl:lar",
           "label": "Los Angeles Rams",
           "homeAway": "home",
-          "score": "0",
+          "score": "28",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lar.png"
         },
         {
           "participantId": "team:nfl:nyg",
           "label": "New York Giants",
           "homeAway": "away",
-          "score": "0",
+          "score": "6",
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyg.png"
         }
       ],
-      "sourceUrl": "https://www.espn.com/nfl/game/_/gameId/401872947/giants-rams"
+      "sourceUrl": null
     },
     {
       "id": "fixture:nfl:401872948",

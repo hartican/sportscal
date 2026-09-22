@@ -131,7 +131,7 @@ assert(html.includes("mainDiv.appendChild(whyItMatters)") && html.includes("buil
 assert.doesNotMatch(html, /labelText:"Independent context"/, "expanded cards must not repeat editorial in a second metadata box");
 assert.doesNotMatch(html, /editorialNarrativeCopyForDisplay\(/, "selected and opened cards must not repeat a second synopsis block beneath Why it matters");
 assert(html.includes('buildEventCard(event, {mode:"events"') || html.includes("eventParent:record"), "Events fixtures use the shared fixture renderer");
-assert.match(html, /completed && isSpoilerVisible\(record\)[^]*spoilerOnSentence[^]*previewSentence/, "completed spoiler-on cards must prefer sourced result consequences while spoiler-off retains preview copy");
+assert.match(html, /if \(completed\) return isSpoilerVisible\(record\)[^]*resultSignature[^]*spoilerOnSentence/, "completed cards must only show result consequences matching the current result, never stale preview consequences");
 assert.doesNotMatch(html, /buildEditorialL0Hook\((?:selectedSentenceForDisplay\(ev\)|record\.summary)/, "schedule and structural fallback copy must never be relabelled Why it matters");
 assert.match(html, /editorial-l0-hook-label[^]*Why it matters/, "L0 hooks need a visible editorial label");
 const completedProjection = knowledge.eventProjections.find(projection => projection.id === "projection:feed:dutch-gp-race-2026");

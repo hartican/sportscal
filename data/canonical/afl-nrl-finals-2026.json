@@ -273,9 +273,12 @@
               "history",
               "consequence"
             ],
-            "researchedAt": "2026-09-21T20:44:14.179Z",
+            "researchedAt": "2026-09-22T02:52:01.428Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Carlton defeated Melbourne 74-55.\",\"Melbourne v Carlton — 55-74\",\"Melbourne v Carlton finished 55-74 in Wildcard Finals, with Carlton winning by 19 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -284,7 +287,7 @@
             "synopsisSpoilerOff": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
             "synopsisSpoilerOn": "Melbourne's first season under Steven King rose from low expectations into finals contention. Carlton entered the same knockout after Josh Fraser inherited one positive result from nine matches and drove a late charge, making the wildcard a collision between an early-season rise and a late-season rescue.",
             "arcStage": "preview",
-            "lastReviewedAt": "2026-09-21T20:44:14.179Z"
+            "lastReviewedAt": "2026-09-22T02:52:01.428Z"
           },
           "competitionPhase": "wildcard-final",
           "isFinalRegularSeasonRound": false,
@@ -400,9 +403,12 @@
               "history",
               "consequence"
             ],
-            "researchedAt": "2026-09-21T20:44:14.179Z",
+            "researchedAt": "2026-09-22T02:52:01.428Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Western Bulldogs defeated Collingwood 96-93.\",\"Western Bulldogs v Collingwood — 96-93\",\"Western Bulldogs v Collingwood finished 96-93 in Wildcard Finals, with Western Bulldogs winning by 3 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -411,7 +417,7 @@
             "synopsisSpoilerOff": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
             "synopsisSpoilerOn": "Western Bulldogs brought an eight-wins-in-11 recovery into the first wildcard final, while Collingwood's pressure game had rediscovered features of its premiership identity. The new Final Ten compressed both arcs into one elimination night, ultimately separated by a shot after the siren.",
             "arcStage": "preview",
-            "lastReviewedAt": "2026-09-21T20:44:14.179Z"
+            "lastReviewedAt": "2026-09-22T02:52:01.428Z"
           },
           "competitionPhase": "wildcard-final",
           "isFinalRegularSeasonRound": false,
@@ -527,9 +533,12 @@
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-21T20:44:14.179Z",
+            "researchedAt": "2026-09-22T02:52:01.428Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Hawthorn defeated Fremantle 72-40.\",\"Fremantle v Hawthorn — 40-72\",\"Fremantle v Hawthorn finished 40-72 in Qualifying & Elimination Finals, with Hawthorn winning by 32 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -538,7 +547,7 @@
             "synopsisSpoilerOff": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
             "synopsisSpoilerOn": "Fremantle's 19-win season earned the first qualifying final at Optus Stadium. Hawthorn arrived after its final-round performance delivered the last top-four place, so this became a contest between season-long control and a late seeding surge, with a direct home preliminary-final place at stake.",
             "arcStage": "preview",
-            "lastReviewedAt": "2026-09-21T20:44:14.179Z"
+            "lastReviewedAt": "2026-09-22T02:52:01.428Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
@@ -653,9 +662,12 @@
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-21T20:44:14.179Z",
+            "researchedAt": "2026-09-22T02:52:01.428Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Sydney Swans defeated Brisbane Lions 141-88.\",\"Sydney Swans v Brisbane Lions — 141-88\",\"Sydney Swans v Brisbane Lions finished 141-88 in Qualifying & Elimination Finals, with Sydney Swans winning by 53 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -664,7 +676,7 @@
             "synopsisSpoilerOff": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
             "synopsisSpoilerOn": "Sydney entered September second after five consecutive wins; Brisbane entered third with three of its own. The SCG qualifying final matches the two strongest finishing streaks on this side of the bracket, with a week off and a home preliminary final on offer and a second chance for the other side.",
             "arcStage": "preview",
-            "lastReviewedAt": "2026-09-21T20:44:14.179Z"
+            "lastReviewedAt": "2026-09-22T02:52:01.428Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
@@ -780,9 +792,12 @@
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-21T20:44:14.179Z",
+            "researchedAt": "2026-09-22T02:52:01.428Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Geelong Cats defeated Carlton 107-74.\",\"Geelong Cats v Carlton — 107-74\",\"Geelong Cats v Carlton finished 107-74 in Qualifying & Elimination Finals, with Geelong Cats winning by 33 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -791,7 +806,7 @@
             "synopsisSpoilerOff": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
             "synopsisSpoilerOn": "Carlton carried its comeback through the wildcard round and now meets the form team of the run-in. Geelong's six-match winning finish secured fifth and an MCG elimination final; the contrast is a long recovery against late-season continuity, with no second chance for either.",
             "arcStage": "preview",
-            "lastReviewedAt": "2026-09-21T20:44:14.179Z"
+            "lastReviewedAt": "2026-09-22T02:52:01.428Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
@@ -907,9 +922,12 @@
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-21T20:44:14.179Z",
+            "researchedAt": "2026-09-22T02:52:01.428Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Adelaide Crows defeated Western Bulldogs 90-68.\",\"Adelaide Crows v Western Bulldogs — 90-68\",\"Adelaide Crows v Western Bulldogs finished 90-68 in Qualifying & Elimination Finals, with Adelaide Crows winning by 22 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -918,7 +936,7 @@
             "synopsisSpoilerOff": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
             "synopsisSpoilerOn": "Western Bulldogs arrived in Adelaide after the inaugural wildcard was decided by an after-the-siren miss. The Crows earned sixth and the home elimination final, turning this into a test of whether wildcard momentum travels against a side whose whole season secured this venue advantage.",
             "arcStage": "preview",
-            "lastReviewedAt": "2026-09-21T20:44:14.179Z"
+            "lastReviewedAt": "2026-09-22T02:52:01.428Z"
           },
           "competitionPhase": "finals-week-1",
           "isFinalRegularSeasonRound": false,
@@ -1033,9 +1051,12 @@
               "path",
               "consequence"
             ],
-            "researchedAt": "2026-09-21T20:44:14.179Z",
+            "researchedAt": "2026-09-22T02:52:01.428Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Fremantle defeated Geelong Cats 120-106.\",\"Fremantle v Geelong Cats — 120-106\",\"Fremantle v Geelong Cats finished 120-106 in Semi Finals, with Fremantle winning by 14 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -1044,7 +1065,7 @@
             "synopsisSpoilerOff": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
             "synopsisSpoilerOn": "Nineteen home-and-away wins put Fremantle first, while Geelong entered September fifth after six consecutive wins. The published semi-final brings those different routes together in Perth. Both clubs now need this match to keep their premiership campaign alive; the double chance is gone.",
             "arcStage": "preview",
-            "lastReviewedAt": "2026-09-21T20:44:14.179Z"
+            "lastReviewedAt": "2026-09-22T02:52:01.428Z"
           },
           "competitionPhase": "semi-final",
           "isFinalRegularSeasonRound": false,
@@ -1164,9 +1185,12 @@
               "consequence",
               "form"
             ],
-            "researchedAt": "2026-09-21T20:44:14.179Z",
+            "researchedAt": "2026-09-22T02:52:01.428Z",
             "refreshAfter": null,
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "recap",
+            "resultSignature": "[\"completed\",\"Brisbane Lions defeated Adelaide Crows 144-91.\",\"Brisbane Lions v Adelaide Crows — 144-91\",\"Brisbane Lions v Adelaide Crows finished 144-91 in Semi Finals, with Brisbane Lions winning by 53 points.\"]"
           },
           "storyline": {
             "stakes": 5,
@@ -1175,7 +1199,7 @@
             "synopsisSpoilerOff": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
             "synopsisSpoilerOn": "Brisbane entered September third and Adelaide sixth. Their published week-two meeting puts the Lions' home advantage against a Crows campaign that already began on the elimination side of the bracket. A preliminary-final place is the prize, with neither team retaining a second chance.",
             "arcStage": "preview",
-            "lastReviewedAt": "2026-09-21T20:44:14.179Z"
+            "lastReviewedAt": "2026-09-22T02:52:01.428Z"
           },
           "competitionPhase": "semi-final",
           "isFinalRegularSeasonRound": false,
@@ -1293,7 +1317,12 @@
             ],
             "researchedAt": "2026-09-17T23:22:14.102Z",
             "refreshAfter": "2026-09-19T07:15:00.000Z",
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Brisbane Lions defeated Hawthorn 131-122.\",\"Hawthorn v Brisbane Lions — 122-131\",\"Hawthorn v Brisbane Lions finished 122-131 in Preliminary Finals, with Brisbane Lions winning by 9 points.\"]",
+            "hookSpoilerOn": "Brisbane Lions defeated Hawthorn 131-122.",
+            "synopsisSpoilerOn": "Hawthorn v Brisbane Lions finished 122-131 in Preliminary Finals, with Brisbane Lions winning by 9 points."
           },
           "storyline": {
             "stakes": 5,
@@ -1324,7 +1353,7 @@
           "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
           "sourceName": "AFL",
           "sourceType": "official",
-          "sourceCheckedAt": "2026-09-21T12:20:05.571Z",
+          "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
           "sourceRefs": [
             "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
             "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
@@ -1431,7 +1460,12 @@
             ],
             "researchedAt": "2026-09-17T23:22:14.102Z",
             "refreshAfter": "2026-09-18T09:40:00.000Z",
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "resultResearchRequired": false,
+            "phase": "preview",
+            "resultSignature": "[\"completed\",\"Fremantle defeated Sydney Swans 83-71.\",\"Sydney Swans v Fremantle — 71-83\",\"Sydney Swans v Fremantle finished 71-83 in Preliminary Finals, with Fremantle winning by 12 points.\"]",
+            "hookSpoilerOn": "Fremantle defeated Sydney Swans 83-71.",
+            "synopsisSpoilerOn": "Sydney Swans v Fremantle finished 71-83 in Preliminary Finals, with Fremantle winning by 12 points."
           },
           "storyline": {
             "stakes": 5,
@@ -1462,7 +1496,7 @@
           "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
           "sourceName": "AFL",
           "sourceType": "official",
-          "sourceCheckedAt": "2026-09-21T12:20:05.571Z",
+          "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
           "sourceRefs": [
             "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
             "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
@@ -1544,9 +1578,10 @@
               "consequence",
               "venue"
             ],
-            "researchedAt": "2026-09-21T20:44:14.179Z",
+            "researchedAt": "2026-09-22T02:52:01.428Z",
             "refreshAfter": "2026-09-26T04:30:00.000Z",
-            "generationMode": "researched"
+            "generationMode": "researched",
+            "phase": "preview"
           },
           "storyline": {
             "stakes": 5,
@@ -1557,7 +1592,7 @@
             "hookSpoilerOn": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
             "synopsisSpoilerOff": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
             "synopsisSpoilerOn": "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
-            "lastReviewedAt": "2026-09-21T20:44:14.179Z"
+            "lastReviewedAt": "2026-09-22T02:52:01.428Z"
           },
           "competitionPhase": "grand-final",
           "isFinalRegularSeasonRound": false,
@@ -1629,7 +1664,7 @@
           },
           "timePrecision": "exact",
           "sourceType": "official",
-          "sourceCheckedAt": "2026-09-21T12:20:05.571Z",
+          "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
           "sourceRefs": [
             "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
           ]

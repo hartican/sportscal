@@ -1022,14 +1022,15 @@
     {
       "id": "major-match-nrl-finals-2026-semi-final-2",
       "title": "New Zealand Warriors v Newcastle Knights",
-      "hook": "Eden Park gives the Warriors the home stage; Ponga gives Newcastle a route to disrupt it.",
-      "synopsis": "The named halves are Te Maire Martin and Chanel Harris-Tavita for the Warriors, against Sandon Smith and Fletcher Sharpe for Newcastle. Kalyn Ponga starts at fullback for the Knights. The question is which spine can control a knockout afternoon when one mistake can end the season. Kick-off is Sunday at 4.05pm AEST.",
+      "hook": "Eden Park’s knockout afternoon tested Newcastle against the Warriors in front of a record New Zealand rugby league crowd.",
+      "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
       "sources": [
         "https://www.nrl.com/news/2026/09/17/nrl-late-mail-finals-week-2---lucas-in-the-mix/",
         "https://www.nrl.com/news/2026/09/17/finals-week-2-everything-you-need-to-know/",
-        "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/"
+        "https://www.nrl.com/news/2026/09/13/nrl-telstra-premiership-2026-finals-week-two/",
+        "https://www.nrl.com/news/2026/09/20/nrl-sunday-blockbuster-warriors-v-knights/"
       ],
-      "researchedAt": "2026-09-17T23:22:14.102Z",
+      "researchedAt": "2026-09-22T01:40:00.000Z",
       "researchDepth": 5,
       "facts": [
         {
@@ -1061,8 +1062,19 @@
           "sourceIndexes": [
             2
           ]
+        },
+        {
+          "statement": "Newcastle Knights defeated New Zealand Warriors 12–10. Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            3
+          ]
         }
-      ]
+      ],
+      "hookSpoilerOn": "Newcastle Knights defeated New Zealand Warriors 12–10.",
+      "synopsisSpoilerOn": "Dom Young’s early second-half try put Newcastle ahead at Eden Park. The Knights then resisted sustained late pressure, earning a preliminary final against Penrith and ending the Warriors’ season.",
+      "editorialPhase": "recap",
+      "refreshAfter": null
     },
     {
       "id": "evt_motogp_2026_austria",
@@ -1200,14 +1212,15 @@
     {
       "id": "fixture:cricket:espn:1530204",
       "title": "Zimbabwe v Australia - 2nd ODI",
-      "hook": "Australia's middle-order auditions meet Zimbabwe's experienced side in Harare.",
-      "synopsis": "With the 2027 World Cup approaching, Australia are looking for a settled middle order after several senior retirements. Zimbabwe offer a useful examination in familiar conditions: Sikandar Raza leads in Richard Ngarava's injury absence, with Brendan Taylor and Graeme Cremer back in the squad. The match tests Australia's developing batting combinations against Zimbabwe's varied attack.",
+      "hook": "Australia’s second Harare ODI tested the new batting combinations again, with the series at stake.",
+      "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
       "sources": [
         "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
         "https://www.icc-cricket.com/news/zimbabwe-name-squad-for-odi-series-against-australia",
-        "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026"
+        "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026",
+        "https://www.cricket.com.au/news/4578209/match-report-second-odi-zimbabwe-australia-harare-sports-club-hazlewood-stanlake-return-head-century-ollie-peake"
       ],
-      "researchedAt": "2026-09-17T23:48:28.758Z",
+      "researchedAt": "2026-09-22T01:40:00.000Z",
       "researchDepth": 5,
       "facts": [
         {
@@ -1237,20 +1250,32 @@
           "sourceIndexes": [
             2
           ]
+        },
+        {
+          "statement": "Australia defeated Zimbabwe by 84 runs. Travis Head made 112 from 84 balls as Australia posted 6/356. That batting platform secured an unassailable 2–0 series lead, although Billy Stanlake’s injury interrupted his return.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            3
+          ]
         }
-      ]
+      ],
+      "hookSpoilerOn": "Australia defeated Zimbabwe by 84 runs.",
+      "synopsisSpoilerOn": "Travis Head made 112 from 84 balls as Australia posted 6/356. That batting platform secured an unassailable 2–0 series lead, although Billy Stanlake’s injury interrupted his return.",
+      "editorialPhase": "recap",
+      "refreshAfter": null
     },
     {
       "id": "fixture:cricket:espn:1530205",
       "title": "Zimbabwe v Australia - 3rd ODI",
-      "hook": "Harare hosts one last Zimbabwe-Australia examination before Australia move on to South Africa.",
-      "synopsis": "The third ODI closes this Zimbabwe leg of Australia's World Cup preparation. Selection opportunities remain part of the bigger picture, while Zimbabwe build towards a tournament they will co-host. Zimbabwe's experienced core and Blessing Muzarabani's pace give Australia a serious final test rather than a routine series finish.",
+      "hook": "The final Harare ODI brought Australia’s Zimbabwe leg to a close before the tour moved to South Africa.",
+      "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
       "sources": [
         "https://www.cricket.com.au/news/4573207/zimbabwe-australia-odis-one-day-internationals-harare-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times",
         "https://www.icc-cricket.com/news/zimbabwe-name-squad-for-odi-series-against-australia",
-        "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026"
+        "https://www.cricket.com.au/matches/series/CA%3A4621/zimbabwe-v-australia-odi-series-2026",
+        "https://www.cricket.com.au/news/4579018/third-odi-zimbabwe-australia-harare-reports-scores-video-highlights-raza-ellis-kaia-injury-bartlett"
       ],
-      "researchedAt": "2026-09-17T23:48:28.764Z",
+      "researchedAt": "2026-09-22T01:40:00.000Z",
       "researchDepth": 5,
       "facts": [
         {
@@ -1280,8 +1305,19 @@
           "sourceIndexes": [
             2
           ]
+        },
+        {
+          "statement": "Australia defeated Zimbabwe by one wicket. Nathan Ellis and Spencer Johnson added an unbeaten 27 for the last wicket, completing the chase with one ball remaining. Josh Inglis had made a century before the tail finished the job, sealing a 3–0 series sweep.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            3
+          ]
         }
-      ]
+      ],
+      "hookSpoilerOn": "Australia defeated Zimbabwe by one wicket.",
+      "synopsisSpoilerOn": "Nathan Ellis and Spencer Johnson added an unbeaten 27 for the last wicket, completing the chase with one ball remaining. Josh Inglis had made a century before the tail finished the job, sealing a 3–0 series sweep.",
+      "editorialPhase": "recap",
+      "refreshAfter": null
     },
     {
       "id": "fixture:cricket:espn:1525655",
@@ -1497,14 +1533,15 @@
     {
       "id": "fixture:cricket:espn:1530203",
       "title": "Australia v Zimbabwe — First ODI",
-      "hook": "Harare’s opener begins Australia’s search for a settled ODI middle order in World Cup conditions.",
-      "synopsis": "The opening match put Australia’s evolving batting combinations against Zimbabwe’s experienced side. It began the six-ODI African trip, with the result and individual performances available when spoilers are enabled.",
+      "hook": "Harare’s opening ODI put Australia’s changing batting order through its first examination of the tour.",
+      "synopsis": "The match is complete. The result and key passages are available when you reveal results; the outcome remains protected here.",
       "sources": [
         "https://www.cricket.com.au/news/4569440/australia-odi-squad-zimbabwe-south-africa-tour-2026-labuschagne-marsh-cummins-starc-inglis-peake-stanlake-connolly-davies",
-        "https://www.icc-cricket.com/news/zimbabwe-to-host-australia-for-odi-series-in-september"
+        "https://www.icc-cricket.com/news/zimbabwe-to-host-australia-for-odi-series-in-september",
+        "https://www.cricket.com.au/news/4576624/australia-zimbabwe-match-report-scores-highlights-first-odi-harare-mitch-marsh-100-games-sikandar-raza-connolly-peake-renshaw-zampa"
       ],
       "researchDepth": 4,
-      "researchedAt": "2026-09-22T00:00:00.000Z",
+      "researchedAt": "2026-09-22T01:40:00.000Z",
       "facts": [
         {
           "dimension": "schedule",
@@ -1527,8 +1564,19 @@
           "sourceIndexes": [
             0
           ]
+        },
+        {
+          "statement": "Australia defeated Zimbabwe by 59 runs. Matt Renshaw’s century anchored the opening innings, and Nathan Ellis helped finish the defence in Harare. The opener gave Australia a winning start to their African ODI tour.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            2
+          ]
         }
-      ]
+      ],
+      "hookSpoilerOn": "Australia defeated Zimbabwe by 59 runs.",
+      "synopsisSpoilerOn": "Matt Renshaw’s century anchored the opening innings, and Nathan Ellis helped finish the defence in Harare. The opener gave Australia a winning start to their African ODI tour.",
+      "editorialPhase": "recap",
+      "refreshAfter": null
     },
     {
       "id": "fixture:cricket:espn:1528712",

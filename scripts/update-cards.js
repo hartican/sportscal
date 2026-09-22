@@ -67,6 +67,7 @@ function buildSteps({ localOnly = false } = {}) {
   ...((process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY || process.env.FOLLOW_SNAPSHOT_PRELOADED_JSON_PATH || process.env.FOLLOW_SNAPSHOT_PRELOADED_PATH)
     ? [["scripts/snapshot-active-follows.js"]]
     : []),
+  ["scripts/refresh-pga-schedule.js"],
   ["scripts/refresh-source-coverage.js"],
   ["scripts/refresh-discovery.js"],
   ["scripts/build-athlete-participation.js"],
@@ -208,6 +209,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-code-inspector.js"],
   ["scripts/apply-coverage-pauses.js"],
   ["scripts/validate-coverage-pauses.js"],
+  ["scripts/validate-coverage-repairs.js"],
   ["scripts/validate-australia-international-editorial.js"],
   ["scripts/validate-f1-context.js"],
   ["scripts/validate-tennis-context.js"],

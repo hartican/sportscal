@@ -47,5 +47,6 @@
   "config/au-broadcast-weights.js",
   "config/national-team-identities.js",
   "config/card-identities.js",
-  "config/promoted-replay.js"
+  "config/promoted-replay.js",
+  "config/editorial-lifecycle.js"
 ]

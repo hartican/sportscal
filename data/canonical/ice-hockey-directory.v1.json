@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "ice-hockey",
-  "generatedAt": "2026-09-21T20:00:45Z",
+  "generatedAt": "2026-09-22T02:49:30Z",
   "season": "20262027",
   "competitions": [
     {
@@ -2614,25 +2614,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8485072",
-      "displayName": "Loke Johansson",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:bos",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8485072",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8485072.png",
-      "sourceRefs": [
-        "https://www.nhl.com/bos/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8480035",
       "displayName": "Henri Jokiharju",
       "shortName": null,
@@ -2761,25 +2742,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8480022",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8480022.png",
-      "sourceRefs": [
-        "https://www.nhl.com/bos/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8486148",
-      "displayName": "Max Lundgren",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:bos",
-      "leagueId": "competition:nhl",
-      "position": "G",
-      "countryCode": "SWE",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8486148",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8486148.png",
       "sourceRefs": [
         "https://www.nhl.com/bos/roster"
       ]
@@ -18384,25 +18346,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8486009",
-      "displayName": "Ryden Evers",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:sea",
-      "leagueId": "competition:nhl",
-      "position": "L",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8486009",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SEA/8486009.png",
-      "sourceRefs": [
-        "https://www.nhl.com/sea/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8477919",
       "displayName": "Frederick Gaudreau",
       "shortName": null,
@@ -18517,25 +18460,6 @@
       ]
     },
     {
-      "id": "athlete:nhl:8484773",
-      "displayName": "Julius Miettinen",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:sea",
-      "leagueId": "competition:nhl",
-      "position": "C",
-      "countryCode": "FIN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484773",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SEA/8484773.png",
-      "sourceRefs": [
-        "https://www.nhl.com/sea/roster"
-      ]
-    },
-    {
       "id": "athlete:nhl:8482713",
       "displayName": "Mackie Samoskevich",
       "shortName": null,
@@ -18607,25 +18531,6 @@
       "genderCategory": "male",
       "identityId": "athlete:nhl:8483524",
       "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SEA/8483524.png",
-      "sourceRefs": [
-        "https://www.nhl.com/sea/roster"
-      ]
-    },
-    {
-      "id": "athlete:nhl:8484838",
-      "displayName": "Alexis Bernier",
-      "shortName": null,
-      "aliases": [],
-      "active": true,
-      "entityType": "athlete",
-      "currentTeamId": "team:nhl:sea",
-      "leagueId": "competition:nhl",
-      "position": "D",
-      "countryCode": "CAN",
-      "countryBasis": "official-nhl-roster",
-      "genderCategory": "male",
-      "identityId": "athlete:nhl:8484838",
-      "headshotUrl": "https://assets.nhle.com/mugs/nhl/20262027/SEA/8484838.png",
       "sourceRefs": [
         "https://www.nhl.com/sea/roster"
       ]
@@ -40299,7 +40204,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-21T23:00:00Z",
       "venue": "PPG Paints Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -40307,19 +40212,19 @@
           "participantId": "team:nhl:buf",
           "label": "Buffalo Sabres",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
         },
         {
           "participantId": "team:nhl:pit",
           "label": "Pittsburgh Penguins",
           "homeAway": "home",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/buf-vs-pit/2026/09/21/2026010016",
-      "ticketUrl": "https://www.nhl.com/penguins/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010017",
@@ -40330,7 +40235,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-21T23:00:00Z",
       "venue": "Nationwide Arena",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -40338,19 +40243,19 @@
           "participantId": "team:nhl:det",
           "label": "Detroit Red Wings",
           "homeAway": "away",
-          "score": null,
+          "score": 0,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
         },
         {
           "participantId": "team:nhl:cbj",
           "label": "Columbus Blue Jackets",
           "homeAway": "home",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/det-vs-cbj/2026/09/21/2026010017",
-      "ticketUrl": "https://www.nhl.com/bluejackets/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010019",
@@ -40361,7 +40266,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-21T23:00:00Z",
       "venue": "Prudential Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -40369,19 +40274,19 @@
           "participantId": "team:nhl:nyr",
           "label": "New York Rangers",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
         },
         {
           "participantId": "team:nhl:njd",
           "label": "New Jersey Devils",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/nyr-vs-njd/2026/09/21/2026010019",
-      "ticketUrl": "https://www.ticketmaster.com/event/020064F091849C38?brand=devils&artistid=805982&wt.mc_id=NHL_TEAM_NJD_SCHEDULE_PR2&camefrom=CFC_DEVILS_NHL_TEAM_NJD_SCHEDULE_PR2"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010020",
@@ -40392,7 +40297,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-21T23:00:00Z",
       "venue": "GIANT Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -40400,19 +40305,19 @@
           "participantId": "team:nhl:phi",
           "label": "Philadelphia Flyers",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
         },
         {
           "participantId": "team:nhl:wsh",
           "label": "Washington Capitals",
           "homeAway": "home",
-          "score": null,
+          "score": 5,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/phi-vs-wsh/2026/09/21/2026010020",
-      "ticketUrl": "https://www.nhl.com/capitals/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010022",
@@ -40423,7 +40328,7 @@
       "time": "09:00",
       "startTimeUtc": "2026-09-21T23:00:00Z",
       "venue": "Colisée Vidéotron",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -40431,19 +40336,19 @@
           "participantId": "team:nhl:ott",
           "label": "Ottawa Senators",
           "homeAway": "away",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
         },
         {
           "participantId": "team:nhl:mtl",
           "label": "Montréal Canadiens",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/ott-vs-mtl/2026/09/21/2026010022",
-      "ticketUrl": "https://www.nhl.com/canadiens/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010015",
@@ -40454,7 +40359,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-09-22T00:00:00Z",
       "venue": "Canada Life Centre",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -40462,19 +40367,19 @@
           "participantId": "team:nhl:col",
           "label": "Colorado Avalanche",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg"
         },
         {
           "participantId": "team:nhl:wpg",
           "label": "Winnipeg Jets",
           "homeAway": "home",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/col-vs-wpg/2026/09/21/2026010015",
-      "ticketUrl": "https://www.ticketmaster.ca/event/110064C987825F2D?brand=winnipegjets&artistid=1613893&wt.mc_id=NHL_TEAM_WPG_SCHEDULE_PR1&utm_source=NHL.com&utm_medium=client_PM&utm_campaign=NHL_TEAM_WPG&utm_content=SCHEDULE_PR1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010018",
@@ -40485,7 +40390,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-09-22T00:00:00Z",
       "venue": "United Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -40493,19 +40398,19 @@
           "participantId": "team:nhl:min",
           "label": "Minnesota Wild",
           "homeAway": "away",
-          "score": null,
+          "score": 3,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg"
         },
         {
           "participantId": "team:nhl:chi",
           "label": "Chicago Blackhawks",
           "homeAway": "home",
-          "score": null,
+          "score": 4,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/min-vs-chi/2026/09/21/2026010018",
-      "ticketUrl": "https://www.ticketmaster.com/event/040064DE908A5034?brand=blackhawks&artistid=805913&wt.mc_id=NHL_TEAM_CHI_SCHEDULE_PR1"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010021",
@@ -40516,7 +40421,7 @@
       "time": "10:00",
       "startTimeUtc": "2026-09-22T00:00:00Z",
       "venue": "American Airlines Center",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Preseason",
       "participantSlots": [
@@ -40524,19 +40429,19 @@
           "participantId": "team:nhl:stl",
           "label": "St. Louis Blues",
           "homeAway": "away",
-          "score": null,
+          "score": 1,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg"
         },
         {
           "participantId": "team:nhl:dal",
           "label": "Dallas Stars",
           "homeAway": "home",
-          "score": null,
+          "score": 2,
           "logoUrl": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg"
         }
       ],
       "sourceUrl": "https://www.nhl.com/gamecenter/stl-vs-dal/2026/09/21/2026010021",
-      "ticketUrl": "https://www.nhl.com/stars/tickets/"
+      "ticketUrl": null
     },
     {
       "id": "fixture:nhl:2026010024",

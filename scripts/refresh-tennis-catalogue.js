@@ -91,7 +91,7 @@ function validateTournamentExport(payload){
     if (!tournament.providerId || aliases.has(tournament.providerId)) throw new Error("Tournament aliases must be unique and non-empty");
     aliases.add(tournament.providerId);
     if (isoDate(tournament.endDate) < isoDate(tournament.startDate)) throw new Error(`${tournament.name} ends before it starts`);
-    tennisCoverage.normalizeTournament({ ...tournament, season: payload.season });
+    tennisCoverage.normalizeTournament({ ...tournament, season: tournament.season || payload.season });
   });
   const levels = new Set(payload.tournaments.map(tournament => tournament.level));
   ["grand_slam", "atp_masters_1000", "wta_1000", "atp_finals", "wta_finals", "team_competition"].forEach(level => {
@@ -124,7 +124,7 @@ function generateCatalogue(){
   const tournamentExport = validateTournamentExport(readJson(path.join(EXPORT_DIR, "tournaments-2026-reviewed.json")));
   const athletes = rankings.flatMap(({ payload }) => payload.athletes.map(athlete => athleteRecord(payload, athlete)));
   if (new Set(athletes.map(athlete => athlete.athleteId)).size !== athletes.length) throw new Error("Canonical tennis athlete IDs must be unique");
-  const tournaments = tournamentExport.tournaments.map(tournament => tennisCoverage.normalizeTournament({ ...tournament, season: tournamentExport.season }));
+  const tournaments = tournamentExport.tournaments.map(tournament => tennisCoverage.normalizeTournament({ ...tournament, season: tournament.season || tournamentExport.season }));
   const generatedAt = [
     ...rankings.map(({ payload }) => payload.extractedAt),
     tournamentExport.reviewedAt,

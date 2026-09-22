@@ -227,7 +227,7 @@ function normalizeFixture(event, codeId, extra = {}){
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
-    ...Object.fromEntries(['fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(!event.scoreDisplay && derivedScore ? { scoreDisplay:derivedScore } : {}),
     ...(!event.score && derivedScore ? { score:derivedScore } : {}),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
@@ -365,8 +365,14 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
 
 function codeFixtures(code){
   const placeholders = [...eventPhasePlaceholders(code), ...codePhasePlaceholders(code)];
+  const golf = code.id === "sport:golf" ? require("./refresh-pga-schedule").fixtures(require("../data/canonical/pga-tour-schedule.json")) : [];
   const programme = require("../lib/competition-fixtures").fixtures().filter(event => eventMatchesCode(event,code));
   const published = feed.events.filter(event => eventMatchesCode(event, code));
+  const tournamentName = name => String(name||'').toLowerCase().replace(/the \d+(?:st|nd|rd|th) open/,'the open championship').replace(/\b20\d\d\b/g,'').replace(/[^a-z0-9]/g,'');
+  for(const fixture of golf){
+    const existing=[...published,...programme].find(e=>e.date===fixture.date && tournamentName(e.name)===tournamentName(fixture.name));
+    if(existing){fixture.sourceEventIds=[fixture.id,existing.id];fixture.id=existing.id;fixture.eventId=existing.eventId||existing.id;fixture.canonicalEventId=existing.canonicalEventId||existing.id;}
+  }
   const canonical = ["sport:afl", "sport:aflw", "sport:nrl"].includes(code.id)
     ? canonicalAflNrl.events.filter(event => code.id === "sport:aflw"
       ? isAflwFixture(event)
@@ -381,7 +387,7 @@ function codeFixtures(code){
           ? canonicalWrc.events || []
         : [];
   const sourced=fixtureIdentity.mergeOverlays([...crossDisciplineFixtures,...(coverage.events || [])],require('../data/discovery/enrichment.v1.json').events).filter(event=>eventMatchesCode(event,code));
-  return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme], code.id, new Set([...canonical,...sourced])).map(enrichFixtureEditorial);
+  return mergeFixtureRecords(placeholders, [...canonical, ...published, ...sourced, ...programme, ...golf], code.id, new Set([...canonical,...sourced,...golf])).map(enrichFixtureEditorial);
 }
 
 function groupingMode(fixtures){

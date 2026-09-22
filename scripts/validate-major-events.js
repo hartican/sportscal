@@ -69,7 +69,7 @@ const forbiddenEventIds = [
 ];
 assert(forbiddenEventIds.every(id => !catalogue.events.some(record => record.id === id)), "single-code competitions and domestic finals must never be stored under Events");
 assert(catalogue.events.every(record => competitionClassification.belongsInEvents(record)), "the Events catalogue must contain Event-classified records only");
-const canonicalAflFinals = aflNrlCanonical.events.filter(event => event.sportDomainId === "sport:afl" && /final/i.test(event.roundLabel || ""));
+const canonicalAflFinals = aflNrlCanonical.events.filter(event => event.competitionId === "competition:afl-premiership-2026" && /final/i.test(event.roundLabel || ""));
 assert.equal(canonicalAflFinals.length, 11, "AFL must retain both Wildcard Finals, four first-week finals, two Semis, two Prelims and the Grand Final under its Code");
 const aflPhase = finalsCodePhases.phases.find(phase => phase.codeId === "sport:afl");
 const nrlPhase = finalsCodePhases.phases.find(phase => phase.codeId === "sport:nrl");

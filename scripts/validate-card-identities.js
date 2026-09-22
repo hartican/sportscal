@@ -25,7 +25,7 @@ const activeAflTeams = canonical.participants.filter(participant => (
   && participant.metadata?.competitionCode === "afl"
   && participant.teamCode !== "TBD"
 ));
-const activeAflwTeams = canonical.participants.filter(participant => participant.type === "team" && participant.metadata?.competitionCode === "aflw");
+const activeAflwTeams = canonical.participants.filter(participant => participant.type === "team" && participant.metadata?.competitionCode === "aflw" && participant.teamCode !== "TBD");
 
 function pngMetadata(path){
   const source = fs.readFileSync(path);

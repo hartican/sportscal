@@ -2,7 +2,7 @@
   "schemaVersion": "follow-directory-chunk.v1",
   "sportKey": "american-football",
   "label": "American Football",
-  "generatedAt": "2026-09-21T20:00:45Z",
+  "generatedAt": "2026-09-22T02:49:30Z",
   "status": "available",
   "sortBasis": "alphabetical-fallback",
   "records": [
@@ -17506,6 +17506,41 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4242557/colby-parkinson"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
+      "id": "athlete:nfl:4367775",
+      "displayName": "Colby Sorsdal",
+      "shortName": "C. Sorsdal",
+      "aliases": [
+        "Colby Sorsdal",
+        "C. Sorsdal"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:atl",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "OT",
+      "identityId": "athlete:nfl:4367775",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4367775.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/4367775/colby-sorsdal"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -39113,6 +39148,41 @@
       "sourceReviewAfter": null
     },
     {
+      "id": "athlete:nfl:2976540",
+      "displayName": "Jalen Mills",
+      "shortName": "J. Mills",
+      "aliases": [
+        "Jalen Mills",
+        "J. Mills"
+      ],
+      "entityType": "athlete",
+      "current": true,
+      "countryCode": "USA",
+      "countryBasis": "official-record",
+      "genderCategory": "male",
+      "ranking": null,
+      "ladderPosition": null,
+      "marketValue": null,
+      "currentTeamId": "team:nfl:det",
+      "leagueId": "competition:nfl",
+      "teamKind": null,
+      "position": "S",
+      "identityId": "athlete:nfl:2976540",
+      "logoUrl": null,
+      "logoDarkUrl": null,
+      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/2976540.png",
+      "eventRanks": [],
+      "rankingBasis": null,
+      "sourceRefs": [
+        "https://www.espn.com/nfl/player/_/id/2976540/jalen-mills"
+      ],
+      "watchPoolMember": false,
+      "statusCategory": null,
+      "collectionIds": [],
+      "sourceCheckedAt": null,
+      "sourceReviewAfter": null
+    },
+    {
       "id": "athlete:nfl:4432734",
       "displayName": "Jalen Milroe",
       "shortName": "J. Milroe",
@@ -39980,41 +40050,6 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/3873935/jamel-dean"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "athlete:nfl:4567783",
-      "displayName": "James Brockermeyer",
-      "shortName": "J. Brockermeyer",
-      "aliases": [
-        "James Brockermeyer",
-        "J. Brockermeyer"
-      ],
-      "entityType": "athlete",
-      "current": true,
-      "countryCode": "USA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": "team:nfl:atl",
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": "C",
-      "identityId": "athlete:nfl:4567783",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4567783.png",
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4567783/james-brockermeyer"
       ],
       "watchPoolMember": false,
       "statusCategory": null,
@@ -57410,41 +57445,6 @@
       "rankingBasis": null,
       "sourceRefs": [
         "https://www.espn.com/nfl/player/_/id/4683159/lewis-bond"
-      ],
-      "watchPoolMember": false,
-      "statusCategory": null,
-      "collectionIds": [],
-      "sourceCheckedAt": null,
-      "sourceReviewAfter": null
-    },
-    {
-      "id": "athlete:nfl:4368056",
-      "displayName": "Liam Anderson",
-      "shortName": "L. Anderson",
-      "aliases": [
-        "Liam Anderson",
-        "L. Anderson"
-      ],
-      "entityType": "athlete",
-      "current": true,
-      "countryCode": "USA",
-      "countryBasis": "official-record",
-      "genderCategory": "male",
-      "ranking": null,
-      "ladderPosition": null,
-      "marketValue": null,
-      "currentTeamId": "team:nfl:mia",
-      "leagueId": "competition:nfl",
-      "teamKind": null,
-      "position": "LB",
-      "identityId": "athlete:nfl:4368056",
-      "logoUrl": null,
-      "logoDarkUrl": null,
-      "headshotUrl": "https://a.espncdn.com/i/headshots/nfl/players/full/4368056.png",
-      "eventRanks": [],
-      "rankingBasis": null,
-      "sourceRefs": [
-        "https://www.espn.com/nfl/player/_/id/4368056/liam-anderson"
       ],
       "watchPoolMember": false,
       "statusCategory": null,

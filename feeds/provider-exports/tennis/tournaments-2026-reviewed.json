@@ -1,7 +1,7 @@
 {
   "schemaVersion": "tennis-tournament-export.v1",
   "season": 2026,
-  "reviewedAt": "2026-08-13T02:00:00.000Z",
+  "reviewedAt": "2026-09-22T01:00:00.000Z",
   "ingestionMode": "manual_reviewed_export",
   "sources": [
     {
@@ -22,7 +22,10 @@
       "providerId": "grand-slam-australian-open-2026",
       "name": "Australian Open",
       "tour": "BOTH",
-      "representedTours": ["ATP", "WTA"],
+      "representedTours": [
+        "ATP",
+        "WTA"
+      ],
       "level": "grand_slam",
       "startDate": "2026-01-18",
       "endDate": "2026-02-01",
@@ -36,7 +39,10 @@
       "providerId": "grand-slam-roland-garros-2026",
       "name": "Roland Garros",
       "tour": "BOTH",
-      "representedTours": ["ATP", "WTA"],
+      "representedTours": [
+        "ATP",
+        "WTA"
+      ],
       "level": "grand_slam",
       "startDate": "2026-05-24",
       "endDate": "2026-06-07",
@@ -50,7 +56,10 @@
       "providerId": "grand-slam-wimbledon-2026",
       "name": "Wimbledon",
       "tour": "BOTH",
-      "representedTours": ["ATP", "WTA"],
+      "representedTours": [
+        "ATP",
+        "WTA"
+      ],
       "level": "grand_slam",
       "startDate": "2026-06-29",
       "endDate": "2026-07-12",
@@ -64,7 +73,10 @@
       "providerId": "grand-slam-us-open-2026",
       "name": "US Open",
       "tour": "BOTH",
-      "representedTours": ["ATP", "WTA"],
+      "representedTours": [
+        "ATP",
+        "WTA"
+      ],
       "level": "grand_slam",
       "startDate": "2026-08-31",
       "endDate": "2026-09-13",
@@ -78,7 +90,9 @@
       "providerId": "atp-indian-wells-2026",
       "name": "BNP Paribas Open",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_masters_1000",
       "startDate": "2026-03-04",
       "endDate": "2026-03-15",
@@ -91,7 +105,9 @@
       "providerId": "atp-miami-2026",
       "name": "Miami Open",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_masters_1000",
       "startDate": "2026-03-18",
       "endDate": "2026-03-29",
@@ -104,7 +120,9 @@
       "providerId": "atp-monte-carlo-2026",
       "name": "Rolex Monte-Carlo Masters",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_masters_1000",
       "startDate": "2026-04-05",
       "endDate": "2026-04-12",
@@ -117,7 +135,9 @@
       "providerId": "atp-madrid-2026",
       "name": "Mutua Madrid Open",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_masters_1000",
       "startDate": "2026-04-22",
       "endDate": "2026-05-03",
@@ -130,7 +150,9 @@
       "providerId": "atp-rome-2026",
       "name": "Internazionali BNL d'Italia",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_masters_1000",
       "startDate": "2026-05-06",
       "endDate": "2026-05-17",
@@ -143,7 +165,9 @@
       "providerId": "atp-canada-421-2026",
       "name": "National Bank Open presented by Rogers",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_masters_1000",
       "startDate": "2026-08-02",
       "endDate": "2026-08-12",
@@ -157,7 +181,9 @@
       "providerId": "atp-cincinnati-2026",
       "name": "Cincinnati Open",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_masters_1000",
       "startDate": "2026-08-13",
       "endDate": "2026-08-23",
@@ -170,7 +196,9 @@
       "providerId": "atp-shanghai-2026",
       "name": "Rolex Shanghai Masters",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_masters_1000",
       "startDate": "2026-10-07",
       "endDate": "2026-10-18",
@@ -183,7 +211,9 @@
       "providerId": "atp-paris-2026",
       "name": "Rolex Paris Masters",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_masters_1000",
       "startDate": "2026-11-02",
       "endDate": "2026-11-08",
@@ -196,7 +226,9 @@
       "providerId": "wta-doha-2026",
       "name": "Qatar TotalEnergies Open",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_1000",
       "startDate": "2026-02-09",
       "endDate": "2026-02-15",
@@ -209,7 +241,9 @@
       "providerId": "wta-dubai-2026",
       "name": "Dubai Duty Free Tennis Championships",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_1000",
       "startDate": "2026-02-16",
       "endDate": "2026-02-22",
@@ -222,7 +256,9 @@
       "providerId": "wta-indian-wells-2026",
       "name": "BNP Paribas Open",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_1000",
       "startDate": "2026-03-02",
       "endDate": "2026-03-15",
@@ -235,7 +271,9 @@
       "providerId": "wta-miami-2026",
       "name": "Miami Open",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_1000",
       "startDate": "2026-03-16",
       "endDate": "2026-03-29",
@@ -248,7 +286,9 @@
       "providerId": "wta-madrid-2026",
       "name": "Mutua Madrid Open",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_1000",
       "startDate": "2026-04-20",
       "endDate": "2026-05-03",
@@ -261,7 +301,9 @@
       "providerId": "wta-rome-2026",
       "name": "Internazionali BNL d'Italia",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_1000",
       "startDate": "2026-05-04",
       "endDate": "2026-05-17",
@@ -274,7 +316,9 @@
       "providerId": "wta-toronto-806-2026",
       "name": "National Bank Open presented by Rogers",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_1000",
       "startDate": "2026-08-02",
       "endDate": "2026-08-13",
@@ -288,7 +332,9 @@
       "providerId": "wta-cincinnati-2026",
       "name": "Cincinnati Open",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_1000",
       "startDate": "2026-08-10",
       "endDate": "2026-08-23",
@@ -301,7 +347,9 @@
       "providerId": "wta-beijing-2026",
       "name": "China Open",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_1000",
       "startDate": "2026-09-28",
       "endDate": "2026-10-11",
@@ -314,7 +362,9 @@
       "providerId": "wta-wuhan-2026",
       "name": "Wuhan Open",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_1000",
       "startDate": "2026-10-12",
       "endDate": "2026-10-18",
@@ -327,7 +377,9 @@
       "providerId": "atp-washington-2026",
       "name": "Mubadala Citi DC Open",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_500",
       "startDate": "2026-07-27",
       "endDate": "2026-08-02",
@@ -340,7 +392,9 @@
       "providerId": "atp-tokyo-2026",
       "name": "Japan Open Tennis Championships",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_500",
       "startDate": "2026-09-30",
       "endDate": "2026-10-06",
@@ -353,7 +407,9 @@
       "providerId": "atp-basel-2026",
       "name": "Swiss Indoors Basel",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_500",
       "startDate": "2026-10-26",
       "endDate": "2026-11-01",
@@ -366,7 +422,9 @@
       "providerId": "wta-washington-2026",
       "name": "Mubadala DC Open",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_500",
       "startDate": "2026-07-27",
       "endDate": "2026-08-02",
@@ -379,7 +437,9 @@
       "providerId": "wta-berlin-2026",
       "name": "Berlin Tennis Open",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_500",
       "startDate": "2026-06-15",
       "endDate": "2026-06-21",
@@ -392,7 +452,9 @@
       "providerId": "wta-bad-homburg-2026",
       "name": "Bad Homburg Open",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_500",
       "startDate": "2026-06-22",
       "endDate": "2026-06-28",
@@ -405,7 +467,9 @@
       "providerId": "atp-finals-2026",
       "name": "Nitto ATP Finals",
       "tour": "ATP",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "atp_finals",
       "startDate": "2026-11-15",
       "endDate": "2026-11-22",
@@ -418,20 +482,24 @@
       "providerId": "wta-finals-2026",
       "name": "WTA Finals Indian Wells",
       "tour": "WTA",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "wta_finals",
-      "startDate": "2026-11-09",
+      "startDate": "2026-11-08",
       "endDate": "2026-11-15",
       "city": "Indian Wells",
       "countryCode": "USA",
       "surface": "hard",
-      "sourceUrl": "https://wtafiles.wtatennis.com/pdf/calendar/calendar.pdf"
+      "sourceUrl": "https://www.wtatennis.com/tournaments/808/wta-finals/2026"
     },
     {
       "providerId": "davis-cup-finals-2026",
       "name": "Davis Cup Finals",
       "tour": "TEAM",
-      "representedTours": ["ATP"],
+      "representedTours": [
+        "ATP"
+      ],
       "level": "team_competition",
       "startDate": "2026-11-24",
       "endDate": "2026-11-29",
@@ -444,14 +512,70 @@
       "providerId": "bjk-cup-finals-2026",
       "name": "Billie Jean King Cup Finals",
       "tour": "TEAM",
-      "representedTours": ["WTA"],
+      "representedTours": [
+        "WTA"
+      ],
       "level": "team_competition",
-      "startDate": "2026-09-21",
+      "startDate": "2026-09-22",
       "endDate": "2026-09-27",
       "city": "Shenzhen",
       "countryCode": "CHN",
       "surface": "hard",
-      "sourceUrl": "https://www.billiejeankingcup.com/en/more/format"
+      "sourceUrl": "https://www.billiejeankingcup.com/en/tickets"
+    },
+    {
+      "providerId": "united-cup-2026",
+      "name": "United Cup",
+      "tour": "BOTH",
+      "representedTours": [
+        "ATP",
+        "WTA"
+      ],
+      "level": "team_competition",
+      "startDate": "2026-01-02",
+      "endDate": "2026-01-11",
+      "city": "Perth / Sydney",
+      "countryCode": "AUS",
+      "surface": "hard",
+      "competitionId": "competition:united-cup",
+      "eventSeriesId": "event-series:united-cup",
+      "sourceUrl": "https://www.atptour.com/en/news/united-cup-2026-schedule"
+    },
+    {
+      "providerId": "grand-slam-australian-open-2027",
+      "name": "Australian Open",
+      "tour": "BOTH",
+      "representedTours": [
+        "ATP",
+        "WTA"
+      ],
+      "level": "grand_slam",
+      "startDate": "2027-01-17",
+      "endDate": "2027-01-31",
+      "city": "Melbourne",
+      "countryCode": "AUS",
+      "surface": "hard",
+      "eventSeriesId": "event-series:australian-open",
+      "season": 2027,
+      "sourceUrl": "https://ausopen.com/articles/news/australian-open-2027-dates-announced"
+    },
+    {
+      "providerId": "grand-slam-wimbledon-2027",
+      "name": "Wimbledon",
+      "tour": "BOTH",
+      "representedTours": [
+        "ATP",
+        "WTA"
+      ],
+      "level": "grand_slam",
+      "startDate": "2027-06-28",
+      "endDate": "2027-07-11",
+      "city": "London",
+      "countryCode": "GBR",
+      "surface": "grass",
+      "eventSeriesId": "event-series:wimbledon",
+      "season": 2027,
+      "sourceUrl": "https://www.wimbledon.com/en_GB/atoz/dates.html"
     }
   ]
 }

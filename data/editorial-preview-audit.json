@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-21T20:44:41.510Z",
+  "generatedAt": "2026-09-22T03:02:08.163Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
@@ -86,9 +86,10 @@
         "event-specific",
         "narrative:consequence",
         "narrative:matchup",
-        "narrative:path"
+        "narrative:path",
+        "narrative:form"
       ],
-      "sourceUrl": "https://www.rugby.com.au/news/venues-confirmed-as-tickets-go-on-sale-for-2026-wallabies-home-tests-2026215",
+      "sourceUrl": "https://www.rugby.com.au/news/wallabies-squad-springboks-perth-test-jordan-petaia-rugby-union-2026914",
       "issues": []
     },
     {

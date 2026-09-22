@@ -1,0 +1,1377 @@
+{
+  "schemaVersion": "pga-tour-schedule.v1",
+  "sourceName": "PGA TOUR official schedule",
+  "checkedAt": "2026-09-22T01:45:35.957Z",
+  "tournaments": [
+    {
+      "id": "R2026006",
+      "name": "Sony Open in Hawaii",
+      "season": 2026,
+      "startDate": "2026-01-15",
+      "endDate": "2026-01-18",
+      "status": "completed",
+      "venue": "Waialae Country Club",
+      "city": "Honolulu",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "59095",
+          "name": "Chris Gotterup"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026002",
+      "name": "The American Express",
+      "season": 2026,
+      "startDate": "2026-01-22",
+      "endDate": "2026-01-25",
+      "status": "completed",
+      "venue": "Pete Dye Stadium Course",
+      "city": "La Quinta",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "46046",
+          "name": "Scottie Scheffler"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026004",
+      "name": "Farmers Insurance Open",
+      "season": 2026,
+      "startDate": "2026-01-29",
+      "endDate": "2026-02-01",
+      "status": "completed",
+      "venue": "Torrey Pines Golf Course (South Course)",
+      "city": "San Diego",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "22405",
+          "name": "Justin Rose"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026003",
+      "name": "WM Phoenix Open",
+      "season": 2026,
+      "startDate": "2026-02-05",
+      "endDate": "2026-02-08",
+      "status": "completed",
+      "venue": "TPC Scottsdale (Stadium Course)",
+      "city": "Scottsdale",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "59095",
+          "name": "Chris Gotterup"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026005",
+      "name": "AT&T Pebble Beach Pro-Am",
+      "season": 2026,
+      "startDate": "2026-02-12",
+      "endDate": "2026-02-15",
+      "status": "completed",
+      "venue": "Pebble Beach Golf Links",
+      "city": "Pebble Beach",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "50525",
+          "name": "Collin Morikawa"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026007",
+      "name": "The Genesis Invitational",
+      "season": 2026,
+      "startDate": "2026-02-19",
+      "endDate": "2026-02-22",
+      "status": "completed",
+      "venue": "The Riviera Country Club",
+      "city": "Pacific Palisades",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "60004",
+          "name": "Jacob Bridgeman"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026010",
+      "name": "Cognizant Classic in The Palm Beaches",
+      "season": 2026,
+      "startDate": "2026-02-26",
+      "endDate": "2026-03-01",
+      "status": "completed",
+      "venue": "PGA National - Champion Course",
+      "city": "Palm Beach Gardens",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "51349",
+          "name": "Nico Echavarria"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026009",
+      "name": "Arnold Palmer Invitational presented by Mastercard",
+      "season": 2026,
+      "startDate": "2026-03-05",
+      "endDate": "2026-03-08",
+      "status": "completed",
+      "venue": "Arnold Palmer's Bay Hill Club & Lodge",
+      "city": "Orlando",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "56630",
+          "name": "Akshay Bhatia"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026483",
+      "name": "Puerto Rico Open",
+      "season": 2026,
+      "startDate": "2026-03-05",
+      "endDate": "2026-03-08",
+      "status": "completed",
+      "venue": "Grand Reserve Golf Club",
+      "city": "Rio Grande",
+      "countryCode": "PUR",
+      "major": false,
+      "winners": [
+        {
+          "id": "59440",
+          "name": "Ricky Castillo"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026011",
+      "name": "THE PLAYERS Championship",
+      "season": 2026,
+      "startDate": "2026-03-12",
+      "endDate": "2026-03-15",
+      "status": "completed",
+      "venue": "TPC Sawgrass - THE PLAYERS Stadium Course",
+      "city": "Ponte Vedra Beach",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "57366",
+          "name": "Cameron Young"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026475",
+      "name": "Valspar Championship",
+      "season": 2026,
+      "startDate": "2026-03-19",
+      "endDate": "2026-03-22",
+      "status": "completed",
+      "venue": "Innisbrook Resort and Golf Club - Copperhead Course",
+      "city": "Palm Harbor",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "40098",
+          "name": "Matt Fitzpatrick"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026020",
+      "name": "Texas Children's Houston Open",
+      "season": 2026,
+      "startDate": "2026-03-26",
+      "endDate": "2026-03-29",
+      "status": "completed",
+      "venue": "Memorial Park Golf Course",
+      "city": "Houston",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "31323",
+          "name": "Gary Woodland"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026041",
+      "name": "Valero Texas Open",
+      "season": 2026,
+      "startDate": "2026-04-02",
+      "endDate": "2026-04-05",
+      "status": "completed",
+      "venue": "TPC San Antonio - The Oaks Course",
+      "city": "San Antonio",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "39324",
+          "name": "J.J. Spaun"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026014",
+      "name": "Masters Tournament",
+      "season": 2026,
+      "startDate": "2026-04-09",
+      "endDate": "2026-04-12",
+      "status": "completed",
+      "venue": "Augusta National Golf Club",
+      "city": "Augusta",
+      "countryCode": "USA",
+      "major": true,
+      "winners": [
+        {
+          "id": "28237",
+          "name": "Rory McIlroy"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026012",
+      "name": "RBC Heritage",
+      "season": 2026,
+      "startDate": "2026-04-16",
+      "endDate": "2026-04-19",
+      "status": "completed",
+      "venue": "Harbour Town Golf Links",
+      "city": "Hilton Head Island",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "40098",
+          "name": "Matt Fitzpatrick"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026018",
+      "name": "Zurich Classic of New Orleans",
+      "season": 2026,
+      "startDate": "2026-04-23",
+      "endDate": "2026-04-26",
+      "status": "completed",
+      "venue": "TPC Louisiana",
+      "city": "Avondale",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "40098",
+          "name": "Matt Fitzpatrick"
+        },
+        {
+          "id": "55721",
+          "name": "Alex Fitzpatrick"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026556",
+      "name": "Cadillac Championship",
+      "season": 2026,
+      "startDate": "2026-04-30",
+      "endDate": "2026-05-03",
+      "status": "completed",
+      "venue": "Trump National Doral - Blue Monster Course",
+      "city": "Miami",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "57366",
+          "name": "Cameron Young"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026480",
+      "name": "Truist Championship",
+      "season": 2026,
+      "startDate": "2026-05-07",
+      "endDate": "2026-05-10",
+      "status": "completed",
+      "venue": "Quail Hollow Club",
+      "city": "Charlotte",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "49855",
+          "name": "Kristoffer Reitan"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026553",
+      "name": "ONEflight Myrtle Beach Classic",
+      "season": 2026,
+      "startDate": "2026-05-07",
+      "endDate": "2026-05-10",
+      "status": "completed",
+      "venue": "Dunes Golf and Beach Club",
+      "city": "Myrtle Beach",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "27649",
+          "name": "Brandt Snedeker"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026033",
+      "name": "PGA Championship",
+      "season": 2026,
+      "startDate": "2026-05-14",
+      "endDate": "2026-05-17",
+      "status": "completed",
+      "venue": "Aronimink Golf Club",
+      "city": "Newtown Square",
+      "countryCode": "USA",
+      "major": true,
+      "winners": [
+        {
+          "id": "46414",
+          "name": "Aaron Rai"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026019",
+      "name": "THE CJ CUP Byron Nelson",
+      "season": 2026,
+      "startDate": "2026-05-21",
+      "endDate": "2026-05-24",
+      "status": "completed",
+      "venue": "TPC Craig Ranch",
+      "city": "McKinney",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "51766",
+          "name": "Wyndham Clark"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026021",
+      "name": "Charles Schwab Challenge",
+      "season": 2026,
+      "startDate": "2026-05-28",
+      "endDate": "2026-05-31",
+      "status": "completed",
+      "venue": "Colonial Country Club",
+      "city": "Fort Worth",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "34098",
+          "name": "Russell Henley"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026023",
+      "name": "the Memorial Tournament presented by Workday",
+      "season": 2026,
+      "startDate": "2026-06-04",
+      "endDate": "2026-06-07",
+      "status": "completed",
+      "venue": "Muirfield Village Golf Club",
+      "city": "Dublin",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "49771",
+          "name": "J.T. Poston"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026032",
+      "name": "RBC Canadian Open",
+      "season": 2026,
+      "startDate": "2026-06-11",
+      "endDate": "2026-06-14",
+      "status": "completed",
+      "venue": "TPC Toronto at Osprey Valley - North Course",
+      "city": "Caledon, Ontario",
+      "countryCode": "CAN",
+      "major": false,
+      "winners": [
+        {
+          "id": "34021",
+          "name": "Bud Cauley"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026026",
+      "name": "U.S. Open",
+      "season": 2026,
+      "startDate": "2026-06-18",
+      "endDate": "2026-06-21",
+      "status": "completed",
+      "venue": "Shinnecock Hills Golf Club",
+      "city": "Southampton",
+      "countryCode": "USA",
+      "major": true,
+      "winners": [
+        {
+          "id": "51766",
+          "name": "Wyndham Clark"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026034",
+      "name": "Travelers Championship",
+      "season": 2026,
+      "startDate": "2026-06-25",
+      "endDate": "2026-06-28",
+      "status": "completed",
+      "venue": "TPC River Highlands",
+      "city": "Cromwell",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "46717",
+          "name": "Viktor Hovland"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026030",
+      "name": "John Deere Classic",
+      "season": 2026,
+      "startDate": "2026-07-02",
+      "endDate": "2026-07-05",
+      "status": "completed",
+      "venue": "TPC Deere Run",
+      "city": "Silvis",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "59095",
+          "name": "Chris Gotterup"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026541",
+      "name": "Genesis Scottish Open",
+      "season": 2026,
+      "startDate": "2026-07-09",
+      "endDate": "2026-07-12",
+      "status": "completed",
+      "venue": "The Renaissance Club",
+      "city": "North Berwick",
+      "countryCode": "SCO",
+      "major": false,
+      "winners": [
+        {
+          "id": "55182",
+          "name": "Tom Kim"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026518",
+      "name": "ISCO Championship",
+      "season": 2026,
+      "startDate": "2026-07-09",
+      "endDate": "2026-07-12",
+      "status": "completed",
+      "venue": "Hurstbourne Country Club",
+      "city": "Louisville",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "57123",
+          "name": "Steven Fisk"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026100",
+      "name": "The Open Championship",
+      "season": 2026,
+      "startDate": "2026-07-16",
+      "endDate": "2026-07-19",
+      "status": "completed",
+      "venue": "Royal Birkdale Golf Club",
+      "city": "Southport",
+      "countryCode": "ENG",
+      "major": true,
+      "winners": [
+        {
+          "id": "29936",
+          "name": "Ryan Fox"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026522",
+      "name": "Corales Puntacana Championship",
+      "season": 2026,
+      "startDate": "2026-07-16",
+      "endDate": "2026-07-19",
+      "status": "completed",
+      "venue": "Puntacana Resort & Club (Corales Golf Course)",
+      "city": "Punta Cana",
+      "countryCode": "DOM",
+      "major": false,
+      "winners": [
+        {
+          "id": "49037",
+          "name": "Stefano Mazzoli"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026525",
+      "name": "3M Open",
+      "season": 2026,
+      "startDate": "2026-07-23",
+      "endDate": "2026-07-26",
+      "status": "completed",
+      "venue": "TPC Twin Cities",
+      "city": "Blaine",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "66701",
+          "name": "Jackson Koivun"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026524",
+      "name": "Rocket Classic",
+      "season": 2026,
+      "startDate": "2026-07-30",
+      "endDate": "2026-08-02",
+      "status": "completed",
+      "venue": "Detroit Golf Club",
+      "city": "Detroit",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "57364",
+          "name": "Michael Thorbjornsen"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026013",
+      "name": "Wyndham Championship",
+      "season": 2026,
+      "startDate": "2026-08-06",
+      "endDate": "2026-08-09",
+      "status": "completed",
+      "venue": "Sedgefield Country Club",
+      "city": "Greensboro",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "61522",
+          "name": "Michael Brennan"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026027",
+      "name": "FedEx St. Jude Championship",
+      "season": 2026,
+      "startDate": "2026-08-13",
+      "endDate": "2026-08-16",
+      "status": "completed",
+      "venue": "TPC Southwind",
+      "city": "Memphis",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "46046",
+          "name": "Scottie Scheffler"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026028",
+      "name": "BMW Championship",
+      "season": 2026,
+      "startDate": "2026-08-20",
+      "endDate": "2026-08-23",
+      "status": "completed",
+      "venue": "Bellerive Country Club",
+      "city": "St. Louis",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "51766",
+          "name": "Wyndham Clark"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026060",
+      "name": "TOUR Championship",
+      "season": 2026,
+      "startDate": "2026-08-27",
+      "endDate": "2026-08-30",
+      "status": "completed",
+      "venue": "East Lake Golf Club",
+      "city": "Atlanta",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "46046",
+          "name": "Scottie Scheffler"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026557",
+      "name": "Biltmore Championship Asheville",
+      "season": 2026,
+      "startDate": "2026-09-17",
+      "endDate": "2026-09-20",
+      "status": "completed",
+      "venue": "The Cliffs at Walnut Cove",
+      "city": "Asheville",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [
+        {
+          "id": "60004",
+          "name": "Jacob Bridgeman"
+        }
+      ],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026500",
+      "name": "Presidents Cup",
+      "season": 2026,
+      "startDate": "2026-09-24",
+      "endDate": "2026-09-27",
+      "status": "upcoming",
+      "venue": "Medinah CC (No. 3)",
+      "city": "Chicago",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026554",
+      "name": "Bank of Utah Championship",
+      "season": 2026,
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-04",
+      "status": "upcoming",
+      "venue": "Black Desert Resort",
+      "city": "Ivins",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026527",
+      "name": "Baycurrent Classic",
+      "season": 2026,
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-11",
+      "status": "upcoming",
+      "venue": "Yokohama Country Club",
+      "city": "Yokohama",
+      "countryCode": "JPN",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026528",
+      "name": "Butterfield Bermuda Championship",
+      "season": 2026,
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-25",
+      "status": "upcoming",
+      "venue": "Port Royal Golf Course",
+      "city": "Southampton",
+      "countryCode": "BER",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026540",
+      "name": "VidantaWorld Mexico Open",
+      "season": 2026,
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-01",
+      "status": "upcoming",
+      "venue": "Vidanta Vallarta",
+      "city": "Vallarta",
+      "countryCode": "MEX",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026457",
+      "name": "World Wide Technology Championship",
+      "season": 2026,
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-08",
+      "status": "upcoming",
+      "venue": "El Cardonal at Diamante",
+      "city": "Los Cabos",
+      "countryCode": "MEX",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026558",
+      "name": "Austin Championship",
+      "season": 2026,
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-15",
+      "status": "upcoming",
+      "venue": "Omni Barton Creek Resort & Spa (Fazio Canyons Course)",
+      "city": "Austin",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026493",
+      "name": "The RSM Classic",
+      "season": 2026,
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-22",
+      "status": "upcoming",
+      "venue": "Sea Island Golf Club (Seaside Course)",
+      "city": "St. Simons Island",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026478",
+      "name": "Hero World Challenge",
+      "season": 2026,
+      "startDate": "2026-12-03",
+      "endDate": "2026-12-06",
+      "status": "upcoming",
+      "venue": "Albany GC",
+      "city": "Albany",
+      "countryCode": "BAH",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026088",
+      "name": "PGA TOUR Q-School presented by Korn Ferry",
+      "season": 2026,
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-13",
+      "status": "upcoming",
+      "venue": "Dye's Valley Course",
+      "city": "Ponte Vedra Beach",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2026551",
+      "name": "Grant Thornton Invitational",
+      "season": 2026,
+      "startDate": "2026-12-11",
+      "endDate": "2026-12-13",
+      "status": "upcoming",
+      "venue": "Tiburón Golf Club",
+      "city": "Naples",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2026"
+    },
+    {
+      "id": "R2027002",
+      "name": "The American Express",
+      "season": 2027,
+      "startDate": "2027-01-21",
+      "endDate": "2027-01-24",
+      "status": "upcoming",
+      "venue": "Pete Dye Stadium Course",
+      "city": "La Quinta",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027004",
+      "name": "The Sentry",
+      "season": 2027,
+      "startDate": "2027-01-27",
+      "endDate": "2027-01-30",
+      "status": "upcoming",
+      "venue": "Torrey Pines Golf Course (South Course)",
+      "city": "San Diego",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027005",
+      "name": "AT&T Pebble Beach Pro-Am",
+      "season": 2027,
+      "startDate": "2027-02-04",
+      "endDate": "2027-02-07",
+      "status": "upcoming",
+      "venue": "Pebble Beach Golf Links",
+      "city": "Pebble Beach",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027003",
+      "name": "WM Phoenix Open",
+      "season": 2027,
+      "startDate": "2027-02-11",
+      "endDate": "2027-02-14",
+      "status": "upcoming",
+      "venue": "TPC Scottsdale (Stadium Course)",
+      "city": "Scottsdale",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027007",
+      "name": "The Genesis Invitational",
+      "season": 2027,
+      "startDate": "2027-02-18",
+      "endDate": "2027-02-21",
+      "status": "upcoming",
+      "venue": "The Riviera Country Club",
+      "city": "Pacific Palisades",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027010",
+      "name": "Cognizant Classic in The Palm Beaches",
+      "season": 2027,
+      "startDate": "2027-02-25",
+      "endDate": "2027-02-28",
+      "status": "upcoming",
+      "venue": "PGA National - Champion Course",
+      "city": "Palm Beach Gardens",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027556",
+      "name": "Cadillac Championship",
+      "season": 2027,
+      "startDate": "2027-03-04",
+      "endDate": "2027-03-07",
+      "status": "upcoming",
+      "venue": "Trump National Doral - Blue Monster Course",
+      "city": "Miami",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027011",
+      "name": "THE PLAYERS Championship",
+      "season": 2027,
+      "startDate": "2027-03-11",
+      "endDate": "2027-03-14",
+      "status": "upcoming",
+      "venue": "TPC Sawgrass - THE PLAYERS Stadium Course",
+      "city": "Ponte Vedra Beach",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027009",
+      "name": "Arnold Palmer Invitational presented by Mastercard",
+      "season": 2027,
+      "startDate": "2027-03-18",
+      "endDate": "2027-03-21",
+      "status": "upcoming",
+      "venue": "Arnold Palmer's Bay Hill Club & Lodge",
+      "city": "Orlando",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027020",
+      "name": "Texas Children's Houston Open",
+      "season": 2027,
+      "startDate": "2027-03-25",
+      "endDate": "2027-03-28",
+      "status": "upcoming",
+      "venue": "Memorial Park Golf Course",
+      "city": "Houston",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027041",
+      "name": "Valero Texas Open",
+      "season": 2027,
+      "startDate": "2027-04-01",
+      "endDate": "2027-04-04",
+      "status": "upcoming",
+      "venue": "TPC San Antonio - The Oaks Course",
+      "city": "San Antonio",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027014",
+      "name": "Masters Tournament",
+      "season": 2027,
+      "startDate": "2027-04-08",
+      "endDate": "2027-04-11",
+      "status": "upcoming",
+      "venue": "Augusta National Golf Club",
+      "city": "Augusta",
+      "countryCode": "USA",
+      "major": true,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027012",
+      "name": "RBC Heritage",
+      "season": 2027,
+      "startDate": "2027-04-15",
+      "endDate": "2027-04-18",
+      "status": "upcoming",
+      "venue": "Harbour Town Golf Links",
+      "city": "Hilton Head Island",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027018",
+      "name": "Zurich Classic of New Orleans",
+      "season": 2027,
+      "startDate": "2027-04-22",
+      "endDate": "2027-04-25",
+      "status": "upcoming",
+      "venue": "TPC Louisiana",
+      "city": "Avondale",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027019",
+      "name": "THE CJ CUP Byron Nelson",
+      "season": 2027,
+      "startDate": "2027-04-29",
+      "endDate": "2027-05-02",
+      "status": "upcoming",
+      "venue": "TPC Craig Ranch",
+      "city": "McKinney",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027475",
+      "name": "Valspar Championship",
+      "season": 2027,
+      "startDate": "2027-05-06",
+      "endDate": "2027-05-09",
+      "status": "upcoming",
+      "venue": "Innisbrook Resort and Golf Club - Copperhead Course",
+      "city": "Palm Harbor",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027480",
+      "name": "Truist Championship",
+      "season": 2027,
+      "startDate": "2027-05-13",
+      "endDate": "2027-05-16",
+      "status": "upcoming",
+      "venue": "Quail Hollow Club",
+      "city": "Charlotte",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027553",
+      "name": "ONEflight Myrtle Beach Classic",
+      "season": 2027,
+      "startDate": "2027-05-13",
+      "endDate": "2027-05-16",
+      "status": "upcoming",
+      "venue": "Dunes Golf and Beach Club",
+      "city": "Myrtle Beach",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027033",
+      "name": "PGA Championship",
+      "season": 2027,
+      "startDate": "2027-05-20",
+      "endDate": "2027-05-23",
+      "status": "upcoming",
+      "venue": "PGA Frisco",
+      "city": "Frisco",
+      "countryCode": "USA",
+      "major": true,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027021",
+      "name": "Charles Schwab Challenge",
+      "season": 2027,
+      "startDate": "2027-05-27",
+      "endDate": "2027-05-30",
+      "status": "upcoming",
+      "venue": "Colonial Country Club",
+      "city": "Fort Worth",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027023",
+      "name": "the Memorial Tournament presented by Workday",
+      "season": 2027,
+      "startDate": "2027-06-03",
+      "endDate": "2027-06-06",
+      "status": "upcoming",
+      "venue": "Muirfield Village Golf Club",
+      "city": "Dublin",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027032",
+      "name": "RBC Canadian Open",
+      "season": 2027,
+      "startDate": "2027-06-10",
+      "endDate": "2027-06-13",
+      "status": "upcoming",
+      "venue": "TPC Toronto at Osprey Valley - North Course",
+      "city": "Caledon, Ontario",
+      "countryCode": "CAN",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027026",
+      "name": "U.S. Open",
+      "season": 2027,
+      "startDate": "2027-06-17",
+      "endDate": "2027-06-20",
+      "status": "upcoming",
+      "venue": "Pebble Beach Golf Links",
+      "city": "Pebble Beach",
+      "countryCode": "USA",
+      "major": true,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027034",
+      "name": "Travelers Championship",
+      "season": 2027,
+      "startDate": "2027-06-24",
+      "endDate": "2027-06-27",
+      "status": "upcoming",
+      "venue": "TPC River Highlands",
+      "city": "Cromwell",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027030",
+      "name": "John Deere Classic",
+      "season": 2027,
+      "startDate": "2027-07-01",
+      "endDate": "2027-07-04",
+      "status": "upcoming",
+      "venue": "TPC Deere Run",
+      "city": "Silvis",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027541",
+      "name": "Genesis Scottish Open",
+      "season": 2027,
+      "startDate": "2027-07-08",
+      "endDate": "2027-07-11",
+      "status": "upcoming",
+      "venue": "The Renaissance Club",
+      "city": "North Berwick",
+      "countryCode": "SCO",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027518",
+      "name": "ISCO Championship",
+      "season": 2027,
+      "startDate": "2027-07-08",
+      "endDate": "2027-07-11",
+      "status": "upcoming",
+      "venue": "Hurstbourne Country Club",
+      "city": "Louisville",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027100",
+      "name": "The Open Championship",
+      "season": 2027,
+      "startDate": "2027-07-15",
+      "endDate": "2027-07-18",
+      "status": "upcoming",
+      "venue": "St. Andrews Links (Old Course)",
+      "city": "Fife",
+      "countryCode": "SCO",
+      "major": true,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027522",
+      "name": "Corales Puntacana Championship",
+      "season": 2027,
+      "startDate": "2027-07-15",
+      "endDate": "2027-07-18",
+      "status": "upcoming",
+      "venue": "Puntacana Resort & Club (Corales Golf Course)",
+      "city": "Punta Cana",
+      "countryCode": "DOM",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027525",
+      "name": "3M Open",
+      "season": 2027,
+      "startDate": "2027-07-22",
+      "endDate": "2027-07-25",
+      "status": "upcoming",
+      "venue": "TPC Twin Cities",
+      "city": "Blaine",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027559",
+      "name": "Sompo Championship",
+      "season": 2027,
+      "startDate": "2027-07-29",
+      "endDate": "2027-08-01",
+      "status": "upcoming",
+      "venue": "Silverado Resort (North Course)",
+      "city": "Napa",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027013",
+      "name": "GO by Raymond James",
+      "season": 2027,
+      "startDate": "2027-08-05",
+      "endDate": "2027-08-08",
+      "status": "upcoming",
+      "venue": "Sedgefield Country Club",
+      "city": "Greensboro",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027027",
+      "name": "FedEx St. Jude Championship",
+      "season": 2027,
+      "startDate": "2027-08-12",
+      "endDate": "2027-08-15",
+      "status": "upcoming",
+      "venue": "TPC Southwind",
+      "city": "Memphis",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027028",
+      "name": "BMW Championship",
+      "season": 2027,
+      "startDate": "2027-08-19",
+      "endDate": "2027-08-22",
+      "status": "upcoming",
+      "venue": "Liberty National Golf Club",
+      "city": "Jersey City",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    },
+    {
+      "id": "R2027060",
+      "name": "TOUR Championship",
+      "season": 2027,
+      "startDate": "2027-08-26",
+      "endDate": "2027-08-29",
+      "status": "upcoming",
+      "venue": "East Lake Golf Club",
+      "city": "Atlanta",
+      "countryCode": "USA",
+      "major": false,
+      "winners": [],
+      "sourceUrl": "https://www.pgatour.com/schedule/2027"
+    }
+  ]
+}

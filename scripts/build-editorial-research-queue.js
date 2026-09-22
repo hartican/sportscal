@@ -18,10 +18,18 @@ function eventTime(record){
   return feedControls.eventStart(record)?.getTime() ?? Date.parse(`${record.date || record.startDate || ""}T00:00:00+10:00`);
 }
 function targetKey(targetType, record){ return `${targetType === "major-event" ? "event" : "fixture"}:${idFor(record)}`; }
-function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Date() }){
+function buildQueue({ knowledge, feed, majorEvents, signals, catalogue=[], reference = new Date() }){
   const now = reference.getTime();
   const signalById = new Map((signals.signals || []).map(signal => [signal.sourceEventId, signal]));
-  const promotion = record => require("../config/promoted-replay").recommendation(record, {aggregates:{impact:signalById.get(idFor(record))?.impact}}) || (["completed","past","finished"].includes(record.status) && signalById.get(idFor(record))?.replayResearchRequested === true);
+  const promotion = record => {
+    const signal=signalById.get(idFor(record));
+    const impact=Number(signal?.impact?.support)>0?signal.impact:null;
+    return require("../config/promoted-replay").recommendation(record, {aggregates:{impact}}) || (["completed","past","finished"].includes(record.status) && signal?.replayResearchRequested === true);
+  };
+  const fiveStar = record => {
+    const signal=signalById.get(idFor(record));
+    return Boolean(Number(record.editorialReplayRecommendation?.rating)===5 || Number(record.editorialPreviewRecommendation?.rating)===5 || signal?.fiveStarPhases?.length || promotion(record) || ['anticipation','pulse','impact'].some(phase=>Number(signal?.[phase]?.score)===5 && Number(signal?.[phase]?.support)>0));
+  };
   const earliest = now - 7 * DAY_MS;
   const latest = now + 30 * DAY_MS;
   const rolling = (feed.events || []).filter(record => {
@@ -47,7 +55,7 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
       reason:"surfaced-major-fixture",
     }));
   const uniqueTargets = new Map();
-  [...rolling, ...feedMarquees, ...majorMarquees, ...majorChildren].forEach(target => {
+  [...rolling, ...feedMarquees, ...majorMarquees, ...majorChildren, ...[...(feed.events||[]),...catalogue].filter(record=>researchDepthFor(record)>0&&fiveStar(record)).map(record=>({targetType:'feed-event',record,reason:'real-five-star-signal'}))].forEach(target => {
     const key = targetKey(target.targetType, target.record);
     const previous = uniqueTargets.get(key);
     uniqueTargets.set(key, previous ? { ...previous, reason:`${previous.reason}+${target.reason}` } : target);
@@ -81,19 +89,22 @@ function buildQueue({ knowledge, feed, majorEvents, signals, reference = new Dat
       targetType,
       targetId:idFor(record),
       title:record.name,
-      researchDepth:promotion(record) ? 5 : researchDepthFor(record),
+      researchDepth:fiveStar(record) ? 5 : researchDepthFor(record),
       startsAt:Number.isFinite(start) ? new Date(start).toISOString() : null,
       reason,
       projectionId:projection?.id || null,
-      coverage:projection ? "covered" : Number.isFinite(start)&&start>latest ? "queued-future" : queuedUnverified ? "queued-unverified" : "missing",
+      coverage:projection ? "covered" : fiveStar(record) && (!(feed.events||[]).some(item=>idFor(item)===idFor(record)) || eventTime(record)<earliest) ? "queued-research" : Number.isFinite(start)&&start>latest ? "queued-future" : queuedUnverified ? "queued-unverified" : "missing",
       consequenceCoverage:projection?.consequence ? "covered" : "missing",
       consequenceResearchRequired:Boolean(projection && !projection.consequence),
       promotedReplay:Boolean(promotion(record)),
-      priority:promotion(record) ? "promoted-replay" : pulseUrgent ? "urgent-post-event" : anticipationPriority ? "audience-accelerated" : researchDepthFor(record) === 5 ? "marquee" : "rolling",
+      editorialPhase:["completed","past","finished"].includes(record.status)?"post-match":"preview",
+      fiveStarSignal:fiveStar(record),
+      resultResearchRequired:record.editorialNarrative?.resultResearchRequired===true,
+      priority:promotion(record) ? "promoted-replay" : fiveStar(record) ? "five-star" : pulseUrgent ? "urgent-post-event" : anticipationPriority ? "audience-accelerated" : researchDepthFor(record) === 5 ? "marquee" : "rolling",
       refreshDeadline:acceleratedDeadline,
     };
   }).sort((left, right) => {
-    const rank = { "promoted-replay":-1, "urgent-post-event":0, "audience-accelerated":1, marquee:2, rolling:3 };
+    const rank = { "five-star":-1, "promoted-replay":-1, "urgent-post-event":0, "audience-accelerated":1, marquee:2, rolling:3 };
     return rank[left.priority] - rank[right.priority] || Date.parse(left.startsAt || "9999-12-31") - Date.parse(right.startsAt || "9999-12-31") || left.targetId.localeCompare(right.targetId);
   });
   const consequenceCovered = entries.filter(entry => entry.consequenceCoverage === "covered").length;
@@ -118,6 +129,7 @@ function main(){
     feed:readJson("feeds/incoming/events.json"),
     majorEvents:readJson("data/major-events.v1.json"),
     signals:readJson("data/editorial-nothingscore-snapshot.v1.json"),
+    catalogue:require("../lib/calendar-catalogue").catalogue(),
     reference,
   });
   if (write) writeJson(OUTPUT_PATH, queue);

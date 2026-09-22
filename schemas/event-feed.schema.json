@@ -183,6 +183,18 @@
         },
         "consequence": {
           "$ref": "#/$defs/editorialConsequence"
+        },
+        "phase": {
+          "enum": [
+            "preview",
+            "recap"
+          ]
+        },
+        "resultSignature": {
+          "type": "string"
+        },
+        "resultResearchRequired": {
+          "type": "boolean"
         }
       }
     },
