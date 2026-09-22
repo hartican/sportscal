@@ -23,3 +23,9 @@ const catalogue=require('../data/canonical/tennis-catalogue-2026.json').tourname
 for(const t of catalogue.filter(t=>horizon.inHorizon(t,published.from)))assert(published.tournaments.some(p=>p.tournamentId===t.tournamentId),`${t.name}: missing horizon structure`);
 const saved=new Map([[slot.slotId,{rating:5,reminder:true}]]),rescheduled=horizon.structure(t,[{id:'confirmed',tournamentSlotId:slot.slotId,date:'2026-09-26',time:'17:30',participantSlots:[{participantId:'confirmed-player',label:'Confirmed player'}]}],{drawSize:32});
 assert.equal(rescheduled.slots[0].slotId,slot.slotId);assert.equal(rescheduled.slots[0].date,'2026-09-26');assert.deepEqual(saved.get(rescheduled.slots[0].slotId),{rating:5,reminder:true});
+
+const major={id:'golf-major',key:'golf',name:'Masters Tournament',date:'2026-09-23',kind:'tournament'};
+const auGolf={selectedSelectorEntityIds:['sport:golf'],followFirst:{australiansOnlySportIds:['sport:golf']}};
+assert(!follow.reasonForEvent(major,auGolf));assert(follow.reasonForEvent({...major,participants:[{id:'golfer',countryCode:'AU'}]},auGolf));
+assert(!policy.eligibleForFollow(major,{competitionFollow:true,australiansOnly:true}));
+assert(policy.eligibleForFollow(major,{explicitSelection:true,australiansOnly:true}));

@@ -200,7 +200,7 @@
     if(!hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
-    if(['golf','masters'].includes(sportKey(event)))return competitionFollow&&golfMajor(event);
+    if(['golf','masters'].includes(sportKey(event)))return competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event));
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
     if(sportKey(event)==="f1" && competitionFollow)return true;

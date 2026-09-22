@@ -3698,7 +3698,7 @@ return {womensT20,apply,fields};
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
       || domains.some(domain => domain.enabled === true);
-    if(['golf','masters'].includes(sourceSportId))return sportFollowed&&followPolicy.golfMajor(event)?{type:'sport-marquee',entityKind:'sport',id:'golf',label:null,displayTag:false}:null;
+    if(['golf','masters'].includes(sourceSportId))return sportFollowed&&followPolicy.eligibleForFollow(event,{competitionFollow:true,australiansOnly:(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')})?{type:'sport-marquee',entityKind:'sport',id:'golf',label:null,displayTag:false}:null;
     const concreteSportingCard = Boolean(
       followPolicy?.sportingFixture(event)
       && event?.majorEventMarker !== true
@@ -4210,7 +4210,7 @@ return {womensT20,apply,fields};
     if(!hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
-    if(['golf','masters'].includes(sportKey(event)))return competitionFollow&&golfMajor(event);
+    if(['golf','masters'].includes(sportKey(event)))return competitionFollow&&golfMajor(event)&&(!australiansOnly||hasAustralianParticipant(event));
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
     if(sportKey(event)==="f1" && competitionFollow)return true;

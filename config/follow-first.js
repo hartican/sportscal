@@ -567,7 +567,7 @@
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
       || domains.some(domain => domain.enabled === true);
-    if(['golf','masters'].includes(sourceSportId))return sportFollowed&&followPolicy.golfMajor(event)?{type:'sport-marquee',entityKind:'sport',id:'golf',label:null,displayTag:false}:null;
+    if(['golf','masters'].includes(sourceSportId))return sportFollowed&&followPolicy.eligibleForFollow(event,{competitionFollow:true,australiansOnly:(next.followFirst.australiansOnlySportIds||[]).includes('sport:golf')})?{type:'sport-marquee',entityKind:'sport',id:'golf',label:null,displayTag:false}:null;
     const concreteSportingCard = Boolean(
       followPolicy?.sportingFixture(event)
       && event?.majorEventMarker !== true
