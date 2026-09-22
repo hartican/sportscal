@@ -1,10 +1,10 @@
-const CACHE_NAME = "nothingsport-shell-v292";
-const SHELL_VERSION = "292";
+const CACHE_NAME = "nothingsport-shell-v293";
+const SHELL_VERSION = "293";
 const APP_SHELL = [
   "/assets/providers/7plus.png",
-  "/assets/js/notifications-inbox.js?v=292",
+  "/assets/js/notifications-inbox.js?v=293",
   "/assets/styles/notifications-inbox.css?v=280",
-  "/assets/js/app-update.js?v=292",
+  "/assets/js/app-update.js?v=293",
   // Navigations already share /index.html below; do not download/cache its
   // million-byte HTML a second time under the root alias during installation.
   "/index.html",
@@ -14,13 +14,13 @@ const APP_SHELL = [
   "/admin-comms.html",
   "/privacy.html",
   "/terms.html",
-  "/assets/styles/nothingsport-foundation.css?v=292",
+  "/assets/styles/nothingsport-foundation.css?v=293",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=292",
-  "/config/tournament-schedule.js?v=292",
-  "/assets/js/tennis-schedule-ui.js?v=292",
-  "/assets/js/nsc-rankings-ui.js?v=292",
-  "/assets/styles/nsc-ladder.css?v=292",
+  "/assets/js/app-shell-runtime.js?v=293",
+  "/config/tournament-schedule.js?v=293",
+  "/assets/js/tennis-schedule-ui.js?v=293",
+  "/assets/js/nsc-rankings-ui.js?v=293",
+  "/assets/styles/nsc-ladder.css?v=293",
   "/assets/styles/card-clarity.css?v=275",
   "/config/follow-directory-worker.js?v=275",
   "/config/calendar-selection.js",
@@ -29,7 +29,7 @@ const APP_SHELL = [
   "/config/preference-taxonomy.js",
   "/config/follow-summary.js",
   "/assets/identities/events/le-mans-24-hours.png",
-  "/styles/follow-feed-rework.css?v=292",
+  "/styles/follow-feed-rework.css?v=293",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/tennis-coverage.js",

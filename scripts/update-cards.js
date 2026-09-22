@@ -211,6 +211,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-tournament-horizon.js"],
   ["scripts/validate-feed-follow-repairs.js"],
   ["scripts/validate-feed-filter-pagination.js"],
+  ["scripts/validate-feed-page-concurrency.js"],
   ["scripts/apply-coverage-pauses.js"],
   ["scripts/validate-coverage-pauses.js"],
   ["scripts/validate-coverage-repairs.js"],
