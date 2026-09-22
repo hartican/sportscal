@@ -9,7 +9,7 @@ globalThis.openFeedViewFilter=()=>{
  const status=document.createElement('p');status.setAttribute('role','status');dialog.append(status);
  const apply=document.createElement('button');apply.className='btn primary';apply.textContent='Apply';
  apply.onclick=async()=>{apply.disabled=true;status.textContent='Loading your Feed…';try{
-  while((serverPersistence.user&&serverFeedNextCursor!==null)||publicFeedManifest?.pages?.[publicFeedNextPageIndex]){if(!await loadNextFeedPage())throw new Error('Couldn’t load all Feed cards. Try again.');}
+  await loadAllFeedPages();
   if(Number(rating.value)){const context=buildFollowEligibilityContext(),ids=activeEvents.filter(e=>eventFollowReason(e,context)).map(nothingscoreEventId);for(let i=0;i<ids.length;i+=50)await loadNothingscoreBatch(ids.slice(i,i+50),{rerender:false});}
   feedViewFilters={sport:sport.value,minimum:Number(rating.value)};feedFilterHydratedKey=`${serverSyncClient?.sessionSubject()||'public'}|${feedViewFilters.sport}|${feedViewFilters.minimum}`;localStorage.setItem('ns-feed-view-filter-v1',JSON.stringify(feedViewFilters));dialog.close();renderAll({preserveViewport:true});
  }catch(e){status.textContent=e.message;}finally{apply.disabled=false;}};

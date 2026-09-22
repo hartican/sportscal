@@ -72,7 +72,7 @@
    render();dialog.showModal();body.scrollTop=position;trigger.setAttribute('aria-expanded','true');document.body.classList.add('notifications-open');close.focus();void refresh();
   }
   function hide(){generation++;busy=false;opened=false;position=body.scrollTop;observer.disconnect();clearTimeout(timer);clearTimeout(readTimer);pending.clear();dialog.close();document.body.classList.remove('notifications-open');trigger.setAttribute('aria-expanded','false');trigger.focus({preventScroll:true});}
-  function dismiss(){hide();if(history.state?.inbox)history.back();}
+  function dismiss(){hide();if(history.state?.inbox)history.replaceState({},'');}
   async function activate(item){
    const who=account;
    pending.set(item.id,{id:item.id,version:item.version});await markVisible();

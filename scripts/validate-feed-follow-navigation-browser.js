@@ -11,6 +11,7 @@ const result=await page.evaluate(async()=>{
  }
  if(routeFailures.length)throw new Error(JSON.stringify(routeFailures));
  activeInspectorCodeId=null;inspectorReturnState=null;
+ const nbl=(await (await fetch('data/follow-schedule/nbl.json')).json()).fixtures[0];nbl.key='nba';if(codeIdForEvent(nbl)!=='sport:nbl'||scheduleScopeForEvent(nbl).label!=='NBL')throw new Error('Projected NBL fixture lost its explicit Schedule code');
  const missing=events.filter(e=>!codeInspectorManifest.codes.some(c=>c.id===codeIdForEvent(e))).map(e=>e.name);
  activeTab='feed';feedViewFilters={sport:'sport:cricket',minimum:0};await openStandingsFixturesForEvent(events.find(e=>e.key==='cricket'));
  const follow=!!document.querySelector('.follow-section-tabs'),common=!!document.querySelector('.follow-common-controls'),returnTab=inspectorReturnState?.activeTab;

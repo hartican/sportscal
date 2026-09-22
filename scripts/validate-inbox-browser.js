@@ -43,6 +43,7 @@ async function main(){
   }
   await page.keyboard.press('Escape');await page.waitForTimeout(100);assert.equal(await page.locator('#notificationsInbox').evaluate(e=>e.open),false);
   assert.equal(await page.evaluate(()=>document.activeElement.id),'notificationsBtn');
+  assert.equal(await page.evaluate(()=>Boolean(history.state?.inbox)),false,'Dismiss must clear inbox ownership synchronously');
   if(width===390)await page.screenshot({path:'/tmp/ns-notifications-inbox-mobile.png'});
   assert.equal(errors.filter(x=>/notifications|inbox/i.test(x)).length,0,errors.join('\n'));await page.close();
  }

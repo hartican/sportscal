@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="287">
-<script src="/assets/js/app-update.js?v=287" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=287" as="script">
+<meta name="app-shell-version" content="288">
+<script src="/assets/js/app-update.js?v=288" defer></script>
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=288" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6868,8 +6868,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .follow-common-controls,.follow-event-bulk{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:10px 0;}
 .follow-schedule-panel{min-width:0;}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=287">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=287">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=288">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=288">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7165,7 +7165,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=287"></script>
+<script src="assets/js/app-shell-runtime.js?v=288"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8363,7 +8363,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-    moduleScriptUrl: "config/major-events.js?v=287",
+    moduleScriptUrl: "config/major-events.js?v=288",
   url: "data/major-events.v1.json",
 });
 
@@ -14245,7 +14245,7 @@ function renderCodeInspectorResults(panel, code){
 
 let tennisScheduleUiLoading = null;
 function loadTennisScheduleUi(){
-  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=287').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=287')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
+  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=288').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=288')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
   return tennisScheduleUiLoading;
 }
 function renderTennisMajorEvents(container){
@@ -14261,7 +14261,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=287').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=288').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -14536,11 +14536,12 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
 
 let feedViewFilters=(()=>{try{return {...{sport:'all',minimum:0},...JSON.parse(localStorage.getItem('ns-feed-view-filter-v1')||'{}')};}catch{return {sport:'all',minimum:0};}})();
 let feedFilterHydration=null,feedFilterHydratedKey='';
+async function loadAllFeedPages(){while(serverPersistence.user?serverFeedNextCursor!==null:Boolean(publicFeedManifest?.pages?.[publicFeedNextPageIndex])){if(!await loadNextFeedPage())throw new Error('Couldn’t load all Feed cards. Try again.');}}
 async function hydrateFeedFilter(){
  if(feedFilterHydration)return feedFilterHydration;
  const owner=serverSyncClient?.sessionSubject()||'public';
  feedFilterHydration=(async()=>{
-  while((serverPersistence.user&&serverFeedNextCursor!==null)||publicFeedManifest?.pages?.[publicFeedNextPageIndex]){if(!await loadNextFeedPage())throw new Error('Couldn’t load all Feed cards. Try again.');}
+  await loadAllFeedPages();
   if(feedViewFilters.minimum){const context=buildFollowEligibilityContext(),ids=activeEvents.filter(e=>eventFollowReason(e,context)).map(nothingscoreEventId);for(let i=0;i<ids.length;i+=50){if(owner!==(serverSyncClient?.sessionSubject()||'public'))return;await loadNothingscoreBatch(ids.slice(i,i+50),{rerender:false});}}
   feedFilterHydratedKey=`${owner}|${feedViewFilters.sport}|${feedViewFilters.minimum}`;
  })().finally(()=>{feedFilterHydration=null;});return feedFilterHydration;
@@ -16093,13 +16094,13 @@ async function toggleQuickReminder(ev, button){
 
 function appendTournamentSlots(container,event){
  if(!event.tournamentId&&!event.tennisTournamentId&&!(event.endDate&&event.endDate!==event.date&&!(event.participantIds?.length>=2)))return;
- void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=287').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
+ void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=288').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
 }
 function scheduleScopeForEvent(ev){
   const codeId=codeIdForEvent(ev);
   const tournamentId=ev.tennisTournamentId || ev.tournamentId || '';
   const competitionId=ev.competitionId || '';
-  const label=ev.tournamentName || ev.competitionName || ev.majorEventName || (ev.stage==='Major'?ev.name:ev.key==='masters'?'Masters':codeId==='sport:f1'?'F1':'') || sportMetaForEvent(ev).label || ev.key || 'Sport';
+  const label=ev.tournamentName || ev.competitionName || ev.majorEventName || (ev.stage==='Major'?ev.name:ev.key==='masters'?'Masters':codeId==='sport:f1'?'F1':'') || codeInspectorManifest?.codes?.find(c=>c.id===codeId)?.label || sportMetaForEvent(ev).label || ev.key || 'Sport';
   return {codeId,tournamentId,competitionId,label};
 }
 
@@ -16120,6 +16121,7 @@ function buildFeedScheduleLink(ev){
 }
 
 function codeIdForEvent(ev){
+ if(ev.codeId)return ev.codeId;
  const key=NOTHINGSPORTS_FIXTURE_IDENTITY.sportKey(ev);
  const competitions={motogp:'competition:motogp',sailgp:'competition:sailgp','fiba-women':'competition:fiba-womens-world-cup'};
  if(competitions[key])return competitions[key];
@@ -19628,7 +19630,7 @@ function toggleAustraliaInternationals(){
 
 function installFollowEventBulk(container){
   if(globalThis.installFollowEventBulkUI)return globalThis.installFollowEventBulkUI(container);
-  void loadDeferredScript('assets/js/follow-event-bulk-ui.js?v=287').then(()=>{if(container.isConnected&&!container.querySelector('.follow-event-bulk'))globalThis.installFollowEventBulkUI(container);});
+  void loadDeferredScript('assets/js/follow-event-bulk-ui.js?v=288').then(()=>{if(container.isConnected&&!container.querySelector('.follow-event-bulk'))globalThis.installFollowEventBulkUI(container);});
 }
 
 function toggleMajorEventFollow(eventId){
@@ -21044,7 +21046,7 @@ document.getElementById("tuneSheet").addEventListener("click", event => {
 document.getElementById("tuneSheet").addEventListener("keydown", trapTuneSheetFocus);
 window.addEventListener("popstate", () => { void syncAppRouteFromLocation(); });
 
-document.getElementById('feedViewFilterBtn').onclick=()=>{void loadDeferredScript('assets/js/feed-filter-ui.js?v=287').then(()=>globalThis.openFeedViewFilter()).catch(()=>showToast('Couldn’t open filters. Try again.'));};
+document.getElementById('feedViewFilterBtn').onclick=()=>{void loadDeferredScript('assets/js/feed-filter-ui.js?v=288').then(()=>globalThis.openFeedViewFilter()).catch(()=>showToast('Couldn’t open filters. Try again.'));};
 document.getElementById('timelineExpandBtn').addEventListener('click',()=>setFeedCompact(!userPreferences.feedCompact));
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
   calendarInitialJumpPending = false;
@@ -25429,7 +25431,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=287");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=288");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -26021,7 +26023,7 @@ window.addEventListener('focus',scheduleSydneyMidnight);
 window.addEventListener('focus',refreshFeedClock);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFeedClock();});
 </script>
-<script src="assets/js/notifications-inbox.js?v=287"></script>
+<script src="assets/js/notifications-inbox.js?v=288"></script>
 <script>
 let notificationDestinationDialog=null;
 function closeNotificationDestination(){
@@ -26041,7 +26043,7 @@ async function openNotificationDestination(item){
   }
   if(['profile_followed','follows_copied'].includes(item.kind)){
     if(!item.profileId)throw new Error('This profile is no longer public.');
-    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=287');
+    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=288');
     await window.NOTHINGSPORTS_CROWD_RANKINGS.openProfile({profileId:item.profileId,name:item.actor});
     notificationDestinationDialog=document.querySelector('.nsc-picks-dialog[open]');
   }else if(['rating','reminder'].includes(item.kind)){

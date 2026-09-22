@@ -209,6 +209,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-code-inspector.js"],
   ["scripts/build-tournament-horizon.js"],
   ["scripts/validate-feed-follow-repairs.js"],
+  ["scripts/validate-feed-filter-pagination.js"],
   ["scripts/apply-coverage-pauses.js"],
   ["scripts/validate-coverage-pauses.js"],
   ["scripts/validate-coverage-repairs.js"],
