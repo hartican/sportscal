@@ -199,3 +199,11 @@ header.top .vector-glyph{width:20px;height:20px;}
 .fixture-participant-page-control{min-width:34px;min-height:34px;border:1px solid var(--border);border-radius:10px;background:var(--panel-bg);color:var(--text);font:inherit;font-weight:800;}
 .fixture-participant-page-control:disabled{opacity:.35;}
 @media(max-width:640px){.event-card .matchup-team-logo-slot{width:100px;height:100px;}.event-card .matchup-team-logo{max-width:94px;max-height:94px;}.event-card .event-hero-mark,.events-feed-card .major-event-logo{width:100px;height:100px;}}
+
+/* One body-level viewport anchor owns both timeline controls. */
+#timelineTools{position:fixed;inset:auto max(12px,env(safe-area-inset-right)) calc(16px + env(safe-area-inset-bottom) + var(--persistent-navigation-height,0px)) auto;transform:none;filter:none;contain:none;max-width:calc(100vw - 24px)}
+#timelineTools #jumpTodayBtn{position:static;inset:auto;transform:none;float:none;margin:0}
+.event-card.is-marquee-fixture{border-inline-start:4px solid var(--accent);background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 12%,var(--bg-card)),var(--bg-card) 72%)}
+.fixture-marquee-label{display:block;width:100%;color:var(--accent);font-size:11px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.is-marquee-fixture .event-name,.is-marquee-fixture .compact-card-name{font-weight:850}
+.is-marquee-fixture .matchup-stage-badge,.is-marquee-fixture .compact-stage-label{font-weight:850;color:var(--text)}

@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="282">
+<meta name="app-shell-version" content="283">
 <script src="/assets/js/app-update.js?v=277" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=280" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=283" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -1521,9 +1521,7 @@ main{
 }
 
 .jump-today-btn{
-  position: fixed;
-  right: max(20px, calc((100vw - 1100px) / 2 + 20px));
-  bottom: 22px;
+  position:static;
   z-index: 45;
   border-color: color-mix(in srgb,var(--accent) 55%,var(--border));
   background: color-mix(in srgb,var(--bg-card) 94%,transparent);
@@ -6866,7 +6864,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=279">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=275">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=283">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7161,7 +7159,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=280"></script>
+<script src="assets/js/app-shell-runtime.js?v=283"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -7984,7 +7982,7 @@ function appendFollowedFixtureParticipants(container,ev){
   if(!ids.length)return;
   const row=document.createElement('div');row.className='fixture-participant-links';
   const entries=ids.map(id=>{const participant=(ev.participants||[]).find(p=>p.id===id);const label=participant?.displayName||participant?.name||followedParticipantLabel(id);return label&&label!==id?{id,label}:null;}).filter(Boolean);
-  if(ev.key==='f1'&&entries.length){
+  if(['f1','wrc'].includes(ev.key)&&entries.length){
     row.classList.add('fixture-participant-pager');
     let page=0;
     const visibleCount=()=>matchMedia('(min-width:768px)').matches?4:2;
@@ -7992,7 +7990,7 @@ function appendFollowedFixtureParticipants(container,ev){
     const names=document.createElement('span');names.className='fixture-participant-page-names';
     const count=document.createElement('span');count.className='fixture-participant-page-count';
     const next=document.createElement('button');next.type='button';next.className='fixture-participant-page-control';next.textContent='›';next.setAttribute('aria-label','Next followed drivers and teams');
-    const render=()=>{const size=visibleCount();const pages=Math.max(1,Math.ceil(entries.length/size));page=Math.min(page,pages-1);names.replaceChildren(...entries.slice(page*size,page*size+size).flatMap((entry,index)=>[...(index?[document.createTextNode(' · ')]:[]),participantProfileLink(entry.id,entry.label,'f1')]));count.textContent=`${page+1}/${pages}`;previous.disabled=page===0;next.disabled=page===pages-1;};
+    const render=()=>{const size=visibleCount();const pages=Math.max(1,Math.ceil(entries.length/size));page=Math.min(page,pages-1);names.replaceChildren(...entries.slice(page*size,page*size+size).flatMap((entry,index)=>[...(index?[document.createTextNode(' · ')]:[]),participantProfileLink(entry.id,entry.label,ev.key)]));count.textContent=`${page+1}/${pages}`;previous.disabled=page===0;next.disabled=page===pages-1;};
     previous.onclick=()=>{page=Math.max(0,page-1);render();};next.onclick=()=>{page+=1;render();};
     row.append(previous,names,count,next);render();
   }else for(const {id,label} of entries)row.appendChild(participantProfileLink(id,label,ev.key==='motorsport'&&id.includes(':f1:')?'f1':ev.key));
@@ -16954,10 +16952,21 @@ function nothingscoreActionLabelForEvent(ev){
 }
 
 
+function isMarqueeFixture(ev){
+  return /grand final/i.test(FOLLOW_FIRST.stageLabel(ev) || "") || ev.marquee === true || ev.editorialMarquee === true
+    || eventEnrichment(ev)?.cardVariant === "marquee";
+}
 function buildEventCard(ev, options = {}){
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
   try {
     const card = buildDetailedEventCard(ev, options);
+    if (isMarqueeFixture(ev)){
+      card.classList.add("is-marquee-fixture");
+      const label = document.createElement("span");
+      label.className = "fixture-marquee-label";
+      label.textContent = ["Marquee", FOLLOW_FIRST.stageLabel(ev)].filter(Boolean).join(" · ");
+      card.prepend(label);
+    }
     const status = String(ev.scheduleStatus || ev.status || "").toLowerCase();
     if (["cancelled","canceled","abandoned","postponed"].includes(status)){
       const label = document.createElement("p");
@@ -25482,7 +25491,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=280");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=283");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -26094,7 +26103,7 @@ async function openNotificationDestination(item){
   }
   if(['profile_followed','follows_copied'].includes(item.kind)){
     if(!item.profileId)throw new Error('This profile is no longer public.');
-    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=280');
+    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=283');
     await window.NOTHINGSPORTS_CROWD_RANKINGS.openProfile({profileId:item.profileId,name:item.actor});
     notificationDestinationDialog=document.querySelector('.nsc-picks-dialog[open]');
   }else if(['rating','reminder'].includes(item.kind)){

@@ -11382,7 +11382,7 @@ return {womensT20,apply,fields};
     motogp: sportMark("motogp", "MotoGP", "sport:motorsport", "MGP"),
     sailgp: sportMark("sailgp", "SailGP", "sport:sailing", "SGP"),
     motorsport: sportMark("motorsport", "Motorsport", "sport:motorsport"),
-    wrc: sportMark("wrc", "FIA World Rally Championship", "sport:motorsport", "WRC"),
+    wrc: officialMark("competition:wrc", "FIA World Rally Championship", "assets/identities/competitions/wrc-dark.png", "https://www.wrc.com/en", {logo:{dark:"assets/identities/competitions/wrc-light.png",backgroundDark:"dark"}}),
     rally: sportMark("rally", "Rally", "sport:motorsport"),
     goodwood: sportMark("goodwood", "Goodwood motorsport", "sport:motorsport"),
     lemans: sportMark("lemans", "Endurance motorsport", "sport:motorsport"),

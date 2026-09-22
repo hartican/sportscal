@@ -1,0 +1,10 @@
+{
+  "label": "FIA World Rally Championship",
+  "sourceUrl": "https://www.wrc.com/en",
+  "checkedAt": "2026-09-22",
+  "displayUse": "editorial-identification",
+  "assets": {
+    "wrc-dark.png": "https://img.redbull.com/images/c_limit,w_4000/e_trim:1:transparent/w_450/bo_5px_solid_rgb:00000000/q_auto:best,f_png/redbullcom/2026/8/13/kxjv0i1w10q5tuwhxf4r/wrc-logo-dark",
+    "wrc-light.png": "https://img.redbull.com/images/c_limit,w_4000/e_trim:1:transparent/w_450/bo_5px_solid_rgb:00000000/q_auto:best,f_png/redbullcom/2026/8/13/mgqhzvjtxrhz5k3hncqs/wrc-fia-light"
+  }
+}
