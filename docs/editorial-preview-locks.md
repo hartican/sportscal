@@ -15,3 +15,5 @@ Validation: `validate-editorial-locks.js --published` covers aliases, repeated p
 On 22 September 2026, published-copy/alias/server/queue tests, both-theme responsive checks, timing, card identities, Follow parity, scroll continuity, UI foundation and startup precache checks passed. The canonical pipeline was resumed through the editorial regeneration and downstream Follow/feed validation stages with a real anonymised Follow snapshot; its temporary snapshot was removed after use.
 
 Release is blocked by `validate-feed-performance.js`: critical gzip bytes are 434,297 against the gate's 425,600-byte baseline (2.04% growth; limit 1.25%). Unchanged parent `7a2b793` is already 433,031 bytes (1.75%). This change adds 1,266 bytes. The budget has not been raised or bypassed. GitHub main publication, production deployment and live production verification remain pending.
+
+The owner subsequently authorised a one-release exception to the compressed-byte gate on 22 September 2026. AGENTS.md records the exception and remediation during 28 September–4 October. The validator and threshold remain unchanged; downstream checks and production safety gates remain required.

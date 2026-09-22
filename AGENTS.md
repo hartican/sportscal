@@ -56,3 +56,9 @@ Rolling tournament hydration — 22 September 2026
 - Start from Follow > Schedule across all sports. The canonical `node scripts/update-cards.js` pipeline builds `data/tournament-horizon.v1.json` and its Schedule-to-Feed audit. Do not add another refresh scheduler.
 - Review newly entering tournaments' official format, qualifying/draw slots and sources in `data/canonical/tournament-formats.v1.json`. Unknown players, dates and times must stay explicitly unconfirmed. Never assign players to draw slots by arbitrary source ordering.
 - Reconcile confirmed fixtures by stable slot/source identity, retaining existing fixture IDs and saved user state. Preserve historical records and later published calendars. Run `scripts/validate-feed-follow-repairs.js` with refresh checks.
+
+One-release performance exception — 22 September 2026
+-----------------------------------------------------
+- The owner explicitly authorised deploying the Dockers–Lions preview protection and Feed stage-label cleanup despite `validate-feed-performance.js` failing. This exception applies only to this release; do not disable the validator or increase its budget for subsequent releases.
+- Fix the startup compressed-byte budget during the week of 28 September–4 October 2026. The gate baseline is 425,600 bytes with a 1.25% allowance; the released feature snapshot measures 434,297 bytes (2.04%). Its unchanged parent `7a2b793` already measured 433,031 bytes (1.75%). Investigate the accumulated startup payload, reduce it to the agreed budget, and verify the exact runtime bundle and mobile startup behaviour. Any proposed rebaseline needs an explicit, evidence-backed decision.
+- All other release gates remain required. This note is the follow-up record; it does not create a new scheduler.
