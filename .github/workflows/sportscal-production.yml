@@ -50,6 +50,8 @@ jobs:
           node scripts/build-app-shell-runtime.js --check
           node scripts/validate-profile-avatars.js
           node scripts/validate-shared-chat-ui.js
+          node scripts/validate-private-fixture-chat.js
+          node scripts/validate-app-update-version.js
           node scripts/validate-hobby-feed-cache.js
           node scripts/validate-hobby-feed-client.js
           node scripts/validate-hobby-deployments.js

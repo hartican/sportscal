@@ -61,3 +61,11 @@ Use direct signed uploads to private temporary Storage, then produce 128px (maxi
 ## 22 September 2026 — coverage repair implementation
 
 The existing full canonical refresh ingests the official PGA TOUR schedule; there is no separate golf scheduler. Tennis edition/catalogue presentation loads only when requested. The editorial snapshot reuses the existing rating reader in sequential batches of at most 50 fixtures and looks up candidate event IDs with real five-star contributions in paged, server-only reads. It exports phase flags without contributor identities; it does not change interactive polling, scoring, public sealed ratings or Feed admission. Older or unsurfaced candidates may be queued for research without becoming required Feed cards. Regression: `node scripts/validate-coverage-repairs.js`.
+
+## Active-chat membership visibility — 22 September 2026
+
+Active chats shows personal memberships separately from admin inspection. Hidden open memberships remain accessible under “Hidden chats — still joined” and count towards the displayed three-room ceiling. Each joined room has a direct Leave chat action, including hidden rooms and accounts without a public posting profile. Leaving frees membership capacity; “Remove from list” remains a reversible personal archive, and permanent deletion remains creator/admin-only. Stale archive selections are harmless account-scoped no-ops. Admin inspection never grants membership or posting rights and is excluded from personal bulk selection. This reuses the existing membership read and leave transaction, without new polling or database schema changes.
+
+Regressions: `validate-private-fixture-chat.js`, `validate-chat-membership-browser.js`, `validate-shared-chat-ui.js`, and `validate-chat-navigation-browser.js`.
+
+The release also guards the PWA handover against an older controlling worker requesting a backwards page reload. Newer versions still upgrade automatically. Regression: `validate-app-update-version.js` and the installed-PWA upgrade browser validator.

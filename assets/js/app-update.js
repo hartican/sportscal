@@ -50,7 +50,9 @@
     catch (_) { reloading = false; publish('error'); }
   }
   function requestReload(nextVersion){
-    if (!nextVersion || nextVersion === version) return;
+    // A freshly loaded document may still be controlled by the previous
+    // worker during activation. Only move forwards, never reload backwards.
+    if (!/^\d+$/.test(String(nextVersion)) || Number(nextVersion) <= Number(version)) return;
     pendingVersion = String(nextVersion);
     state.availableVersion = pendingVersion;
     publish('updating');

@@ -415,6 +415,11 @@ async function run(){
       }
       return fetchResponse([{room_id:invitation.room_id,status:invitation.status}]);
     }
+    if(url.pathname.endsWith('/nothingsports_chat_leave_room')){
+      const index=members.findIndex(item=>item.room_id===body.target_room&&item.user_id===body.target_user);
+      if(index>=0)members.splice(index,1);
+      return fetchResponse(index>=0);
+    }
     if(url.pathname.endsWith('/nothingsports_chat_acknowledge')){
       members.filter(item=>item.room_id===body.target_room&&item.user_id===body.target_user).forEach(item=>{item.last_delivered_at=body.acknowledged_at;if(body.mark_read)item.last_read_at=body.acknowledged_at;});
       return fetchResponse(null);
@@ -500,6 +505,7 @@ async function run(){
     if (table === "nothingsports_chat_members"){
       const roomId = eq(url.searchParams.get("room_id"));
       const userId = eq(url.searchParams.get("user_id"));
+      const matchesRoom = member => !roomId || (roomId.startsWith('in.(') ? roomId.slice(4,-1).split(',').includes(member.room_id) : member.room_id === roomId);
       if (options.method === "DELETE"){
         for (let index = members.length - 1; index >= 0; index -= 1){
           if (members[index].room_id === roomId && members[index].user_id === userId) members.splice(index, 1);
@@ -507,7 +513,7 @@ async function run(){
         return fetchResponse(null);
       }
       if (options.method === "PATCH"){
-        members.filter(member => member.room_id === roomId && member.user_id === userId).forEach(member => Object.assign(member, body));
+        members.filter(member => matchesRoom(member) && member.user_id === userId).forEach(member => Object.assign(member, body));
         return fetchResponse(null);
       }
       if (options.method === "POST"){
@@ -521,7 +527,7 @@ async function run(){
         }
         return fetchResponse([]);
       }
-      return fetchResponse(members.filter(member => (!roomId || member.room_id === roomId) && (!userId || member.user_id === userId) && (!url.searchParams.has("archived_at") || member.archived_at)));
+      return fetchResponse(members.filter(member => matchesRoom(member) && (!userId || member.user_id === userId) && (!url.searchParams.has("archived_at") || member.archived_at)));
     }
     if (table === "nothingsports_chat_messages"){
       const messageId = eq(url.searchParams.get("id"));
@@ -668,7 +674,32 @@ async function run(){
     const activeMember = await invoke(tokenRequest(`token-${ids.userB}`, { query:{ mode:"active" } }));
     assert.equal(activeMember.body.rooms.length, 3, "membership, not follows, must drive Active chats up to the three-room ceiling");
     const activeAdmin = await invoke(tokenRequest(`token-${ids.adminB}`, { query:{ mode:"active" } }));
-    assert.equal(activeAdmin.body.rooms.length, 3, "every allowlisted admin may inspect open rooms");
+    assert.equal(activeAdmin.body.rooms.length, 0, "admin inspection rooms must not masquerade as joined chats");
+    assert.equal(activeAdmin.body.adminRooms.length, 3, "admins retain a separate inspection list");
+    const hiddenMembership = members.find(member => member.user_id === ids.userB);
+    const archivedSelection = await invoke(tokenRequest(`token-${ids.userB}`, {method:'POST',body:{action:'archive-rooms',roomIds:[hiddenMembership.room_id,'ffffffff-ffff-4fff-8fff-ffffffffffff']}}));
+    assert.equal(archivedSelection.statusCode,200,'a vanished selection must not block archiving an existing membership');
+    assert.equal(archivedSelection.body.archived,1);
+    const hiddenActive = await invoke(tokenRequest(`token-${ids.userB}`, { query:{ mode:"active" } }));
+    assert.equal(hiddenActive.body.rooms.length, 2);
+    assert.equal(hiddenActive.body.archivedRooms.length, 1, "hidden memberships must remain reachable to leave and free a slot");
+    assert.equal(hiddenActive.body.openRoomCount, 3, "the displayed count must include hidden open memberships");
+    const leavingProfile=publicProfiles.get(ids.userB);
+    publicProfiles.delete(ids.userB);
+    const hiddenLeft = await invoke(tokenRequest(`token-${ids.userB}`, { method:'POST', body:{action:'leave-room',roomId:hiddenMembership.room_id} }));
+    assert.equal(hiddenLeft.statusCode,200,'a member without a public posting profile must still be able to leave');
+    publicProfiles.set(ids.userB,leavingProfile);
+    const slotFreed = await invoke(tokenRequest(`token-${ids.userB}`, { query:{mode:'active'} }));
+    assert.equal(slotFreed.body.openRoomCount,2);
+    const replacementRoom = await invoke(tokenRequest(`token-${ids.userB}`, {method:'POST',body:{action:'create-room',canonicalFixtureId:fixtureId,roomName:'Freed slot',memberIds:[]}}));
+    assert.equal(replacementRoom.statusCode,200,'leaving a hidden chat must allow creating a replacement');
+    await invoke(tokenRequest(`token-${ids.userB}`,{method:'POST',body:{action:'delete-room',roomId:replacementRoom.body.room.roomId}}));
+    delete hiddenMembership.archived_at;
+    members.push(hiddenMembership);
+    const staleArchive = await invoke(tokenRequest(`token-${ids.adminB}`, {method:'POST',body:{action:'archive-rooms',roomIds:[hiddenMembership.room_id]}}));
+    assert.equal(staleArchive.statusCode,200,'a stale non-member selection is an idempotent no-op');
+    assert.equal(staleArchive.body.archived,0);
+    assert(!hiddenMembership.archived_at,'archiving must never change another account membership');
 
     const invitationLimitRoom = await invoke(tokenRequest(`token-${ids.adminA}`, {
       method:"POST",

@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="284">
-<script src="/assets/js/app-update.js?v=277" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=284" as="script">
+<meta name="app-shell-version" content="285">
+<script src="/assets/js/app-update.js?v=285" defer></script>
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=285" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6863,8 +6863,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=284">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=284">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=285">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=285">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7159,7 +7159,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=284"></script>
+<script src="assets/js/app-shell-runtime.js?v=285"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8357,7 +8357,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-    moduleScriptUrl: "config/major-events.js?v=284",
+    moduleScriptUrl: "config/major-events.js?v=285",
   url: "data/major-events.v1.json",
 });
 
@@ -8816,6 +8816,9 @@ function createChatState(overrides = {}){
     profile:{ displayName:null, avatarUrl:null },
     capabilities:{ lifetimeNscPoints:0, gifMinimumPoints:25, canUseGifs:false },
     rooms:[],
+    archivedRooms:[],
+    adminRooms:[],
+    openRoomCount:0,
     currentRoom:null,
     messages:[],
     olderCursor:null,
@@ -14289,7 +14292,7 @@ function renderCodeInspectorResults(panel, code){
 
 let tennisScheduleUiLoading = null;
 function loadTennisScheduleUi(){
-  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=284').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=284')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
+  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=285').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=285')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
   return tennisScheduleUiLoading;
 }
 function renderTennisMajorEvents(container){
@@ -23516,6 +23519,25 @@ function chatRoomRow(room,{selecting=false}={}){
   return button;
 }
 
+function chatMembershipRow(room,{selecting=false}={}){
+  const row=document.createElement('div');
+  row.appendChild(chatRoomRow(room,{selecting}));
+  if(!selecting){
+    const leave=document.createElement('button');leave.type='button';leave.className='btn ghost';
+    leave.textContent='Leave chat';leave.setAttribute('aria-label',`Leave ${room.roomName}`);
+    leave.onclick=async()=>{
+      if(!window.confirm('Leave this chat and free a slot? Other members keep their messages. You will need an invitation to rejoin.'))return;
+      leave.disabled=true;
+      try{
+        await serverSyncClient.chatRequest({}, {action:'leave-room',roomId:room.roomId});
+        await refreshChatActive({rerenderOpenList:true});
+      }catch(error){chatConnection(error.message||'Could not leave this chat. Try again.','retrying');leave.disabled=false;}
+    };
+    row.appendChild(leave);
+  }
+  return row;
+}
+
 async function deleteSelectedChats(button){
   if (!chatState.selectedRoomIds.length) return;
   button.disabled=true;
@@ -23550,7 +23572,7 @@ function renderActiveChats(){
   document.getElementById("shareRoomHeaderBtn").hidden = true;
   const disclosure = document.createElement("p");
   disclosure.className = "chat-disclosure";
-  disclosure.textContent = `Signed-in users can create private fixture chats and participate in up to ${CHAT.LIMITS.openRoomsPerUser} open chats at once. Administrators may enable an unlisted guest link.`;
+  disclosure.textContent = `Signed-in users can create private fixture chats and participate in up to ${CHAT.LIMITS.openRoomsPerUser} open chats at once. You have ${chatState.openRoomCount} open chats, including ${chatState.archivedRooms.length} hidden. Removing a chat from the list keeps your membership; Leave chat frees a slot.`;
   body.appendChild(disclosure);
   for(const invitation of chatState.invitations){const row=document.createElement('section');row.className='chat-room-row';const copy=document.createElement('span');copy.innerHTML=`<strong></strong><span></span>`;copy.querySelector('strong').textContent=invitation.room?.roomName||'Chat invitation';copy.querySelector('span').textContent=invitation.room?.fixture?.name||'Fixture chat';const actions=document.createElement('span');actions.className='chat-form-actions';for(const [resolution,label] of [['accept','Accept'],['reject','Reject']]){const button=document.createElement('button');button.type='button';button.className=`btn ${resolution==='accept'?'primary':'ghost'}`;button.textContent=label;button.onclick=async()=>{button.disabled=true;await serverSyncClient.chatRequest({}, {action:'resolve-invitation',invitationId:invitation.invitationId,resolution});await refreshChatActive({rerenderOpenList:true});};actions.appendChild(button);}row.append(copy,actions);body.appendChild(row);}
   if (!chatState.isGuest){
@@ -23561,18 +23583,31 @@ function renderActiveChats(){
     savedMedia.addEventListener("click", () => { void renderSavedGameMedia(); });
     body.appendChild(savedMedia);
   }
-  if(chatState.rooms.length&&!chatState.isGuest){const controls=document.createElement('div');controls.className='chat-form-actions';const edit=document.createElement('button');edit.type='button';edit.className='btn ghost';edit.textContent=chatState.chatSelectionMode?'Cancel':'Select chats';edit.onclick=()=>{chatState.chatSelectionMode=!chatState.chatSelectionMode;chatState.selectedRoomIds=[];renderActiveChats();};controls.appendChild(edit);if(chatState.chatSelectionMode){const all=document.createElement('button');all.type='button';all.className='btn ghost';all.textContent='Select all';all.onclick=()=>{chatState.selectedRoomIds=chatState.rooms.map(room=>room.roomId);renderActiveChats();};const remove=document.createElement('button');remove.type='button';remove.className='btn primary';remove.textContent='Remove from list';remove.title='Remove selected chats from your list. Other members keep their messages.';remove.onclick=()=>deleteSelectedChats(remove);controls.append(all,remove);}body.appendChild(controls);}
+  if(chatState.rooms.length&&!chatState.isGuest){const controls=document.createElement('div');controls.className='chat-form-actions';const edit=document.createElement('button');edit.type='button';edit.className='btn ghost';edit.textContent=chatState.chatSelectionMode?'Cancel':'Select chats';edit.onclick=()=>{chatState.chatSelectionMode=!chatState.chatSelectionMode;chatState.selectedRoomIds=[];renderActiveChats();};controls.appendChild(edit);if(chatState.chatSelectionMode){const all=document.createElement('button');all.type='button';all.className='btn ghost';all.textContent='Select all';all.onclick=()=>{chatState.selectedRoomIds=chatState.rooms.map(room=>room.roomId);renderActiveChats();};const remove=document.createElement('button');remove.type='button';remove.className='btn primary';remove.textContent='Remove from list';remove.title='Hide selected chats. Memberships still count towards your limit; use Leave chat to free a slot.';remove.onclick=()=>deleteSelectedChats(remove);controls.append(all,remove);}body.appendChild(controls);}
   if (!chatState.rooms.length){
     const empty = document.createElement("p");
     empty.className = "chat-empty";
-    empty.textContent = "You have no active fixture chats. Open an upcoming or live fixture card to create one.";
+    empty.textContent = chatState.archivedRooms.length ? "Your joined chats are hidden below. Leave a chat to free a slot." : "You have no active fixture chats. Open an upcoming or live fixture card to create one.";
     body.appendChild(empty);
-    return;
   }
   const list = document.createElement("div");
   list.className = "chat-room-list";
-  chatState.rooms.forEach(room => list.appendChild(chatRoomRow(room,{selecting:chatState.chatSelectionMode})));
+  chatState.rooms.forEach(room => list.appendChild(chatMembershipRow(room,{selecting:chatState.chatSelectionMode})));
   body.appendChild(list);
+  if(chatState.archivedRooms.length){
+    const hidden=document.createElement('section');
+    const heading=document.createElement('h3');heading.textContent='Hidden chats — still joined';
+    hidden.appendChild(heading);
+    chatState.archivedRooms.forEach(room=>hidden.appendChild(chatMembershipRow(room)));
+    body.appendChild(hidden);
+  }
+  if(chatState.isAdmin && chatState.adminRooms.length){
+    const inspection=document.createElement('details');
+    const heading=document.createElement('summary');heading.textContent='Admin inspection — not joined';
+    inspection.appendChild(heading);
+    chatState.adminRooms.forEach(room=>inspection.appendChild(chatRoomRow(room)));
+    body.appendChild(inspection);
+  }
 }
 
 async function renderSavedGameMedia(){
@@ -25264,7 +25299,7 @@ async function refreshChatActive({ rerenderOpenList = false } = {}){
     const outsideRoomUnreadIncreased = Boolean(chatState.activeSignature)
       && chatUnreadIncreasedOutsideOpenRoom(chatState.rooms, payload.rooms, chatState.currentRoom?.roomId || null);
     const nextRooms = Array.isArray(payload.rooms) ? payload.rooms : [];
-    const signature = JSON.stringify({ admin:payload.isAdmin, rooms:nextRooms.map(room => [room.roomId, room.unreadCount, room.lastMessageAt]) });
+    const signature = JSON.stringify({ admin:payload.isAdmin, archived:payload.archivedRooms, inspection:payload.adminRooms, rooms:nextRooms.map(room => [room.roomId, room.unreadCount, room.lastMessageAt]) });
     const changed = signature !== chatState.activeSignature;
     chatState = normalizeChatState({
       ...chatState,
@@ -25273,6 +25308,9 @@ async function refreshChatActive({ rerenderOpenList = false } = {}){
       profile:payload.profile || { displayName:null, avatarUrl:null },
       capabilities:payload.capabilities || chatState.capabilities,
       rooms:nextRooms,
+      archivedRooms:Array.isArray(payload.archivedRooms) ? payload.archivedRooms : [],
+      adminRooms:Array.isArray(payload.adminRooms) ? payload.adminRooms : [],
+      openRoomCount:Number(payload.openRoomCount ?? nextRooms.length),
       invitations:payload.invitations||[],
       activeSignature:signature,
     });
@@ -25510,7 +25548,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=284");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=285");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -26122,7 +26160,7 @@ async function openNotificationDestination(item){
   }
   if(['profile_followed','follows_copied'].includes(item.kind)){
     if(!item.profileId)throw new Error('This profile is no longer public.');
-    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=284');
+    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=285');
     await window.NOTHINGSPORTS_CROWD_RANKINGS.openProfile({profileId:item.profileId,name:item.actor});
     notificationDestinationDialog=document.querySelector('.nsc-picks-dialog[open]');
   }else if(['rating','reminder'].includes(item.kind)){

@@ -391,18 +391,21 @@ async function knownAuthUsers(){
 }
 
 async function handleActive(user, admin, profile){
-  const [active, capabilities, invitationRows, archivedMemberships] = await Promise.all([
+  const [active, capabilities, invitationRows, ownMemberships] = await Promise.all([
     supabaseServiceRequest("/rest/v1/rpc/nothingsports_chat_active_rooms", {
       method:"POST",
       body:{ target_user:user.id, include_admin_rooms:admin },
     }),
     chatCapabilities(user),
     rows(TABLES.invitations,{invitee_id:`eq.${user.id}`,status:"eq.pending",select:"invitation_id,room_id,created_at"}),
-    rows(TABLES.members,{user_id:`eq.${user.id}`,archived_at:"not.is.null",select:"room_id"}),
+    rows(TABLES.members,{user_id:`eq.${user.id}`,select:"room_id,archived_at"}),
   ]);
   const invitedRooms=invitationRows.length?await rows(TABLES.rooms,{id:`in.(${invitationRows.map(row=>row.room_id).join(',')})`,select:"id,canonical_fixture_id,fixture_snapshot,room_name,status,created_at"}):[];
   const invitedById=new Map(invitedRooms.map(room=>[room.id,room]));
-  const archivedIds=new Set(archivedMemberships.map(item=>item.room_id));
+  const ownIds=new Set(ownMemberships.map(item=>item.room_id));
+  const archivedIds=new Set(ownMemberships.filter(item=>item.archived_at).map(item=>item.room_id));
+  const activeRooms=Array.isArray(active) ? active : [];
+  const ownRooms=activeRooms.filter(room=>ownIds.has(room.room_id||room.id));
   return {
     schemaVersion:chatContract.SCHEMA_VERSION,
     isAdmin:admin,
@@ -413,7 +416,10 @@ async function handleActive(user, admin, profile){
       canPost:Boolean(profile?.public_profile),
     },
     capabilities,
-    rooms:(Array.isArray(active) ? active : []).filter(room=>!archivedIds.has(room.room_id||room.id)).map(publicRoom),
+    rooms:ownRooms.filter(room=>!archivedIds.has(room.room_id||room.id)).map(publicRoom),
+    archivedRooms:ownRooms.filter(room=>archivedIds.has(room.room_id||room.id)).map(publicRoom),
+    adminRooms:admin ? activeRooms.filter(room=>!ownIds.has(room.room_id||room.id)).map(publicRoom) : [],
+    openRoomCount:ownRooms.length,
     invitations:invitationRows.map(invitation=>({invitationId:invitation.invitation_id,createdAt:invitation.created_at,room:publicRoom(invitedById.get(invitation.room_id)||{id:invitation.room_id,room_name:"Chat invitation"})})),
   };
 }
@@ -1169,9 +1175,9 @@ async function archiveRooms(body,user){
   if(roomIds.length>50)throw new ChatRequestError("Choose up to 50 chats per request.",400,"chat_archive_limit");
   if(!roomIds.length)throw new ChatRequestError("Choose at least one chat.",400,"chat_rooms_required");
   const memberships=await rows(TABLES.members,{room_id:`in.(${roomIds.join(',')})`,user_id:`eq.${user.id}`,select:"room_id"});
-  if(memberships.length!==roomIds.length)throw new ChatRequestError("One of those chats is no longer available.",403,"chat_membership_required");
+  // Stale selections are harmless: only this account's memberships can change.
   await supabaseServiceRequest(restPath(TABLES.members,{room_id:`in.(${roomIds.join(',')})`,user_id:`eq.${user.id}`}),{method:"PATCH",headers:{Prefer:"return=minimal"},body:{archived_at:new Date().toISOString()}});
-  return {schemaVersion:chatContract.SCHEMA_VERSION,archived:roomIds.length};
+  return {schemaVersion:chatContract.SCHEMA_VERSION,archived:memberships.length};
 }
 
 async function removeMember(body, user, admin){
