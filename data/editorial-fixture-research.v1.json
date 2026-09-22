@@ -1657,6 +1657,95 @@
           ]
         }
       ]
+    },
+    {
+      "id": "major-match:nrl-finals-2026:preliminary-final-2",
+      "title": "Dolphins v Roosters",
+      "hook": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
+      "synopsis": "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+        "https://www.nrl.com/news/2026/09/22/katoas-quiet-confidence-grows-as-dolphins-enter-new-frontier/",
+        "https://www.nrl.com/news/2026/09/22/watson-ready-to-deliver-on-pre-game-prediction/"
+      ],
+      "researchedAt": "2026-09-22T08:30:00.000Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "The Dolphins host the Roosters in a preliminary final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Katoa and Nikorima are named in the Dolphins halves; Walker and Cherry-Evans are named for the Roosters.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The winner advances to the NRL Grand Final.",
+          "sourceIndexes": [
+            1
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The match starts at 7:50pm AEST on 25 September at Suncorp Stadium.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "major-match:nrl-finals-2026:preliminary-final-1",
+      "title": "Panthers v Knights",
+      "hook": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+      "synopsis": "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
+      "sources": [
+        "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+        "https://www.nrl.com/news/2026/09/22/all-systems-go-panthers-back-cleary-for-newcastle-showdown/",
+        "https://www.nrl.com/tickets/"
+      ],
+      "researchedAt": "2026-09-22T08:30:00.000Z",
+      "researchDepth": 5,
+      "facts": [
+        {
+          "dimension": "matchup",
+          "statement": "Penrith face Newcastle in a preliminary final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "form",
+          "statement": "Cleary and Cole are named in the Panthers halves; Sharpe and Smith are named for Newcastle.",
+          "sourceIndexes": [
+            0,
+            1
+          ]
+        },
+        {
+          "dimension": "path",
+          "statement": "The winner advances to the NRL Grand Final.",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "dimension": "schedule",
+          "statement": "The match starts at 4:00pm AEST on 27 September at Accor Stadium.",
+          "sourceIndexes": [
+            0,
+            2
+          ]
+        }
+      ]
     }
   ]
 }

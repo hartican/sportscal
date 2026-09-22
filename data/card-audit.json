@@ -1,6 +1,6 @@
 {
   "schemaVersion": "sportscal.card-audit.v1",
-  "generatedAt": "2026-09-22T07:15:54.586Z",
+  "generatedAt": "2026-09-22T08:28:54.896Z",
   "sourceFeed": "/data/events.json",
   "rules": {
     "majorThreshold": 4,
@@ -3255,8 +3255,9 @@
     },
     {
       "id": "major-match-nrl-finals-2026-preliminary-final-1",
-      "name": "NRL Preliminary Final",
-      "date": "2026-09-21",
+      "name": "Panthers v Knights",
+      "sport": "NRL",
+      "date": "2026-09-27",
       "status": "upcoming",
       "stakes": 5,
       "isMajorCard": true,
@@ -3270,8 +3271,9 @@
     },
     {
       "id": "major-match-nrl-finals-2026-preliminary-final-2",
-      "name": "NRL Preliminary Final",
-      "date": "2026-09-21",
+      "name": "Dolphins v Roosters",
+      "sport": "NRL",
+      "date": "2026-09-25",
       "status": "upcoming",
       "stakes": 5,
       "isMajorCard": true,

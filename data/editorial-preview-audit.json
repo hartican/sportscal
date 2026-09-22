@@ -1,14 +1,48 @@
 {
   "schemaVersion": "sportscal.editorial-preview-audit.v1",
-  "generatedAt": "2026-09-22T07:15:54.437Z",
+  "generatedAt": "2026-09-22T08:28:54.749Z",
   "editorialWindowDays": 10,
   "sourceFeed": "/data/events.json",
   "summary": {
-    "due": 6,
-    "passed": 6,
+    "due": 8,
+    "passed": 8,
     "failed": 0
   },
   "cards": [
+    {
+      "id": "major-match-nrl-finals-2026-preliminary-final-1",
+      "name": "Panthers v Knights",
+      "sport": "NRL",
+      "date": "2026-09-27",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path",
+        "narrative:schedule"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "issues": []
+    },
+    {
+      "id": "major-match-nrl-finals-2026-preliminary-final-2",
+      "name": "Dolphins v Roosters",
+      "sport": "NRL",
+      "date": "2026-09-25",
+      "stakes": 5,
+      "status": "journalistic",
+      "contextSignals": [
+        "event-specific",
+        "narrative:matchup",
+        "narrative:form",
+        "narrative:path",
+        "narrative:schedule"
+      ],
+      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "issues": []
+    },
     {
       "id": "evt_30",
       "name": "Azerbaijan GP · Qualifying",

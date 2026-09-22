@@ -48,7 +48,13 @@ function syncFixture(fixture, source, feedEvent){
     "canonicalSourceUrl", "canonicalSourceCheckedAt",
   ]);
   copyDefined(next, feedEvent, ["participants", "participantSlots", "homeParticipantId", "awayParticipantId", "liveWindow"]);
-  const venueCity = knownVenueCity(source, feedEvent);
+  if (source.startTimeUtc){
+    next.schedulePrecision = "exact";
+    next.timePrecision = "exact";
+    delete next.weekAnchorDate;
+    delete next.displayDateLabel;
+  }
+  const venueCity = source.venueCity || knownVenueCity(source, feedEvent);
   if (venueCity) next.venueCity = venueCity;
   if (source.name && source.venue && source.date){
     next.summary = `${source.name} at ${source.venue}${source.time ? `, ${source.date} ${source.time}` : ` on ${source.date}`}.`;
@@ -75,7 +81,9 @@ function main(){
   const source = readJson(SOURCE_PATH);
   const feed = readJson(FEED_PATH);
   const target = readJson(TARGET_PATH);
-  const sourceIndex = indexByAlias(source.events);
+  // The regular-season NRL provider stops at Round 27. Reviewed official
+  // finals announcements are the canonical source for its bracket slots.
+  const sourceIndex = indexByAlias([...source.events, ...readJson("data/canonical/nrl-finals-published-2026.json").events.map(({status, ...schedule}) => schedule)]);
   const feedIndex = indexByAlias(feed.events);
   let updated = 0;
   const next = {

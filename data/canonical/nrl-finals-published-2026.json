@@ -185,6 +185,121 @@
       "sourceCheckedAt": "2026-09-08T12:00:00Z",
       "sourceType": "official",
       "sourceTrust": "verified"
+    },
+    {
+      "id": "major-match:nrl-finals-2026:preliminary-final-2",
+      "eventId": "major-match:nrl-finals-2026:preliminary-final-2",
+      "key": "nrl",
+      "sport": "NRL",
+      "cardKind": "fixture",
+      "competitionId": "competition:nrl-premiership-2026",
+      "name": "Dolphins v Roosters",
+      "date": "2026-09-25",
+      "time": "19:50",
+      "startTimeUtc": "2026-09-25T09:50:00.000Z",
+      "venue": "Suncorp Stadium",
+      "venueCountryCode": "AU",
+      "roundLabel": "Preliminary Final",
+      "stage": "Preliminary Final",
+      "participantIds": [
+        "team:nrl:9538",
+        "team:nrl:331"
+      ],
+      "homeParticipantId": "team:nrl:9538",
+      "awayParticipantId": "team:nrl:331",
+      "participants": [
+        {
+          "id": "team:nrl:9538",
+          "name": "Dolphins",
+          "role": "home"
+        },
+        {
+          "id": "team:nrl:331",
+          "name": "Roosters",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+      "broadcasterIds": [
+        "nine",
+        "foxtel",
+        "kayo"
+      ],
+      "sourceName": "NRL official preliminary-final team lists",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "sourceCheckedAt": "2026-09-22T08:30:00.000Z",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "venueName": "Suncorp Stadium",
+      "venueCity": "Brisbane",
+      "localTimezone": "Australia/Brisbane",
+      "scheduleStatus": "confirmed",
+      "schedulePrecision": "exact",
+      "timePrecision": "exact",
+      "sourceRefs": [
+        "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+        "https://www.nrl.com/tickets/"
+      ]
+    },
+    {
+      "id": "major-match:nrl-finals-2026:preliminary-final-1",
+      "eventId": "major-match:nrl-finals-2026:preliminary-final-1",
+      "key": "nrl",
+      "sport": "NRL",
+      "cardKind": "fixture",
+      "competitionId": "competition:nrl-premiership-2026",
+      "name": "Panthers v Knights",
+      "date": "2026-09-27",
+      "time": "16:00",
+      "startTimeUtc": "2026-09-27T06:00:00.000Z",
+      "venue": "Accor Stadium",
+      "venueCountryCode": "AU",
+      "roundLabel": "Preliminary Final",
+      "stage": "Preliminary Final",
+      "participantIds": [
+        "team:nrl:329",
+        "team:nrl:325"
+      ],
+      "homeParticipantId": "team:nrl:329",
+      "awayParticipantId": "team:nrl:325",
+      "participants": [
+        {
+          "id": "team:nrl:329",
+          "name": "Panthers",
+          "role": "home"
+        },
+        {
+          "id": "team:nrl:325",
+          "name": "Knights",
+          "role": "away"
+        }
+      ],
+      "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+      "broadcasterIds": [
+        "nine",
+        "foxtel",
+        "kayo"
+      ],
+      "sourceName": "NRL official preliminary-final team lists",
+      "sourceUrl": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+      "sourceCheckedAt": "2026-09-22T08:30:00.000Z",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "venueName": "Accor Stadium",
+      "venueCity": "Sydney",
+      "localTimezone": "Australia/Sydney",
+      "scheduleStatus": "confirmed",
+      "schedulePrecision": "exact",
+      "timePrecision": "exact",
+      "sourceRefs": [
+        "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+        "https://www.nrl.com/tickets/"
+      ]
     }
-  ]
+  ],
+  "sourceUrls": [
+    "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+    "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/"
+  ],
+  "updatedAt": "2026-09-22T08:30:00.000Z"
 }

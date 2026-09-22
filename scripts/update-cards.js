@@ -300,6 +300,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-participant-unfollow.js"],
   ["scripts/validate-australian-presentation.js"],
   ["scripts/validate-feed-repair-reconciliation.js"],
+  ["scripts/validate-nrl-preliminary-finals.js", "--published"],
   ["scripts/validate-promoted-replay.js"],
   ["scripts/validate-ratings-empty-batch.js"],
   ["scripts/validate-user-follows.js"],

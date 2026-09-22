@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-09-22T07:09:48.905Z",
+  "generatedAt": "2026-09-22T08:27:08.180Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
@@ -248,30 +248,12 @@
     },
     {
       "targetType": "feed-event",
-      "targetId": "major-match:nrl-finals-2026:preliminary-final-1",
-      "title": "NRL Preliminary Final",
-      "researchDepth": 5,
-      "startsAt": "2026-09-20T14:00:00.000Z",
-      "reason": "rolling-published-fixtures+classified-marquee+real-five-star-signal+real-five-star-signal",
-      "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:preliminary-final-1",
-      "coverage": "covered",
-      "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
-      "promotedReplay": false,
-      "editorialPhase": "preview",
-      "fiveStarSignal": true,
-      "resultResearchRequired": false,
-      "priority": "five-star",
-      "refreshDeadline": "2026-09-01T12:00:00.000Z"
-    },
-    {
-      "targetType": "feed-event",
       "targetId": "major-match:nrl-finals-2026:preliminary-final-2",
-      "title": "NRL Preliminary Final",
+      "title": "Dolphins v Roosters",
       "researchDepth": 5,
-      "startsAt": "2026-09-20T14:00:00.000Z",
+      "startsAt": "2026-09-25T09:50:00.000Z",
       "reason": "rolling-published-fixtures+classified-marquee+real-five-star-signal+real-five-star-signal",
-      "projectionId": "projection:major:nrl-finals-2026:child:major-match:nrl-finals-2026:preliminary-final-2",
+      "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:preliminary-final-2",
       "coverage": "covered",
       "consequenceCoverage": "missing",
       "consequenceResearchRequired": true,
@@ -280,7 +262,7 @@
       "fiveStarSignal": true,
       "resultResearchRequired": false,
       "priority": "five-star",
-      "refreshDeadline": "2026-09-01T12:00:00.000Z"
+      "refreshDeadline": "2026-09-25T09:50:00.000Z"
     },
     {
       "targetType": "feed-event",
@@ -302,6 +284,24 @@
       "resultResearchRequired": false,
       "priority": "five-star",
       "refreshDeadline": null
+    },
+    {
+      "targetType": "feed-event",
+      "targetId": "major-match:nrl-finals-2026:preliminary-final-1",
+      "title": "Panthers v Knights",
+      "researchDepth": 5,
+      "startsAt": "2026-09-27T06:00:00.000Z",
+      "reason": "rolling-published-fixtures+classified-marquee+real-five-star-signal+real-five-star-signal",
+      "projectionId": "projection:fixture-research:major-match:nrl-finals-2026:preliminary-final-1",
+      "coverage": "covered",
+      "consequenceCoverage": "missing",
+      "consequenceResearchRequired": true,
+      "promotedReplay": false,
+      "editorialPhase": "preview",
+      "fiveStarSignal": true,
+      "resultResearchRequired": false,
+      "priority": "five-star",
+      "refreshDeadline": "2026-09-27T06:00:00.000Z"
     },
     {
       "targetType": "feed-event",

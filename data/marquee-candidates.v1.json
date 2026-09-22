@@ -1,6 +1,6 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z",
+  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z",
   "generatedAt": "2026-08-29T00:00:00.000Z",
   "shadowMode": true,
   "summary": {
@@ -61,7 +61,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -343,7 +343,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -577,6 +577,266 @@
       }
     },
     {
+      "campaignId": "marquee_42ede0fa256411df",
+      "campaignRevision": 1,
+      "contentHash": "89d580e15d947f2e27a4e7b0d5e53d4ad7594269ef68ea1f5db34957689d3719",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "major-match:nrl-finals-2026:preliminary-final-2",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": "2026-09-25T09:50:00.000Z",
+        "fixtureDate": "2026-09-25"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": true,
+        "finish": "derived_from_live_window",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-22T08:27:01.899Z"
+      },
+      "timing": {
+        "startTimeUtc": "2026-09-25T09:50:00.000Z",
+        "endTimeUtc": "2026-09-25T12:50:00.000Z",
+        "liveWindowHours": 3,
+        "endDerived": true,
+        "sydneyStart": {
+          "day": "Fri",
+          "weekday": "Friday",
+          "date": "Fri 25 Sept 2026",
+          "time": "7:50 pm",
+          "timezone": "AEST"
+        },
+        "sydneyFinish": {
+          "day": "Fri",
+          "weekday": "Friday",
+          "date": "Fri 25 Sept 2026",
+          "time": "10:50 pm",
+          "timezone": "AEST"
+        }
+      },
+      "source": {
+        "name": "Dolphins v Roosters — official research 1",
+        "url": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+        "checkedAt": "2026-09-22T08:27:01.899Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+      },
+      "material": {
+        "title": "Dolphins v Roosters",
+        "participants": [
+          "Dolphins",
+          "Roosters"
+        ],
+        "sport": "NRL",
+        "competition": "all",
+        "startTimeUtc": "2026-09-25T09:50:00.000Z",
+        "endTimeUtc": "2026-09-25T12:50:00.000Z",
+        "venue": "Suncorp Stadium",
+        "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+        "stakes": 5,
+        "source": {
+          "name": "Dolphins v Roosters — official research 1",
+          "url": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+          "checkedAt": "2026-09-22T08:27:01.899Z"
+        },
+        "recognisableTitle": "Dolphins v Roosters",
+        "matchupLabel": "Dolphins v Roosters",
+        "displayDate": "2026-09-25"
+      },
+      "identities": {
+        "code": {
+          "label": "NRL",
+          "path": "/assets/icons/sporticon/rugby.svg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/icons/sporticon/rugby.svg",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Friday watch party: Dolphins v Roosters",
+        "hook": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
+        "kicker": "5/5 stakes · NRL",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Dolphins v Roosters, starting Fri 25 Sept 2026 at 7:50 pm AEST."
+        }
+      },
+      "drafts": {
+        "hook": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE NRL: Dolphins v Roosters. Fri 25 Sept 2026 at 7:50 pm AEST. 5/5 stakes. The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Dolphins v Roosters, starting Fri 25 Sept 2026 at 7:50 pm AEST.",
+          "image": {
+            "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dolphins v Roosters, starting Fri 25 Sept 2026 at 7:50 pm AEST."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Dolphins v Roosters — Fri 7:50 pm",
+          "preheader": "Join the Dolphins v Roosters watch party, then rate it after the finish.",
+          "headline": "Friday watch party: Dolphins v Roosters",
+          "bodyParagraphs": [
+            "Isaiya Katoa and Kodi Nikorima are named in the Dolphins halves, opposite Sam Walker and Daly Cherry-Evans. Hamiso Tabuai-Fidow and James Tedesco lead the respective backlines from fullback. Friday’s preliminary final gives the Dolphins a home stage for their bid to reach the decider.",
+            "Join us for the Dolphins v Roosters, on Fri at 7:50 pm AEST. Open the fixture for the watch party, live context and post-match rating."
+          ],
+          "timingLine": "Dolphins v Roosters starts Fri 25 Sept 2026 at 7:50 pm AEST at Suncorp Stadium. Expected finish: 10:50 pm AEST.",
+          "broadcastLine": "Watch in Australia on Nine, Fox League, Kayo Sports, 9Now.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dolphins v Roosters, starting Fri 25 Sept 2026 at 7:50 pm AEST."
+          }
+        },
+        "when": {
+          "day": "Fri",
+          "weekday": "Friday",
+          "date": "Fri 25 Sept 2026",
+          "time": "7:50 pm",
+          "timezone": "AEST"
+        },
+        "finish": {
+          "day": "Fri",
+          "weekday": "Friday",
+          "date": "Fri 25 Sept 2026",
+          "time": "10:50 pm",
+          "timezone": "AEST"
+        },
+        "live": {
+          "headline": "Friday watch party: Dolphins v Roosters",
+          "hook": "The Dolphins and Roosters meet at Suncorp with a Grand Final place at stake.",
+          "kicker": "5/5 stakes · NRL",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dolphins v Roosters, starting Fri 25 Sept 2026 at 7:50 pm AEST."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_42ede0fa256411df",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df",
+        "ratingWindow": {
+          "opensAt": "2026-09-25T12:50:00.000Z",
+          "closesAt": "2026-10-02T12:50:00.000Z"
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Dolphins v Roosters, starting Fri 25 Sept 2026 at 7:50 pm AEST."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-89d580e15d94.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Dolphins v Roosters, starting Fri 25 Sept 2026 at 7:50 pm AEST."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
       "campaignId": "marquee_01bb48936c3ff875",
       "campaignRevision": 1,
       "contentHash": "eb8753a62c078f012e7c4262f09e2a0e55cbce9f9e9f2cb9996d32879755cdc5",
@@ -628,7 +888,7 @@
         "name": "NRL — finals progression explainer",
         "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "NRL Preliminary Finals",
@@ -884,7 +1144,7 @@
         "name": "AFL",
         "url": "https://www.afl.com.au/afl/matches/9028",
         "checkedAt": "2026-09-22T02:47:23.900Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Fremantle v Brisbane Lions",
@@ -1093,6 +1353,266 @@
       }
     },
     {
+      "campaignId": "marquee_1af326032547eb75",
+      "campaignRevision": 1,
+      "contentHash": "e0c686a26e2047a919f240ba90e0db2ad6ce1a10fcc8ed28d2f4b25f203e6528",
+      "state": "watching",
+      "actionable": false,
+      "late": false,
+      "eventId": "major-match:nrl-finals-2026:preliminary-final-1",
+      "proposedSendAt": null,
+      "readyForExport": false,
+      "readinessIssues": [
+        "not_explicitly_atomic",
+        "stale_source_provenance"
+      ],
+      "machineSort": {
+        "proposedSendAt": null,
+        "fixtureStartAt": "2026-09-27T06:00:00.000Z",
+        "fixtureDate": "2026-09-27"
+      },
+      "eligibilityEvidence": {
+        "stakesExactlyFive": true,
+        "readyForExport": false,
+        "atomicType": null,
+        "confirmedUtcStart": true,
+        "finish": "derived_from_live_window",
+        "status": "upcoming",
+        "sourceCheckedAt": "2026-09-22T08:27:01.899Z"
+      },
+      "timing": {
+        "startTimeUtc": "2026-09-27T06:00:00.000Z",
+        "endTimeUtc": "2026-09-27T09:00:00.000Z",
+        "liveWindowHours": 3,
+        "endDerived": true,
+        "sydneyStart": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 27 Sept 2026",
+          "time": "4:00 pm",
+          "timezone": "AEST"
+        },
+        "sydneyFinish": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 27 Sept 2026",
+          "time": "7:00 pm",
+          "timezone": "AEST"
+        }
+      },
+      "source": {
+        "name": "Panthers v Knights — official research 1",
+        "url": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+        "checkedAt": "2026-09-22T08:27:01.899Z",
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
+      },
+      "material": {
+        "title": "Panthers v Knights",
+        "participants": [
+          "Panthers",
+          "Knights"
+        ],
+        "sport": "NRL",
+        "competition": "all",
+        "startTimeUtc": "2026-09-27T06:00:00.000Z",
+        "endTimeUtc": "2026-09-27T09:00:00.000Z",
+        "venue": "Accor Stadium",
+        "broadcaster": "Nine, Fox League, Kayo Sports, 9Now",
+        "stakes": 5,
+        "source": {
+          "name": "Panthers v Knights — official research 1",
+          "url": "https://www.nrl.com/news/2026/09/22/nrl-team-lists-preliminary-finals/",
+          "checkedAt": "2026-09-22T08:27:01.899Z"
+        },
+        "recognisableTitle": "Panthers v Knights",
+        "matchupLabel": "Panthers v Knights",
+        "displayDate": "2026-09-27"
+      },
+      "identities": {
+        "code": {
+          "label": "NRL",
+          "path": "/assets/icons/sporticon/rugby.svg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/icons/sporticon/rugby.svg",
+          "provenance": {
+            "registry": "Sporticon Apache-2.0",
+            "rightsStatus": "open_use"
+          }
+        },
+        "teams": []
+      },
+      "live": {
+        "headline": "Sunday watch party: Panthers v Knights",
+        "hook": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+        "kicker": "5/5 stakes · NRL",
+        "heroAssetId": "",
+        "logos": {
+          "showCode": true,
+          "showTeams": true,
+          "order": "code-first"
+        },
+        "focalPosition": {
+          "x": 50,
+          "y": 50
+        },
+        "animationPreset": "subtle",
+        "hero": {
+          "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Panthers v Knights, starting Sun 27 Sept 2026 at 4:00 pm AEST."
+        }
+      },
+      "drafts": {
+        "hook": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+        "instagram": {
+          "account": "@_nothingsports",
+          "caption": "UNMISSABLE NRL: Panthers v Knights. Sun 27 Sept 2026 at 4:00 pm AEST. 5/5 stakes. Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line. Join the watch party and rate it afterwards — link in bio.",
+          "altText": "Nothing Sport UNMISSABLE card for Panthers v Knights, starting Sun 27 Sept 2026 at 4:00 pm AEST.",
+          "image": {
+            "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Panthers v Knights, starting Sun 27 Sept 2026 at 4:00 pm AEST."
+          }
+        },
+        "email": {
+          "subject": "5/5 stakes: Panthers v Knights — Sun 4:00 pm",
+          "preheader": "Join the Panthers v Knights watch party, then rate it after the finish.",
+          "headline": "Sunday watch party: Panthers v Knights",
+          "bodyParagraphs": [
+            "Nathan Cleary is named alongside Jack Cole in the Panthers halves, with Dylan Edwards at fullback. Newcastle retain Kalyn Ponga, Fletcher Sharpe and Sandon Smith in their spine. Sunday’s preliminary final brings those combinations together at Accor Stadium, where the winner keeps its premiership campaign alive.",
+            "Join us for the Panthers v Knights, on Sun at 4:00 pm AEST. Open the fixture for the watch party, live context and post-match rating."
+          ],
+          "timingLine": "Panthers v Knights starts Sun 27 Sept 2026 at 4:00 pm AEST at Accor Stadium. Expected finish: 7:00 pm AEST.",
+          "broadcastLine": "Watch in Australia on Nine, Fox League, Kayo Sports, 9Now.",
+          "topic": "Marquee fixture alerts",
+          "primaryCta": {
+            "label": "Open the fixture",
+            "url": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75"
+          },
+          "secondaryCta": {
+            "label": "Rate it after the finish",
+            "url": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75&intent=rate"
+          },
+          "suggestedSendAt": {
+            "utc": null,
+            "sydney": null
+          },
+          "joinUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75",
+          "ratingUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75&intent=rate",
+          "image": {
+            "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Panthers v Knights, starting Sun 27 Sept 2026 at 4:00 pm AEST."
+          }
+        },
+        "when": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 27 Sept 2026",
+          "time": "4:00 pm",
+          "timezone": "AEST"
+        },
+        "finish": {
+          "day": "Sun",
+          "weekday": "Sunday",
+          "date": "Sun 27 Sept 2026",
+          "time": "7:00 pm",
+          "timezone": "AEST"
+        },
+        "live": {
+          "headline": "Sunday watch party: Panthers v Knights",
+          "hook": "Penrith and Newcastle meet at Accor Stadium with one place in the Grand Final on the line.",
+          "kicker": "5/5 stakes · NRL",
+          "heroAssetId": "",
+          "logos": {
+            "showCode": true,
+            "showTeams": true,
+            "order": "code-first"
+          },
+          "focalPosition": {
+            "x": 50,
+            "y": 50
+          },
+          "animationPreset": "subtle",
+          "hero": {
+            "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Panthers v Knights, starting Sun 27 Sept 2026 at 4:00 pm AEST."
+          }
+        }
+      },
+      "channels": {
+        "instagram": {
+          "status": "connector_blocked",
+          "adapter": "instagram-mcp",
+          "reason": "requested_connector_not_installed",
+          "enabled": false
+        },
+        "email": {
+          "status": "connector_blocked",
+          "adapter": "resend-broadcasts",
+          "reason": "operator_sender_configuration_required",
+          "enabled": false
+        },
+        "x": {
+          "enabled": false
+        },
+        "linkedin": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": false
+        }
+      },
+      "participation": {
+        "enabled": false,
+        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_1af326032547eb75",
+        "fixtureUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75",
+        "ratingWindow": {
+          "opensAt": "2026-09-27T09:00:00.000Z",
+          "closesAt": "2026-10-04T09:00:00.000Z"
+        }
+      },
+      "assets": {
+        "fallbackHero": {
+          "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+          "width": 1080,
+          "height": 1350,
+          "mimeType": "image/jpeg",
+          "firstPartyAssetsOnly": true,
+          "altText": "Nothing Sport UNMISSABLE card for Panthers v Knights, starting Sun 27 Sept 2026 at 4:00 pm AEST."
+        },
+        "suggestedHeroes": [
+          {
+            "path": "/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-e0c686a26e20.jpg",
+            "width": 1080,
+            "height": 1350,
+            "mimeType": "image/jpeg",
+            "firstPartyAssetsOnly": true,
+            "altText": "Nothing Sport UNMISSABLE card for Panthers v Knights, starting Sun 27 Sept 2026 at 4:00 pm AEST."
+          }
+        ],
+        "uploadPolicy": "approved-media-only"
+      }
+    },
+    {
       "campaignId": "marquee_ff9103509fd2221f",
       "campaignRevision": 1,
       "contentHash": "fa54cd180c935023befc9a73ac938da02050a39771c3fd80905c70716f833d8b",
@@ -1145,7 +1665,7 @@
         "name": "Official 2026 NRL and NRLW Grand Final",
         "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "2026 NRLW Grand Final",
@@ -1401,7 +1921,7 @@
         "name": "NRL — 2026 top eight locked after Round 26",
         "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
         "checkedAt": "2026-08-29T19:30:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "NRL Grand Final",
@@ -1660,7 +2180,7 @@
         "name": "Formula 1 current driver standings",
         "url": "https://www.formula1.com/en/results/2026/drivers",
         "checkedAt": "2026-09-22T05:09:27.086Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Bahrain GP · Race",
@@ -1917,7 +2437,7 @@
         "name": "Formula 1 current driver standings",
         "url": "https://www.formula1.com/en/results/2026/drivers",
         "checkedAt": "2026-09-22T05:09:27.086Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -2175,7 +2695,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Australian Motorcycle Grand Prix",
@@ -2432,7 +2952,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "MotoGP Malaysian Grand Prix",
@@ -2689,7 +3209,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -2946,7 +3466,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -3203,7 +3723,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "MotoGP Portuguese Grand Prix",
@@ -3460,7 +3980,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -3717,7 +4237,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -3974,7 +4494,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -4231,7 +4751,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -4487,7 +5007,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-09-22T05:09:27.161Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -4745,7 +5265,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -5002,7 +5522,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -5259,7 +5779,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -5516,7 +6036,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "The 155th Open",
@@ -5772,7 +6292,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922082714328@2026-09-22T08:27:14.328Z"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",
@@ -5971,524 +6491,6 @@
             "mimeType": "image/jpeg",
             "firstPartyAssetsOnly": true,
             "altText": "Nothing Sport UNMISSABLE card for Shahdag — Moguls World Cup Finals, listed for 5–7 Mar 2027 with the exact start time to be confirmed."
-          }
-        ],
-        "uploadPolicy": "approved-media-only"
-      }
-    },
-    {
-      "campaignId": "marquee_1af326032547eb75",
-      "campaignRevision": 1,
-      "contentHash": "01b7ad83202bff63b5a223917c7281657df4fb41b618a93097db32072d125305",
-      "state": "watching",
-      "actionable": false,
-      "late": false,
-      "eventId": "major-match:nrl-finals-2026:preliminary-final-1",
-      "proposedSendAt": null,
-      "readyForExport": false,
-      "readinessIssues": [
-        "not_explicitly_atomic",
-        "unconfirmed_utc_start",
-        "missing_finish_or_live_window"
-      ],
-      "machineSort": {
-        "proposedSendAt": null,
-        "fixtureStartAt": null,
-        "fixtureDate": "Week of Monday, 21 Sep"
-      },
-      "eligibilityEvidence": {
-        "stakesExactlyFive": true,
-        "readyForExport": false,
-        "atomicType": null,
-        "confirmedUtcStart": false,
-        "finish": "unconfirmed",
-        "status": "upcoming",
-        "sourceCheckedAt": "2026-08-29T19:30:00.000Z"
-      },
-      "timing": {
-        "startTimeUtc": "",
-        "endTimeUtc": "",
-        "liveWindowHours": 3,
-        "endDerived": false,
-        "sydneyStart": {
-          "day": "Mon",
-          "weekday": "Monday",
-          "date": "Week of Monday, 21 Sep",
-          "time": "Time TBC",
-          "timezone": "Sydney time"
-        },
-        "sydneyFinish": {
-          "date": "",
-          "time": "",
-          "day": "",
-          "timezone": "Sydney time"
-        }
-      },
-      "source": {
-        "name": "NRL — 2026 top eight locked after Round 26",
-        "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
-        "checkedAt": "2026-08-29T19:30:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
-      },
-      "material": {
-        "title": "NRL Preliminary Final",
-        "participants": [
-          "Preliminary Final 1 - winner of QF1",
-          "winner of SF2"
-        ],
-        "sport": "nrl",
-        "competition": "all",
-        "startTimeUtc": "",
-        "endTimeUtc": "",
-        "venue": "Venue TBC",
-        "broadcaster": "",
-        "stakes": 5,
-        "source": {
-          "name": "NRL — 2026 top eight locked after Round 26",
-          "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
-          "checkedAt": "2026-08-29T19:30:00.000Z"
-        },
-        "recognisableTitle": "NRL Preliminary Final",
-        "matchupLabel": "Preliminary Final 1 - winner of QF1 v winner of SF2",
-        "displayDate": "Week of Monday, 21 Sep"
-      },
-      "identities": {
-        "code": {
-          "label": "nrl",
-          "path": "/assets/brand/web/nothingsport-app-icon.png",
-          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
-          "provenance": {
-            "registry": "Sporticon Apache-2.0",
-            "rightsStatus": "open_use"
-          }
-        },
-        "teams": []
-      },
-      "live": {
-        "headline": "NRL Preliminary Final: on the 5/5 watchlist",
-        "hook": "NRL Preliminary Final: winner of QF1 and winner of SF2 play for a place in the Grand Final.",
-        "kicker": "5/5 stakes · nrl",
-        "heroAssetId": "",
-        "logos": {
-          "showCode": true,
-          "showTeams": true,
-          "order": "code-first"
-        },
-        "focalPosition": {
-          "x": 50,
-          "y": 50
-        },
-        "animationPreset": "subtle",
-        "hero": {
-          "path": "/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-        }
-      },
-      "drafts": {
-        "hook": "NRL Preliminary Final: winner of QF1 and winner of SF2 play for a place in the Grand Final.",
-        "instagram": {
-          "account": "@_nothingsports",
-          "caption": "UNMISSABLE NRL: NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2. Week of Monday, 21 Sep; exact time TBC. 5/5 stakes. NRL Preliminary Final: winner of QF1 and winner of SF2 play for a place in the Grand Final. Join the watch party and rate it afterwards — link in bio.",
-          "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2, listed for Week of Monday, 21 Sep with the exact start time to be confirmed.",
-          "image": {
-            "path": "/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-          }
-        },
-        "email": {
-          "subject": "5/5 stakes: NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2 — Week of Monday, 21 Sep · time TBC",
-          "preheader": "Join the NRL Preliminary Final watch party, then rate it after the finish.",
-          "headline": "NRL Preliminary Final: on the 5/5 watchlist",
-          "bodyParagraphs": [
-            "winner of QF1 and winner of SF2 play for a place in the Grand Final. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "Join us for the NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
-          ],
-          "timingLine": "NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2 is listed for Week of Monday, 21 Sep; the exact fixture and Sydney start time still need confirmation.",
-          "broadcastLine": "",
-          "topic": "Marquee fixture alerts",
-          "primaryCta": {
-            "label": "Open the fixture",
-            "url": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75"
-          },
-          "secondaryCta": {
-            "label": "Rate it after the finish",
-            "url": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75&intent=rate"
-          },
-          "suggestedSendAt": {
-            "utc": null,
-            "sydney": null
-          },
-          "joinUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75",
-          "ratingUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75&intent=rate",
-          "image": {
-            "path": "/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-          }
-        },
-        "when": {
-          "day": "Mon",
-          "weekday": "Monday",
-          "date": "Week of Monday, 21 Sep",
-          "time": "Time TBC",
-          "timezone": "Sydney time"
-        },
-        "finish": {
-          "date": "",
-          "time": "",
-          "day": "",
-          "timezone": "Sydney time"
-        },
-        "live": {
-          "headline": "NRL Preliminary Final: on the 5/5 watchlist",
-          "hook": "NRL Preliminary Final: winner of QF1 and winner of SF2 play for a place in the Grand Final.",
-          "kicker": "5/5 stakes · nrl",
-          "heroAssetId": "",
-          "logos": {
-            "showCode": true,
-            "showTeams": true,
-            "order": "code-first"
-          },
-          "focalPosition": {
-            "x": 50,
-            "y": 50
-          },
-          "animationPreset": "subtle",
-          "hero": {
-            "path": "/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-          }
-        }
-      },
-      "channels": {
-        "instagram": {
-          "status": "connector_blocked",
-          "adapter": "instagram-mcp",
-          "reason": "requested_connector_not_installed",
-          "enabled": false
-        },
-        "email": {
-          "status": "connector_blocked",
-          "adapter": "resend-broadcasts",
-          "reason": "operator_sender_configuration_required",
-          "enabled": false
-        },
-        "x": {
-          "enabled": false
-        },
-        "linkedin": {
-          "enabled": false
-        },
-        "facebook": {
-          "enabled": false
-        }
-      },
-      "participation": {
-        "enabled": false,
-        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_1af326032547eb75",
-        "fixtureUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-1?source=marquee&campaign=marquee_1af326032547eb75",
-        "ratingWindow": {
-          "opensAt": null,
-          "closesAt": null
-        }
-      },
-      "assets": {
-        "fallbackHero": {
-          "path": "/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-        },
-        "suggestedHeroes": [
-          {
-            "path": "/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_1af326032547eb75-01b7ad83202b.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 1 - winner of QF1 v winner of SF2, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-          }
-        ],
-        "uploadPolicy": "approved-media-only"
-      }
-    },
-    {
-      "campaignId": "marquee_42ede0fa256411df",
-      "campaignRevision": 1,
-      "contentHash": "8959576610d454473567e974447735b1d7426bb982a8eefedf5cd957234d2b2e",
-      "state": "watching",
-      "actionable": false,
-      "late": false,
-      "eventId": "major-match:nrl-finals-2026:preliminary-final-2",
-      "proposedSendAt": null,
-      "readyForExport": false,
-      "readinessIssues": [
-        "not_explicitly_atomic",
-        "unconfirmed_utc_start",
-        "missing_finish_or_live_window"
-      ],
-      "machineSort": {
-        "proposedSendAt": null,
-        "fixtureStartAt": null,
-        "fixtureDate": "Week of Monday, 21 Sep"
-      },
-      "eligibilityEvidence": {
-        "stakesExactlyFive": true,
-        "readyForExport": false,
-        "atomicType": null,
-        "confirmedUtcStart": false,
-        "finish": "unconfirmed",
-        "status": "upcoming",
-        "sourceCheckedAt": "2026-08-29T19:30:00.000Z"
-      },
-      "timing": {
-        "startTimeUtc": "",
-        "endTimeUtc": "",
-        "liveWindowHours": 3,
-        "endDerived": false,
-        "sydneyStart": {
-          "day": "Mon",
-          "weekday": "Monday",
-          "date": "Week of Monday, 21 Sep",
-          "time": "Time TBC",
-          "timezone": "Sydney time"
-        },
-        "sydneyFinish": {
-          "date": "",
-          "time": "",
-          "day": "",
-          "timezone": "Sydney time"
-        }
-      },
-      "source": {
-        "name": "NRL — 2026 top eight locked after Round 26",
-        "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
-        "checkedAt": "2026-08-29T19:30:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
-      },
-      "material": {
-        "title": "NRL Preliminary Final",
-        "participants": [
-          "Preliminary Final 2 - winner of QF2",
-          "winner of SF1"
-        ],
-        "sport": "nrl",
-        "competition": "all",
-        "startTimeUtc": "",
-        "endTimeUtc": "",
-        "venue": "Venue TBC",
-        "broadcaster": "",
-        "stakes": 5,
-        "source": {
-          "name": "NRL — 2026 top eight locked after Round 26",
-          "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
-          "checkedAt": "2026-08-29T19:30:00.000Z"
-        },
-        "recognisableTitle": "NRL Preliminary Final",
-        "matchupLabel": "Preliminary Final 2 - winner of QF2 v winner of SF1",
-        "displayDate": "Week of Monday, 21 Sep"
-      },
-      "identities": {
-        "code": {
-          "label": "nrl",
-          "path": "/assets/brand/web/nothingsport-app-icon.png",
-          "publicUrl": "https://nothingsport.vercel.app/assets/brand/web/nothingsport-app-icon.png",
-          "provenance": {
-            "registry": "Sporticon Apache-2.0",
-            "rightsStatus": "open_use"
-          }
-        },
-        "teams": []
-      },
-      "live": {
-        "headline": "NRL Preliminary Final: on the 5/5 watchlist",
-        "hook": "NRL Preliminary Final: winner of QF2 and winner of SF1 play for a place in the Grand Final.",
-        "kicker": "5/5 stakes · nrl",
-        "heroAssetId": "",
-        "logos": {
-          "showCode": true,
-          "showTeams": true,
-          "order": "code-first"
-        },
-        "focalPosition": {
-          "x": 50,
-          "y": 50
-        },
-        "animationPreset": "subtle",
-        "hero": {
-          "path": "/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-        }
-      },
-      "drafts": {
-        "hook": "NRL Preliminary Final: winner of QF2 and winner of SF1 play for a place in the Grand Final.",
-        "instagram": {
-          "account": "@_nothingsports",
-          "caption": "UNMISSABLE NRL: NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1. Week of Monday, 21 Sep; exact time TBC. 5/5 stakes. NRL Preliminary Final: winner of QF2 and winner of SF1 play for a place in the Grand Final. Join the watch party and rate it afterwards — link in bio.",
-          "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1, listed for Week of Monday, 21 Sep with the exact start time to be confirmed.",
-          "image": {
-            "path": "/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-          }
-        },
-        "email": {
-          "subject": "5/5 stakes: NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1 — Week of Monday, 21 Sep · time TBC",
-          "preheader": "Join the NRL Preliminary Final watch party, then rate it after the finish.",
-          "headline": "NRL Preliminary Final: on the 5/5 watchlist",
-          "bodyParagraphs": [
-            "winner of QF2 and winner of SF1 play for a place in the Grand Final. Penrith has secured a top-two finish, but the rest of the order remains live. South Sydney is back in the finals for the first time since 2022, the Dolphins are there for the first time, and Brisbane's absence guarantees a new champion. The series ends at Accor Stadium on 4 October, with seeding still to decide how each club can get there.",
-            "Join us for the NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1. We’ll add the exact fixture and Sydney start time as soon as the official schedule is confirmed."
-          ],
-          "timingLine": "NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1 is listed for Week of Monday, 21 Sep; the exact fixture and Sydney start time still need confirmation.",
-          "broadcastLine": "",
-          "topic": "Marquee fixture alerts",
-          "primaryCta": {
-            "label": "Open the fixture",
-            "url": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df"
-          },
-          "secondaryCta": {
-            "label": "Rate it after the finish",
-            "url": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df&intent=rate"
-          },
-          "suggestedSendAt": {
-            "utc": null,
-            "sydney": null
-          },
-          "joinUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df",
-          "ratingUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df&intent=rate",
-          "image": {
-            "path": "/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-          }
-        },
-        "when": {
-          "day": "Mon",
-          "weekday": "Monday",
-          "date": "Week of Monday, 21 Sep",
-          "time": "Time TBC",
-          "timezone": "Sydney time"
-        },
-        "finish": {
-          "date": "",
-          "time": "",
-          "day": "",
-          "timezone": "Sydney time"
-        },
-        "live": {
-          "headline": "NRL Preliminary Final: on the 5/5 watchlist",
-          "hook": "NRL Preliminary Final: winner of QF2 and winner of SF1 play for a place in the Grand Final.",
-          "kicker": "5/5 stakes · nrl",
-          "heroAssetId": "",
-          "logos": {
-            "showCode": true,
-            "showTeams": true,
-            "order": "code-first"
-          },
-          "focalPosition": {
-            "x": 50,
-            "y": 50
-          },
-          "animationPreset": "subtle",
-          "hero": {
-            "path": "/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-          }
-        }
-      },
-      "channels": {
-        "instagram": {
-          "status": "connector_blocked",
-          "adapter": "instagram-mcp",
-          "reason": "requested_connector_not_installed",
-          "enabled": false
-        },
-        "email": {
-          "status": "connector_blocked",
-          "adapter": "resend-broadcasts",
-          "reason": "operator_sender_configuration_required",
-          "enabled": false
-        },
-        "x": {
-          "enabled": false
-        },
-        "linkedin": {
-          "enabled": false
-        },
-        "facebook": {
-          "enabled": false
-        }
-      },
-      "participation": {
-        "enabled": false,
-        "liveUrl": "https://nothingsport.vercel.app/live?source=marquee&campaign=marquee_42ede0fa256411df",
-        "fixtureUrl": "https://nothingsport.vercel.app/fixture/major-match%3Anrl-finals-2026%3Apreliminary-final-2?source=marquee&campaign=marquee_42ede0fa256411df",
-        "ratingWindow": {
-          "opensAt": null,
-          "closesAt": null
-        }
-      },
-      "assets": {
-        "fallbackHero": {
-          "path": "/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-          "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-          "width": 1080,
-          "height": 1350,
-          "mimeType": "image/jpeg",
-          "firstPartyAssetsOnly": true,
-          "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
-        },
-        "suggestedHeroes": [
-          {
-            "path": "/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-            "publicUrl": "https://nothingsport.vercel.app/assets/marquee/marquee_42ede0fa256411df-8959576610d4.jpg",
-            "width": 1080,
-            "height": 1350,
-            "mimeType": "image/jpeg",
-            "firstPartyAssetsOnly": true,
-            "altText": "Nothing Sport UNMISSABLE card for NRL Preliminary Final, Preliminary Final 2 - winner of QF2 v winner of SF1, listed for Week of Monday, 21 Sep with the exact start time to be confirmed."
           }
         ],
         "uploadPolicy": "approved-media-only"

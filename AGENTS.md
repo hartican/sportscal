@@ -64,3 +64,9 @@ One-release performance exception — 22 September 2026
 - All other release gates remain required. This note is the follow-up record; it does not create a new scheduler.
 - The owner extended the same one-release performance exception to the 22 September 2026 missing-red-7plus-logo fix. The 28 September–4 October remediation and all other release gates remain unchanged.
 - The owner also extended this exception to the 22 September 2026 Feed Filter pagination repair. Keep the same next-week remediation date and all remaining release checks.
+
+NRL finals completeness — 22 September 2026
+-------------------------------------------
+- The Champion Data regular-season NRL fixture source stops at Round 27. It does not hydrate finals. Keep `data/canonical/nrl-finals-published-2026.json` current from official NRL announcements as each finals week is confirmed, preserving the existing bracket-slot identities.
+- `sync-finals-code-phase.js` must consume those reviewed schedules as well as the regular canonical source. Run `validate-nrl-preliminary-finals.js --published`: current-week unresolved NRL week placeholders are a refresh failure requiring official-source review, not a successful empty Feed.
+- The preliminary-finals data repair retains the byte-identical app shell already released under the recorded performance exception. The outstanding compressed-byte remediation remains due 28 September–4 October; this data repair does not raise or disable that gate.
