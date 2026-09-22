@@ -27,6 +27,13 @@ function main(){
   const knowledge = readJson(KNOWLEDGE_PATH);
   const issues = validateKnowledge(knowledge);
   if (issues.length) throw new Error(`Editorial knowledge invalid:\n- ${issues.join("\n- ")}`);
+  const locks=require('../config/editorial-locks');
+  const retained=[...readJson(FEED_PATH).events,...readJson(PUBLISHED_FEED_PATH).events];
+  knowledge.eventProjections=knowledge.eventProjections.map(projection=>{
+    if(projection.targetType!=='feed-event')return projection;
+    const event=retained.find(event=>projection.targetIds.some(id=>[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].includes(id)));
+    return event ? locks.projection(event,projection) : projection;
+  });
   const indexes = indexesFor(knowledge);
 
   function applyFeed(document){
@@ -116,6 +123,7 @@ function main(){
   if (missing.length) throw new Error(`Editorial projections reference missing targets: ${missing.join(", ")}`);
 
   if (WRITE){
+    writeJson(KNOWLEDGE_PATH, knowledge);
     writeJson(FEED_PATH, feed);
     writeJson(PUBLISHED_FEED_PATH, publishedFeed);
     writeJson(MAJOR_EVENTS_PATH, majorEvents);

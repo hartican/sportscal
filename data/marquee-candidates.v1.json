@@ -1,6 +1,6 @@
 {
   "schemaVersion": "marquee-candidates.v1",
-  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z",
+  "sourceRevision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z",
   "generatedAt": "2026-08-29T00:00:00.000Z",
   "shadowMode": true,
   "summary": {
@@ -61,7 +61,7 @@
         "name": "RLWC 2026 — competition rules",
         "url": "https://www.rlwc2026.com/news/irl-rugby-league-world-cup-2026-rules-conformed",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -343,7 +343,7 @@
         "name": "Rugby Australia — 2026 Wallabies Test schedule",
         "url": "https://www.rugby.com.au/news/wallabies-confirm-test-schedule-for-2026-season-20251125",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Australia v New Zealand",
@@ -628,7 +628,7 @@
         "name": "NRL — finals progression explainer",
         "url": "https://www.nrl.com/news/2019/08/26/everything-you-need-to-know-about-the-2019-nrl-finals/",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "NRL Preliminary Finals",
@@ -884,7 +884,7 @@
         "name": "AFL",
         "url": "https://www.afl.com.au/afl/matches/9028",
         "checkedAt": "2026-09-22T02:47:23.900Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Fremantle v Brisbane Lions",
@@ -922,7 +922,7 @@
       },
       "live": {
         "headline": "Saturday watch party: Fremantle v Brisbane Lions",
-        "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
+        "hook": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
         "kicker": "5/5 stakes · AFL",
         "heroAssetId": "",
         "logos": {
@@ -946,10 +946,10 @@
         }
       },
       "drafts": {
-        "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
+        "hook": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
         "instagram": {
           "account": "@_nothingsports",
-          "caption": "UNMISSABLE AFL: Fremantle v Brisbane Lions. Sat 26 Sept 2026 at 2:30 pm AEST. 5/5 stakes. The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG. Join the watch party and rate it afterwards — link in bio.",
+          "caption": "UNMISSABLE AFL: Fremantle v Brisbane Lions. Sat 26 Sept 2026 at 2:30 pm AEST. 5/5 stakes. Fremantle chase their first premiership. Brisbane stand one win from a second three-peat. Join the watch party and rate it afterwards — link in bio.",
           "altText": "Nothing Sport UNMISSABLE card for Fremantle v Brisbane Lions, starting Sat 26 Sept 2026 at 2:30 pm AEST.",
           "image": {
             "path": "/assets/marquee/marquee_cd38998faf633e9e-f44e141280e1.jpg",
@@ -966,7 +966,7 @@
           "preheader": "Join the Fremantle v Brisbane Lions watch party, then rate it after the finish.",
           "headline": "Saturday watch party: Fremantle v Brisbane Lions",
           "bodyParagraphs": [
-            "The 2026 finals system began with the AFL's first wildcard round, but every route still converges on the same single decider. Both participants must first survive a preliminary final; once known, their team threads replace the placeholder and carry the path, form and audience memory into Grand Final week.",
+            "Kai Lohmann kicked five goals in Brisbane's preliminary final, while Hugh McCluggage supplied the late go-ahead goal. Fremantle's task is to contain that forward threat and stop Brisbane turning another close finish into a premiership. The Dockers bring their own late-game strength: they overran Sydney to reach their first decider since 2013. At the MCG, Brisbane's fourth consecutive Grand Final appearance meets a Fremantle side determined to make its second count.",
             "Join us for the Fremantle v Brisbane Lions, on Sat at 2:30 pm AEST. Open the fixture for the watch party, live context and post-match rating."
           ],
           "timingLine": "Fremantle v Brisbane Lions starts Sat 26 Sept 2026 at 2:30 pm AEST at MCG. Expected finish: 5:30 pm AEST.",
@@ -1012,7 +1012,7 @@
         },
         "live": {
           "headline": "Saturday watch party: Fremantle v Brisbane Lions",
-          "hook": "The first Final Ten season ends with two preliminary-final survivors and one premiership match at the MCG.",
+          "hook": "Fremantle chase their first premiership. Brisbane stand one win from a second three-peat.",
           "kicker": "5/5 stakes · AFL",
           "heroAssetId": "",
           "logos": {
@@ -1145,7 +1145,7 @@
         "name": "Official 2026 NRL and NRLW Grand Final",
         "url": "https://www.nrl.com/tickets/2026-nrl-telstra-premiership-grand-final/",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "2026 NRLW Grand Final",
@@ -1401,7 +1401,7 @@
         "name": "NRL — 2026 top eight locked after Round 26",
         "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
         "checkedAt": "2026-08-29T19:30:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "NRL Grand Final",
@@ -1660,7 +1660,7 @@
         "name": "Formula 1 current driver standings",
         "url": "https://www.formula1.com/en/results/2026/drivers",
         "checkedAt": "2026-09-22T05:09:27.086Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Bahrain GP · Race",
@@ -1917,7 +1917,7 @@
         "name": "Formula 1 current driver standings",
         "url": "https://www.formula1.com/en/results/2026/drivers",
         "checkedAt": "2026-09-22T05:09:27.086Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Singapore GP · Sprint",
@@ -2175,7 +2175,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Australian Motorcycle Grand Prix",
@@ -2432,7 +2432,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "MotoGP Malaysian Grand Prix",
@@ -2689,7 +2689,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "MotoGP Qatar Grand Prix",
@@ -2946,7 +2946,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 1",
@@ -3203,7 +3203,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "MotoGP Portuguese Grand Prix",
@@ -3460,7 +3460,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Dubai Sail Grand Prix — race day 2",
@@ -3717,7 +3717,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — race day 1",
@@ -3974,7 +3974,7 @@
         "name": "MotoGP 2026 calendar",
         "url": "https://www.motogp.com/en/calendar/2026",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "MotoGP Valencia Grand Prix",
@@ -4231,7 +4231,7 @@
         "name": "SailGP 2026 calendar",
         "url": "https://sailgp.com/general/2026/calendar/",
         "checkedAt": "2026-09-22T05:09:40.238Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Abu Dhabi Sail Grand Prix — championship day",
@@ -4487,7 +4487,7 @@
         "name": "Formula 1 official race hub",
         "url": "https://www.formula1.com/en/racing/2026/qatar",
         "checkedAt": "2026-09-22T05:09:27.161Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Qatar GP · Race",
@@ -4745,7 +4745,7 @@
         "name": "PGA TOUR 2027 schedule",
         "url": "https://www.pgatour.com/pt/article/news/latest/2026/08/26/pga-tour-announces-2027-schedule-through-tour-championship",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "2027 Masters Tournament",
@@ -5002,7 +5002,7 @@
         "name": "PGA Championship",
         "url": "https://www.pgachampionship.com/about-us",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "2027 PGA Championship",
@@ -5259,7 +5259,7 @@
         "name": "USGA 2027 U.S. Open",
         "url": "https://www.usopen.com/content/usopen/2027/tickets.html",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "2027 U.S. Open",
@@ -5516,7 +5516,7 @@
         "name": "The Open 2027",
         "url": "https://www.theopen.com/st-andrews-2027",
         "checkedAt": "2026-09-06T00:00:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "The 155th Open",
@@ -5772,7 +5772,7 @@
         "name": "FIS — 2026/27 Moguls and Aerials calendar",
         "url": "https://www.fis-ski.com/DB/freestyle-freeski/moguls-aerials/calendar-results.html?disciplinecode=AE%2CMO%2CDM%2CAET%2CA",
         "checkedAt": "2026-08-29T23:56:41.761Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "Shahdag — Moguls World Cup Finals",
@@ -6028,7 +6028,7 @@
         "name": "NRL — 2026 top eight locked after Round 26",
         "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
         "checkedAt": "2026-08-29T19:30:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "NRL Preliminary Final",
@@ -6287,7 +6287,7 @@
         "name": "NRL — 2026 top eight locked after Round 26",
         "url": "https://www.nrl.com/news/2026/08/29/super-saturday-we-stand-with-jai-at-cbus-super/",
         "checkedAt": "2026-08-29T19:30:00.000Z",
-        "revision": "nothingsport-official-results-2026-09-15-v1-20260922051040932@2026-09-22T05:10:40.932Z"
+        "revision": "nothingsport-official-results-2026-09-15-v1-20260922070955292@2026-09-22T07:09:55.292Z"
       },
       "material": {
         "title": "NRL Preliminary Final",

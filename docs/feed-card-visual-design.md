@@ -35,3 +35,7 @@ Photography, asset acquisition/licensing, image processing and media delivery re
 Run `node scripts/validate-card-timing.js`, `node scripts/validate-card-timing-browser.js` against the local app, and the existing card-identity, rating, UI, Follow and PWA checks. Browser cases cover 320/390/768/1280px, representative fixture structures, missing identity, timing uncertainty, status, accessible contrast, control separation and disclosure/focus restoration.
 
 Local verification on 22 September: timing unit cases, card identities, UI/startup budgets, Follow policy, coverage pauses, scroll continuity, rating controls and Feed/Follow navigation passed. Responsive checks covered all four widths. The production workflow's safety validators passed locally. The broader Chrome installed-PWA relaunch harness stalled with worker v289 waiting to hand over to v290; the same stall reproduced using unchanged main with only a version bump. This is a retained verification limitation, not evidence of a successful relaunch/offline/resume test. No worker activation logic was changed for this feature.
+
+## Stage-label refinement — 22 September 2026
+
+A single accessible blue stage label follows the timing/status badge in both full and compact Feed cards, wrapping below only when necessary. Central and supporting duplicate stages are removed; distinct sporting formats remain. Internal marquee emphasis is retained without the visible word “Marquee”. See [preview protection](editorial-preview-locks.md).

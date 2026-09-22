@@ -3,6 +3,7 @@ const fs=require('node:fs');
 const assert=require('node:assert/strict');
 const {spawnSync}=require('node:child_process');
 const {apply}=require('./apply-fixture-research');
+const locks=require('../config/editorial-locks');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,v)=>fs.writeFileSync(p,JSON.stringify(v,null,2)+'\n');
 function weekend(now=new Date()){
@@ -52,7 +53,7 @@ function main(args){
     const projection=[event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].map(id=>projections.get(id)).find(Boolean);
     return projection?{...event,editorialNarrative:narrative.editorialNarrativeFor(projection,indexes)}:event;
   });
-  const cards=selected(candidates,range);
+  const cards=selected(candidates,range).filter(event=>!locks.activeFor(event));
   if(args.includes('--list')){console.log(JSON.stringify({weekend:range,cards:cards.map(e=>({id:e.id,name:e.name,date:e.date,stakes:e.storyline?.stakes??e.stakesScore,hook:e.editorialNarrative?.hook||e.selectedSentence}))},null,2));return;}
   if(!cards.length){console.log('No qualifying weekend cards; no changes.');return;}
   const index=args.indexOf('--research');assert(index>=0&&args[index+1],'Provide --research <dated JSON file>, or --list first.');

@@ -61,6 +61,8 @@ function buildQueue({ knowledge, feed, majorEvents, signals, catalogue=[], refer
     uniqueTargets.set(key, previous ? { ...previous, reason:`${previous.reason}+${target.reason}` } : target);
   });
   const entries = [...uniqueTargets.values()].map(({ targetType, record, reason }) => {
+    const approved=require('../config/editorial-locks').recordFor(record);
+    const locked=Boolean(require('../config/editorial-locks').activeFor(record));
     const inheritedNarrative = record.editorialNarrative;
     const inheritedProjection = ["researched", "verified-parent-child-projection"].includes(inheritedNarrative?.generationMode) ? {
           id:inheritedNarrative.projectionId,
@@ -89,19 +91,20 @@ function buildQueue({ knowledge, feed, majorEvents, signals, catalogue=[], refer
       targetType,
       targetId:idFor(record),
       title:record.name,
-      researchDepth:fiveStar(record) ? 5 : researchDepthFor(record),
+      researchDepth:approved || fiveStar(record) ? 5 : researchDepthFor(record),
       startsAt:Number.isFinite(start) ? new Date(start).toISOString() : null,
-      reason,
+      reason:approved ? `${reason}+owner-approved-five-star-priority` : reason,
+      ...(approved ? {editorialLocked:locked,reviewAfter:approved.releaseWhen,prioritySource:"owner-approved"} : {}),
       projectionId:projection?.id || null,
       coverage:projection ? "covered" : fiveStar(record) && (!(feed.events||[]).some(item=>idFor(item)===idFor(record)) || eventTime(record)<earliest) ? "queued-research" : Number.isFinite(start)&&start>latest ? "queued-future" : queuedUnverified ? "queued-unverified" : "missing",
       consequenceCoverage:projection?.consequence ? "covered" : "missing",
-      consequenceResearchRequired:Boolean(projection && !projection.consequence),
+      consequenceResearchRequired:!locked && Boolean(projection && !projection.consequence),
       promotedReplay:Boolean(promotion(record)),
       editorialPhase:["completed","past","finished"].includes(record.status)?"post-match":"preview",
       fiveStarSignal:fiveStar(record),
       resultResearchRequired:record.editorialNarrative?.resultResearchRequired===true,
-      priority:promotion(record) ? "promoted-replay" : fiveStar(record) ? "five-star" : pulseUrgent ? "urgent-post-event" : anticipationPriority ? "audience-accelerated" : researchDepthFor(record) === 5 ? "marquee" : "rolling",
-      refreshDeadline:acceleratedDeadline,
+      priority:approved ? approved.priority : promotion(record) ? "promoted-replay" : fiveStar(record) ? "five-star" : pulseUrgent ? "urgent-post-event" : anticipationPriority ? "audience-accelerated" : researchDepthFor(record) === 5 ? "marquee" : "rolling",
+      refreshDeadline:locked ? null : approved && require("../config/editorial-locks").confirmedComplete(record) ? reference.toISOString() : acceleratedDeadline,
     };
   }).sort((left, right) => {
     const rank = { "five-star":-1, "promoted-replay":-1, "urgent-post-event":0, "audience-accelerated":1, marquee:2, rolling:3 };

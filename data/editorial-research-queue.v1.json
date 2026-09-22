@@ -1,6 +1,6 @@
 {
   "schemaVersion": "editorial-research-queue.v1",
-  "generatedAt": "2026-09-22T05:10:35.087Z",
+  "generatedAt": "2026-09-22T07:09:48.905Z",
   "timeZone": "Australia/Sydney",
   "rollingWindow": {
     "previousDays": 7,
@@ -288,17 +288,20 @@
       "title": "Fremantle v Brisbane Lions",
       "researchDepth": 5,
       "startsAt": "2026-09-26T04:30:00.000Z",
-      "reason": "rolling-published-fixtures+classified-marquee+real-five-star-signal+real-five-star-signal",
+      "reason": "rolling-published-fixtures+classified-marquee+real-five-star-signal+real-five-star-signal+owner-approved-five-star-priority",
+      "editorialLocked": true,
+      "reviewAfter": "confirmed-completion",
+      "prioritySource": "owner-approved",
       "projectionId": "projection:rolling:event-afl-cd-m20260142901",
       "coverage": "covered",
       "consequenceCoverage": "missing",
-      "consequenceResearchRequired": true,
+      "consequenceResearchRequired": false,
       "promotedReplay": false,
       "editorialPhase": "preview",
       "fiveStarSignal": true,
       "resultResearchRequired": false,
       "priority": "five-star",
-      "refreshDeadline": "2026-09-26T04:30:00.000Z"
+      "refreshDeadline": null
     },
     {
       "targetType": "feed-event",

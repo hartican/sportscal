@@ -127,7 +127,7 @@ assert(eventSchema.$defs.editorialNarrative.properties.schemaVersion.enum.includ
 assert(majorSchema.$defs.event.properties.editorialNarrative, "the major-event schema must publish the event editorial projection contract");
 
 const html = fs.readFileSync("index.html", "utf8");
-assert(html.includes("mainDiv.appendChild(whyItMatters)") && html.includes("buildInlineCrowdRating(ev,snapshot)"), "Feed retains editorial alongside the standard one-tap rating input");
+assert(html.includes("appendFixtureCardInformation(mainDiv,ev,") && html.includes("parent.appendChild(whyItMatters)") && html.includes("buildInlineCrowdRating(ev,snapshot)"), "Feed retains editorial alongside the standard one-tap rating input");
 assert.doesNotMatch(html, /labelText:"Independent context"/, "expanded cards must not repeat editorial in a second metadata box");
 assert.doesNotMatch(html, /editorialNarrativeCopyForDisplay\(/, "selected and opened cards must not repeat a second synopsis block beneath Why it matters");
 assert(html.includes('buildEventCard(event, {mode:"events"') || html.includes("eventParent:record"), "Events fixtures use the shared fixture renderer");

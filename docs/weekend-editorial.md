@@ -25,3 +25,5 @@ Failure learned on 18 September: raw ISO timestamps contain uppercase T/Z and
 punctuation and are invalid feed-version slugs. Generate numeric timestamp suffixes,
 assert the slug before writing, and do not let matching prose skip recovery when
 the previous run left an invalid feed version.
+
+Owner-approved active fixture locks in `config/editorial-locks.js` are excluded from weekend rewrites. They remain protected through live play and postponement; confirmed completion returns them to normal result-aware review. See [preview protection](editorial-preview-locks.md).

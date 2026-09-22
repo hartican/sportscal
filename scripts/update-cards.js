@@ -186,6 +186,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/sync-finals-code-phase.js"],
   ["scripts/sync-finals-code-phase.js", "--check"],
   ["scripts/apply-coverage-pauses.js"],
+  ["scripts/validate-editorial-locks.js", "--published"],
   ["scripts/validate-editorial-narratives.js"],
   ["scripts/build-app-shell-runtime.js"],
   ["scripts/build-app-shell-runtime.js", "--check"],

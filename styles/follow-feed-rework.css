@@ -216,8 +216,13 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .event-card .fixture-timing-header{grid-column:1/-1;width:100%;min-height:32px;padding-right:76px;text-align:left;flex:0 0 auto;}
 #listView .event-card.has-fixture-timing>.event-card-disclosure{left:auto;right:44px;}
 #listView .event-card.has-fixture-timing .event-date-chip:empty{display:none;}
-#listView .compact-card-summary:has(>.fixture-timing-badge){padding-block:7px;gap:5px;}
-#listView .compact-card-summary>.fixture-timing-badge{grid-column:1;justify-self:start;}
-#listView .compact-card-summary:has(>.fixture-timing-badge)>.compact-card-time{white-space:normal;overflow:visible;}
+#listView .compact-card-summary:has(>.fixture-timing-group){padding-block:7px;gap:5px;}
+#listView .compact-card-summary>.fixture-timing-group{grid-column:1;justify-self:start;}
+#listView .compact-card-summary:has(>.fixture-timing-group)>.compact-card-time{white-space:normal;overflow:visible;}
 
 .fixture-timing-clock{white-space:nowrap;}
+
+.fixture-timing-group{display:flex;align-items:center;flex-wrap:wrap;gap:6px 8px;min-width:0;max-width:100%;}
+.fixture-stage-label{color:#006b91;font-size:.7rem;font-weight:850;letter-spacing:.045em;line-height:1.3;text-align:left;}
+:root[data-theme="night"] .fixture-stage-label,:root[data-theme="system"] .fixture-stage-label{color:#62c9f2;}
+@media(prefers-color-scheme:light){:root[data-theme="system"] .fixture-stage-label{color:#006b91;}}

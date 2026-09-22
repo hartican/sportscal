@@ -287,6 +287,8 @@ function editorialNarrativeFor(projection, indexes){
 }
 
 function applyToFeedEvent(event, projection, indexes){
+  const locks=require("../../config/editorial-locks");
+  projection=locks.projection(event,projection);
   const pauses=require("../../config/coverage-pauses");
   if(pauses.womensT20(event))return pauses.apply(event);
   const primarySource = indexes.sources.get(projection.sourceIds[0]);
@@ -307,7 +309,7 @@ function applyToFeedEvent(event, projection, indexes){
   const completedSynopsis = narrative.synopsisSpoilerOn || completedHook;
   const contextSignals = unique(["event-specific", ...narrative.dimensions.map(value => `narrative:${value}`)]);
   const threadTitle = indexes.threads.get(projection.threadIds[0])?.title || "Persistent editorial thread";
-  return {
+  return locks.apply({
     ...event,
     selectedSentence:narrative.hook,
     fullSpiel:narrative.synopsis,
@@ -336,7 +338,7 @@ function applyToFeedEvent(event, projection, indexes){
       synopsisSpoilerOn:completed ? completedSynopsis : projection.synopsisSpoilerOn || projection.synopsis,
       lastReviewedAt:projection.researchedAt,
     },
-  };
+  });
 }
 
 function applyToMajorEvent(record, projection, indexes){
