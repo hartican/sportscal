@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="285">
-<script src="/assets/js/app-update.js?v=285" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=285" as="script">
+<meta name="app-shell-version" content="286">
+<script src="/assets/js/app-update.js?v=286" defer></script>
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=286" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6862,9 +6862,14 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .fixture-profile-link{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--text) 30%,transparent);text-underline-offset:3px;}
 .fixture-profile-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 @media(max-width:640px){.event-card-primary-actions .event-quick-actions{gap:4px;}.event-card-primary-actions .event-quick-action{padding:6px 5px;font-size:.62rem;}}
+#settingsBtn{border-color:transparent;box-shadow:none;}
+#settingsBtn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.feed-schedule-link{display:inline-block;color:var(--accent);background:none;border:0;padding:6px 0;font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:3px;min-height:32px;}
+.follow-common-controls,.follow-event-bulk{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:10px 0;}
+.follow-schedule-panel{min-width:0;}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=285">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=285">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=286">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=286">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -6899,13 +6904,13 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
           <button class="btn ghost" id="settingsBtn" type="button" aria-label="Settings"><span data-vector-glyph="ui:settings"></span><span class="full-label">Settings</span></button>
           <button class="btn ghost calendar-sync-action" id="calendarSyncBtn" type="button" aria-label="Calendar sync"><span data-vector-glyph="ui:calendar"></span></button>
           <button class="btn ghost share-app-action" id="shareAppBtn" type="button" aria-label="Share Nothing Sport"><span data-vector-glyph="ui:share"></span><span class="share-app-label">Share</span></button>
+          <button class="btn ghost" id="notificationsBtn" type="button" aria-label="Notifications" aria-haspopup="dialog" aria-controls="notificationsInbox" aria-expanded="false"><span data-vector-glyph="ui:bell"></span><span id="notificationCount" class="notification-count" hidden></span></button>
         </div>
       </div>
       <div class="slogan" data-brand-copy="descriptor">Live sport, nothing missed.</div>
     </div>
     <div class="header-actions">
       <button class="btn spoiler-home-toggle" id="homeSpoilerToggle" type="button" role="switch" aria-checked="false" aria-label="Results OFF"><span class="spoiler-home-label">Results</span><span class="spoiler-home-state">OFF</span></button>
-      <button class="btn ghost" id="notificationsBtn" type="button" aria-label="Notifications" aria-haspopup="dialog" aria-controls="notificationsInbox" aria-expanded="false"><span data-vector-glyph="ui:bell"></span><span id="notificationCount" class="notification-count" hidden></span></button>
       <button class="btn ghost" id="activeChatsBtn" type="button" aria-haspopup="dialog" aria-controls="chatDrawer" aria-label="Active chats" hidden><span data-vector-glyph="ui:message"></span> <span class="full-label">Chats</span><span class="active-chat-count" id="activeChatCount">0</span></button>
       <button class="btn ghost" id="nothingscoreBtn" type="button" aria-controls="nothingscoreDrawer" aria-label="Nothinger Leaderboard"><span class="nothing-score-label" aria-hidden="true">LEADER<br>BOARD</span></button>
       <div class="header-hydration-slot" id="headerHydrationSlot">
@@ -6932,6 +6937,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 </div>
 
 <div class="timeline-tools" id="timelineTools" aria-label="Timeline controls" hidden>
+  <button class="btn ghost" id="feedViewFilterBtn" type="button" aria-label="Filter Feed">Filter</button>
   <button class="btn ghost feed-compact-toggle" id="timelineExpandBtn" type="button" aria-label="Collapse all cards">−</button>
   <button class="btn jump-today-btn" id="jumpTodayBtn" type="button" aria-label="Jump to Now"><span data-vector-glyph="ui:jump"></span> Jump to Now</button>
 </div>
@@ -7159,7 +7165,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=285"></script>
+<script src="assets/js/app-shell-runtime.js?v=286"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8357,7 +8363,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-    moduleScriptUrl: "config/major-events.js?v=285",
+    moduleScriptUrl: "config/major-events.js?v=286",
   url: "data/major-events.v1.json",
 });
 
@@ -8687,6 +8693,7 @@ let liveFixtureEvents = [];
 let liveFixtureRefresh = null;
 let liveFixtureLastRequestedAt = 0;
 let codeInspectorChunkLoading = null;
+let codeInspectorChunkRequestId = 0;
 let codeInspectorTab = "all-fixtures";
 let codeInspectorPlayersExpanded = false;
 let codeInspectorGroup = "";
@@ -13698,17 +13705,9 @@ function codeInspectorCodeFromLocation(){
 }
 
 async function openStandingsFixturesForEvent(event){
-  const manifest = await loadCodeInspectorManifest();
-  const aliases = { f1:"motorsport", rugby:"rugby-union", fifa:"football", "premier-league":"football", nba:"basketball" };
-  const sportKey = aliases[event?.sportKey || event?.sportId || event?.key] || event?.sportKey || event?.sportId || event?.key;
-  const code = manifest.codes.find(item => item.id === `sport:${sportKey}` || item.slug === sportKey);
-  if (!code){
-    openTuneSheet();
-    showToast("That event’s Schedule is not published yet.");
-    return false;
-  }
-  await openCodeInspector(code.id);
-  return true;
+  const scope=scheduleScopeForEvent(event);saveFollowBrowse({scheduleScope:scope});
+  if(scope.tournamentId&&['tennis','wimbledon'].includes(event.key)){await loadTennisScheduleUi();tennisSelectedEdition=scope.tournamentId;}
+  await openCodeInspector(scope.codeId);return true;
 }
 
 async function loadCodeInspectorChunk(codeId){
@@ -13716,16 +13715,18 @@ async function loadCodeInspectorChunk(codeId){
   const code = manifest.codes.find(candidate => candidate.id === codeId);
   if (!code) throw new Error(`Unknown canonical code: ${codeId}`);
   if (codeInspectorChunk?.code?.id === codeId) return codeInspectorChunk;
-  const requestedCodeId = codeId;
+  const requestedCodeId = codeId, requestId = ++codeInspectorChunkRequestId;
   codeInspectorChunkLoading = fetchJson(code.chunkPath, { cache: "default" })
     .then(document => {
       if (document?.schemaVersion !== "code-inspector-chunk.v1" || document?.code?.id !== requestedCodeId){
         throw new Error(`Invalid Inspector chunk: ${requestedCodeId}`);
       }
-      codeInspectorChunk = {...document,fixtures:liveScheduleFixtures(document.fixtures,document.code)};
-      return codeInspectorChunk;
+      const chunk = {...document,fixtures:liveScheduleFixtures(document.fixtures,document.code)};
+      if(requestId===codeInspectorChunkRequestId)codeInspectorChunk=chunk;
+      return chunk;
     })
-    .finally(() => { codeInspectorChunkLoading = null; });
+    .finally(() => { if(requestId===codeInspectorChunkRequestId)codeInspectorChunkLoading = null; });
+  codeInspectorChunkLoading.codeId=codeId;
   return codeInspectorChunkLoading;
 }
 
@@ -13755,17 +13756,17 @@ async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "
     const pickerBody = document.querySelector("#tuneSheet .tune-sheet-body");
     inspectorPickerState = { scrollTop: pickerBody?.scrollTop || 0, focusCodeId: codeId };
     inspectorReturnState = {
-      activeTab:"follow",
-      activeView:"list",
+      activeTab,
+      activeView,
       activeFilter,
       scrollY: tuneSheetReturnState?.scrollY ?? window.scrollY,
       focus: tuneSheetReturnState?.focus || document.activeElement,
     };
   }
-  if(activeTab!=="follow"){
-    const alias={'sport:basketball':'sport:nba','sport:rugby-union':'sport:rugby'};
+  {
+    const alias={'sport:multi-sport':'special:commonwealth-games','sport:basketball':'sport:nba','sport:rugby-union':'sport:rugby','competition:motogp':'sport:motogp','competition:sailgp':'sport:sailgp','competition:fiba-womens-world-cup':'sport:fiba-women'};
     const entity=selectorEntityById(alias[codeId] || codeId);
-    if(entity){const root=selectorEntityById(entity.parentId);saveFollowBrowse({sportId:root?.level===2?root.id:entity.id,categoryId:entity.id==='sport:afl'?'sport:afl-premiership':entity.id,section:'teams-players'});}
+    if(entity){const root=selectorEntityById(entity.parentId);saveFollowBrowse({sportId:root?.level===2?root.id:entity.id,categoryId:entity.id==='sport:afl'?'sport:afl-premiership':entity.id,section:startingTab==='standings'?'standings':'schedule'});}
   }
   activeTab = "follow";
   activeInspectorCodeId = codeId;
@@ -13775,7 +13776,7 @@ async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "
   sportHubState.activeTab = "all-fixtures";
   closeTuneSheet({ restoreFocus: false, restoreViewport: false });
   if (pushHistory && window.location.hash !== codeInspectorHash(codeId)){
-    history.pushState({ codeInspector: codeId, inspectorParent: true }, "", codeInspectorHash(codeId));
+    history.pushState({ appRoute:"follow-schedule", codeInspector: codeId, inspectorParent: true }, "", codeInspectorHash(codeId));
   }
   syncTopLevelNavigationState();
   renderAll();
@@ -13803,7 +13804,7 @@ async function openCodeInspector(codeId, { pushHistory = true, startingGroup = "
 }
 
 function closeCodeInspector({ restoreViewport = true, preserveReturnState = false } = {}){
-  if (!activeInspectorCodeId) return;
+  if (!activeInspectorCodeId && !inspectorReturnState) return;
   const returnState = inspectorReturnState;
   activeInspectorCodeId = null;
   codeInspectorChunk = null;
@@ -13812,7 +13813,7 @@ function closeCodeInspector({ restoreViewport = true, preserveReturnState = fals
   if (returnState){
     activeTab = returnState.activeTab;
     activeView = returnState.activeView;
-    activeFilter = returnState.activeTab === "feed" ? "all" : returnState.activeFilter;
+    activeFilter = returnState.activeFilter;
   }
   if (!preserveReturnState) inspectorReturnState = null;
   syncTopLevelNavigationState();
@@ -13833,7 +13834,7 @@ async function syncCodeInspectorFromLocation(){
       const feedUrl = `${window.location.pathname}${window.location.search}`;
       history.replaceState({ inspectorFeed: true }, "", feedUrl);
       history.pushState({ inspectorPicker: true }, "", "#follow");
-      history.pushState({ codeInspector: codeId, inspectorParent: true }, "", detailHash);
+      history.pushState({ appRoute:"follow-schedule", codeInspector: codeId, inspectorParent: true }, "", detailHash);
     }
     if (activeInspectorCodeId !== codeId) await openCodeInspector(codeId, { pushHistory: false });
     return;
@@ -13844,7 +13845,7 @@ async function syncCodeInspectorFromLocation(){
     activeTab="follow";renderAll();
     return;
   }
-  if (activeInspectorCodeId) closeCodeInspector();
+  if (activeInspectorCodeId || inspectorReturnState) closeCodeInspector();
   if (document.getElementById("tuneSheet")?.classList.contains("show")) closeTuneSheet();
 }
 
@@ -13892,7 +13893,7 @@ async function syncAppRouteFromLocation(){
   pendingTicketAlertFocusId = null;
   activeTab = returnState.activeTab;
   activeView = returnState.activeView;
-  activeFilter = returnState.activeTab === "feed" ? "all" : returnState.activeFilter;
+  activeFilter = returnState.activeFilter;
   renderAll();
   window.requestAnimationFrame(() => window.scrollTo({ top: returnState.scrollY, behavior: "auto" }));
 }
@@ -14043,11 +14044,12 @@ function canonicalFeedFixtureForInspector(fixture){
 }
 
 function codeInspectorFixtureSnapshot(fixture){
-  if (!fixture?.id || !fixture.date || !fixture.time || fixture.scheduleStatus === "provisional" || inspectorFixtureIsResult(fixture)) return null;
+  if (!fixture?.id || !fixture.date || (!["golf","masters"].includes(codeInspectorFixtureSportKey(fixture)) && (!fixture.time || fixture.scheduleStatus === "provisional" || inspectorFixtureIsResult(fixture)))) return null;
   const participantSlots = Array.isArray(fixture.participantSlots) ? fixture.participantSlots : [];
   const canonicalFixture = canonicalFeedFixtureForInspector(fixture);
   const editorialNarrative = fixture.editorialNarrative || canonicalFixture?.editorialNarrative || null;
   const snapshot = {
+    ...fixture,
     id:fixture.id,
     eventId:fixture.id,
     canonicalEventId:fixture.id,
@@ -14085,7 +14087,7 @@ function codeInspectorFixtureSnapshot(fixture){
       label:slot.label || "TBC",
       participants:[{ id:slot.participantId || null, name:slot.label || "TBC", logoUrl:slot.logoUrl || null }],
     })),
-    status:"scheduled",
+    status:fixture.status || "scheduled",
     stakesScore:Number(fixture.expected) >= 9 ? 5 : Number(fixture.expected) >= 7 ? 4 : 3,
     expected:Number(fixture.expected || 7),
     ...(editorialNarrative ? {
@@ -14100,7 +14102,7 @@ function codeInspectorFixtureSnapshot(fixture){
       },
     } : {}),
   };
-  return eventDateTime(snapshot).getTime() > Date.now() ? snapshot : null;
+  return ["golf","masters"].includes(snapshot.key) || eventDateTime(snapshot).getTime() > Date.now() ? snapshot : null;
 }
 
 function setCodeInspectorFixtureAdded(fixture, enabled){
@@ -14158,55 +14160,6 @@ function codeInspectorStandingsSportKey(code){
   return ({ "rugby-union": "rugby", "american-football": "nfl" })[code.slug] || code.slug;
 }
 
-function renderCodeInspectorStandings(panel, code){
-  const publishedStandings = codeInspectorChunk?.code?.id === code.id && Array.isArray(codeInspectorChunk.standings)
-    ? codeInspectorChunk.standings
-    : [];
-  if (publishedStandings.length){
-    const byCompetition = new Map();
-    publishedStandings.forEach(entry => {
-      const rows = byCompetition.get(entry.competitionId) || [];
-      rows.push(entry);
-      byCompetition.set(entry.competitionId, rows);
-    });
-    byCompetition.forEach((rows, competitionId) => {
-      const section = document.createElement("section");
-      section.className = "standings-module code-inspector-published-standings";
-      const title = document.createElement("h3");
-      title.textContent = competitionId === "competition:nhl" ? "NHL standings"
-        : competitionId === "competition:chl" ? "Champions Hockey League table"
-        : (CANONICAL_TAXONOMY.competitions || []).find(competition => competition.id === competitionId)?.name || "NFL standings";
-      const list = document.createElement("div");
-      list.className = "code-inspector-fixtures";
-      rows.sort((first, second) => Number(first.rank || 999) - Number(second.rank || 999) || String(first.displayName).localeCompare(String(second.displayName))).forEach(entry => {
-        const row = document.createElement("article");
-        row.className = "code-inspector-fixture code-inspector-standing-row";
-        const label = document.createElement("strong");
-        label.textContent = `${entry.rank}. ${entry.displayName}`;
-        const facts = document.createElement("span");
-        const played = entry.gamesPlayed ?? entry.stats?.gamesPlayed ?? entry.stats?.gamesplayed;
-        const wins = entry.wins ?? entry.stats?.wins;
-        const losses = entry.losses ?? entry.stats?.losses;
-        const points = entry.points ?? entry.stats?.points;
-        facts.textContent = [played != null ? `${played} played` : null, wins != null ? `${wins} wins` : null, losses != null ? `${losses} losses` : null, points != null ? `${points} pts` : null].filter(Boolean).join(" · ") || "Season table published; results pending.";
-        row.append(label, facts);
-        list.appendChild(row);
-      });
-      section.append(title, list);
-      panel.appendChild(section);
-    });
-    return;
-  }
-  const sportKey = codeInspectorStandingsSportKey(code);
-  const competitions = (CANONICAL_TAXONOMY.competitions || [])
-    .filter(competition => competition.supportsLadder)
-    .filter(competition => standingsSportKey(competition) === sportKey);
-  if (!competitions.length){
-    panel.appendChild(sportHubEmptyState(`Standings or rankings are not meaningfully available for ${code.label}.`));
-    return;
-  }
-  renderStandingsContext({ container: panel, competitions, sectionLabel: `${code.label} standings` });
-}
 
 function renderCodeInspectorResults(panel, code){
   if (codeInspectorChunkLoading || codeInspectorChunk?.code?.id !== code.id){
@@ -14292,7 +14245,7 @@ function renderCodeInspectorResults(panel, code){
 
 let tennisScheduleUiLoading = null;
 function loadTennisScheduleUi(){
-  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=285').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=285')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
+  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=286').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=286')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
   return tennisScheduleUiLoading;
 }
 function renderTennisMajorEvents(container){
@@ -14304,167 +14257,11 @@ function renderTennisTournamentSchedule(panel,fixtures){
   void loadTennisScheduleUi().then(()=>{if(activeInspectorCodeId==='sport:tennis')renderCodeInspector();}).catch(()=>{panel.textContent='Tournament schedule unavailable. Try opening Schedule again.';});
 }
 
-function renderCodeInspector(){
-  const container = document.getElementById("listView");
-  container.innerHTML = "";
-  container.dataset.scrollList = "code-inspector";
-  renderCalendarSelectionToolbar(container);
-  const code = codeInspectorManifest?.codes?.find(candidate => candidate.id === activeInspectorCodeId);
-  if (!code){
-    container.innerHTML = '<div class="empty-state">Loading Schedule…</div>';
-    return;
-  }
-  const view = document.createElement("section");
-  view.className = "code-inspector-view";
-  view.dataset.codeInspector = code.id;
-  view.style.setProperty("--sport-color", codeInspectorSportColor(code));
-  const heading = document.createElement("header");
-  heading.className = "code-inspector-heading";
-  const headingMain = document.createElement("div");
-  headingMain.className = "code-inspector-heading-main";
-  const identity = document.createElement("span");
-  identity.className = "code-inspector-identity identity-frame";
-  identity.setAttribute("aria-hidden", "true");
-  renderCodeInspectorIdentity(identity, code, { eager: true });
-  const copy = document.createElement("div");
-  const eyebrow = document.createElement("span");
-  eyebrow.className = "code-inspector-eyebrow";
-  eyebrow.textContent = `${code.fixtureCount} published fixture${code.fixtureCount === 1 ? "" : "s"}`;
-  const title = document.createElement("h2");
-  title.textContent = code.label;
-  const promise = document.createElement("p");
-  promise.textContent = "Tap a fixture for match detail, or pin one future fixture to Feed without following either team.";
-  copy.append(eyebrow, title, promise);
-  headingMain.append(identity, copy);
-  const back = document.createElement("button");
-  back.type = "button";
-  back.className = "btn ghost code-inspector-back";
-  back.textContent = "Back to Follow";
-  back.addEventListener("click", backFromCodeInspector);
-  heading.append(headingMain, back);
-  view.appendChild(heading);
-
-  const coverage = document.createElement("div");
-  coverage.className = "code-inspector-coverage";
-  coverage.textContent = `${codeInspectorCoverageCopy(code)} Fresh ${new Date(code.freshAt).toLocaleString("en-AU", { timeZone: "Australia/Sydney", dateStyle: "medium", timeStyle: "short" })}.`;
-  view.appendChild(coverage);
-
-  const tabs = document.createElement("div");
-  tabs.className = "code-inspector-tabs";
-  tabs.setAttribute("role", "tablist");
-  const tabDefinitions = [
-    ["all-fixtures", "Schedule"],
-    ...(followHasStandings(code) ? [["standings", followStandingsLabel(code)]] : []),
-    ...(code.slug === "wrc" ? [["results", "Results / Replays"]] : []),
-  ];
-  tabs.style.setProperty("--code-inspector-tab-count", String(tabDefinitions.length));
-  tabDefinitions.forEach(([value, label]) => {
-    const tab = document.createElement("button");
-    tab.type = "button";
-    tab.className = `code-inspector-tab${codeInspectorTab === value ? " active" : ""}`;
-    tab.setAttribute("role", "tab");
-    tab.setAttribute("aria-selected", String(codeInspectorTab === value));
-    tab.textContent = label;
-    tab.addEventListener("click", () => {
-      const activate = () => {
-        const startedAt = feedPerformanceNow();
-        codeInspectorTab = value;
-        codeInspectorGroup = "";
-        renderCodeInspector();
-        recordFeedInteraction(`inspector_${value}`, startedAt);
-      };
-      if (value === "standings") confirmStandingsReveal(activate);
-      else activate();
-    });
-    tabs.appendChild(tab);
-  });
-  view.appendChild(tabs);
-  const panel = document.createElement("div");
-  panel.className = "code-inspector-panel";
-  view.appendChild(panel);
-  container.appendChild(view);
-
-  if (codeInspectorTab === "standings"){
-    renderCodeInspectorStandings(panel, code);
-    return;
-  }
-  if (codeInspectorTab === "results"){
-    renderCodeInspectorResults(panel, code);
-    return;
-  }
-  if (codeInspectorChunkLoading || codeInspectorChunk?.code?.id !== code.id){
-    panel.innerHTML = '<div class="empty-state">Loading detailed fixtures…</div>';
-    return;
-  }
-  const fixtures = (codeInspectorChunk.fixtures || []).filter(inspectorFixtureMatchesTab);
-  if (codeInspectorTab === "players"){
-    renderCodeInspectorPlayers(panel, codeInspectorChunk.fixtures || []);
-    return;
-  }
-  if (!fixtures.length){
-    panel.appendChild(sportHubEmptyState(code.coverageStatus === "unavailable"
-      ? `No reliable ${code.label} fixtures are currently published.`
-      : "No fixtures match this view."));
-    return;
-  }
-  if(code.id==='sport:tennis'){renderTennisTournamentSchedule(panel,fixtures);return;}
-  if(code.id==='sport:golf'){const note=document.createElement('p');note.className='chat-empty';note.textContent='PGA TOUR tournament dates and confirmed winners. Tee times and round-by-round scores remain unavailable where not published.';panel.append(note);}
-  const grouped = new Map();
-  fixtures.forEach(fixture => {
-    const label = codeInspectorGroupLabel(fixture, code.groupingMode);
-    const group = grouped.get(label) || [];
-    group.push(fixture);
-    grouped.set(label, group);
-  });
-  grouped.forEach(group => group.sort((first, second) => (
-    String(first.date || "9999-12-31").localeCompare(String(second.date || "9999-12-31"))
-    || String(first.time || "99:99").localeCompare(String(second.time || "99:99"))
-    || String(first.id || "").localeCompare(String(second.id || ""))
-  )));
-  const groupLabels = [...grouped.keys()].sort((first, second) => FOLLOW_FIRST?.compareFixtureGroupLabels?.(first, second)
-    ?? String(first).localeCompare(String(second), "en-AU", { numeric:true, sensitivity:"base" }));
-  if (!codeInspectorGroup || !grouped.has(codeInspectorGroup)){
-    const todayKey = formatDateKey(nowAEST());
-    const nextFixture = fixtures.find(fixture => fixture.date && fixture.date >= todayKey);
-    const nextGroup = nextFixture ? codeInspectorGroupLabel(nextFixture, code.groupingMode) : null;
-    codeInspectorGroup = nextGroup && grouped.has(nextGroup) ? nextGroup : groupLabels[0];
-  }
-  const toolbar = document.createElement("div");
-  toolbar.className = "code-inspector-toolbar";
-  const pickerLabel = document.createElement("label");
-  pickerLabel.setAttribute("for", "codeInspectorStartingRound");
-  pickerLabel.textContent = code.groupingMode === "round" ? "Starting round" : "Starting group";
-  const picker = document.createElement("select");
-  picker.id = "codeInspectorStartingRound";
-  picker.className = "starting-round-select";
-  groupLabels.forEach(label => {
-    const option = document.createElement("option");
-    option.value = label;
-    option.textContent = label;
-    option.selected = label === codeInspectorGroup;
-    picker.appendChild(option);
-  });
-  picker.addEventListener("change", () => {
-    const startedAt = feedPerformanceNow();
-    codeInspectorGroup = picker.value;
-    renderCodeInspector();
-    recordFeedInteraction("inspector_round_change", startedAt);
-  });
-  toolbar.append(pickerLabel, picker);
-  panel.appendChild(toolbar);
-  const startIndex = Math.max(0, groupLabels.indexOf(codeInspectorGroup));
-  groupLabels.slice(startIndex, startIndex + 2).forEach(label => {
-    const section = document.createElement("section");
-    section.className = "code-inspector-group";
-    const groupTitle = document.createElement("h3");
-    groupTitle.textContent = label;
-    const list = document.createElement("div");
-    list.className = "code-inspector-fixtures";
-    list.dataset.scrollList = `inspector-group:${label}`;
-    grouped.get(label).forEach(fixture => list.appendChild(buildCodeInspectorFixture(fixture)));
-    section.append(groupTitle, list);
-    panel.appendChild(section);
-  });
+function renderCodeInspector(){ renderFollowView(); }
+function renderCodeInspectorPanel(container){
+  if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
+  container.textContent='Loading schedule…';
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=286').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -14737,6 +14534,18 @@ function getPreferenceMatchedEvents(reference = nowAEST()){
   return list;
 }
 
+let feedViewFilters=(()=>{try{return {...{sport:'all',minimum:0},...JSON.parse(localStorage.getItem('ns-feed-view-filter-v1')||'{}')};}catch{return {sport:'all',minimum:0};}})();
+let feedFilterHydration=null,feedFilterHydratedKey='';
+async function hydrateFeedFilter(){
+ if(feedFilterHydration)return feedFilterHydration;
+ const owner=serverSyncClient?.sessionSubject()||'public';
+ feedFilterHydration=(async()=>{
+  while((serverPersistence.user&&serverFeedNextCursor!==null)||publicFeedManifest?.pages?.[publicFeedNextPageIndex]){if(!await loadNextFeedPage())throw new Error('Couldn’t load all Feed cards. Try again.');}
+  if(feedViewFilters.minimum){const context=buildFollowEligibilityContext(),ids=activeEvents.filter(e=>eventFollowReason(e,context)).map(nothingscoreEventId);for(let i=0;i<ids.length;i+=50){if(owner!==(serverSyncClient?.sessionSubject()||'public'))return;await loadNothingscoreBatch(ids.slice(i,i+50),{rerender:false});}}
+  feedFilterHydratedKey=`${owner}|${feedViewFilters.sport}|${feedViewFilters.minimum}`;
+ })().finally(()=>{feedFilterHydration=null;});return feedFilterHydration;
+}
+function matchesFeedViewFilters(ev){return (feedViewFilters.sport==='all'||feedFilterMatchesEvent(feedViewFilters.sport,ev))&&NOTHINGSPORTS_FEED_VIEW_FILTER.matches(nothingscoreSnapshotFor(ev),Number(feedViewFilters.minimum),actualStarValue(ev.id));}
 function getFilteredEvents(){
   let list = getPreferenceMatchedEvents();
   list = list.filter(ev => !getEventAction(ev).archived && !getEventAction(ev).dismissed && !eventIsAutoArchived(ev));
@@ -14744,6 +14553,7 @@ function getFilteredEvents(){
     list = list.filter(discoveryEventIncludedForSession);
   }
   if (activeFilter !== "all") list = list.filter(ev => feedFilterMatchesEvent(activeFilter, ev));
+  if(activeTab==='feed')list=list.filter(matchesFeedViewFilters);
   return list;
 }
 
@@ -16281,10 +16091,40 @@ async function toggleQuickReminder(ev, button){
   }
 }
 
+function appendTournamentSlots(container,event){
+ if(!event.tournamentId&&!event.tennisTournamentId&&!(event.endDate&&event.endDate!==event.date&&!(event.participantIds?.length>=2)))return;
+ void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=286').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
+}
+function scheduleScopeForEvent(ev){
+  const codeId=codeIdForEvent(ev);
+  const tournamentId=ev.tennisTournamentId || ev.tournamentId || '';
+  const competitionId=ev.competitionId || '';
+  const label=ev.tournamentName || ev.competitionName || ev.majorEventName || (ev.stage==='Major'?ev.name:ev.key==='masters'?'Masters':codeId==='sport:f1'?'F1':'') || sportMetaForEvent(ev).label || ev.key || 'Sport';
+  return {codeId,tournamentId,competitionId,label};
+}
+
+function buildFeedScheduleLink(ev){
+  const scope=scheduleScopeForEvent(ev),link=document.createElement('a');
+  link.className='feed-schedule-link';link.textContent=scope.label;link.href=codeInspectorHash(scope.codeId);
+  link.title=`See full ${scope.label} schedule`;link.setAttribute('aria-label',link.title);link.onfocus=()=>showToast(link.title);
+  let timer=null,longPress=false;
+  link.onpointerdown=()=>{longPress=false;timer=setTimeout(()=>{longPress=true;showToast(link.title);},550);};
+  for(const type of ['pointerup','pointercancel','pointerleave'])link.addEventListener(type,()=>clearTimeout(timer));
+  link.oncontextmenu=e=>{e.preventDefault();};
+  link.onclick=async e=>{e.preventDefault();e.stopPropagation();if(longPress)return;
+    saveFollowBrowse({scheduleScope:scope});
+    if(scope.tournamentId&&['tennis','wimbledon'].includes(ev.key)){await loadTennisScheduleUi();tennisSelectedEdition=scope.tournamentId;}
+    await openCodeInspector(scope.codeId);
+  };
+  return link;
+}
+
 function codeIdForEvent(ev){
-  const aliases = { f1:"motorsport", rugby:"rugby-union", fifa:"football", "premier-league":"football", nba:"basketball", nfl:"american-football", nhl:"ice-hockey", chl:"ice-hockey" };
-  const key = aliases[ev?.sportKey || ev?.sportId || ev?.key] || ev?.sportKey || ev?.sportId || ev?.key;
-  return key ? `sport:${key}` : null;
+ const key=NOTHINGSPORTS_FIXTURE_IDENTITY.sportKey(ev);
+ const competitions={motogp:'competition:motogp',sailgp:'competition:sailgp','fiba-women':'competition:fiba-womens-world-cup'};
+ if(competitions[key])return competitions[key];
+ const aliases={wimbledon:'tennis',masters:'golf',rugby:'rugby-union',fifa:'football','premier-league':'football',nba:'basketball',nfl:'american-football',nhl:'ice-hockey',chl:'ice-hockey',tdf:'cycling',wsl:'surf','big-wave':'surf',ski:'skiing',alpine:'skiing',freestyle:'skiing',lemans:'motorsport',goodwood:'motorsport',bathurst:'motorsport','downhill-mtb':'cycling',cwg:'multi-sport'};
+ return `sport:${aliases[key]||key}`;
 }
 
 function buildViewingProviderMark(viewing){
@@ -16500,6 +16340,7 @@ function mergeNothingscoreSnapshot(snapshot){
     contributors:value?.contributors,
     series:value?.series,
     crowdEditorial:value?.crowdEditorial,
+    filterRatings:value?.filterRatings,
     peerResults:value?.peerResults,
   });
   nothingscoreSnapshots.set(eventId, merged);
@@ -16981,6 +16822,8 @@ function buildEventCard(ev, options = {}){
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
   try {
     const card = buildDetailedEventCard(ev, options);
+    card.appendChild(buildFeedScheduleLink(ev));
+    if(cardStateForEvent(ev)!=="compact")appendTournamentSlots(card,ev);
     if (isMarqueeFixture(ev)){
       card.classList.add("is-marquee-fixture");
       const label = document.createElement("span");
@@ -17025,7 +16868,8 @@ function buildFixtureFallbackCard(event, options = {}){
   timing.textContent = [ev.date, ev.time || "Start time unconfirmed",
     ["cancelled", "canceled", "abandoned", "postponed"].includes(ev.scheduleStatus || ev.status) ? ev.scheduleStatus || ev.status : ""].filter(Boolean).join(" · ");
   copy.append(title, timing);
-  card.append(copy);
+  card.append(copy,buildFeedScheduleLink(ev));
+  if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
   card.setAttribute("aria-label", `${label}. Fixture details.`);
   return card;
 }
@@ -17115,6 +16959,7 @@ function buildDetailedEventCard(ev, options = {}){
   if ((state === "compact" || isMinimised) && expandable){
     card.classList.add("is-compact-row");
     card.appendChild(buildCompactCardSummary(ev));
+    if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
     return card;
   }
   if (!matchupIdentity){
@@ -17931,6 +17776,10 @@ function appendFeedPageToCurrentList(incomingEvents){
 }
 
 function renderListView(){
+  if(activeTab==='feed'&&(feedViewFilters.sport!=='all'||feedViewFilters.minimum)&&!startupCoordinator.isHydrating()){
+    const key=`${serverSyncClient?.sessionSubject()||'public'}|${feedViewFilters.sport}|${feedViewFilters.minimum}`;
+    if(!feedFilterHydration&&feedFilterHydratedKey!==key){feedFilterHydratedKey=key;void hydrateFeedFilter().then(()=>{if(activeTab==='feed')renderAll({preserveViewport:true});}).catch(()=>showToast('Some ratings couldn’t load. Open Filter to try again.'));}
+  }
   resetFeedCardWindow();
   const container = document.getElementById("listView");
   container.className = "";
@@ -18029,9 +17878,9 @@ function renderListView(){
   if (!filtered.length && !focusedArchived.length){
     const empty = document.createElement("div");
     empty.className = "empty-state";
-    empty.innerHTML = `Nothing in your current filter deserves your time right now.<br><button class="btn primary" type="button" id="emptyRefineFiltersBtn">Refine filters</button>`;
+    empty.innerHTML = `No Feed cards match these filters.<br><button class="btn primary" type="button" id="emptyRefineFiltersBtn">Refine filters</button>`;
     container.appendChild(empty);
-    document.getElementById("emptyRefineFiltersBtn").addEventListener("click", () => openSettings());
+    document.getElementById("emptyRefineFiltersBtn").addEventListener("click", () => document.getElementById("feedViewFilterBtn").click());
   }
   observeFeedPageSentinel(container);
   scheduleInitialCalendarJump();
@@ -18123,6 +17972,7 @@ function syncContextualJumpButton(){
   const feedTimeline = activeTab === "feed" && activeView === "list" && !activeSportHubKey();
   const eventsTimeline = activeTab === "events" && eventsViewTab === "major-events";
   document.getElementById('timelineTools').hidden=!(feedTimeline||eventsTimeline||activeInspectorCodeId);
+  const filter=document.getElementById('feedViewFilterBtn');filter.hidden=!feedTimeline;filter.textContent=feedViewFilters.sport!=='all'||feedViewFilters.minimum?'Filter •':'Filter';
   button.hidden=false;button.setAttribute('aria-label','Jump to Now');
   const compact=Boolean(userPreferences.feedCompact),expand=document.getElementById('timelineExpandBtn');
   expand.textContent=compact?'⤢':'−';expand.setAttribute('aria-label',compact?'Expand all cards':'Collapse all cards');
@@ -19776,6 +19626,11 @@ function toggleAustraliaInternationals(){
   renderAll({ preserveViewport:true });
 }
 
+function installFollowEventBulk(container){
+  if(globalThis.installFollowEventBulkUI)return globalThis.installFollowEventBulkUI(container);
+  void loadDeferredScript('assets/js/follow-event-bulk-ui.js?v=286').then(()=>{if(container.isConnected&&!container.querySelector('.follow-event-bulk'))globalThis.installFollowEventBulkUI(container);});
+}
+
 function toggleMajorEventFollow(eventId){
   const next = clonePreferences(userPreferences);
   const selected = new Set(next.followFirst.followedMajorEventIds || []);
@@ -19790,8 +19645,10 @@ function toggleMajorEventFollow(eventId){
   savePreferences(next);
   if (activeTab === "follow" && followViewSection === "major-events"){
     const followed = selected.has(eventId);
-    const familyCard = Array.from(document.querySelectorAll(".follow-event-family[data-event-family-id]"))
-      .find(card => card.dataset.eventFamilyId === eventId);
+    const familyCards = Array.from(document.querySelectorAll(".follow-event-family[data-event-family-id]"))
+      .filter(card => card.dataset.eventFamilyId === eventId);
+    const familyCard=familyCards[0];
+    familyCards.forEach(card=>{const b=card.querySelector(".follow-event-family-toggle");if(b){b.setAttribute("aria-pressed",String(followed));b.textContent=`${followed?"Unfollow":"Follow"} ${b.dataset.eventFamilyLabel||"Event"}`;}});
     const button = familyCard?.querySelector(".follow-event-family-toggle");
     mutateWithScrollContinuity(familyCard, () => {
       familyCard?.classList.toggle("selected", followed);
@@ -19873,7 +19730,7 @@ function renderTennisFollowCollections(container){
 }
 
 function followBrowseState(){
-  return userPreferences.followBrowse || {sportId:'sport:afl', categoryId:'', section:'teams-players', page:0};
+  return userPreferences.followBrowse || {sportId:'sport:afl', categoryId:'', section:'schedule', page:0};
 }
 function saveFollowBrowse(patch){
   const next=clonePreferences(userPreferences);
@@ -19941,7 +19798,12 @@ async function openFollowScreen(section){
   const open=()=>openCodeInspector(code.id,{startingTab:section==='standings'?'standings':'all-fixtures'});
   if (section==='standings') confirmStandingsReveal(open); else void open();
 }
+const followDisclosureState=new Map();
+const followBulkSelection=new Set();
 function renderFollowView(){
+  const focusDisclosure=document.activeElement?.closest('[data-follow-disclosure]')?.dataset.followDisclosure;
+  if(focusDisclosure)requestAnimationFrame(()=>{if(document.activeElement===document.body)document.querySelector(`[data-follow-disclosure="${CSS.escape(focusDisclosure)}"] summary`)?.focus({preventScroll:true});});
+  document.querySelectorAll('[data-follow-disclosure]').forEach(d=>followDisclosureState.set(d.dataset.followDisclosure,d.open));
   resetFeedCardWindow();
   const container=document.getElementById('listView');
   const retainedBar=container.querySelector(':scope > .follow-sport-bar');
@@ -19971,7 +19833,7 @@ function renderFollowView(){
     const sport={key:entity.preferenceKey||entity.sportKey||({ 'rugby-union':'rugby',basketball:'nba','afl-premiership':'afl','nrl-premiership':'nrl' })[entity.id.replace('sport:','')]||entity.id.replace('sport:','')};
     const mark=document.createElement('span');mark.className='follow-sport-mark';renderEventIdentityMark(mark,sport,{...sportMetaForEvent(sport),label:entity.label});
     const text=document.createElement('span');text.textContent=label;button.append(mark,text);
-    button.addEventListener('click',()=>{host.closest('dialog')?.close();saveFollowBrowse({sportId:entity.id,categoryId:'',section:'teams-players'});renderFollowView();});host.appendChild(button);
+    button.addEventListener('click',()=>{host.closest('dialog')?.close();saveFollowBrowse({sportId:entity.id,categoryId:'',section:'schedule',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();});host.appendChild(button);
     return button;
   };
   primarySports.forEach(entity=>addSportButton(entity,primaryLabels[entity.id]||entity.label));
@@ -19993,7 +19855,7 @@ function renderFollowView(){
     const items=root.id==='sport:afl'?children:[{...root,label:`All ${root.label}`},...children];
     items.forEach(entity=>{
       const button=document.createElement('button');button.type='button';button.className=`btn ghost${state.categoryId===entity.id?' active':''}`;button.textContent=entity.label;
-      button.onclick=()=>{saveFollowBrowse({categoryId:entity.id,section:'teams-players'});renderFollowView();};choices.appendChild(button);
+      button.onclick=()=>{saveFollowBrowse({categoryId:entity.id,section:'schedule',scheduleScope:null});activeInspectorCodeId=null;renderFollowView();};choices.appendChild(button);
     });container.appendChild(choices);
     if (!state.categoryId){
       saveFollowBrowse({categoryId:children[0].id});
@@ -20003,12 +19865,40 @@ function renderFollowView(){
   const heading=document.createElement('h2');heading.textContent=entity.label;container.appendChild(heading);
   if (!codeInspectorManifest && !codeInspectorManifestLoading) void loadCodeInspectorManifest().then(()=>{if(activeTab==='follow') queueScrollIdleMutation(renderFollowView);}).catch(()=>{});
   const code=followInspectorCode(entity);
+  const commonControls=document.createElement('div');commonControls.className='follow-common-controls';
+  const followed=selectorEntityIsEffectivelySelected(entity.id,userPreferences);
+  const followLabel=document.createElement('label');followLabel.className='follow-checkbox';
+  const follow=document.createElement('input');follow.type='checkbox';follow.checked=followed;follow.setAttribute('aria-label',`Follow ${entity.label}`);
+  follow.addEventListener('change',()=>saveFollowSport({id:entity.canonicalSportKeys?.[0],selectorId:entity.id,label:entity.label},follow.checked));
+  followLabel.append(follow,document.createTextNode(`Follow ${entity.label}`));commonControls.appendChild(followLabel);
+  if(followed && FOLLOW_FEED_POLICY.australiansFilterUseful({key:followDirectoryKey(entity)})){
+    const label=document.createElement('label');label.className='follow-checkbox';
+    const au=document.createElement('input');au.type='checkbox';au.checked=(userPreferences.followFirst.australiansOnlySportIds || []).includes(entity.id);au.setAttribute('aria-label','Follow Australians');
+    au.onchange=()=>{const next=clonePreferences(userPreferences);const ids=new Set(next.followFirst.australiansOnlySportIds || []);au.checked?ids.add(entity.id):ids.delete(entity.id);next.followFirst.australiansOnlySportIds=[...ids];savePreferences(next);renderAll({preserveViewport:true});};
+    label.append(au,document.createTextNode('Follow Australians'));commonControls.appendChild(label);
+  }
+  container.appendChild(commonControls);
   const tabs=document.createElement('nav');tabs.className='follow-section-tabs';tabs.setAttribute('aria-label',`${entity.label} sections`);
-  [['schedule','Schedule'],...(followHasStandings(code)?[['standings',followStandingsLabel(code)]]:[]),['teams-players','Teams & players'],['major-events','Major Events']].forEach(([section,label])=>{
+  [['schedule','Schedule'],...(code?.slug === "wrc" ? [["results", "Results / Replays"]] : []),...(followHasStandings(code)?[['standings',followStandingsLabel(code)]]:[]),['teams-players','Teams & players'],['major-events','Major Events']].forEach(([section,label])=>{
     const button=document.createElement('button');button.type='button';button.className=`follow-section-tab${state.section===section?' active':''}`;button.textContent=label;
-    button.onclick=()=>{if(['schedule','standings'].includes(section)){void openFollowScreen(section);return;}saveFollowBrowse({section});renderFollowView();};tabs.appendChild(button);
+    button.onclick=()=>{activeInspectorCodeId=null;saveFollowBrowse({section});renderFollowView();};tabs.appendChild(button);
   });container.appendChild(tabs);
-  followViewSection=state.section || 'teams-players';
+  followViewSection=state.section || 'schedule';
+  if(inspectorReturnState?.activeTab==='feed'){
+    const back=document.createElement('button');back.type='button';back.className='btn ghost follow-feed-back';back.textContent='Back to Feed';back.onclick=backFromCodeInspector;container.insertBefore(back,container.firstChild);
+  }
+  if(['schedule','standings','results'].includes(followViewSection)){
+    const panel=document.createElement('section');panel.className='follow-schedule-panel';container.append(panel);
+    if(!code){panel.textContent=codeInspectorManifest?'No schedule published yet.':'Loading schedule…';return;}
+    activeInspectorCodeId=code.id;codeInspectorTab=followViewSection==='standings'?'standings':followViewSection==='results'?'results':'all-fixtures';
+    if(codeInspectorChunk?.code?.id!==code.id){
+      panel.textContent='Loading schedule…';
+      if(!codeInspectorChunkLoading||codeInspectorChunkLoading.codeId!==code.id)void loadCodeInspectorChunk(code.id).then(()=>{if(activeTab==='follow'&&followInspectorCode()?.id===code.id)renderFollowView();}).catch(()=>{if(panel.isConnected){panel.textContent='Couldn’t load the schedule. ';const retry=document.createElement('button');retry.textContent='Try again';retry.onclick=()=>renderFollowView();panel.append(retry);}});
+      return;
+    }
+    renderCodeInspectorPanel(panel);return;
+  }
+  activeInspectorCodeId=null;
   if(followViewSection==='major-events'){
     if(followDirectoryKey(entity)==='tennis'){renderTennisMajorEvents(container);return;}
     const grid=document.createElement('div');grid.className='setup-choice-grid';
@@ -20024,21 +19914,11 @@ function renderFollowView(){
     });
     if(!grid.childElementCount){const empty=document.createElement('p');empty.textContent='No major events published for this category.';grid.appendChild(empty);}
     container.appendChild(grid);
+    installFollowEventBulk(container);
     if(!majorEventsDocument && !majorEventsLoading) void loadMajorEventsData().then(()=>{if(activeTab==='follow')queueScrollIdleMutation(renderFollowView);});
     return;
   }
   const panel=document.createElement('section');panel.className='follow-section-panel';panel.dataset.scrollKey=`follow-directory:${entity.id}`;
-  const followed=selectorEntityIsEffectivelySelected(entity.id,userPreferences);
-  const followLabel=document.createElement('label');followLabel.className='follow-checkbox';
-  const follow=document.createElement('input');follow.type='checkbox';follow.checked=followed;follow.setAttribute('aria-label',`Follow ${entity.label}`);
-  follow.addEventListener('change',()=>saveFollowSport({id:entity.canonicalSportKeys?.[0],selectorId:entity.id,label:entity.label},follow.checked));
-  followLabel.append(follow,document.createTextNode(`Follow ${entity.label}`));panel.appendChild(followLabel);
-  if(followed && FOLLOW_FEED_POLICY.australiansFilterUseful({key:followDirectoryKey(entity)})){
-    const label=document.createElement('label');label.className='follow-checkbox';
-    const au=document.createElement('input');au.type='checkbox';au.checked=(userPreferences.followFirst.australiansOnlySportIds || []).includes(entity.id);au.setAttribute('aria-label','Follow Australians');
-    au.onchange=()=>{const next=clonePreferences(userPreferences);const ids=new Set(next.followFirst.australiansOnlySportIds || []);au.checked?ids.add(entity.id):ids.delete(entity.id);next.followFirst.australiansOnlySportIds=[...ids];savePreferences(next);renderAll({preserveViewport:true});};
-    label.append(au,document.createTextNode('Follow Australians'));panel.appendChild(label);
-  }
   const key=followDirectoryKey(entity);updateStandingsDirectorySession({directorySportKey:key});
   if(key==='tennis')renderTennisFollowCollections(panel);
   renderTeamsAndPlayersDirectory(panel);panel.querySelector('.football-directory-sport-choice')?.remove();
@@ -21140,7 +21020,7 @@ function activateTopLevelTab(nextTab, { resetViewport = true } = {}){
   syncTopLevelNavigationState();
   if (activeTab === "feed") calendarInitialJumpPending = true;
   const shouldLoadEvents = activeTab === "events" && !majorEventsDocument && !majorEventsLoading;
-  if(activeTab==='follow')void loadFollowRatingAffinity();
+  if(activeTab==='follow'){saveFollowBrowse({section:'schedule',scheduleScope:null});void loadFollowRatingAffinity();}
   if (shouldLoadEvents) void loadMajorEventsData();
   else renderAll();
   if (resetViewport){
@@ -21164,6 +21044,7 @@ document.getElementById("tuneSheet").addEventListener("click", event => {
 document.getElementById("tuneSheet").addEventListener("keydown", trapTuneSheetFocus);
 window.addEventListener("popstate", () => { void syncAppRouteFromLocation(); });
 
+document.getElementById('feedViewFilterBtn').onclick=()=>{void loadDeferredScript('assets/js/feed-filter-ui.js?v=286').then(()=>globalThis.openFeedViewFilter()).catch(()=>showToast('Couldn’t open filters. Try again.'));};
 document.getElementById('timelineExpandBtn').addEventListener('click',()=>setFeedCompact(!userPreferences.feedCompact));
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
   calendarInitialJumpPending = false;
@@ -25548,7 +25429,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=285");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=286");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -26140,13 +26021,13 @@ window.addEventListener('focus',scheduleSydneyMidnight);
 window.addEventListener('focus',refreshFeedClock);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFeedClock();});
 </script>
-<script src="assets/js/notifications-inbox.js?v=280"></script>
+<script src="assets/js/notifications-inbox.js?v=286"></script>
 <script>
 let notificationDestinationDialog=null;
 function closeNotificationDestination(){
   if(document.body.classList.contains('chat-open'))setChatDrawerOpen(false);
   if(document.body.classList.contains('nsc-open'))setNothingscoreDrawerOpen(false);
-  notificationDestinationDialog?.close();notificationDestinationDialog=null;
+  const closing=notificationDestinationDialog;notificationDestinationDialog=null;if(closing){closing.dataset.closingFromRoute="true";closing.close();closing.remove();}
 }
 async function openNotificationDestination(item){
   if(['chat','added'].includes(item.kind)){setChatDrawerOpen(true);await openChatRoom(item.roomId);return;}
@@ -26160,7 +26041,7 @@ async function openNotificationDestination(item){
   }
   if(['profile_followed','follows_copied'].includes(item.kind)){
     if(!item.profileId)throw new Error('This profile is no longer public.');
-    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=285');
+    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=286');
     await window.NOTHINGSPORTS_CROWD_RANKINGS.openProfile({profileId:item.profileId,name:item.actor});
     notificationDestinationDialog=document.querySelector('.nsc-picks-dialog[open]');
   }else if(['rating','reminder'].includes(item.kind)){
@@ -26172,7 +26053,7 @@ async function openNotificationDestination(item){
     if(item.kind==='points')await renderMyForesight(d);
     else{const h=document.createElement('h2');h.textContent=item.title||'Nothing Sport update';const p=document.createElement('p');p.textContent=item.detail||'';d.append(h,p);}
   }
-  notificationDestinationDialog?.addEventListener('close',()=>{if(history.state?.inboxDestination)history.back();},{once:true});
+  notificationDestinationDialog?.addEventListener('close',event=>{if(event.target.dataset.closingFromRoute!=='true'&&history.state?.inboxDestination)history.back();},{once:true});
 }
 const notificationsInbox=NOTHINGSPORTS_INBOX.create({
   request:(query,seen)=>serverSyncClient.inboxRequest(query,seen),

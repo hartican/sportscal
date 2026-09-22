@@ -49,3 +49,10 @@ Update and deployment convention
 --------------------------------
 - A request to "update" cards includes applying the change, publishing it to GitHub main, and deploying the exact published snapshot to Vercel production. Do not ask for separate deployment confirmation unless the user explicitly requests local-only work.
 - Keep normal release safeguards. If a required gate fails, report the blocker rather than claiming deployment or bypassing it. Distinguish local changes, GitHub publication, and production deployment in the final status.
+
+Rolling tournament hydration — 22 September 2026
+------------------------------------------------
+- Keep tournament fixture structures hydrated for the next 28 Australia/Sydney calendar days, starting today, plus every ongoing tournament. Include the entire tournament when it starts on or before day 28, even if its finish falls later.
+- Start from Follow > Schedule across all sports. The canonical `node scripts/update-cards.js` pipeline builds `data/tournament-horizon.v1.json` and its Schedule-to-Feed audit. Do not add another refresh scheduler.
+- Review newly entering tournaments' official format, qualifying/draw slots and sources in `data/canonical/tournament-formats.v1.json`. Unknown players, dates and times must stay explicitly unconfirmed. Never assign players to draw slots by arbitrary source ordering.
+- Reconcile confirmed fixtures by stable slot/source identity, retaining existing fixture IDs and saved user state. Preserve historical records and later published calendars. Run `scripts/validate-feed-follow-repairs.js` with refresh checks.

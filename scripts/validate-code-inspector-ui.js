@@ -12,7 +12,7 @@ const manifestPath = path.join(ROOT, "data/code-inspector/manifest.json");
 const wrcContext = JSON.parse(fs.readFileSync(path.join(ROOT, "data/canonical/wrc-context-2026.json"), "utf8"));
 
 assert.deepEqual([...html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g)].map(m=>m[1]),['Feed','Events','Follow']);
-assert(html.includes('Back to Follow')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
+assert(html.includes('Back to Feed')&&html.includes('#follow/')&&html.includes('follow|standings-fixtures|inspect'),'legacy links resolve to Follow with Back restoration');
 assert(html.includes('inspectorReturnState')&&html.includes('popstate'),'dedicated screens retain navigation state');
 assert(html.includes('follow-more-trigger')&&html.includes('follow-more-dialog')&&html.includes('rankedFollowGridSports')&&html.includes('.slice(0,7)'),'Follow ranks up to seven followed sports and keeps the remainder in More');
 assert(!html.includes('open.textContent = "Inspect"'),'sport icons replace Inspect');
@@ -80,8 +80,9 @@ assert.equal(wrcChunk.fixtures.filter(fixture => fixture.resultStatus === "offic
 for (const pendingRound of completedWrcRounds.filter(fixture => fixture.result?.status !== "official")){
   assert.equal(wrcChunk.fixtures.find(fixture => fixture.roundNumber === pendingRound.roundNumber)?.resultStatus, "pending", "completed WRC rounds without an official FIA classification must fail closed");
 }
-assert(html.includes('code.slug === "wrc" ? [["results", "Results / Replays"]] : []'), "the WRC Follow screen must expose Results / Replays beside Schedule and Standings");
+assert(html.includes('code?.slug === "wrc" ? [["results", "Results / Replays"]] : []'), "the WRC Follow screen must expose Results / Replays beside Schedule and Standings");
 const canonicalCodes = [
+  { id: "sport:multi-sport" },
   ...taxonomy.sportDomains.filter(code => code.isActive !== false),
   { id: "sport:aflw" },
   { id: "sport:wrc" },

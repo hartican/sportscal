@@ -1,7 +1,7 @@
 (function(root,factory){const api=factory();root.NOTHINGSPORTS_EDITORIAL_LIFECYCLE=api;if(typeof module!=='undefined')module.exports=api;})(globalThis,function(){
  'use strict';
- const completed=e=>['completed','finished','final'].includes(String(e?.status).toLowerCase());
- const signature=e=>JSON.stringify([e?.status||'',e?.outcomeText||'',e?.scoreDisplay||e?.score||'',e?.recapText||'']);
+ const completed=e=>['completed','finished','final','past'].includes(String(e?.status).toLowerCase());
+ const signature=e=>JSON.stringify([completed(e)?'completed':e?.status||'',e?.outcomeText||'',e?.scoreDisplay||e?.score||'',e?.recapText||'']);
  function copy(event,narrative={},spoilers=false){
   if(!completed(event))return {hook:narrative.hook||'',synopsis:narrative.synopsis||''};
   const safe=`${event.displayTitleCompact||event.name||'This fixture'} is complete. Reveal results for the outcome.`;

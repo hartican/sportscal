@@ -252,7 +252,7 @@ try {
 
 assert(appSource.includes('"sport:rally": "sport:wrc"'));
 assert(appSource.includes('sportKey === "wrc" ? "Results / Replays" : "Results"'));
-assert(appSource.includes('code.slug === "wrc" ? [["results", "Results / Replays"]] : []'));
+assert(appSource.includes('code?.slug === "wrc" ? [["results", "Results / Replays"]] : []'));
 assert(appSource.includes('function renderCodeInspectorResults(panel, code)'));
 assert(appSource.includes('pending.textContent = "Official FIA classification pending."'));
 assert(appSource.includes('ev.displayTime || "Multiple live stages"'));

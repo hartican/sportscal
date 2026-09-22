@@ -1,7 +1,7 @@
 {
   "schemaVersion": "team-sport-directory.v1",
   "sportKey": "american-football",
-  "generatedAt": "2026-09-22T02:49:17Z",
+  "generatedAt": "2026-09-22T05:09:51Z",
   "season": 2026,
   "competitions": [
     {
@@ -61407,7 +61407,7 @@
       "time": "10:15",
       "startTimeUtc": "2026-09-22T00:15Z",
       "venue": "SoFi Stadium",
-      "status": "upcoming",
+      "status": "completed",
       "scheduleStatus": "confirmed",
       "roundLabel": "Week 2",
       "roundNumber": 2,
@@ -61427,7 +61427,7 @@
           "logoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyg.png"
         }
       ],
-      "sourceUrl": null
+      "sourceUrl": "https://www.espn.com/nfl/game/_/gameId/401872947/giants-rams"
     },
     {
       "id": "fixture:nfl:401872948",

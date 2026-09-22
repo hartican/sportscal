@@ -2349,7 +2349,7 @@ return {womensT20,apply,fields};
 
   function scheduleCode(entity, codes = []){
     if (!entity) return null;
-    const aliases = {"sport:afl-premiership":"sport:afl","sport:nrl-premiership":"sport:nrl","sport:rugby":"sport:rugby-union","sport:nba":"sport:basketball","sport:motogp":"competition:motogp","sport:sailgp":"competition:sailgp","sport:fiba-women":"competition:fiba-womens-world-cup"};
+    const aliases = {"special:commonwealth-games":"sport:multi-sport","sport:afl-premiership":"sport:afl","sport:nrl-premiership":"sport:nrl","sport:rugby":"sport:rugby-union","sport:nba":"sport:basketball","sport:motogp":"competition:motogp","sport:sailgp":"competition:sailgp","sport:fiba-women":"competition:fiba-womens-world-cup"};
     const own = codes.find(code => code.id === (aliases[entity.id] || entity.id));
     if (own) return own;
     // A child championship must not advertise its parent's different schedule.
@@ -3642,7 +3642,7 @@ return {womensT20,apply,fields};
     if (followPolicy.aggregateEvent(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
     const participants = followPolicy.participantIds(event);
-    for (const id of participants){
+    for (const id of (["golf","masters"].includes(followPolicy.sportKey(event))?[]:participants)){
       if (participantFollowFromNormalized(id,next,collectionsById).source === "unfollow") continue;
       const follow = follows.get(id);
       if (follow && ["follow", "priority"].includes(follow.followLevel)){
@@ -3698,6 +3698,7 @@ return {womensT20,apply,fields};
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
       || domains.some(domain => domain.enabled === true);
+    if(['golf','masters'].includes(sourceSportId))return sportFollowed&&followPolicy.golfMajor(event)?{type:'sport-marquee',entityKind:'sport',id:'golf',label:null,displayTag:false}:null;
     const concreteSportingCard = Boolean(
       followPolicy?.sportingFixture(event)
       && event?.majorEventMarker !== true
@@ -4050,8 +4051,13 @@ return {womensT20,apply,fields};
     ].filter(Boolean).map(String))).filter(id => !excluded.has(id));
   }
 
+  function golfMajor(event){
+    if(!['golf','masters'].includes(sportKey(event)))return false;
+    return sportKey(event)==='masters' || event.isMajor===true || event.major===true || event.stage==='Major' || /^(?:\d{4} )?(?:Masters Tournament|The Masters|PGA Championship|U\.?S\.? Open|The Open(?: Championship)?|U\.?S\.? Women['’]?s Open|AIG Women['’]?s Open|The Chevron Championship|KPMG Women['’]?s PGA Championship|The Amundi Evian Championship)(?: \d{4})?$/i.test(event.tournamentName||event.name||'');
+  }
   function aggregateEvent(event){
     if (!event) return true;
+    if(['golf','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return false;
     if (event.majorEventMarker || event.tournamentParent || event.narrativeType === "tennis-tournament-overview" || event.cardKind === "event" || ["tournament","major_event","ticket_sale"].includes(event.kind)) return true;
     // Legacy published summaries have no typed kind. Do not confuse a dated
     // championship match with the programme for a whole week or round.
@@ -4060,6 +4066,7 @@ return {womensT20,apply,fields};
 
   function explicitCompetitionRequired(event){
     const key = sportKey(event);
+    if(golfMajor(event))return false;
     if (["aflw", "nrlw"].includes(key)) return true;
     if (key === "tennis") return false;
     return /women|female|\bwbb[l]\b|\bwpl\b/i.test([event.gender,event.genderCategory,event.competitionGender,event.competitionId,event.competitionName,event.name].filter(Boolean).join(" "));
@@ -4103,6 +4110,7 @@ return {womensT20,apply,fields};
   }
 
   function sportingFixture(event){
+    if(['golf','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return hasPublishedFixture(event);
     return hasPublishedFixture(event) && !aggregateEvent(event) && !event.majorEventMarker && !event.tournamentParent
       && event.cardKind !== "event" && !["tournament", "major_event", "ticket_sale"].includes(event.kind);
   }
@@ -4202,6 +4210,7 @@ return {womensT20,apply,fields};
     if(!hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
+    if(['golf','masters'].includes(sportKey(event)))return competitionFollow&&golfMajor(event);
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
     if(sportKey(event)==="f1" && competitionFollow)return true;
@@ -4222,7 +4231,7 @@ return {womensT20,apply,fields};
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
 });
 
 ;
@@ -11920,8 +11929,8 @@ return {womensT20,apply,fields};
 ;/* config/editorial-lifecycle.js */
 (function(root,factory){const api=factory();root.NOTHINGSPORTS_EDITORIAL_LIFECYCLE=api;if(typeof module!=='undefined')module.exports=api;})(globalThis,function(){
  'use strict';
- const completed=e=>['completed','finished','final'].includes(String(e?.status).toLowerCase());
- const signature=e=>JSON.stringify([e?.status||'',e?.outcomeText||'',e?.scoreDisplay||e?.score||'',e?.recapText||'']);
+ const completed=e=>['completed','finished','final','past'].includes(String(e?.status).toLowerCase());
+ const signature=e=>JSON.stringify([completed(e)?'completed':e?.status||'',e?.outcomeText||'',e?.scoreDisplay||e?.score||'',e?.recapText||'']);
  function copy(event,narrative={},spoilers=false){
   if(!completed(event))return {hook:narrative.hook||'',synopsis:narrative.synopsis||''};
   const safe=`${event.displayTitleCompact||event.name||'This fixture'} is complete. Reveal results for the outcome.`;
@@ -11937,6 +11946,27 @@ return {womensT20,apply,fields};
   return (String(copy||'').match(/[^.!?]+[.!?]*/g)||[]).filter(s=>{const a=words(s);if(!a.size)return false;const duplicate=seen.some(v=>{const b=words(v);let common=0;for(const w of a)if(b.has(w))common++;return common/Math.max(a.size,b.size)>=0.72;});if(!duplicate)seen.push(s);return !duplicate;}).join(' ').replace(/\s+/g,' ').trim();
  }
  return {completed,signature,copy,distinct};
+});
+
+;
+
+;/* config/feed-view-filter.js */
+(function(root,factory){const api=factory();root.NOTHINGSPORTS_FEED_VIEW_FILTER=api;if(typeof module!=='undefined')module.exports=api;})(globalThis,function(){
+ 'use strict';
+ const valid=v=>typeof v==='number'&&Number.isFinite(v)&&v>=1&&v<=5;
+ function score(snapshot,legacy=null){
+  const exact=snapshot?.filterRatings;
+  if(exact){if(valid(exact.personal))return exact.personal;if(valid(legacy))return legacy;return valid(exact.crowd)?exact.crowd:null;}
+  const own=Object.values(snapshot?.currentUser?.submissions||{}).map(x=>Number(x?.rating));
+  if(snapshot?.currentUser?.contribution)own.push(Number(snapshot.currentUser.contribution.rating));
+  if(valid(legacy))own.push(legacy);
+  const personal=own.filter(valid);if(personal.length)return Math.max(...personal);
+  // Only server-provided unrounded real averages are usable for thresholds.
+  const crowd=Object.values(snapshot?.aggregates||{}).filter(x=>x?.ratingCount>0).map(x=>x.average).filter(valid);
+  return crowd.length?Math.max(...crowd):null;
+ }
+ function matches(snapshot,minimum=0,legacy=null){if(!minimum)return true;const rating=score(snapshot,legacy);return rating!==null&&rating>=minimum;}
+ return {score,matches};
 });
 
 ;

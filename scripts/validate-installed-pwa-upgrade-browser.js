@@ -59,6 +59,7 @@ const server=http.createServer((req,res)=>{
     browser=await (process.env.PWA_BROWSER==='webkit'?webkit:chromium).launch({headless:true,...launchOptions});
     const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'allow'});
     const page=await context.newPage();
+    const pending=new Set(); context.on('request',r=>pending.add(r.url()));context.on('requestfinished',r=>pending.delete(r.url()));context.on('requestfailed',r=>pending.delete(r.url()));
     const navigations=[];page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations.push(frame.url());});
     await page.goto(origin+'/?installed-pwa-upgrade=1',{waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>Boolean(navigator.serviceWorker?.controller),null,{timeout:90000});
@@ -83,7 +84,7 @@ const server=http.createServer((req,res)=>{
     // automatic migration to the real candidate without a second user launch.
     try { await upgraded.waitForFunction(v=>document.querySelector('meta[name="app-shell-version"]')?.content===v,candidateVersion,{timeout:60000}); } catch(error) { console.error('Legacy catch-up diagnostic', await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,update:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.scriptURL,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()}))); throw error; }
     try { await upgraded.waitForFunction(()=>globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot().workerVersion===document.querySelector('meta[name="app-shell-version"]').content,null,{timeout:45000}); }
-    catch(error){console.error('Worker upgrade diagnostics',await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,state:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.state,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()})));throw error;}
+    catch(error){console.error('Pending requests', [...pending]);console.error('Worker upgrade diagnostics',await upgraded.evaluate(async()=>({version:document.querySelector('meta[name="app-shell-version"]')?.content,state:globalThis.NOTHINGSPORTS_APP_UPDATE?.snapshot(),workers:(await navigator.serviceWorker.getRegistrations()).map(r=>({active:r.active?.state,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()})));throw error;}
 
     assert.equal(new URL(upgraded.url()).searchParams.get('installed-pwa-upgrade'),'1');
     await upgraded.waitForFunction(()=>typeof userPreferences!=='undefined');

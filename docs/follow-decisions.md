@@ -140,3 +140,15 @@ Regressions: `validate-participant-unfollow.js`, `audit-participant-admission.js
 ### 2026-09-22 — Women's T20 detail coverage paused
 
 Until further notice, women's T20 cricket retains fixture identity, timing and Follow admission but excludes editorial, venue, broadcaster and results details. This supersedes the earlier all-Australian-internationals editorial scope; women's ODI and Test coverage remain included. Apply the pause to refreshed projections and cached/browser fixtures, including provider aliases. Regression: `scripts/validate-coverage-pauses.js`.
+
+## Unified Schedule navigation and Feed controls — 22 September 2026
+
+Every Feed card exposes its most specific sourced sport/competition/tournament schedule inside the main Follow screen. Schedule is the default on sport entry. Sport and applicable Australian controls sit above shared section tabs. Feed-origin Back restores the originating Feed state; Notifications owns only its intentional destinations. Event-page bulk selection operates on unique event families through the existing authoritative decision map; selecting editions never creates separate family choices.
+
+Golf is an explicit exception to fixture-only tournament exclusion: published golf tournament cards can be manually added with unconfirmed tee times. A Golf follow automatically admits recognised men's and women's majors only. Ordinary golf events do not auto-enter via player, competition or event follows. Explicit event/competition exclusions and dismissals retain precedence.
+
+The floating Feed filter intersects the already eligible Feed with one sport and a 4+/5-flame threshold. Use the viewer's highest current Heat/Live/Impact rating; only without any personal rating use the highest real peer phase average. Never round up for admission, include modelled votes or change follows. Filters persist locally and do not change Schedule scope.
+
+Tournament hydration uses a rolling 28-day Sydney calendar window, including ongoing tournaments and full tournaments crossing its end. Unconfirmed draw structures remain explicitly provisional and cannot imply a followed player's participation. Source-confirmed identities replace provisional slot contents without rewriting saved actions.
+
+Regression: `validate-feed-follow-repairs.js`, `validate-feed-follow-navigation-browser.js`, `validate-inbox-loading.js`, existing Follow policy, Results/editorial, inbox and PWA checks.

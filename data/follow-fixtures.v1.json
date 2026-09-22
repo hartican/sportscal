@@ -1,36 +1,30 @@
 {
   "schemaVersion": "follow-fixtures.v1",
-  "generatedAt": "2026-09-22T03:01:53.570Z",
+  "generatedAt": "2026-09-22T05:13:11.572Z",
   "sources": [
-    {
-      "sourceName": "US Open official schedule",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule16.json",
-      "sourceType": "official",
-      "checkedAt": "2026-09-22T02:48:47.488Z"
-    },
     {
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule18.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:48:47.488Z"
+      "checkedAt": "2026-09-22T05:09:08.006Z"
     },
     {
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule19.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:48:47.488Z"
+      "checkedAt": "2026-09-22T05:09:08.006Z"
     },
     {
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule20.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:48:47.488Z"
+      "checkedAt": "2026-09-22T05:09:08.006Z"
     },
     {
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule21.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:48:47.488Z"
+      "checkedAt": "2026-09-22T05:09:08.006Z"
     },
     {
       "sourceName": "ESPN public football schedule snapshot",
@@ -54,7 +48,7 @@
       "sourceName": "US Open official schedule",
       "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule22.json",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:48:47.488Z"
+      "checkedAt": "2026-09-22T05:09:08.006Z"
     },
     {
       "sourceName": "ESPN public football schedule snapshot",
@@ -132,7 +126,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -144,7 +138,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -162,7 +156,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -180,7 +174,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -192,13 +186,13 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -216,7 +210,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -240,7 +234,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NFL schedule",
@@ -252,7 +246,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -264,7 +258,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NFL schedule",
@@ -294,7 +288,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -324,7 +318,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612759/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -348,7 +342,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -402,7 +396,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -456,7 +450,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612745/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NFL schedule",
@@ -474,13 +468,13 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612762/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -492,7 +486,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612742/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -516,7 +510,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -546,7 +540,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612747/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -564,7 +558,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612758/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -576,7 +570,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612744/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -624,7 +618,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -642,13 +636,13 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612760/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612740/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -672,7 +666,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612757/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -690,7 +684,7 @@
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612746/schedule",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:49:53.989Z"
+      "checkedAt": "2026-09-22T05:10:03.784Z"
     },
     {
       "sourceName": "NHL schedule",
@@ -845,166 +839,6 @@
   ],
   "events": [
     {
-      "id": "fixture:us-open-2026:official:ws:2406",
-      "stableMatchId": "usopen-2026-ws-2406",
-      "cardKind": "fixture",
-      "competitionId": "competition:tennis:us-open:2026",
-      "parentEventId": "major-event:us-open-2026",
-      "identityRef": "event:us-open",
-      "participantIds": [
-        "athlete:tennis:iva-jovic",
-        "athlete:tennis:coco-gauff"
-      ],
-      "name": "Iva Jovic v Coco Gauff",
-      "stage": "Women's singles",
-      "roundLabel": "Round 4",
-      "matchType": "womens-singles",
-      "eventType": "womens-singles",
-      "eventCode": "WS",
-      "bestOf": 3,
-      "court": "Arthur Ashe Stadium",
-      "date": "2026-09-08",
-      "time": "09:00",
-      "startTimeUtc": "2026-09-07T23:00:00.000Z",
-      "timelineSortTimeUtc": "2026-09-07T23:00:00.000Z",
-      "sessionId": "us-open-2026:day-16:court-aa:session-2",
-      "sessionStartTimeUtc": "2026-09-07T23:00:00.000Z",
-      "sequenceInSession": 1,
-      "timePrecision": "exact",
-      "timingSource": {
-        "publisher": "US Open",
-        "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule16.json",
-        "checkedAt": "2026-09-22T02:48:47.488Z",
-        "precedence": "official-tournament"
-      },
-      "scheduleStatus": "confirmed",
-      "status": "completed",
-      "statusUpdatedAt": "2026-09-08T09:02:17.515Z",
-      "resultPublishedAt": "2026-09-08T09:02:17.515Z",
-      "scoreDisplay": "Iva Jovic 1-6 4-6 Coco Gauff",
-      "result": "Iva Jovic 1-6 4-6 Coco Gauff",
-      "matchupSides": [
-        {
-          "id": "side:tennis:iva-jovic",
-          "name": "Iva Jovic",
-          "players": [
-            {
-              "id": "athlete:tennis:iva-jovic",
-              "name": "Iva Jovic",
-              "seed": 14,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        },
-        {
-          "id": "side:tennis:coco-gauff",
-          "name": "Coco Gauff",
-          "players": [
-            {
-              "id": "athlete:tennis:coco-gauff",
-              "name": "Coco Gauff",
-              "seed": 4,
-              "rank": null,
-              "nationalityCode": "US"
-            }
-          ]
-        }
-      ],
-      "venue": "Arthur Ashe Stadium",
-      "summary": "US Open 2026 · Women's singles · Round 4 · Arthur Ashe Stadium.",
-      "sourceUrl": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule16.json",
-      "endTimeUtc": "2026-09-08T04:00:00.000Z",
-      "endTimeBasis": "scheduled-live-window",
-      "editorialNarrative": {
-        "schemaVersion": "editorial-narrative.v2",
-        "projectionId": "projection:major:us-open-2026:child:fixture:us-open-2026:official:ws:2406",
-        "researchTier": "marquee",
-        "hook": "Iva Jovic and Coco Gauff play for a Women's singles quarterfinal place.",
-        "synopsis": "Iva Jovic and Coco Gauff play for a Women's singles quarterfinal place. The editorial context is specific to the draw and Round 4; it updates independently as this matchup changes.",
-        "threadIds": [
-          "thread:tennis:us-open-2026:defenders-open-draw"
-        ],
-        "factIds": [
-          "fact:us-open-2026:stage",
-          "fact:us-open-2026:mens-draw-reset",
-          "fact:us-open-2026:mens-bottom-half",
-          "fact:us-open-2026:sabalenka-threepeat",
-          "fact:us-open-2026:american-drought"
-        ],
-        "sourceIds": [
-          "source:us-open:2026-schedule",
-          "source:us-open:2026-mens-draw",
-          "source:us-open:2026-sabalenka",
-          "source:us-open:2026-american-men"
-        ],
-        "dimensions": [
-          "schedule",
-          "matchup",
-          "path",
-          "history"
-        ],
-        "researchedAt": "2026-08-29T19:30:00.000Z",
-        "refreshAfter": "2026-08-31T12:00:00.000Z",
-        "generationMode": "verified-parent-child-projection"
-      },
-      "storyline": {
-        "stakes": 5,
-        "hookSpoilerOff": "Iva Jovic and Coco Gauff play for a Women's singles quarterfinal place.",
-        "hookSpoilerOn": "Iva Jovic and Coco Gauff play for a Women's singles quarterfinal place.",
-        "synopsisSpoilerOff": "Iva Jovic and Coco Gauff play for a Women's singles quarterfinal place. The editorial context is specific to the draw and Round 4; it updates independently as this matchup changes.",
-        "synopsisSpoilerOn": "Iva Jovic and Coco Gauff play for a Women's singles quarterfinal place. The editorial context is specific to the draw and Round 4; it updates independently as this matchup changes.",
-        "arcStage": "preview"
-      },
-      "eventId": "fixture:us-open-2026:official:ws:2406",
-      "canonicalEventId": "fixture:us-open-2026:official:ws:2406",
-      "key": "tennis",
-      "sport": "Tennis",
-      "sportDomainId": "sport:tennis",
-      "taxonomyNodeId": "event-series:us-open",
-      "eventSeriesId": "event-series:us-open",
-      "majorEventId": "major-event:us-open-2026",
-      "displayTitleCompact": "Iva Jovic v Coco Gauff",
-      "timeTbc": false,
-      "homeParticipantId": "side:tennis:iva-jovic",
-      "awayParticipantId": "side:tennis:coco-gauff",
-      "participants": [
-        {
-          "id": "athlete:tennis:iva-jovic",
-          "name": "Iva Jovic",
-          "nationalityCode": "US",
-          "role": "home"
-        },
-        {
-          "id": "athlete:tennis:coco-gauff",
-          "name": "Coco Gauff",
-          "nationalityCode": "US",
-          "role": "away"
-        }
-      ],
-      "broadcaster": "Stan Sport",
-      "broadcasterIds": [
-        "stan"
-      ],
-      "broadcastOptions": [
-        "Stan Sport"
-      ],
-      "expected": 5,
-      "liveWindow": 3,
-      "score": "Iva Jovic 1-6 4-6 Coco Gauff",
-      "outcomeText": "Iva Jovic 1-6 4-6 Coco Gauff",
-      "recapText": "Iva Jovic 1-6 4-6 Coco Gauff",
-      "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
-      "sourceName": "US Open official schedule",
-      "sourceType": "official",
-      "sourceTrust": "verified",
-      "venueCountryCode": "US",
-      "sourceEventIds": [
-        "fixture:us-open-2026:official:ws:2406"
-      ]
-    },
-    {
       "id": "fixture:us-open-2026:official:ws:2504",
       "stableMatchId": "usopen-2026-ws-2504",
       "cardKind": "fixture",
@@ -1034,7 +868,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule18.json",
-        "checkedAt": "2026-09-22T02:48:47.488Z",
+        "checkedAt": "2026-09-22T05:09:08.006Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1155,7 +989,7 @@
       "outcomeText": "Qinwen Zheng 6-3 1-6 4-6 Elena Rybakina",
       "recapText": "Qinwen Zheng 6-3 1-6 4-6 Elena Rybakina",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
+      "sourceCheckedAt": "2026-09-22T05:09:08.006Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1194,7 +1028,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule18.json",
-        "checkedAt": "2026-09-22T02:48:47.488Z",
+        "checkedAt": "2026-09-22T05:09:08.006Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1315,7 +1149,7 @@
       "outcomeText": "Alexander Zverev 6-2 7-5 6-1 Botic van de Zandschulp",
       "recapText": "Alexander Zverev 6-2 7-5 6-1 Botic van de Zandschulp",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
+      "sourceCheckedAt": "2026-09-22T05:09:08.006Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1354,7 +1188,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule18.json",
-        "checkedAt": "2026-09-22T02:48:47.488Z",
+        "checkedAt": "2026-09-22T05:09:08.006Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1474,7 +1308,7 @@
       "outcomeText": "Mirra Andreeva 6-2 6(7)-7(9) 2-6 Coco Gauff",
       "recapText": "Mirra Andreeva 6-2 6(7)-7(9) 2-6 Coco Gauff",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
+      "sourceCheckedAt": "2026-09-22T05:09:08.006Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1513,7 +1347,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule19.json",
-        "checkedAt": "2026-09-22T02:48:47.488Z",
+        "checkedAt": "2026-09-22T05:09:08.006Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1634,7 +1468,7 @@
       "outcomeText": "Aryna Sabalenka 7-5 6-2 Jessica Pegula",
       "recapText": "Aryna Sabalenka 7-5 6-2 Jessica Pegula",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
+      "sourceCheckedAt": "2026-09-22T05:09:08.006Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1673,7 +1507,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule19.json",
-        "checkedAt": "2026-09-22T02:48:47.488Z",
+        "checkedAt": "2026-09-22T05:09:08.006Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -1793,7 +1627,7 @@
       "outcomeText": "Coco Gauff 6-3 4-6 4-6 Elena Rybakina",
       "recapText": "Coco Gauff 6-3 4-6 4-6 Elena Rybakina",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
+      "sourceCheckedAt": "2026-09-22T05:09:08.006Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1832,7 +1666,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule20.json",
-        "checkedAt": "2026-09-22T02:48:47.488Z",
+        "checkedAt": "2026-09-22T05:09:08.006Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -1953,7 +1787,7 @@
       "outcomeText": "Frances Tiafoe 6-4 3-6 3-6 5-7 Ben Shelton",
       "recapText": "Frances Tiafoe 6-4 3-6 3-6 5-7 Ben Shelton",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
+      "sourceCheckedAt": "2026-09-22T05:09:08.006Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -1992,7 +1826,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule20.json",
-        "checkedAt": "2026-09-22T02:48:47.488Z",
+        "checkedAt": "2026-09-22T05:09:08.006Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2112,7 +1946,7 @@
       "outcomeText": "Alexander Zverev 6-3 7(9)-6(7) 7(8)-6(6) Karen Khachanov",
       "recapText": "Alexander Zverev 6-3 7(9)-6(7) 7(8)-6(6) Karen Khachanov",
       "resultStatus": "official",
-      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
+      "sourceCheckedAt": "2026-09-22T05:09:08.006Z",
       "sourceName": "US Open official schedule",
       "sourceType": "official",
       "sourceTrust": "verified",
@@ -2151,7 +1985,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule21.json",
-        "checkedAt": "2026-09-22T02:48:47.488Z",
+        "checkedAt": "2026-09-22T05:09:08.006Z",
         "precedence": "official-session-order"
       },
       "scheduleStatus": "confirmed",
@@ -2199,7 +2033,7 @@
       "sourceName": "US Open official schedule",
       "eventId": "fixture:us-open-2026:official:ws:2701",
       "canonicalEventId": "fixture:us-open-2026:official:ws:2701",
-      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
+      "sourceCheckedAt": "2026-09-22T05:09:08.006Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "sourceRefs": [
@@ -2556,7 +2390,7 @@
       "timingSource": {
         "publisher": "US Open",
         "url": "https://www.usopen.org/en_US/scores/feeds/2026/schedule/schedule22.json",
-        "checkedAt": "2026-09-22T02:48:47.488Z",
+        "checkedAt": "2026-09-22T05:09:08.006Z",
         "precedence": "official-tournament"
       },
       "scheduleStatus": "confirmed",
@@ -2604,7 +2438,7 @@
       "sourceName": "US Open official schedule",
       "eventId": "fixture:us-open-2026:official:ms:1701",
       "canonicalEventId": "fixture:us-open-2026:official:ms:1701",
-      "sourceCheckedAt": "2026-09-22T02:48:47.488Z",
+      "sourceCheckedAt": "2026-09-22T05:09:08.006Z",
       "sourceType": "official",
       "sourceTrust": "verified",
       "sourceRefs": [
@@ -4050,7 +3884,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -4169,7 +4003,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -4712,7 +4546,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -4895,7 +4729,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -5014,7 +4848,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -5075,7 +4909,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -5624,7 +5458,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -5679,7 +5513,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -5862,7 +5696,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -5923,7 +5757,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6162,7 +5996,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6521,7 +6355,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6582,7 +6416,7 @@
       },
       "sourceName": "Netball Australia 2026 Constellation Cup announcement",
       "sourceUrl": "https://netball.com.au/news/2026-con-cup-schedule-revealed",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -6821,7 +6655,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -7004,7 +6838,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -7607,7 +7441,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -7662,7 +7496,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8685,7 +8519,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8868,7 +8702,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612759/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -8987,7 +8821,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9106,7 +8940,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9225,7 +9059,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9344,7 +9178,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -9463,7 +9297,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10242,7 +10076,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10361,7 +10195,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -10416,7 +10250,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -11327,7 +11161,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -11686,7 +11520,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612752/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -11805,7 +11639,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -12964,7 +12798,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612745/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13147,7 +12981,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13202,7 +13036,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612762/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13321,7 +13155,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612759/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13436,7 +13270,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612742/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13859,7 +13693,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -13914,7 +13748,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612748/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -14393,7 +14227,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -14512,7 +14346,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -15231,7 +15065,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -15714,7 +15548,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612747/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -16069,7 +15903,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -16124,7 +15958,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17027,7 +16861,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612758/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17206,7 +17040,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612744/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17501,7 +17335,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17620,7 +17454,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612762/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -17799,7 +17633,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612750/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18278,7 +18112,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18397,7 +18231,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612761/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18452,7 +18286,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -18755,7 +18589,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19114,7 +18948,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612742/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19169,7 +19003,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19224,7 +19058,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19767,7 +19601,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612760/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19822,7 +19656,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19877,7 +19711,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612760/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -19992,7 +19826,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612740/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20347,7 +20181,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20466,7 +20300,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612744/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -20585,7 +20419,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612743/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21064,7 +20898,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612757/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21183,7 +21017,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612747/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21302,7 +21136,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612746/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -21973,7 +21807,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22152,7 +21986,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22507,7 +22341,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22686,7 +22520,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -22989,7 +22823,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23348,7 +23182,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612757/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23467,7 +23301,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23586,7 +23420,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612756/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -23825,7 +23659,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24184,7 +24018,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24303,7 +24137,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612755/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24606,7 +24440,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612739/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -24901,7 +24735,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612758/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25020,7 +24854,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612753/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25139,7 +24973,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612763/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25258,7 +25092,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612746/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25313,7 +25147,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612754/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25432,7 +25266,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612764/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -25551,7 +25385,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612765/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -26030,7 +25864,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612745/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -26085,7 +25919,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -26204,7 +26038,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612741/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -26323,7 +26157,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612749/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },
@@ -26742,7 +26576,7 @@
       },
       "sourceName": "NBA official team schedule",
       "sourceUrl": "https://www.nba.com/team/1610612740/schedule",
-      "sourceCheckedAt": "2026-09-22T02:49:53.989Z",
+      "sourceCheckedAt": "2026-09-22T05:10:03.784Z",
       "sourceType": "official",
       "sourceTrust": "verified"
     },

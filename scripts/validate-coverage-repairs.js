@@ -24,7 +24,7 @@ const {capture,safeSignal,researchCandidates}=require('./snapshot-editorial-noth
  const inspector=require('../data/code-inspector/golf.json').fixtures;
  for(const t of golf.tournaments){const records=inspector.filter(f=>f.tournamentId===t.id);assert.equal(records.length,1,t.id+' one canonical schedule entry');if(t.status==='completed')assert.match(records[0].outcomeText,/won/);}
  const catalogue=require('../data/canonical/tennis-catalogue-2026.json').tournaments;
- const sections=tournaments.sections(catalogue,'2026-09-22');assert.equal(sections.length,5);
+ const sections=tournaments.sections(catalogue,'2026-09-22');assert.deepEqual(sections.map(s=>s.label),['Grand Slams','ATP Masters 1000','WTA 1000','ATP 500','WTA 500','ATP 250','WTA 250','Tour finals','International team events']);
  assert.equal(new Set(catalogue.filter(t=>t.level==='grand_slam').map(tournaments.family)).size,4);
  assert.equal(tournaments.family({name:'WTA Finals Indian Wells'}),'wta-finals');
  for(const section of sections){assert(section.current.every(t=>t.endDate>='2026-09-22'&&t.startDate<='2026-12-22'));assert(section.later.every(t=>t.startDate>'2026-12-22'));}

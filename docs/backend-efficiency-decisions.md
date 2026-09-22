@@ -69,3 +69,7 @@ Active chats shows personal memberships separately from admin inspection. Hidden
 Regressions: `validate-private-fixture-chat.js`, `validate-chat-membership-browser.js`, `validate-shared-chat-ui.js`, and `validate-chat-navigation-browser.js`.
 
 The release also guards the PWA handover against an older controlling worker requesting a backwards page reload. Newer versions still upgrade automatically. Regression: `validate-app-update-version.js` and the installed-PWA upgrade browser validator.
+
+## Explicit Feed filtering and notification recovery — 22 September 2026
+
+Opening Apply on an active rating filter may load all eligible Feed pages and request rating snapshots in sequential batches of at most 50. This is user-triggered and uses the existing private rating API; it adds no periodic background poll. Threshold summaries use latest real per-account/per-phase contributions and unrounded averages, subject to existing aggregate visibility rules. The inbox always settles a successful empty response into its empty state and gives stalled reads a retry state after ten seconds. Existing 30-second inbox and live refresh budgets remain unchanged.

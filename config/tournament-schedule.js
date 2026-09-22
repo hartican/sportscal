@@ -8,10 +8,10 @@
   for(const [pattern,id] of [[/wta finals/i,'wta-finals'],[/atp finals/i,'atp-finals'],[/australian open/i,'australian-open'],[/roland|french open/i,'roland-garros'],[/wimbledon/i,'wimbledon'],[/\bus open\b|u\.s\. open/i,'us-open'],[/cincinnati/i,'cincinnati'],[/indian wells|bnp paribas/i,'indian-wells'],[/miami/i,'miami-open'],[/madrid/i,'madrid-open'],[/italia|rome/i,'italian-open'],[/national bank|canadian open/i,'national-bank-open'],[/monte.carlo/i,'monte-carlo-masters'],[/shanghai/i,'shanghai-masters'],[/paris masters/i,'paris-masters'],[/billie|bjk/i,'billie-jean-king-cup'],[/davis/i,'davis-cup'],[/united cup/i,'united-cup']])if(pattern.test(name))return id;
   return slug(name.replace(/\b20\d\d\b/g,''));
  }
- function category(t){return t.level==='grand_slam'?'Grand Slams':t.level==='atp_masters_1000'?'ATP Masters 1000':t.level==='wta_1000'?'WTA 1000':/finals/.test(t.level)?'Tour finals':t.level==='team_competition'?'International team events':null;}
+ function category(t){return t.level==='grand_slam'?'Grand Slams':t.level==='atp_masters_1000'?'ATP Masters 1000':t.level==='wta_1000'?'WTA 1000':t.level==='atp_500'?'ATP 500':t.level==='wta_500'?'WTA 500':t.level==='atp_250'?'ATP 250':t.level==='wta_250'?'WTA 250':/finals/.test(t.level)?'Tour finals':t.level==='team_competition'?'International team events':null;}
  function sections(tournaments,day){
   const limit=new Date(day+'T12:00:00Z');limit.setUTCMonth(limit.getUTCMonth()+3);const until=limit.toISOString().slice(0,10);
-  return ['Grand Slams','ATP Masters 1000','WTA 1000','Tour finals','International team events'].map(label=>{
+  return ['Grand Slams','ATP Masters 1000','WTA 1000','ATP 500','WTA 500','ATP 250','WTA 250','Tour finals','International team events'].map(label=>{
    const all=tournaments.filter(t=>category(t)===label).sort((a,b)=>a.startDate.localeCompare(b.startDate)||a.name.localeCompare(b.name));
    return {label,current:all.filter(t=>t.endDate>=day&&t.startDate<=until),later:all.filter(t=>t.startDate>until),previous:all.filter(t=>t.endDate<day).reverse()};
   });

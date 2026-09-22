@@ -67,14 +67,17 @@
     const activate = worker => {
       if (worker?.state === 'installed') worker.postMessage({ type:'nothingsport-activate-update' });
     };
-    activate(reg.waiting);
-    reg.addEventListener('updatefound', () => {
-      const worker = reg.installing;
-      worker?.addEventListener('statechange', () => {
+    const observe = worker => {
+      if (!worker) return;
+      activate(worker);
+      worker.addEventListener('statechange', () => {
         activate(worker);
         if (worker.state === 'redundant') publish('error');
       });
-    });
+    };
+    activate(reg.waiting);
+    observe(reg.installing);
+    reg.addEventListener('updatefound', () => observe(reg.installing));
   }
   let registering;
   function register(){
@@ -112,6 +115,7 @@
         state.availableVersion = String(current.version);
         const reg = await bounded(register());
         await bounded(reg.update());
+        if (reg.waiting) reg.waiting.postMessage({ type:'nothingsport-activate-update' });
         state.workerVersion = await workerVersion(navigator.serviceWorker.controller || reg.active);
         state.lastCheckedAt = Date.now();
         if (state.workerVersion && state.workerVersion !== version) requestReload(state.workerVersion);

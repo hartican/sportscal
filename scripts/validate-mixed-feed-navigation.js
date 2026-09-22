@@ -21,7 +21,7 @@ assert.match(roundSummary, /startingGroup:summary\?\.roundLabel \|\| `Round \$\{
 assert(activateTab.includes('if (activeTab === "feed")'), "Feed navigation must have an explicit mixed-feed reset");
 assert(activateTab.includes('activeFilter = "all"'));
 assert(activateTab.includes("curatedFeedReturnState = null"));
-assert.match(closeInspector, /activeFilter = returnState\.activeTab === "feed" \? "all" : returnState\.activeFilter/, "returning from Standings & Fixtures must restore a mixed Feed");
+assert.match(closeInspector, /activeFilter = returnState\.activeFilter/, "returning from Schedule must restore the originating Feed filter");
 
 const frozenProfile = {
   events:(feedDocument.events || []).slice(0, 40),
@@ -38,4 +38,4 @@ assert.deepEqual(
   "repeated identical profiles and clocks must produce identical feeds",
 );
 
-console.log("Mixed Feed navigation passed: AFL/NRL round summaries stay in Follow Schedule and every Feed return clears legacy sport focus.");
+console.log("Mixed Feed navigation passed: AFL/NRL round summaries stay in Follow Schedule and Back restores the originating Feed filter.");

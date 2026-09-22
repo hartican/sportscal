@@ -63,6 +63,7 @@ const CODE_KEYS = Object.freeze({
   "sport:cricket": ["cricket"],
   "sport:basketball": ["basketball", "nba"],
   "sport:golf": ["golf"],
+  "sport:multi-sport": ["cwg"],
   "sport:american-football": ["american-football", "nfl"],
   "sport:ice-hockey": ["ice-hockey", "nhl", "chl"],
   "sport:skiing": ["skiing", "snow"],
@@ -227,7 +228,7 @@ function normalizeFixture(event, codeId, extra = {}){
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
-    ...Object.fromEntries(['tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(!event.scoreDisplay && derivedScore ? { scoreDisplay:derivedScore } : {}),
     ...(!event.score && derivedScore ? { score:derivedScore } : {}),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
@@ -465,6 +466,7 @@ function build({codeSlugs=null,outputDir=OUTPUT_DIR}={}){
         if (code.id === nblCode.parentSportId) childCodes.push(nblCode);
         return [code, ...childCodes];
       }),
+    {id:"sport:multi-sport",slug:"multi-sport",name:"Commonwealth Games"},
     championsLeagueCode,
     ...requestedCompetitionCodes,
   ];

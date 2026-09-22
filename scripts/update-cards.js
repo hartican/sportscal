@@ -207,6 +207,8 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-paged-feed.js"],
   ["scripts/prepare-nsc-forecasts.js"],
   ["scripts/build-code-inspector.js"],
+  ["scripts/build-tournament-horizon.js"],
+  ["scripts/validate-feed-follow-repairs.js"],
   ["scripts/apply-coverage-pauses.js"],
   ["scripts/validate-coverage-pauses.js"],
   ["scripts/validate-coverage-repairs.js"],
@@ -328,6 +330,7 @@ async function main() {
     await require('./refresh-discovery').refreshDiscovery();
     runStep(['scripts/build-athlete-participation.js']);
     runStep(['scripts/build-code-inspector.js']);
+    runStep(['scripts/build-tournament-horizon.js']);
     for(const test of ['discovery-evidence','discovery-transport','autonomous-discovery'])runStep([`scripts/validate-${test}.js`]);
     return;
   }
@@ -340,7 +343,7 @@ async function main() {
     return;
   }
   if(process.argv.includes("--follow-ui")){
-    for(const script of ["build-follow-directories","build-code-inspector","build-app-shell-runtime","validate-curated-follow-directories","validate-live-fixture-api"])runStep([`scripts/${script}.js`]);
+    for(const script of ["build-follow-directories","build-code-inspector","build-tournament-horizon","build-app-shell-runtime","validate-curated-follow-directories","validate-live-fixture-api"])runStep([`scripts/${script}.js`]);
     console.log("Follow UI projections rebuilt from retained canonical sources; no source refresh or release performed.");return;
   }
   if(process.argv.includes("--coverage")){

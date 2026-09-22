@@ -128,7 +128,7 @@ assert(scriptMatch);
 assert.doesNotThrow(() => new Function(scriptMatch[1]), "the browser application must parse");
 assert.match(html, />Feed</);
 assert.match(html, />Follow</);
-assert.match(html, /Back to Follow/);
+assert.match(html, /Back to Feed/);
 assert.doesNotMatch(html, /<span class="tab-label">Inspector<\/span>/);
 const navLabels = Array.from(html.matchAll(/<span class="tab-label">([^<]+)<\/span>/g), match => match[1]);
 assert.deepEqual(navLabels, ["Feed", "Events", "Follow"]);
@@ -166,7 +166,7 @@ assert(
 );
 assert(!html.includes("Swipe to like") && !html.includes("Swipe to dislike"), "startup and cards must not teach Tinder-style gestures");
 assert(html.includes('data-tab="follow"') && html.includes("renderFollowView"));
-assert(html.includes('["all-fixtures", "Schedule"]') && !html.includes('["matches", "Matches"]') && !html.includes('["players", "Players"]') && html.includes("followStandingsLabel"));
+assert(html.includes("['schedule','Schedule']") && !html.includes('["matches", "Matches"]') && !html.includes('["players", "Players"]') && html.includes("followStandingsLabel"));
 assert(html.includes("codeInspectorPlayersExpanded") && html.includes('"Top 3 + followed"'));
 
 assert(html.includes("startupSportsGrid") && html.includes("startupEventsGrid") && html.includes("startupOffersGrid"));

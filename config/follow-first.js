@@ -511,7 +511,7 @@
     if (followPolicy.aggregateEvent(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
     const participants = followPolicy.participantIds(event);
-    for (const id of participants){
+    for (const id of (["golf","masters"].includes(followPolicy.sportKey(event))?[]:participants)){
       if (participantFollowFromNormalized(id,next,collectionsById).source === "unfollow") continue;
       const follow = follows.get(id);
       if (follow && ["follow", "priority"].includes(follow.followLevel)){
@@ -567,6 +567,7 @@
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
       || domains.some(domain => domain.enabled === true);
+    if(['golf','masters'].includes(sourceSportId))return sportFollowed&&followPolicy.golfMajor(event)?{type:'sport-marquee',entityKind:'sport',id:'golf',label:null,displayTag:false}:null;
     const concreteSportingCard = Boolean(
       followPolicy?.sportingFixture(event)
       && event?.majorEventMarker !== true

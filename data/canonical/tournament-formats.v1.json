@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "tournament-formats.v1",
+  "formats": {
+    "tournament:tennis:atp-shanghai-2026": {
+      "drawSize": 96,
+      "qualifiers": 12,
+      "sourceUrl": "https://www.atptour.com/-/media/files/media-guide/2026/2026-atp-media-guide-full-updated.pdf",
+      "doublesSize": 32
+    },
+    "tournament:tennis:atp-tokyo-2026": {
+      "drawSize": 32,
+      "qualifiers": 4,
+      "sourceUrl": "https://www.atptour.com/-/media/files/media-guide/2026/2026-atp-media-guide-full-updated.pdf",
+      "doublesSize": 16
+    },
+    "tournament:tennis:wta-beijing-2026": {
+      "drawSize": 96,
+      "qualifiers": 12,
+      "sourceUrl": "https://www.wtatennis.com/news/4576359/asian-swing-2026-preview-dates-draws-prize-money-and-everything-you-need-to-know",
+      "doublesSize": 32,
+      "confirmedTimes": {
+        "Final": {
+          "date": "2026-10-11",
+          "time": "22:00",
+          "startTimeUtc": "2026-10-11T11:00:00Z",
+          "timePrecision": "not-before"
+        },
+        "Doubles Final": {
+          "date": "2026-10-11",
+          "time": "19:30",
+          "startTimeUtc": "2026-10-11T08:30:00Z"
+        }
+      }
+    },
+    "tournament:tennis:wta-wuhan-2026": {
+      "drawSize": 56,
+      "qualifiers": 8,
+      "sourceUrl": "https://www.wtatennis.com/news/4577819/elena-rybakina-aryna-sabalenka-jessica-pegula-coco-gauff-headline-wuhan-field",
+      "doublesSize": 28,
+      "confirmedTimes": {
+        "Final": {
+          "date": "2026-10-18",
+          "time": "21:30",
+          "startTimeUtc": "2026-10-18T10:30:00Z",
+          "timePrecision": "not-before"
+        },
+        "Doubles Final": {
+          "date": "2026-10-18",
+          "time": "19:00",
+          "startTimeUtc": "2026-10-18T08:00:00Z"
+        }
+      }
+    },
+    "tournament:tennis:bjk-cup-finals-2026": {
+      "drawSize": 8,
+      "sourceUrl": "https://www.billiejeankingcup.com/en/more/format",
+      "teamRubbers": true
+    },
+    "R2026500": {
+      "sessions": [
+        [
+          "Thursday",
+          5
+        ],
+        [
+          "Friday",
+          5
+        ],
+        [
+          "Saturday morning",
+          4
+        ],
+        [
+          "Saturday afternoon",
+          4
+        ],
+        [
+          "Sunday singles",
+          12
+        ]
+      ],
+      "sourceUrl": "https://www.presidentscup.com/faq"
+    },
+    "R2026554": {
+      "rounds": 4,
+      "sourceUrl": "https://www.pgatour.com/tournaments/2026/bank-of-utah-championship/R2026554"
+    },
+    "R2026527": {
+      "rounds": 4,
+      "sourceUrl": "https://www.pgatour.com/tournaments/2026/baycurrent-classic/R2026527"
+    },
+    "event:wrc:2026:round-13": {
+      "sessions": [
+        [
+          "Special stages",
+          17
+        ]
+      ],
+      "sourceUrl": "https://rallyitaliasardegna.com/2026/09/21/tiziano-siviero-this-is-the-rally-italia-sardegna-we-have-designed/?lang=en"
+    }
+  }
+}

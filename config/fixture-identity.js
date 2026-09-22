@@ -21,7 +21,7 @@
 
   function scheduleCode(entity, codes = []){
     if (!entity) return null;
-    const aliases = {"sport:afl-premiership":"sport:afl","sport:nrl-premiership":"sport:nrl","sport:rugby":"sport:rugby-union","sport:nba":"sport:basketball","sport:motogp":"competition:motogp","sport:sailgp":"competition:sailgp","sport:fiba-women":"competition:fiba-womens-world-cup"};
+    const aliases = {"special:commonwealth-games":"sport:multi-sport","sport:afl-premiership":"sport:afl","sport:nrl-premiership":"sport:nrl","sport:rugby":"sport:rugby-union","sport:nba":"sport:basketball","sport:motogp":"competition:motogp","sport:sailgp":"competition:sailgp","sport:fiba-women":"competition:fiba-womens-world-cup"};
     const own = codes.find(code => code.id === (aliases[entity.id] || entity.id));
     if (own) return own;
     // A child championship must not advertise its parent's different schedule.

@@ -27,6 +27,7 @@ const output=process.env.REPAIR_QA_OUTPUT||'/private/tmp/sportscal-feed-repair-b
     sample.cacheMode=cacheMode;assert(sample.mounted<=60,`${width}: mounted cards ${sample.mounted}`);samples.push(sample);
    }
    for(const mode of ["cold-network","warm-network"])audit.runs.push({name:`${width}px saved follows ${mode}`,samples:samples.filter(s=>s.cacheMode===mode)});
+   if(process.env.REPAIR_QA_TIMINGS_ONLY==='1'){assert.deepEqual(errors,[]);await context.close();continue;}
    const logo=await page.locator('.matchup-team-logo-slot').first().boundingBox();assert(logo&&logo.width>=99&&logo.height>=99,`${width}: restored logo scale`);
    const actions=await page.evaluate(()=>[...document.querySelectorAll('.event-card-primary-actions .event-quick-actions')].map(row=>{const controls=[...row.children].filter(e=>e.getBoundingClientRect().width);return controls.map(e=>Math.round(e.getBoundingClientRect().top));}).filter(r=>r.length>1));
    assert(actions.every(tops=>Math.max(...tops)-Math.min(...tops)<8),`${width}: provider and reminder share a line`);

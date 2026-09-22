@@ -41,8 +41,13 @@
     ].filter(Boolean).map(String))).filter(id => !excluded.has(id));
   }
 
+  function golfMajor(event){
+    if(!['golf','masters'].includes(sportKey(event)))return false;
+    return sportKey(event)==='masters' || event.isMajor===true || event.major===true || event.stage==='Major' || /^(?:\d{4} )?(?:Masters Tournament|The Masters|PGA Championship|U\.?S\.? Open|The Open(?: Championship)?|U\.?S\.? Women['’]?s Open|AIG Women['’]?s Open|The Chevron Championship|KPMG Women['’]?s PGA Championship|The Amundi Evian Championship)(?: \d{4})?$/i.test(event.tournamentName||event.name||'');
+  }
   function aggregateEvent(event){
     if (!event) return true;
+    if(['golf','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return false;
     if (event.majorEventMarker || event.tournamentParent || event.narrativeType === "tennis-tournament-overview" || event.cardKind === "event" || ["tournament","major_event","ticket_sale"].includes(event.kind)) return true;
     // Legacy published summaries have no typed kind. Do not confuse a dated
     // championship match with the programme for a whole week or round.
@@ -51,6 +56,7 @@
 
   function explicitCompetitionRequired(event){
     const key = sportKey(event);
+    if(golfMajor(event))return false;
     if (["aflw", "nrlw"].includes(key)) return true;
     if (key === "tennis") return false;
     return /women|female|\bwbb[l]\b|\bwpl\b/i.test([event.gender,event.genderCategory,event.competitionGender,event.competitionId,event.competitionName,event.name].filter(Boolean).join(" "));
@@ -94,6 +100,7 @@
   }
 
   function sportingFixture(event){
+    if(['golf','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return hasPublishedFixture(event);
     return hasPublishedFixture(event) && !aggregateEvent(event) && !event.majorEventMarker && !event.tournamentParent
       && event.cardKind !== "event" && !["tournament", "major_event", "ticket_sale"].includes(event.kind);
   }
@@ -193,6 +200,7 @@
     if(!hasPublishedFixture(event) || aggregateEvent(event) || !feedEligibleSession(event))return false;
     if(muted)return false;
     if(explicitSelection)return true;
+    if(['golf','masters'].includes(sportKey(event)))return competitionFollow&&golfMajor(event);
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
     if(sportKey(event)==="f1" && competitionFollow)return true;
@@ -213,5 +221,5 @@
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
 });

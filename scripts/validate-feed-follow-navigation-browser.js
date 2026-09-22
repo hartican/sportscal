@@ -1,0 +1,31 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),http=require('node:http'),path=require('node:path');
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+(async()=>{const root=path.resolve(__dirname,'..'),server=http.createServer((req,res)=>{const file=path.join(root,new URL(req.url,'http://x').pathname.replace(/^\/$/,'/index.html'));fs.readFile(file,(e,b)=>{res.writeHead(e?404:200,{'Content-Type':file.endsWith('.js')?'application/javascript':file.endsWith('.json')?'application/json':file.endsWith('.css')?'text/css':'text/html'});res.end(e?'':b);});});await new Promise(r=>server.listen(0,r));const browser=await chromium.launch();try{for(const width of [320,390,768,1280]){const page=await browser.newPage({viewport:{width,height:844},serviceWorkers:'block'});const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));await page.goto(`http://localhost:${server.address().port}`);await page.waitForFunction(()=>typeof renderFollowView==='function');await page.evaluate(()=>{document.getElementById('startupLaunch')?.remove();document.querySelectorAll('.modal-backdrop').forEach(e=>e.classList.remove('show'));});
+const result=await page.evaluate(async()=>{
+ const events=(await (await fetch('data/events.json')).json()).events;await loadCodeInspectorManifest();
+ const routeFailures=[];
+ for(const codeId of [...new Set(events.map(codeIdForEvent))]){
+  saveFollowBrowse({scheduleScope:null});await openCodeInspector(codeId,{pushHistory:false});
+  if(followInspectorCode()?.id!==codeId)routeFailures.push({codeId,actual:followInspectorCode()?.id,entity:followSelectedEntity().id});
+ }
+ if(routeFailures.length)throw new Error(JSON.stringify(routeFailures));
+ activeInspectorCodeId=null;inspectorReturnState=null;
+ const missing=events.filter(e=>!codeInspectorManifest.codes.some(c=>c.id===codeIdForEvent(e))).map(e=>e.name);
+ activeTab='feed';feedViewFilters={sport:'sport:cricket',minimum:0};await openStandingsFixturesForEvent(events.find(e=>e.key==='cricket'));
+ const follow=!!document.querySelector('.follow-section-tabs'),common=!!document.querySelector('.follow-common-controls'),returnTab=inspectorReturnState?.activeTab;
+ await new Promise(resolve=>{window.addEventListener('popstate',()=>setTimeout(resolve,100),{once:true});history.back();});
+ const back=activeTab==='feed'&&feedViewFilters.sport==='sport:cricket'&&!document.querySelector('#notificationsInbox[open]');
+ activeTab='follow';activeInspectorCodeId=null;await loadTennisScheduleUi();await loadDeferredScript('assets/js/follow-event-bulk-ui.js?v=286');await loadTennisTournamentCatalogue();saveFollowBrowse({sportId:'sport:tennis',categoryId:'',section:'major-events',scheduleScope:null});renderFollowView();
+ const details=[...document.querySelectorAll('details')].find(d=>d.querySelector('summary')?.textContent==='Previous editions');details.open=true;renderFollowView();
+ const disclosure=[...document.querySelectorAll('details')].find(d=>d.querySelector('summary')?.textContent==='Previous editions').open;
+ const bulk=[...document.querySelectorAll('.follow-event-bulk button')];bulk.find(b=>b.textContent==='Select all').click();bulk.find(b=>b.textContent==='Follow selected').click();const families=[...new Set([...document.querySelectorAll('[data-event-family-id]')].map(c=>c.dataset.eventFamilyId))];const followed=families.every(id=>userPreferences.followFirst.followedMajorEventIds.includes(id));document.querySelectorAll('.follow-event-bulk button')[3].click();const excluded=families.every(id=>userPreferences.followFirst.excludedMajorEventIds.includes(id));
+ const golf=(await (await fetch('data/code-inspector/golf.json')).json()).fixtures;const missingPins=golf.filter(f=>!buildCodeInspectorFixture(f).querySelector('.code-inspector-feed-action')).map(f=>({id:f.id,key:codeInspectorFixtureSportKey(f),date:f.date,name:f.name}));const pins=missingPins.length===0;
+ const cricket=(await (await fetch('data/code-inspector/cricket.json')).json()).fixtures;
+ const targets=[events.find(e=>/Warriors v Knights/.test(e.name)),events.find(e=>/Fulham v Manchester United/.test(e.name)&&e.status==='completed'),...cricket.filter(e=>/Zimbabwe.*Australia/.test(e.name))];
+ normalizeEvents(targets);
+ const editorial=targets.flatMap(ev=>['selected','opened'].map(mode=>{setCardState(ev,mode);userPreferences.feedControls.spoilers='results_visible';userPreferences.showSpoilers=true;const on=buildEventCard(ev).textContent;userPreferences.showSpoilers=false;userPreferences.feedControls.spoilers='standard';const off=buildEventCard(ev).textContent;return {name:ev.name,different:on!==off,protectedOn:/result protected|details under spoiler control|until you choose to reveal/i.test(on)};}));
+ const links=events.every(ev=>buildEventCard(ev).querySelector('.feed-schedule-link'));
+ return {missingPins,missing,follow,common,returnTab,back,disclosure,followed,excluded,pins,editorial,links};
+});assert.deepEqual(result.missing,[]);if(result.missingPins.length)console.log(result.missingPins);for(const key of ['follow','common','back','disclosure','followed','excluded','pins','links'])assert.equal(result[key],true,key);assert.equal(result.returnTab,'feed');for(const row of result.editorial){assert(row.different,row.name);assert(!row.protectedOn,JSON.stringify(row));}
+const geometry=await page.evaluate(()=>{const ids=['settingsBtn','calendarSyncBtn','shareAppBtn','notificationsBtn'];return ids.map(id=>{const r=document.getElementById(id).getBoundingClientRect();return {id,x:r.x,y:r.y,right:r.right};});});assert(geometry.every((g,i)=>!i||g.x>geometry[i-1].x),JSON.stringify(geometry));assert(geometry.every(g=>g.right<=width+1));assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'horizontal overflow');assert.deepEqual(errors,[]);if(width===390)await page.screenshot({path:'/tmp/ns-feed-follow-repairs-mobile.png'});console.log(`Feed/Follow ${width}px: navigation, disclosure, bulk families, all golf pins, all card links, Results pairs passed.`);await page.close();}}finally{await browser.close();await new Promise(r=>server.close(r));}})().catch(e=>{console.error(e);process.exitCode=1;});
