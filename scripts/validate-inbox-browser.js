@@ -22,6 +22,7 @@ async function main(){
   assert(Math.abs(geometry.settingsBtn.y-geometry.shareAppBtn.y)<5);assert(geometry.settingsBtn.x<geometry.calendarSyncBtn.x&&geometry.calendarSyncBtn.x<geometry.shareAppBtn.x);
   assert(geometry.notificationsBtn.width>=44);assert(geometry.settingsBtn.height>=44);
   await page.evaluate(({token})=>serverSyncClient.signIn('test@example.test','test'),{token});
+  await page.evaluate(()=>history.replaceState({appRoute:'notifications',inbox:true},''));
   await page.locator('#notificationsBtn').click();try{await page.waitForSelector('.notification-row',{timeout:5000});}catch(e){console.log(await page.evaluate(()=>({owner:serverSyncClient.sessionSubject(),method:typeof serverSyncClient.inboxRequest,html:document.getElementById('notificationsInbox').outerHTML})),errors);throw e;}await page.waitForTimeout(450);
   const rect=await page.locator('#notificationsInbox').boundingBox();assert.equal(rect.height,844);assert.equal(Math.round(rect.width),width<=640?width:480);
   assert((await page.locator('.notification-row').first().innerText()).includes('3 new messages'));assert(!(await page.locator('.notification-row').first().innerText()).includes('won by'));

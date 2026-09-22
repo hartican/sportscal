@@ -68,7 +68,7 @@
   }
   function show(push=true){
    if((owner()||'')!==account)reset();
-   if(opened)return;generation++;busy=false;opened=true;if(push)history.pushState({appRoute:'notifications',inbox:true},'');
+   if(opened)return;generation++;busy=false;opened=true;if(push){if(history.state?.inbox)history.replaceState({},'');history.pushState({appRoute:'notifications',inbox:true},'');}
    render();dialog.showModal();body.scrollTop=position;trigger.setAttribute('aria-expanded','true');document.body.classList.add('notifications-open');close.focus();void refresh();
   }
   function hide(){generation++;busy=false;opened=false;position=body.scrollTop;observer.disconnect();clearTimeout(timer);clearTimeout(readTimer);pending.clear();dialog.close();document.body.classList.remove('notifications-open');trigger.setAttribute('aria-expanded','false');trigger.focus({preventScroll:true});}
