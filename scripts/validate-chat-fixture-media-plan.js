@@ -8,20 +8,18 @@ const chatHandler = require("../api/chat");
 const chatPolicy = require("../config/chat-policy");
 
 const followFixtures = JSON.parse(fs.readFileSync("data/follow-fixtures.v1.json", "utf8")).events;
-const findFixture = pattern => followFixtures.find(fixture => pattern.test(fixture.name || ""));
-const sabalenka = findFixture(/Sabalenka v (?:Camila )?Osorio/i);
-const alcaraz = findFixture(/Safiullin v (?:Carlos )?Alcaraz/i);
-
-assert(sabalenka, "Sabalenka v Osorio must exist in canonical follow fixtures");
-assert(alcaraz, "Safiullin v Alcaraz must exist in canonical follow fixtures");
+// Timing regression fixtures are deterministic; the rolling Follow window legitimately expires old matches.
+const sabalenka = { id:"qa:sabalenka-osorio", name:"Sabalenka v Osorio", status:"confirmed", startTimeUtc:"2026-08-31T15:30:00.000Z" };
+const alcaraz = { id:"qa:safiullin-alcaraz", name:"Safiullin v Alcaraz", status:"confirmed", timePrecision:"follows", sessionStartTimeUtc:"2026-08-31T15:30:00.000Z", sequenceInSession:2 };
 assert.equal(chatPolicy.fixtureEligibility(sabalenka, new Date("2026-08-31T12:00:00Z")).eligible, true);
 assert.equal(chatPolicy.fixtureEligibility(alcaraz, new Date("2026-08-31T12:00:00Z")).eligible, true);
 assert.equal(chatPolicy.fixtureTiming(alcaraz).timingPrecision, "follows");
 assert.equal(chatPolicy.fixtureTiming(alcaraz).startTimeUtc, null, "follows timing must not invent a match start");
 assert.equal(chatPolicy.fixtureTiming(alcaraz).sessionStartTimeUtc, "2026-08-31T15:30:00.000Z");
-
 const fixtureMap = chatHandler._test.loadFixtureMap();
-assert(fixtureMap.has(alcaraz.canonicalEventId || alcaraz.eventId || alcaraz.id), "Chat's deployed fixture index must include Alcaraz from follow fixtures");
+const tennis = followFixtures.filter(f => f.key === "tennis" || f.sport === "tennis");
+assert(tennis.length, "the published Follow schedule must contain tennis fixtures");
+for (const fixture of tennis) assert(fixtureMap.has(fixture.canonicalEventId || fixture.eventId || fixture.id), "Chat registry must retain every published tennis Follow fixture");
 assert.equal(chatHandler._test.fixtureIsUpcomingOrLive(alcaraz, new Date("2026-08-31T12:00:00Z")), true);
 
 assert.equal(chatPolicy.GIF_UNLOCK_POINTS, 25);
@@ -61,7 +59,7 @@ assert.match(gifReferenceMigration, /giphy\\\.\(com\|net\)/i, "external referenc
 assert.match(sql, /status[^\n]+closing/i);
 assert.match(html, /Game selfie/);
 assert.match(html, /Shift\+Enter|shiftKey/);
-assert.match(html, /25 Nothing Score points/);
+assert.match(html, /Requires 25 points/);
 assert.match(html, /Saved game media/);
 assert.match(html, /refreshChatMessageStream\(\{ autoScroll:true, preserveScroll:false \}\)/, "optimistic sends must update only the message stream");
 
@@ -73,6 +71,6 @@ assert.match(mediaUi, /https:\/\/api\.giphy\.com/);
 assert.match(mediaUi, /credentials:"omit"/);
 assert.doesNotMatch(mediaUi, /GIPHY_API_KEY/, "the browser bundle must not hardcode an environment credential");
 assert.match(mediaUi, /retryButton\.textContent = "Retry"/);
-assert.match(html, /!attachment\.external/, "direct provider references must not expose the save-to-storage action");
+assert.match(html, /attachment\.saved \|\| attachment\.external/, "direct provider references must not expose the save-to-storage action");
 
 console.log("Chat fixture and media plan valid: follows timing, private uploads, direct GIPHY references and the 25-point GIF gate are enforced.");

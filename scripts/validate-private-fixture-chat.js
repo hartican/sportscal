@@ -191,12 +191,16 @@ async function run(){
     error => error?.status === 409 && error?.code === "fixture_not_chat_eligible",
     "an elapsed fixture must remain unavailable for new room creation",
   );
-  const aliasedSnapshot = chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:CA:40288", new Date("2026-09-15T06:00:00.000Z"));
-  assert.equal(aliasedSnapshot.canonicalFixtureId, "fixture:cricket:espn:1530203");
-  const fridayOdi = chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:espn:1530204", eligibilityNow);
-  assert.equal(fridayOdi.startTimeUtc, "2026-09-18T07:30:00.000Z");
-  assert.equal(fridayOdi.name, "Zimbabwe v Australia");
-  assert.equal(chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:espn:1530205", eligibilityNow).canonicalFixtureId, "fixture:cricket:espn:1530205");
+  // Canonical sources advance to completed; a historical clock must not reopen a finished fixture.
+  for (const [id, now] of [["fixture:cricket:CA:40288", new Date("2026-09-15T06:00:00.000Z")],
+    ["fixture:cricket:espn:1530204", eligibilityNow], ["fixture:cricket:espn:1530205", eligibilityNow]]){
+    const fixture = fixtureMap.get(id);
+    if (chatHandler._test.fixtureIsUpcomingOrLive(fixture, now)){
+      const snapshot = chatHandler._test.canonicalFixtureSnapshot(id, now);
+      assert.equal(snapshot.canonicalFixtureId, fixture.canonicalEventId);
+      assert.equal(snapshot.startTimeUtc, fixture.startTimeUtc);
+    } else assert.throws(() => chatHandler._test.canonicalFixtureSnapshot(id, now), error => error.code === "fixture_not_chat_eligible");
+  }
   assert.throws(
     () => chatHandler._test.canonicalFixtureSnapshot("fixture:cricket:unknown", eligibilityNow),
     error => error?.status === 404 && error?.code === "fixture_not_found",

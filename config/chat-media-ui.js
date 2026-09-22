@@ -189,6 +189,7 @@
 
     function remove(clientAttachmentId){
       const item = byClientId(clientAttachmentId);
+      if (item) item.cancelled = true;
       if (item?.url?.startsWith?.("blob:")) URL.revokeObjectURL(item.url);
       state().pendingAttachments = state().pendingAttachments.filter(entry => entry.clientAttachmentId !== clientAttachmentId);
       refreshPreviews();
@@ -267,13 +268,13 @@
     }
 
     async function prepareAndUpload(item){
-      const room = state().currentRoom;
+      const room = item.room;
       if (!room?.viewer?.canPost || !item.sourceFile) return;
       try{
         Object.assign(item, { status:"preparing", progress:0, error:"" });
         refreshPreviews();
         const upload = await prepareStaticImage(item.sourceFile);
-        if (!byClientId(item.clientAttachmentId)) return;
+        if (item.cancelled) return;
         if (upload.type === "image/gif" && !state().capabilities.canUseGifs){
           throw new Error(`Earn 25 NSC points to upload and send GIFs. You have ${state().capabilities.lifetimeNscPoints || 0}.`);
         }
@@ -310,6 +311,7 @@
       if (!current.currentRoom?.viewer?.canPost || current.pendingAttachments.length >= 4) return;
       const item = {
         clientAttachmentId:crypto.randomUUID?.() || `attachment_${Date.now()}_${Math.random()}`,
+        room:current.currentRoom,
         attachmentId:null, sourceFile:file, preparedFile:null,
         kind:file.type === "image/gif" ? "gif" : file.type.startsWith("image/") ? "image" : "file",
         fileName:selfie ? `game-selfie-${Date.now()}.${file.type === "image/png" ? "png" : "jpg"}` : file.name,
@@ -377,7 +379,7 @@
     }
 
     async function referenceGif(item, gif){
-      const room = state().currentRoom;
+      const room = item.room;
       if (!room?.viewer?.canPost) return;
       Object.assign(item, { status:"preparing", error:"" });
       refreshPreviews();
@@ -413,6 +415,7 @@
       if (current.pendingAttachments.length >= 4) return;
       const item = {
         clientAttachmentId:crypto.randomUUID?.() || `gif_${Date.now()}_${Math.random()}`,
+        room:current.currentRoom,
         attachmentId:null, kind:"gif", fileName:gif.title || "GIF", contentType:"image/gif",
         byteSize:0, url:gif.previewUrl, own:true, status:"preparing",
         sourceProvider:"giphy", sourceGifId:gif.gifId, sourceGif:gif,
