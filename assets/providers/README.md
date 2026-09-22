@@ -22,3 +22,7 @@ other than the Stan source image being resized for mobile delivery.
 ## beIN SPORTS CONNECT
 
 `bein-sports-connect.svg` is the unmodified inline official logo from https://connect-au.beinsports.com/en, retrieved 5 September 2026. Used to identify the Australian viewing destination. Rights guide: https://prod.beinsports.com/en-au/football/laliga/articles-video/how-to-watch-laliga-live-in-australia-2026-08-10.
+
+## 7plus
+
+`7plus.png` is the unmodified red 7+ brand image from Seven West Media's official Our Brands section, retrieved on 22 September 2026 from `https://sevenwestmedia.com.au/wp-content/uploads/2025/03/Brand-2@2x.png`. It identifies the existing 7plus viewing destination and retains the text fallback if unavailable.
