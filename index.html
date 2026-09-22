@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="289">
-<script src="/assets/js/app-update.js?v=289" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=289" as="script">
+<meta name="app-shell-version" content="290">
+<script src="/assets/js/app-update.js?v=290" defer></script>
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=290" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6868,8 +6868,8 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .follow-common-controls,.follow-event-bulk{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:10px 0;}
 .follow-schedule-panel{min-width:0;}
 </style>
-<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=289">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=289">
+<link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=290">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=290">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7165,7 +7165,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=289"></script>
+<script src="assets/js/app-shell-runtime.js?v=290"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8363,7 +8363,7 @@ const FEED_CONFIG = {
 };
 
 const MAJOR_EVENTS_CONFIG = Object.freeze({
-    moduleScriptUrl: "config/major-events.js?v=289",
+    moduleScriptUrl: "config/major-events.js?v=290",
   url: "data/major-events.v1.json",
 });
 
@@ -14245,7 +14245,7 @@ function renderCodeInspectorResults(panel, code){
 
 let tennisScheduleUiLoading = null;
 function loadTennisScheduleUi(){
-  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=289').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=289')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
+  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=290').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=290')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
   return tennisScheduleUiLoading;
 }
 function renderTennisMajorEvents(container){
@@ -14261,7 +14261,7 @@ function renderCodeInspector(){ renderFollowView(); }
 function renderCodeInspectorPanel(container){
   if(globalThis.renderFollowSchedulePanel)return globalThis.renderFollowSchedulePanel(container);
   container.textContent='Loading schedule…';
-  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=289').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
+  void loadDeferredScript('assets/js/follow-schedule-panel.js?v=290').then(()=>{if(container.isConnected){container.textContent='';globalThis.renderFollowSchedulePanel(container);}}).catch(()=>{if(container.isConnected)container.textContent='Couldn’t load the schedule. Try again.';});
 }
 
 function buildFocusedDiscoveryBanner(nodeId){
@@ -15145,6 +15145,21 @@ function buildCompactMatchupMiddle(ev){
   if(stage){const detail=document.createElement('small');detail.className='compact-stage-label';detail.textContent=stage;middle.appendChild(detail);}
   return middle;
 }
+function buildFixtureTimingBadge(ev){
+  const timing = NOTHINGSPORTS_CARD_TIMING.presentation(ev, nowAEST());
+  const badge = document.createElement('span');
+  badge.className = 'fixture-timing-badge';
+  const clock=timing.label.match(/(?:APPROX\. )?\d{1,2}:\d{2} [AP]M$/);
+  if(clock){
+    badge.append(document.createTextNode(timing.label.slice(0,clock.index)));
+    const time=document.createElement('span');time.className='fixture-timing-clock';time.textContent=clock[0];badge.appendChild(time);
+  }else badge.textContent = timing.label;
+  badge.dataset.timingStatus = timing.status;
+  badge.setAttribute('aria-label', timing.ariaLabel);
+  badge.title = timing.fullSchedule;
+  return badge;
+}
+
 function buildCompactCardSummary(ev){
   const summary=document.createElement('div');summary.className='compact-card-summary';
   const title=document.createElement('span');title.className='compact-card-name';
@@ -15158,6 +15173,14 @@ function buildCompactCardSummary(ev){
   const timing=ev.timePrecision==='follows'?'Follows prior match':start ? new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Sydney',weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(start).replace(/Sept/g,'Sep').replace(/, /g,' ').replace(/ (am|pm)/g,'$1') : compactFallbackTiming(ev);
   const format=compactFixtureFormat(ev);const tennisCompetition=ev.competitionName||ev.majorEventName||String(ev.summary||'').split(' · ')[0];const sportLabel=ev.key==='tennis'||ev.key==='wimbledon'?`Tennis${tennisCompetition?' · '+tennisCompetition:''}`:(ev.sport||sportMetaForEvent(ev).label||ev.key).replace('American Football','NFL');time.textContent=`${timing} • ${sportLabel}${!title.classList.contains('has-compact-matchup')&&format?' · '+format:''}`;
   summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${time.textContent}`);summary.title=summary.getAttribute('aria-label');
+  if(activeTab === 'feed'){
+    summary.dataset.cardArea='essentials';
+    summary.appendChild(buildFixtureTimingBadge(ev));
+    const badgeTiming=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
+    time.textContent=`${badgeTiming.status ? badgeTiming.fullSchedule+' • ' : ''}${sportLabel}${!title.classList.contains('has-compact-matchup')&&format?' · '+format:''}`;
+    summary.setAttribute('aria-label',`${spoilerSafeDisplayTitle(ev)}. ${badgeTiming.ariaLabel}. ${sportLabel}`);
+    summary.title=summary.getAttribute('aria-label');
+  }
   summary.append(title,time);return summary;
 }
 
@@ -16094,7 +16117,7 @@ async function toggleQuickReminder(ev, button){
 
 function appendTournamentSlots(container,event){
  if(!event.tournamentId&&!event.tennisTournamentId&&!(event.endDate&&event.endDate!==event.date&&!(event.participantIds?.length>=2)))return;
- void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=289').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
+ void loadDeferredScript('assets/js/tournament-fixture-ui.js?v=290').then(()=>{if(container.isConnected)NOTHINGSPORTS_TOURNAMENT_UI.append(container,event);}).catch(()=>{});
 }
 function scheduleScopeForEvent(ev){
   const codeId=codeIdForEvent(ev);
@@ -16457,10 +16480,11 @@ function followedHomeTag(event){
 
 function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=true}={}){
   const root=document.createElement('section');root.className='nsc-peer-results';
-  const watch=document.createElement('div');watch.className='fixture-watch-rating';
+  root.dataset.cardArea='ratings';
+  const watch=document.createElement('div');watch.className='fixture-watch-rating';watch.dataset.cardArea='rating-interaction';
   if(inDrawer)appendEventQuickActions(watch,ev,{reminder:false,chat:false});watch.appendChild(buildInlineCrowdRating(ev,snapshot));root.appendChild(watch);
   if(showAggregate){
-    const peers=snapshot?.peerResults, summary=document.createElement('p');summary.className='nsc-peer-summary';
+    const peers=snapshot?.peerResults, summary=document.createElement('p');summary.className='nsc-peer-summary';summary.dataset.cardArea='rating-statistics';
     const phase=snapshot?.phase||({upcoming:'heat',live:'pulse',past:'impact'})[getEventStatus(ev)];
     const singular=peers?.count===1;
     const verb=phase==='heat'?(singular?'expects this to be':'expect this to be'):phase==='pulse'?(singular?'is rating this':'are rating this'):(singular?'has rated this':'have rated this');
@@ -16831,7 +16855,8 @@ function buildEventCard(ev, options = {}){
       const label = document.createElement("span");
       label.className = "fixture-marquee-label";
       label.textContent = ["Marquee", FOLLOW_FIRST.stageLabel(ev)].filter(Boolean).join(" · ");
-      card.prepend(label);
+      const timingHeader=card.querySelector('.fixture-timing-header');
+      if(timingHeader)timingHeader.after(label);else card.prepend(label);
     }
     const status = String(ev.scheduleStatus || ev.status || "").toLowerCase();
     if (["cancelled","canceled","abandoned","postponed"].includes(status)){
@@ -16869,11 +16894,109 @@ function buildFixtureFallbackCard(event, options = {}){
   timing.className = "compact-card-meta";
   timing.textContent = [ev.date, ev.time || "Start time unconfirmed",
     ["cancelled", "canceled", "abandoned", "postponed"].includes(ev.scheduleStatus || ev.status) ? ev.scheduleStatus || ev.status : ""].filter(Boolean).join(" · ");
+  if(activeTab === 'feed')copy.appendChild(buildFixtureTimingBadge(ev));
   copy.append(title, timing);
   card.append(copy,buildFeedScheduleLink(ev));
   if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
   card.setAttribute("aria-label", `${label}. Fixture details.`);
   return card;
+}
+
+// Artwork is optional presentation; never infer participants from featured subjects.
+function appendFixtureCardArtwork(card, main, ev, {matchupIdentity, soloIdentity, meta}){
+  if(matchupIdentity){
+    matchupIdentity.dataset.cardArea='artwork';
+    main.appendChild(matchupIdentity);
+    return;
+  }
+  const icon=document.createElement('div');
+  icon.className=soloIdentity ? 'event-hero-mark' : 'event-icon';
+  icon.dataset.cardArea='artwork';
+  renderEventIdentityMark(icon,ev,meta);
+  const caption=document.createElement('strong');
+  caption.className='fixture-event-caption';
+  caption.dataset.cardArea='essentials';
+  caption.textContent=(ev.eventName||ev.competitionName||CARD_IDENTITIES?.markForEvent(ev)?.label||meta.label).toUpperCase();
+  card.append(icon,caption);
+}
+
+function buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, isMinimised, displayTitle, displayedResult, status, state, meta, interactionCard, renderCardState}){
+  const topRow = document.createElement("div");
+  topRow.dataset.cardArea = "essentials";
+  topRow.className = `event-top-row${matchupIdentity ? " has-team-matchup" : ""}`;
+  const nameWrap = document.createElement("div");
+  nameWrap.className = "event-title-stack";
+  const dateLine = document.createElement("div");
+  dateLine.className = "event-date-line";
+  const dateChip = document.createElement("div");
+  dateChip.className = "event-date-chip";
+  const badgeTiming=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
+  dateChip.textContent = activeTab === 'feed'
+    ? [badgeTiming.status ? badgeTiming.fullSchedule : '', globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.womensT20(ev) ? '' : eventLocationLabel(ev)].filter(Boolean).join(' · ')
+    : `${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
+  dateLine.appendChild(dateChip);
+  const stageText=FOLLOW_FIRST.stageLabel(ev);
+  if(stageText){const badge=document.createElement('span');badge.className='matchup-stage-badge';badge.textContent=stageText;badge.title=ev.roundLabel || ev.round || ev.stage || stageText;dateLine.appendChild(badge);}
+  const timingChip = buildEventTimingStateChip(ev, timingState);
+  if (timingChip && activeTab !== "feed") dateLine.appendChild(timingChip);
+
+
+  const primaryActions = document.createElement("div");
+  primaryActions.className = "event-card-primary-actions";
+  appendEventQuickActions(primaryActions, ev);
+  if(options.eventParent){
+    const button=document.createElement('button');button.type='button';button.className='btn ghost';
+    const automatic=Boolean(automaticEventFollowReason(ev));
+    const added=Boolean(getEventAction(ev).addedToFixtures);button.disabled=automatic;button.textContent=automatic?'In Feed':added?'Remove from Feed':'Add to Feed';
+    button.onclick=()=>{setMajorEventFixtureAdded(options.sourceSubEvent,options.eventParent,!added);renderCardState(state);};primaryActions.appendChild(button);
+  }
+  if(options.inspectorFixture)appendSchedulePin(primaryActions,options.inspectorFixture,interactionCard);
+
+  const nameLine = document.createElement("div");
+  nameLine.className = "event-name-line";
+  if (matchupIdentity) nameLine.classList.add("matchup-visual-title-hidden");
+  const nameEl = document.createElement("div");
+  nameEl.className = "event-name";
+  nameEl.id = `event-title-${String(ev.eventId || ev.id).replace(/[^a-z0-9_-]/gi, "-")}`;
+  if (matchupIdentity) nameEl.textContent = displayTitle;
+  else renderEventTitleIdentity(nameEl, ev, displayTitle);
+  nameLine.appendChild(nameEl);
+  nameWrap.appendChild(nameLine);
+  if (isMinimised){
+    const competition = document.createElement("div");
+    competition.className = "event-competition-line";
+    competition.textContent = [ev.competitionName || ev.competitionLabel || meta.label, ev.roundLabel || ev.round, status === "past" ? "Completed" : status === "live" ? "Live" : "Upcoming"].filter(value => value && value !== "all").join(" · ");
+    nameWrap.appendChild(competition);
+  }
+  if (displayedResult) nameWrap.appendChild(displayedResult);
+  nameWrap.append(dateLine, primaryActions);
+  topRow.appendChild(nameWrap);
+
+  return topRow;
+}
+
+function appendFixtureCardInformation(parent, ev, {isMinimised, state, options, displayTitle, localGame}){
+  const ticketOffer=preferredTicketOfferForEvent(ev,{surface:'fixture',localVenueMatched:localGame});
+  const whyItMatters = !isMinimised ? buildEventWhyItMatters(ev) : null;
+  if (whyItMatters){whyItMatters.dataset.cardArea='expanded-information';parent.appendChild(whyItMatters);}
+  if (!isMinimised && state === "opened"){
+    const secondaryActions = document.createElement("div");
+    secondaryActions.className = "event-card-secondary-actions";
+    secondaryActions.dataset.cardArea="expanded-information";
+    if (ticketOffer){
+      const tickets = document.createElement("a");
+      tickets.className = "ticket-link event-quick-action";
+      tickets.href = ticketOffer.url;
+      tickets.target = "_blank";
+      tickets.rel = "noopener noreferrer";
+      tickets.innerHTML = `${glyphMarkup("ui:ticket", { preferImage: true })}<span>Buy tickets</span>`;
+      tickets.setAttribute("aria-label", `Buy tickets for ${displayTitle} from ${ticketOffer.provider}`);
+      tickets.addEventListener("click", evt => evt.stopPropagation());
+      secondaryActions.appendChild(tickets);
+    }
+    if(activeTab === "feed" && !options.archived)secondaryActions.append(...buildEventFeedbackButtons(ev));
+    if(secondaryActions.childElementCount)parent.appendChild(secondaryActions);
+  }
 }
 
 function buildDetailedEventCard(ev, options = {}){
@@ -16964,89 +17087,21 @@ function buildDetailedEventCard(ev, options = {}){
     if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
     return card;
   }
-  if (!matchupIdentity){
-    const icon = document.createElement("div");
-    icon.className = soloIdentity ? "event-hero-mark" : "event-icon";
-    renderEventIdentityMark(icon, ev, meta);
-    card.appendChild(icon);
-    const caption=document.createElement('strong');caption.className='fixture-event-caption';caption.textContent=(ev.eventName||ev.competitionName||CARD_IDENTITIES?.markForEvent(ev)?.label||meta.label).toUpperCase();card.appendChild(caption);
+  if(activeTab === 'feed'){
+    card.classList.add('has-fixture-timing');
+    const header=document.createElement('div');
+    header.className='fixture-timing-header';
+    header.dataset.cardArea='essentials';
+    header.appendChild(buildFixtureTimingBadge(ev));
+    card.appendChild(header);
   }
-
   const mainDiv = document.createElement("div");
   mainDiv.className = "event-main";
-
-  const topRow = document.createElement("div");
-  topRow.className = `event-top-row${matchupIdentity ? " has-team-matchup" : ""}`;
-
-  const nameWrap = document.createElement("div");
-  nameWrap.className = "event-title-stack";
-  if (matchupIdentity) mainDiv.appendChild(matchupIdentity);
-  const dateLine = document.createElement("div");
-  dateLine.className = "event-date-line";
-  const dateChip = document.createElement("div");
-  dateChip.className = "event-date-chip";
-  dateChip.textContent = `${eventDateLabel(ev)} · ${eventTimeLabel(ev)}`;
-  dateLine.appendChild(dateChip);
-  const stageText=FOLLOW_FIRST.stageLabel(ev);
-  if(stageText){const badge=document.createElement('span');badge.className='matchup-stage-badge';badge.textContent=stageText;badge.title=ev.roundLabel || ev.round || ev.stage || stageText;dateLine.appendChild(badge);}
-  const timingChip = buildEventTimingStateChip(ev, timingState);
-  if (timingChip) dateLine.appendChild(timingChip);
-
-
-  const primaryActions = document.createElement("div");
-  primaryActions.className = "event-card-primary-actions";
-  const ticketOffer = preferredTicketOfferForEvent(ev, { surface: "fixture", localVenueMatched: localGame });
-  appendEventQuickActions(primaryActions, ev);
-  if(options.eventParent){
-    const button=document.createElement('button');button.type='button';button.className='btn ghost';
-    const automatic=Boolean(automaticEventFollowReason(ev));
-    const added=Boolean(getEventAction(ev).addedToFixtures);button.disabled=automatic;button.textContent=automatic?'In Feed':added?'Remove from Feed':'Add to Feed';
-    button.onclick=()=>{setMajorEventFixtureAdded(options.sourceSubEvent,options.eventParent,!added);renderCardState(state);};primaryActions.appendChild(button);
-  }
-  if(options.inspectorFixture)appendSchedulePin(primaryActions,options.inspectorFixture,interactionCard);
-
-  const nameLine = document.createElement("div");
-  nameLine.className = "event-name-line";
-  if (matchupIdentity) nameLine.classList.add("matchup-visual-title-hidden");
-  const nameEl = document.createElement("div");
-  nameEl.className = "event-name";
-  nameEl.id = `event-title-${String(ev.eventId || ev.id).replace(/[^a-z0-9_-]/gi, "-")}`;
-  if (matchupIdentity) nameEl.textContent = displayTitle;
-  else renderEventTitleIdentity(nameEl, ev, displayTitle);
-  nameLine.appendChild(nameEl);
-  nameWrap.appendChild(nameLine);
-  if (isMinimised){
-    const competition = document.createElement("div");
-    competition.className = "event-competition-line";
-    competition.textContent = [ev.competitionName || ev.competitionLabel || meta.label, ev.roundLabel || ev.round, status === "past" ? "Completed" : status === "live" ? "Live" : "Upcoming"].filter(value => value && value !== "all").join(" · ");
-    nameWrap.appendChild(competition);
-  }
-  if (displayedResult) nameWrap.appendChild(displayedResult);
-  nameWrap.append(dateLine, primaryActions);
-  topRow.appendChild(nameWrap);
-
-  mainDiv.appendChild(topRow);
+  appendFixtureCardArtwork(card, mainDiv, ev, {matchupIdentity, soloIdentity, meta});
+  mainDiv.appendChild(buildFixtureCardEssentials(ev, {matchupIdentity, timingState, options, isMinimised, displayTitle, displayedResult, status, state, meta, interactionCard, renderCardState}));
   if (!isMinimised) mainDiv.appendChild(buildNothingscoreSummary(ev,{showAggregate:true}));
-  const whyItMatters = !isMinimised ? buildEventWhyItMatters(ev) : null;
-  if (whyItMatters) mainDiv.appendChild(whyItMatters);
-  if (!isMinimised && state === "opened"){
-    const secondaryActions = document.createElement("div");
-    secondaryActions.className = "event-card-secondary-actions";
-    if (ticketOffer){
-      const tickets = document.createElement("a");
-      tickets.className = "ticket-link event-quick-action";
-      tickets.href = ticketOffer.url;
-      tickets.target = "_blank";
-      tickets.rel = "noopener noreferrer";
-      tickets.innerHTML = `${glyphMarkup("ui:ticket", { preferImage: true })}<span>Buy tickets</span>`;
-      tickets.setAttribute("aria-label", `Buy tickets for ${displayTitle} from ${ticketOffer.provider}`);
-      tickets.addEventListener("click", evt => evt.stopPropagation());
-      secondaryActions.appendChild(tickets);
-    }
-    if(activeTab === "feed" && !options.archived)secondaryActions.append(...buildEventFeedbackButtons(ev));
-    if(secondaryActions.childElementCount)mainDiv.appendChild(secondaryActions);
-  }
-  mainDiv.id = `${nameEl.id}-details`;
+  appendFixtureCardInformation(mainDiv,ev,{isMinimised,state,options,displayTitle,localGame});
+  mainDiv.id = `event-title-${String(ev.eventId || ev.id).replace(/[^a-z0-9_-]/gi, "-")}-details`;
   if (options.archived){
     mainDiv.appendChild(buildEventActionPanel(ev, {
       archived:true,
@@ -19630,7 +19685,7 @@ function toggleAustraliaInternationals(){
 
 function installFollowEventBulk(container){
   if(globalThis.installFollowEventBulkUI)return globalThis.installFollowEventBulkUI(container);
-  void loadDeferredScript('assets/js/follow-event-bulk-ui.js?v=289').then(()=>{if(container.isConnected&&!container.querySelector('.follow-event-bulk'))globalThis.installFollowEventBulkUI(container);});
+  void loadDeferredScript('assets/js/follow-event-bulk-ui.js?v=290').then(()=>{if(container.isConnected&&!container.querySelector('.follow-event-bulk'))globalThis.installFollowEventBulkUI(container);});
 }
 
 function toggleMajorEventFollow(eventId){
@@ -21046,7 +21101,7 @@ document.getElementById("tuneSheet").addEventListener("click", event => {
 document.getElementById("tuneSheet").addEventListener("keydown", trapTuneSheetFocus);
 window.addEventListener("popstate", () => { void syncAppRouteFromLocation(); });
 
-document.getElementById('feedViewFilterBtn').onclick=()=>{void loadDeferredScript('assets/js/feed-filter-ui.js?v=289').then(()=>globalThis.openFeedViewFilter()).catch(()=>showToast('Couldn’t open filters. Try again.'));};
+document.getElementById('feedViewFilterBtn').onclick=()=>{void loadDeferredScript('assets/js/feed-filter-ui.js?v=290').then(()=>globalThis.openFeedViewFilter()).catch(()=>showToast('Couldn’t open filters. Try again.'));};
 document.getElementById('timelineExpandBtn').addEventListener('click',()=>setFeedCompact(!userPreferences.feedCompact));
 document.getElementById("jumpTodayBtn").addEventListener("click", () => {
   calendarInitialJumpPending = false;
@@ -25431,7 +25486,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!nscMyVie
 let nscMyView=false,nscRankingGeneration=0,nscRankingTimer=null;
 const nscRankingState={tab:localStorage.getItem('nscRankingTab') || 'upcoming',scope:'following',sport:'',days:7,cursor:0};
 async function renderCrowdRankings(){
- try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=289");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
+ try{await loadDeferredScript("assets/js/nsc-rankings-ui.js?v=290");return window.NOTHINGSPORTS_CROWD_RANKINGS.render();}
  catch(error){const body=document.getElementById('nothingscoreBody');body.textContent='Leaderboard could not load. Close and reopen to retry.';}
 }
 async function renderMyForesight(body){
@@ -26023,7 +26078,7 @@ window.addEventListener('focus',scheduleSydneyMidnight);
 window.addEventListener('focus',refreshFeedClock);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFeedClock();});
 </script>
-<script src="assets/js/notifications-inbox.js?v=289"></script>
+<script src="assets/js/notifications-inbox.js?v=290"></script>
 <script>
 let notificationDestinationDialog=null;
 function closeNotificationDestination(){
@@ -26043,7 +26098,7 @@ async function openNotificationDestination(item){
   }
   if(['profile_followed','follows_copied'].includes(item.kind)){
     if(!item.profileId)throw new Error('This profile is no longer public.');
-    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=289');
+    await loadDeferredScript('assets/js/nsc-rankings-ui.js?v=290');
     await window.NOTHINGSPORTS_CROWD_RANKINGS.openProfile({profileId:item.profileId,name:item.actor});
     notificationDestinationDialog=document.querySelector('.nsc-picks-dialog[open]');
   }else if(['rating','reminder'].includes(item.kind)){

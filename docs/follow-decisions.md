@@ -152,3 +152,7 @@ The floating Feed filter intersects the already eligible Feed with one sport and
 Tournament hydration uses a rolling 28-day Sydney calendar window, including ongoing tournaments and full tournaments crossing its end. Unconfirmed draw structures remain explicitly provisional and cannot imply a followed player's participation. Source-confirmed identities replace provisional slot contents without rewriting saved actions.
 
 Regression: `validate-feed-follow-repairs.js`, `validate-feed-follow-navigation-browser.js`, `validate-inbox-loading.js`, existing Follow policy, Results/editorial, inbox and PWA checks.
+
+## Feed card presentation — 22 September 2026
+
+The approved [Feed card visual design](feed-card-visual-design.md) adds prominent Sydney sporting-start/status badges during MVP and separates presentation areas for later artwork. Featured imagery never changes canonical participants, eligibility, saved actions or spoilers. The three future artwork families and licensing pipeline remain outside MVP. Regression: `validate-card-timing.js` and `validate-card-timing-browser.js`.
