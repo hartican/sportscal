@@ -250,6 +250,239 @@
           "revealed": "Brisbane Lions defeated Fremantle in the Grand Final."
         }
       }
+    },
+    {
+      "id": "football-australia-brazil-2026-09-25",
+      "canonicalId": "football-australia-brazil-2026-09-25",
+      "eventId": "football-australia-brazil-2026-09-25",
+      "name": "Socceroos v Brazil",
+      "displayTitleCompact": "Socceroos v Brazil",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:football:international-friendlies",
+      "competitionName": "Men's International Friendlies",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "men",
+      "date": "2026-09-25",
+      "time": "20:00",
+      "startTimeUtc": "2026-09-25T10:00:00.000Z",
+      "localTimezone": "Australia/Brisbane",
+      "venue": "Queensland Country Bank Stadium",
+      "venueName": "Queensland Country Bank Stadium",
+      "venueCity": "Townsville",
+      "venueCountryCode": "AU",
+      "round": "all",
+      "roundLabel": "International friendly",
+      "stage": "International friendly",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "eventType": "match",
+      "liveWindow": 2.5,
+      "expected": 8,
+      "participants": [
+        {
+          "id": "team:football:socceroos",
+          "name": "Socceroos",
+          "displayName": "Socceroos",
+          "countryCode": "AU",
+          "role": "home"
+        },
+        {
+          "id": "team:football:brazil",
+          "name": "Brazil",
+          "displayName": "Brazil",
+          "countryCode": "BR",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:socceroos",
+        "team:football:brazil"
+      ],
+      "homeParticipantId": "team:football:socceroos",
+      "awayParticipantId": "team:football:brazil",
+      "participantsConfirmed": true,
+      "participantCountryCodes": [
+        "AU",
+        "BR"
+      ],
+      "representativeCountryCodes": [
+        "AUS",
+        "BRA"
+      ],
+      "representativeSportKey": "football",
+      "marqueeClassification": {
+        "isMarquee": true,
+        "sourceUrls": [
+          "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
+        ],
+        "reason": "Senior Australia international against Brazil"
+      },
+      "broadcaster": "10 / 10 Streaming / Paramount+",
+      "broadcastOptions": [
+        "10",
+        "10 Streaming",
+        "Paramount+"
+      ],
+      "broadcasterIds": [
+        "ten",
+        "paramount"
+      ],
+      "viewingOptions": [
+        {
+          "providerId": "ten",
+          "territory": "AU",
+          "accessType": "free",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "webUrl": "https://10.com.au/",
+          "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+          "verifiedAt": "2026-09-23T23:00:53.638Z"
+        },
+        {
+          "providerId": "paramount",
+          "territory": "AU",
+          "accessType": "subscription",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "webUrl": "https://www.paramountplus.com/au/",
+          "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+          "verifiedAt": "2026-09-23T23:00:53.638Z"
+        }
+      ],
+      "sourceName": "Football Australia / Socceroos",
+      "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
+      "lastReviewedAt": "2026-09-23T23:00:53.638Z",
+      "selectedSentence": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
+      "fullSpiel": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
+        "hookSpoilerOn": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
+        "synopsisSpoilerOff": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
+        "synopsisSpoilerOn": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings."
+      },
+      "replayEligible": true,
+      "highlightEligible": true,
+      "catchupEligible": true
+    },
+    {
+      "id": "football-australia-brazil-2026-09-29",
+      "canonicalId": "football-australia-brazil-2026-09-29",
+      "eventId": "football-australia-brazil-2026-09-29",
+      "name": "Socceroos v Brazil",
+      "displayTitleCompact": "Socceroos v Brazil",
+      "sport": "Football",
+      "key": "football",
+      "sportDomainId": "sport:football",
+      "competitionId": "competition:football:international-friendlies",
+      "competitionName": "Men's International Friendlies",
+      "competitionScope": "international",
+      "isInternational": true,
+      "isSenior": true,
+      "gender": "men",
+      "date": "2026-09-29",
+      "time": "20:00",
+      "startTimeUtc": "2026-09-29T10:00:00.000Z",
+      "localTimezone": "Australia/Brisbane",
+      "venue": "Suncorp Stadium",
+      "venueName": "Suncorp Stadium",
+      "venueCity": "Brisbane",
+      "venueCountryCode": "AU",
+      "round": "all",
+      "roundLabel": "International friendly",
+      "stage": "International friendly",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "eventType": "match",
+      "liveWindow": 2.5,
+      "expected": 8,
+      "participants": [
+        {
+          "id": "team:football:socceroos",
+          "name": "Socceroos",
+          "displayName": "Socceroos",
+          "countryCode": "AU",
+          "role": "home"
+        },
+        {
+          "id": "team:football:brazil",
+          "name": "Brazil",
+          "displayName": "Brazil",
+          "countryCode": "BR",
+          "role": "away"
+        }
+      ],
+      "participantIds": [
+        "team:football:socceroos",
+        "team:football:brazil"
+      ],
+      "homeParticipantId": "team:football:socceroos",
+      "awayParticipantId": "team:football:brazil",
+      "participantsConfirmed": true,
+      "participantCountryCodes": [
+        "AU",
+        "BR"
+      ],
+      "representativeCountryCodes": [
+        "AUS",
+        "BRA"
+      ],
+      "representativeSportKey": "football",
+      "marqueeClassification": {
+        "isMarquee": true,
+        "sourceUrls": [
+          "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
+        ],
+        "reason": "Senior Australia international against Brazil"
+      },
+      "broadcaster": "Paramount+",
+      "broadcastOptions": [
+        "Paramount+"
+      ],
+      "broadcasterIds": [
+        "paramount"
+      ],
+      "viewingOptions": [
+        {
+          "providerId": "paramount",
+          "territory": "AU",
+          "accessType": "subscription",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "webUrl": "https://www.paramountplus.com/au/",
+          "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+          "verifiedAt": "2026-09-23T23:00:53.638Z"
+        }
+      ],
+      "sourceName": "Football Australia / Socceroos",
+      "sourceUrl": "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
+      "lastReviewedAt": "2026-09-23T23:00:53.638Z",
+      "selectedSentence": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
+      "fullSpiel": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "hookSpoilerOff": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
+        "hookSpoilerOn": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
+        "synopsisSpoilerOff": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
+        "synopsisSpoilerOn": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone."
+      },
+      "replayEligible": true,
+      "highlightEligible": true,
+      "catchupEligible": true
     }
   ],
   "resultOverrides": [

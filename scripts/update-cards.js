@@ -326,6 +326,18 @@ function buildSteps({ localOnly = false } = {}) {
 
 async function main() {
   const options = parseOptions();
+  if(process.argv.includes('--reviewed-fixtures')){
+    for(const args of [
+      ['scripts/apply-current-card-evidence.js'],
+      ['scripts/apply-national-team-identities.js','feeds/incoming/events.json'],
+      ['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
+      ['scripts/build-paged-feed.js'],
+      ['scripts/build-code-inspector.js','--codes=football'],
+    ]) runStep(args);
+    if(!options.localOnly) runStep(['scripts/redeploy-and-release.sh']);
+    console.log('Reviewed fixture publication complete; no unrelated source refresh performed.');
+    return;
+  }
   if(process.argv.includes('--weekend-editorial')){
     require('./weekend-editorial').main(process.argv.slice(2));
     return;

@@ -1,7 +1,7 @@
 {
-  "version": "nothingsport-official-results-2026-09-15-v1-20260922082714328",
+  "version": "nothingsport-official-results-2026-09-15-v1-20260923230054326",
   "schemaVersion": "events.v1",
-  "publishedAt": "2026-09-22T08:27:14.328Z",
+  "publishedAt": "2026-09-23T23:00:54.326Z",
   "eventsPath": "/data/events.json",
   "activeSports": [
     "wrc",
@@ -31,12 +31,13 @@
     "big-wave",
     "ski",
     "golf",
-    "goodwood"
+    "goodwood",
+    "football"
   ],
   "briefingWeekKey": "2026-W28",
   "usesBundledEvents": false,
   "feedHorizon": {
-    "basisDate": "2026-09-22",
+    "basisDate": "2026-09-23",
     "target": {
       "standardPreloadDays": 92,
       "marqueeAnnualMonths": 12
@@ -44,7 +45,7 @@
     "status": "scaffolded",
     "firstEventDate": "2026-01-22",
     "lastEventDate": "2027-07-15",
-    "daysAhead": 296,
+    "daysAhead": 295,
     "coversStandardPreloadWindow": true,
     "sports": {
       "wrc": {
@@ -186,6 +187,11 @@
         "count": 1,
         "firstEventDate": "2027-07-10",
         "lastEventDate": "2027-07-10"
+      },
+      "football": {
+        "count": 2,
+        "firstEventDate": "2026-09-25",
+        "lastEventDate": "2026-09-29"
       }
     }
   }

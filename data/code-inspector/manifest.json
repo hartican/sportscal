@@ -1,6 +1,6 @@
 {
   "schemaVersion": "code-inspector.v1",
-  "generatedAt": "2026-09-22T08:27:14.328Z",
+  "generatedAt": "2026-09-23T23:00:54.326Z",
   "codes": [
     {
       "followSchedulePath": "data/follow-schedule/afl.json",
@@ -143,11 +143,11 @@
       "id": "sport:football",
       "slug": "football",
       "label": "Football",
-      "fixtureCount": 401,
+      "fixtureCount": 403,
       "hasStandings": false,
       "groupingMode": "round",
       "coverageStatus": "partial",
-      "freshAt": "2026-09-22T08:27:14.328Z",
+      "freshAt": "2026-09-23T23:00:54.326Z",
       "chunkPath": "data/code-inspector/football.json"
     },
     {
