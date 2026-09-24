@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v297";
-const SHELL_VERSION = "296";
+const CACHE_NAME = "nothingsport-shell-v298";
+const SHELL_VERSION = "298";
 const APP_SHELL = [
   "/assets/providers/7plus.png",
   "/assets/js/notifications-inbox.js?v=293",
@@ -29,6 +29,7 @@ const APP_SHELL = [
   "/config/preference-taxonomy.js",
   "/config/follow-summary.js",
   "/assets/identities/events/le-mans-24-hours.png",
+  "/assets/identities/competitions/supercars.png",
   "/styles/follow-feed-rework.css?v=293",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
