@@ -1,14 +1,14 @@
 {
   "schemaVersion": "requested-sports-schedule.v1",
   "seasonLabel": "2026-27",
-  "generatedAt": "2026-09-24T08:06:51.344Z",
+  "generatedAt": "2026-09-24T12:49:37.742Z",
   "sources": {
     "nbl27-schedule": {
       "name": "NBL official schedule",
       "url": "https://schedule.nbl.com.au/nbl",
       "apiUrl": "https://schedule.nbl.com.au/api/calendar/schedule?league=nbl&limit=500&offset=0&year=2026",
       "type": "official",
-      "checkedAt": "2026-09-24T08:06:51.344Z"
+      "checkedAt": "2026-09-24T12:49:37.742Z"
     }
   },
   "participants": [
@@ -113,7 +113,7 @@
         "outcomeText": "Melbourne United 95, Adelaide 36ers 97",
         "recapText": "Official NBL result.",
         "sourceId": "nbl27-schedule",
-        "checkedAt": "2026-09-24T08:06:51.344Z"
+        "checkedAt": "2026-09-24T12:49:37.742Z"
       },
       "hook": "Melbourne United face Adelaide 36ers in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
@@ -148,7 +148,7 @@
         "outcomeText": "Perth Wildcats 79, South East Melbourne Phoenix 100",
         "recapText": "Official NBL result.",
         "sourceId": "nbl27-schedule",
-        "checkedAt": "2026-09-24T08:06:51.344Z"
+        "checkedAt": "2026-09-24T12:49:37.742Z"
       },
       "hook": "Perth Wildcats face South East Melbourne Phoenix in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
@@ -183,7 +183,7 @@
         "outcomeText": "New Zealand Breakers 95, Illawarra Hawks 81",
         "recapText": "Official NBL result.",
         "sourceId": "nbl27-schedule",
-        "checkedAt": "2026-09-24T08:06:51.344Z"
+        "checkedAt": "2026-09-24T12:49:37.742Z"
       },
       "hook": "New Zealand Breakers face Illawarra Hawks in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
@@ -218,7 +218,7 @@
         "outcomeText": "Sydney Kings 111, Cairns Taipans 90",
         "recapText": "Official NBL result.",
         "sourceId": "nbl27-schedule",
-        "checkedAt": "2026-09-24T08:06:51.344Z"
+        "checkedAt": "2026-09-24T12:49:37.742Z"
       },
       "hook": "Sydney Kings face Cairns Taipans in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
@@ -253,7 +253,7 @@
         "outcomeText": "Tasmania JackJumpers 96, South East Melbourne Phoenix 91",
         "recapText": "Official NBL result.",
         "sourceId": "nbl27-schedule",
-        "checkedAt": "2026-09-24T08:06:51.344Z"
+        "checkedAt": "2026-09-24T12:49:37.742Z"
       },
       "hook": "Tasmania JackJumpers face South East Melbourne Phoenix in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
@@ -288,7 +288,7 @@
         "outcomeText": "Brisbane Bullets 88, New Zealand Breakers 85",
         "recapText": "Official NBL result.",
         "sourceId": "nbl27-schedule",
-        "checkedAt": "2026-09-24T08:06:51.344Z"
+        "checkedAt": "2026-09-24T12:49:37.742Z"
       },
       "hook": "Brisbane Bullets face New Zealand Breakers in NBL27.",
       "context": "Official NBL27 Round 1 fixture.",
@@ -323,7 +323,7 @@
         "outcomeText": "Cairns Taipans 93, Tasmania JackJumpers 87",
         "recapText": "Official NBL result.",
         "sourceId": "nbl27-schedule",
-        "checkedAt": "2026-09-24T08:06:51.344Z"
+        "checkedAt": "2026-09-24T12:49:37.742Z"
       },
       "hook": "Cairns Taipans face Tasmania JackJumpers in NBL27.",
       "context": "Official NBL27 Round 2 fixture.",
@@ -350,7 +350,16 @@
       ],
       "sourceId": "nbl27-schedule",
       "broadcastSourceId": "nbl27-schedule",
-      "status": "upcoming",
+      "status": "completed",
+      "result": {
+        "status": "official",
+        "score": "61-86",
+        "winnerParticipantId": "team:nbl:melbourne-united",
+        "outcomeText": "South East Melbourne Phoenix 61, Melbourne United 86",
+        "recapText": "Official NBL result.",
+        "sourceId": "nbl27-schedule",
+        "checkedAt": "2026-09-24T12:49:37.742Z"
+      },
       "hook": "South East Melbourne Phoenix face Melbourne United in NBL27.",
       "context": "Official NBL27 Round 2 fixture.",
       "providerId": "3705a1db-58ad-11f1-af46-11cc539397b9"
@@ -376,7 +385,7 @@
       ],
       "sourceId": "nbl27-schedule",
       "broadcastSourceId": "nbl27-schedule",
-      "status": "upcoming",
+      "status": "live",
       "hook": "Perth Wildcats face Adelaide 36ers in NBL27.",
       "context": "Official NBL27 Round 2 fixture.",
       "providerId": "36e93c3b-58ad-11f1-8215-c5dc2cf09b1f"

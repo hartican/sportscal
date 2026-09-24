@@ -48,7 +48,7 @@
     // Source UTC is authoritative over stale venue-local or Sydney display fields.
     if(Number.isFinite(+exact) && !["follows","estimated","date-only","tbc","unknown"].includes(value.timePrecision)){
       const parts=Object.fromEntries(SYDNEY_PARTS.formatToParts(exact).map(part=>[part.type,part.value]));
-      normalized.startTimeUtc=exact.toISOString();normalized.date=`${parts.year}-${parts.month}-${parts.day}`;normalized.time=`${parts.hour}:${parts.minute}`;normalized.timePrecision="exact";
+      normalized.startTimeUtc=exact.toISOString();normalized.date=`${parts.year}-${parts.month}-${parts.day}`;normalized.time=`${parts.hour}:${parts.minute}`;normalized.timePrecision=value.timePrecision==="not-before"?"not-before":"exact";
     }
     normalized.venue = text(value.venue) || text(value.venueName) || null;
     normalized.broadcaster = text(value.broadcaster);

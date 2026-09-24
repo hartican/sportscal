@@ -44,7 +44,11 @@
         entries.set(key,{participantId,draw,active:!eliminated.has(participantId)&&prior?.active!==false});
       }
     }
-    return [...entries.values()].map(e=>({...e,active:e.active&&!removed.has(e.participantId)}));
+    const eliminatedTeams=new Set(children.flatMap(c=>c.contestUnit==='tie'?(c.eliminatedParticipantIds||[]):[]));
+    for(const child of children)for(const rubber of child.rubbers||[])for(const side of rubber.sides||[])for(const participantId of side.participantIds||[]){
+      entries.set(participantId+'|team',{participantId,draw:'team',teamId:side.teamId,active:!eliminatedTeams.has(side.teamId)});
+    }
+    return [...entries.values()].map(e=>({...e,active:e.active&&!removed.has(e.participantId)&&!eliminatedTeams.has(e.teamId)}));
   }
   function activeParticipants(parent,children){return [...new Set(participation(parent,children).filter(e=>e.active).map(e=>e.participantId))];}
   function reconcile(parent,events){

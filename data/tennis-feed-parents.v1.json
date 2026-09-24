@@ -438,6 +438,1140 @@
       "time": "01:00",
       "timePrecision": "exact",
       "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:tennis:bjk-cup:2026:finals:qf1",
+      "eventId": "fixture:tennis:bjk-cup:2026:finals:qf1",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:billie-jean-king-cup",
+      "eventFamilyId": "billie-jean-king-cup",
+      "tournamentId": "tournament:tennis:bjk-cup-finals-2026",
+      "tournamentName": "Billie Jean King Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "gender": "women",
+      "season": 2026,
+      "bracketSlot": "qf1",
+      "name": "Czechia v Great Britain",
+      "roundLabel": "Quarterfinal",
+      "round": "Quarterfinal",
+      "status": "completed",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Czechia",
+          "participantId": "team:tennis:bjk-cup:czechia"
+        },
+        {
+          "slot": 2,
+          "label": "Great Britain",
+          "participantId": "team:tennis:bjk-cup:great-britain"
+        }
+      ],
+      "participantIds": [
+        "team:tennis:bjk-cup:czechia",
+        "team:tennis:bjk-cup:great-britain"
+      ],
+      "sourceName": "Billie Jean King Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "venue": "Shenzhen Bay Sports Centre Arena",
+      "venueCountryCode": "CN",
+      "broadcaster": "Nine / beIN Sports",
+      "expected": 7,
+      "startTimeUtc": "2026-09-22T09:00:00.000Z",
+      "date": "2026-09-22",
+      "time": "19:00",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "rubbers": [
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf1:rubber:1",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf1",
+          "contestUnit": "rubber",
+          "order": 1,
+          "matchType": "Singles",
+          "status": "completed",
+          "conditional": false,
+          "participantIds": [
+            "competitor:tennis:wta:marie-bouzkova",
+            "competitor:tennis:wta:sonay-kartal"
+          ],
+          "sides": [
+            {
+              "countryCode": "CZ",
+              "teamId": "team:tennis:bjk-cup:czechia",
+              "names": [
+                "Marie Bouzkova"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:marie-bouzkova"
+              ]
+            },
+            {
+              "countryCode": "GB",
+              "teamId": "team:tennis:bjk-cup:great-britain",
+              "names": [
+                "Sonay Kartal"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:sonay-kartal"
+              ]
+            }
+          ],
+          "score": "7-6(2) 4-6 6-4",
+          "winnerTeamId": "team:tennis:bjk-cup:czechia",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Marie Bouzkova v Sonay Kartal"
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf1:rubber:2",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf1",
+          "contestUnit": "rubber",
+          "order": 2,
+          "matchType": "Singles",
+          "status": "completed",
+          "conditional": false,
+          "participantIds": [
+            "competitor:tennis:wta:linda-noskova",
+            "competitor:tennis:wta:katie-boulter"
+          ],
+          "sides": [
+            {
+              "countryCode": "CZ",
+              "teamId": "team:tennis:bjk-cup:czechia",
+              "names": [
+                "Linda Noskova"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:linda-noskova"
+              ]
+            },
+            {
+              "countryCode": "GB",
+              "teamId": "team:tennis:bjk-cup:great-britain",
+              "names": [
+                "Katie Boulter"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:katie-boulter"
+              ]
+            }
+          ],
+          "score": "6-2 7-6(3)",
+          "winnerTeamId": "team:tennis:bjk-cup:czechia",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Linda Noskova v Katie Boulter"
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf1:rubber:3",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf1",
+          "contestUnit": "rubber",
+          "order": 3,
+          "matchType": "Doubles",
+          "status": "not-required",
+          "conditional": true,
+          "participantIds": [],
+          "sides": []
+        }
+      ],
+      "score": "2-0",
+      "result": {
+        "status": "official",
+        "score": "2-0",
+        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
+        "checkedAt": "2026-09-24T12:48:44.643Z"
+      },
+      "outcomeText": "Czechia won 2–0",
+      "recapText": "Official Billie Jean King Cup result.",
+      "winnerParticipantId": "team:tennis:bjk-cup:czechia",
+      "eliminatedParticipantIds": [
+        "team:tennis:bjk-cup:great-britain"
+      ],
+      "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
+      "resultSourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "participants": [
+        {
+          "id": "team:tennis:bjk-cup:czechia",
+          "type": "team",
+          "displayName": "Czechia",
+          "name": "Czechia",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "CZ",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        },
+        {
+          "id": "team:tennis:bjk-cup:great-britain",
+          "type": "team",
+          "displayName": "Great Britain",
+          "name": "Great Britain",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "GB",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:tennis:bjk-cup:2026:finals:qf2",
+      "eventId": "fixture:tennis:bjk-cup:2026:finals:qf2",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:billie-jean-king-cup",
+      "eventFamilyId": "billie-jean-king-cup",
+      "tournamentId": "tournament:tennis:bjk-cup-finals-2026",
+      "tournamentName": "Billie Jean King Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "gender": "women",
+      "season": 2026,
+      "bracketSlot": "qf2",
+      "name": "Spain v Kazakhstan",
+      "roundLabel": "Quarterfinal",
+      "round": "Quarterfinal",
+      "status": "completed",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Spain",
+          "participantId": "team:tennis:bjk-cup:spain"
+        },
+        {
+          "slot": 2,
+          "label": "Kazakhstan",
+          "participantId": "team:tennis:bjk-cup:kazakhstan"
+        }
+      ],
+      "participantIds": [
+        "team:tennis:bjk-cup:spain",
+        "team:tennis:bjk-cup:kazakhstan"
+      ],
+      "sourceName": "Billie Jean King Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "venue": "Shenzhen Bay Sports Centre Arena",
+      "venueCountryCode": "CN",
+      "broadcaster": "Nine / beIN Sports",
+      "expected": 7,
+      "startTimeUtc": "2026-09-23T09:00:00.000Z",
+      "date": "2026-09-23",
+      "time": "19:00",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "rubbers": [
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf2:rubber:1",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf2",
+          "contestUnit": "rubber",
+          "order": 1,
+          "matchType": "Singles",
+          "status": "completed",
+          "conditional": false,
+          "participantIds": [
+            "competitor:tennis:wta:jessica-bouzas-maneiro",
+            "competitor:tennis:wta:sonja-zhiyenbayeva"
+          ],
+          "sides": [
+            {
+              "countryCode": "ES",
+              "teamId": "team:tennis:bjk-cup:spain",
+              "names": [
+                "Jessica Bouzas Maneiro"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:jessica-bouzas-maneiro"
+              ]
+            },
+            {
+              "countryCode": "KZ",
+              "teamId": "team:tennis:bjk-cup:kazakhstan",
+              "names": [
+                "Sonja Zhiyenbayeva"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:sonja-zhiyenbayeva"
+              ]
+            }
+          ],
+          "score": "6-2 6-2",
+          "winnerTeamId": "team:tennis:bjk-cup:spain",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Jessica Bouzas Maneiro v Sonja Zhiyenbayeva"
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf2:rubber:2",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf2",
+          "contestUnit": "rubber",
+          "order": 2,
+          "matchType": "Singles",
+          "status": "completed",
+          "conditional": false,
+          "participantIds": [
+            "competitor:tennis:wta:yulia-putintseva",
+            "competitor:tennis:wta:cristina-bucsa"
+          ],
+          "sides": [
+            {
+              "countryCode": "KZ",
+              "teamId": "team:tennis:bjk-cup:kazakhstan",
+              "names": [
+                "Yulia Putintseva"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:yulia-putintseva"
+              ]
+            },
+            {
+              "countryCode": "ES",
+              "teamId": "team:tennis:bjk-cup:spain",
+              "names": [
+                "Cristina Bucsa"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:cristina-bucsa"
+              ]
+            }
+          ],
+          "score": "6-2 3-6 6-1",
+          "winnerTeamId": "team:tennis:bjk-cup:kazakhstan",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Cristina Bucsa v Yulia Putintseva"
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf2:rubber:3",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf2",
+          "contestUnit": "rubber",
+          "order": 3,
+          "matchType": "Doubles",
+          "status": "completed",
+          "conditional": true,
+          "participantIds": [
+            "competitor:tennis:wta:cristina-bucsa",
+            "competitor:tennis:wta:sara-sorribes-tormo",
+            "competitor:tennis:wta:anna-danilina",
+            "competitor:tennis:wta:zhibek-kulambayeva"
+          ],
+          "sides": [
+            {
+              "countryCode": "ES",
+              "teamId": "team:tennis:bjk-cup:spain",
+              "names": [
+                "Cristina Bucsa",
+                "Sara Sorribes Tormo"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:cristina-bucsa",
+                "competitor:tennis:wta:sara-sorribes-tormo"
+              ]
+            },
+            {
+              "countryCode": "KZ",
+              "teamId": "team:tennis:bjk-cup:kazakhstan",
+              "names": [
+                "Anna Danilina",
+                "Zhibek Kulambayeva"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:anna-danilina",
+                "competitor:tennis:wta:zhibek-kulambayeva"
+              ]
+            }
+          ],
+          "score": "6-2 7-5",
+          "winnerTeamId": "team:tennis:bjk-cup:spain",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Cristina Bucsa / Sara Sorribes Tormo v Anna Danilina / Zhibek Kulambayeva"
+        }
+      ],
+      "score": "2-1",
+      "result": {
+        "status": "official",
+        "score": "2-1",
+        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
+        "checkedAt": "2026-09-24T12:48:44.643Z"
+      },
+      "outcomeText": "Spain won 2–1",
+      "recapText": "Official Billie Jean King Cup result.",
+      "winnerParticipantId": "team:tennis:bjk-cup:spain",
+      "eliminatedParticipantIds": [
+        "team:tennis:bjk-cup:kazakhstan"
+      ],
+      "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
+      "resultSourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "participants": [
+        {
+          "id": "team:tennis:bjk-cup:spain",
+          "type": "team",
+          "displayName": "Spain",
+          "name": "Spain",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "ES",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        },
+        {
+          "id": "team:tennis:bjk-cup:kazakhstan",
+          "type": "team",
+          "displayName": "Kazakhstan",
+          "name": "Kazakhstan",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "KZ",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:tennis:bjk-cup:2026:finals:qf3",
+      "eventId": "fixture:tennis:bjk-cup:2026:finals:qf3",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:billie-jean-king-cup",
+      "eventFamilyId": "billie-jean-king-cup",
+      "tournamentId": "tournament:tennis:bjk-cup-finals-2026",
+      "tournamentName": "Billie Jean King Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "gender": "women",
+      "season": 2026,
+      "bracketSlot": "qf3",
+      "name": "Ukraine v Belgium",
+      "roundLabel": "Quarterfinal",
+      "round": "Quarterfinal",
+      "status": "completed",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Ukraine",
+          "participantId": "team:tennis:bjk-cup:ukraine"
+        },
+        {
+          "slot": 2,
+          "label": "Belgium",
+          "participantId": "team:tennis:bjk-cup:belgium"
+        }
+      ],
+      "participantIds": [
+        "team:tennis:bjk-cup:ukraine",
+        "team:tennis:bjk-cup:belgium"
+      ],
+      "sourceName": "Billie Jean King Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "venue": "Shenzhen Bay Sports Centre Arena",
+      "venueCountryCode": "CN",
+      "broadcaster": "Nine / beIN Sports",
+      "expected": 7,
+      "startTimeUtc": "2026-09-24T02:00:00.000Z",
+      "date": "2026-09-24",
+      "time": "12:00",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "rubbers": [
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf3:rubber:1",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf3",
+          "contestUnit": "rubber",
+          "order": 1,
+          "matchType": "Singles",
+          "status": "completed",
+          "conditional": false,
+          "participantIds": [
+            "competitor:tennis:wta:anhelina-kalinina",
+            "competitor:tennis:wta:jana-otzipka"
+          ],
+          "sides": [
+            {
+              "countryCode": "UA",
+              "teamId": "team:tennis:bjk-cup:ukraine",
+              "names": [
+                "Anhelina Kalinina"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:anhelina-kalinina"
+              ]
+            },
+            {
+              "countryCode": "BE",
+              "teamId": "team:tennis:bjk-cup:belgium",
+              "names": [
+                "Jana Otzipka"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:jana-otzipka"
+              ]
+            }
+          ],
+          "score": "6-7(6) 6-1 6-1",
+          "winnerTeamId": "team:tennis:bjk-cup:ukraine",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Anhelina Kalinina v Jana Otzipka"
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf3:rubber:2",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf3",
+          "contestUnit": "rubber",
+          "order": 2,
+          "matchType": "Singles",
+          "status": "completed",
+          "conditional": false,
+          "participantIds": [
+            "competitor:tennis:wta:greet-minnen",
+            "competitor:tennis:wta:elina-svitolina"
+          ],
+          "sides": [
+            {
+              "countryCode": "BE",
+              "teamId": "team:tennis:bjk-cup:belgium",
+              "names": [
+                "Greet Minnen"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:greet-minnen"
+              ]
+            },
+            {
+              "countryCode": "UA",
+              "teamId": "team:tennis:bjk-cup:ukraine",
+              "names": [
+                "Elina Svitolina"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:elina-svitolina"
+              ]
+            }
+          ],
+          "score": "6-7(5) 6-4 6-4",
+          "winnerTeamId": "team:tennis:bjk-cup:belgium",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Elina Svitolina v Greet Minnen"
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf3:rubber:3",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf3",
+          "contestUnit": "rubber",
+          "order": 3,
+          "matchType": "Doubles",
+          "status": "completed",
+          "conditional": true,
+          "participantIds": [
+            "competitor:tennis:wta:anhelina-kalinina",
+            "competitor:tennis:wta:lyudmyla-kichenok",
+            "competitor:tennis:wta:magali-kempen",
+            "competitor:tennis:wta:lara-salden"
+          ],
+          "sides": [
+            {
+              "countryCode": "UA",
+              "teamId": "team:tennis:bjk-cup:ukraine",
+              "names": [
+                "Anhelina Kalinina",
+                "Lyudmyla Kichenok"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:anhelina-kalinina",
+                "competitor:tennis:wta:lyudmyla-kichenok"
+              ]
+            },
+            {
+              "countryCode": "BE",
+              "teamId": "team:tennis:bjk-cup:belgium",
+              "names": [
+                "Magali Kempen",
+                "Lara Salden"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:magali-kempen",
+                "competitor:tennis:wta:lara-salden"
+              ]
+            }
+          ],
+          "score": "6-3 6-3",
+          "winnerTeamId": "team:tennis:bjk-cup:ukraine",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Anhelina Kalinina / Lyudmyla Kichenok v Magali Kempen / Lara Salden"
+        }
+      ],
+      "score": "2-1",
+      "result": {
+        "status": "official",
+        "score": "2-1",
+        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
+        "checkedAt": "2026-09-24T12:48:44.643Z"
+      },
+      "outcomeText": "Ukraine won 2–1",
+      "recapText": "Official Billie Jean King Cup result.",
+      "winnerParticipantId": "team:tennis:bjk-cup:ukraine",
+      "eliminatedParticipantIds": [
+        "team:tennis:bjk-cup:belgium"
+      ],
+      "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
+      "resultSourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "participants": [
+        {
+          "id": "team:tennis:bjk-cup:ukraine",
+          "type": "team",
+          "displayName": "Ukraine",
+          "name": "Ukraine",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "UA",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        },
+        {
+          "id": "team:tennis:bjk-cup:belgium",
+          "type": "team",
+          "displayName": "Belgium",
+          "name": "Belgium",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "BE",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:tennis:bjk-cup:2026:finals:qf4",
+      "eventId": "fixture:tennis:bjk-cup:2026:finals:qf4",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:billie-jean-king-cup",
+      "eventFamilyId": "billie-jean-king-cup",
+      "tournamentId": "tournament:tennis:bjk-cup-finals-2026",
+      "tournamentName": "Billie Jean King Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "gender": "women",
+      "season": 2026,
+      "bracketSlot": "qf4",
+      "name": "China v Italy",
+      "roundLabel": "Quarterfinal",
+      "round": "Quarterfinal",
+      "status": "live",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "China",
+          "participantId": "team:tennis:bjk-cup:china"
+        },
+        {
+          "slot": 2,
+          "label": "Italy",
+          "participantId": "team:tennis:bjk-cup:italy"
+        }
+      ],
+      "participantIds": [
+        "team:tennis:bjk-cup:china",
+        "team:tennis:bjk-cup:italy"
+      ],
+      "sourceName": "Billie Jean King Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "venue": "Shenzhen Bay Sports Centre Arena",
+      "venueCountryCode": "CN",
+      "broadcaster": "Nine / beIN Sports",
+      "expected": 7,
+      "startTimeUtc": "2026-09-24T09:00:00.000Z",
+      "date": "2026-09-24",
+      "time": "19:00",
+      "timePrecision": "not-before",
+      "scheduleStatus": "confirmed",
+      "rubbers": [
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf4:rubber:1",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf4",
+          "contestUnit": "rubber",
+          "order": 1,
+          "matchType": "Singles",
+          "status": "completed",
+          "conditional": false,
+          "participantIds": [
+            "competitor:tennis:wta:zhang-shuai",
+            "competitor:tennis:wta:elisabetta-cocciaretto"
+          ],
+          "sides": [
+            {
+              "countryCode": "CN",
+              "teamId": "team:tennis:bjk-cup:china",
+              "names": [
+                "Zhang Shuai"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:zhang-shuai"
+              ]
+            },
+            {
+              "countryCode": "IT",
+              "teamId": "team:tennis:bjk-cup:italy",
+              "names": [
+                "Elisabetta Cocciaretto"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:elisabetta-cocciaretto"
+              ]
+            }
+          ],
+          "score": "6-0 6-2",
+          "winnerTeamId": "team:tennis:bjk-cup:china",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Zhang Shuai v Elisabetta Cocciaretto"
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf4:rubber:2",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf4",
+          "contestUnit": "rubber",
+          "order": 2,
+          "matchType": "Singles",
+          "status": "upcoming",
+          "conditional": false,
+          "participantIds": [
+            "competitor:tennis:wta:jasmine-paolini",
+            "competitor:tennis:wta:zheng-qinwen"
+          ],
+          "sides": [
+            {
+              "countryCode": "IT",
+              "teamId": "team:tennis:bjk-cup:italy",
+              "names": [
+                "Jasmine Paolini"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:jasmine-paolini"
+              ]
+            },
+            {
+              "countryCode": "CN",
+              "teamId": "team:tennis:bjk-cup:china",
+              "names": [
+                "Zheng Qinwen"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:zheng-qinwen"
+              ]
+            }
+          ],
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Zheng Qinwen v Jasmine Paolini"
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:qf4:rubber:3",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:qf4",
+          "contestUnit": "rubber",
+          "order": 3,
+          "matchType": "Doubles",
+          "status": "upcoming",
+          "conditional": true,
+          "participantIds": [
+            "competitor:tennis:wta:jasmine-paolini",
+            "competitor:tennis:wta:sara-errani",
+            "competitor:tennis:wta:guo-hanyu",
+            "competitor:tennis:wta:zhang-shuai"
+          ],
+          "sides": [
+            {
+              "countryCode": "IT",
+              "teamId": "team:tennis:bjk-cup:italy",
+              "names": [
+                "Jasmine Paolini",
+                "Sara Errani"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:jasmine-paolini",
+                "competitor:tennis:wta:sara-errani"
+              ]
+            },
+            {
+              "countryCode": "CN",
+              "teamId": "team:tennis:bjk-cup:china",
+              "names": [
+                "Guo Hanyu",
+                "Zhang Shuai"
+              ],
+              "participantIds": [
+                "competitor:tennis:wta:guo-hanyu",
+                "competitor:tennis:wta:zhang-shuai"
+              ]
+            }
+          ],
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
+          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "name": "Guo Hanyu / Zhang Shuai v Jasmine Paolini / Sara Errani"
+        }
+      ],
+      "score": "1-0",
+      "participants": [
+        {
+          "id": "team:tennis:bjk-cup:china",
+          "type": "team",
+          "displayName": "China",
+          "name": "China",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "CN",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        },
+        {
+          "id": "team:tennis:bjk-cup:italy",
+          "type": "team",
+          "displayName": "Italy",
+          "name": "Italy",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "IT",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:tennis:bjk-cup:2026:finals:sf1",
+      "eventId": "fixture:tennis:bjk-cup:2026:finals:sf1",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:billie-jean-king-cup",
+      "eventFamilyId": "billie-jean-king-cup",
+      "tournamentId": "tournament:tennis:bjk-cup-finals-2026",
+      "tournamentName": "Billie Jean King Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "gender": "women",
+      "season": 2026,
+      "bracketSlot": "sf1",
+      "name": "Czechia v Spain",
+      "roundLabel": "Semifinal",
+      "round": "Semifinal",
+      "status": "upcoming",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Czechia",
+          "participantId": "team:tennis:bjk-cup:czechia"
+        },
+        {
+          "slot": 2,
+          "label": "Spain",
+          "participantId": "team:tennis:bjk-cup:spain"
+        }
+      ],
+      "participantIds": [
+        "team:tennis:bjk-cup:czechia",
+        "team:tennis:bjk-cup:spain"
+      ],
+      "sourceName": "Billie Jean King Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "venue": "Shenzhen Bay Sports Centre Arena",
+      "venueCountryCode": "CN",
+      "broadcaster": "Nine / beIN Sports",
+      "expected": 7,
+      "startTimeUtc": "2026-09-25T09:00:00.000Z",
+      "date": "2026-09-25",
+      "time": "19:00",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "rubbers": [
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:sf1:rubber:1",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:sf1",
+          "contestUnit": "rubber",
+          "order": 1,
+          "matchType": "Singles",
+          "status": "unconfirmed",
+          "conditional": false,
+          "participantIds": [],
+          "sides": []
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:sf1:rubber:2",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:sf1",
+          "contestUnit": "rubber",
+          "order": 2,
+          "matchType": "Singles",
+          "status": "unconfirmed",
+          "conditional": false,
+          "participantIds": [],
+          "sides": []
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:sf1:rubber:3",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:sf1",
+          "contestUnit": "rubber",
+          "order": 3,
+          "matchType": "Doubles",
+          "status": "unconfirmed",
+          "conditional": true,
+          "participantIds": [],
+          "sides": []
+        }
+      ],
+      "progressionSlots": [
+        "qf1",
+        "qf2"
+      ],
+      "spoilerSafeTitle": "Winner Quarter-final 1 v Winner Quarter-final 2",
+      "participants": [
+        {
+          "id": "team:tennis:bjk-cup:czechia",
+          "type": "team",
+          "displayName": "Czechia",
+          "name": "Czechia",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "CZ",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        },
+        {
+          "id": "team:tennis:bjk-cup:spain",
+          "type": "team",
+          "displayName": "Spain",
+          "name": "Spain",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "ES",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:tennis:bjk-cup:2026:finals:sf2",
+      "eventId": "fixture:tennis:bjk-cup:2026:finals:sf2",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:billie-jean-king-cup",
+      "eventFamilyId": "billie-jean-king-cup",
+      "tournamentId": "tournament:tennis:bjk-cup-finals-2026",
+      "tournamentName": "Billie Jean King Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "gender": "women",
+      "season": 2026,
+      "bracketSlot": "sf2",
+      "name": "Ukraine v Winner Quarter-final 4",
+      "roundLabel": "Semifinal",
+      "round": "Semifinal",
+      "status": "upcoming",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Ukraine",
+          "participantId": "team:tennis:bjk-cup:ukraine"
+        },
+        {
+          "slot": 2,
+          "label": "Winner Quarter-final 4",
+          "participantId": null
+        }
+      ],
+      "participantIds": [
+        "team:tennis:bjk-cup:ukraine"
+      ],
+      "sourceName": "Billie Jean King Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "venue": "Shenzhen Bay Sports Centre Arena",
+      "venueCountryCode": "CN",
+      "broadcaster": "Nine / beIN Sports",
+      "expected": 7,
+      "startTimeUtc": "2026-09-26T09:00:00.000Z",
+      "date": "2026-09-26",
+      "time": "19:00",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "rubbers": [
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:sf2:rubber:1",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:sf2",
+          "contestUnit": "rubber",
+          "order": 1,
+          "matchType": "Singles",
+          "status": "unconfirmed",
+          "conditional": false,
+          "participantIds": [],
+          "sides": []
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:sf2:rubber:2",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:sf2",
+          "contestUnit": "rubber",
+          "order": 2,
+          "matchType": "Singles",
+          "status": "unconfirmed",
+          "conditional": false,
+          "participantIds": [],
+          "sides": []
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:sf2:rubber:3",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:sf2",
+          "contestUnit": "rubber",
+          "order": 3,
+          "matchType": "Doubles",
+          "status": "unconfirmed",
+          "conditional": true,
+          "participantIds": [],
+          "sides": []
+        }
+      ],
+      "progressionSlots": [
+        "qf3",
+        "qf4"
+      ],
+      "spoilerSafeTitle": "Winner Quarter-final 3 v Winner Quarter-final 4",
+      "participants": [
+        {
+          "id": "team:tennis:bjk-cup:ukraine",
+          "type": "team",
+          "displayName": "Ukraine",
+          "name": "Ukraine",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "UA",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture:tennis:bjk-cup:2026:finals:final",
+      "eventId": "fixture:tennis:bjk-cup:2026:finals:final",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:billie-jean-king-cup",
+      "eventFamilyId": "billie-jean-king-cup",
+      "tournamentId": "tournament:tennis:bjk-cup-finals-2026",
+      "tournamentName": "Billie Jean King Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "gender": "women",
+      "season": 2026,
+      "bracketSlot": "final",
+      "name": "Winner Semi-final 1 v Winner Semi-final 2",
+      "roundLabel": "Final",
+      "round": "Final",
+      "status": "upcoming",
+      "participantSlots": [
+        {
+          "slot": 1,
+          "label": "Winner Semi-final 1",
+          "participantId": null
+        },
+        {
+          "slot": 2,
+          "label": "Winner Semi-final 2",
+          "participantId": null
+        }
+      ],
+      "participantIds": [],
+      "sourceName": "Billie Jean King Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "venue": "Shenzhen Bay Sports Centre Arena",
+      "venueCountryCode": "CN",
+      "broadcaster": "Nine / beIN Sports",
+      "expected": 7,
+      "startTimeUtc": "2026-09-27T09:00:00.000Z",
+      "date": "2026-09-27",
+      "time": "19:00",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed",
+      "rubbers": [
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:final:rubber:1",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:final",
+          "contestUnit": "rubber",
+          "order": 1,
+          "matchType": "Singles",
+          "status": "unconfirmed",
+          "conditional": false,
+          "participantIds": [],
+          "sides": []
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:final:rubber:2",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:final",
+          "contestUnit": "rubber",
+          "order": 2,
+          "matchType": "Singles",
+          "status": "unconfirmed",
+          "conditional": false,
+          "participantIds": [],
+          "sides": []
+        },
+        {
+          "id": "fixture:tennis:bjk-cup:2026:finals:final:rubber:3",
+          "parentTieId": "fixture:tennis:bjk-cup:2026:finals:final",
+          "contestUnit": "rubber",
+          "order": 3,
+          "matchType": "Doubles",
+          "status": "unconfirmed",
+          "conditional": true,
+          "participantIds": [],
+          "sides": []
+        }
+      ],
+      "progressionSlots": [
+        "sf1",
+        "sf2"
+      ],
+      "spoilerSafeTitle": "Winner Semi-final 1 v Winner Semi-final 2",
+      "participants": []
     }
   ],
   "parents": [
@@ -12060,12 +13194,237 @@
       "sourceType": "published",
       "participationEvidence": [],
       "excludedParticipantIds": [],
-      "participantIds": [],
+      "participantIds": [
+        "team:tennis:bjk-cup:czechia",
+        "team:tennis:bjk-cup:spain",
+        "team:tennis:bjk-cup:ukraine",
+        "team:tennis:bjk-cup:china",
+        "team:tennis:bjk-cup:italy",
+        "competitor:tennis:wta:marie-bouzkova",
+        "competitor:tennis:wta:linda-noskova",
+        "competitor:tennis:wta:jessica-bouzas-maneiro",
+        "competitor:tennis:wta:cristina-bucsa",
+        "competitor:tennis:wta:sara-sorribes-tormo",
+        "competitor:tennis:wta:anhelina-kalinina",
+        "competitor:tennis:wta:elina-svitolina",
+        "competitor:tennis:wta:lyudmyla-kichenok",
+        "competitor:tennis:wta:zhang-shuai",
+        "competitor:tennis:wta:elisabetta-cocciaretto",
+        "competitor:tennis:wta:jasmine-paolini",
+        "competitor:tennis:wta:zheng-qinwen",
+        "competitor:tennis:wta:sara-errani",
+        "competitor:tennis:wta:guo-hanyu"
+      ],
       "expected": 5,
-      "sourceParticipation": [],
+      "sourceParticipation": [
+        {
+          "participantId": "team:tennis:bjk-cup:czechia",
+          "draw": "ties",
+          "active": true
+        },
+        {
+          "participantId": "team:tennis:bjk-cup:great-britain",
+          "draw": "ties",
+          "active": false
+        },
+        {
+          "participantId": "team:tennis:bjk-cup:spain",
+          "draw": "ties",
+          "active": true
+        },
+        {
+          "participantId": "team:tennis:bjk-cup:kazakhstan",
+          "draw": "ties",
+          "active": false
+        },
+        {
+          "participantId": "team:tennis:bjk-cup:ukraine",
+          "draw": "ties",
+          "active": true
+        },
+        {
+          "participantId": "team:tennis:bjk-cup:belgium",
+          "draw": "ties",
+          "active": false
+        },
+        {
+          "participantId": "team:tennis:bjk-cup:china",
+          "draw": "ties",
+          "active": true
+        },
+        {
+          "participantId": "team:tennis:bjk-cup:italy",
+          "draw": "ties",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:marie-bouzkova",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:czechia",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:sonay-kartal",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:great-britain",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:linda-noskova",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:czechia",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:katie-boulter",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:great-britain",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:jessica-bouzas-maneiro",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:spain",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:sonja-zhiyenbayeva",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:kazakhstan",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:yulia-putintseva",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:kazakhstan",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:cristina-bucsa",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:spain",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:sara-sorribes-tormo",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:spain",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:anna-danilina",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:kazakhstan",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:zhibek-kulambayeva",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:kazakhstan",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:anhelina-kalinina",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:ukraine",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:jana-otzipka",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:belgium",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:greet-minnen",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:belgium",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:elina-svitolina",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:ukraine",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:lyudmyla-kichenok",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:ukraine",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:magali-kempen",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:belgium",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:lara-salden",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:belgium",
+          "active": false
+        },
+        {
+          "participantId": "competitor:tennis:wta:zhang-shuai",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:china",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:elisabetta-cocciaretto",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:italy",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:jasmine-paolini",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:italy",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:zheng-qinwen",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:china",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:sara-errani",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:italy",
+          "active": true
+        },
+        {
+          "participantId": "competitor:tennis:wta:guo-hanyu",
+          "draw": "team",
+          "teamId": "team:tennis:bjk-cup:china",
+          "active": true
+        }
+      ],
       "participantsConfirmed": true,
-      "sourceParticipantIds": [],
-      "contestCount": 0
+      "sourceParticipantIds": [
+        "team:tennis:bjk-cup:czechia",
+        "team:tennis:bjk-cup:spain",
+        "team:tennis:bjk-cup:ukraine",
+        "team:tennis:bjk-cup:china",
+        "team:tennis:bjk-cup:italy",
+        "competitor:tennis:wta:marie-bouzkova",
+        "competitor:tennis:wta:linda-noskova",
+        "competitor:tennis:wta:jessica-bouzas-maneiro",
+        "competitor:tennis:wta:cristina-bucsa",
+        "competitor:tennis:wta:sara-sorribes-tormo",
+        "competitor:tennis:wta:anhelina-kalinina",
+        "competitor:tennis:wta:elina-svitolina",
+        "competitor:tennis:wta:lyudmyla-kichenok",
+        "competitor:tennis:wta:zhang-shuai",
+        "competitor:tennis:wta:elisabetta-cocciaretto",
+        "competitor:tennis:wta:jasmine-paolini",
+        "competitor:tennis:wta:zheng-qinwen",
+        "competitor:tennis:wta:sara-errani",
+        "competitor:tennis:wta:guo-hanyu"
+      ],
+      "contestCount": 7
     },
     {
       "id": "tennis-parent:united-cup:2026:tournament:tennis:united-cup-2026",

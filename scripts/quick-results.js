@@ -71,6 +71,8 @@ function projectionSteps(changes,{rebuild=false}={}){
 }
 async function refresh({now=new Date(),offline=false}={}){
  const changes=[],failures=[],bundlePath='data/canonical/afl-nrl-2026.json';
+ const hydration=await require('./refresh-tournament-hydration').refresh({now,offline});
+ if(hydration.changed.length)changes.push('Tournament hydration');
  const previousBundle=read(bundlePath);let bundle=previousBundle;
  const near=ev=>{const start=Date.parse(ev.startTimeUtc||'');return Number.isFinite(start)&&Math.abs(start-+now)<=7*86400000;};
  if(!offline)try{
@@ -111,6 +113,7 @@ async function refresh({now=new Date(),offline=false}={}){
  if(!offline)try{const doc=read('feeds/incoming/events.json'),updates=await require('./refresh-f1-results').updatesFor(doc.events,now),patched=patchKnown(doc.events,updates);if(patched.count){write('feeds/incoming/events.json',{...doc,events:patched.events});changes.push(`F1 ${patched.count}`);}}catch(error){failures.push(`F1: ${error.message}`);}
  for(const [file,...args] of projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}))run(file,...args);
  run('scripts/build-tennis-feed-parents.js');
+ run('scripts/build-tournament-horizon.js');
  run('scripts/verify-result-completeness.js','data/events.json');
 
  if(process.env.SUPABASE_SERVICE_ROLE_KEY||process.env.SUPABASE_SECRET_KEY)run('scripts/settle-nsc-foresight.js');

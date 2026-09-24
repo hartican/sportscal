@@ -2,25 +2,25 @@
   "schemaVersion": "sport-context.v1",
   "taxonomyVersion": "sports-taxonomy.v1",
   "season": 2026,
-  "generatedAt": "2026-09-22T02:47:39.095Z",
+  "generatedAt": "2026-09-24T12:48:45.112Z",
   "sources": [
     {
       "provider": "WRC",
       "sourceUrl": "https://www.wrc.com/en/calendar",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:47:39.095Z"
+      "checkedAt": "2026-09-24T12:48:45.112Z"
     },
     {
       "provider": "FIA",
       "sourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
       "sourceType": "official",
-      "checkedAt": "2026-09-22T02:47:39.095Z"
+      "checkedAt": "2026-09-24T12:48:45.112Z"
     },
     {
       "provider": "Stan Sport",
       "sourceUrl": "https://www.stan.com.au/watch/sport/motorsport/wrc",
       "sourceType": "broadcaster",
-      "checkedAt": "2026-09-22T02:47:39.095Z"
+      "checkedAt": "2026-09-24T12:48:45.112Z"
     }
   ],
   "sportDomains": [
@@ -1257,7 +1257,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1267,7 +1267,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "4:24:59.0",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/94e-rallye-monte-carlo/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1300,7 +1300,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1310,7 +1310,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:35:53.1",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-sweden/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1343,7 +1343,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1353,7 +1353,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "3:16:05.6",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/safari-rally-kenya/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1386,7 +1386,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1396,7 +1396,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:35:53.1",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/wrc-croatia-rally-2026/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1429,7 +1429,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1439,7 +1439,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:43:18.9",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/50-rally-islas-canarias-rally-de-espana/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1472,7 +1472,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1482,7 +1482,7 @@
         "vehicle": "Hyundai i20 N Rally1",
         "totalTime": "3:53:01.7",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/vodafone-rally-portugal/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1515,7 +1515,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1525,7 +1525,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "3:17:08.0",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-japan-2026/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1558,7 +1558,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1568,7 +1568,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "3:36:40.7",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/eko-acropolis-rally-2026/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1601,7 +1601,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1611,7 +1611,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:31:16.5",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-estonia/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1644,7 +1644,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1654,7 +1654,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:27:58.0",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/secto-rally-finland/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1687,7 +1687,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1697,7 +1697,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "3:13:28.5",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/wrc-rally-del-paraguay/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1730,7 +1730,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "result": {
         "status": "official",
@@ -1740,7 +1740,7 @@
         "vehicle": "Toyota GR Yaris Rally1",
         "totalTime": "2:57:08.2",
         "sourceUrl": "https://www.fia.com/events/world-rally-championship/season-2026/rally-chile-biobio/classifications",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1773,7 +1773,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     },
     {
@@ -1806,7 +1806,7 @@
       "source": {
         "provider": "WRC",
         "sourceUrl": "https://www.wrc.com/en/calendar",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       }
     }
   ],
@@ -1816,12 +1816,12 @@
       "competitionId": "competition:wrc-drivers-2026",
       "seasonLabel": "2026",
       "roundLabel": "After Round 12",
-      "snapshotTimeUtc": "2026-09-22T02:47:39.095Z",
+      "snapshotTimeUtc": "2026-09-24T12:48:45.112Z",
       "source": {
         "provider": "FIA",
         "sourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "sourceType": "official",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "entries": [
         {
@@ -2011,12 +2011,12 @@
       "competitionId": "competition:wrc-co-drivers-2026",
       "seasonLabel": "2026",
       "roundLabel": "After Round 12",
-      "snapshotTimeUtc": "2026-09-22T02:47:39.095Z",
+      "snapshotTimeUtc": "2026-09-24T12:48:45.112Z",
       "source": {
         "provider": "FIA",
         "sourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "sourceType": "official",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "entries": [
         {
@@ -2216,12 +2216,12 @@
       "competitionId": "competition:wrc-manufacturers-2026",
       "seasonLabel": "2026",
       "roundLabel": "After Round 12",
-      "snapshotTimeUtc": "2026-09-22T02:47:39.095Z",
+      "snapshotTimeUtc": "2026-09-24T12:48:45.112Z",
       "source": {
         "provider": "FIA",
         "sourceUrl": "https://api.fia.com/events/world-rally-championship/season-2026/standings",
         "sourceType": "official",
-        "checkedAt": "2026-09-22T02:47:39.095Z"
+        "checkedAt": "2026-09-24T12:48:45.112Z"
       },
       "entries": [
         {
