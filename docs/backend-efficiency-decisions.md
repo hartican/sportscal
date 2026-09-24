@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Coherent observations and manual refresh — 24 September 2026
+
+Source check time is not evidence that a scheduled fixture has reverted from live. Shared Feed/Match Centre reconciliation preserves confirmed state against schedule-only overlays, retains last-good scores, and carries separate score/status observation timestamps. Newer explicit interrupted, cancelled, postponed, completed or live corrections remain eligible; completion is never inferred from duration. The compact API adds `scoreCheckedAt` and `statusCheckedAt`; legacy `checkedAt` reflects the score observation when one exists.
+
+Match Centre alone supports pull down at the top and release past 72px to refresh, plus an accessible Refresh button. A 20px wheel accompanies the bounded refresh. Manual refresh bypasses client due timers and reloads private membership then visible score batches of at most 60 IDs, retaining shared server caching, existing provider cadence and last-good failures. One in-flight refresh and a ten-second client cooldown prevent gesture bursts. Hidden views and late account/navigation responses cannot update the surface. Feed, Follow, ratings and scheduler ownership are unchanged. Regressions: `validate-match-observations.js` and `validate-match-centre-refresh-browser.js`.
+
 ## Live cricket recovery — 24 September 2026
 
 The recovery project had no live-fixture pg_cron job, pg_net extension or Vault configuration; source checks had stopped on 22 September. Restore the documented `nothingsport-live-fixtures` two-minute owner on recovery, not a second scheduler. Keep its credential server-only and activate after the matching Vercel release. HTTP timeout is 60 seconds to cover the existing bounded 45-second worker plus settlement. Score requests never fetch providers themselves.

@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="302">
+<meta name="app-shell-version" content="303">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=302" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=303" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6878,6 +6878,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .tennis-contest-row>span{flex:1 1 150px;min-width:0;overflow-wrap:anywhere;}
 .tennis-contest-row button{min-height:44px;}
 .match-centre{display:grid;gap:16px;max-width:800px;margin:auto}.match-centre-card{padding:20px;border:1px solid var(--border);border-radius:18px;background:var(--surface);min-width:0}.match-centre-card h3{overflow-wrap:anywhere}.match-centre-score{font-size:1.6rem;font-weight:750;white-space:pre-wrap}.match-centre-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}.match-centre .matchup-team-logo-slot{width:72px;height:72px}.match-centre-note{opacity:.7}
+.match-centre-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.mc-refresh-notice{font-size:.85rem;opacity:.75}.mc-refresh-notice:empty{display:none}.mc-refresh-indicator{position:relative;height:0;max-width:800px;margin:auto;opacity:0;pointer-events:none}.mc-refresh-indicator.visible{opacity:.65}.mc-refresh-wheel{position:absolute;left:calc(50% - 10px);top:10px;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%}.mc-refresh-indicator.loading .mc-refresh-wheel{animation:mc-refresh-spin .8s linear infinite}@keyframes mc-refresh-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.mc-refresh-indicator.loading .mc-refresh-wheel{animation:none}}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=301">
@@ -7176,7 +7177,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=302"></script>
+<script src="assets/js/app-shell-runtime.js?v=303"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8738,7 +8739,7 @@ let activeTab = "feed";
 const matchCentreEnabled = globalThis.NOTHINGSPORTS_MATCH_CENTRE_ENABLED === true || document.querySelector('meta[name="match-centre-enabled"]')?.content==='true';
 if(matchCentreEnabled){const tab=document.querySelector('[data-tab="events"]');tab.dataset.tab='match-centre';tab.setAttribute('aria-label','Match Centre');tab.querySelector('.tab-label').textContent='Match Centre';tab.querySelector('.tab-count').hidden=true;tab.querySelector('.tab-count').style.display='none';}
 function loadMatchCentre(){
- return loadDeferredScript('config/match-centre.js').then(()=>loadDeferredScript('assets/js/match-centre-ui.js')).then(()=>{if(activeTab==='match-centre')globalThis.renderMatchCentre();});
+ return loadDeferredScript('config/match-centre.js?v=303').then(()=>loadDeferredScript('assets/js/match-centre-refresh.js?v=303')).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=303')).then(()=>{if(activeTab==='match-centre')globalThis.renderMatchCentre();});
 }
 if (startupReloadRestoreState){
   activeFilter = String(startupReloadRestoreState.activeFilter || activeFilter);
@@ -21232,6 +21233,7 @@ function renderEventsView(){
 }
 
 function activateTopLevelTab(nextTab, { resetViewport = true } = {}){
+  if(nextTab!=='match-centre')globalThis.stopMatchCentre?.();
   calendarBulkController?.abort();
   if (activeInspectorCodeId){
     history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
@@ -21353,6 +21355,7 @@ function renderTabCounts(){
 }
 
 function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
+  if(activeTab!=='match-centre')globalThis.stopMatchCentre?.();
   if(calendarChoice.busy)return;
   document.querySelector("footer.app-footer").style.visibility=startupCoordinator.isHydrating()?"hidden":"";
   if (preserveViewport || viewportAnchor){

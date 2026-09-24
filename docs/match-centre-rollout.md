@@ -1,5 +1,11 @@
 # Match Centre and consensus rollout
 
+## Status and pull-to-refresh follow-up — shell 303
+
+The screenshot's scheduled-status/live-innings contradiction is reproduced by `validate-match-observations.js` and fixed at shared observation reconciliation. Match Centre now offers release-to-refresh and a keyboard-accessible button, retains cards on failure and rejects late navigation/account responses. Chromium and WebKit gesture tests cover threshold, cancellation, wheel, cooldown, failures and navigation; the eight light/dark responsive cases also pass. These are browser-engine tests, not a physical iPhone claim.
+
+The installed-PWA close/reopen harness was rerun from production baseline `b23a369`: document 303 loaded but controller 302 remained active with 303 waiting. The previously user-waived handover problem remains unresolved and is explicitly not a passing upgrade test. No service-worker activation changes are included in this follow-up; cache/asset versions are updated normally.
+
 Implementation baseline: main `85ee1ca`, 24 September 2026. Initial implementation was gated off. On 24 September the user explicitly authorised deployment with the known installed-PWA gate bypassed. The two additive migrations have since been applied to nothingSport-recovery and production environment flags configured. This release enables the Match Centre presentation; consensus assignment is activated separately after release verification.
 
 ## Gates and sequence

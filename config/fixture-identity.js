@@ -105,6 +105,27 @@
     return codes.filter(code => ids.has(code.id) || keys.has(code.slug));
   }
 
+  const SCORE_OBSERVATION_FIELDS=['homeScore','awayScore','scoreDisplay','score','sets','games','innings','rubbers','canonicalResultScoreline'];
+  const observationTime=e=>e?.sourceCheckedAt||e?.canonicalSourceCheckedAt||null;
+  const hasScore=e=>SCORE_OBSERVATION_FIELDS.some(k=>{const v=e?.[k];return Array.isArray(v)?v.length>0:v!=null&&v!==''&&(typeof v!=='object'||Object.keys(v).length>0);});
+  function reconcileObservation(base,event){
+    if(event.enrichmentOnly)return;
+    const scoreTime=event.scoreCheckedAt||observationTime(event),statusTime=event.statusCheckedAt||observationTime(event);
+    const older=(next,prior)=>Number.isFinite(Date.parse(next))&&Number.isFinite(Date.parse(prior))&&Date.parse(next)<Date.parse(prior);
+    if(hasScore(event)&&!older(scoreTime,base?.scoreCheckedAt||observationTime(base))){event.scoreCheckedAt=scoreTime;}
+    else if(hasScore(base)){
+      for(const key of SCORE_OBSERVATION_FIELDS)delete event[key];
+      event.scoreCheckedAt=base.scoreCheckedAt||observationTime(base);
+      // Retained home/away scores must retain their participant association.
+      for(const key of ['homeParticipantId','awayParticipantId'])if(base[key])event[key]=base[key];
+    }
+    const passive=status=>!status||/^(scheduled|upcoming|not.started|pending)$/i.test(status);
+    if(base&&((!passive(base.status)&&passive(event.status))||older(statusTime,base.statusCheckedAt||observationTime(base)))){
+      event.status=base.status;event.statusCheckedAt=base.statusCheckedAt||observationTime(base);
+      for(const key of ['actualEndTimeUtc','completedAt','firstConfirmedCompleteAt','resultPublishedAt'])if(base[key])event[key]=base[key];
+    }else if(event.status)event.statusCheckedAt=statusTime;
+  }
+
   function mergeOverlays(events,updates){
     const result=events.slice(),indexes=new Map(),semanticIndexes=new Map();
     const aliases=event=>[event?.canonicalEventId,event?.eventId,event?.id,...(event?.sourceEventIds||[])].filter(Boolean);
@@ -122,6 +143,7 @@
       const ids=aliases(event);if(!ids.length)continue;
       const key=semanticKey(event),match=ids.map(id=>indexes.get(id)).find(index=>index!==undefined)??(key?semanticIndexes.get(key):undefined),index=match??result.length;
       const base=result[index];
+      reconcileObservation(base,event);
       if(base && !event.enrichmentOnly){
         const reviewedAt = record => Date.parse(record?.editorialNarrative?.researchedAt || record?.lastReviewedAt || '') || 0;
         // A score snapshot's fetch timestamp is not an editorial review.

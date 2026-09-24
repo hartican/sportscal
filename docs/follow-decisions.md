@@ -2,6 +2,8 @@
 
 ## Match Centre and versioned anticipation — 24 September 2026
 
+Manual refresh clarification: pull-to-refresh is Match Centre only, triggered on release rather than holding. Refresh uses the same complete eligible membership, with no change to follows, exclusions, dismissals or Feed filtering. Score/status reconciliation is shared with Feed to prevent schedule-only snapshots undoing sourced live state. Regression: `validate-match-observations.js` and `validate-match-centre-refresh-browser.js`.
+
 Match Centre replaces Events when enabled; Major Events stays in Follow. Membership uses the complete personalised Feed eligibility pipeline, not Feed filters or loaded pages. Men's NRL/AFL/cricket/rugby union and both tennis tours are in scope. Show from 30 minutes before start to one hour after confirmed completion; keep interruptions and multi-day breaks. Tennis parents and rubbers are excluded; ties expose rubbers as details. Results remain globally spoiler-controlled; rating/chat stays in the fixture view.
 
 For future fixtures assigned `consensus.v1` after activation, keep 1 Heat point and award 19 extra after the 48-hour Impact cutoff for exact agreement with the rounded latest-per-other-person Impact mean. One eligible peer suffices; exclude self, moderated/anonymous accounts and Pulse. Existing predictions keep `anticipation.v2`. No epoch reset. Efficiency remains successes / resolved scored predictions, never participation/social points. Regression: Match Centre model/browser and consensus database validators; rollout gates in `match-centre-rollout.md`.
