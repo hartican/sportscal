@@ -156,3 +156,7 @@ Regression: `validate-feed-follow-repairs.js`, `validate-feed-follow-navigation-
 ## Feed card presentation — 22 September 2026
 
 The approved [Feed card visual design](feed-card-visual-design.md) adds prominent Sydney sporting-start/status badges during MVP and separates presentation areas for later artwork. Featured imagery never changes canonical participants, eligibility, saved actions or spoilers. The three future artwork families and licensing pipeline remain outside MVP. Regression: `validate-card-timing.js` and `validate-card-timing-browser.js`.
+
+## Socceroos fixtures - 24 September 2026
+
+Senior Socceroos fixtures qualify for an explicit Football follow, including provider-loaded friendlies without an editorial marquee flag. Canonical national identities use Socceroos rather than Australia. Explicit exclusions and participant mutes still win.

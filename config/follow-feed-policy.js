@@ -150,6 +150,8 @@
     const international = event?.isInternational === true || event?.competitionScope === "international";
     const junior = event?.isSenior === false || /\b(?:u[- ]?(?:1[0-9]|2[0-3])|under[- ]?(?:1[0-9]|2[0-3])|junior|youth)\b/i.test([event?.ageGroup,event?.competitionName,event?.name].join(" "));
     if (["rugby", "cricket"].includes(key) && international && !junior) return true;
+    // Senior Socceroos fixtures qualify even when providers omit editorial flags.
+    if(key === 'football' && !junior && participantIds(event).includes('team:football:socceroos')) return true;
     return isFinalsOrKnockout(event) || explicitMarquee(event);
   }
 

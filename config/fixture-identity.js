@@ -59,6 +59,21 @@
       if (value[key] && (typeof value[key] !== "object" || Array.isArray(value[key]))) normalized[key] = null;
     }
     normalized.consensusTags=consensusTagsForEvent(normalized);
+    const national = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
+      || (typeof require === 'function' ? require('./national-team-identities') : null);
+    if(normalized.key === 'football' && national){
+      const canonicalIds = national.participantIdsForEvent(normalized);
+      if(canonicalIds.includes('team:football:socceroos')){
+        normalized.name = normalized.name.replace(/\bAustralia\b/g, 'Socceroos');
+        normalized.displayTitleCompact = normalized.displayTitleCompact.replace(/\bAustralia\b/g, 'Socceroos');
+        normalized.participantIds = canonicalIds;
+        normalized.participants = canonicalIds.map((id,index) => ({...(normalized.participants[index] || {}),
+          id, ...(id === 'team:football:socceroos' ? {name:'Socceroos',displayName:'Socceroos',countryCode:'AU'} : {})}));
+        normalized.representativeCountryCodes = [...new Set([...normalized.representativeCountryCodes,'AU'])];
+        normalized.isInternational = true;
+        normalized.competitionScope = 'international';
+      }
+    }
     const pauses=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES || (typeof require==="function"?require("./coverage-pauses"):null);
     return pauses ? pauses.apply(normalized) : normalized;
   }
