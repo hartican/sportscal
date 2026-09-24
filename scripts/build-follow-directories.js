@@ -250,6 +250,7 @@ function main(){
   });
 
   const tennisChunk = chunks.get("tennis");
+  for(const team of readJson('data/canonical/tennis-team-contests.v1.json').participants)tennisChunk.set(team.id,normalizeRecord(team,{genderCategory:'men',sourceRefs:team.sourceRefs}));
   const tennisByName = new Map([...tennisChunk.values()].map(record => [normalizedNameKey(record.displayName), record]));
   (tennisWatchPool.players || []).forEach(player => {
     const nameKey = normalizedNameKey(player.displayName);
@@ -333,7 +334,7 @@ function main(){
   }
   const generatedAt = sourceGeneratedAt.slice().sort().at(-1) || "2026-08-25T00:00:00.000Z";
   const manifestGeneratedAt = [generatedAt, wrcContext?.generatedAt].filter(Boolean).sort().at(-1) || generatedAt;
-  const manifest = {
+  let manifest = {
     schemaVersion:"follow-directory-manifest.v1",
     generatedAt:manifestGeneratedAt,
     sports:exposedSports.map(sport => {
@@ -347,10 +348,16 @@ function main(){
       };
     }),
   };
+  const selectedCodes=new Set((process.argv.find(arg=>arg.startsWith('--codes='))?.slice(8)||'').split(',').filter(Boolean));
+  if(selectedCodes.size && fs.existsSync(MANIFEST_PATH)){
+    const previous=readJson('data/follow-directory/manifest.v1.json');
+    const refreshed=manifest.sports.filter(sport=>selectedCodes.has(sport.key));
+    manifest={...previous,sports:[...previous.sports.filter(sport=>!selectedCodes.has(sport.key)),...refreshed].sort((a,b)=>manifest.sports.findIndex(s=>s.key===a.key)-manifest.sports.findIndex(s=>s.key===b.key))};
+  }
   let changed = writeIfChanged(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`, checkOnly);
   changed = writeIfChanged(path.join(OUTPUT_DIR, "manifest.v1.js"), `globalThis.NOTHINGSPORTS_FOLLOW_DIRECTORY_MANIFEST = ${JSON.stringify(manifest)};\n`, checkOnly) || changed;
   const manifestByKey = new Map(manifest.sports.map(sport => [sport.key, sport]));
-  directorySports.forEach(directorySport => {
+  directorySports.filter(sport=>!selectedCodes.size||selectedCodes.has(sport.key)).forEach(directorySport => {
     const supportRecords = [...chunks.get(directorySport.key).values()];
     const sport = manifestByKey.get(directorySport.key) || {
       ...directorySport,

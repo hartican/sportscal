@@ -27,7 +27,7 @@ function renderTennisMajorEvents(container){
     for(const [key,label]of [['later','Later published editions'],['previous','Previous editions']])if(section[key].length){const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent=label;details.dataset.followDisclosure=`tennis:${section.label}:${key}`;details.open=followDisclosureState.get(details.dataset.followDisclosure)===true;details.addEventListener('toggle',()=>followDisclosureState.set(details.dataset.followDisclosure,details.open));details.append(summary);section[key].forEach(t=>details.append(row(t)));group.append(details);}
     container.append(group);
   }
-  const note=document.createElement('p');note.className='chat-empty';note.textContent='Tournament follows preserve your event choice. Matches still require a followed participant. Unpublished dates and draws remain unavailable.';container.append(note);
+  const note=document.createElement('p');note.className='chat-empty';note.textContent='Tournament follows add an overview to Feed. Followed players and teams add their contests; following Tennis also adds singles and team finals. Other contests can be added individually.';container.append(note);
   installFollowEventBulk(container);
 }
 let tennisSelectedEdition = '';

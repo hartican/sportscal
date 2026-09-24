@@ -73,3 +73,11 @@ The release also guards the PWA handover against an older controlling worker req
 ## Explicit Feed filtering and notification recovery — 22 September 2026
 
 Opening Apply on an active rating filter may load all eligible Feed pages and request rating snapshots in sequential batches of at most 50. This is user-triggered and uses the existing private rating API; it adds no periodic background poll. Threshold summaries use latest real per-account/per-phase contributions and unrounded averages, subject to existing aggregate visibility rules. The inbox always settles a successful empty response into its empty state and gives stalled reads a retry state after ten seconds. Existing 30-second inbox and live refresh budgets remain unchanged.
+
+## Tennis normalisation and refresh investigation — 24 September 2026
+
+Inspect manual intervention and compute together before changing recurring maintenance. Eight inspected scheduled runs (16–23 September UTC) failed; the latest ran its refresh/release step for 17 seconds before the result-completeness gate rejected two missing NBL results. The inspected quick path is deterministic and reports zero AI calls. These observations establish a reliability problem, not account-wide dollar costs or the causes of every earlier failure. Do not weaken result-completeness gates to obtain a release.
+
+Tennis parent projection runs inside `scripts/update-cards.js`, after existing tennis schedule generation; quick refresh regenerates it deterministically. The server build signature includes the parent projection hash so source changes invalidate personalised Feed caches. No additional scheduler, paid AI, database schema or polling is introduced. Browser parent metadata loads once on demand; contest lists load only on expansion and mount in batches of 20. Parent overviews do not enter rating prompts or live-fixture polling.
+
+Validated facts should remain publishable with concise factual copy when richer editorial is unavailable. The new parent presentation depends on sourced facts only. Existing broader editorial/result gates remain mandatory; changing those gates is not implied by this fallback. Retain older narrative only when still consistent with the facts.

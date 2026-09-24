@@ -545,6 +545,7 @@
       matchupSides,
       participants: subEvent.participants || matchupPlayers.map(player => ({ id:player.id, name:player.name, displayName:player.name, nationalityCode:player.nationalityCode, rank:player.rank, seed:player.seed })),
       participantIds: subEvent.participantIds || matchupPlayers.map(player => player.id).filter(Boolean),
+      ...(subEvent.eliminatedParticipantIds?.length?{eliminatedParticipantIds:subEvent.eliminatedParticipantIds}:{}),
       broadcaster: subEvent.broadcaster || parent.broadcaster || null,
       broadcasterIds: subEvent.broadcasterIds || parent.broadcasterIds || [],
       broadcastOptions: subEvent.broadcastOptions || parent.broadcastOptions || [],

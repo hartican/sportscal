@@ -14,7 +14,7 @@ function check(event,prefs,expected,label){
 const tennis={followedSports:['tennis']};
 check(fixture({round:'Round 1',marqueeClassification:{isMarquee:true,sourceUrls:['https://example.org']}}),tennis,false,'early marquee needs a player');
 check(fixture({round:'Round 1',participantCountryCodes:['AUS']}),{...tennis,followFirst:{australiansOnlySportIds:['sport:tennis']}},false,'Australian tennis does not bypass player follows');
-for(const round of ['Quarterfinal','QF','Semi-final','SF','Final'])check(fixture({round}),tennis,false,round);
+for(const round of ['Quarterfinal','QF','Semi-final','SF','Final'])check(fixture({round}),tennis,round==='Final',round);
 for(const round of ['Quarterfinal','Semi-final'])check(fixture({round,eventType:'doubles'}),tennis,false,'doubles '+round);
 check(fixture({round:'Final',eventType:'doubles'}),tennis,false,'doubles final');
 check(fixture({round:'Round 1'}),{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},true,'one followed player is sufficient');
@@ -30,7 +30,7 @@ check(women,{preferenceGraph:{competitionPreferences:[{competitionId:women.compe
 check(women,{preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},true,'explicit women player');
 check(fixture({key:'nrl',round:'Final'}),{followedSports:['nrl']},true,'NRL final');
 check(fixture({key:'afl',round:'Final'}),{followedSports:['afl']},true,'AFL final');
-check(fixture({round:'Final'}),{...tennis,preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'mute'}]}},false,'mute');
+check(fixture({round:'Final'}),{...tennis,preferenceGraph:{entityFollows:[{participantId:'athlete:one',followLevel:'mute'}]}},true,'legacy participant opt-out does not veto broad singles final');
 check(fixture({round:'Final',competitionId:'competition:test'}),{...tennis,preferenceGraph:{competitionPreferences:[{competitionId:'competition:test',enabled:false}],entityFollows:[{participantId:'athlete:one',followLevel:'follow'}]}},false,'competition exclusion wins');
 const pages=fs.readdirSync('data/feed').filter(f=>/^page-.*json$/.test(f));
 const summary=pages.flatMap(f=>JSON.parse(fs.readFileSync('data/feed/'+f)).events||[]).find(e=>e.id==='evt_81');

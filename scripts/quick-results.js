@@ -99,6 +99,7 @@ async function refresh({now=new Date(),offline=false}={}){
  }catch(error){failures.push(`Premier League: ${error.message}`);}
  if(!offline)try{const doc=read('feeds/incoming/events.json'),updates=await require('./refresh-f1-results').updatesFor(doc.events,now),patched=patchKnown(doc.events,updates);if(patched.count){write('feeds/incoming/events.json',{...doc,events:patched.events});changes.push(`F1 ${patched.count}`);}}catch(error){failures.push(`F1: ${error.message}`);}
  for(const [file,...args] of projectionSteps(changes,{rebuild:process.argv.includes('--rebuild')}))run(file,...args);
+ run('scripts/build-tennis-feed-parents.js');
  run('scripts/verify-result-completeness.js','data/events.json');
 
  if(process.env.SUPABASE_SERVICE_ROLE_KEY||process.env.SUPABASE_SECRET_KEY)run('scripts/settle-nsc-foresight.js');
