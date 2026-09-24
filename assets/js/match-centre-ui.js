@@ -52,7 +52,8 @@
      details.ontoggle=()=>{if(details.open){expanded.add(id);if(!snapshot.rubbers)void poll([e],true);}else expanded.delete(id);};card.append(details);
     }
    }else card.append(node('p','Results hidden'));
-   const actions=node('div',null,'match-centre-actions'),open=node('a','Open fixture','btn');open.href=`/fixture/${encodeURIComponent(id)}`;actions.append(open);
+   const actions=node('div',null,'match-centre-actions'),open=node('a','Open fixture','btn');open.href=`/?event=${encodeURIComponent(id)}`;
+   open.onclick=click=>{if(click.metaKey||click.ctrlKey||click.shiftKey||click.altKey)return;click.preventDefault();if(membershipOwner===owner())openMatchCentreFeedFixture(e);};actions.append(open);
    if(snapshot.officialUrl){const official=node('a','Official scores','btn ghost');official.href=snapshot.officialUrl;official.target='_blank';official.rel='noopener noreferrer';actions.append(official);}card.append(actions);panel.append(card);
   }
  }

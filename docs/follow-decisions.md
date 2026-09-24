@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Match Centre fixture navigation — 24 September 2026
+
+Open fixture returns to the main Feed, expands and focuses the selected eligible card, and never uses the marquee-only standalone fixture page. Seed the selected Match Centre record if ordinary Feed pagination has not loaded it. Clear temporary Feed filters only if they hide this target; do not create pins, follows or reminders, change Results, or resurrect dismissals. Regression: `validate-tennis-tie-layout-browser.js`.
+
 ## Compact tennis tie presentation — 24 September 2026
 
 Nation-versus-nation Feed ties do not reserve empty player/tournament artwork space. Tighten rating, timing and venue spacing while retaining touch targets, expansion state, Results privacy and existing Follow admission. Match Centre displays available tie totals and rubber sets with their source-side identity, never guesses missing scores. Regression: `validate-tennis-tie-layout-browser.js`.
