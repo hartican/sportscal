@@ -66,21 +66,22 @@
 
   const VIEWING_PROVIDERS = Object.freeze({
     bein:{ label:"beIN SPORTS", actionLabel:"beIN SPORTS", webUrl:"https://connect-au.beinsports.com/en", paid:true, territory:"AU", accessType:"subscription", aliases:["bein", "be-in"], logoPath:"assets/providers/bein-sports-connect.svg", logoBackground:"#ffffff" },
-    kayo:{ label:"Kayo Sports", actionLabel:"Kayo", webUrl:"https://kayosports.com.au/en-AU/schedule", universalUrl:"https://kayosports.com.au/en-AU/schedule", paid:true, territory:"AU", accessType:"subscription", aliases:["kayo"], logoPath:"assets/providers/kayo-sports-negative.svg", logoBackground:"#111111" },
-    foxtel:{ label:"Foxtel", actionLabel:"Foxtel", webUrl:"https://www.foxtel.com.au/watch/sport.html", paid:true, territory:"AU", accessType:"subscription", aliases:["foxtel", "fox sports"], logoPath:"assets/providers/foxtel.svg", logoBackground:"#ffffff" },
+    kayo:{ label:"Kayo Sports", actionLabel:"Kayo", webUrl:"https://kayosports.com.au/en-AU/schedule", universalUrl:"https://kayosports.com.au/en-AU/schedule", paid:true, territory:"AU", accessType:"subscription", aliases:["kayo"], logoPath:"assets/providers/kayo-nrl.svg", logoBackground:"#111111" },
+    foxtel:{ label:"Foxtel", actionLabel:"Foxtel", webUrl:"https://www.foxtel.com.au/watch/sport.html", paid:true, territory:"AU", accessType:"subscription", aliases:["foxtel", "fox sports"], logoPath:"assets/providers/foxtel-nrl.svg", logoBackground:"#151820" },
     stan:{ label:"Stan Sport", actionLabel:"Stan Sport", webUrl:"https://www.stan.com.au/watch/sport", paid:true, territory:"AU", accessType:"subscription", aliases:["stan sport", "stan"], logoPath:"assets/providers/stan-sport.jpg", logoBackground:"#0877f9" },
     optus:{ label:"Optus Sport", actionLabel:"Optus Sport", webUrl:"https://sport.optus.com.au/", active:false, paid:true, territory:"AU", accessType:"subscription", aliases:["optus sport", "optus"] },
     paramount:{ label:"Paramount+", actionLabel:"Paramount+", webUrl:"https://www.paramountplus.com/au/", paid:true, territory:"AU", accessType:"subscription", aliases:["paramount+", "paramount plus", "paramount"], logoPath:"assets/providers/paramount-plus.svg", logoBackground:"#ffffff" },
     seven:{ label:"7plus", actionLabel:"7plus", webUrl:"https://7plus.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["7plus", "channel 7", "seven"], logoPath:"assets/providers/7plus.png", logoBackground:"#f5f5f5" },
-    nine:{ label:"9Now", actionLabel:"9Now", webUrl:"https://www.9now.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["9now", "channel 9", "nine"] },
-    sbs:{ label:"SBS On Demand", actionLabel:"SBS", webUrl:"https://www.sbs.com.au/ondemand/sport", paid:false, territory:"AU", accessType:"free", aliases:["sbs on demand", "sbs"] },
-    "nba-pass":{ label:"NBA League Pass", webUrl:"https://www.nba.com/watch/league-pass-stream", paid:true, aliases:[] },
-    dazn:{ label:"DAZN NFL Game Pass", webUrl:"https://www.dazn.com/en-AU/l/nfl-game-pass", paid:true, aliases:[] },
-    "prime-video":{ label:"Prime Video", webUrl:"https://www.primevideo.com/", paid:true, aliases:[] },
-    goodwood:{ label:"Goodwood", webUrl:"https://goodwood.com/", paid:false, aliases:[] },
-    youtube:{ label:"YouTube", actionLabel:"YouTube", webUrl:"https://www.youtube.com/", paid:false, territory:"GLOBAL", accessType:"free", aliases:["youtube", "you tube"] },
-    "watch-afl":{ label:"Watch AFL", actionLabel:"Watch AFL", webUrl:"https://www.watchafl.com.au/", paid:true, territory:"ROW", accessType:"subscription", aliases:["watch afl", "watchafl"] },
-    "iihf-tv":{ label:"IIHF.TV", actionLabel:"IIHF.TV", webUrl:"https://iihf.tv/", paid:false, territory:"GLOBAL", accessType:"provider-specific", aliases:["iihf tv", "iihf.tv"] },
+    "nine-tv":{label:"Nine",actionLabel:"Nine",webUrl:"https://www.9now.com.au/",paid:false,territory:"AU",accessType:"free",aliases:[],logoPath:"assets/providers/nine.svg"},
+    nine:{ logoPath:"assets/providers/9now.svg", label:"9Now", actionLabel:"9Now", webUrl:"https://www.9now.com.au/", paid:false, territory:"AU", accessType:"free", aliases:["9now", "channel 9", "nine"] },
+    sbs:{ logoPath:"assets/providers/sbs-on-demand.png", logoBackground:"#111111", label:"SBS On Demand", actionLabel:"SBS", webUrl:"https://www.sbs.com.au/ondemand/sport", paid:false, territory:"AU", accessType:"free", aliases:["sbs on demand", "sbs"] },
+    "nba-pass":{ logoPath:"assets/providers/nba.png", label:"NBA League Pass", webUrl:"https://www.nba.com/watch/league-pass-stream", paid:true, aliases:[] },
+    dazn:{ logoPath:"assets/providers/dazn.svg", label:"DAZN NFL Game Pass", webUrl:"https://www.dazn.com/en-AU/l/nfl-game-pass", paid:true, aliases:[] },
+    "prime-video":{ logoPath:"assets/providers/prime-video.png", label:"Prime Video", webUrl:"https://www.primevideo.com/", paid:true, aliases:[] },
+    goodwood:{ logoPath:"assets/providers/goodwood.png", label:"Goodwood", webUrl:"https://goodwood.com/", paid:false, aliases:[] },
+    youtube:{ logoPath:"assets/providers/youtube.png", label:"YouTube", actionLabel:"YouTube", webUrl:"https://www.youtube.com/", paid:false, territory:"GLOBAL", accessType:"free", aliases:["youtube", "you tube"] },
+    "watch-afl":{ logoPath:"assets/providers/watch-afl.png", label:"Watch AFL", actionLabel:"Watch AFL", webUrl:"https://www.watchafl.com.au/", paid:true, territory:"ROW", accessType:"subscription", aliases:["watch afl", "watchafl"] },
+    "iihf-tv":{ logoPath:"assets/providers/iihf-tv.png", label:"IIHF.TV", actionLabel:"IIHF.TV", webUrl:"https://iihf.tv/", paid:false, territory:"GLOBAL", accessType:"provider-specific", aliases:["iihf tv", "iihf.tv"] },
   });
 
   const RIGHTS_VERIFIED_AT = "2026-08-25T00:00:00.000Z";
@@ -770,7 +771,12 @@
 
   function viewingOptions(event, selectedProviderIds = []){
     const broadcasterIds = new Set((event?.broadcasterIds || []).map(id => String(id || "").trim().toLowerCase()).filter(Boolean));
-    const explicitOptions = [event?.broadcaster, ...(event?.broadcastOptions || []), ...(event?.viewingOptions || [])].filter(Boolean);
+    // Official draw lists these as separate broadcast and streaming services.
+    // Match stable fixture identities, never every match in the competition.
+    const fixtureKey=String(event?.canonicalEventId||event?.eventId||event?.id||'').replace(/:/g,'-');
+    const reviewed=/^major-match-nrl-finals-2026-preliminary-final-[12]$/.test(fixtureKey)
+      ? ['nine-tv','nine','kayo','foxtel'].map(providerId=>({providerId,rightsScope:'fixture',sourceUrl:'https://www.nrl.com/draw/nrl-premiership/2026/finals-week-3/',verifiedAt:'2026-09-24T00:00:00Z'})) : [];
+    const explicitOptions = [...reviewed,event?.broadcaster, ...(event?.broadcastOptions || []), ...(event?.viewingOptions || [])].filter(Boolean);
     explicitOptions.map(option => trustedProviderIdForOption(event, option)).filter(Boolean).forEach(id => broadcasterIds.add(id));
     const rights = competitionRightsForEvent(event);
     const isGrandFinal = /\bgrand\s+final\b/i.test([event?.stage, event?.roundLabel, event?.round, event?.name].filter(Boolean).join(" "));

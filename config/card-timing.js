@@ -44,7 +44,7 @@
     else if (statuses.includes("postponed")) status = "POSTPONED";
     else if (statuses.some(value => ["completed","finished","final"].includes(value))) status = "FINISHED";
     else if (statuses.some(value => ["live","in_progress","in-progress","ongoing"].includes(value))) status = "LIVE";
-    return Object.freeze({label:status || schedule, status, schedule, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
+    return Object.freeze({label:status || schedule, primary:status || (range || event.dateOnly ? schedule : time), status, schedule, fullSchedule, ariaLabel:status ? `${status}. Scheduled ${fullSchedule}` : fullSchedule});
   }
   return Object.freeze({presentation});
 });

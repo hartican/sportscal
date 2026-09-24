@@ -70,3 +70,9 @@ NRL finals completeness — 22 September 2026
 - The Champion Data regular-season NRL fixture source stops at Round 27. It does not hydrate finals. Keep `data/canonical/nrl-finals-published-2026.json` current from official NRL announcements as each finals week is confirmed, preserving the existing bracket-slot identities.
 - `sync-finals-code-phase.js` must consume those reviewed schedules as well as the regular canonical source. Run `validate-nrl-preliminary-finals.js --published`: current-week unresolved NRL week placeholders are a refresh failure requiring official-source review, not a successful empty Feed.
 - The preliminary-finals data repair retains the byte-identical app shell already released under the recorded performance exception. The outstanding compressed-byte remediation remains due 28 September–4 October; this data repair does not raise or disable that gate.
+
+Feed redesign performance remediation — 24 September 2026
+---------------------------------------------------------
+- The Feed redesign restores the existing compressed startup budget without changing the threshold: 425,081 bytes versus the 425,600-byte baseline, with the same eight critical requests. Deterministic runtime minification uses pinned Terser, no compression transforms or property mangling, and retains function names.
+- The earlier next-week compressed-byte remediation is resolved by this change. Continue running `validate-feed-performance.js`; do not revive the previous release exceptions for new changes.
+- The runtime now includes a compact canonical standings projection for card ranks. Both full and quick canonical refreshes must rebuild it through the existing runtime builder. Offline module validation verifies the entire generated bundle against source, including these snapshots.

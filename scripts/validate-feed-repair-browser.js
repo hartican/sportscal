@@ -6,7 +6,7 @@ const {sourceFingerprint}=require('./validate-feed-performance');
 const origin=process.env.REPAIR_QA_URL||'http://127.0.0.1:33958';
 const output=process.env.REPAIR_QA_OUTPUT||'/private/tmp/sportscal-feed-repair-browser.json';
 (async()=>{
- const browser=await chromium.launch({headless:true});const audit={schemaVersion:'ui-performance-audit.v1',sourceFingerprint:sourceFingerprint(),runs:[],checks:[]};
+ const browser=await chromium.launch({headless:true,channel:process.env.QA_BROWSER_CHANNEL||'chrome'});const audit={schemaVersion:'ui-performance-audit.v1',sourceFingerprint:sourceFingerprint(),runs:[],checks:[]};
  try{
   for(const width of (process.env.REPAIR_QA_WIDTHS||"320,390,768,1280").split(",").map(Number)){
    const context=await browser.newContext({viewport:{width,height:844},serviceWorkers:'block'}),page=await context.newPage();

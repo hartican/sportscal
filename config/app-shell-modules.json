@@ -53,5 +53,6 @@
   "config/promoted-replay.js",
   "config/editorial-locks.js",
   "config/editorial-lifecycle.js",
-  "config/feed-view-filter.js"
+  "config/feed-view-filter.js",
+  "config/feed-card-presentation.js"
 ]

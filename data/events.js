@@ -46829,7 +46829,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceTrust": "verified",
     "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
-    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
+    "lastReviewedAt": "2026-09-24T09:58:14.570Z",
     "selectedSentence": "Brazil provide a demanding first test for the Socceroos after the World Cup.",
     "fullSpiel": "Tony Popovic begins the next phase with January's Asian Cup in view. Facing five-time world champions offers a sharper measure of Australia's progress than a routine friendly: the Socceroos must find ways to threaten Brazil while keeping their defensive shape. This is the first of two Queensland meetings.",
     "replayEligible": true,
@@ -46991,7 +46991,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceUrl": "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
     "sourceCheckedAt": "2026-09-22T01:40:00.000Z",
     "sourceType": "official",
-    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
+    "lastReviewedAt": "2026-09-24T09:58:14.570Z",
     "replayEligible": true,
     "highlightEligible": true,
     "briefingEligible": false,
@@ -48689,7 +48689,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "sourceType": "official",
     "sourceTrust": "verified",
     "sourceCheckedAt": "2026-09-23T23:00:53.638Z",
-    "lastReviewedAt": "2026-09-24T08:06:58.396Z",
+    "lastReviewedAt": "2026-09-24T09:58:14.570Z",
     "selectedSentence": "The Socceroos get a second look at Brazil, with four days to turn lessons into adjustments.",
     "fullSpiel": "The Brisbane return gives Tony Popovic another opportunity to assess combinations against elite opposition before the Asian Cup. Unlike the Townsville opener, both teams will have a recent picture of the other's approach. Selection and tactical changes can be judged against that first meeting rather than reputation alone.",
     "replayEligible": true,
@@ -55407,7 +55407,7 @@ globalThis.NOTHINGSPORTS_EVENTS = [
     "timePrecision": "exact",
     "narrativeType": "all",
     "briefingEligible": true,
-    "lastReviewedAt": "2026-09-24T08:06:58.396Z"
+    "lastReviewedAt": "2026-09-24T09:58:14.570Z"
   },
   {
     "id": "event-aflw-cd_m20262640907",

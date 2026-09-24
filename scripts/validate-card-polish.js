@@ -48,7 +48,7 @@ assert.equal(ticketing.resolve({ eventId: "event-nrl-129992601" }, { surface: "f
 assert.equal(ticketing.resolve({ eventId: "event-nrl-129992601" }, { surface: "fixture", localVenueMatched: true, reference: new Date("2026-08-24T00:00:00Z") }).provider, "Ticketek", "verified local fixtures must retain direct seller CTAs");
 assert(html.includes("LOCALITY_COORDINATES") && html.includes("eventLocationLabel(ev)") && html.includes("distanceKm(selectedCoordinates, fixtureCoordinates)"), "radius-based location matching must survive canonical venue display names");
 
-assert(html.includes('className = soloIdentity ? "event-hero-mark" : "event-icon"'), "non-matchup cards must use the centred logo-led treatment");
+assert( /className\s*=\s*soloIdentity\s*\?\s*['"]event-hero-mark['"]\s*:\s*['"]event-icon['"]/.test(html), "non-matchup cards must use the centred logo-led treatment");
 assert(html.includes(".event-hero-mark{") && html.includes("width:88px;") && html.includes("height:90px;"), "desktop fixture identities must use the compact 88 by 90 pixel frame");
 assert(html.includes(".event-hero-mark{ width:74px; height:70px; margin-bottom:7px; padding:4px; }"), "mobile fixture identities must use the compact 74 by 70 pixel frame");
 assert(html.includes(".event-card.is-logo-led-event .event-top-row{ display:block; position:relative; }") && html.includes("margin:0 auto 8px"), "single-logo cards must centre their full text stack with compact reserved clearance");

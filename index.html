@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="300">
+<meta name="app-shell-version" content="301">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=300" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=301" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6878,7 +6878,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .tennis-contest-row button{min-height:44px;}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=293">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=301">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7174,7 +7174,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=300"></script>
+<script src="assets/js/app-shell-runtime.js?v=301"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -11986,6 +11986,7 @@ function fmtTime12(time){
 }
 
 function fmtDateHeading(dateStr){
+  if(activeTab==='feed')return NOTHINGSPORTS_FEED_CARD_PRESENTATION.dateBanner(dateStr,nowAEST());
   if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr || "")) return "Date unconfirmed";
   const [y,m,d] = dateStr.split("-").map(Number);
   const dt = new Date(y, m-1, d);
@@ -15184,11 +15185,12 @@ function buildFixtureTimingBadge(ev){
   const timing = NOTHINGSPORTS_CARD_TIMING.presentation(ev, nowAEST());
   const badge = document.createElement('span');
   badge.className = 'fixture-timing-badge';
-  const clock=timing.label.match(/(?:APPROX\. )?\d{1,2}:\d{2} [AP]M$/);
+  const visible=activeTab==='feed'?timing.primary:timing.label;
+  const clock=visible.match(/(?:APPROX\. )?\d{1,2}:\d{2} [AP]M$/);
   if(clock){
-    badge.append(document.createTextNode(timing.label.slice(0,clock.index)));
+    badge.append(document.createTextNode(visible.slice(0,clock.index)));
     const time=document.createElement('span');time.className='fixture-timing-clock';time.textContent=clock[0];badge.appendChild(time);
-  }else badge.textContent = timing.label;
+  }else badge.textContent = visible;
   badge.dataset.timingStatus = timing.status;
   badge.setAttribute('aria-label', timing.ariaLabel);
   badge.title = timing.fullSchedule;
@@ -16207,6 +16209,8 @@ function buildViewingProviderMark(viewing){
   image.className = "provider-action-logo";
   image.alt = `${viewing.label} logo`;
   image.decoding = "async";
+  image.loading = "lazy";
+  image.width = 64; image.height = 32;
   image.addEventListener("error", showFallback, { once:true });
   image.src = viewing.logoPath;
   mark.appendChild(image);
@@ -16224,29 +16228,18 @@ function appendEventQuickActions(container, ev, { reminder = true, chat = true, 
   if(globalThis.NOTHINGSPORTS_COVERAGE_PAUSES?.womensT20(ev))viewing=false;
   const actions = document.createElement("div");
   actions.className = "event-quick-actions";
-  const viewingLink = viewing ? FOLLOW_FIRST?.viewingLink?.(ev, userPreferences.followFirst?.subscriptions || []) : null;
-  if (viewingLink){
-    const link = document.createElement("a");
-    link.className = "event-quick-action";
-    configureProviderLaunch(link, viewingLink);
-    const verb = viewingLink.liveOrReplay === "replay" ? "Replay" : "Watch";
-    link.title = `${verb} on ${viewingLink.label}. Installed apps may open natively; otherwise use the browser fallback.`;
-    link.setAttribute("aria-label", `${verb} on ${viewingLink.label}`);
-    const prefix = document.createElement("span");
-    prefix.className = "viewing-action-prefix";
-    prefix.textContent = `${verb} on`;
-    link.append(prefix, buildViewingProviderMark(viewingLink));
-    link.addEventListener("click", event => {
-      event.stopPropagation();
-      recordCodeAffinity(codeIdForEvent(ev), viewingLink.liveOrReplay === "replay" ? "replay" : "watch");
-    });
-    actions.appendChild(link);
-  } else if (viewing) {
-    const unavailable = document.createElement("span");
-    unavailable.className = "event-quick-action viewing-tbc";
-    unavailable.setAttribute("aria-label", "Australian viewing provider is unconfirmed");
-    unavailable.textContent = "Australian viewing unconfirmed";
-    actions.appendChild(unavailable);
+  const viewingLinks = viewing ? FOLLOW_FIRST.viewingOptions(ev,userPreferences.followFirst?.subscriptions||[]).filter(p=>!p.territory||['AU','GLOBAL'].includes(p.territory)) : [];
+  if(viewing){
+    const row=document.createElement('div');row.className='fixture-providers';row.setAttribute('aria-label','Viewing providers');
+    for(const viewingLink of viewingLinks){
+      const link=document.createElement('a');link.className='event-quick-action provider-link';
+      configureProviderLaunch(link,viewingLink);
+      const verb=viewingLink.liveOrReplay==='replay'?'Replay':'Watch';
+      link.title=`${verb} on ${viewingLink.label}`;link.setAttribute('aria-label',link.title);link.appendChild(buildViewingProviderMark(viewingLink));
+      link.addEventListener('click',event=>{event.stopPropagation();recordCodeAffinity(codeIdForEvent(ev),viewingLink.liveOrReplay==='replay'?'replay':'watch');});row.append(link);
+    }
+    if(!viewingLinks.length){const text=document.createElement('span');text.className='viewing-tbc';text.textContent='Australian viewing unconfirmed';row.append(text);}
+    actions.append(row);
   }
   if (reminder && getEventStatus(ev) === "upcoming"){
     const timing = eventReminderTiming(ev);
@@ -17102,6 +17095,64 @@ function appendFixtureCardInformation(parent, ev, {isMinimised, state, options, 
   }
 }
 
+function composeFeedCard(card,ev,{compact,renderCardState}){
+  card.classList.add('feed-fixture');
+  const palette=NOTHINGSPORTS_FEED_CARD_PRESENTATION.palette(ev);
+  if(palette){card.style.setProperty('--fixture-left',palette[0]);card.style.setProperty('--fixture-right',palette[1]);}
+  const main=card.querySelector('.event-main')||card.querySelector('.compact-card-summary');
+  if(!main)return;
+  const timing=card.querySelector('.fixture-timing-group');
+  const identity=card.querySelector('.matchup-identity');
+  const summary=card.querySelector('.compact-card-summary');
+  if(identity){
+    const logos=[...identity.querySelectorAll('.matchup-team-logo-slot')],names=[...identity.querySelectorAll('.matchup-team-name')];
+    const sides=matchupIdentityMatches(ev,spoilerSafeDisplayTitle(ev));
+    const format=identity.querySelector('.matchup-format-badge');
+    identity.replaceChildren();identity.classList.add('feed-matchup');
+    for(let i=0;i<2;i++){
+      const side=document.createElement('div');side.className='feed-opponent';side.append(logos[i],names[i]);
+      const standing=NOTHINGSPORTS_FEED_CARD_PRESENTATION.ranking(ev,sides[i]?.participant?.id||sides[i]?.mark?.id,canonicalSportsData?.ladderSnapshots||NOTHINGSPORTS_FEED_CARD_STANDINGS);
+      if(standing){const rank=document.createElement('span');rank.className='fixture-standing';rank.textContent=standing.label;rank.title=standing.description;rank.setAttribute('aria-label',standing.description);side.append(rank);}
+      identity.append(side);if(i===0&&timing)identity.append(timing);
+    }
+    if(format){format.classList.add('fixture-kind');main.prepend(format);}
+  }else{
+    const name=summary?.querySelector('.compact-card-name')||main.querySelector('.event-name-line');
+    const lineup=card.querySelector('.major-event-matchup-sides');
+    const middle=lineup?.querySelector('.major-event-matchup-v,.compact-matchup-middle')||summary?.querySelector('.compact-matchup-middle');
+    if(middle&&timing){
+      const format=middle.querySelector('.matchup-format-badge');if(format)main.prepend(format);
+      middle.replaceWith(timing);lineup?.classList.add('feed-player-matchup');
+    }else if(name&&timing)name.after(timing);
+    const mark=card.querySelector(':scope > .event-hero-mark,:scope > .event-icon');
+    if(mark)main.prepend(mark);
+    const caption=card.querySelector(':scope > .fixture-event-caption');if(caption)main.prepend(caption);
+  }
+  card.querySelector('.fixture-timing-header')?.remove();
+  card.querySelector('.event-date-line')?.remove();
+  if(compact){
+    for(const side of summary.querySelectorAll('.compact-matchup-side')){
+      const index=[...summary.querySelectorAll('.compact-matchup-side')].indexOf(side),ids=matchupIdentityMatches(ev,compactFixtureName(ev));
+      const rank=NOTHINGSPORTS_FEED_CARD_PRESENTATION.ranking(ev,ids[index]?.participant?.id||ids[index]?.mark?.id,canonicalSportsData?.ladderSnapshots||NOTHINGSPORTS_FEED_CARD_STANDINGS);
+      if(rank){const el=document.createElement('small');el.className='fixture-standing';el.textContent=rank.label;el.title=rank.description;side.append(el);}
+    }
+    main.appendChild(buildNothingscoreSummary(ev,{showAggregate:true}));
+  }
+  const actions=card.querySelector('.event-card-primary-actions');
+  if(actions){actions.querySelectorAll('a:has(.provider-action-mark),.viewing-tbc').forEach(n=>n.remove());}
+  const info=document.createElement('div');info.className='fixture-access';info.dataset.cardArea='essentials';
+  appendEventQuickActions(info,ev,{reminder:false,chat:false});
+  const venue=document.createElement('p');venue.className='fixture-venue';venue.textContent=globalThis.NOTHINGSPORTS_COVERAGE_PAUSES.womensT20(ev)?'':NOTHINGSPORTS_FEED_CARD_PRESENTATION.venue(ev,VENUE_REGISTRY);info.append(venue);
+  const schedule=NOTHINGSPORTS_CARD_TIMING.presentation(ev,nowAEST());
+  if(schedule.status){const date=document.createElement('p');date.className='fixture-scheduled event-date-chip';date.textContent=schedule.fullSchedule;info.prepend(date);}
+  const rating=main.querySelector('.nsc-summary');if(rating)rating.after(info);else main.append(info);
+  const more=document.createElement('button');more.type='button';more.className='fixture-more';more.textContent=cardStateForEvent(ev)==='opened'?'Less':'More…';more.setAttribute('aria-expanded',String(cardStateForEvent(ev)==='opened'));more.onclick=e=>{e.stopPropagation();renderCardState(cardStateForEvent(ev)==='opened'?'selected':'opened',{restoreFocus:true,focusTarget:'.fixture-more'});};
+  if(compact){const hook=buildEventWhyItMatters(ev);if(hook)main.append(hook);}
+  main.append(more);
+  if(actions)main.append(actions);
+  else if(compact){const secondary=document.createElement('div');secondary.className='event-card-primary-actions';appendEventQuickActions(secondary,ev,{viewing:false});main.append(secondary);}
+}
+
 function buildDetailedEventCard(ev, options = {}){
   const meta = sportMetaForEvent(ev);
   const status = getEventStatus(ev);
@@ -17188,6 +17239,7 @@ function buildDetailedEventCard(ev, options = {}){
     card.classList.add("is-compact-row");
     card.appendChild(buildCompactCardSummary(ev));
     if(options.inspectorFixture)appendSchedulePin(card,options.inspectorFixture,card);
+    if(activeTab==='feed')composeFeedCard(card,ev,{compact:true,renderCardState});
     return card;
   }
   if(activeTab === 'feed'){
@@ -17212,6 +17264,7 @@ function buildDetailedEventCard(ev, options = {}){
     }));
   }
   card.appendChild(mainDiv);
+  if(activeTab==='feed')composeFeedCard(card,ev,{compact:false,renderCardState});
   if (interactionCard === card) observeNewSurfaceItem(card, ev, presentation);
   if (interactionCard === card && !options.archived && activeTab === "feed" && activeView === "list" && activeFilter === "all"){
     const canonicalId = ev.canonicalEventId || ev.eventId || ev.id;

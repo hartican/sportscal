@@ -6,7 +6,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 
 const pages = ["index.html", "admin.html", "admin-comms.html", "participate.html", "privacy.html", "terms.html", "404.html"];
-const stylesheet = "/assets/styles/nothingsport-foundation.css?v="+fs.readFileSync("index.html","utf8").match(/name="app-shell-version" content="(\d+)"/)[1];
+const stylesheet = fs.readFileSync("index.html","utf8").match(/href="(\/assets\/styles\/nothingsport-foundation\.css\?v=\d+)"/)[1];
 const html = fs.readFileSync("index.html", "utf8");
 const foundation = fs.readFileSync("assets/styles/nothingsport-foundation.css", "utf8");
 

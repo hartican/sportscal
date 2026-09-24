@@ -66,7 +66,7 @@ function projectionSteps(changes,{rebuild=false}={}){
   ['scripts/qa-storyline-spoilers.js','data/events.json'],
  );}
  if(feedChanged)steps.push(['scripts/build-paged-feed.js']);
- steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],...(rebuild?[['scripts/build-app-shell-runtime.js']]:[]),['scripts/apply-current-card-evidence.js','--check'],['scripts/validate-current-card-coverage.js'],['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
+ steps.push(['scripts/build-code-inspector.js',...(rebuild?[]:[`--codes=${[...codes].join(',')}`])],['scripts/build-app-shell-runtime.js'],['scripts/apply-current-card-evidence.js','--check'],['scripts/validate-current-card-coverage.js'],['scripts/validate-feed-coverage-resilience.js'],['scripts/validate-feed.js','data/events.json'],['scripts/validate-crowd-foresight.js']);
  return steps;
 }
 async function refresh({now=new Date(),offline=false}={}){
