@@ -1,0 +1,8 @@
+# Feed artwork sources — 25 September 2026
+
+- Billie Jean King Cup: unchanged official header assets from https://www.billiejeankingcup.com/en: https://www.billiejeankingcup.com/images/logos/bjk-cup-logo.svg and https://images.ctfassets.net/gd35ic6j47k5/6NM0COYb48Yq9fGzXAp7L9/175cc637d4e65dd4268d379218a182e6/BJKC_HorizLogo_CompTeal_transp_bg_rgb_1.png. Both have transparent backgrounds. The separate readable tournament label remains present in both themes.
+- US Open: unchanged vector from https://upload.wikimedia.org/wikipedia/commons/2/26/Usopen-header-logo.svg, whose source record identifies https://www.usopen.org/images/header/usopen-header-logo.svg. The current official endpoint was unavailable; provenance remains a reviewed reference-library mirror, not a new official download.
+- Socceroos: the complete `fa-menu-crest` symbol and its referenced masks/gradients were extracted from https://www.socceroos.com.au/ into `assets/identities/national/football/socceroos-symbol.svg`. The standalone SVG sets the site's published `--color-green-brand:#10523c` as its `currentColor` context. Paths are unchanged; no lettering was cut from another logo. Hash/date are in the national registry.
+- AFL Dockers/Lions: retain the existing authentic transparent AFL sprite marks, including integral lettering. No verified symbol-only alternative was found during this bounded pass. Shared Feed frames increase their size without clipping or changing artwork.
+
+These files identify existing teams, competitions and destinations. Retrieval does not confer ownership or commercial licensing. Other current assets remain where a suitable verified transparent replacement was unavailable; no fabricated emblem or automatic background-removal pipeline is introduced.

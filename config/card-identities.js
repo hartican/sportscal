@@ -136,7 +136,7 @@
     wimbledon: officialMark("brand:wimbledon", "Wimbledon", "https://www.wimbledon.com/_next/static/media/Logo-Wimbledon.2wyelfplbl7j4.svg", "https://www.wimbledon.com/"),
     "roland-garros": officialMark("brand:roland-garros", "Roland Garros", "https://www.rolandgarros.com/img/logo-rg-mobile.svg", "https://www.rolandgarros.com/"),
     "cincinnati-open": officialMark("brand:cincinnati-open", "Cincinnati Open", "https://cincinnatiopen.com/wp-content/uploads/2024/01/Cincinnati-Open_Logo_01-Primary-RGB-1.png", "https://cincinnatiopen.com/our-brand/"),
-    "us-open": officialMark("brand:us-open", "US Open", "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3c/41/d8/3c41d8b5-9f18-b706-6bca-fc963d2a0a65/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg", "https://www.usopen.org/en_US/content/official_us_open_app.html"),
+    "us-open": referenceMark("brand:us-open", "US Open", "assets/identities/events/us-open-wordmark.svg", "https://www.usopen.org/images/header/usopen-header-logo.svg", {assetSource:"https://upload.wikimedia.org/wikipedia/commons/2/26/Usopen-header-logo.svg"}),
     "australian-open": officialMark("brand:australian-open", "Australian Open", "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ca/21/c5/ca21c5e1-dd94-4fdc-25c0-4602be548fcb/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg", "https://ausopen.com/app"),
     "le-mans": officialMark("brand:le-mans-24-hours", "24 Hours of Le Mans", "assets/identities/events/le-mans-24-hours.png", "https://www.24h-lemans.com/en/news/the-24-hours-of-le-mans-reveals-a-new-brand-identity-60525"),
     supercars: officialMark("competition:supercars", "Repco Supercars Championship", "assets/identities/competitions/supercars.png", "https://www.supercars.com/events/2026-bathurst-1000"),
@@ -542,6 +542,7 @@
     Object.freeze({ id: "australian-open", pattern: /\b(?:australian open|aus open)\b/i }),
   ]);
   const competitionMarks = Object.freeze({
+    "competition:billie-jean-king-cup":officialMark("brand:billie-jean-king-cup", "Billie Jean King Cup", "assets/identities/events/billie-jean-king-cup-day.png", "https://www.billiejeankingcup.com/en", {dark:"assets/identities/events/billie-jean-king-cup.svg"}),
     "competition:formula-one":eventMarks.f1,
     "competition:motogp":eventMarks.motogp,
     "competition:supercars":eventMarks.supercars,

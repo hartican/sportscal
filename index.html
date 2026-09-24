@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="309">
+<meta name="app-shell-version" content="310">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=309" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=310" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,7 +6885,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .match-centre-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.mc-refresh-notice{font-size:.85rem;opacity:.75}.mc-refresh-notice:empty{display:none}.mc-refresh-indicator{position:relative;height:0;max-width:800px;margin:auto;opacity:0;pointer-events:none}.mc-refresh-indicator.visible{opacity:.65}.mc-refresh-wheel{position:absolute;left:calc(50% - 10px);top:10px;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%}.mc-refresh-indicator.loading .mc-refresh-wheel{animation:mc-refresh-spin .8s linear infinite}@keyframes mc-refresh-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.mc-refresh-indicator.loading .mc-refresh-wheel{animation:none}}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=309">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=310">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7181,12 +7181,12 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=309"></script>
+<script src="assets/js/app-shell-runtime.js?v=310"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
   ? Promise.resolve(globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
-  : loadDeferredScript("config/national-team-identities.js?v=309")
+  : loadDeferredScript("config/national-team-identities.js?v=310")
     .then(() => globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES)
     .catch(error => {
       console.warn("National-team identities could not be loaded; team cards will retain semantic placeholders", error);
@@ -7195,7 +7195,7 @@ const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTIT
 let CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
 const cardIdentitiesReady = CARD_IDENTITIES
   ? Promise.resolve(CARD_IDENTITIES)
-  : loadDeferredScript("config/card-identities.js?v=309")
+  : loadDeferredScript("config/card-identities.js?v=310")
     .then(() => {
       CARD_IDENTITIES = globalThis.NOTHINGSPORTS_CARD_IDENTITIES || null;
       return CARD_IDENTITIES;
@@ -7555,7 +7555,7 @@ function glyphMarkup(key, options = {}){
 }
 
 const IDENTITY_IMAGE_SELECTOR = "img[data-event-logo-light],img[data-team-logo-light],img[data-identity-image]";
-const IDENTITY_FRAME_SELECTOR = ".identity-frame,.matchup-team-logo-slot,.event-hero-mark,.major-event-logo,.major-event-marker-logo,.matchup-competition-icon,.event-icon,.team-name-with-logo,.football-club-head";
+const IDENTITY_FRAME_SELECTOR = ".compact-matchup-side,.identity-frame,.matchup-team-logo-slot,.event-hero-mark,.major-event-logo,.major-event-marker-logo,.matchup-competition-icon,.event-icon,.team-name-with-logo,.football-club-head";
 const IDENTITY_FALLBACK_SELECTOR = ".team-logo-fallback,.team-logo-monogram,.code-inspector-identity-fallback,.event-sport-mark";
 let identityRecoveryHandle = null;
 
@@ -16198,7 +16198,8 @@ function scheduleScopeForEvent(ev){
   const codeId=codeIdForEvent(ev);
   const tournamentId=ev.tennisTournamentId || ev.tournamentId || '';
   const competitionId=ev.competitionId || '';
-  const label=ev.tournamentName || ev.competitionName || ev.majorEventName || (ev.stage==='Major'?ev.name:ev.key==='masters'?'Masters':codeId==='sport:f1'?'F1':'') || codeInspectorManifest?.codes?.find(c=>c.id===codeId)?.label || sportMetaForEvent(ev).label || ev.key || 'Sport';
+  const tournamentMark=['tennis','wimbledon'].includes(ev.key)?CARD_IDENTITIES?.markForCompetitionId(ev.competitionId):null;
+  const label=ev.tournamentName || ev.competitionName || (tournamentMark?.id?.startsWith('brand:')?tournamentMark.label:'') || ev.majorEventName || (ev.stage==='Major'?ev.name:ev.key==='masters'?'Masters':codeId==='sport:f1'?'F1':'') || codeInspectorManifest?.codes?.find(c=>c.id===codeId)?.label || sportMetaForEvent(ev).label || ev.key || 'Sport';
   return {codeId,tournamentId,competitionId,label};
 }
 
@@ -16996,7 +16997,13 @@ function buildEventCard(ev, options = {}){
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
   try {
     const card = buildDetailedEventCard(ev, options);
-    card.appendChild(buildFeedScheduleLink(ev));
+    const scheduleLink=buildFeedScheduleLink(ev);
+    if(activeTab==='feed'){
+      scheduleLink.classList.add('fixture-competition-link');
+      const header=card.querySelector('.fixture-card-header');
+      if(header){const format=header.dataset.fixtureFormat;if(format&&!scheduleLink.textContent.toLowerCase().includes(format.toLowerCase())&&!format.toLowerCase().includes(scheduleLink.textContent.toLowerCase()))scheduleLink.textContent=format+' · '+scheduleLink.textContent;const mark=header.querySelector('img');scheduleLink.replaceChildren(...(mark?[mark]:[]),document.createTextNode(scheduleLink.textContent));header.replaceChildren(scheduleLink);}
+      else card.appendChild(scheduleLink);
+    }else card.appendChild(scheduleLink);
     if(cardStateForEvent(ev)!=="compact")appendTournamentSlots(card,ev);
     if (isMarqueeFixture(ev)){
       card.classList.add("is-marquee-fixture");
@@ -17149,7 +17156,8 @@ function appendFixtureCardInformation(parent, ev, {isMinimised, state, options, 
 function composeFeedCard(card,ev,{compact,renderCardState}){
   card.classList.add('feed-fixture');
   if(ev.contestUnit==='tie'&&ev.key==='tennis')card.classList.add('tennis-team-tie');
-  const palette=NOTHINGSPORTS_FEED_CARD_PRESENTATION.palette(ev);
+  const fixtureSides=matchupIdentityMatches(ev,spoilerSafeDisplayTitle(ev));
+  const palette=NOTHINGSPORTS_FEED_CARD_PRESENTATION.palette(ev,fixtureSides.map(side=>({...side,participant:{...side.participant,countryCode:side.participant?.countryCode||CARD_IDENTITIES.nationalTeamIdentities?.teamsById?.[side.participant?.id||side.mark?.id]?.countryCode}})));
   if(palette){card.style.setProperty('--fixture-left',palette[0]);card.style.setProperty('--fixture-right',palette[1]);}
   const main=card.querySelector('.event-main')||card.querySelector('.compact-card-summary');
   if(!main)return;
@@ -17158,11 +17166,13 @@ function composeFeedCard(card,ev,{compact,renderCardState}){
   const summary=card.querySelector('.compact-card-summary');
   if(identity){
     const logos=[...identity.querySelectorAll('.matchup-team-logo-slot')],names=[...identity.querySelectorAll('.matchup-team-name')];
-    const sides=matchupIdentityMatches(ev,spoilerSafeDisplayTitle(ev));
+    const sides=fixtureSides;
     const format=identity.querySelector('.matchup-format-badge');
     identity.replaceChildren();identity.classList.add('feed-matchup');
     for(let i=0;i<2;i++){
       const side=document.createElement('div');side.className='feed-opponent';side.append(logos[i],names[i]);
+      const name=names[i].querySelector('.fixture-profile-link')||names[i];
+      name.textContent=NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(sides[i]?.participant?.id||sides[i]?.mark?.id,name.textContent);
       const standing=NOTHINGSPORTS_FEED_CARD_PRESENTATION.ranking(ev,sides[i]?.participant?.id||sides[i]?.mark?.id,canonicalSportsData?.ladderSnapshots||NOTHINGSPORTS_FEED_CARD_STANDINGS);
       if(standing){const rank=document.createElement('span');rank.className='fixture-standing';rank.textContent=standing.label;rank.title=standing.description;rank.setAttribute('aria-label',standing.description);side.append(rank);}
       identity.append(side);if(i===0&&timing)identity.append(timing);
@@ -17180,12 +17190,23 @@ function composeFeedCard(card,ev,{compact,renderCardState}){
     if(mark){if(ev.contestUnit==='tie'&&ev.key==='tennis')mark.remove();else main.prepend(mark);}
     const caption=card.querySelector(':scope > .fixture-event-caption');if(caption)main.prepend(caption);
   }
+  const header=document.createElement('div');header.className='fixture-card-header';
+  const oldKind=main.querySelector('.fixture-kind,.matchup-format-badge');if(oldKind){if(!/^(?:afl|nrl|tennis|football|golf|f1)$/i.test(oldKind.textContent.trim()))header.dataset.fixtureFormat=oldKind.textContent;oldKind.remove();}
+  const mark=card.querySelector('.event-hero-mark,.event-icon');
+  if(['tennis','wimbledon'].includes(ev.key)){
+    const brand=CARD_IDENTITIES.markForEvent(ev);
+    if(/\b(?:singles|doubles)\b/i.test(ev.stage||''))header.dataset.fixtureFormat=ev.stage;
+    if(brand&&brand.id?.startsWith('brand:')){const img=document.createElement('img');img.src=CARD_IDENTITIES.logoForTheme(brand,{useDark:themeUsesDarkAssets()});img.alt='';img.width=96;img.height=64;img.decoding='async';img.loading='lazy';img.onerror=()=>img.remove();header.append(img);}
+    mark?.remove();card.querySelector('.fixture-event-caption')?.remove();
+  }else if(mark){mark.classList.add('fixture-brand-mark');}
+  card.prepend(header);
   card.querySelector('.fixture-timing-header')?.remove();
   card.querySelector('.event-date-line')?.remove();
   if(compact){
     for(const side of summary.querySelectorAll('.compact-matchup-side')){
       const index=[...summary.querySelectorAll('.compact-matchup-side')].indexOf(side),ids=matchupIdentityMatches(ev,compactFixtureName(ev));
       const rank=NOTHINGSPORTS_FEED_CARD_PRESENTATION.ranking(ev,ids[index]?.participant?.id||ids[index]?.mark?.id,canonicalSportsData?.ladderSnapshots||NOTHINGSPORTS_FEED_CARD_STANDINGS);
+      const name=side.querySelector('.fixture-profile-link');if(name)name.textContent=NOTHINGSPORTS_FEED_CARD_PRESENTATION.displayLabel(ids[index]?.participant?.id||ids[index]?.mark?.id,name.textContent);
       if(rank){const el=document.createElement('small');el.className='fixture-standing';el.textContent=rank.label;el.title=rank.description;side.append(el);}
     }
     main.appendChild(buildNothingscoreSummary(ev,{showAggregate:true}));
@@ -17200,9 +17221,10 @@ function composeFeedCard(card,ev,{compact,renderCardState}){
   const rating=main.querySelector('.nsc-summary');if(rating)rating.after(info);else main.append(info);
   const more=document.createElement('button');more.type='button';more.className='fixture-more';more.textContent=cardStateForEvent(ev)==='opened'?'Less':'More…';more.setAttribute('aria-expanded',String(cardStateForEvent(ev)==='opened'));more.onclick=e=>{e.stopPropagation();renderCardState(cardStateForEvent(ev)==='opened'?'selected':'opened',{restoreFocus:true,focusTarget:'.fixture-more'});};
   if(compact){const hook=buildEventWhyItMatters(ev);if(hook)main.append(hook);}
-  main.append(more);
-  if(actions)main.append(actions);
-  else if(compact){const secondary=document.createElement('div');secondary.className='event-card-primary-actions';appendEventQuickActions(secondary,ev,{viewing:false});main.append(secondary);}
+  const footer=document.createElement('div');footer.className='fixture-card-footer';footer.append(more);
+  if(actions)footer.append(actions);
+  else if(compact){const secondary=document.createElement('div');secondary.className='event-card-primary-actions';appendEventQuickActions(secondary,ev,{viewing:false});footer.append(secondary);}
+  main.append(footer);
 }
 
 function buildDetailedEventCard(ev, options = {}){

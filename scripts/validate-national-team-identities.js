@@ -36,7 +36,7 @@ registry.allTeams.forEach(team => {
   assert.equal(hash, team.sha256, `${team.id} asset hash does not match its provenance record`);
   assert.match(team.sourceUrl, /^https:\/\//, `${team.id} needs an official source URL`);
   assert.match(team.assetSourceUrl, /^https:\/\//, `${team.id} needs an artwork retrieval URL`);
-  assert.equal(team.retrievedAt, team.assetPath === "assets/identities/national/cricket/south-africa-proteas.svg" ? "2026-09-25" : "2026-08-28");
+  assert.equal(team.retrievedAt, ["assets/identities/national/cricket/south-africa-proteas.svg","assets/identities/national/football/socceroos-symbol.svg"].includes(team.assetPath) ? "2026-09-25" : "2026-08-28");
   assert(["recorded", "permission-review-required"].includes(team.permissionReviewStatus), `${team.id} needs a permission review status`);
   if (team.assetKind === "coat-of-arms") assert.equal(team.permissionReviewStatus, "permission-review-required", `${team.id} government artwork must remain permission-review-required`);
   const mark = cardIdentities.participantMarks[team.id];

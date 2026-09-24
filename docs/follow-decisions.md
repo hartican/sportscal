@@ -201,3 +201,7 @@ Regressions: `validate-tennis-feed-normalisation.js`, `validate-tennis-feed-brow
 BJK Cup overviews show all published ties and nested singles/doubles match details, including source-backed scores behind existing Results controls. Rubber records never become standalone Feed fixtures. BJK women's team identities remain separate from Davis Cup men's teams and country follows in other sports. Future bracket participants stay spoiler-protected. Existing admission, pins, reminders and rating rules are unchanged. Regression: `validate-tournament-hydration.js`, `validate-bjk-browser.js` and tennis/Follow policy tests.
 
 The existing 28-day provisional structure remains. A seven-day pre-start source-check window plus ongoing tournaments adds factual hydration; it does not replace longer published calendars. Unresolved data gaps are reported in the refresh report only, with no operational warning added to cards.
+
+## Tennis card tournament branding — 25 September 2026
+
+The approved compact Feed polish supersedes the earlier instruction to omit tournament artwork on national ties: show a sourced transparent tournament mark with a readable centred label in the header. Do not reserve an empty hero if no verified mark exists. Reuse the existing scoped schedule link/handler there and remove its duplicate footer link. Admission, tournament follow semantics and navigation state remain unchanged. Regression: `validate-feed-card-polish-browser.js` and `validate-tennis-tie-layout-browser.js`.

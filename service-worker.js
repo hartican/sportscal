@@ -1,7 +1,8 @@
-const CACHE_NAME = "nothingsport-shell-v309";
-const SHELL_VERSION = "309";
+const CACHE_NAME = "nothingsport-shell-v310";
+const SHELL_VERSION = "310";
 const APP_SHELL = [
-  "/assets/providers/7plus.png",
+  "/assets/providers/7plus-transparent.svg",
+  "/assets/identities/events/us-open-wordmark.svg",
   "/assets/js/notifications-inbox.js?v=302",
   "/assets/styles/notifications-inbox.css?v=280",
   "/assets/js/app-update.js?v=293",
@@ -16,7 +17,7 @@ const APP_SHELL = [
   "/terms.html",
   "/assets/styles/nothingsport-foundation.css?v=293",
   // Bundled modules are cached once; separate files remain cacheable on demand.
-  "/assets/js/app-shell-runtime.js?v=309",
+  "/assets/js/app-shell-runtime.js?v=310",
   "/config/tournament-schedule.js?v=293",
   "/assets/js/tennis-schedule-ui.js?v=300",
   "/assets/js/nsc-rankings-ui.js?v=293",
@@ -30,7 +31,7 @@ const APP_SHELL = [
   "/config/follow-summary.js",
   "/assets/identities/events/le-mans-24-hours.png",
   "/assets/identities/competitions/supercars.png",
-  "/styles/follow-feed-rework.css?v=309",
+  "/styles/follow-feed-rework.css?v=310",
   "/config/admin-comms-workspace.js?v=218",
   "/config/marquee-live-renderer.js?v=218",
   "/config/tennis-coverage.js",
@@ -91,7 +92,9 @@ const APP_SHELL = [
 // National marks remain offline-capable without making the first install pay
 // their full multi-megabyte cost. Each mark is cached on first display.
 const DEFERRED_IDENTITY_ASSETS = new Set([
-  "/assets/identities/national/football/socceroos.png",
+  "/assets/identities/national/football/socceroos-symbol.svg",
+  "/assets/identities/events/billie-jean-king-cup.svg",
+  "/assets/identities/events/billie-jean-king-cup-day.png",
   "/assets/identities/national/football/matildas.png",
   "/assets/identities/national/football/turkiye.png",
   "/assets/identities/national/football/usa.png",

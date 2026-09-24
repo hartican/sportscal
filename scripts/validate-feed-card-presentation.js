@@ -19,3 +19,14 @@ for(const id of ['major-match:nrl-finals-2026:preliminary-final-2','major-match-
 assert(!f.viewingOptions({id:'unrelated',key:'nrl'}).some(x=>x.providerId==='nine-tv'));
 assert.deepEqual(f.viewingOptions({id:'major-match:nrl-finals-2026:preliminary-final-2',key:'nrl'},['foxtel']).map(x=>x.providerId),['nine-tv','nine','kayo','foxtel']);
 console.log('Feed presentation: dates, timing, source-backed rankings, historical cutoff, full venues and fixture-specific providers passed.');
+for(const [id,label] of [['team:afl:cd_t60','Dockers'],['participant:team:afl:cd_t20','Lions'],['team:football:socceroos','Socceroos'],['team:football:matildas','Matildas'],['team:cricket:south-africa-women','Proteas Women']])assert.equal(p.displayLabel(id,'Canonical name'),label);
+assert.equal(p.displayLabel('team:unknown','Unknown club'),'Unknown club');
+assert.equal(p.displayLabel('athlete:tennis:unknown','Player Name'),'Player Name');
+assert.deepEqual(p.palette({participantIds:['team:afl:cd_t60','team:afl:cd_t20']}),['#7751a8','#a53557']);
+assert.deepEqual(p.palette({participantIds:['team:tennis:bjk-cup:czechia','team:tennis:bjk-cup:spain'],participants:[{id:'team:tennis:bjk-cup:czechia',countryCode:'CZ'},{id:'team:tennis:bjk-cup:spain',countryCode:'ES'}]}),['#3863a5','#b63342']);
+assert.deepEqual(p.palette({key:'f1',venueCountryCode:'AU',participantIds:['athlete:f1:a','athlete:f1:b']}),['#397c66','#c8a733'],'two featured drivers never produce a team split');
+assert.equal(p.palette({key:'f1',venueCountryCode:'ZZ'}),null);
+assert.deepEqual(p.palette({key:'golf',competitionId:'competition:golf:masters-2027'}),['#248458','#248458']);
+console.log('Feed polish: canonical nickname mappings, unknown identities, team/nation splits and event palettes passed.');
+assert.equal(p.displayLabel('team:afl:cd_t60','Winner of preliminary final'),'Winner of preliminary final','display nicknames cannot reveal protected opponents');
+assert.equal(p.palette({participantIds:['team:afl:cd_t60','team:afl:cd_t20']},[{label:'Winner of preliminary final'}]),null,'team tints cannot reveal protected opponents');

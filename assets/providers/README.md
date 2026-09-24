@@ -47,3 +47,7 @@ other than the Stan source image being resized for mobile delivery.
 - `watch-afl.png`: official provider app mark, linked by its homepage; downloaded unchanged from `https://www.watchafl.com.au/assets/favicons/afl/apple-touch-icon.png` on 24 September 2026.
 
 - `foxtel-nrl.svg` and `kayo-nrl.svg`: unchanged provider marks from the official NRL draw at `https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg` and `https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg`, retrieved 24 September 2026. These have a more suitable optical footprint for the horizontal provider row than the previous padded assets.
+
+## Transparent card marks — 25 September 2026
+
+`7plus-transparent.svg` is the unmodified red 7+ vector retrieved from https://upload.wikimedia.org/wikipedia/en/4/47/Logo_7plus_2020.svg (reference page https://en.wikipedia.org/wiki/File:Logo_7plus_2020.svg). The shape matches Seven's previously bundled official red mark; this reviewed mirror supplies transparency without recreating it. It is third-party branding, not an ownership or permission grant. The old PNG is retained for cached URLs. Existing transparent Nine, 9Now, Kayo, Foxtel, beIN and Paramount+ marks now render without decorative CSS backplates; their destinations and provider eligibility are unchanged.
