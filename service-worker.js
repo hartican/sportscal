@@ -1,4 +1,4 @@
-const CACHE_NAME = "nothingsport-shell-v296";
+const CACHE_NAME = "nothingsport-shell-v297";
 const SHELL_VERSION = "296";
 const APP_SHELL = [
   "/assets/providers/7plus.png",
