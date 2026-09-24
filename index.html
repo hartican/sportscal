@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="293">
+<meta name="app-shell-version" content="294">
 <script src="/assets/js/app-update.js?v=293" defer></script>
 <link rel="preload" href="assets/js/app-shell-runtime.js?v=293" as="script">
 <meta property="og:type" content="website">
@@ -10739,9 +10739,19 @@ async function loadFootballDirectoryData(){
       }),
     ]);
     if (data?.schemaVersion !== api.SCHEMA_VERSION) throw new Error("Football directory schema is unsupported");
-    footballDirectoryData = data;
+    // Football's league directory must also expose canonical national sides.
+    // Their canonical IDs are the same IDs carried by international fixtures.
+    const nationalTeams = (globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES?.allTeams || [])
+      .filter(team => team.sportDomainId === 'sport:football' || team.id.startsWith('team:football:'))
+      .map(team => ({...team, name:team.displayName, leagueId:'competition:football:international-friendlies',
+        teamKind:'national', isNationalTeam:true, logoUrl:team.assetPath, logoDarkUrl:team.assetPath}));
+    const teams = new Map((data.teams || []).map(team => [team.id,team]));
+    nationalTeams.forEach(team => teams.set(team.id,{...teams.get(team.id),...team}));
+    footballDirectoryData = {...data, teams:[...teams.values()], leagues:[...data.leagues,
+      ...(!data.leagues.some(league => league.id === 'competition:football:international-friendlies')
+        ? [{id:'competition:football:international-friendlies',name:'National teams'}] : [])]};
     hydration?.progress(.9);
-    return data;
+    return footballDirectoryData;
   }catch(error){
     hydration?.fail("Football directory unavailable. Try again.");
     footballDirectoryError = error;

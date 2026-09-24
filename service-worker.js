@@ -1,5 +1,5 @@
-const CACHE_NAME = "nothingsport-shell-v293";
-const SHELL_VERSION = "293";
+const CACHE_NAME = "nothingsport-shell-v294";
+const SHELL_VERSION = "294";
 const APP_SHELL = [
   "/assets/providers/7plus.png",
   "/assets/js/notifications-inbox.js?v=293",
