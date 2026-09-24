@@ -13,12 +13,14 @@ const {chromium}=require('playwright');
    await page.waitForFunction(()=>typeof userPreferences==='object'&&!startupCoordinator.isHydrating());
    await page.evaluate(async()=>{await loadTennisFeedParents();activeTab='feed';userPreferences.showSpoilers=false;renderAll();});
    const parent=page.locator('.tennis-feed-parent').filter({hasText:'Billie Jean King Cup'}).first();
-   async function open(){await parent.locator('summary').first().click();await parent.locator('.tennis-contest-row').first().waitFor();}
+   async function open(){if(await parent.locator('details').first().getAttribute('open')===null)await parent.locator('summary').first().click();await parent.locator('.tennis-contest-row').first().waitFor();}
    await open();assert.equal(await parent.locator('.tennis-contest-row').count(),7);
    await parent.locator('.tennis-tie-details summary').first().click();
    let text=await parent.innerText();assert(text.includes('Marie Bouzkova'));assert(!text.includes('7-6(2)'),'scores hidden');assert(!text.includes('Czechia v Spain'),'future advancement hidden');assert(text.includes('Not before 19:00'));
-   await page.evaluate(()=>{userPreferences.showSpoilers=true;renderAll();});await open();
-   await parent.locator('.tennis-tie-details summary').first().click();
+   await page.evaluate(()=>{userPreferences.showSpoilers=true;renderAll();});
+   await parent.locator('.tennis-contest-row').first().waitFor();
+   assert.notEqual(await parent.locator('details').first().getAttribute('open'),null,'background render preserves parent expansion');
+   assert.notEqual(await parent.locator('.tennis-tie-details').first().getAttribute('open'),null,'background render preserves tie expansion');
    text=await parent.innerText();assert(text.includes('7-6(2) 4-6 6-4'));assert(text.includes('Czechia v Spain'));assert(text.includes('Shenzhen Bay Sports Centre Arena'));assert(text.includes('Nine / beIN Sports'));
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth),0);
    await page.screenshot({path:path.join(output,`bjk-${width}.png`)});

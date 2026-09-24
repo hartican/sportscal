@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="304">
+<meta name="app-shell-version" content="305">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=304" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=305" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -7181,7 +7181,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=304"></script>
+<script src="assets/js/app-shell-runtime.js?v=305"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16910,6 +16910,7 @@ function loadTennisFeedContests(){
   if(!tennisFeedContestLoading)tennisFeedContestLoading=fetchJson('data/follow-schedule/tennis.json',{cache:'no-cache'}).then(doc=>{tennisFeedContestDocument=doc;return doc;}).finally(()=>{tennisFeedContestLoading=null;});
   return tennisFeedContestLoading;
 }
+const tennisFeedOpenParents=new Set();
 function buildTennisFeedParent(parent){
   const card=document.createElement('article');card.className='event-card tennis-feed-parent';card.dataset.eventId=parent.id;
   const details=document.createElement('details'),summary=document.createElement('summary'),title=document.createElement('strong'),timing=document.createElement('span');
@@ -16920,7 +16921,7 @@ function buildTennisFeedParent(parent){
     body.replaceChildren();body.textContent='Loading contests…';
     try{
       const doc=await loadTennisFeedContests();
-      if(doc.fixtures.some(f=>f.rubbers?.length))await loadDeferredScript('assets/js/tennis-tie-details.js?v=304');
+      if(doc.fixtures.some(f=>f.rubbers?.length))await loadDeferredScript('assets/js/tennis-tie-details.js?v=305');
       if(!card.isConnected)return;
       const fixtures=NOTHINGSPORTS_TENNIS_FEED.reconcile({...parent,childContests:doc.fixtures.filter(e=>NOTHINGSPORTS_TENNIS_FEED.matches(parent,e))},activeEvents).childContests;
       body.replaceChildren();
@@ -16952,7 +16953,9 @@ function buildTennisFeedParent(parent){
       }
     }catch(error){loaded=false;body.textContent='Contests could not load. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry';retry.onclick=()=>void paint();body.append(retry);}
   }
-  details.addEventListener('toggle',()=>{if(details.open&&!loaded){loaded=true;void paint();}});
+  summary.addEventListener('click',()=>{if(details.open)tennisFeedOpenParents.delete(parent.id);else tennisFeedOpenParents.add(parent.id);});
+  details.open=tennisFeedOpenParents.has(parent.id);
+  details.addEventListener('toggle',()=>{if(!card.isConnected)return;if(details.open)tennisFeedOpenParents.add(parent.id);else tennisFeedOpenParents.delete(parent.id);if(details.open&&!loaded){loaded=true;void paint();}});
   card.append(buildFeedScheduleLink(parent));return card;
 }
 
