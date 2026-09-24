@@ -1,5 +1,6 @@
 (function(root){
  'use strict';
+ const openTies=new Set();
  function build(fixture,{showResults=false}={}){
   const details=document.createElement('details');details.className='tennis-tie-details';details.style.flexBasis='100%';
   const summary=document.createElement('summary');summary.textContent='Tie details';details.append(summary);
@@ -17,6 +18,9 @@
    else line(label+(match.conditional?' · if required':''));
   }
   const source=document.createElement('a');source.href=fixture.resultSourceUrl||fixture.sourceUrl;source.textContent='Official schedule and results';source.target='_blank';source.rel='noopener noreferrer';details.append(source);
+  summary.addEventListener('click',()=>{if(details.open)openTies.delete(fixture.id);else openTies.add(fixture.id);});
+  details.open=openTies.has(fixture.id);
+  details.addEventListener('toggle',()=>{if(!details.isConnected)return;if(details.open)openTies.add(fixture.id);else openTies.delete(fixture.id);});
   return details;
  }
  root.NOTHINGSPORTS_TENNIS_TIE_DETAILS={build};
