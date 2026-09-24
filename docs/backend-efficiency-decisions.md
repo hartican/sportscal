@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Gated Match Centre and consensus settlement — 24 September 2026
+
+Membership is a private window-scoped Feed query, separate from public compact scores. Score reads accept at most 60 published contest IDs with a three-second database deadline. Visible clients poll teams every five minutes and tennis every two; hidden clients stop. Interrupted sources use 30 minutes unless another active fixture or sourced restart requires the existing two-minute owner.
+
+Gated compact-score writes separate changing scores from full-source revision history and overlay them for existing Feed readers. No new cron, score-triggered deployment or history cleanup. The existing protected live scheduler runs at most 50 due consensus settlements before ingestion, so unrelated publishing failures cannot block due awards. Cutoffs and per-fixture versions are frozen, latest eligible Impact votes are retained once per person, and outcomes/bonus/inbox writes share a transaction. Tables and RPCs remain service-owned/RLS-protected. Production target remains nothingSport-recovery only. See `match-centre-rollout.md` for flags, measured storage and unfinished release gates.
+
 ## Unified notifications inbox — 22 September 2026
 
 Signed-in accounts receive a private inbox independent of device push consent and delivery. Creation is transactional at the existing chat, invitation, membership, reward and friend-rating sources. The existing notification dispatcher owns reminder inbox creation and bounded 90-day cleanup; no new cron or presence poll is added. History starts at the inbox migration epoch without backfill. Temporary chat guests keep their existing behaviour.

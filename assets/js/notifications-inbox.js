@@ -9,7 +9,7 @@
    case 'added':return {title:`${actor} added you to ${room}`,detail:'Open the conversation.'};
    case 'profile_followed':return {title:`${actor} followed you${bonus}`,detail:'View their profile and sporting follows.'};
    case 'follows_copied':return {title:`${actor} copied your follows${bonus}`,detail:'Your sporting picks helped someone find what to watch.'};
-   case 'points':return {title:`You earned ${item.points} point${item.points===1?'':'s'}`,detail:({heat_rating:'You rated the build-up.',pulse_rating:'You rated the live action.',impact_rating:'You rated the impact.',foresight_bonus:'Your prediction matched another fan’s rating.',follow_person:'You followed someone new.'})[item.detail]||'View your points and rewards.'};
+   case 'points':return {title:`You earned ${item.points} point${item.points===1?'':'s'}`,detail:({heat_rating:'You rated the build-up.',pulse_rating:'You rated the live action.',impact_rating:'You rated the impact.',foresight_bonus:'Your anticipation reward has settled. View your points and rewards.',follow_person:'You followed someone new.'})[item.detail]||'View your points and rewards.'};
    case 'rating':return {title:`${actor} gave an event 5 flames`,detail:`${({heat:'Heat',pulse:'Live',impact:'Impact'})[item.phase]||'Rating'} · open their pick.`};
    case 'reminder':return {title:item.title||'Your sporting reminder',detail:'It’s nearly time. See event details.'};
    default:return {title:item.title||'Nothing Sport update',detail:item.detail||'Open for details.'};

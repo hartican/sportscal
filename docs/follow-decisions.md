@@ -1,5 +1,11 @@
 # Follow and Feed decisions
 
+## Match Centre and versioned anticipation — 24 September 2026
+
+Match Centre replaces Events when enabled; Major Events stays in Follow. Membership uses the complete personalised Feed eligibility pipeline, not Feed filters or loaded pages. Men's NRL/AFL/cricket/rugby union and both tennis tours are in scope. Show from 30 minutes before start to one hour after confirmed completion; keep interruptions and multi-day breaks. Tennis parents and rubbers are excluded; ties expose rubbers as details. Results remain globally spoiler-controlled; rating/chat stays in the fixture view.
+
+For future fixtures assigned `consensus.v1` after activation, keep 1 Heat point and award 19 extra after the 48-hour Impact cutoff for exact agreement with the rounded latest-per-other-person Impact mean. One eligible peer suffices; exclude self, moderated/anonymous accounts and Pulse. Existing predictions keep `anticipation.v2`. No epoch reset. Efficiency remains successes / resolved scored predictions, never participation/social points. Regression: Match Centre model/browser and consensus database validators; rollout gates in `match-centre-rollout.md`.
+
 ## Notifications inbox — 22 September 2026
 
 The unified inbox includes real followed-user ratings, new followers, copied-follows rewards and standalone points, with existing privacy/moderation boundaries. A related social event and its points award appear in one entry. Tapping opens the relevant profile/picks, reward breakdown or fixture; it never follows a person, accepts a chat invitation or admits a fixture automatically. Notification read state is separate from chat unread state. New activity starts at rollout and expires from the inbox after 90 days; underlying follows, ratings and reward records retain their existing retention. Regression: `validate-inbox-database.js` and `validate-inbox-browser.js`.

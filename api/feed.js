@@ -39,10 +39,13 @@ function expiry(events,now,pipeline){
 function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new FeedResponseCache(),live=()=>liveHandler||(liveHandler=require('../lib/live-fixture-handler').createLiveFixtureHandler())}={}){
   return async function feedHandler(request,response){
     const route=new URL(request.url||'/api/feed','https://nothingsport.local');
+    if(route.searchParams.get('route')==='match-centre'||request.query?.route==='match-centre')return require('../lib/match-centre-handler').createMatchCentreHandler()(request,response);
     if(['/api/fixtures','/api/fixture-refresh'].includes(route.pathname)||['fixtures','fixture-refresh'].includes(route.searchParams.get('route')||request.query?.route))return live()(request,response);
     response.setHeader("Cache-Control", "private, max-age=0, must-revalidate");
     response.setHeader('Pragma','no-cache');response.setHeader('Vary','Authorization');
-    if((request.method||'GET')!=='GET'){response.setHeader('Allow','GET');return response.status(405).json({error:'The personalised feed supports GET requests only.',code:'method_not_allowed'});}
+    const matchCentreOnly=route.searchParams.get('scope')==='match-centre';
+    const publicMatch=matchCentreOnly&&request.method==='POST';
+    if((request.method||'GET')!=='GET'&&!publicMatch){response.setHeader('Allow','GET');return response.status(405).json({error:'The personalised feed supports GET requests only.',code:'method_not_allowed'});}
     const began=performance.now(),timings=[];
     const mark=(name,ms)=>timings.push(`${name};dur=${ms.toFixed(2)}`);
     const send=(entry,status)=>{
@@ -55,8 +58,9 @@ function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new
     let d;
     try{
       let t=performance.now();d=load();mark('init',performance.now()-t);
-      t=performance.now();const accessToken=d.bearerToken(request);const user=await d.authenticatedUser(accessToken);mark('auth',performance.now()-t);
-      t=performance.now();const loadedUserState=await d.loadUserState(user.id, accessToken);mark('state',performance.now()-t);
+      t=performance.now();const accessToken=publicMatch?null:d.bearerToken(request);const user=publicMatch?{id:'public-match-centre'}:await d.authenticatedUser(accessToken);mark('auth',performance.now()-t);
+      if(publicMatch&&Buffer.byteLength(JSON.stringify(request.body||{}))>131072)return response.status(413).json({error:'Preferences too large'});
+      t=performance.now();const loadedUserState=publicMatch?{preferences:request.body?.preferences||{},event_user_state:request.body?.eventUserState||{}}:await d.loadUserState(user.id, accessToken);mark('state',performance.now()-t);
       const userState=loadedUserState ? d.normalizeUserFollowState(loadedUserState) : null;
       if(!userState)throw new d.SupabaseRequestError('Your synced profile must be saved before the feed can rebuild.',{status:409,payload:{code:'user_state_missing'}});
       const bounded=(value,fallback,max)=>Number.isFinite(Number(value))?Math.min(max,Math.max(1,Math.floor(Number(value)))):fallback;
@@ -66,14 +70,14 @@ function createFeedHandler({load=feedDependencies,clock=()=>new Date(),cache=new
       t=performance.now();const snapshot=await d.readLiveSnapshots().catch(()=>null);mark('live',performance.now()-t);
       const now=clock();
       const {SERVER_FEED_BUILD_VERSION,SERVER_FEED_SCHEMA_VERSION,eventFeed}=d;
-      const key=digest({userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
+      const key=digest({matchCentreOnly,userId:user.id,userState,cursor,limit,fixtureRevision:snapshot?.revision||null,fixtureStale:snapshot?.stale||!snapshot,sourceVersion:d.eventFeed.version,sourcePublishedAt: eventFeed.publishedAt,followFixtureVersion:d.FOLLOW_FIXTURE_VERSION,buildVersion: SERVER_FEED_BUILD_VERSION,schemaVersion:SERVER_FEED_SCHEMA_VERSION,deployment:process.env.VERCEL_DEPLOYMENT_ID||process.env.VERCEL_GIT_COMMIT_SHA||'local',cacheVersion:'hobby-feed.v2'});
       const hit=cache.get(key,+now);
       if(hit){response.setHeader('X-Feed-Cache','HIT');return send(hit,request.headers?.['if-none-match']===hit.etag?304:200);}
       t=performance.now();const resolved=d.resolveUserFollowFixtures({events:[...d.contextualEvents,...selectedFixtureEvents(userState)],userState,copyEvents:false});mark('resolve',performance.now()-t);
       const participants=new Map(d.canonicalSportContext.participants.map(p=>[p.id,p]));
       resolved.participants.forEach(p=>participants.set(p.id,{...participants.get(p.id),...p}));
       const events=d.overlaySnapshots(resolved.events,snapshot?.sources);
-      const feed=d.buildServerFeed({events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false});
+      const feed=d.buildServerFeed({matchCentreOnly,events,userId:user.id,userState,participants:[...participants.values()],sourceVersion:snapshot?`${d.eventFeed.version}:${snapshot.revision}`:d.eventFeed.version,sourcePublishedAt:d.eventFeed.publishedAt,cursor,limit,now,onTiming:mark,copyEvents:false});
       t=performance.now();const body=JSON.stringify(feed);mark('serialize',performance.now()-t);
       const entry={body,etag:`"${digest([key,feed.generatedAt]).slice(0,24)}"`,expiresAt:expiry(events,now,d)};
       cache.set(key,entry);response.setHeader('X-Feed-Cache','MISS');

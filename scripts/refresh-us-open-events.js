@@ -254,6 +254,7 @@ function fixtureFromMatch(match, court, day, sourceUrl, capturedAt){
     statusUpdatedAt:capturedAt,
     ...(status === "completed" ? { resultPublishedAt:capturedAt } : {}),
     ...(score ? { scoreDisplay:score } : {}),
+    sets:(match?.scores?.sets||[]).filter(s=>Array.isArray(s)&&s.length===2).map(s=>({home:Number(s[0]?.score),away:Number(s[1]?.score)})).filter(s=>Number.isFinite(s.home)&&Number.isFinite(s.away)),
     ...(status === "completed" && score ? { result:score } : {}),
     matchupSides,
     venue:courtName,

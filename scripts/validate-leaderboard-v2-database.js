@@ -68,5 +68,6 @@ const assert=require('node:assert/strict'),fs=require('node:fs');
  await Promise.all([rate(b,'parallel','heat',3,'scheduled',future,end),rate(b,'parallel','heat',3,'scheduled',future,end)]);
  assert.equal((await db.query("select count(*) n from nothingsports_nsc_points where event_id='parallel' and action_key='heat_rating'")).rows[0].n,1);
  await db.exec('reset role; set role anon');await assert.rejects(db.query('select * from nothingsports_score_archive'),/permission denied/);await assert.rejects(db.query('select nothingsports_leaderboard_v2()'),/permission denied/);await db.exec('reset role');
+ await require('./validate-consensus-database')(db);
  await db.close();console.log('Leaderboard v2 database: reset archive, exact match, self exclusion, immutable success, timing, social idempotency, activity phases, copy CAS, sorting and RLS passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

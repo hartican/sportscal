@@ -36,6 +36,7 @@
     }
   ],
   "rewrites": [
+    {"source":"/api/match-centre","destination":"/api/feed?route=match-centre"},
     {"source":"/api/inbox","destination":"/api/notifications?route=inbox"},
     {"source":"/api/fixtures","destination":"/api/feed?route=fixtures"},
     {"source":"/api/fixture-refresh","destination":"/api/feed?route=fixture-refresh"},

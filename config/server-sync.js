@@ -677,8 +677,9 @@
         return authenticatedRequest("/api/nothingscore-marquee", { method:"POST", body:JSON.stringify(command || {}) });
       },
       invalidateFeed,
-      async loadFeed({ cursor = 0, limit = 20 } = {}){
+      async loadFeed({ cursor = 0, limit = 20, scope = '' } = {}){
         const params = new URLSearchParams({ cursor: String(cursor), limit: String(limit) });
+        if(scope==='match-centre')params.set('scope',scope);
         const owner=sessionSubject(session || restoreStoredSession()),epoch=feedEpoch;
         const key=`${owner}:${epoch}:${params}`;
         if(feedRequests.has(key))return feedRequests.get(key);

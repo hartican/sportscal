@@ -11,9 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="301">
+<meta name="app-shell-version" content="302">
+<meta name="match-centre-enabled" content="false">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=301" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=302" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6876,6 +6877,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .tennis-contest-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--border);font-size:.8rem;}
 .tennis-contest-row>span{flex:1 1 150px;min-width:0;overflow-wrap:anywhere;}
 .tennis-contest-row button{min-height:44px;}
+.match-centre{display:grid;gap:16px;max-width:800px;margin:auto}.match-centre-card{padding:20px;border:1px solid var(--border);border-radius:18px;background:var(--surface);min-width:0}.match-centre-card h3{overflow-wrap:anywhere}.match-centre-score{font-size:1.6rem;font-weight:750;white-space:pre-wrap}.match-centre-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}.match-centre .matchup-team-logo-slot{width:72px;height:72px}.match-centre-note{opacity:.7}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=301">
@@ -7174,7 +7176,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=301"></script>
+<script src="assets/js/app-shell-runtime.js?v=302"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8732,12 +8734,18 @@ let committedFeedPresentationFingerprint = null;
 let feedFilterVisible = true;
 let activeView = "list";
 let activeTab = "feed";
+// Independently gated preview; production activation also requires MATCH_CENTRE_ENABLED.
+const matchCentreEnabled = globalThis.NOTHINGSPORTS_MATCH_CENTRE_ENABLED === true || document.querySelector('meta[name="match-centre-enabled"]')?.content==='true';
+if(matchCentreEnabled){const tab=document.querySelector('[data-tab="events"]');tab.dataset.tab='match-centre';tab.setAttribute('aria-label','Match Centre');tab.querySelector('.tab-label').textContent='Match Centre';tab.querySelector('.tab-count').hidden=true;tab.querySelector('.tab-count').style.display='none';}
+function loadMatchCentre(){
+ return loadDeferredScript('config/match-centre.js').then(()=>loadDeferredScript('assets/js/match-centre-ui.js')).then(()=>{if(activeTab==='match-centre')globalThis.renderMatchCentre();});
+}
 if (startupReloadRestoreState){
   activeFilter = String(startupReloadRestoreState.activeFilter || activeFilter);
   // Saved Month View sessions retain their route, filter and scroll/card anchor,
   // but the retired view itself always resumes in the list timeline.
   activeView = startupReloadRestoreState.activeView === "month" ? "list" : "list";
-  activeTab = ["feed","events","follow"].includes(startupReloadRestoreState.activeTab) ? startupReloadRestoreState.activeTab : activeTab;
+  activeTab = ["feed","events","follow",...(matchCentreEnabled?['match-centre']:[])].includes(startupReloadRestoreState.activeTab) ? startupReloadRestoreState.activeTab : activeTab;
   eventsViewTab = ["major-events","ticket-alerts"].includes(startupReloadRestoreState.eventsViewTab) ? startupReloadRestoreState.eventsViewTab : eventsViewTab;
 }
 let sportHubState = {
@@ -10880,7 +10888,7 @@ function liveScheduleFixtures(fixtures,code=codeInspectorChunk?.code){
 }
 
 async function refreshLiveFixtureSnapshot(){
-  if(document.hidden || globalThis.location?.protocol==='file:' || startupCoordinator.isHydrating() || activeTab==='follow')return;
+  if(document.hidden || globalThis.location?.protocol==='file:' || startupCoordinator.isHydrating() || activeTab==='follow' || activeTab==='match-centre')return;
   if(liveFixtureRefresh)return liveFixtureRefresh;
   if(Date.now()-liveFixtureLastRequestedAt<30_000)return;
   const ids=[...new Set([...document.querySelectorAll('.feed-card-slot .event-card:not(.tennis-feed-parent)')].map(card=>card.closest('[data-feed-event-id]')?.dataset.feedEventId).filter(Boolean))].sort().slice(0,60);
@@ -21311,6 +21319,7 @@ function renderFeedIfPresentationChanged({ preserveViewport = true } = {}){
 }
 
 function renderCurrentSection(){
+  if(activeTab==='match-centre'){void loadMatchCentre();return;}
   if (activeInspectorCodeId){
     renderCodeInspector();
   } else if (startupCoordinator.isHydrating()){
@@ -21404,6 +21413,9 @@ function renderAll({ preserveViewport = false, viewportAnchor = null } = {}){
     jumpTodayBtn.hidden = false;
     listView.style.display = "flex";
     renderEventsView();
+  } else if (activeTab === "match-centre"){
+    calControls.style.display="none";preferenceSummary.style.display="none";jumpTodayBtn.hidden=true;listView.style.display="grid";
+    void loadMatchCentre();
   } else if (activeTab === "follow"){
     calControls.style.display = "none";
     preferenceSummary.style.display = "none";
@@ -25654,7 +25666,12 @@ async function renderMyForesight(body){
   const section=document.createElement('section');section.className='nsc-rewards';section.textContent='Loading your foresight rewards…';body.prepend(section);
   try{const result=await serverSyncClient.nothingscoreRequest({rewards:true});if(!section.isConnected)return;section.replaceChildren();
     const title=document.createElement('h3');title.textContent=`${result.points} points`;section.appendChild(title);
-    for(const item of result.settlements || []){const row=document.createElement('p');row.className='nsc-reward-row';row.textContent=`${item.name || item.event_id}: you called ${item.prediction}/5 · ${item.outcome===null?(item.result==='cancelled'?'Cancelled — participation points retained':'Not enough ratings to score'):`crowd ${Number(item.outcome).toFixed(1)}/5`} · +${item.bonus} foresight points`;section.appendChild(row);}
+    for(const item of result.settlements || []){
+      const row=document.createElement('p');row.className='nsc-reward-row';
+      const outcome={pending:'Awaiting settlement',cancelled:'Cancelled — participation retained',unscored:'Unscored — excluded from Efficiency',success:'Correct prediction · +19 bonus points',miss:'Incorrect prediction · participation retained'}[item.result]||'Awaiting settlement';
+      const benchmark=item.consensus?.benchmark!=null?` · other-user Impact consensus ${item.consensus.benchmark}/5 (${item.consensus.voter_count} voters; your own vote excluded)` : '';
+      row.textContent=`${item.name||item.event_id}: you called ${item.rating}/5 · ${userPreferences.showSpoilers?outcome+benchmark:'Settlement details hidden — turn Results ON to view'}`;section.appendChild(row);
+    }
     const progress=document.createElement('p');progress.textContent=result.nextPrivilege?`${result.nextPrivilege.remaining} points to ${result.nextPrivilege.label}`:'No new privileges announced.';section.appendChild(progress);
     for(const privilege of result.privileges || []){const row=document.createElement('p');row.textContent=`Unlocked: ${privilege.label}`;section.appendChild(row);}
     for(const entry of result.entries || []){const row=document.createElement('p');row.textContent=`${entry.label}: ${entry.entries} prize draw entries`;section.appendChild(row);}
@@ -26238,7 +26255,7 @@ window.addEventListener('focus',scheduleSydneyMidnight);
 window.addEventListener('focus',refreshFeedClock);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFeedClock();});
 </script>
-<script src="assets/js/notifications-inbox.js?v=293"></script>
+<script src="assets/js/notifications-inbox.js?v=302"></script>
 <script>
 let notificationDestinationDialog=null;
 function closeNotificationDestination(){
