@@ -1,6 +1,6 @@
 # Match Centre and consensus rollout
 
-Implementation baseline: main `85ee1ca`, 24 September 2026. The feature is disabled by default. No production migrations or flags were changed during local implementation.
+Implementation baseline: main `85ee1ca`, 24 September 2026. Initial implementation was gated off. On 24 September the user explicitly authorised deployment with the known installed-PWA gate bypassed. The two additive migrations have since been applied to nothingSport-recovery and production environment flags configured. This release enables the Match Centre presentation; consensus assignment is activated separately after release verification.
 
 ## Gates and sequence
 
@@ -26,8 +26,8 @@ Free score coverage is limited by existing adapters. NRL/AFL use current officia
 
 Physical-device/PWA, deployed authenticated end-to-end paths, production query plans and fresh latency/egress observations remain release gates. Do not describe these as tested by the mocked browser suite.
 
-### Reproduced release blocker
+### Accepted release exception — installed PWA
 
-`PWA_BASELINE_SHA=85ee1ca PLAYWRIGHT_MODULE=/tmp/sportscal-avatar-tests/node_modules/playwright node scripts/validate-installed-pwa-upgrade-browser.js` failed twice: candidate document 302 loaded, but controller 301 remained active and worker 302 remained installed/waiting past 45 seconds. The application reported `phase: checking`; the harness reported no pending page requests. No activation workaround or gate bypass was applied. This blocks publication/activation pending diagnosis; the ordinary browser suite is not equivalent to an installed-PWA upgrade.
+`PWA_BASELINE_SHA=85ee1ca PLAYWRIGHT_MODULE=/tmp/sportscal-avatar-tests/node_modules/playwright node scripts/validate-installed-pwa-upgrade-browser.js` failed twice: candidate document 302 loaded, but controller 301 remained active and worker 302 remained installed/waiting past 45 seconds. The application reported `phase: checking`; the harness reported no pending page requests. On 24 September the user instructed “Bypass blockers and deploy”. This specific gate is waived for this release, not passed or fixed. Installed clients may remain on the older worker; the ordinary browser suite is not equivalent to an installed-PWA upgrade. Existing security boundaries, migration checks and serialized deployment safeguards remain in place.
 
 Read-only Supabase security advisors were also inspected. Existing service-only tables have informational RLS-without-policy notices; existing anonymous-policy/password-protection warnings were not changed by this implementation. See the [Supabase advisor guidance](https://supabase.com/docs/guides/database/database-advisors) before treating those baseline findings as newly introduced issues.
