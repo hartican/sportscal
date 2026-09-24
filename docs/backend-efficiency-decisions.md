@@ -1,5 +1,11 @@
 # Backend efficiency decisions
 
+## Live cricket recovery — 24 September 2026
+
+The recovery project had no live-fixture pg_cron job, pg_net extension or Vault configuration; source checks had stopped on 22 September. Restore the documented `nothingsport-live-fixtures` two-minute owner on recovery, not a second scheduler. Keep its credential server-only and activate after the matching Vercel release. HTTP timeout is 60 seconds to cover the existing bounded 45-second worker plus settlement. Score requests never fetch providers themselves.
+
+Match Centre resolves published cross-provider aliases by exact sport/start/participant identity, preserving the requested Feed ID and batching score reads to 60 IDs. Cricket Australia batting IDs resolve to the canonical team at ingestion. Old checks are explicitly stale. Regression: `validate-cricket-live-scores.js`; live acceptance requires an autonomous scheduler HTTP response and the affected ODI score in the public API, not deployment alone.
+
 ## Gated Match Centre and consensus settlement — 24 September 2026
 
 Membership is a private window-scoped Feed query, separate from public compact scores. Score reads accept at most 60 published contest IDs with a three-second database deadline. Visible clients poll teams every five minutes and tennis every two; hidden clients stop. Interrupted sources use 30 minutes unless another active fixture or sourced restart requires the existing two-minute owner.

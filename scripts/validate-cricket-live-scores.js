@@ -1,0 +1,20 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {parseCricketPage}=require('../lib/source-coverage');
+const {createMatchCentreHandler}=require('../lib/match-centre-handler');
+const game={id:39987,homeTeam:{id:21,name:'South Africa Men'},awayTeam:{id:23,name:'Australia Men'},startDateTime:'2026-09-24T08:00:00Z',isLive:true,innings:[{battingTeamId:21,runsScored:218,numberOfWicketsFallen:5,oversBowled:'41.0'}]};
+const [ca]=parseCricketPage(`FIXTURES_DATA = JSON.parse('${JSON.stringify([game])}')`,{sourceUrl:'https://www.cricket.com.au/matches/'});
+assert.equal(ca.innings[0].participantId,'team:cricket:south-africa');
+assert.equal(ca.innings[0].team,'South Africa Men');
+const espn={...ca,id:'fixture:cricket:espn:1525655',eventId:'fixture:cricket:espn:1525655',canonicalEventId:'fixture:cricket:espn:1525655',innings:[],status:'scheduled'};
+(async()=>{
+ let batches=[];
+ const handler=createMatchCentreHandler({enabled:()=>true,published:()=>[espn,{...ca,innings:[],status:'scheduled'}],request:async(_p,{body})=>{batches.push(body.p_fixture_ids);return body.p_fixture_ids.includes(ca.id)?[{fixture:ca,checked_at:new Date().toISOString()}]:[];}});
+ const response={setHeader(){},status(n){this.code=n;return this;},json(data){this.data=data;}};
+ await handler({url:'/api/match-centre?ids='+espn.id},response);
+ assert.equal(response.data.fixtures.length,1);
+ const score=response.data.fixtures[0];assert.equal(score.id,espn.id);assert.equal(score.status,'live');
+ assert.deepEqual(score.score.innings[0],{participantId:'team:cricket:south-africa',team:'South Africa Men',runs:218,wickets:5,overs:'41.0'});
+ assert(batches.every(ids=>ids.length<=60));assert.equal(score.stale,false);
+ console.log('Cricket live scores: CA innings, canonical batting identity, ESPN alias and bounded lookup passed.');
+})().catch(e=>{console.error(e);process.exitCode=1;});
