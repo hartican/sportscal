@@ -138,6 +138,8 @@ async function snapshotContract(){
   try{
     const server=require(serverPath);
     const fixedNow=new Date("2026-09-10T02:00:00.000Z");
+    // Published fixture status changes after play; this contract models a preview.
+    server.eventMap().set(eventId,{...server.eventFor(eventId),status:"upcoming",scheduleStatus:"confirmed",startTimeUtc:"2026-09-11T10:00:00Z"});
     const [snapshot]=await server.snapshots([eventId],{userId,now:fixedNow,demoMode:"public"});
     assert.equal(snapshot.phase,"heat");
     assert.equal(snapshot.aggregate.contributorMix.real,1);
@@ -271,7 +273,7 @@ async function handlerContracts(){
     await handler({method:"GET",url:"https://nothingsport.vercel.app/api/nothingscore?ids=fixture-one",headers:{authorization:"Bearer token"}},hiddenOwnerResponse);
     assert.equal(hiddenOwnerResponse.statusCode,200);
     assert.deepEqual(hiddenOwnerResponse.body.viewer.profile,{
-      profileId:"profile-one",displayName:"Test Person",handle:"@test_person",visibility:"hidden",hidden:true,deleted:false,
+      profileId:"profile-one",displayName:"Test Person",handle:"@test_person",avatarUrl:null,visibility:"hidden",hidden:true,deleted:false,
     },"viewer.profile GET must serialize the signed-in owner's hidden profile, not the public anonymous form");
 
     profileVisibility="deleted";

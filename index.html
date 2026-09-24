@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="307">
+<meta name="app-shell-version" content="308">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=307" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=308" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,7 +6885,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .match-centre-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.mc-refresh-notice{font-size:.85rem;opacity:.75}.mc-refresh-notice:empty{display:none}.mc-refresh-indicator{position:relative;height:0;max-width:800px;margin:auto;opacity:0;pointer-events:none}.mc-refresh-indicator.visible{opacity:.65}.mc-refresh-wheel{position:absolute;left:calc(50% - 10px);top:10px;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%}.mc-refresh-indicator.loading .mc-refresh-wheel{animation:mc-refresh-spin .8s linear infinite}@keyframes mc-refresh-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.mc-refresh-indicator.loading .mc-refresh-wheel{animation:none}}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=306">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=308">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7181,7 +7181,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=307"></script>
+<script src="assets/js/app-shell-runtime.js?v=308"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -16487,7 +16487,7 @@ function registerNothingscoreEvent(ev, { force = false } = {}){
   if (nothingscoreBatchInFlight.has(eventId)) return;
   if (!force && Date.now() - Number(nothingscoreLoadErrors.get(eventId) || 0) < 60_000) return;
   const snapshot = nothingscoreSnapshots.get(eventId);
-  const maxAge = snapshot?.phase === "pulse" ? 25_000 : 5 * 60_000;
+  const maxAge = snapshot?.phase === "pulse" ? 120_000 : 5 * 60_000;
   if (!force && Date.now() - Number(nothingscoreLoadedAt.get(eventId) || 0) < maxAge) return;
   nothingscorePendingIds.add(eventId);
   if (!nothingscoreBatchTimer) nothingscoreBatchTimer = window.setTimeout(flushNothingscoreBatch, 0);
@@ -16554,7 +16554,7 @@ function buildNothingscorePeerResults(ev,snapshot,{inDrawer=false,showAggregate=
     const phase=snapshot?.phase||({upcoming:'heat',live:'pulse',past:'impact'})[getEventStatus(ev)];
     const singular=peers?.count===1;
     const verb=phase==='heat'?(singular?'expects this to be':'expect this to be'):phase==='pulse'?(singular?'is rating this':'are rating this'):(singular?'has rated this':'have rated this');
-    summary.textContent=!peers?(nothingscoreLoadErrors.has(nothingscoreEventId(ev))?'Ratings unavailable':'Ratings loading…'):!peers.count?'Be the first to rate':`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${Number(peers.average).toFixed(1)}/5`;
+    summary.textContent=!peers?(snapshot?.ratingRequired?'Rate to reveal community ratings':snapshot||nothingscoreLoadErrors.has(nothingscoreEventId(ev))?'Ratings unavailable':'Ratings loading…'):!peers.count?'Be the first to rate':`${peers.count} Nothinger${peers.count===1?'':'s'} ${verb} ${Number(peers.average).toFixed(1)}/5`;
     root.appendChild(summary);
     const tags=document.createElement('div');tags.className='fixture-tags';
     const labels=[];const homeTag=followedHomeTag(ev);if(homeTag)labels.push(homeTag);if(NOTHINGSPORTS_PROMOTED_REPLAY.recommendation(ev,snapshot,phase))labels.push('Promoted replay');if(peers?.count)labels.push(peers.label||['Boring','Mid','Interesting','Cooking','Epic'][Math.round(peers.average)-1]);
@@ -16601,7 +16601,15 @@ function buildInlineCrowdRating(ev,snapshot){
       finally{inlineRatingRequests.delete(id);group.querySelectorAll('button').forEach(x=>x.disabled=false);}
     };group.appendChild(b);
   }
-  if(awaitingViewer)status.textContent='Checking your rating…';
+  if(awaitingViewer){
+    const failed=nothingscoreLoadErrors.has(id);
+    status.textContent=failed?'Your rating could not be loaded.':'Checking your rating…';
+    if(failed){
+      const retry=document.createElement('button');retry.type='button';retry.className='nsc-rating-retry';retry.textContent='Retry ratings';
+      retry.onclick=event=>{event.stopPropagation();nothingscoreLoadErrors.delete(id);registerNothingscoreEvent(ev,{force:true});nothingscoreQueueRender();};
+      status.append(' ',retry);
+    }
+  }
   paint(chosen);root.append(group,prompt);
   if(phase==='heat'&&!exactTiming){const timing=document.createElement('span');timing.className='nsc-rating-timing-note';timing.textContent='Start time unconfirmed';root.appendChild(timing);}
   root.appendChild(status);return root;

@@ -671,7 +671,8 @@
         if(rankings){params.set("rankings","1");Object.entries(rankings).forEach(([key,value])=>{if(value!==null&&value!==undefined)params.set(key,String(value));});}
         if(ratingAffinity)params.set("ratingAffinity","1");
         const target = `/api/nothingscore?${params.toString()}`;
-        return session || restoreStoredSession() ? authenticatedRequest(target) : jsonRequest(target);
+        const options = ids.length ? {timeoutMs:Math.min(requestTimeoutMs,8000)} : {};
+        return session || restoreStoredSession() ? authenticatedRequest(target,options) : jsonRequest(target,options);
       },
       async nothingscoreMarquee(command){
         return authenticatedRequest("/api/nothingscore-marquee", { method:"POST", body:JSON.stringify(command || {}) });

@@ -115,6 +115,8 @@
     "competition:sailgp":viewingRights(["competition:sailgp", "competition:sailgp-2026", "sailgp"], ["kayo", "foxtel"], "https://sailgp.com/news/26/sailgp-confirms-global-broadcast-lineup-2026-season/", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
     "competition:fiba-womens-world-cup":viewingRights(["competition:fiba-womens-world-cup", "competition:fiba-womens-world-cup-2026", "fiba-women"], ["kayo", "foxtel"], "https://www.techradar.com/how-to-watch/basketball/fiba-womens-basketball-world-cup-2026-free", { sourceIsProvider:false, verifiedAt:"2026-09-06T00:00:00.000Z" }),
     "competition:cricket-australia":viewingRights(["competition:cricket-australia", "boxing-day-test", "new-year-s-test", "the-ashes"], ["kayo", "foxtel", "seven"], null),
+    // Reviewed series rights, not a blanket rule for overseas cricket.
+    "competition:cricket:4567":viewingRights(["competition:cricket:4567", "competition:cricket:espn:24203", "south-africa-v-australia-odis-2026"], ["kayo", "foxtel"], "https://www.cricket.com.au/news/4578082/south-africa-australia-odis-one-day-internationals-2026-preview-guide-tv-television-stream-broadcast-details-how-to-watch-team-squad-news-session-start-times-durban-johannesburg-potchefstroom", {completeProviderList:true, verifiedAt:"2026-09-24T14:15:53Z", eventKeys:Object.freeze(["cricket"]), notBefore:"2026-09-01", notAfter:"2026-10-01", matchPriority:3}),
     "competition:icc-cricket":viewingRights(["competition:icc", "icc-world-cup", "icc-champions-trophy"], ["prime-video"], null),
     "competition:nba":viewingRights(["competition:nba"], ["nba-pass"], null),
     "competition:nbl":viewingRights(["competition:nbl"], ["kayo", "foxtel"], null),
@@ -784,7 +786,7 @@
       .filter(option => option && typeof option === "object" && option.rightsScope === "fixture")
       .map(option => trustedProviderIdForOption(event, option))
       .filter(Boolean)));
-    const rightsProviderIds = fixtureProviderIds.length
+    const rightsProviderIds = rights?.completeProviderList ? [...rights.providerIds] : fixtureProviderIds.length
       ? fixtureProviderIds
       : rights ? [...(isGrandFinal && rights.grandFinalProviderIds ? rights.grandFinalProviderIds : rights.providerIds)] : [];
     if (rightsProviderIds.length || rights?.coverageStatus === "unverified"){
