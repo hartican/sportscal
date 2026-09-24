@@ -16,5 +16,8 @@ const espn={...ca,id:'fixture:cricket:espn:1525655',eventId:'fixture:cricket:esp
  const score=response.data.fixtures[0];assert.equal(score.id,espn.id);assert.equal(score.status,'live');
  assert.deepEqual(score.score.innings[0],{participantId:'team:cricket:south-africa',team:'South Africa Men',runs:218,wickets:5,overs:'41.0'});
  assert(batches.every(ids=>ids.length<=60));assert.equal(score.stale,false);
+ const claims=[];
+ await require('../lib/live-fixtures').refreshDueSources({sources:['discovery-cricket-future-2','cricket-ca-current','discovery-cricket-future-1'].map(id=>({id,fetch:async()=>[ca]})),store:{dueIds:async()=>[],claim:async id=>{claims.push(id);return {};},publish:async()=>{},fail:async()=>{}}});
+ assert.equal(claims[0],'cricket-ca-current','season discovery cannot starve current innings');
  console.log('Cricket live scores: CA innings, canonical batting identity, ESPN alias and bounded lookup passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
