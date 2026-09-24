@@ -2480,6 +2480,12 @@ return {womensT20,apply,fields};
 
   function followedScheduleCodes(preferences, codes){
     const keys = new Set(preferences?.followedSports || []);
+    for(const id of preferences?.selectedSelectorEntityIds||[]){
+      if(id.startsWith('sport:'))keys.add(id.slice(6));
+    }
+    // Bathurst is the explicitly approved inherited Motorsport coverage.
+    // Loading the schedule does not override the admission policy's opt-outs.
+    if(keys.has('motorsport'))keys.add('supercars');
     for (const follow of preferences?.preferenceGraph?.entityFollows || []){
       if (["follow", "priority"].includes(follow?.followLevel)) keys.add(String(follow.participantId || "").split(":")[1]);
     }

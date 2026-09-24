@@ -164,3 +164,5 @@ Senior Socceroos fixtures qualify for an explicit Football follow, including pro
 ## Bathurst and V8 Supercars - 24 September 2026
 
 User explicitly authorises V8 Supercars under Motorsport and default Bathurst 1000 admission for Motorsport followers. Only the 2026 Bathurst race is in scope; no other rounds or sessions. Direct V8 Supercars follows also qualify. Explicit mutes and exclusions still win. This is a scoped exception to the new-coverage opt-in rule.
+
+Bathurst inheritance implementation clarification - 24 September 2026: Motorsport parent selections must load the Supercars schedule as well as qualify its Bathurst fixture for automatic Feed admission. Schedule projections must retain source-backed marquee classification so Follow and Feed use the same eligibility evidence. Explicit exclusions continue to win; this does not opt users into other Supercars rounds.

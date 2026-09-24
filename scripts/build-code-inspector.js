@@ -212,6 +212,7 @@ function normalizeFixture(event, codeId, extra = {}){
     sourceEventIds:[...new Set([event.id,event.eventId,event.canonicalEventId,...(event.sourceEventIds||[])].filter(Boolean))],
     codeId,
     key,
+    ...Object.fromEntries(["marqueeClassification","sportDomainId","preferenceDomainId","discoverySportId","sessionType","cardKind"].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(event.published === false ? {published:false} : {}),
     ...(event.identityRef ? {identityRef:event.identityRef} : {}),
     competitionId: event.competitionId || extra.competitionId || null,
