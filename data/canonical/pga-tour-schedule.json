@@ -1,7 +1,7 @@
 {
   "schemaVersion": "pga-tour-schedule.v1",
   "sourceName": "PGA TOUR official schedule",
-  "checkedAt": "2026-09-24T12:38:40.334Z",
+  "checkedAt": "2026-09-24T20:16:13.181Z",
   "tournaments": [
     {
       "id": "R2026006",
@@ -857,7 +857,7 @@
     },
     {
       "id": "R2026088",
-      "name": "PGA TOUR Q-School presented by Korn Ferry",
+      "name": "PGA Tour Q-School presented by Korn Ferry",
       "season": 2026,
       "startDate": "2026-12-10",
       "endDate": "2026-12-13",
@@ -983,7 +983,7 @@
     },
     {
       "id": "R2027011",
-      "name": "THE PLAYERS Championship",
+      "name": "The Players Championship",
       "season": 2027,
       "startDate": "2027-03-11",
       "endDate": "2027-03-14",
@@ -1361,7 +1361,7 @@
     },
     {
       "id": "R2027060",
-      "name": "TOUR Championship",
+      "name": "Tour Championship",
       "season": 2027,
       "startDate": "2027-08-26",
       "endDate": "2027-08-29",

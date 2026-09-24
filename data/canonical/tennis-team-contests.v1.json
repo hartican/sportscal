@@ -687,7 +687,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -735,7 +735,7 @@
           "score": "7-6(2) 4-6 6-4",
           "winnerTeamId": "team:tennis:bjk-cup:czechia",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
           "name": "Marie Bouzkova v Sonay Kartal"
         },
         {
@@ -775,7 +775,7 @@
           "score": "6-2 7-6(3)",
           "winnerTeamId": "team:tennis:bjk-cup:czechia",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
           "name": "Linda Noskova v Katie Boulter"
         },
         {
@@ -791,20 +791,20 @@
         }
       ],
       "score": "2-0",
-      "result": {
-        "status": "official",
-        "score": "2-0",
-        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
-        "checkedAt": "2026-09-24T12:48:44.643Z"
-      },
-      "outcomeText": "Czechia won 2–0",
-      "recapText": "Official Billie Jean King Cup result.",
       "winnerParticipantId": "team:tennis:bjk-cup:czechia",
       "eliminatedParticipantIds": [
         "team:tennis:bjk-cup:great-britain"
       ],
       "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
-      "resultSourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "resultSourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "result": {
+        "status": "official",
+        "score": "2-0",
+        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-czechia-v-great-britain-2026-billie-jean-king-cup-finals-quarter-final",
+        "checkedAt": "2026-09-24T20:16:12.469Z"
+      },
+      "outcomeText": "Czechia won 2–0",
+      "recapText": "Official Billie Jean King Cup result.",
       "participants": [
         {
           "id": "team:tennis:bjk-cup:czechia",
@@ -872,7 +872,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -920,7 +920,7 @@
           "score": "6-2 6-2",
           "winnerTeamId": "team:tennis:bjk-cup:spain",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
           "name": "Jessica Bouzas Maneiro v Sonja Zhiyenbayeva"
         },
         {
@@ -960,7 +960,7 @@
           "score": "6-2 3-6 6-1",
           "winnerTeamId": "team:tennis:bjk-cup:kazakhstan",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
           "name": "Cristina Bucsa v Yulia Putintseva"
         },
         {
@@ -1006,25 +1006,25 @@
           "score": "6-2 7-5",
           "winnerTeamId": "team:tennis:bjk-cup:spain",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
           "name": "Cristina Bucsa / Sara Sorribes Tormo v Anna Danilina / Zhibek Kulambayeva"
         }
       ],
       "score": "2-1",
-      "result": {
-        "status": "official",
-        "score": "2-1",
-        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
-        "checkedAt": "2026-09-24T12:48:44.643Z"
-      },
-      "outcomeText": "Spain won 2–1",
-      "recapText": "Official Billie Jean King Cup result.",
       "winnerParticipantId": "team:tennis:bjk-cup:spain",
       "eliminatedParticipantIds": [
         "team:tennis:bjk-cup:kazakhstan"
       ],
       "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
-      "resultSourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "resultSourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "result": {
+        "status": "official",
+        "score": "2-1",
+        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-kazakhstan-v-spain-2026-billie-jean-king-cup-finals-quarter-final",
+        "checkedAt": "2026-09-24T20:16:12.469Z"
+      },
+      "outcomeText": "Spain won 2–1",
+      "recapText": "Official Billie Jean King Cup result.",
       "participants": [
         {
           "id": "team:tennis:bjk-cup:spain",
@@ -1092,7 +1092,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -1140,7 +1140,7 @@
           "score": "6-7(6) 6-1 6-1",
           "winnerTeamId": "team:tennis:bjk-cup:ukraine",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
           "name": "Anhelina Kalinina v Jana Otzipka"
         },
         {
@@ -1180,7 +1180,7 @@
           "score": "6-7(5) 6-4 6-4",
           "winnerTeamId": "team:tennis:bjk-cup:belgium",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
           "name": "Elina Svitolina v Greet Minnen"
         },
         {
@@ -1226,25 +1226,25 @@
           "score": "6-3 6-3",
           "winnerTeamId": "team:tennis:bjk-cup:ukraine",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
           "name": "Anhelina Kalinina / Lyudmyla Kichenok v Magali Kempen / Lara Salden"
         }
       ],
       "score": "2-1",
-      "result": {
-        "status": "official",
-        "score": "2-1",
-        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
-        "checkedAt": "2026-09-24T12:48:44.643Z"
-      },
-      "outcomeText": "Ukraine won 2–1",
-      "recapText": "Official Billie Jean King Cup result.",
       "winnerParticipantId": "team:tennis:bjk-cup:ukraine",
       "eliminatedParticipantIds": [
         "team:tennis:bjk-cup:belgium"
       ],
       "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
-      "resultSourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "resultSourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "result": {
+        "status": "official",
+        "score": "2-1",
+        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ukr-v-bel-2026-billie-jean-king-cup-finals-quarter-final",
+        "checkedAt": "2026-09-24T20:16:12.469Z"
+      },
+      "outcomeText": "Ukraine won 2–1",
+      "recapText": "Official Billie Jean King Cup result.",
       "participants": [
         {
           "id": "team:tennis:bjk-cup:ukraine",
@@ -1292,7 +1292,7 @@
       "name": "China v Italy",
       "roundLabel": "Quarterfinal",
       "round": "Quarterfinal",
-      "status": "live",
+      "status": "completed",
       "participantSlots": [
         {
           "slot": 1,
@@ -1312,7 +1312,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -1360,7 +1360,7 @@
           "score": "6-0 6-2",
           "winnerTeamId": "team:tennis:bjk-cup:china",
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
           "name": "Zhang Shuai v Elisabetta Cocciaretto"
         },
         {
@@ -1369,7 +1369,7 @@
           "contestUnit": "rubber",
           "order": 2,
           "matchType": "Singles",
-          "status": "upcoming",
+          "status": "completed",
           "conditional": false,
           "participantIds": [
             "competitor:tennis:wta:jasmine-paolini",
@@ -1398,8 +1398,10 @@
             }
           ],
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
-          "name": "Zheng Qinwen v Jasmine Paolini"
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "name": "Zheng Qinwen v Jasmine Paolini",
+          "score": "6-3 7-6(4)",
+          "winnerTeamId": "team:tennis:bjk-cup:italy"
         },
         {
           "id": "fixture:tennis:bjk-cup:2026:finals:qf4:rubber:3",
@@ -1407,13 +1409,13 @@
           "contestUnit": "rubber",
           "order": 3,
           "matchType": "Doubles",
-          "status": "upcoming",
+          "status": "completed",
           "conditional": true,
           "participantIds": [
             "competitor:tennis:wta:jasmine-paolini",
             "competitor:tennis:wta:sara-errani",
             "competitor:tennis:wta:guo-hanyu",
-            "competitor:tennis:wta:zhang-shuai"
+            "competitor:tennis:wta:jiang-xinyu"
           ],
           "sides": [
             {
@@ -1433,20 +1435,36 @@
               "teamId": "team:tennis:bjk-cup:china",
               "names": [
                 "Guo Hanyu",
-                "Zhang Shuai"
+                "Jiang Xinyu"
               ],
               "participantIds": [
                 "competitor:tennis:wta:guo-hanyu",
-                "competitor:tennis:wta:zhang-shuai"
+                "competitor:tennis:wta:jiang-xinyu"
               ]
             }
           ],
           "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
-          "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
-          "name": "Guo Hanyu / Zhang Shuai v Jasmine Paolini / Sara Errani"
+          "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
+          "name": "Guo Hanyu / Jiang Xinyu v Jasmine Paolini / Sara Errani",
+          "score": "6-3 5-7 6-3",
+          "winnerTeamId": "team:tennis:bjk-cup:italy"
         }
       ],
-      "score": "1-0",
+      "score": "1-2",
+      "winnerParticipantId": "team:tennis:bjk-cup:italy",
+      "eliminatedParticipantIds": [
+        "team:tennis:bjk-cup:china"
+      ],
+      "resultSourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
+      "resultSourceCheckedAt": "2026-09-24T20:16:12.469Z",
+      "result": {
+        "status": "official",
+        "score": "1-2",
+        "sourceUrl": "https://www.billiejeankingcup.com/en/news/live-ita-v-chn-2026-billie-jean-king-cup-finals-quarter-final",
+        "checkedAt": "2026-09-24T20:16:12.469Z"
+      },
+      "outcomeText": "Italy won 2–1",
+      "recapText": "Official Billie Jean King Cup result.",
       "participants": [
         {
           "id": "team:tennis:bjk-cup:china",
@@ -1514,7 +1532,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -1608,7 +1626,7 @@
       "gender": "women",
       "season": 2026,
       "bracketSlot": "sf2",
-      "name": "Ukraine v Winner Quarter-final 4",
+      "name": "Ukraine v Italy",
       "roundLabel": "Semifinal",
       "round": "Semifinal",
       "status": "upcoming",
@@ -1620,17 +1638,18 @@
         },
         {
           "slot": 2,
-          "label": "Winner Quarter-final 4",
-          "participantId": null
+          "label": "Italy",
+          "participantId": "team:tennis:bjk-cup:italy"
         }
       ],
       "participantIds": [
-        "team:tennis:bjk-cup:ukraine"
+        "team:tennis:bjk-cup:ukraine",
+        "team:tennis:bjk-cup:italy"
       ],
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
@@ -1693,6 +1712,19 @@
           "sourceRefs": [
             "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
           ]
+        },
+        {
+          "id": "team:tennis:bjk-cup:italy",
+          "type": "team",
+          "displayName": "Italy",
+          "name": "Italy",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "IT",
+          "genderCategory": "women",
+          "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
+          "sourceRefs": [
+            "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action"
+          ]
         }
       ]
     },
@@ -1731,7 +1763,7 @@
       "sourceName": "Billie Jean King Cup",
       "sourceType": "official",
       "sourceUrl": "https://www.billiejeankingcup.com/en/news/2026-bjk-cup-finals-where-you-can-watch-all-the-action",
-      "sourceCheckedAt": "2026-09-24T12:48:44.643Z",
+      "sourceCheckedAt": "2026-09-24T20:16:12.469Z",
       "venue": "Shenzhen Bay Sports Centre Arena",
       "venueCountryCode": "CN",
       "broadcaster": "Nine / beIN Sports",
