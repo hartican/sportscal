@@ -6,7 +6,7 @@ const base=process.env.REPAIR_QA_URL||'http://127.0.0.1:33976';
 for(const width of [320,390,768,1280])for(const theme of ['day','night']){
  const page=await browser.newPage({viewport:{width,height:1000},serviceWorkers:'block'}),errors=[];
  page.on('pageerror',e=>errors.push(e.message));await page.route('**/api/**',r=>r.fulfill({status:503,json:{}}));
- await page.goto(base);await page.waitForFunction(()=>typeof composeFeedCard==='function'&&!startupCoordinator.isHydrating());
+ await page.goto(base);await page.waitForFunction(()=>typeof composeFeedCard==='function'&&startupFunnelFinished&&!startupCoordinator.isHydrating());
  await page.evaluate(({theme})=>{document.getElementById('startupLaunch')?.remove();document.querySelectorAll('.modal-backdrop').forEach(n=>n.classList.remove('show'));document.documentElement.dataset.theme=theme;activeTab='feed';activeView='list';document.querySelectorAll('main>section').forEach(n=>{if(n.id!=='listView')n.style.display='none'});document.querySelector('#listView').style.display='';}, {theme});
  for(const compact of [false,true]){
   const count=await page.evaluate(async compact=>{
@@ -44,7 +44,7 @@ for(const width of [320,390,768,1280])for(const theme of ['day','night']){
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'no page overflow');
   if(process.env.QA_SCREENSHOT_DIR&&width===390&&!compact){for(let i=0;i<5;i++)await page.locator('[data-design-qa]').nth(i).screenshot({path:`${process.env.QA_SCREENSHOT_DIR}/family-${i}-${theme}.png`});}
   const card=page.locator('[data-design-qa]').first();await card.locator('.fixture-more').click();await page.waitForTimeout(80);
-  const updated=page.locator(`[data-event-id="major-match-nrl-finals-2026-preliminary-final-2"]`);assert.equal(await updated.getAttribute('data-card-state'),'opened');assert(await updated.locator('.fixture-more').evaluate(n=>n===document.activeElement),'More restores focus');assert((await updated.innerText()).includes('Isaiya Katoa'),'expanded copy');
+  const updated=page.locator(`[data-event-id="major-match-nrl-finals-2026-preliminary-final-2"]`);assert.equal(await updated.getAttribute('data-card-state'),'opened');await page.waitForFunction(()=>document.activeElement?.matches('[data-event-id="major-match-nrl-finals-2026-preliminary-final-2"] .fixture-more'));assert(await updated.locator('.fixture-more').evaluate(n=>n===document.activeElement),'More restores focus');assert((await updated.innerText()).includes('Isaiya Katoa'),'expanded copy');
   if(process.env.QA_SCREENSHOT_DIR){fs.mkdirSync(process.env.QA_SCREENSHOT_DIR,{recursive:true});await updated.screenshot({path:`${process.env.QA_SCREENSHOT_DIR}/nrl-${width}-${theme}-${compact?'compact-expanded':'full'}.png`});}
   console.log(`${width}px ${theme} ${compact?'compact':'full'}: ${count} fixture cases, ratings/provider targets, no overflow, More/focus passed`);
  }
