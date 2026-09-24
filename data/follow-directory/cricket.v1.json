@@ -477,13 +477,13 @@
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:south-africa",
-      "logoUrl": "assets/identities/national/cricket/south-africa.jpg",
-      "logoDarkUrl": "assets/identities/national/cricket/south-africa.jpg",
+      "logoUrl": "assets/identities/national/cricket/south-africa-proteas.svg",
+      "logoDarkUrl": "assets/identities/national/cricket/south-africa-proteas.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://cricket.co.za/",
+        "https://cricket.co.za/the-proteas/",
         "https://www.espn.in/cricket/series/24198/game/1525671/south-africa-vs-england-1st-test-24198"
       ],
       "watchPoolMember": false,
@@ -515,13 +515,13 @@
       "teamKind": "national",
       "position": null,
       "identityId": "team:cricket:south-africa-women",
-      "logoUrl": "assets/identities/national/cricket/south-africa.jpg",
-      "logoDarkUrl": "assets/identities/national/cricket/south-africa.jpg",
+      "logoUrl": "assets/identities/national/cricket/south-africa-proteas.svg",
+      "logoDarkUrl": "assets/identities/national/cricket/south-africa-proteas.svg",
       "headshotUrl": null,
       "eventRanks": [],
       "rankingBasis": null,
       "sourceRefs": [
-        "https://cricket.co.za/",
+        "https://cricket.co.za/the-proteas/",
         "https://www.espn.in/cricket/series/24559/game/1543894/south-africa-women-vs-india-women-2nd-odi-24559"
       ],
       "watchPoolMember": false,
