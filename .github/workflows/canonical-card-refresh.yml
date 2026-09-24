@@ -78,6 +78,7 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           GH_TOKEN: ${{ github.token }}
+          TOURNAMENT_HYDRATION_REPORT: ${{ runner.temp }}/tournament-hydration-report.json
           RELEASE_COMMIT_MESSAGE: Automated canonical sports refresh
           QUICK_RESULTS: ${{ steps.cadence.outputs.quick }}
         run: bash scripts/update-sportscal-cards-and-release.sh
@@ -89,3 +90,12 @@ jobs:
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/maintain-profile-avatars.js
+
+      - name: Preserve tournament hydration report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tournament-hydration-report
+          path: ${{ runner.temp }}/tournament-hydration-report.json
+          if-no-files-found: ignore
+          retention-days: 14

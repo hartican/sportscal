@@ -1,7 +1,7 @@
 {
   "schemaVersion": "pga-tour-schedule.v1",
   "sourceName": "PGA TOUR official schedule",
-  "checkedAt": "2026-09-22T01:45:35.957Z",
+  "checkedAt": "2026-09-24T12:38:40.334Z",
   "tournaments": [
     {
       "id": "R2026006",
@@ -735,7 +735,7 @@
       "season": 2026,
       "startDate": "2026-09-24",
       "endDate": "2026-09-27",
-      "status": "upcoming",
+      "status": "live",
       "venue": "Medinah CC (No. 3)",
       "city": "Chicago",
       "countryCode": "USA",

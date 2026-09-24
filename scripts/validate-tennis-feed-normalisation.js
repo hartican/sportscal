@@ -41,7 +41,7 @@ const pinned=buildServerFeed({events:[fixture],userId:'pin',userState:{preferenc
 const singlesExit={...fixture,eventType:'mens-singles',status:'completed',eliminatedParticipantIds:[player]};
 const doublesEntry={...fixture,id:'doubles',eventId:'doubles',eventType:'mens-doubles'};
 assert(model.reason(model.buildParents({tournaments:[tournament]},[singlesExit,doublesEntry])[0],direct,{now}),'singles exit retains active doubles participation');
-const publishedTeams=require('../data/canonical/tennis-team-contests.v1.json');
+const publishedTeams={fixtures:require('../data/canonical/tennis-team-contests.v1.json').fixtures.filter(f=>f.eventFamilyId==='davis-cup')};
 assert.equal(publishedTeams.fixtures.length,7);
 assert.equal(publishedTeams.fixtures.filter(f=>f.date===null).length,3,'unassigned quarter-final slots have no invented dates');
 assert.equal(publishedTeams.fixtures.find(f=>f.round==='Final').date,'2026-11-30','Bologna Sunday afternoon is Sydney Monday');
@@ -50,3 +50,7 @@ const raw=require('../feeds/provider-exports/tennis/us-open-2026-official-schedu
 assert(parser.fixturesFromSnapshot(raw).some(e=>e.eliminatedParticipantIds?.length),'source results carry confirmed elimination');
 assert.equal(require('../data/tennis-feed-parents.v1.json').parents.find(p=>p.eventFamilyId==='davis-cup').endDate,'2026-11-30');
 console.log('Tennis normalisation: parent/contest admission, finals, exclusions, elimination, timing, identity, draw grouping and team ties passed.');
+
+const nested={...team,tournamentId:tournament.tournamentId,rubbers:[{sides:[{teamId:team.participantIds[0],participantIds:[player]}]}]};
+assert(model.reason(model.buildParents({tournaments:[tournament]},[nested])[0],direct,{now}),'confirmed rubber player admits the tournament parent');
+assert.equal(model.reason(model.buildParents({tournaments:[tournament]},[{...nested,eliminatedParticipantIds:[team.participantIds[0]]}])[0],direct,{now}),null,'team elimination ends player-derived parent participation');

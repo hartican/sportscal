@@ -103,3 +103,9 @@ Validated facts should remain publishable with concise factual copy when richer 
 ## NBL incremental results — 24 September 2026
 
 The existing canonical quick refresh now checks the official NBL schedule alongside its other source adapters, patches known cards and rebuilds the NBL projection when facts change. This repairs missing completed results on days without a full refresh. Timestamp-only NBL checks preserve the previous snapshot; there is no new scheduler, standings-only loader or AI call. Regression: `validate-quick-projection-scope.js` and the canonical result-completeness gate.
+
+## Seven-day tournament hydration — 24 September 2026
+
+Both full and quick canonical card refreshes check running tournaments and tournaments starting within seven Sydney calendar days, including entire tournaments crossing the window. Existing result retention permits follow-up checks of unresolved recent completions. One adapter runs once per source family in a hydration pass; full refresh reuses its normal source loaders. BJK uses bounded official schedule/news fetches, no AI. Calendar-only sources and unsupported fixture adapters are reported as incomplete, never silently counted as hydrated.
+
+Source failures preserve last-known facts and do not block valid updates from other sources. Ordinary schema, safety and result gates are retained. The timestamped machine-readable report lives in the run artifact directory or system temporary directory, so diagnostic clock changes cannot create a release. Existing workflow cadence and ownership remain unchanged. Regression: `validate-tournament-hydration.js` (windows, partial coverage, failures, deduplication, offline and stable snapshots).

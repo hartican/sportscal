@@ -187,3 +187,9 @@ Approved in the 22 September PSD interview and authorised for implementation on 
 - Davis Cup 2026 Final 8 is Bologna, 24–29 November venue-local dates; the attachment's Brisbane example is not a data source. Published draw and schedule sources are retained in `data/canonical/tennis-team-contests.v1.json`. Unassigned quarter-final slots retain an explicit date window. Sydney dates may cross midnight.
 
 Regressions: `validate-tennis-feed-normalisation.js`, `validate-tennis-feed-browser.js`, Follow decision/parity, participant unfollow, event exclusions and PWA checks.
+
+## Tournament fixture detail — 24 September 2026
+
+BJK Cup overviews show all published ties and nested singles/doubles match details, including source-backed scores behind existing Results controls. Rubber records never become standalone Feed fixtures. BJK women's team identities remain separate from Davis Cup men's teams and country follows in other sports. Future bracket participants stay spoiler-protected. Existing admission, pins, reminders and rating rules are unchanged. Regression: `validate-tournament-hydration.js`, `validate-bjk-browser.js` and tennis/Follow policy tests.
+
+The existing 28-day provisional structure remains. A seven-day pre-start source-check window plus ongoing tournaments adds factual hydration; it does not replace longer published calendars. Unresolved data gaps are reported in the refresh report only, with no operational warning added to cards.

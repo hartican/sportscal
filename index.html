@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="303">
+<meta name="app-shell-version" content="304">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=303" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=304" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6870,6 +6870,10 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .follow-schedule-panel{min-width:0;}
 
 .tennis-feed-parent{padding:16px;min-width:0;}
+#listView .event-card.tennis-feed-parent{display:block;text-align:left;}
+#listView .tennis-feed-parent>details>summary{text-align:left;}
+#listView .tennis-feed-parent>.feed-schedule-link{position:static;display:inline-block;max-width:100%;margin-top:12px;}
+.tennis-tie-details p{margin:6px 0;line-height:1.45;}
 .tennis-feed-parent summary{cursor:pointer;min-height:44px;overflow-wrap:anywhere;}
 .tennis-feed-parent summary strong,.tennis-feed-parent summary span{display:block;}
 .tennis-feed-parent summary span{font-size:.75rem;color:var(--text-dim);margin-top:6px;}
@@ -7177,7 +7181,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=303"></script>
+<script src="assets/js/app-shell-runtime.js?v=304"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -12851,6 +12855,7 @@ function dependencySideIsRevealed(participant){
 }
 
 function spoilerSafeDisplayTitle(ev){
+  if(ev.progressionSlots?.length && ev.status==='upcoming' && !isSpoilerVisible(ev))return ev.spoilerSafeTitle||ev.roundLabel;
   if (!ENRICHMENT_ENGINE) return NOTHINGSPORTS_FIXTURE_LABELS.matchupTitle(ev,ev.displayTitleCompact||ev.name,cardIdentityParticipants());
   const sourceEventsById = new Map(activeEvents.map(event => [event.eventId || event.id, event]));
   const safeTitle = ENRICHMENT_ENGINE.spoilerSafeFixtureTitle(ev, {
@@ -16915,6 +16920,7 @@ function buildTennisFeedParent(parent){
     body.replaceChildren();body.textContent='Loading contests…';
     try{
       const doc=await loadTennisFeedContests();
+      if(doc.fixtures.some(f=>f.rubbers?.length))await loadDeferredScript('assets/js/tennis-tie-details.js?v=304');
       if(!card.isConnected)return;
       const fixtures=NOTHINGSPORTS_TENNIS_FEED.reconcile({...parent,childContests:doc.fixtures.filter(e=>NOTHINGSPORTS_TENNIS_FEED.matches(parent,e))},activeEvents).childContests;
       body.replaceChildren();
@@ -16927,7 +16933,7 @@ function buildTennisFeedParent(parent){
         function more(){
           for(const fixture of fixtures.slice(count,count+20)){
             const ev=NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(fixture,'tennis'),row=document.createElement('div');row.className='tennis-contest-row';
-            const copy=document.createElement('span');copy.textContent=`${spoilerSafeDisplayTitle(ev)} · ${ev.date||'Date TBC'}${ev.time&&!ev.timeTbc?' · '+ev.time:''}`;row.append(copy);
+            const copy=document.createElement('span');copy.textContent=`${spoilerSafeDisplayTitle(ev)} · ${ev.date||'Date TBC'}${ev.time&&!ev.timeTbc?' · '+(ev.timePrecision==='not-before'?'Not before ':'')+ev.time:''}`;row.append(copy);
             const excluded=FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences);
             const action=getEventAction(ev),automatic=!excluded&&Boolean(automaticEventFollowReason(ev)),visible=!excluded&&!action.dismissed&&!action.archived&&(automatic||action.addedToFixtures);
             const button=document.createElement('button');button.type='button';button.className='btn ghost';button.textContent=visible?'In Feed':excluded?'Excluded':'Add to Feed';button.disabled=excluded;
@@ -16937,6 +16943,7 @@ function buildTennisFeedParent(parent){
               queueFixturePinCommand(eventActionKey(ev),next);renderAll({preserveViewport:true});
             };row.append(button);
             if(action.addedToFixtures){const remove=document.createElement('button');remove.type='button';remove.className='btn ghost';remove.textContent='Remove';remove.setAttribute('aria-label',`Remove manual selection for ${spoilerSafeDisplayTitle(ev)}`);remove.onclick=()=>{const next=updateEventAction(ev,{addedToFixtures:false,pinState:'removed',pinRevision:(Number(action.pinRevision)||0)+1,pinMutationId:crypto.randomUUID()});queueFixturePinCommand(eventActionKey(ev),next);void paint();renderAll({preserveViewport:true});};row.append(remove);}
+            if(fixture.rubbers?.length)row.append(NOTHINGSPORTS_TENNIS_TIE_DETAILS.build(fixture,{showResults:isSpoilerVisible(ev)}));
             section.append(row);
           }
           count+=20;

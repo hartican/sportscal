@@ -250,7 +250,7 @@ function main(){
   });
 
   const tennisChunk = chunks.get("tennis");
-  for(const team of readJson('data/canonical/tennis-team-contests.v1.json').participants)tennisChunk.set(team.id,normalizeRecord(team,{genderCategory:'men',sourceRefs:team.sourceRefs}));
+  for(const team of readJson('data/canonical/tennis-team-contests.v1.json').participants)tennisChunk.set(team.id,normalizeRecord(team,{genderCategory:team.genderCategory||'men',sourceRefs:team.sourceRefs}));
   const tennisByName = new Map([...tennisChunk.values()].map(record => [normalizedNameKey(record.displayName), record]));
   (tennisWatchPool.players || []).forEach(player => {
     const nameKey = normalizedNameKey(player.displayName);
