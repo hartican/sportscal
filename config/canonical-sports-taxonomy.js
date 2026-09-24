@@ -7,6 +7,14 @@
 
   const sportDomains = [
     {
+      id: "sport:supercars", slug: "supercars", name: "V8 Supercars",
+      kind: "sport", parentId: "sport:motorsport", sortOrder: 34,
+      isActive: true, supportsLadders: false, supportsAllFixtures: false,
+      supportsNarrative: true, supportsTeams: false, supportsCompetitors: false,
+      defaultTemplateId: "template:like",
+      metadata: { governingBody: "Supercars", region: "AU", coverageScope: "Bathurst 1000 2026 only", neutralGlyph: "sport:motorsport" },
+    },
+    {
       id: "sport:afl",
       slug: "afl",
       name: "AFL",

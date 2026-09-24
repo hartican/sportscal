@@ -4254,6 +4254,27 @@
       "url": "https://www.nrl.com/tickets/",
       "sourceType": "official",
       "checkedAt": "2026-09-22T08:27:01.899Z"
+    },
+    {
+      "id": "source:bathurst2026:0",
+      "name": "Supercars Bathurst event and schedule",
+      "url": "https://www.supercars.com/events/2026-bathurst-1000",
+      "sourceType": "official",
+      "checkedAt": "2026-09-24T01:50:44.155Z"
+    },
+    {
+      "id": "source:bathurst2026:1",
+      "name": "Supercars Australian broadcast guide",
+      "url": "https://www.supercars.com/tv-schedule",
+      "sourceType": "official",
+      "checkedAt": "2026-09-24T01:50:44.155Z"
+    },
+    {
+      "id": "source:bathurst2026:2",
+      "name": "Supercars 2026 calendar",
+      "url": "https://www.supercars.com/news/supercars-2026-calendar-announcement-release-date-rounds-printable-ticket-information-news",
+      "sourceType": "official",
+      "checkedAt": "2026-09-24T01:50:44.155Z"
     }
   ],
   "narrativeFacts": [
@@ -24346,6 +24367,54 @@
       ],
       "observedAt": "2026-09-22T08:27:01.899Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:bathurst2026:0",
+      "subjectIds": [
+        "competition:supercars"
+      ],
+      "statement": "The 2026 Bathurst 1000 race is scheduled for 11 October at 11:30am local time.",
+      "dimension": "schedule",
+      "sourceIds": [
+        "source:bathurst2026:0"
+      ],
+      "observedAt": "2026-09-24T01:50:44.155Z"
+    },
+    {
+      "id": "fact:bathurst2026:1",
+      "subjectIds": [
+        "competition:supercars"
+      ],
+      "statement": "Mount Panorama is 6.213km; the race covers 161 laps and 1000km.",
+      "dimension": "format",
+      "sourceIds": [
+        "source:bathurst2026:0"
+      ],
+      "observedAt": "2026-09-24T01:50:44.155Z"
+    },
+    {
+      "id": "fact:bathurst2026:2",
+      "subjectIds": [
+        "competition:supercars"
+      ],
+      "statement": "Bathurst concludes the 2026 Enduro Cup.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:bathurst2026:0"
+      ],
+      "observedAt": "2026-09-24T01:50:44.155Z"
+    },
+    {
+      "id": "fact:bathurst2026:3",
+      "subjectIds": [
+        "competition:supercars"
+      ],
+      "statement": "Seven carries Bathurst live; Foxtel and Kayo carry every Supercars session.",
+      "dimension": "broadcast",
+      "sourceIds": [
+        "source:bathurst2026:1"
+      ],
+      "observedAt": "2026-09-24T01:50:44.155Z"
     }
   ],
   "narrativeThreads": [
@@ -26938,6 +27007,22 @@
       ],
       "status": "active",
       "updatedAt": "2026-09-22T08:27:01.899Z"
+    },
+    {
+      "id": "thread:bathurst2026:enduro",
+      "subjectIds": [
+        "competition:supercars"
+      ],
+      "title": "The Great Race closes the Enduro Cup",
+      "summary": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+      "factIds": [
+        "fact:bathurst2026:0",
+        "fact:bathurst2026:1",
+        "fact:bathurst2026:2",
+        "fact:bathurst2026:3"
+      ],
+      "status": "active",
+      "updatedAt": "2026-09-24T01:50:44.155Z"
     }
   ],
   "audienceMemories": [],
@@ -40379,6 +40464,41 @@
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-09-22T08:27:01.899Z"
       }
+    },
+    {
+      "schemaVersion": "editorial-narrative.v2",
+      "projectionId": "projection:supercars-bathurst-1000-2026",
+      "researchTier": "marquee",
+      "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+      "synopsis": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+      "threadIds": [
+        "thread:bathurst2026:enduro"
+      ],
+      "factIds": [
+        "fact:bathurst2026:0",
+        "fact:bathurst2026:1",
+        "fact:bathurst2026:2",
+        "fact:bathurst2026:3"
+      ],
+      "sourceIds": [
+        "source:bathurst2026:0",
+        "source:bathurst2026:1",
+        "source:bathurst2026:2"
+      ],
+      "dimensions": [
+        "format",
+        "consequence",
+        "venue"
+      ],
+      "researchedAt": "2026-09-24T01:50:44.155Z",
+      "refreshAfter": "2026-10-11T00:30:00.000Z",
+      "generationMode": "researched",
+      "id": "projection:supercars-bathurst-1000-2026",
+      "targetType": "feed-event",
+      "targetIds": [
+        "supercars-bathurst-1000-2026"
+      ],
+      "stakes": 5
     }
   ]
 }

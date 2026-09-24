@@ -160,3 +160,7 @@ The approved [Feed card visual design](feed-card-visual-design.md) adds prominen
 ## Socceroos fixtures - 24 September 2026
 
 Senior Socceroos fixtures qualify for an explicit Football follow, including provider-loaded friendlies without an editorial marquee flag. Canonical national identities use Socceroos rather than Australia. Explicit exclusions and participant mutes still win.
+
+## Bathurst and V8 Supercars - 24 September 2026
+
+User explicitly authorises V8 Supercars under Motorsport and default Bathurst 1000 admission for Motorsport followers. Only the 2026 Bathurst race is in scope; no other rounds or sessions. Direct V8 Supercars follows also qualify. Explicit mutes and exclusions still win. This is a scoped exception to the new-coverage opt-in rule.

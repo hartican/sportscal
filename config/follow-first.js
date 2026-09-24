@@ -25,6 +25,7 @@
     { id:"tennis", selectorId:"sport:tennis", label:"Tennis" },
     { id:"f1", selectorId:"sport:f1", label:"Formula 1" },
     { id:"wrc", selectorId:"sport:wrc", label:"WRC" },
+    { id:"supercars", selectorId:"sport:supercars", label:"V8 Supercars" },
     { id:"motogp", selectorId:"sport:motogp", label:"MotoGP" },
     { id:"sailgp", selectorId:"sport:sailgp", label:"SailGP" },
     { id:"rugby", selectorId:"sport:rugby", label:"Rugby Union" },
@@ -50,7 +51,7 @@
   ]);
 
   const INTERNATIONAL_AUSTRALIA_SPORT_IDS = Object.freeze([
-    "cricket", "football", "tennis", "f1", "wrc", "motogp", "sailgp", "fiba-women", "rugby", "nba", "nrlw", "motorsport", "rally",
+    "cricket", "football", "tennis", "f1", "wrc", "motogp", "supercars", "sailgp", "fiba-women", "rugby", "nba", "nrlw", "motorsport", "rally",
     "extreme", "skateboard", "surf", "wsl", "big-wave", "cycling", "tdf", "basketball",
     "golf", "masters", "ski", "alpine", "freestyle", "telemark", "cwg",
     "athletics", "swimming", "netball", "boxing",
@@ -563,7 +564,7 @@
     const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
       || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
     if (followPolicy.explicitCompetitionRequired(event) && !(explicitCompetition || ((["aflw","nrlw","wnba"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
-    const sportFollowed = explicitCompetition || (explicitSelectors.size
+    const sportFollowed = (sourceSportId === "supercars" && (explicitSelectors.has("sport:motorsport") || (!explicitSelectors.size && followedSportIds.has("motorsport")))) || explicitCompetition || (explicitSelectors.size
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
       || domains.some(domain => domain.enabled === true);

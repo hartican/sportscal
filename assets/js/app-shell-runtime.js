@@ -776,6 +776,7 @@ return {gender,sport,badge,participantRecord,isAustralian,australianFirst,matchu
   // derive from these records instead of requiring a bespoke UI branch.
   const domains = [
     { key: "f1", domainId: "sport:motorsport", label: "F1", selectorLabel: "F1", detail: "Qualifying, races, driver and constructor standings.", color: "var(--c-f1)", glyph: "sport:motorsport", sortOrder: 10, selector: true, supportsLadders: true, supportsNarrative: true },
+    { key: "supercars", domainId: "sport:motorsport", preferenceDomainId: "sport:supercars", label: "V8 Supercars", selectorLabel: "V8 Supercars", detail: "Bathurst 1000 only; further fixtures will be added later.", color: "#c62828", glyph: "sport:motorsport", sortOrder: 14, selector: true, supportsLadders: false, supportsNarrative: true },
     { key: "motogp", domainId: "sport:motorsport", label: "MotoGP", selectorLabel: "MotoGP", detail: "Every remaining 2026 Grand Prix and the current rider field.", color: "#e10600", glyph: "sport:motorsport", sortOrder: 11, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "sailgp", domainId: "sport:sailing", label: "SailGP", selectorLabel: "SailGP", detail: "The 2026 fleet, race weekends and championship run-in.", color: "#009fd9", glyph: "sport:sailing", sortOrder: 12, selector: false, supportsLadders: false, supportsNarrative: true },
     { key: "motorsport", domainId: "sport:motorsport", label: "Motorsport", selectorLabel: "Motorsport", detail: "Cross-discipline motorsport coverage spanning rally, endurance and performance events.", color: "var(--c-motorsport)", glyph: "sport:motorsport", sortOrder: 15, selector: true, supportsLadders: true, supportsNarrative: true },
@@ -889,6 +890,14 @@ return {gender,sport,badge,participantRecord,isAustralian,australianFirst,matchu
   "use strict";
 
   const sportDomains = [
+    {
+      id: "sport:supercars", slug: "supercars", name: "V8 Supercars",
+      kind: "sport", parentId: "sport:motorsport", sortOrder: 34,
+      isActive: true, supportsLadders: false, supportsAllFixtures: false,
+      supportsNarrative: true, supportsTeams: false, supportsCompetitors: false,
+      defaultTemplateId: "template:like",
+      metadata: { governingBody: "Supercars", region: "AU", coverageScope: "Bathurst 1000 2026 only", neutralGlyph: "sport:motorsport" },
+    },
     {
       id: "sport:afl",
       slug: "afl",
@@ -3225,6 +3234,7 @@ return {womensT20,apply,fields};
     { id:"tennis", selectorId:"sport:tennis", label:"Tennis" },
     { id:"f1", selectorId:"sport:f1", label:"Formula 1" },
     { id:"wrc", selectorId:"sport:wrc", label:"WRC" },
+    { id:"supercars", selectorId:"sport:supercars", label:"V8 Supercars" },
     { id:"motogp", selectorId:"sport:motogp", label:"MotoGP" },
     { id:"sailgp", selectorId:"sport:sailgp", label:"SailGP" },
     { id:"rugby", selectorId:"sport:rugby", label:"Rugby Union" },
@@ -3250,7 +3260,7 @@ return {womensT20,apply,fields};
   ]);
 
   const INTERNATIONAL_AUSTRALIA_SPORT_IDS = Object.freeze([
-    "cricket", "football", "tennis", "f1", "wrc", "motogp", "sailgp", "fiba-women", "rugby", "nba", "nrlw", "motorsport", "rally",
+    "cricket", "football", "tennis", "f1", "wrc", "motogp", "supercars", "sailgp", "fiba-women", "rugby", "nba", "nrlw", "motorsport", "rally",
     "extreme", "skateboard", "surf", "wsl", "big-wave", "cycling", "tdf", "basketball",
     "golf", "masters", "ski", "alpine", "freestyle", "telemark", "cwg",
     "athletics", "swimming", "netball", "boxing",
@@ -3763,7 +3773,7 @@ return {womensT20,apply,fields};
     const explicitScopedSport = explicitSelectors.has(`sport:${sourceSportId}`)
       || (!explicitSelectors.size && followedSportIds.has(sourceSportId) && !followedSportIds.has(sourceSportId.replace(/w$/, "")));
     if (followPolicy.explicitCompetitionRequired(event) && !(explicitCompetition || ((["aflw","nrlw","wnba"].includes(sourceSportId) || /women|female/.test(sourceSportId)) && explicitScopedSport))) return null;
-    const sportFollowed = explicitCompetition || (explicitSelectors.size
+    const sportFollowed = (sourceSportId === "supercars" && (explicitSelectors.has("sport:motorsport") || (!explicitSelectors.size && followedSportIds.has("motorsport")))) || explicitCompetition || (explicitSelectors.size
       ? [...explicitSelectors].some(matchesNode)
       : followedSportIds.has(sourceSportId) || followedSportIds.has(sportId))
       || domains.some(domain => domain.enabled === true);
@@ -10289,10 +10299,11 @@ return {womensT20,apply,fields};
     ["sport:nrl", "NRL", "parent", null, ["nrl"], "sport:rugby-league", "sport:rugby", 20, ["sport:nrl-premiership", "sport:nrlw"]],
     ["sport:nrl-premiership", "NRL", "child", "sport:nrl", ["nrl"], "competition:nrl-premiership", "sport:rugby", 21],
     ["sport:nrlw", "NRLW", "child", "sport:nrl", ["nrlw"], "competition:nrlw-premiership", "sport:rugby", 22],
-    ["sport:motorsport", "Motorsport", "parent", null, ["motorsport"], "sport:motorsport", "sport:motorsport", 30, ["sport:f1", "sport:motogp", "sport:wrc"]],
+    ["sport:motorsport", "Motorsport", "parent", null, ["motorsport"], "sport:motorsport", "sport:motorsport", 30, ["sport:f1", "sport:motogp", "sport:wrc", "sport:supercars"]],
     ["sport:f1", "F1", "child", "sport:motorsport", ["f1"], "competition:formula-one", "sport:motorsport", 31],
     ["sport:motogp", "MotoGP", "child", "sport:motorsport", ["motogp"], "competition:motogp", "sport:motorsport", 32],
     ["sport:wrc", "WRC", "child", "sport:motorsport", ["wrc", "rally"], "competition:world-rally-championship", "sport:motorsport", 33],
+    ["sport:supercars", "V8 Supercars", "child", "sport:motorsport", ["supercars"], "competition:supercars", "sport:motorsport", 34],
     ["sport:extreme", "Extreme", "parent", null, ["extreme", "skateboard"], "sport:extreme-sports", "sport:extreme", 40, ["sport:downhill-mtb"]],
     ["sport:downhill-mtb", "MTB", "child", "sport:extreme", ["downhill-mtb", "mtb"], "competition:uci-mountain-bike", "sport:extreme", 41],
     ["sport:surf", "Surfing", "parent", null, ["surf", "wsl"], "sport:surfing", "sport:surf", 50, ["sport:big-wave"]],

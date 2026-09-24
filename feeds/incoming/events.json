@@ -38250,8 +38250,8 @@
       "endTimeUtc": "2026-09-12T12:50:00.000Z",
       "endTimeBasis": "scheduled-live-window",
       "sourceRefs": [
-        "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-        "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/"
+        "https://www.nrl.com/news/2026/09/12/finals-fever-warriors-v-dolphins-sharks-v-cowboys/",
+        "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/"
       ],
       "schedulePrecision": "exact",
       "weekAnchorDate": null,
@@ -40731,8 +40731,8 @@
       "endTimeUtc": "2026-09-13T09:05:00.000Z",
       "endTimeBasis": "scheduled-live-window",
       "sourceRefs": [
-        "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-        "https://www.nrl.com/news/2026/09/13/finals-blockbuster-panthers-v-roosters/"
+        "https://www.nrl.com/news/2026/09/13/finals-blockbuster-panthers-v-roosters/",
+        "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/"
       ],
       "schedulePrecision": "exact",
       "weekAnchorDate": null,
@@ -41064,9 +41064,9 @@
         "needsPreviewRefresh": false
       },
       "sourceRefs": [
-        "https://www.motogp.com/en/calendar/2026",
         "https://stats.motogp.com/en/gp-results",
-        "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181"
+        "https://www.motogp.com/en/news/2026/09/07/time-schedule-red-bull-grand-prix-of-san-marino-and-the-rimini-riviera/1088181",
+        "https://www.motogp.com/en/calendar/2026"
       ]
     },
     {
@@ -42267,9 +42267,9 @@
       "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
       "sourceType": "official",
       "sourceRefs": [
-        "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
         "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
-        "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+        "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend",
+        "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney"
       ],
       "canonicalSourceId": "CD_M20260142802",
       "canonicalSourceName": "AFL",
@@ -43288,9 +43288,9 @@
       "sourceUrl": "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
       "sourceType": "official",
       "sourceRefs": [
-        "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney",
         "https://www.afl.com.au/news/1609182/prelim-finals-fixture-venues-times-ticket-details-confirmed/",
-        "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend"
+        "https://www.afl.com.au/news/1610430/toyota-afl-finals-series-record-semi-finals-weekend",
+        "https://www.afl.com.au/news/1612494/the-flag-race-is-wide-open-heres-who-our-experts-are-tipping-from-here-between-fremantle-hawthorn-brisbane-and-sydney"
       ],
       "canonicalSourceId": "CD_M20260142801",
       "canonicalSourceName": "AFL",
@@ -44256,8 +44256,8 @@
       "endTimeUtc": "2026-09-19T16:00:00.000Z",
       "endTimeBasis": "scheduled-live-window",
       "sourceRefs": [
-        "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
-        "https://mediahub.sailgp.com/teams/rockwool-denmark/"
+        "https://mediahub.sailgp.com/teams/rockwool-denmark/",
+        "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/"
       ]
     },
     {
@@ -44874,8 +44874,8 @@
         "needsPreviewRefresh": false
       },
       "sourceRefs": [
-        "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413",
-        "https://stats.motogp.com/en/gp-results"
+        "https://stats.motogp.com/en/gp-results",
+        "https://www.motogp.com/en/news/2026/09/17/media-day-dispatch-spirits-not-dampened-as-title-race-roars-into-the-ring/1090413"
       ]
     },
     {
@@ -46765,8 +46765,8 @@
       "endTimeUtc": "2026-09-20T16:00:00.000Z",
       "endTimeBasis": "scheduled-live-window",
       "sourceRefs": [
-        "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/",
-        "https://www.ussailgpteam.com/articles/4e819965-4765-4dcc-ba71-a4c00ea0b0e5/us-sailgp-team-switzerland-sail-grand-prix-2026-day-2-report"
+        "https://www.ussailgpteam.com/articles/4e819965-4765-4dcc-ba71-a4c00ea0b0e5/us-sailgp-team-switzerland-sail-grand-prix-2026-day-2-report",
+        "https://sailgp.com/news/26/revealed-full-crew-lists-rolex-switzerland-sail-grand-prix-geneva/"
       ]
     },
     {
@@ -49505,8 +49505,8 @@
         "checkedAt": "2026-09-22T05:08:48.880Z"
       },
       "sourceRefs": [
-        "https://www.afl.com.au/ladder",
-        "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start"
+        "https://www.afl.com.au/news/1616906/what-time-does-the-2026-toyota-afl-grand-final-start",
+        "https://www.afl.com.au/ladder"
       ],
       "publicStageLabel": "AFL Grand Final",
       "presentationTier": "championship",
@@ -111686,6 +111686,155 @@
       "sourceRefs": [
         "https://socceroos.com.au/news/how-watch-australia-vs-brazil-international-friendlies-2026"
       ],
+      "scheduleStatus": "confirmed",
+      "timePrecision": "exact"
+    },
+    {
+      "id": "supercars-bathurst-1000-2026",
+      "eventId": "supercars-bathurst-1000-2026",
+      "canonicalEventId": "supercars-bathurst-1000-2026",
+      "status": "scheduled",
+      "cardKind": "fixture",
+      "liveWindow": 7,
+      "expected": 10,
+      "stakesScore": 5,
+      "storyline": {
+        "stakes": 5,
+        "intensity": 5,
+        "arcStage": "preview",
+        "hookSpoilerOff": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+        "hookSpoilerOn": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+        "synopsisSpoilerOff": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+        "synopsisSpoilerOn": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds."
+      },
+      "name": "Bathurst 1000",
+      "displayTitleCompact": "Bathurst 1000",
+      "sport": "V8 Supercars",
+      "key": "supercars",
+      "sportDomainId": "sport:motorsport",
+      "preferenceDomainId": "sport:supercars",
+      "discoverySportId": "sport:supercars",
+      "competitionId": "competition:supercars",
+      "competitionName": "Repco Supercars Championship",
+      "date": "2026-10-11",
+      "time": "11:30",
+      "startTimeUtc": "2026-10-11T00:30:00.000Z",
+      "localTimezone": "Australia/Sydney",
+      "venue": "Mount Panorama",
+      "venueName": "Mount Panorama",
+      "venueCity": "Bathurst",
+      "venueCountryCode": "AU",
+      "eventType": "race",
+      "sessionType": "race",
+      "round": "all",
+      "roundLabel": "Bathurst 1000",
+      "stage": "Race",
+      "participantIds": [],
+      "participants": [],
+      "broadcaster": "Seven / 7mate / 7plus / Foxtel / Kayo",
+      "broadcasterIds": [
+        "seven",
+        "foxtel",
+        "kayo"
+      ],
+      "broadcastOptions": [
+        "Seven",
+        "7mate",
+        "7plus",
+        "Foxtel",
+        "Kayo"
+      ],
+      "viewingOptions": [
+        {
+          "providerId": "seven",
+          "territory": "AU",
+          "accessType": "free",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "sourceUrl": "https://www.supercars.com/tv-schedule",
+          "verifiedAt": "2026-09-24T01:50:44.155Z"
+        },
+        {
+          "providerId": "foxtel",
+          "territory": "AU",
+          "accessType": "subscription",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "sourceUrl": "https://www.supercars.com/tv-schedule",
+          "verifiedAt": "2026-09-24T01:50:44.155Z"
+        },
+        {
+          "providerId": "kayo",
+          "territory": "AU",
+          "accessType": "subscription",
+          "liveOrReplay": "live",
+          "rightsScope": "fixture",
+          "sourceUrl": "https://www.supercars.com/tv-schedule",
+          "verifiedAt": "2026-09-24T01:50:44.155Z"
+        }
+      ],
+      "sourceName": "Supercars",
+      "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
+      "sourceRefs": [
+        "https://www.supercars.com/events/2026-bathurst-1000"
+      ],
+      "sourceCheckedAt": "2026-09-24T01:50:44.155Z",
+      "sourceType": "official",
+      "sourceTrust": "verified",
+      "marqueeClassification": {
+        "isMarquee": true,
+        "sourceUrls": [
+          "https://www.supercars.com/events/2026-bathurst-1000"
+        ],
+        "reason": "Bathurst 1000 and Enduro Cup finale"
+      },
+      "selectedSentence": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+      "fullSpiel": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+      "editorialNarrative": {
+        "schemaVersion": "editorial-narrative.v2",
+        "projectionId": "projection:supercars-bathurst-1000-2026",
+        "researchTier": "marquee",
+        "hook": "One thousand kilometres at Mount Panorama decide the Great Race and close the Enduro Cup.",
+        "synopsis": "Bathurst compresses an endurance campaign into 161 laps of a 6.213km mountain circuit. Driver changes, pit-stop execution and conserving the car matter alongside outright pace. The 2026 race is the Enduro Cup finale, giving the fight for the Bathurst trophy a second championship consequence before the season moves into its final rounds.",
+        "threadIds": [
+          "thread:bathurst2026:enduro"
+        ],
+        "factIds": [
+          "fact:bathurst2026:0",
+          "fact:bathurst2026:1",
+          "fact:bathurst2026:2",
+          "fact:bathurst2026:3"
+        ],
+        "sourceIds": [
+          "source:bathurst2026:0",
+          "source:bathurst2026:1",
+          "source:bathurst2026:2"
+        ],
+        "dimensions": [
+          "format",
+          "consequence",
+          "venue"
+        ],
+        "researchedAt": "2026-09-24T01:50:44.155Z",
+        "refreshAfter": "2026-10-11T00:30:00.000Z",
+        "generationMode": "researched"
+      },
+      "editorialPreview": {
+        "status": "journalistic",
+        "angle": "Enduro Cup finale at Mount Panorama",
+        "contextSignals": [
+          "event-specific",
+          "narrative:consequence",
+          "narrative:format"
+        ],
+        "sourceName": "Supercars",
+        "sourceUrl": "https://www.supercars.com/events/2026-bathurst-1000",
+        "sourceCheckedAt": "2026-09-24T01:50:44.155Z",
+        "needsPreviewRefresh": false
+      },
+      "replayEligible": true,
+      "highlightEligible": true,
+      "catchupEligible": true,
       "scheduleStatus": "confirmed",
       "timePrecision": "exact"
     }

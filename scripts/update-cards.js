@@ -332,7 +332,7 @@ async function main() {
       ['scripts/apply-national-team-identities.js','feeds/incoming/events.json'],
       ['scripts/publish-feed.js','feeds/incoming/events.json','data/events.json','data/feed-meta.json','data/events.js','--preserve-known'],
       ['scripts/build-paged-feed.js'],
-      ['scripts/build-code-inspector.js','--codes=football'],
+      ['scripts/build-code-inspector.js'],
     ]) runStep(args);
     if(!options.localOnly) runStep(['scripts/redeploy-and-release.sh']);
     console.log('Reviewed fixture publication complete; no unrelated source refresh performed.');
