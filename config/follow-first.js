@@ -7,7 +7,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(root, competitionClassification){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v10";
+  const SCHEMA_VERSION = "follow-first.v11";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -509,6 +509,9 @@
     const next = preparedPreferences || migratePreferences(preferences);
     const followPolicy = root.NOTHINGSPORTS_FOLLOW_FEED_POLICY
       || (typeof require === "function" ? require("./follow-feed-policy.js") : null);
+    const tennis = root.NOTHINGSPORTS_TENNIS_FEED || (typeof require === "function" ? require("./tennis-feed") : null);
+    if(tennis?.isParent(event))return tennis.reason(event,next,{collectionsById,preparedPreferences:next});
+    if(followPolicy.sportKey(event)==='tennis' && tennis?.isRubber(event))return null;
     if (followPolicy.aggregateEvent(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
     const participants = followPolicy.participantIds(event);
@@ -578,7 +581,8 @@
       && event?.kind !== "major_event"
       && event?.kind !== "ticket_sale"
     );
-    if (sportId === "tennis") return null; // 2026-09-09: player/collection follows only, including finals.
+    if (sportId === "tennis") return sportFollowed && tennis.isFinal(event)
+      ? {type:'sport-marquee',entityKind:'sport',id:'tennis',label:null,displayTag:false} : null;
     const australianScope = new Set(next.followFirst.australiansOnlySportIds || []);
     const scopedSportIds = [sourceSportId,sportId,sourceSportId === 'afl' ? 'afl-premiership' : '',sourceSportId === 'f1' ? 'motorsport' : ''].filter(Boolean).map(id=>`sport:${id}`);
     const families = new Set(next.followFirst.followedMajorEventIds || []);

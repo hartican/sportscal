@@ -229,7 +229,7 @@ function normalizeFixture(event, codeId, extra = {}){
         : event.timePrecision ? { timePrecision:event.timePrecision } : {}),
     startTimeUtc: event.startTimeUtc || null,
     ...Object.fromEntries(['schedulePrecision','weekAnchorDate','displayDateLabel','publicStageLabel','presentationTier'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
-    ...Object.fromEntries(['isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
+    ...Object.fromEntries(['cardType','narrativeType','tournamentParent','tennisTournamentId','contestUnit','tour','parentTieId','tieId','eliminatedParticipantIds','loserParticipantId','isMajor','major','tournamentSlotId','drawMatchNumber','matchNumber','slotId','slotKind','tournamentId','tournamentName','eventFamilyId','eventSeriesId','majorEventName','season','detailsUnavailable','fixtureResults','venueCountryCode','countryCode','editorialReplayRecommendation','competitionName','isSenior','gender','discipline','sourceName','sourceType','sourceCheckedAt','homeParticipantId','awayParticipantId','homeScore','awayScore','score','scoreDisplay','result','outcomeText','recapText','resultPublishedAt','consensusResult','resultLabels','consensusTags','participationEvidence','competitionCountryCode'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
     ...(!event.scoreDisplay && derivedScore ? { scoreDisplay:derivedScore } : {}),
     ...(!event.score && derivedScore ? { score:derivedScore } : {}),
     ...Object.fromEntries(['eventType','eventCode','bestOf','matchType','matchupSides','sessionId','sessionStartTimeUtc','sequenceInSession','notBeforeTimeUtc','court','endTimeUtc','actualEndTimeUtc','endTimeBasis'].filter(key=>event[key]!=null).map(key=>[key,event[key]])),
@@ -368,8 +368,9 @@ function mergeFixtureRecords(placeholders, eventRecords, codeId, officialEvents 
 function codeFixtures(code){
   const placeholders = [...eventPhasePlaceholders(code), ...codePhasePlaceholders(code)];
   const golf = code.id === "sport:golf" ? require("./refresh-pga-schedule").fixtures(require("../data/canonical/pga-tour-schedule.json")) : [];
+  const teamTennis=code.id==='sport:tennis'?require('../data/canonical/tennis-team-contests.v1.json').fixtures:[];
   const programme = require("../lib/competition-fixtures").fixtures().filter(event => eventMatchesCode(event,code));
-  const published = feed.events.filter(event => eventMatchesCode(event, code));
+  const published = [...teamTennis,...feed.events].filter(event => eventMatchesCode(event, code));
   const tournamentName = name => String(name||'').toLowerCase().replace(/the \d+(?:st|nd|rd|th) open/,'the open championship').replace(/\b20\d\d\b/g,'').replace(/[^a-z0-9]/g,'');
   for(const fixture of golf){
     const existing=[...published,...programme].find(e=>e.date===fixture.date && tournamentName(e.name)===tournamentName(fixture.name));

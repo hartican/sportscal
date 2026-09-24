@@ -10,7 +10,7 @@ const fixture = (id, fields={}) => ({id,eventId:id,key:"tennis",date:"2026-09-08
 function included(event, preferences, expected, description){
   assert.equal(Boolean(follow.reasonForEvent(event,preferences)),expected,`browser: ${description}`);
   const response=buildServerFeed({events:[event],userId:"policy-test",userState:{preferences},now});
-  assert.equal(response.events.length>0,expected,`server: ${description}`);
+  assert.equal(response.events.some(e=>e.id===event.id),expected,`server: ${description}`);
 }
 const rugby={followedSports:["rugby"]};
 included(fixture("ordinary",{key:"rugby",stakesScore:5,storyline:{stakes:5}}),rugby,false,"stakes never confer eligibility");
@@ -21,7 +21,7 @@ included(fixture('motogp-gp',{key:'motogp',name:'San Marino Grand Prix Race'}),{
 included(fixture('sailgp-meet',{key:'sailgp',name:'Sydney Sail Grand Prix'}),{followedSports:['sailgp']},true,'premier SailGP meets remain marquee without stakes');
 const tennis={followedSports:["tennis"],followFirst:{australiansOnlySportIds:["sport:tennis"]}};
 included(fixture("early-aussie",{round:"Round 1",participantCountryCodes:["AUS"]}),tennis,false,"early tennis requires a followed player");
-included(fixture("foreign-final",{round:"Final",participantCountryCodes:["ITA","USA"]}),tennis,false,"tennis finals require a player follow");
+included(fixture("foreign-final",{round:"Final",participantCountryCodes:["ITA","USA"]}),tennis,true,"tennis singles finals follow broad Tennis");
 included(fixture("explicit-event",{round:"Quarter-final",eventFamilyId:"us-open",participantCountryCodes:["ITA","USA"]}),{...tennis,followFirst:{...tennis.followFirst,followedMajorEventIds:["us-open"]}},false,"event follows never bypass player selection");
 included(fixture("early-event",{round:"Round 1",eventFamilyId:"us-open"}),{followFirst:{followedMajorEventIds:["us-open"]}},false,"event follows remain marquee only");
 included(fixture("doubles-semi",{round:"Semi-final",eventType:"doubles"}),{followedSports:["tennis"]},false,"doubles start at finals");
@@ -30,7 +30,7 @@ included(fixture("singles-quarter",{round:"Quarterfinal",eventType:"singles"}),{
 const athlete={followedSports:[],preferenceGraph:{entityFollows:[{participantId:"competitor:f1:max-verstappen",followLevel:"follow"}]}};
 included(fixture("nls",{key:"motorsport",participantIds:["competitor:f1:max-verstappen"],stakesScore:1}),athlete,true,"athlete follows cross disciplines");
 included(fixture("excluded",{key:"motorsport",participantIds:["competitor:f1:max-verstappen"],excludedParticipantIds:["competitor:f1:max-verstappen"]}),athlete,false,"confirmed exclusion overrides provisional entry");
-included(fixture("muted",{round:"Final",participantIds:["athlete:tennis:muted"]}),{followedSports:["tennis"],preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"mute"}]}},false,"explicit mute overrides broad follow");
+included(fixture("muted",{round:"Final",participantIds:["athlete:tennis:muted"]}),{followedSports:["tennis"],preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"mute"}]}},true,"legacy participant opt-out does not veto broad singles finals");
 included(fixture("empty-preferences",{key:"rugby",round:"Final",stakesScore:5}),{},false,"no follows means no unsolicited fixture");
 const footballPlayer=require('../data/canonical/football-follow-index.v1.json').players.find(player=>player.currentTeamId);
 for(const [fields,expected] of [[{},true],[{participantsConfirmed:true},true],[{excludedParticipantIds:[footballPlayer.id]},false]]){

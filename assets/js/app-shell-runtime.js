@@ -3222,7 +3222,7 @@ return {womensT20,apply,fields};
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildNothingSportsFollowFirst(root, competitionClassification){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-first.v10";
+  const SCHEMA_VERSION = "follow-first.v11";
   const META_SCHEMA_VERSION = "user-meta.v1";
   const FEEDBACK_SCHEMA_VERSION = "recommendation-feedback.v1";
   const DEFAULT_RADIUS_KM = 20;
@@ -3724,6 +3724,9 @@ return {womensT20,apply,fields};
     const next = preparedPreferences || migratePreferences(preferences);
     const followPolicy = root.NOTHINGSPORTS_FOLLOW_FEED_POLICY
       || (typeof require === "function" ? require("./follow-feed-policy.js") : null);
+    const tennis = root.NOTHINGSPORTS_TENNIS_FEED || (typeof require === "function" ? require("./tennis-feed") : null);
+    if(tennis?.isParent(event))return tennis.reason(event,next,{collectionsById,preparedPreferences:next});
+    if(followPolicy.sportKey(event)==='tennis' && tennis?.isRubber(event))return null;
     if (followPolicy.aggregateEvent(event) || followPolicy.explicitlyExcluded(event,next)) return null;
     const follows = new Map((next.preferenceGraph?.entityFollows || []).map(follow => [String(follow.participantId), follow]));
     const participants = followPolicy.participantIds(event);
@@ -3793,7 +3796,8 @@ return {womensT20,apply,fields};
       && event?.kind !== "major_event"
       && event?.kind !== "ticket_sale"
     );
-    if (sportId === "tennis") return null; // 2026-09-09: player/collection follows only, including finals.
+    if (sportId === "tennis") return sportFollowed && tennis.isFinal(event)
+      ? {type:'sport-marquee',entityKind:'sport',id:'tennis',label:null,displayTag:false} : null;
     const australianScope = new Set(next.followFirst.australiansOnlySportIds || []);
     const scopedSportIds = [sourceSportId,sportId,sourceSportId === 'afl' ? 'afl-premiership' : '',sourceSportId === 'f1' ? 'motorsport' : ''].filter(Boolean).map(id=>`sport:${id}`);
     const families = new Set(next.followFirst.followedMajorEventIds || []);
@@ -4100,7 +4104,7 @@ return {womensT20,apply,fields};
 })(typeof globalThis !== "undefined" ? globalThis : window, function buildFollowFeedPolicy(){
   "use strict";
 
-  const SCHEMA_VERSION = "follow-feed-policy.v9";
+  const SCHEMA_VERSION = "follow-feed-policy.v10";
   const SYDNEY_TIME_ZONE = "Australia/Sydney";
   const SYDNEY_DATE = new Intl.DateTimeFormat('en-CA',{timeZone:SYDNEY_TIME_ZONE,year:'numeric',month:'2-digit',day:'2-digit'});
 
@@ -4140,6 +4144,8 @@ return {womensT20,apply,fields};
     if(!['golf','masters'].includes(sportKey(event)))return false;
     return sportKey(event)==='masters' || event.isMajor===true || event.major===true || event.stage==='Major' || /^(?:\d{4} )?(?:Masters Tournament|The Masters|PGA Championship|U\.?S\.? Open|The Open(?: Championship)?|U\.?S\.? Women['’]?s Open|AIG Women['’]?s Open|The Chevron Championship|KPMG Women['’]?s PGA Championship|The Amundi Evian Championship)(?: \d{4})?$/i.test(event.tournamentName||event.name||'');
   }
+  function tennisModel(){return globalThis.NOTHINGSPORTS_TENNIS_FEED || (typeof require === "function" ? require("./tennis-feed") : null);}
+
   function aggregateEvent(event){
     if (!event) return true;
     if(['golf','masters'].includes(sportKey(event)) && event.kind!=='ticket_sale')return false;
@@ -4301,7 +4307,7 @@ return {womensT20,apply,fields};
     if(participantFollow)return true;
     if(!sportingFixture(event))return false;
     if(sportKey(event)==="f1" && competitionFollow)return true;
-    if(sportKey(event)==="tennis")return false;
+    if(sportKey(event)==="tennis")return competitionFollow && tennisModel().isFinal(event);
     if(explicitEventFollow)return isMarquee(event);
     if(["cricket","rugby"].includes(sportKey(event)))return false;
     if(australiansOnly && australiansFilterUseful(event))return competitionFollow && hasAustralianParticipant(event);
@@ -4318,7 +4324,140 @@ return {womensT20,apply,fields};
     return { mode:"manual", include:false, label:"Add to Feed" };
   }
 
-  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
+  return Object.freeze({ SCHEMA_VERSION, SYDNEY_TIME_ZONE, golfMajor, aggregateEvent, explicitCompetitionRequired, effectiveDomainPreferences, eventFamilyIds, explicitlyExcluded, dateKey, hasReleasedMatchup, hasPublishedFixture, sportingFixture, sportKey, isChampionshipMarquee, isPractice, feedEligibleSession, participantIds, stakesScore, isFinalsOrKnockout, isMarquee, australiansFilterUseful, hasAustralianParticipant, eligibleForFollow, followedFixtureDecision });
+});
+
+;
+
+;/* config/tournament-schedule.js */
+(function(root,factory){const api=factory();root.NOTHINGSPORTS_TOURNAMENT_SCHEDULE=api;if(typeof module!=='undefined')module.exports=api;})(globalThis,function(){
+ 'use strict';
+ const slug=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+ function family(t){
+  if(t.eventFamilyId)return t.eventFamilyId;
+  if(t.eventSeriesId)return t.eventSeriesId.replace(/^event-series:/,'');
+  const name=String(t.name||t.tournamentName||'');
+  for(const [pattern,id] of [[/wta finals/i,'wta-finals'],[/atp finals/i,'atp-finals'],[/australian open/i,'australian-open'],[/roland|french open/i,'roland-garros'],[/wimbledon/i,'wimbledon'],[/\bus open\b|u\.s\. open/i,'us-open'],[/cincinnati/i,'cincinnati'],[/indian wells|bnp paribas/i,'indian-wells'],[/miami/i,'miami-open'],[/madrid/i,'madrid-open'],[/italia|rome/i,'italian-open'],[/national bank|canadian open/i,'national-bank-open'],[/monte.carlo/i,'monte-carlo-masters'],[/shanghai/i,'shanghai-masters'],[/paris masters/i,'paris-masters'],[/billie|bjk/i,'billie-jean-king-cup'],[/davis/i,'davis-cup'],[/united cup/i,'united-cup']])if(pattern.test(name))return id;
+  return slug(name.replace(/\b20\d\d\b/g,''));
+ }
+ function category(t){return t.level==='grand_slam'?'Grand Slams':t.level==='atp_masters_1000'?'ATP Masters 1000':t.level==='wta_1000'?'WTA 1000':t.level==='atp_500'?'ATP 500':t.level==='wta_500'?'WTA 500':t.level==='atp_250'?'ATP 250':t.level==='wta_250'?'WTA 250':/finals/.test(t.level)?'Tour finals':t.level==='team_competition'?'International team events':null;}
+ function sections(tournaments,day){
+  const limit=new Date(day+'T12:00:00Z');limit.setUTCMonth(limit.getUTCMonth()+3);const until=limit.toISOString().slice(0,10);
+  return ['Grand Slams','ATP Masters 1000','WTA 1000','ATP 500','WTA 500','ATP 250','WTA 250','Tour finals','International team events'].map(label=>{
+   const all=tournaments.filter(t=>category(t)===label).sort((a,b)=>a.startDate.localeCompare(b.startDate)||a.name.localeCompare(b.name));
+   return {label,current:all.filter(t=>t.endDate>=day&&t.startDate<=until),later:all.filter(t=>t.startDate>until),previous:all.filter(t=>t.endDate<day).reverse()};
+  });
+ }
+ function identify(f,catalogue=[]){
+  const raw=[f.tournamentName,f.competitionName,f.competitionId,f.eventFamilyId,f.majorEventName,f.key,f.id,f.sourceUrl,f.venue].filter(Boolean).join(' ');
+  const year=String(f.date||f.startTimeUtc||'').slice(0,4);
+  const normalized=slug(raw);
+  const candidates=catalogue.filter(t=>String(t.season||t.startDate.slice(0,4))===year).filter(t=>f.tournamentId===t.tournamentId||f.eventFamilyId===family(t)||normalized.includes(slug(t.name))||normalized.includes(family(t)));
+  const t=candidates.find(t=>f.date>=t.startDate&&f.date<=t.endDate)||candidates[0];
+  const name=t?.name||f.tournamentName||f.competitionName||f.majorEventName||(f.key==='wimbledon'?'Wimbledon':null);
+  // Unresolved source editions remain separate by published competition and year.
+  const label=name||String(f.competitionId||'Tournament unavailable').replace(/^competition:/,'').replace(/[-:]/g,' ');
+  return {id:t?.tournamentId||f.tournamentId||`${slug(label)}:${year}`,label:`${label} ${year}`,startDate:t?.startDate||f.date,endDate:t?.endDate||f.date};
+ }
+ function groups(fixtures,catalogue=[]){
+  const out=new Map();for(const f of fixtures){const edition=identify(f,catalogue);let g=out.get(edition.id);if(!g){g={...edition,fixtures:[]};out.set(g.id,g);}g.fixtures.push(f);g.startDate=[g.startDate,f.date].filter(Boolean).sort()[0];g.endDate=[g.endDate,f.date].filter(Boolean).sort().at(-1);}
+  for(const g of out.values())g.fixtures.sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.time||'').localeCompare(String(b.time||''))||a.id.localeCompare(b.id));
+  return [...out.values()].sort((a,b)=>String(a.startDate).localeCompare(String(b.startDate))||a.id.localeCompare(b.id));
+ }
+ return {family,category,sections,identify,groups};
+});
+
+;
+
+;/* config/tennis-feed.js */
+(function(root,factory){
+  const api=factory();root.NOTHINGSPORTS_TENNIS_FEED=api;
+  if(typeof module==='object'&&module.exports)module.exports=api;
+})(globalThis,function(){
+  'use strict';
+  const api=name=>globalThis[name] || (typeof require==='function'?require({'NOTHINGSPORTS_FOLLOW_FEED_POLICY':'./follow-feed-policy','NOTHINGSPORTS_FOLLOW_FIRST':'./follow-first','NOTHINGSPORTS_TOURNAMENT_SCHEDULE':'./tournament-schedule'}[name]):null);
+  const id=e=>String(e.canonicalEventId||e.eventId||e.id||'');
+  const isParent=e=>e?.cardType==='tennis_parent';
+  const isRubber=e=>Boolean(e?.parentTieId||e?.tieId&&e?.contestUnit!=='tie'||e?.contestUnit==='rubber');
+  function isFinal(e){
+    if(isParent(e)||isRubber(e)||['MD','WD','XD'].includes(e.eventCode)||/doubles/i.test([e.eventType,e.matchType,e.drawType,e.discipline,e.name].join(' ')))return false;
+    // Round labels take precedence over the name of a "Finals" tournament.
+    return /^(?:(?:men.s|women.s|singles|championship|grand)\s+)*final$/i.test(String(e.roundLabel||e.round||e.stage||'').trim());
+  }
+  function parentKey(t){
+    // Dates and locations are facts, not identity. Distinct stages use source IDs.
+    const family=api('NOTHINGSPORTS_TOURNAMENT_SCHEDULE').family(t);
+    return `tennis-parent:${t.editionId||family+':'+t.season}:${t.phaseId||t.stageId||(/team_competition/.test(t.level)?t.tournamentId:'main')}`;
+  }
+  function matches(parent,e){
+    if(!e||isParent(e)||String(e.id||'').startsWith('tennis-tournament-')||api('NOTHINGSPORTS_FOLLOW_FEED_POLICY').aggregateEvent(e)||isRubber(e))return false;
+    if(api('NOTHINGSPORTS_FOLLOW_FEED_POLICY').sportKey(e)!=='tennis')return false;
+    const ids=[e.tennisTournamentId,e.tournamentId,e.editionId].filter(Boolean);
+    if(ids.some(value=>parent.tournamentIds.includes(value)))return true;
+    if(ids.length)return false;
+    const family=api('NOTHINGSPORTS_FOLLOW_FEED_POLICY').eventFamilyIds(e);
+    return family.includes(parent.eventFamilyId)&&Boolean(e.date&&parent.date&&parent.endDate&&e.date>=parent.date&&e.date<=parent.endDate);
+  }
+  function participation(parent,children){
+    const policy=api('NOTHINGSPORTS_FOLLOW_FEED_POLICY');
+    const entries=new Map((parent.sourceParticipation||[]).map(e=>[e.participantId+'|'+e.draw,e]));
+    const removed=new Set(parent.excludedParticipantIds||[]);
+    for(const entry of parent.participationEvidence||[]){
+      if(['withdrawn','eliminated','excluded'].includes(entry.participationStatus))removed.add(entry.participantId);
+      else if(['confirmed','entered','active'].includes(entry.participationStatus))entries.set(entry.participantId+'|entry',{participantId:entry.participantId,draw:'entry',active:true});
+    }
+    for(const child of children){
+      const draw=child.drawId||child.eventType||child.matchType||(child.contestUnit==='tie'?'ties':'singles');
+      const eliminated=new Set([...(child.eliminatedParticipantIds||[]),child.loserParticipantId,...(child.excludedParticipantIds||[])].filter(Boolean));
+      if(['cancelled','canceled','withdrawn','abandoned'].includes(String(child.status).toLowerCase()))continue;
+      for(const participantId of [...new Set([...policy.participantIds(child),...eliminated])]){
+        entries.delete(participantId+'|entry');
+        const key=participantId+'|'+draw,prior=entries.get(key);
+        entries.set(key,{participantId,draw,active:!eliminated.has(participantId)&&prior?.active!==false});
+      }
+    }
+    return [...entries.values()].map(e=>({...e,active:e.active&&!removed.has(e.participantId)}));
+  }
+  function activeParticipants(parent,children){return [...new Set(participation(parent,children).filter(e=>e.active).map(e=>e.participantId))];}
+  function reconcile(parent,events){
+    const children=new Map((parent.childContests||[]).map(e=>[id(e),e]));
+    for(const e of events||[])if(matches(parent,e))children.set(id(e),{...children.get(id(e)),...e});
+    const childContests=[...children.values()];
+    const endDate=[parent.endDate,...childContests.map(e=>e.endDate||e.date)].filter(Boolean).sort().at(-1)||null;
+    return {...parent,endDate,childContests,sourceParticipation:participation(parent,childContests),participantIds:activeParticipants(parent,childContests),participantsConfirmed:true};
+  }
+  function buildParents(catalogue,fixtures){
+    const groups=new Map(),schedule=api('NOTHINGSPORTS_TOURNAMENT_SCHEDULE');
+    for(const t of catalogue.tournaments||[]){
+      if(!t.tournamentId||!t.season||!t.sourceUrl)continue;
+      let key=parentKey(t);let prior=groups.get(key);
+      if(prior && (prior.date!==t.startDate||prior.endDate!==t.endDate)){key=parentKey({...t,phaseId:t.tournamentId});prior=groups.get(key);}
+      if(prior){prior.tournamentIds.push(t.tournamentId);prior.representedTours=[...new Set([...prior.representedTours,...(t.representedTours||[t.tour])])];continue;}
+      const window=t.schedulingWindow||{};
+      const date=t.startDate||window.startsOn||null,endDate=t.endDate||window.endsOn||date;
+      groups.set(key,{id:key,eventId:key,canonicalEventId:key,key:'tennis',sport:'Tennis',sportDomainId:'sport:tennis',cardType:'tennis_parent',tournamentParent:true,
+        name:t.name,tournamentName:t.name,season:t.season,tournamentId:t.tournamentId,tennisTournamentId:t.tournamentId,tournamentIds:[t.tournamentId],eventFamilyId:schedule.family(t),competitionId:t.competitionId,
+        phaseId:t.phaseId||t.stageId||null,tour:t.tour,representedTours:t.representedTours||[t.tour],date,endDate,dateOnly:true,timePrecision:date?'date-only':'tbc',timeTbc:true,
+        schedulingWindow:window,timingProvisional:t.timingProvisional===true||!t.startDate,dateLabel:t.dateLabel||window.label||(!date?'Dates to be confirmed':null),
+        status:'upcoming',venue:[t.city,t.countryCode].filter(Boolean).join(', '),sourceUrl:t.sourceUrl,sourceName:t.sourceName||'Tournament calendar',sourceType:t.sourceType||'published',
+        participationEvidence:t.participationEvidence||[],excludedParticipantIds:t.excludedParticipantIds||[],childContests:[],participantIds:[],expected:5});
+    }
+    return [...groups.values()].map(parent=>reconcile(parent,fixtures));
+  }
+  function reason(parent,preferences,{collectionsById={},preparedPreferences=null,expandedParticipantIds=null,now=new Date()}={}){
+    const policy=api('NOTHINGSPORTS_FOLLOW_FEED_POLICY'),follow=api('NOTHINGSPORTS_FOLLOW_FIRST');
+    const prefs=preparedPreferences||follow.migratePreferences(preferences);
+    if(policy.explicitlyExcluded(parent,prefs))return null;
+    if((prefs.followFirst?.followedMajorEventIds||[]).includes(parent.eventFamilyId)||(prefs.preferenceGraph?.competitionPreferences||[]).some(p=>p.competitionId===parent.competitionId&&p.enabled===true))return {type:'event',id:parent.eventFamilyId,displayTag:false};
+    if(parent.endDate && parent.endDate<policy.dateKey(now))return null;
+    const participant=(parent.participantIds||[]).find(id=>follow.effectiveParticipantFollow(id,prefs,collectionsById).followed || expandedParticipantIds?.has(id));
+    return participant?{type:participant.startsWith('team:')?'team':'athlete',id:participant,displayTag:false}:null;
+  }
+  function timingLabel(parent){
+    const label=parent.dateLabel || (parent.date?[parent.date,parent.endDate!==parent.date?parent.endDate:null].filter(Boolean).join(' – '):'Dates to be confirmed');
+    return `${label}${parent.timingProvisional&&parent.date?' · Provisional':''}`;
+  }
+  return {isParent,isRubber,isFinal,parentKey,matches,activeParticipants,reconcile,buildParents,reason,timingLabel};
 });
 
 ;

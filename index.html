@@ -11,9 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="299">
+<meta name="app-shell-version" content="300">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=293" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=300" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6867,6 +6867,15 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .feed-schedule-link{display:inline-block;color:var(--accent);background:none;border:0;padding:6px 0;font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:3px;min-height:32px;}
 .follow-common-controls,.follow-event-bulk{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:10px 0;}
 .follow-schedule-panel{min-width:0;}
+
+.tennis-feed-parent{padding:16px;min-width:0;}
+.tennis-feed-parent summary{cursor:pointer;min-height:44px;overflow-wrap:anywhere;}
+.tennis-feed-parent summary strong,.tennis-feed-parent summary span{display:block;}
+.tennis-feed-parent summary span{font-size:.75rem;color:var(--text-dim);margin-top:6px;}
+.tennis-parent-contests{margin-top:12px;}
+.tennis-contest-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--border);font-size:.8rem;}
+.tennis-contest-row>span{flex:1 1 150px;min-width:0;overflow-wrap:anywhere;}
+.tennis-contest-row button{min-height:44px;}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
 <link rel="stylesheet" href="styles/follow-feed-rework.css?v=293">
@@ -7165,7 +7174,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=293"></script>
+<script src="assets/js/app-shell-runtime.js?v=300"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -10874,7 +10883,7 @@ async function refreshLiveFixtureSnapshot(){
   if(document.hidden || globalThis.location?.protocol==='file:' || startupCoordinator.isHydrating() || activeTab==='follow')return;
   if(liveFixtureRefresh)return liveFixtureRefresh;
   if(Date.now()-liveFixtureLastRequestedAt<30_000)return;
-  const ids=[...new Set([...document.querySelectorAll('.feed-card-slot .event-card')].map(card=>card.closest('[data-feed-event-id]')?.dataset.feedEventId).filter(Boolean))].sort().slice(0,60);
+  const ids=[...new Set([...document.querySelectorAll('.feed-card-slot .event-card:not(.tennis-feed-parent)')].map(card=>card.closest('[data-feed-event-id]')?.dataset.feedEventId).filter(Boolean))].sort().slice(0,60);
   if(!ids.length)return;
   liveFixtureRefresh=(async()=>{
     try{
@@ -12012,7 +12021,7 @@ function ensureSessionRatingPrompt(events){
     || document.getElementById("tunePromptModal")?.classList.contains("show")
   ) return sessionRatingPromptEventId;
   const candidates = (Array.isArray(events) ? events : [])
-    .filter(event => getEventStatus(event) === "past")
+    .filter(event => !NOTHINGSPORTS_TENNIS_FEED.isParent(event) && getEventStatus(event) === "past")
     .filter(event => getActual(event.id) === null)
     .filter(event => !getEventAction(event).archived && !eventIsAutoArchived(event))
     .sort((first, second) => eventDateTime(second) - eventDateTime(first));
@@ -12509,7 +12518,7 @@ function mainFeedFixtureSemanticKey(event){
 
 function mergeMainFeedSpecialEvents(events){
   const base = events
-    .filter(event => event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event");
+    .filter(event => NOTHINGSPORTS_TENNIS_FEED.isParent(event) || event?.majorEventMarker !== true && event?.tournamentParent !== true && event?.cardKind !== "event");
   const canonicalFixtures = majorEventFeedCandidates();
   const specialEvents = [...automaticallyFollowedMajorEventFixtures(), ...selectedMajorEventFixtures()]
     .filter(event => activeFilter === "all" || feedFilterMatchesEvent(activeFilter, event))
@@ -14262,7 +14271,7 @@ function renderCodeInspectorResults(panel, code){
 
 let tennisScheduleUiLoading = null;
 function loadTennisScheduleUi(){
-  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=293').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=293')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
+  if(!tennisScheduleUiLoading)tennisScheduleUiLoading=loadDeferredScript('config/tournament-schedule.js?v=293').then(()=>loadDeferredScript('assets/js/tennis-schedule-ui.js?v=300')).catch(error=>{tennisScheduleUiLoading=null;throw error;});
   return tennisScheduleUiLoading;
 }
 function renderTennisMajorEvents(container){
@@ -14391,6 +14400,8 @@ function followFeedPolicySource(reason){
 }
 
 function eventFollowReason(ev, context){
+  if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return NOTHINGSPORTS_TENNIS_FEED.reason(ev,userPreferences,{collectionsById:followCollectionsById(),now:nowAEST()});
+  if(NOTHINGSPORTS_TENNIS_FEED.isRubber(ev))return null;
   if (!FOLLOW_FEED_POLICY.sportingFixture(ev) || !FOLLOW_FEED_POLICY.feedEligibleSession(ev) || FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences)) return null;
   const followLevels = eventParticipantFollowLevels(ev);
   if (getEventAction(ev).addedToFixtures || ev?.manualPin === true){
@@ -14540,9 +14551,9 @@ function eventIsAutoArchived(ev, reference = nowAEST()){
 }
 
 function getPreferenceMatchedEvents(reference = nowAEST()){
-  let list = activeEvents.slice();
+  let list = tennisFeedParentCandidates(activeEvents);
   list = list.filter(ev => eventMeetsDerivedRetention(ev, reference));
-  list = list.filter(ev => !eventIsJointTournamentFeedChild(ev, jointTournamentData, reference));
+
   // Follows are additive. Retired enthusiasm/round/discovery filters must not
   // veto a fixture promised by the common Follow policy.
   const followContext=buildFollowEligibilityContext();
@@ -16870,7 +16881,74 @@ function isMarqueeFixture(ev){
   return /grand final/i.test(FOLLOW_FIRST.stageLabel(ev) || "") || ev.marquee === true || ev.editorialMarquee === true
     || eventEnrichment(ev)?.cardVariant === "marquee";
 }
+let tennisFeedParentDocument=null,tennisFeedParentLoading=null,tennisFeedParentError=null;
+let tennisFeedContestDocument=null,tennisFeedContestLoading=null;
+function loadTennisFeedParents(){
+  if(tennisFeedParentDocument)return Promise.resolve(tennisFeedParentDocument);
+  if(!tennisFeedParentLoading)tennisFeedParentLoading=fetchJson('data/tennis-feed-parents.v1.json',{cache:'no-cache'}).then(doc=>{tennisFeedParentDocument=doc;tennisFeedParentError=null;return doc;}).catch(error=>{tennisFeedParentError=error;throw error;}).finally(()=>{tennisFeedParentLoading=null;});
+  return tennisFeedParentLoading;
+}
+function tennisFeedInterested(){
+  return (userPreferences.followedSports||[]).some(id=>['tennis','wimbledon'].includes(id)) || (userPreferences.selectedSelectorEntityIds||[]).some(id=>/tennis|atp|wta/.test(id)) || (userPreferences.followFirst?.followedMajorEventIds||[]).length>0 || (userPreferences.preferenceGraph?.competitionPreferences||[]).some(p=>p.enabled&&/tennis|atp|wta|davis|billie/.test(p.competitionId)) || (userPreferences.preferenceGraph?.entityFollows||[]).some(p=>/tennis/.test(p.participantId));
+}
+function tennisFeedParentCandidates(events){
+  if(!tennisFeedParentDocument && !tennisFeedParentLoading && !tennisFeedParentError && tennisFeedInterested())void loadTennisFeedParents().then(()=>{if(activeTab==='feed')renderAll({preserveViewport:true});}).catch(()=>{if(activeTab==='feed')renderAll({preserveViewport:true});});
+  const byId=new Map(events.map(e=>[String(e.eventId||e.id),e]));
+  for(const contest of tennisFeedParentDocument?.contests||[])if(!byId.has(contest.id))byId.set(contest.id,NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(contest,'tennis'));
+  for(const parent of tennisFeedParentDocument?.parents||[])byId.set(parent.id,NOTHINGSPORTS_TENNIS_FEED.reconcile(parent,events));
+  return [...byId.values()];
+}
+function loadTennisFeedContests(){
+  if(tennisFeedContestDocument)return Promise.resolve(tennisFeedContestDocument);
+  if(!tennisFeedContestLoading)tennisFeedContestLoading=fetchJson('data/follow-schedule/tennis.json',{cache:'no-cache'}).then(doc=>{tennisFeedContestDocument=doc;return doc;}).finally(()=>{tennisFeedContestLoading=null;});
+  return tennisFeedContestLoading;
+}
+function buildTennisFeedParent(parent){
+  const card=document.createElement('article');card.className='event-card tennis-feed-parent';card.dataset.eventId=parent.id;
+  const details=document.createElement('details'),summary=document.createElement('summary'),title=document.createElement('strong'),timing=document.createElement('span');
+  title.textContent=`${parent.name} ${parent.season}`;timing.textContent=NOTHINGSPORTS_TENNIS_FEED.timingLabel(parent);summary.append(title,timing);details.append(summary);card.append(details);
+  const body=document.createElement('div');body.className='tennis-parent-contests';details.append(body);
+  let loaded=false;
+  async function paint(){
+    body.replaceChildren();body.textContent='Loading contests…';
+    try{
+      const doc=await loadTennisFeedContests();
+      if(!card.isConnected)return;
+      const fixtures=NOTHINGSPORTS_TENNIS_FEED.reconcile({...parent,childContests:doc.fixtures.filter(e=>NOTHINGSPORTS_TENNIS_FEED.matches(parent,e))},activeEvents).childContests;
+      body.replaceChildren();
+      if(!fixtures.length){body.textContent='Contests will appear as reliable schedules become available.';return;}
+      const groups=new Map();
+      for(const f of fixtures){const label=f.contestUnit==='tie'||f.tour==='TEAM'?'Team ties':/doubles/i.test([f.eventType,f.matchType,f.name].join(' '))?'Doubles':/women|wta/i.test([f.eventType,f.matchType,f.gender,f.tour].join(' '))?'Women’s singles':'Men’s singles';if(!groups.has(label))groups.set(label,[]);groups.get(label).push(f);}
+      for(const [label,fixtures]of groups){
+        const section=document.createElement('section'),heading=document.createElement('h3');heading.textContent=label;section.append(heading);body.append(section);
+        let count=0;fixtures.sort((a,b)=>String(a.date||'9999').localeCompare(String(b.date||'9999'))||String(a.time||'').localeCompare(String(b.time||'')));
+        function more(){
+          for(const fixture of fixtures.slice(count,count+20)){
+            const ev=NOTHINGSPORTS_FIXTURE_IDENTITY.fromSchedule(fixture,'tennis'),row=document.createElement('div');row.className='tennis-contest-row';
+            const copy=document.createElement('span');copy.textContent=`${spoilerSafeDisplayTitle(ev)} · ${ev.date||'Date TBC'}${ev.time&&!ev.timeTbc?' · '+ev.time:''}`;row.append(copy);
+            const excluded=FOLLOW_FEED_POLICY.explicitlyExcluded(ev,userPreferences);
+            const action=getEventAction(ev),automatic=!excluded&&Boolean(automaticEventFollowReason(ev)),visible=!excluded&&!action.dismissed&&!action.archived&&(automatic||action.addedToFixtures);
+            const button=document.createElement('button');button.type='button';button.className='btn ghost';button.textContent=visible?'In Feed':excluded?'Excluded':'Add to Feed';button.disabled=excluded;
+            button.onclick=()=>{
+              if(visible){pendingNotificationEventId=String(ev.eventId||ev.id);if(!activeEvents.some(e=>String(e.eventId||e.id)===pendingNotificationEventId))activeEvents.push(ev);renderAll({preserveViewport:true});focusPendingNotificationEvent();return;}
+              const next=updateEventAction(ev,{addedToFixtures:true,addedToFixturesAt:new Date().toISOString(),addedFixture:{...ev,manualPin:true},dismissed:false,archived:false,pinState:'added',pinRevision:(Number(action.pinRevision)||0)+1,pinMutationId:crypto.randomUUID()});
+              queueFixturePinCommand(eventActionKey(ev),next);renderAll({preserveViewport:true});
+            };row.append(button);
+            if(action.addedToFixtures){const remove=document.createElement('button');remove.type='button';remove.className='btn ghost';remove.textContent='Remove';remove.setAttribute('aria-label',`Remove manual selection for ${spoilerSafeDisplayTitle(ev)}`);remove.onclick=()=>{const next=updateEventAction(ev,{addedToFixtures:false,pinState:'removed',pinRevision:(Number(action.pinRevision)||0)+1,pinMutationId:crypto.randomUUID()});queueFixturePinCommand(eventActionKey(ev),next);void paint();renderAll({preserveViewport:true});};row.append(remove);}
+            section.append(row);
+          }
+          count+=20;
+          if(count<fixtures.length){const button=document.createElement('button');button.type='button';button.className='btn ghost';button.textContent='More contests';button.onclick=()=>{button.remove();more();};section.append(button);}
+        }more();
+      }
+    }catch(error){loaded=false;body.textContent='Contests could not load. ';const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry';retry.onclick=()=>void paint();body.append(retry);}
+  }
+  details.addEventListener('toggle',()=>{if(details.open&&!loaded){loaded=true;void paint();}});
+  card.append(buildFeedScheduleLink(parent));return card;
+}
+
 function buildEventCard(ev, options = {}){
+  if(NOTHINGSPORTS_TENNIS_FEED.isParent(ev))return buildTennisFeedParent(ev);
   profileFixtureEvents.set(String(ev.eventId||ev.id),ev);
   try {
     const card = buildDetailedEventCard(ev, options);
@@ -17809,7 +17887,7 @@ function appendFeedPageToCurrentList(incomingEvents){
       groupDiv.dataset.feedDate = dateStr;
       const heading = document.createElement("div");
       heading.className = "date-heading";
-      heading.innerHTML = fmtDateHeading(dateStr) + (dateStr === todayStr ? ' <span class="today-flag">TODAY</span>' : '');
+      heading.innerHTML = (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)?fmtDateHeading(dateStr):"Upcoming · dates to be confirmed") + (dateStr === todayStr ? ' <span class="today-flag">TODAY</span>' : '');
       grid = document.createElement("div");
       grid.className = "cards-grid";
       groupDiv.append(heading, grid);
@@ -17872,6 +17950,10 @@ function renderListView(){
   const focusedBanner = buildFocusedDiscoveryBanner(activeFilter);
   if (focusedBanner) container.appendChild(focusedBanner);
   let baseFiltered = mergeMainFeedSpecialEvents(getFilteredEvents());
+  if(tennisFeedParentError&&tennisFeedInterested()){
+    const notice=document.createElement('p');notice.textContent='Tournament overviews could not load. ';
+    const retry=document.createElement('button');retry.type='button';retry.className='btn ghost';retry.textContent='Retry';retry.onclick=()=>{tennisFeedParentError=null;renderAll({preserveViewport:true});};notice.append(retry);container.append(notice);
+  }
   const notificationEvent = pendingNotificationEventId
     ? activeEvents.find(event => String(event.eventId || event.id) === pendingNotificationEventId)
     : null;
@@ -17904,7 +17986,7 @@ function renderListView(){
       heading.className = "date-heading";
       const relativeBadge = dateStr === todayStr ? "TODAY"
         : future && groupIndex === 0 ? boundaryPresentation.nextDateBadge : "";
-      heading.innerHTML = fmtDateHeading(dateStr) + (relativeBadge ? ` <span class="today-flag">${relativeBadge}</span>` : "");
+      heading.innerHTML = (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)?fmtDateHeading(dateStr):"Upcoming · dates to be confirmed") + (relativeBadge ? ` <span class="today-flag">${relativeBadge}</span>` : "");
       if (dateStr === todayStr){
         heading.id = "calendarTodayAnchor";
         heading.setAttribute("role", "heading");

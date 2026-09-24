@@ -1,0 +1,549 @@
+{
+  "schemaVersion": "tennis-team-contests.v1",
+  "participants": [
+    {
+      "id": "team:tennis:davis-cup:italy",
+      "type": "team",
+      "displayName": "Italy",
+      "name": "Italy",
+      "sportDomainId": "sport:tennis",
+      "countryCode": "IT",
+      "genderCategory": "men",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceRefs": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+      ]
+    },
+    {
+      "id": "team:tennis:davis-cup:korea",
+      "type": "team",
+      "displayName": "Korea, Rep.",
+      "name": "Korea, Rep.",
+      "sportDomainId": "sport:tennis",
+      "countryCode": "KR",
+      "genderCategory": "men",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceRefs": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+      ]
+    },
+    {
+      "id": "team:tennis:davis-cup:czechia",
+      "type": "team",
+      "displayName": "Czechia",
+      "name": "Czechia",
+      "sportDomainId": "sport:tennis",
+      "countryCode": "CZ",
+      "genderCategory": "men",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceRefs": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+      ]
+    },
+    {
+      "id": "team:tennis:davis-cup:canada",
+      "type": "team",
+      "displayName": "Canada",
+      "name": "Canada",
+      "sportDomainId": "sport:tennis",
+      "countryCode": "CA",
+      "genderCategory": "men",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceRefs": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+      ]
+    },
+    {
+      "id": "team:tennis:davis-cup:great-britain",
+      "type": "team",
+      "displayName": "Great Britain",
+      "name": "Great Britain",
+      "sportDomainId": "sport:tennis",
+      "countryCode": "GB",
+      "genderCategory": "men",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceRefs": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+      ]
+    },
+    {
+      "id": "team:tennis:davis-cup:germany",
+      "type": "team",
+      "displayName": "Germany",
+      "name": "Germany",
+      "sportDomainId": "sport:tennis",
+      "countryCode": "DE",
+      "genderCategory": "men",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceRefs": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+      ]
+    },
+    {
+      "id": "team:tennis:davis-cup:austria",
+      "type": "team",
+      "displayName": "Austria",
+      "name": "Austria",
+      "sportDomainId": "sport:tennis",
+      "countryCode": "AT",
+      "genderCategory": "men",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceRefs": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+      ]
+    },
+    {
+      "id": "team:tennis:davis-cup:spain",
+      "type": "team",
+      "displayName": "Spain",
+      "name": "Spain",
+      "sportDomainId": "sport:tennis",
+      "countryCode": "ES",
+      "genderCategory": "men",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceRefs": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "fixture:tennis:davis-cup:2026:final-eight:italy-korea",
+      "eventId": "fixture:tennis:davis-cup:2026:final-eight:italy-korea",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:davis-cup",
+      "eventFamilyId": "davis-cup",
+      "tournamentId": "tournament:tennis:davis-cup-finals-2026",
+      "tournamentName": "Davis Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "name": "Italy v Korea, Rep.",
+      "roundLabel": "Quarterfinal",
+      "round": "Quarterfinal",
+      "status": "upcoming",
+      "participantIds": [
+        "team:tennis:davis-cup:italy",
+        "team:tennis:davis-cup:korea"
+      ],
+      "participants": [
+        {
+          "id": "team:tennis:davis-cup:italy",
+          "type": "team",
+          "displayName": "Italy",
+          "name": "Italy",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "IT",
+          "genderCategory": "men",
+          "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+          "sourceRefs": [
+            "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+          ]
+        },
+        {
+          "id": "team:tennis:davis-cup:korea",
+          "type": "team",
+          "displayName": "Korea, Rep.",
+          "name": "Korea, Rep.",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "KR",
+          "genderCategory": "men",
+          "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+          "sourceRefs": [
+            "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+          ]
+        }
+      ],
+      "participantSlots": [
+        {
+          "slot": 1,
+          "participantId": "team:tennis:davis-cup:italy",
+          "label": "Italy"
+        },
+        {
+          "slot": 2,
+          "participantId": "team:tennis:davis-cup:korea",
+          "label": "Korea, Rep."
+        }
+      ],
+      "sourceName": "Davis Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceUrls": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+        "https://www.daviscup.com/en/news/2026-davis-cup-final-8-dates-for-your-diary"
+      ],
+      "sourceCheckedAt": "2026-09-24T00:00:00Z",
+      "venue": "SuperTennis Arena, Bologna",
+      "venueCountryCode": "IT",
+      "expected": 7,
+      "broadcaster": "Broadcast TBC",
+      "startTimeUtc": "2026-11-25T15:00:00Z",
+      "date": "2026-11-26",
+      "time": "02:00",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:tennis:davis-cup:2026:final-eight:czechia-canada",
+      "eventId": "fixture:tennis:davis-cup:2026:final-eight:czechia-canada",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:davis-cup",
+      "eventFamilyId": "davis-cup",
+      "tournamentId": "tournament:tennis:davis-cup-finals-2026",
+      "tournamentName": "Davis Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "name": "Czechia v Canada",
+      "roundLabel": "Quarterfinal",
+      "round": "Quarterfinal",
+      "status": "upcoming",
+      "participantIds": [
+        "team:tennis:davis-cup:czechia",
+        "team:tennis:davis-cup:canada"
+      ],
+      "participants": [
+        {
+          "id": "team:tennis:davis-cup:czechia",
+          "type": "team",
+          "displayName": "Czechia",
+          "name": "Czechia",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "CZ",
+          "genderCategory": "men",
+          "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+          "sourceRefs": [
+            "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+          ]
+        },
+        {
+          "id": "team:tennis:davis-cup:canada",
+          "type": "team",
+          "displayName": "Canada",
+          "name": "Canada",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "CA",
+          "genderCategory": "men",
+          "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+          "sourceRefs": [
+            "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+          ]
+        }
+      ],
+      "participantSlots": [
+        {
+          "slot": 1,
+          "participantId": "team:tennis:davis-cup:czechia",
+          "label": "Czechia"
+        },
+        {
+          "slot": 2,
+          "participantId": "team:tennis:davis-cup:canada",
+          "label": "Canada"
+        }
+      ],
+      "sourceName": "Davis Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceUrls": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+        "https://www.daviscup.com/en/news/2026-davis-cup-final-8-dates-for-your-diary"
+      ],
+      "sourceCheckedAt": "2026-09-24T00:00:00Z",
+      "venue": "SuperTennis Arena, Bologna",
+      "venueCountryCode": "IT",
+      "expected": 7,
+      "broadcaster": "Broadcast TBC",
+      "date": null,
+      "time": null,
+      "timeTbc": true,
+      "timePrecision": "tbc",
+      "scheduleStatus": "provisional",
+      "schedulingWindow": {
+        "startsOn": "2026-11-24",
+        "endsOn": "2026-11-27",
+        "timeZone": "Australia/Sydney"
+      }
+    },
+    {
+      "id": "fixture:tennis:davis-cup:2026:final-eight:great-britain-germany",
+      "eventId": "fixture:tennis:davis-cup:2026:final-eight:great-britain-germany",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:davis-cup",
+      "eventFamilyId": "davis-cup",
+      "tournamentId": "tournament:tennis:davis-cup-finals-2026",
+      "tournamentName": "Davis Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "name": "Great Britain v Germany",
+      "roundLabel": "Quarterfinal",
+      "round": "Quarterfinal",
+      "status": "upcoming",
+      "participantIds": [
+        "team:tennis:davis-cup:great-britain",
+        "team:tennis:davis-cup:germany"
+      ],
+      "participants": [
+        {
+          "id": "team:tennis:davis-cup:great-britain",
+          "type": "team",
+          "displayName": "Great Britain",
+          "name": "Great Britain",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "GB",
+          "genderCategory": "men",
+          "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+          "sourceRefs": [
+            "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+          ]
+        },
+        {
+          "id": "team:tennis:davis-cup:germany",
+          "type": "team",
+          "displayName": "Germany",
+          "name": "Germany",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "DE",
+          "genderCategory": "men",
+          "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+          "sourceRefs": [
+            "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+          ]
+        }
+      ],
+      "participantSlots": [
+        {
+          "slot": 1,
+          "participantId": "team:tennis:davis-cup:great-britain",
+          "label": "Great Britain"
+        },
+        {
+          "slot": 2,
+          "participantId": "team:tennis:davis-cup:germany",
+          "label": "Germany"
+        }
+      ],
+      "sourceName": "Davis Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceUrls": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+        "https://www.daviscup.com/en/news/2026-davis-cup-final-8-dates-for-your-diary"
+      ],
+      "sourceCheckedAt": "2026-09-24T00:00:00Z",
+      "venue": "SuperTennis Arena, Bologna",
+      "venueCountryCode": "IT",
+      "expected": 7,
+      "broadcaster": "Broadcast TBC",
+      "date": null,
+      "time": null,
+      "timeTbc": true,
+      "timePrecision": "tbc",
+      "scheduleStatus": "provisional",
+      "schedulingWindow": {
+        "startsOn": "2026-11-24",
+        "endsOn": "2026-11-27",
+        "timeZone": "Australia/Sydney"
+      }
+    },
+    {
+      "id": "fixture:tennis:davis-cup:2026:final-eight:austria-spain",
+      "eventId": "fixture:tennis:davis-cup:2026:final-eight:austria-spain",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:davis-cup",
+      "eventFamilyId": "davis-cup",
+      "tournamentId": "tournament:tennis:davis-cup-finals-2026",
+      "tournamentName": "Davis Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "name": "Austria v Spain",
+      "roundLabel": "Quarterfinal",
+      "round": "Quarterfinal",
+      "status": "upcoming",
+      "participantIds": [
+        "team:tennis:davis-cup:austria",
+        "team:tennis:davis-cup:spain"
+      ],
+      "participants": [
+        {
+          "id": "team:tennis:davis-cup:austria",
+          "type": "team",
+          "displayName": "Austria",
+          "name": "Austria",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "AT",
+          "genderCategory": "men",
+          "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+          "sourceRefs": [
+            "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+          ]
+        },
+        {
+          "id": "team:tennis:davis-cup:spain",
+          "type": "team",
+          "displayName": "Spain",
+          "name": "Spain",
+          "sportDomainId": "sport:tennis",
+          "countryCode": "ES",
+          "genderCategory": "men",
+          "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+          "sourceRefs": [
+            "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna"
+          ]
+        }
+      ],
+      "participantSlots": [
+        {
+          "slot": 1,
+          "participantId": "team:tennis:davis-cup:austria",
+          "label": "Austria"
+        },
+        {
+          "slot": 2,
+          "participantId": "team:tennis:davis-cup:spain",
+          "label": "Spain"
+        }
+      ],
+      "sourceName": "Davis Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceUrls": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+        "https://www.daviscup.com/en/news/2026-davis-cup-final-8-dates-for-your-diary"
+      ],
+      "sourceCheckedAt": "2026-09-24T00:00:00Z",
+      "venue": "SuperTennis Arena, Bologna",
+      "venueCountryCode": "IT",
+      "expected": 7,
+      "broadcaster": "Broadcast TBC",
+      "date": null,
+      "time": null,
+      "timeTbc": true,
+      "timePrecision": "tbc",
+      "scheduleStatus": "provisional",
+      "schedulingWindow": {
+        "startsOn": "2026-11-24",
+        "endsOn": "2026-11-27",
+        "timeZone": "Australia/Sydney"
+      }
+    },
+    {
+      "id": "fixture:tennis:davis-cup:2026:final-eight:semifinal-1",
+      "eventId": "fixture:tennis:davis-cup:2026:final-eight:semifinal-1",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:davis-cup",
+      "eventFamilyId": "davis-cup",
+      "tournamentId": "tournament:tennis:davis-cup-finals-2026",
+      "tournamentName": "Davis Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "name": "Davis Cup Semifinal 1",
+      "roundLabel": "Semifinal",
+      "round": "Semifinal",
+      "status": "upcoming",
+      "participantIds": [],
+      "participants": [],
+      "participantSlots": [],
+      "sourceName": "Davis Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceUrls": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+        "https://www.daviscup.com/en/news/2026-davis-cup-final-8-dates-for-your-diary"
+      ],
+      "sourceCheckedAt": "2026-09-24T00:00:00Z",
+      "venue": "SuperTennis Arena, Bologna",
+      "venueCountryCode": "IT",
+      "expected": 7,
+      "broadcaster": "Broadcast TBC",
+      "startTimeUtc": "2026-11-27T15:00:00Z",
+      "date": "2026-11-28",
+      "time": "02:00",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:tennis:davis-cup:2026:final-eight:semifinal-2",
+      "eventId": "fixture:tennis:davis-cup:2026:final-eight:semifinal-2",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:davis-cup",
+      "eventFamilyId": "davis-cup",
+      "tournamentId": "tournament:tennis:davis-cup-finals-2026",
+      "tournamentName": "Davis Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "name": "Davis Cup Semifinal 2",
+      "roundLabel": "Semifinal",
+      "round": "Semifinal",
+      "status": "upcoming",
+      "participantIds": [],
+      "participants": [],
+      "participantSlots": [],
+      "sourceName": "Davis Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceUrls": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+        "https://www.daviscup.com/en/news/2026-davis-cup-final-8-dates-for-your-diary"
+      ],
+      "sourceCheckedAt": "2026-09-24T00:00:00Z",
+      "venue": "SuperTennis Arena, Bologna",
+      "venueCountryCode": "IT",
+      "expected": 7,
+      "broadcaster": "Broadcast TBC",
+      "startTimeUtc": "2026-11-28T11:00:00Z",
+      "date": "2026-11-28",
+      "time": "22:00",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    },
+    {
+      "id": "fixture:tennis:davis-cup:2026:final-eight:final",
+      "eventId": "fixture:tennis:davis-cup:2026:final-eight:final",
+      "key": "tennis",
+      "sport": "Tennis",
+      "sportDomainId": "sport:tennis",
+      "competitionId": "competition:davis-cup",
+      "eventFamilyId": "davis-cup",
+      "tournamentId": "tournament:tennis:davis-cup-finals-2026",
+      "tournamentName": "Davis Cup Finals",
+      "tour": "TEAM",
+      "contestUnit": "tie",
+      "name": "Davis Cup Final",
+      "roundLabel": "Final",
+      "round": "Final",
+      "status": "upcoming",
+      "participantIds": [],
+      "participants": [],
+      "participantSlots": [],
+      "sourceName": "Davis Cup",
+      "sourceType": "official",
+      "sourceUrl": "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+      "sourceUrls": [
+        "https://www.daviscup.com/en/news/final-8-draw-sets-the-stage-for-november-showpiece-in-bologna",
+        "https://www.daviscup.com/en/news/2026-davis-cup-final-8-dates-for-your-diary"
+      ],
+      "sourceCheckedAt": "2026-09-24T00:00:00Z",
+      "venue": "SuperTennis Arena, Bologna",
+      "venueCountryCode": "IT",
+      "expected": 7,
+      "broadcaster": "Broadcast TBC",
+      "startTimeUtc": "2026-11-29T14:00:00Z",
+      "date": "2026-11-30",
+      "time": "01:00",
+      "timePrecision": "exact",
+      "scheduleStatus": "confirmed"
+    }
+  ]
+}

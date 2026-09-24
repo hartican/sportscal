@@ -208,6 +208,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/build-paged-feed.js"],
   ["scripts/prepare-nsc-forecasts.js"],
   ["scripts/build-code-inspector.js"],
+  ["scripts/build-tennis-feed-parents.js"],
   ["scripts/build-tournament-horizon.js"],
   ["scripts/validate-feed-follow-repairs.js"],
   ["scripts/validate-feed-filter-pagination.js"],
@@ -297,6 +298,7 @@ function buildSteps({ localOnly = false } = {}) {
   ["scripts/validate-follow-first.js"],
   ["scripts/validate-follow-policy-parity.js"],
   ["scripts/validate-follow-decisions.js"],
+  ["scripts/validate-tennis-feed-normalisation.js"],
   ["scripts/validate-participant-unfollow.js"],
   ["scripts/validate-australian-presentation.js"],
   ["scripts/validate-feed-repair-reconciliation.js"],
@@ -358,8 +360,14 @@ async function main() {
     if(result.failed.length)process.exitCode=1;
     return;
   }
+  if(process.argv.includes("--tennis-feed")){
+    runStep(['scripts/build-code-inspector.js','--codes=tennis']);
+    runStep(['scripts/build-follow-directories.js','--codes=tennis']);
+    for(const script of ['build-tennis-feed-parents','build-tournament-horizon','build-app-shell-runtime','validate-tennis-feed-normalisation'])runStep([`scripts/${script}.js`]);
+    return;
+  }
   if(process.argv.includes("--follow-ui")){
-    for(const script of ["build-follow-directories","build-code-inspector","build-tournament-horizon","build-app-shell-runtime","validate-curated-follow-directories","validate-live-fixture-api"])runStep([`scripts/${script}.js`]);
+    for(const script of ["build-follow-directories","build-code-inspector","build-tournament-horizon","build-tennis-feed-parents","build-app-shell-runtime","validate-curated-follow-directories","validate-live-fixture-api"])runStep([`scripts/${script}.js`]);
     console.log("Follow UI projections rebuilt from retained canonical sources; no source refresh or release performed.");return;
   }
   if(process.argv.includes("--coverage")){

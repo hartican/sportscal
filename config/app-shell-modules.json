@@ -18,6 +18,8 @@
   "config/preference-taxonomy.js",
   "config/follow-first.js",
   "config/follow-feed-policy.js",
+  "config/tournament-schedule.js",
+  "config/tennis-feed.js",
   "config/sport-context.js",
   "config/feed-refresh-lifecycle.js",
   "config/loading-progress.js",
