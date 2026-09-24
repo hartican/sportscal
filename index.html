@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nothing Sport">
 
-<meta name="app-shell-version" content="305">
+<meta name="app-shell-version" content="306">
 <meta name="match-centre-enabled" content="true">
 <script src="/assets/js/app-update.js?v=293" defer></script>
-<link rel="preload" href="assets/js/app-shell-runtime.js?v=305" as="script">
+<link rel="preload" href="assets/js/app-shell-runtime.js?v=306" as="script">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nothing Sport — Smart sports feed" data-brand-copy-content="title">
 <meta property="og:description" content="Live sport, nothing missed." data-brand-copy-content="metadataDescription">
@@ -6885,7 +6885,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
 .match-centre-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.mc-refresh-notice{font-size:.85rem;opacity:.75}.mc-refresh-notice:empty{display:none}.mc-refresh-indicator{position:relative;height:0;max-width:800px;margin:auto;opacity:0;pointer-events:none}.mc-refresh-indicator.visible{opacity:.65}.mc-refresh-wheel{position:absolute;left:calc(50% - 10px);top:10px;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%}.mc-refresh-indicator.loading .mc-refresh-wheel{animation:mc-refresh-spin .8s linear infinite}@keyframes mc-refresh-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.mc-refresh-indicator.loading .mc-refresh-wheel{animation:none}}
 </style>
 <link rel="stylesheet" href="/assets/styles/nothingsport-foundation.css?v=293">
-<link rel="stylesheet" href="styles/follow-feed-rework.css?v=301">
+<link rel="stylesheet" href="styles/follow-feed-rework.css?v=306">
 <link rel="stylesheet" href="assets/styles/card-clarity.css?v=275">
 <link rel="stylesheet" href="assets/styles/notifications-inbox.css?v=280">
 </head>
@@ -7181,7 +7181,7 @@ img[data-identity-image].identity-image-decoded{ opacity:1; transition:opacity .
   </aside>
 </div>
 
-<script src="assets/js/app-shell-runtime.js?v=305"></script>
+<script src="assets/js/app-shell-runtime.js?v=306"></script>
 <script>
 if ("scrollRestoration" in history) history.scrollRestoration="manual";
 const nationalTeamIdentityReady = globalThis.NOTHINGSPORTS_NATIONAL_TEAM_IDENTITIES
@@ -8743,7 +8743,7 @@ let activeTab = "feed";
 const matchCentreEnabled = globalThis.NOTHINGSPORTS_MATCH_CENTRE_ENABLED === true || document.querySelector('meta[name="match-centre-enabled"]')?.content==='true';
 if(matchCentreEnabled){const tab=document.querySelector('[data-tab="events"]');tab.dataset.tab='match-centre';tab.setAttribute('aria-label','Match Centre');tab.querySelector('.tab-label').textContent='Match Centre';tab.querySelector('.tab-count').hidden=true;tab.querySelector('.tab-count').style.display='none';}
 function loadMatchCentre(){
- return loadDeferredScript('config/match-centre.js?v=303').then(()=>loadDeferredScript('assets/js/match-centre-refresh.js?v=303')).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=303')).then(()=>{if(activeTab==='match-centre')globalThis.renderMatchCentre();});
+ return loadDeferredScript('config/match-centre.js?v=306').then(()=>loadDeferredScript('assets/js/match-centre-refresh.js?v=303')).then(()=>loadDeferredScript('assets/js/match-centre-ui.js?v=306')).then(()=>{if(activeTab==='match-centre')globalThis.renderMatchCentre();});
 }
 if (startupReloadRestoreState){
   activeFilter = String(startupReloadRestoreState.activeFilter || activeFilter);
@@ -17116,6 +17116,7 @@ function appendFixtureCardInformation(parent, ev, {isMinimised, state, options, 
 
 function composeFeedCard(card,ev,{compact,renderCardState}){
   card.classList.add('feed-fixture');
+  if(ev.contestUnit==='tie'&&ev.key==='tennis')card.classList.add('tennis-team-tie');
   const palette=NOTHINGSPORTS_FEED_CARD_PRESENTATION.palette(ev);
   if(palette){card.style.setProperty('--fixture-left',palette[0]);card.style.setProperty('--fixture-right',palette[1]);}
   const main=card.querySelector('.event-main')||card.querySelector('.compact-card-summary');
@@ -17144,7 +17145,7 @@ function composeFeedCard(card,ev,{compact,renderCardState}){
       middle.replaceWith(timing);lineup?.classList.add('feed-player-matchup');
     }else if(name&&timing)name.after(timing);
     const mark=card.querySelector(':scope > .event-hero-mark,:scope > .event-icon');
-    if(mark)main.prepend(mark);
+    if(mark){if(ev.contestUnit==='tie'&&ev.key==='tennis')mark.remove();else main.prepend(mark);}
     const caption=card.querySelector(':scope > .fixture-event-caption');if(caption)main.prepend(caption);
   }
   card.querySelector('.fixture-timing-header')?.remove();

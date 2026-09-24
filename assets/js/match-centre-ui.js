@@ -34,13 +34,13 @@
   for(const e of events){
    const id=m().id(e),snapshot=scores.get(id)||m().compact(e),card=node('article',null,'match-centre-card');card.dataset.matchId=id;
    card.append(node('h3',spoilerSafeDisplayTitle(e)));
-   if(m().sport(e)==='tennis'){const brand=node('div',null,'event-hero-mark');renderEventIdentityMark(brand,e,sportMetaForEvent(e));card.append(brand);}
+   if(m().sport(e)==='tennis'){const brand=node('div',e.tournamentName||e.competitionName||'Tennis','mc-tennis-brand');card.append(brand);}
    const sides=buildMatchupIdentity(e,spoilerSafeDisplayTitle(e));if(sides)card.append(sides);
    const status=m().final(e)?'Finished':m().interrupted(e)?String(e.status).replace(/-/g,' '):/live|in.progress/.test(e.status)?'Live':/cancel|abandon|postpon/.test(e.status)?String(e.status):e.status==='scheduled'||e.status==='upcoming'?'Not started':'Status unavailable';
    card.append(node('p',status));
    if(userPreferences.showSpoilers){
     const scored=node('p',null,'match-centre-score'),identities=matchupIdentityMatches(e,spoilerSafeDisplayTitle(e));
-    const label=id=>identities.find(i=>i.participant?.id===id||i.mark?.id===id)?.label||(e.matchupSides||[]).find(s=>s.players?.some(p=>p.id===id))?.name||cardIdentityParticipants().find(p=>p.id===id)?.displayName;
+    const label=id=>identities.find(i=>i.participant?.id===id||i.mark?.id===id)?.label||(e.participantSlots||[]).find(s=>s.participantId===id)?.label||(e.participants||[]).find(p=>p.id===id)?.displayName||(e.matchupSides||[]).find(s=>s.players?.some(p=>p.id===id))?.name||cardIdentityParticipants().find(p=>p.id===id)?.displayName;
     if(snapshot.score.home!=null&&snapshot.score.away!=null){
      scored.textContent=`${label(snapshot.homeParticipantId)||'Home'}: ${snapshot.score.home} · ${label(snapshot.awayParticipantId)||'Away'}: ${snapshot.score.away}`;
     }else if(snapshot.score.sets?.length||snapshot.score.games){scored.textContent=`${label(snapshot.homeParticipantId)||'First source side'} / ${label(snapshot.awayParticipantId)||'Second source side'}: ${scoreText(snapshot.score)}`;}
@@ -48,7 +48,7 @@
     const age=Date.parse(snapshot.scoreCheckedAt||snapshot.checkedAt||'');card.append(node('small',`${snapshot.stale||!Number.isFinite(age)||Date.now()-age>m().interval(e)*2?'Stale / ':''}${Number.isFinite(age)?'Score checked '+new Date(age).toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'}):'Awaiting source update'}`));
     if(m().sport(e)==='tennis'&&(e.contestUnit==='tie'||e.contestType==='tie'||e.kind==='tie'||e.rubbers)){
      const details=node('details'),summary=node('summary','Individual rubbers');details.append(summary);details.open=expanded.has(id);
-     for(const r of snapshot.rubbers||[])details.append(node('p',`${r.name}: ${scoreText(r.score)}`));
+     for(const r of snapshot.rubbers||[])details.append(node('p',`${r.name}: ${r.status==='not-required'?'Not required':r.status==='upcoming'||r.status==='unconfirmed'?'Awaiting official score':scoreText(r.score)}`));
      details.ontoggle=()=>{if(details.open){expanded.add(id);if(!snapshot.rubbers)void poll([e],true);}else expanded.delete(id);};card.append(details);
     }
    }else card.append(node('p','Results hidden'));

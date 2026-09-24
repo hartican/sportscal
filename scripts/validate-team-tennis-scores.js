@@ -1,0 +1,27 @@
+'use strict';
+const assert=require('node:assert/strict'),model=require('../config/match-centre');
+const fixtures=require('../data/canonical/tennis-team-contests.v1.json').fixtures;
+const published=fixtures.find(f=>f.id==='fixture:tennis:bjk-cup:2026:finals:qf4');
+const tie={...published,status:'live',score:'1-0',firstConfirmedCompleteAt:undefined,rubbers:published.rubbers.map((r,i)=>i===0?r:{...r,status:'upcoming',score:undefined,winnerTeamId:undefined})};
+const snapshot=model.compact(tie,{rubbers:true});
+assert.deepEqual([snapshot.score.home,snapshot.score.away],[1,0]);
+assert.equal(snapshot.homeParticipantId,tie.participantIds[0]);
+assert.deepEqual(snapshot.rubbers[0].score.sets,[{home:6,away:0},{home:6,away:2}]);
+const reversed={...tie,rubbers:[{...tie.rubbers[0],name:'Wrong display order',sides:[{names:['Italy player']},{names:['China player']}],score:'7-6(4) 6-2'}]};
+assert.equal(model.compact(reversed,{rubbers:true}).rubbers[0].name,'Italy player v China player');
+assert.equal(model.compact({...tie,score:'unavailable'}).score.home,null);
+assert.equal(model.compact(tie).rubbers,undefined);
+console.log('Team tennis: tie totals, source-oriented rubber sets, tiebreaks, unavailable and on-demand details passed');
+(async()=>{
+ const {refresh}=require('../lib/bjk-live');let calls=0;
+ const lines=['Match 1: Zhang Shuai (CHN) d. Elisabetta Cocciaretto (ITA) 6-0 6-2','Match 2: Zheng Qinwen (CHN) d. Jasmine Paolini (ITA) 6-4 6-4'];
+ const payload='f:'+JSON.stringify({body:lines.map(value=>({nodeType:'paragraph',content:[{nodeType:'text',value}]}))})+'\n';
+ const fetchImpl=async()=>{calls++;return {ok:true,text:async()=>'<script>self.__next_f.push('+JSON.stringify([1,payload])+')</script>'};};
+ const now=new Date('2026-09-24T13:30:00Z');
+ const next=await refresh({previous:[tie],now,fetchImpl});
+ assert.equal(calls,1);const finished=next.find(f=>f.id===tie.id);assert.equal(finished.score,'2-0');assert.equal(finished.status,'completed');assert.equal(finished.firstConfirmedCompleteAt,now.toISOString());
+ await refresh({previous:next,now:new Date('2026-09-24T13:32:00Z'),fetchImpl});assert.equal(calls,1,'completed ties do not cause repeated report requests');
+ await assert.rejects(refresh({previous:[tie],now,fetchImpl:async()=>({ok:false})}),/unavailable/);
+ assert.equal(tie.score,'1-0','failed source cannot mutate last good data');
+ console.log('BJK live owner: bounded source fetch, completed tie, frozen confirmation and failure retention passed');
+})().catch(e=>{console.error(e);process.exitCode=1;});

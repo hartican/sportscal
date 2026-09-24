@@ -1,5 +1,9 @@
 # Backend efficiency decisions
 
+## BJK Match Centre score repair — 24 September 2026
+
+The existing live-source owner checks at most two active BJK official reports per pass, reusing the canonical report parser. No new scheduler or score-triggered deployment. This source provides completed-rubber reports, not guaranteed game-level live data; missing rubber updates stay explicitly unavailable. Structured tie totals and source-oriented rubber set strings are translated by the compact score model. Completion uses the first confirmed observation, never scheduled duration. Tests: `validate-team-tennis-scores.js` and `validate-tennis-tie-layout-browser.js`.
+
 ## Coherent observations and manual refresh — 24 September 2026
 
 Source check time is not evidence that a scheduled fixture has reverted from live. Shared Feed/Match Centre reconciliation preserves confirmed state against schedule-only overlays, retains last-good scores, and carries separate score/status observation timestamps. Newer explicit interrupted, cancelled, postponed, completed or live corrections remain eligible; completion is never inferred from duration. The compact API adds `scoreCheckedAt` and `statusCheckedAt`; legacy `checkedAt` reflects the score observation when one exists.

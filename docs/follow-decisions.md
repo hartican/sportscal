@@ -1,5 +1,9 @@
 # Follow and Feed decisions
 
+## Compact tennis tie presentation — 24 September 2026
+
+Nation-versus-nation Feed ties do not reserve empty player/tournament artwork space. Tighten rating, timing and venue spacing while retaining touch targets, expansion state, Results privacy and existing Follow admission. Match Centre displays available tie totals and rubber sets with their source-side identity, never guesses missing scores. Regression: `validate-tennis-tie-layout-browser.js`.
+
 ## Match Centre and versioned anticipation — 24 September 2026
 
 Manual refresh clarification: pull-to-refresh is Match Centre only, triggered on release rather than holding. Refresh uses the same complete eligible membership, with no change to follows, exclusions, dismissals or Feed filtering. Score/status reconciliation is shared with Feed to prevent schedule-only snapshots undoing sourced live state. Regression: `validate-match-observations.js` and `validate-match-centre-refresh-browser.js`.

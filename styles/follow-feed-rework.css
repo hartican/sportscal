@@ -260,6 +260,16 @@ header.top .vector-glyph{width:20px;height:20px;}
 #listView .feed-fixture .nsc-peer-summary{font-size:.76rem;line-height:1.4;margin:8px 0 0;color:var(--text-dim);}
 #listView .feed-fixture:not(.is-opened) .fixture-tags{display:none;}
 .fixture-access{width:100%;margin:0 0 14px;}
+/* Nation ties have no player portrait: do not reserve an empty hero frame. */
+#listView .feed-fixture.tennis-team-tie{min-height:0;}
+#listView .tennis-team-tie .fixture-event-caption{margin-bottom:5px;}
+#listView .tennis-team-tie .fixture-timing-group{margin:6px 0;}
+#listView .tennis-team-tie .nsc-summary{padding:6px 0;margin-top:6px;}
+#listView .tennis-team-tie .event-meta-row{margin-block:4px;}
+#listView .tennis-team-tie .fixture-access{margin-bottom:4px;}
+#listView .tennis-team-tie .fixture-venue{margin-top:3px;font-size:.85rem;}
+#listView .tennis-team-tie .fixture-more{margin-block:0;}
+.mc-tennis-brand{font-size:.75rem;color:var(--text-dim);margin:4px 0 8px;}
 .fixture-providers{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 10px;width:100%;}
 .fixture-providers .provider-link{display:flex;justify-content:center;min-width:60px;min-height:44px;padding:7px 9px;border-radius:6px;border:1px solid transparent;background:transparent;}
 .fixture-providers .provider-action-mark{width:64px;height:24px;min-width:0;padding:3px;border-radius:3px;}
